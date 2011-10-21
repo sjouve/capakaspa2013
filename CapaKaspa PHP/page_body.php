@@ -176,7 +176,7 @@ getMois($month);
 	  <div class="title">Jeux en ligne</div>
       <ul>
         <li><img src="images/puce.gif"/> <a href="jouer-echecs-jchess.php">Jouer contre JChess</a></li>
-        <li><img src="images/puce.gif"/> <a href="jouer-echecs-flashchess.php">Jouer contre flashChess</a></li>
+        <!--<li><img src="images/puce.gif"/> <a href="jouer-echecs-flashchess.php">Jouer contre flashChess</a></li>-->
         <li><img src="images/puce.gif"/> <a href="jouer-echecs-crazychess.php">Jouer à Crazy Chess</a></li>
         <li><img src="images/puce.gif"/> <a href="jouer-jeux-flash.php">Autres jeux</a></li>
       </ul>
