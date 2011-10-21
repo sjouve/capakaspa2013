@@ -1,0 +1,13 @@
+#Deny from all
+#Allow from 78.226.13.16
+
+RedirectPermanent /inscription.php http://www.capakaspa.info/jouer-echecs-differe-inscription.php
+RedirectPermanent /jchess.php http://www.capakaspa.info/jouer-echecs-jchess.php
+RedirectPermanent /flashchess.php http://www.capakaspa.info/jouer-echecs-flashchess.php
+RedirectPermanent /crazychess.php http://www.capakaspa.info/jouer-echecs-crazychess.php
+RedirectPermanent /games.php http://www.capakaspa.info/jouer-jeux-flash.php
+RedirectPermanent /videos.php http://www.capakaspa.info/echecs-videos.php
+RedirectPermanent /apprentissage.php http://www.capakaspa.info/echecs-apprentissage.php
+RedirectPermanent /informatique.php http://www.capakaspa.info/echecs-outils-informatique.php
+RedirectPermanent /ressources.php http://www.capakaspa.info/echecs-sites-livres.php
+RedirectPermanent /ouvertures.php http://www.capakaspa.info/echecs-ouvertures.php
