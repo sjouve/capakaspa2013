@@ -17,7 +17,7 @@
 			<td ><div class="ongletenable">Stratégie</div></td>
 			<td ><div class="ongletenable">Finales</div></td>
 			<td ><div class="ongletenable"><a href="echecs-sites-livres.php">Ressources</a></div></td>
-			<td width="100%"><div class="ongletend">&nbsp</td>
+			<td width="100%"><div class="ongletend">&nbsp</td>		
           </tr>
         </table>
       </div>
