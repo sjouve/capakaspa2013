@@ -1,13 +1,14 @@
 <?
 	session_start();
-	$titre_page = 'Apprentissage des échecs';
+	$titre_page = "Découvrir les échecs - Apprentissage des échecs";
+	$desc_page = "Découvrir les échecs. Comment faire son apprentissage du jeu d'échecs ? Présentation des différentes phases de la progression du joueur.";
     require 'page_header.php';
     $image_bandeau = 'bandeau_capakaspa_global.jpg';
-    $barre_progression = "Découvrir les échecs > Apprentissage";
+    $barre_progression = "<a href='/'>Accueil</a> > Découvrir les échecs > Apprentissage";
     require 'page_body.php';
 ?>
-      <div id="contentlarge">
-    <div class="blogbody">
+<div id="contentlarge">
+	<div class="blogbody">
 	<div id="onglet">
         <table width="680" cellpadding="0">
           <tr>
@@ -16,7 +17,6 @@
 			<td ><div class="ongletenable">Tactique</div></td>
 			<td ><div class="ongletenable">Stratégie</div></td>
 			<td ><div class="ongletenable">Finales</div></td>
-			<td ><div class="ongletenable"><a href="echecs-sites-livres.php">Ressources</a></div></td>
 			<td width="100%"><div class="ongletend">&nbsp</td>		
           </tr>
         </table>
@@ -40,7 +40,7 @@
       </ul>
       <table width="680" border="0">
         <tr>
-          <td width="217"><img src="images/pos_initiale.jpg" /><div class="itemfooter"><center>Bien des questions se posent au débutant...</center></div></td>
+          <td width="217"><img src="images/pos_initiale.jpg" alt="Echiquier position initiale questions" /><div class="itemfooter"><center>Bien des questions se posent au débutant...</center></div></td>
           <td width="453" valign="top"><p>Je n'ai pas pour objectif de répondre complètement à ces questions aujourd'hui. Je voudrais juste essayé de comprendre ce qui passe dans la tête d'un joueur lors de ses toutes premières parties. Dans quelle direction s'oriente sa réflexion ? Quels sont les éléments qu'il assimile lors de ces premiers coups qui lui permettront de passer à un stade supérieur ? </p>
             <p>D'après mon expérience assez récente, le joueur, lorsqu'il débute, se demande tout le temps quels sont les coups possibles ? Il imagine péniblement où ses pièces peuvent bien aller, quelles autres pièces adverses elles peuvent "manger" ? Il veut éviter à tout pris de perdre une pièce bêtement. Il ne reste donc plus beaucoup de place pour autre chose dans sa réflexion. </p></td>
         </tr>
@@ -64,9 +64,9 @@
       <p>L'objectif devient bien déterminé : il faut mater ce roi adverse au plus vite. L'adversaire n'offre plus ses pièces comme avant et il faut <b>calculer</b> plus profondément, construire ses premières combinaisons. Pour cela il faut entrevoir les premières notions de <b>tactique</b> : clouage, attaque double, la déviation, les mats simples.</p>
 	  <table width="680" border="0">
         <tr>
-          <td height="246" align="center"><img src="images/pos_debut.jpg" />
+          <td height="246" align="center"><img src="images/pos_debut.jpg" alt="Echiquier position initiale mouvements"/>
           <div class="itemfooter"><center>Comment commencer ?</center></div></td>
-          <td align="center"><img src="images/pos_finale.jpg" /><div class="itemfooter"><center>Un pion de plus !</center></div></td>
+          <td align="center"><img src="images/pos_finale.jpg" alt="Echiquier position finale" /><div class="itemfooter"><center>Un pion de plus !</center></div></td>
         </tr>
       </table>
       <p>De plus une question taraude toujours le joueur devant la position initiale : quel coup jouer en premier ? Il faut donc répondre à cette question et entrevoir les premières notions d'<b>ouverture</b>. En tout cas celles qui lui permettront de répondre à son objectif : attaquer le roi adverse.
@@ -95,7 +95,7 @@
         <li>il est nécessaire de construire un répertoire d'ouvertures plus conséquent et adapté à son style de jeu,</li>
         <li>il faut maîtriser tout les types de finales.</li>
       </ul></td>
-    <td><img src="images/pos_fous.jpg" /><div class="itemfooter"><center>Bon ou mauvais fou ?</center></div></td>
+    <td><img src="images/pos_fous.jpg" alt="Echiquier position finale fous"/><div class="itemfooter"><center>Bon ou mauvais fou ?</center></div></td>
   </tr>
 </table>
 
@@ -103,8 +103,8 @@
       <p>La phase 3 de la progression du joueur demandera un important travail personnel. J'essayerais de vous faire partager ma petite expérience dans ces domaines. Pour ma part je n'ai réalisé qu'une infime partie du travail nécessaire. </p>
       <p>Celui qui arrivera au stade que je décris ne sera alors qu'un bon joueur de club. Je n'ai pas la prétention de connaître tout ce qui permet de faire les très grands joueurs. Je souhaite seulement témoigner de mon apprentissage des échecs avec le recul de ces années passées. </p>
       <br/>
-      </div>
-	  </div>
+	</div>
+</div>
 <?
     require 'page_footer.php';
 ?>

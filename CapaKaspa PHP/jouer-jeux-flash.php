@@ -1,12 +1,11 @@
 <?
 	session_start();
-	$titre_page = 'Jeux flash pour se divertir';
+	$titre_page = "Jeux en ligne - Jeux flash pour se divertir";
+	$desc_page = "Jeux en ligne. Jouez avec quelques jeux classiques en Flash pour vous divertir.";
     require 'page_header.php';
-?>
 
-<?
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "Jeux en ligne > Autres jeux";
+    $barre_progression = "<a href='/'>Accueil</a> > Jeux en ligne > Autres jeux";
     require 'page_body.php';
 ?>
   <div id="content">

@@ -1,6 +1,7 @@
 <?
 	session_start();
-	$titre_page = 'Jouer aux échecs contre JChess';
+	$titre_page = "Jeux en ligne - Jouer aux échecs contre JChess";
+	$desc_page = "Jeux en ligne. Jouez en ligne une partie d'échecs contre JChess, un adversaire disponible de bon niveau.";
     require 'page_header.php';
 ?>
 <script type="text/javascript">
@@ -16,7 +17,7 @@ document.jchess.SetLevel(0, parseInt(temps)*1000, parseInt(prof))
 </script>
 <?
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "Jeux en ligne > Jouer contre JChess";
+    $barre_progression = "<a href='/'>Accueil</a> > Jeux en ligne > Jouer contre JChess";
     require 'page_body.php';
 ?>
   <div id="content">
@@ -57,16 +58,16 @@ document.jchess.SetLevel(0, parseInt(temps)*1000, parseInt(prof))
 		
 		<center>
 		<script type="text/javascript"><!--
-    google_ad_client = "ca-pub-8069368543432674";
-    /* CapaKaspa JChess Bandeau Bas */
-    google_ad_slot = "8246377058";
-    google_ad_width = 468;
-    google_ad_height = 60;
-    //-->
-    </script>
-    <script type="text/javascript"
-    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-    </script>
+	    google_ad_client = "ca-pub-8069368543432674";
+	    /* CapaKaspa JChess Bandeau Bas */
+	    google_ad_slot = "8246377058";
+	    google_ad_width = 468;
+	    google_ad_height = 60;
+	    //-->
+	    </script>
+	    <script type="text/javascript"
+	    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	    </script>
 		</center>
 		<br/>
 		<br/>

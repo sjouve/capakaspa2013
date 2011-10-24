@@ -73,10 +73,10 @@ getMois($month);
     	<td align="center" width="20">
         	<img src="images/puce.gif"/>
         </td>
-    	<td width="370">
+    	<td width="400">
         	<? echo($barre_progression) ?>
         </td>
-        <td align="right" width="520">
+        <td align="right" width="490">
         	<!-- SiteSearch Google -->
     		
         <form action="http://www.capakaspa.info/recherche.php" id="cse-search-box">
@@ -160,7 +160,7 @@ getMois($month);
       <ul>
       <? if (!isset($_SESSION['playerID'])||$_SESSION['playerID']==-1) {?>
       	<li><img src="images/puce.gif"/> <a href="jouer-echecs-differe-inscription.php">S'inscrire</a></li>
-      	<li><img src="images/puce.gif"/> <a href="passeoublie.php">Mot de passe oublié</a></li>
+      	<li><img src="images/puce.gif"/> <a href="jouer-echecs-differe-passe-oublie.php">Mot de passe oublié</a></li>
       	
       <? } else {?>
         <li><img src="images/puce.gif"/> <a href="tableaubord.php">Mes parties en cours</a></li>

@@ -19,7 +19,8 @@
 	/* set default playing mode to different PCs (as opposed to both players sharing a PC) */
 	$_SESSION['isSharedPC'] = false;
 	
-	$titre_page = 'Les autres parties en cours';
+	$titre_page = "Echecs en différé - Les autres parties en cours";
+	$desc_page = "Jouer aux échecs en différé. Retrouvez la liste de toutes les parties en cours dans la zone de jeu en différé.";
     require 'page_header.php';
 ?>
     <script type="text/javascript">
@@ -41,7 +42,7 @@
 	</script>
 <?
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "Echecs en différé > Les autres parties en cours";
+    $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Les autres parties en cours";
     require 'page_body.php';
 ?>
   <div id="contentlarge">

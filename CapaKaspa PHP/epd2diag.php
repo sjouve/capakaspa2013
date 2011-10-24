@@ -1,6 +1,7 @@
 <?
 	session_start();
-	$titre_page = 'EPD/FEN en diagramme';
+	$titre_page = "Outils - EPD/FEN en diagramme";
+	$desc_page = "Un outil pour transformer votre chaine de caractères au format FEN ou EPD en un diagramme.";
     require 'page_header.php';
 ?>
 <SCRIPT language="JavaScript">
@@ -1551,7 +1552,7 @@ function doSelOption(form)
 <?
     $attribut_body = "onload='doLoadInit()'";
     $image_bandeau = 'bandeau_capakaspa_global.jpg';
-    $barre_progression = "Outils > EPD/FEN en diagramme";
+    $barre_progression = "<a href='/'>Accueil</a> > Outils > EPD/FEN en diagramme";
     require 'page_body.php';
 ?>
   <div id="contentlarge">

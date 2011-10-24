@@ -38,7 +38,8 @@
 	}
 
 	
-	$titre_page = 'Jouer en différé, découvrir, partager, progresser';
+	$titre_page = "Découvrir les échecs - Accueil";
+	$desc_page = "Les échecs conviviaux sur le Net : jouer aux échecs en différé, découvrir et partager grâce au forum et au blog";
     require 'page_header.php';
     $image_bandeau = 'bandeau_capakaspa_global.jpg';
     $barre_progression = "Accueil";
@@ -49,8 +50,8 @@
     	<div class="block">
 	      	<div class="blocktitle">Découvrir les échecs</div>
 			
-			<img src="/images/pos_initiale.jpg" style="FLOAT: left; MARGIN: 0px 5px 5px 0px;"/>
-			CapaKaspa c'est un bon moyen de découvrir les échecs. Comment commencer ? Trouvez une réponse dans la section <a href="apprentissage.php">apprentissage</a>.<br/><br/>
+			<img src="/images/pos_initiale.jpg" alt="Echiquier position initiale" style="FLOAT: left; MARGIN: 0px 5px 5px 0px;"/>
+			CapaKaspa c'est un bon moyen de découvrir les échecs. Comment commencer ? Trouvez une réponse dans la section <a href="echecs-apprentissage.php">apprentissage</a>.<br/><br/>
 			Puis vous pourrez mettre en pratique grâce à la <a href="tableaubord.php">zone de jeu en différé</a>. 
 			Et continuez votre découverte grâce au <a href="http://forum.capakaspa.info">forum</a>, au <a href="http://blog.capakaspa.info">blog</a>.
 			<br/><br/><br/>

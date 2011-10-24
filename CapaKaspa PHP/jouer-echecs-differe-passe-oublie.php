@@ -20,10 +20,11 @@ switch($ToDo)
 		break;
 }	
 
-$titre_page = 'Jouer en différé, découvrir, partager, progresser';
+$titre_page = "Echecs en différé - Mot de passe oublié";
+$desc_page = "Jouer aux échecs en différé. Retrouvez votre mot de passe afin d'accder à la zone de jeu en différé et jouer des parties d'échecs à votre rythme.";
 require 'page_header.php';
 $image_bandeau = 'bandeau_capakaspa_global.jpg';
-$barre_progression = "Echecs en différé > Mot de passe oublié";
+$barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Mot de passe oublié";
 require 'page_body.php';
 ?>
   <div id="content">

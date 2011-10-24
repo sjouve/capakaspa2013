@@ -1,10 +1,11 @@
 <?
 	session_start();
-	$titre_page = 'Les vidéos au sujet des échecs';
+	$titre_page = 'Découvrir les échecs - Les vidéos au sujet des échecs';
+	$desc_page = "Découvrir les échecs. Une sélection de vidéos au sujet des échecs pour découvrir les différents aspects du jeu.";
     require 'page_header.php';
 
     $image_bandeau = 'bandeau_capakaspa_global.jpg';
-    $barre_progression = "Découvrir les échecs > Vidéos";
+    $barre_progression = "<a href='/'>Accueil</a> > Découvrir les échecs > Vidéos";
     require 'page_body.php';
 ?>
   <div id="contentlarge">
@@ -26,18 +27,20 @@
 
         <object width='680' height='420'><param name='movie' value='http://fr.youtube.com/cp/vjVQa1PpcFNYtN1YMIXW5GRe0RMoBs4Qq54iVZ0lkrI='></param><param name='wmode' value='transparent'></params><embed src='http://fr.youtube.com/cp/vjVQa1PpcFNYtN1YMIXW5GRe0RMoBs4Qq54iVZ0lkrI=' type='application/x-shockwave-flash' wmode='transparent' width='680' height='420'></embed></object>
         
-		<center><script type="text/javascript"><!--
-    google_ad_client = "ca-pub-8069368543432674";
-    /* CapaKaspa Video Bandeau */
-    google_ad_slot = "6995231836";
-    google_ad_width = 468;
-    google_ad_height = 60;
-    //-->
-    </script>
-    <script type="text/javascript"
-    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-    </script></center>
-		</div>
+		<center>
+		<script type="text/javascript"><!--
+	    google_ad_client = "ca-pub-8069368543432674";
+	    /* CapaKaspa Video Bandeau */
+	    google_ad_slot = "6995231836";
+	    google_ad_width = 468;
+	    google_ad_height = 60;
+	    //-->
+	    </script>
+	    <script type="text/javascript"
+	    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	    </script>
+	    </center>
+	</div>
 </div>
 <?
     require 'page_footer.php';

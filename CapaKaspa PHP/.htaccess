@@ -2,6 +2,7 @@
 #Allow from 78.226.13.16
 
 RedirectPermanent /inscription.php http://www.capakaspa.info/jouer-echecs-differe-inscription.php
+RedirectPermanent /passeoublie.php http://www.capakaspa.info/jouer-echecs-differe-passe-oublie.php
 RedirectPermanent /jchess.php http://www.capakaspa.info/jouer-echecs-jchess.php
 RedirectPermanent /flashchess.php http://www.capakaspa.info/jouer-echecs-flashchess.php
 RedirectPermanent /crazychess.php http://www.capakaspa.info/jouer-echecs-crazychess.php

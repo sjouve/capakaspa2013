@@ -1,12 +1,11 @@
 <?
 	session_start();
-	$titre_page = 'Jouer aux échecs avec Crazy Chess';
+	$titre_page = "Jeux en ligne - Jouer aux échecs avec Crazy Chess";
+	$desc_page = "Jeux en ligne. Apprenez à aîtriser les mouvements du Cavalier grâce à ce jeu en flash un peu fou.";
     require 'page_header.php';
-?>
-
-<?
+    
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "Jeux en ligne > Jouer à Crazy Chess";
+    $barre_progression = "<a href='/'>Accueil</a> > Jeux en ligne > Jouer à Crazy Chess";
     require 'page_body.php';
 ?>
   <div id="contentlarge">

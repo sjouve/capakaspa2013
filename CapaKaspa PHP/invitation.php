@@ -11,10 +11,11 @@
 	
 	$Mode = isset($_GET['mode']) ? $_GET['mode']:Null;
 
-    $titre_page = 'Proposition de partie';
+    $titre_page = "Echecs en différé - Proposition de partie";
+    $desc_page = "Jouer aux échecs en différé. Recherchez un adversaire pour lui proposer une partie d'échecs en différé.";
     require 'page_header.php';
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "Echecs en différé > Les autres joueurs";
+    $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Les autres joueurs";
     require 'page_body.php';
 ?>
    <div id="contentlarge">

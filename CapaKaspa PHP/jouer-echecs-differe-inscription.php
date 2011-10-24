@@ -60,7 +60,8 @@ switch($ToDo)
 		
 }
 
-$titre_page = 'Inscription';
+$titre_page = "Echecs en différé - Inscription à la zone de jeu";
+$desc_page = "Jouer aux échecs en différé. Inscrivez-vous à la zone de jeu en différé et jouer des parties d'échecs à votre rythme.";
 require 'page_header.php';
     
 ?>
@@ -117,7 +118,7 @@ require 'page_header.php';
 </script>
 <?
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "Echecs en différé > Inscription";
+    $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Inscription";
     require 'page_body.php';
 ?>
 	<div id="contentlarge">
@@ -143,7 +144,7 @@ require 'page_header.php';
 	Une erreur s'est produite lors de l'activation !!!
 	<?} else if (!$err && $ToDo == 'NewUser') {?>
 	<b>Un message de confirmation d'inscription a été envoyé à l'adresse de messagerie que vous avez choisi.</b>
-	<p>En attendant, vous pouvez consulter le <a href="../Manuel utilisateur v4.1.pdf" target="_blank">manuel utilisateur</a> de la zone de jeu en différé.</p>
+	<p>En attendant, vous pouvez consulter le <a href="../manuel-utilisateur-jouer-echecs-capakaspa.pdf" target="_blank">manuel utilisateur</a> de la zone de jeu en différé.</p>
 	<p>Si vous souhaitez discuter au sujet des échecs ou faire des remarques et suggestions concernant le site CapaKaspa, vous pouvez aussi vous <a href="http://forum.capakaspa.info/profile.php?mode=register">inscrire sur le forum</a> de CapaKaspa.</p><br/>
 	<hr/>
 	

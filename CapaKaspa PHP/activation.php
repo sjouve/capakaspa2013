@@ -21,10 +21,11 @@ switch($ToDo)
 		break;
 }	
 
-$titre_page = 'Jouer en différé, découvrir, partager, progresser';
+$titre_page = "Echecs en différé - Activation du compte";
+$desc_page = "Activez votre compte pour accéder à la zone de jeu d'échecs en différé et jouer des parties à votre rythme.";
 require 'page_header.php';
 $image_bandeau = 'bandeau_capakaspa_global.jpg';
-$barre_progression = "Echecs en différé > Activation du compte";
+$barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Activation du compte";
 require 'page_body.php';
 ?>
   <div id="content">

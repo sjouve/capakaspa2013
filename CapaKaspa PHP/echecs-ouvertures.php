@@ -1,9 +1,10 @@
 <?
 	session_start();
-	$titre_page = 'Apprentissage - Les ouvertures aux échecs';
+	$titre_page = "Découvrir les échecs - Apprentissage des ouvertures";
+	$desc_page = "Découvrir les échecs. Bien débuter une partie d'échecs passe par l'apprentissage des ouvertures.";
     require 'page_header.php';
     $image_bandeau = 'bandeau_capakaspa_global.jpg';
-    $barre_progression = "Découvrir les échecs > Apprentissage";
+    $barre_progression = "<a href='/'>Accueil</a> > Découvrir les échecs > Apprentissage des ouvertures";
     require 'page_body.php';
 ?>
 <div id="contentlarge">
@@ -16,7 +17,6 @@
 			<td ><div class="ongletenable">Tactique</div></td>
 			<td ><div class="ongletenable">Stratégie</div></td>
 			<td ><div class="ongletenable">Finales</div></td>
-			<td ><div class="ongletenable"><a href="echecs-sites-livres.php">Ressources</a></div></td>
 			<td width="100%"><div class="ongletend">&nbsp</td>
           </tr>
         </table>

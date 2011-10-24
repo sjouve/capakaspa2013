@@ -49,21 +49,25 @@
     $TestPromotion = isset($_POST['promotion']) ? $_POST['promotion']:Null;
     $TestFromRow = isset($_POST['fromRow']) ? $_POST['fromRow']:Null;
 	
-	// Les absences de l'adversaires
-	if ($_SESSION['playerID'] == $tmpGame['whitePlayer'])
-	{	
-		$res_adv_vacation = getCurrentVacation($tmpGame['blackPlayer']);
-	}
-	if ($_SESSION['playerID'] == $tmpGame['blackPlayer'])
+	if ($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['whitePlayer'])
 	{
-		$res_adv_vacation = getCurrentVacation($tmpGame['whitePlayer']);
+	    // Les absences de l'adversaires
+		if ($_SESSION['playerID'] == $tmpGame['whitePlayer'])
+		{	
+			$res_adv_vacation = getCurrentVacation($tmpGame['blackPlayer']);
+		}
+		if ($_SESSION['playerID'] == $tmpGame['blackPlayer'])
+		{
+			$res_adv_vacation = getCurrentVacation($tmpGame['whitePlayer']);
+		}
+		
+		
+		// Les absences du joueur
+		$res_vacation = getCurrentVacation($_SESSION['playerID']);
+		
+		global $nb_game_vacation;
+		$nb_game_vacation = mysql_num_rows($res_adv_vacation) + mysql_num_rows($res_vacation);
 	}
-	
-	// Les absences du joueur
-	$res_vacation = getCurrentVacation($_SESSION['playerID']);
-	
-	global $nb_game_vacation;
-	$nb_game_vacation = mysql_num_rows($res_adv_vacation) + mysql_num_rows($res_vacation);
 	
 	// Pièces capturées
 	$f=mysql_query("select curPiece,curColor,replaced from history where replaced > '' and gameID =  '".$_POST['gameID']."' order by curColor desc , replaced desc");
@@ -150,10 +154,10 @@
 	if ($_SESSION['isSharedPC'])
 		$titre_page = '';
 	else if ($isPlayersTurn)
-        $titre_page = 'Votre coup';
+        $titre_page = "Echecs en différé - Votre coup";
 	else
-        $titre_page = "Le coup de l'adversaire";
-
+        $titre_page = "Echecs en différé - Le coup de l'adversaire";
+	$desc_page = "Jouer aux échecs en différé. C'est votre partie, à vous de jouer.";
     require 'page_header.php';
     //echo("<meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>\n");
 ?>
@@ -187,11 +191,11 @@ if (DEBUG)
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
 
     if ($_POST['from'] == "encours" )
-        $barre_progression = "Echecs en différé > <a href='tableaubord.php'>Vos parties</a> > Une partie";
+        $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > <a href='tableaubord.php'>Mes parties</a> > Une partie";
     else if ($_POST['from'] == "toutes")
-        $barre_progression = "Echecs en différé > <a href='listeparties.php'>Les autres parties en cours</a> > Une partie";
+        $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > <a href='listeparties.php'>Les autres parties en cours</a> > Une partie";
     else if ($_POST['from'] == "archive")
-        $barre_progression = "Echecs en différé > <a href='partiesterminees.php'>Vos parties terminées</a> > Une partie";
+        $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > <a href='partiesterminees.php'>Mes parties terminées</a> > Une partie";
 
     require 'page_body.php';
 ?>
@@ -216,10 +220,14 @@ if (DEBUG)
         	</tr>
         </table>
         <?
-			if (mysql_num_rows($res_adv_vacation) > 0)
+        if ($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['whitePlayer'])
+		{
+        	if (mysql_num_rows($res_adv_vacation) > 0)
 				echo("<div class='success'>Votre adversaire est absent en ce moment ! La partie est ajournée.</div>");
+
 			else
 				echo("<br/>");
+		}
 		?>
         
 		<form name="gamedata" method="post" action="partie.php">

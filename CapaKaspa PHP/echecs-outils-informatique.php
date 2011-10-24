@@ -1,15 +1,16 @@
 <?
 	session_start();
 	require 'gui_rss.php';
-	$titre_page = 'Les outils informatique pour les échecs';
+	$titre_page = "Découvrir les échecs - Les outils informatique";
+	$desc_page = "Découvrir les échecs. Présentation des outils informatiques qui ont pris une grande importance dans l'apprentissage et la pratique des échecs.";
     require 'page_header.php';
     $image_bandeau = 'bandeau_capakaspa_global.jpg';
-    $barre_progression = "Découvrir les échecs > Informatique";
+    $barre_progression = "<a href='/'>Accueil</a> > Découvrir les échecs > Outils informatiques";
     require 'page_body.php';
 ?>
-  <div id="content">
+  <div id="contentlarge">
     <div class="blogbody">
-        <h3>Utiliser les outils informatiques (Extrait du <a href="http://blog.capakaspa.info">Blog</a>)</h3>
+        <h3>Utiliser les outils informatiques aux échecs (Extrait du <a href="http://blog.capakaspa.info">Blog</a>)</h3>
         <!-- AddThis Button BEGIN -->
         <div class="addthis_toolbox addthis_default_style ">
         <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -28,7 +29,7 @@
       </p>
       <p>Des standards sont même nés de cet effervescence : PGN, FEN, EPD, UCI. Nous y reviendrons. Je veux vous faire partager ma petite expérience dans ce domaine.</p>
       <center>
-        <img src="images/chess_10.jpg" />
+        <img src="images/chess_10.jpg" alt="Kasparov contre Deep Junior"/>
       </center>
       <p> Commençons par les moteurs : les cerveaux des logiciels de jeu d'échecs. Ils sont capables de calculer des coups à partir d'une position et éventuellement d'autres paramètres. On en trouve beaucoup de gratuits dont le plus célèbre est Crafty.</p>
       <p>Pour exploiter ces moteurs il faut une interface graphique capable de communiquer avec les moteurs grâce à un protocole tel que UCI (Universal Chess Interface) ou WinBoard. <a href="http://www.playwitharena.com" target="_blank">Arena</a> est une interface gratuite de ce type. Mais il existe aussi des logiciels commerciaux plus complets tel que Fritz de Chessbase qui fournit d'autres fonctionnalités d'apprentissage ou de conseils. L'intérêt de ces logiciels est triple :
@@ -42,28 +43,13 @@
       <p>Dans cet optique il est important de conserver ses parties pour pouvoir les analyser. On peut aussi avoir besoin de retrouver un ensemble de parties pour la même ouverture, classer ses parties selon leur ouverture, leur finale ou bien d'autres thèmes. Les logiciels de base de données vous aident dans cette tâche : <a href="http://www.chessbase.com" target="_blank">ChessBase</a>, <a href="http://www.convekta.com" target="_blank">ChessAssistant</a> pour les produits commerciaux ou bien <a href="http://scid.sourceforge.net" target="_blank">Scid</a> pour les logiciels gratuits.<br />
         De plus un standard s'est imposé pour permettre l'échange de parties au format électronique : PGN (Portable Game Notation). Tous les logiciels permettent de lire une partie dans ce format. C'est le format principal d'échange de parties sur Internet.<br /> J'ai beaucoup utilisé ces logiciels et je conserve toutes mes parties pour pouvoir les analyser et les classer. </p>
       <center>
-        <img src="images/chess_11.jpg"/>
+        <img src="images/chess_11.jpg" alt="Copie d'écran du logiciel Scid, base de données échiquéenne" />
       </center>
       <p>Lorsqu'on commence à progresser aux échecs on se trouve très vite en manque d'adversaire. Internet permet de pouvoir jouer contre des adversaires humains sans forcément aller dans un club. On y trouve différentes formes de jeu : en direct ou en différé.<br />
         Je pense que le jeu en direct est intéressant pour s'amuser. Cette forme de jeu est surtout utilisée pour jouer en blitz. Quant au jeu en différé il est peut être mieux adapté pour jouer des parties plus consistantes avec pour objectif de progresser. </p>
     </div>
   </div>
-  <div id="rightbar">
-  	<br/><br/>
-  		<script type="text/javascript"><!--
-      google_ad_client = "ca-pub-8069368543432674";
-      /* CapaKaspa Informatique Droite */
-      google_ad_slot = "0466263608";
-      google_ad_width = 160;
-      google_ad_height = 600;
-      //-->
-      </script>
-      <script type="text/javascript"
-      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-      </script>
-
-  	
-  </div>
+  
 <?
     require 'page_footer.php';
 ?>

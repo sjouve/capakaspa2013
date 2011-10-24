@@ -295,7 +295,8 @@
 	/* set default playing mode to different PCs (as opposed to both players sharing a PC) */
 	$_SESSION['isSharedPC'] = false;
 
-    $titre_page = 'Tableau de bord';
+    $titre_page = "Echecs en différé - Tableau de bord";
+    $desc_page = "Jouer aux échecs en différé. Retrouvez vos parties d'échecs en différé en cours et vos invitations en attente de réponse";
     require 'page_header.php';
 ?>
 <script type="text/javascript">
@@ -332,7 +333,7 @@
 	</script>
 <?
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = 'Echecs en différé > Vos parties';
+    $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Mes parties";
     require 'page_body.php';
 ?>
   <div id="contentlarge">

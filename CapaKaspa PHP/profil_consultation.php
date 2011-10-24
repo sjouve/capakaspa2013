@@ -15,7 +15,8 @@
 
 	require 'sessioncheck.php';
 
- 	$titre_page = 'Consulter un profil';
+ 	$titre_page = "Echecs en différé - Consulter un profil";
+ 	$desc_page = "Jouez aux échecs en différé. Consulter le profil d'un jouer de la zone de jeu d'échecs en différé : son classement Elo, sa description, ses parties...";
     require 'page_header.php';
 ?>
 
@@ -42,7 +43,7 @@
     
     
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "Echecs en différé > Consulter un profil";
+    $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Consulter un profil";
     require 'page_body.php';
 ?>
   <div id="contentlarge">
