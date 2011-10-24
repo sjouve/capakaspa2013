@@ -197,7 +197,7 @@
 				
 					
 				/* if opponent is using email notification... */
-				$tmpPlayersEmail = mysql_query("SELECT G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, WP.email whiteEmail, BP.email blackEmail FROM games G, players WP, players BP WHERE G.gameID = ".$_SESSION['gameID']." AND G.whitePlayer = WP.playerID AND G.blackPlayer = BP.playerID");
+				$tmpPlayersEmail = mysql_query("SELECT G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, WP.email whiteEmail, BP.email blackEmail FROM games G, players WP, players BP WHERE G.gameID = ".$_POST['gameID']." AND G.whitePlayer = WP.playerID AND G.blackPlayer = BP.playerID");
 				if (mysql_num_rows($tmpPlayersEmail) > 0)
 				{
 					$playersEmail = mysql_fetch_array($tmpPlayersEmail, MYSQL_ASSOC);
