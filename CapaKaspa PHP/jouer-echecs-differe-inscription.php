@@ -148,60 +148,14 @@ require 'page_header.php';
 	<p>Si vous souhaitez discuter au sujet des échecs ou faire des remarques et suggestions concernant le site CapaKaspa, vous pouvez aussi vous <a href="http://forum.capakaspa.info/profile.php?mode=register">inscrire sur le forum</a> de CapaKaspa.</p><br/>
 	<hr/>
 	
-	<p><center><script type="text/javascript"><!--
-google_ad_client = "pub-8069368543432674";
-google_ad_width = 180;
-google_ad_height = 60;
-google_ad_format = "180x60_as_rimg";
-google_cpa_choice = "CAAQlP3DmwIaCNqayQeCd7jtKPiwuosB";
-google_ad_channel = "";
-//--></script>
-<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-&nbsp;&nbsp;&nbsp;
-<script type="text/javascript"><!--
-google_ad_client = "pub-8069368543432674";
-google_ad_width = 180;
-google_ad_height = 60;
-google_ad_format = "180x60_as_rimg";
-google_cpa_choice = "CAAQvMuSlAIaCP4SNWq4joB5KKias4MB";
-google_ad_channel = "";
-//--></script>
-<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-&nbsp;&nbsp;&nbsp;
-<script type="text/javascript"><!--
-google_ad_client = "pub-8069368543432674";
-google_ad_width = 180;
-google_ad_height = 60;
-google_ad_format = "180x60_as_rimg";
-google_cpa_choice = "CAAQzbOUlwIaCLTZp6cDlSlDKPe493M";
-google_ad_channel = "";
-//--></script>
-<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script></center></p>
+	
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 	<?} else  {?>
-	<table><tr>
-	<td>
+	
 	<b>L'accès à la zone de jeu en différé nécessite une inscription.</b>
 	<p><ul><li>Cette inscription est complètement gratuite</li></ul>La seule contrainte est de nous fournir toutes les informations ci-dessous. <i>Cependant votre nom, prénom et adresse de messagerie ne seront pas connus des autres joueurs</i>. Les informations restantes sont publiées dans la liste des joueurs du site.</p>
 	<p><ul><li>Cette inscription nécessite une validation par messagerie électronique</li></ul>L'adresse de messagerie associée à votre compte doit donc être valide.</p>
-	</td>
-	<td>
-	<script type="text/javascript"><!--
-	google_ad_client = "pub-8069368543432674";
-	//200x200, CapaKaspa Inscription Droite
-	google_ad_slot = "2043161748";
-	google_ad_width = 200;
-	google_ad_height = 200;
-	//--></script>
-	<script type="text/javascript"
-	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-	</script>
-	</td>
-	</tr></table>
 	
 	<form name="userdata" method="post" action="jouer-echecs-differe-inscription.php">
 	<h3>Vos informations personnelles</h3>

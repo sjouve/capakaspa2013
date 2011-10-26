@@ -8,15 +8,10 @@
     $barre_progression = "<a href='/'>Accueil</a> > Jeux en ligne > Autres jeux";
     require 'page_body.php';
 ?>
-  <div id="content">
+  <div id="contentlarge">
     <div class="blogbody">
-    <table>
-		<tr>
-		<td valign="middle"><img src="images/ampoule.jpg"></td> 
-		<td valign="middle">Quelques jeux en ligne pour se divertir en attendant la suite...</td>
-        </tr>
-        </table>
-        <br/>
+   
+		<h3>Quelques jeux en ligne pour se divertir en attendant la suite...</h3>
         <!-- AddThis Button BEGIN -->
       <div class="addthis_toolbox addthis_default_style ">
       <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -26,6 +21,8 @@
       </div>
       <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e7cb2a45be34669"></script>
       <!-- AddThis Button END -->
+      <br/>
+      <center>
 		<table width="100%">
         <tr>
 			<td width="50%" align="center">
@@ -49,6 +46,10 @@
 			</td>
 		</tr>
 		</table>
+		</center>
+		<br/>
+		<br/>
+		<br/>
 		<br/>
 		<center>
 		<script type="text/javascript"><!--
@@ -64,28 +65,9 @@
 		</center>
 		<br/>
 		<br/>
-		<br/>
-		<br/>
 	</div>
 </div>
 
-<div id="rightbar">
-  
-  
-  	<script type="text/javascript"><!--
-	google_ad_client = "pub-8069368543432674";
-	//160x600, date de création 21/11/07
-	google_ad_slot = "9147366868";
-	google_ad_width = 160;
-	google_ad_height = 600;
-	//--></script>
-	<script type="text/javascript"
-	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-	</script>
-      
-      
-  
-</div>
 <?
     require 'page_footer.php';
 ?>

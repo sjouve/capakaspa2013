@@ -17,7 +17,7 @@
 			<td ><div class="ongletenable">Tactique</div></td>
 			<td ><div class="ongletenable">Stratégie</div></td>
 			<td ><div class="ongletenable">Finales</div></td>
-			<td width="100%"><div class="ongletend">&nbsp</td>
+			<td width="100%"><div class="ongletend">&nbsp</div></td>
           </tr>
         </table>
       </div>
@@ -32,10 +32,8 @@
       <!-- AddThis Button END -->
 		<p>Il est une question à laquelle on est très vite confronté lorsqu'on commence à jouer aux échecs : comment commencer la partie ? Quel premier coup choisir avec les blancs ? Comment répondre au premier coup des blancs avec les noirs ?
 		</p><P>Selon la <b>phase</b> de progression dans laquelle on se trouve, il y a différentes réponses à cette question. Détaillons les ici.</p>
-      </div>
-    </div>
-<div id="content">
-    <div class="blogbody">
+      
+
 	  <h3>Phase 1 (Extrait du <a href="http://blog.capakaspa.info">Blog</a>)</h3>
       <p>Il s'agit d'un joueur débutant qui cherche à assimiler les règles du jeu et le mouvement des pièces. Il n'est pas encore temps pour lui d'aborder la théorie des ouvertures et d'entrer dans les méandres des variations. Je crois qu'à ce moment il faut surtout respecter juste les 3 principes qui doivent <b>orienter le choix des coups</b> :</p>
       <ul>
@@ -56,23 +54,6 @@
        </div>
 	  </div>
 
-<div id="rightbar">
-<div class="blogbody">
-  <center><script type="text/javascript"><!--
-  google_ad_client = "ca-pub-8069368543432674";
-  /* CapaKaspa Ouvertures Droite */
-  google_ad_slot = "7041102487";
-  google_ad_width = 160;
-  google_ad_height = 600;
-  //-->
-  </script>
-  <script type="text/javascript"
-  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-  </script>
-      </center>
-      
-  </div>
-</div>
 <?
     require 'page_footer.php';
 ?>

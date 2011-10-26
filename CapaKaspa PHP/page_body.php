@@ -41,6 +41,7 @@ getMois($month);
 ?>
 
 <div id="container">
+	
   <div id="topbar">
   	<table cellpadding="0" cellspacing="0" width="900" style="background-image: url(./images/<?echo($image_bandeau)?>) ">
   		<tr height="60">
@@ -111,11 +112,22 @@ getMois($month);
       </script>
     </center>
     <br/>
+    <div class="skyscraper">
+	  	<script type="text/javascript"><!--
+	    google_ad_client = "ca-pub-8069368543432674";
+	    /* CapaKaspa Accueil Bandeau Droite */
+	    google_ad_slot = "2254640927";
+	    google_ad_width = 160;
+	    google_ad_height = 600;
+	    //-->
+	    </script>
+	    <script type="text/javascript"
+	    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	    </script>
+  	</div>
   </div>
   
   <div id="leftbar">
-    
-    
     <div class="navlinks">
     	<div class="title">Echecs en différé <img src="../images/lock.gif" /></div>
     	<div id="connexion">

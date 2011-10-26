@@ -17,7 +17,7 @@
 			<td ><div class="ongletenable">Tactique</div></td>
 			<td ><div class="ongletenable">Stratégie</div></td>
 			<td ><div class="ongletenable">Finales</div></td>
-			<td width="100%"><div class="ongletend">&nbsp</td>		
+			<td width="100%"><div class="ongletend">&nbsp</div></td>		
           </tr>
         </table>
       </div>
@@ -47,18 +47,7 @@
       </table>
       <p>Il me semble que toutes les parties jouées à ce stade n'ont donc pour objectif que <b>"d'oublier les règles"</b> ou plutôt les faire siennes. Il restera alors plus de place pour autre chose, et il pourra, s'il le souhaite, entrevoir la phase 2...</p>
       
-      <center><script type="text/javascript"><!--
-      google_ad_client = "ca-pub-8069368543432674";
-      /* CapaKaspa Apprentissage Haut */
-      google_ad_slot = "4937557499";
-      google_ad_width = 468;
-      google_ad_height = 60;
-      //-->
-      </script>
-      <script type="text/javascript"
-      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-      </script></center>
-	<br/>
+	
 	  <h3>Phase 2 : Calculer (Extrait du <a href="http://blog.capakaspa.info">Blog</a>)</h3>
       <p>La phase 2 de la progression d'un joueur d'échecs commence donc lorsqu'il est parvenu à assimiler les règles du jeu. Il a intégré les mouvements des pièces ainsi que le but du jeu. Il entrevoit d'autres horizons.</p>
       <p>L'objectif devient bien déterminé : il faut mater ce roi adverse au plus vite. L'adversaire n'offre plus ses pièces comme avant et il faut <b>calculer</b> plus profondément, construire ses premières combinaisons. Pour cela il faut entrevoir les premières notions de <b>tactique</b> : clouage, attaque double, la déviation, les mats simples.</p>

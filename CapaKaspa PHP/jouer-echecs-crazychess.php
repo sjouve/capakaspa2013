@@ -10,13 +10,8 @@
 ?>
   <div id="contentlarge">
     <div class="blogbody">
-    <table>
-		<tr>
-		<td valign="middle"><img src="images/ampoule.jpg"></td> 
-		<td valign="middle">Maîtrisez les mouvements du Cavalier grâce à ce petit jeu un peu fou !</td>
-        </tr>
-        </table>
-        <br/>
+    
+		<h3>Maîtrisez les mouvements du Cavalier grâce à ce petit jeu un peu fou !</h3>
         <!-- AddThis Button BEGIN -->
       <div class="addthis_toolbox addthis_default_style ">
       <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -26,6 +21,7 @@
       </div>
       <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e7cb2a45be34669"></script>
       <!-- AddThis Button END -->
+      <br/>
 		<center>
 
 			<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="650" height="500">
@@ -53,8 +49,7 @@
 		</center>
 		<br/>
 		<br/>
-		<br/>
-		<br/>
+		
 	</div>
 </div>
 
