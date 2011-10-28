@@ -78,19 +78,19 @@ getMois($month);
         	<? echo($barre_progression) ?>
         </td>
         <td align="right" width="490">
-        	<!-- SiteSearch Google -->
-    		
-        <form action="http://www.capakaspa.info/recherche.php" id="cse-search-box">
-          <div>
-            <input type="hidden" name="cx" value="partner-pub-8069368543432674:wlkc2t2nm4m" />
-            <input type="hidden" name="cof" value="FORID:10" />
-            <input type="hidden" name="ie" value="ISO-8859-1" />
-            <input type="text" name="q" size="31" />
-            <input type="submit" name="sa" value="Rechercher" />
-          </div>
-        </form>
-        <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=fr"></script>
-    		<!-- SiteSearch Google -->
+        
+        	<form action="http://www.capakaspa.info/recherche.php" id="cse-search-box">
+			  <div>
+			    <input type="hidden" name="cx" value="partner-pub-8069368543432674:5914611902" />
+			    <input type="hidden" name="cof" value="FORID:10" />
+			    <input type="hidden" name="ie" value="UTF-8" />
+			    <input type="text" name="q" size="31" />
+			    <input type="submit" name="sa" value="Rechercher" />
+			  </div>
+			</form>
+			
+			<script type="text/javascript" src="http://www.google.fr/coop/cse/brand?form=cse-search-box&amp;lang=fr"></script>
+
     
     	</td>
 	</tr>
