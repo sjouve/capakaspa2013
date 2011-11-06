@@ -9,6 +9,9 @@ function createPlayer()
 {
 	@mysql_query("BEGIN");
 	
+	if ($_POST['pwdPassword']=='') return FALSE;
+	if ($_POST['pwdPassword']!=$_POST['pwdPassword2']) return FALSE;
+	
 	// Crée l'utilisateur
 	$playerID = insertPlayer($_POST['pwdPassword'], $_POST['txtFirstName'], $_POST['txtLastName'], $_POST['txtNick'], $_POST['txtEmail'], $_POST['txtProfil'], $_POST['txtSituationGeo'], $_POST['txtAnneeNaissance']);	
 	if (!$playerID)
