@@ -143,7 +143,7 @@ require 'page_header.php';
 	<?} else if ($ToDo == 'activer' && $err == 'db') {?>
 	Une erreur s'est produite lors de l'activation !!!
 	<?} else if (!$err && $ToDo == 'NewUser') {?>
-	<b>Un message de confirmation d'inscription a été envoyé à l'adresse de messagerie que vous avez choisi.</b>
+	<b>Un message de confirmation d'inscription a été envoyé à l'adresse de messagerie que vous avez choisi : <? echo($_POST['txtEmail']); ?> .</b>
 	<p>En attendant, vous pouvez consulter le <a href="../manuel-utilisateur-jouer-echecs-capakaspa.pdf" target="_blank">manuel utilisateur</a> de la zone de jeu en différé.</p>
 	<p>Si vous souhaitez discuter au sujet des échecs ou faire des remarques et suggestions concernant le site CapaKaspa, vous pouvez aussi vous <a href="http://forum.capakaspa.info/profile.php?mode=register">inscrire sur le forum</a> de CapaKaspa.</p><br/>
 	<hr/>
