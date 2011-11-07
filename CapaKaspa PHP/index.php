@@ -85,7 +85,10 @@
 		  	
 		</div>
 		<div class="blockright" style="height:115px">
-			
+			<center>
+				CapaKaspa est maintenant aussi sur Google+ !!<br/><br/>
+			 <a href="https://plus.google.com/114694270583726807082/?prsrc=3" style="text-decoration: none;"><img src="https://ssl.gstatic.com/images/icons/gplus-32.png" width="32" height="32" style="border: 0;"/></a>
+			</center>
 		</div>
 	</div>
 		
