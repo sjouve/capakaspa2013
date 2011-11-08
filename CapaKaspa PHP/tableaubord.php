@@ -341,9 +341,10 @@
     <table width="100%">
 		<tr>
 		 
-		<td ><!--<?displayBodyRSSPlage(URL_RSS_FORUM, 0, 0);?>-->
-    	<div class='rsstitlefirst'><img src='images/porte_voix.png'><b> Classement ELO du 3eme Trimestre 2011 </b></div>
+		<td ><?displayBodyRSSPlage(URL_RSS_FORUM, 0, 0);?>
+    	<!--  <div class='rsstitlefirst'><img src='images/porte_voix.png'><b> Classement ELO du 3eme Trimestre 2011 </b></div>
     	<div class='rssdescriptionfirst'>Les classements ELO des membres vont de 1999 à 1051 points. Félicitations et encouragements !</div>
+    	-->
     	</td>
 		<td>
 		<div id="fb-root"></div>
