@@ -15,6 +15,28 @@
 
 	require 'sessioncheck.php';
 
+	/* Charger le profil */
+	$playerID = isset($_POST['playerID']) ? $_POST['playerID']:$_GET['playerID'];
+    $player = getPlayer($playerID);
+    
+    /* Action */
+    $ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:$_GET['ToDo'];
+
+	switch($ToDo)
+	{
+		case 'AddFavorite':
+			insertFavPlayer($_SESSION['playerID'], $player['playerID']);
+			break;
+		
+		case 'DelFavorite':
+			$favorite = getPlayerFavorite($_SESSION['playerID'], $player['playerID']);
+			deleteFavPlayer($favorite['favoriteID']);
+			break;
+	}
+	
+	/* Charger le favori */
+    $favorite = getPlayerFavorite($_SESSION['playerID'], $player['playerID']);
+    
  	$titre_page = "Echecs en différé - Consulter un profil";
  	$desc_page = "Jouez aux échecs en différé. Consulter le profil d'un jouer de la zone de jeu d'échecs en différé : son classement Elo, sa description, ses parties...";
     require 'page_header.php';
@@ -38,10 +60,6 @@
 </script>
 
 <?    
-    /* Charger le profil */
-    $player = getPlayer($_GET['playerID']);
-    
-    
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
     $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Consulter un profil";
     require 'page_body.php';
@@ -50,11 +68,25 @@
     <div class="blogbody">
       
       < <a href="javascript:history.go(-1)">Retour</a><br/><br/>
-	  <h3>Profil de <? echo($player['nick']); ?></h3>
+	  <h3>Profil de <? echo($player['nick']); ?> <?if ($favorite) echo("<img src='images/favori-etoile-icone.png'/>");?></h3>
 	  	<div class="profil">
   			<img src="images/profil_echiquier.png">
-        
-		  </div>
+  			<? if ($_SESSION['playerID']!=$player['playerID'] && !$favorite) {?>
+			<form action="profil_consultation.php" method="post">
+				<input type="hidden" name="ToDo" value="AddFavorite">
+				<input type="hidden" name="playerID" value="<? echo($player['playerID']);?>">
+				<input type="submit" value="Ajouter aux favoris">
+			</form>
+			<? }?>
+			<? if ($_SESSION['playerID']!=$player['playerID'] && $favorite) {?>
+			<form action="profil_consultation.php" method="post">
+				<input type="hidden" name="ToDo" value="DelFavorite">
+				<input type="hidden" name="playerID" value="<? echo($player['playerID']);?>">
+				<input type="submit" value="Retirer des favoris">
+			</form>
+			<? }?>
+		</div>
+		
         <table border="0" width="530">
           <tr>
             <td width="180"> Elo : </td>
@@ -77,7 +109,7 @@
           </tr>
 		  <tr>
             <td> Profil : </td>
-            <td><? echo(stripslashes($player['profil'])); ?></td>
+            <td><TEXTAREA NAME="txtProfil" COLS="40" ROWS="5" readonly="readonly"><? echo(stripslashes($player['profil'])); ?></TEXTAREA></td>
           </tr>
           <tr>
             <td> Dernière connexion le : </td>

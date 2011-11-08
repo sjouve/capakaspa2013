@@ -92,7 +92,7 @@ function listPlayersPassifs()
 
 function deletePlayer()
 {
-  
+	// TODO suppression joueur ?
 }
 
 function countActivePlayers()
@@ -161,4 +161,42 @@ function getCurrentVacation($playerID)
 	return $res_vacation;
 }
 
+/* Créer un favori joueur */
+function insertFavPlayer($playerID, $favPlayerID)
+{
+	
+	$res_favplayer = mysql_query("INSERT INTO fav_players (playerID, favPlayerID) 
+								VALUES (".$playerID.", '".$favPlayerID."')");
+	return $res_fav_player;
+}
+
+/* Supprimer un favori joueur */
+function deleteFavPlayer($favoriteID)
+{
+	$res_fav_player = mysql_query("DELETE FROM fav_players WHERE favoriteID = ".$favoriteID);  
+							
+	return $res_fav_player;
+}
+
+/* Liste les favoris d'un joueur */
+function listPlayersFavoris($playerID)
+{
+	$tmpQuery = "SELECT P.playerID, P.nick, P.anneeNaissance, P.profil, P.situationGeo, P.elo 
+				FROM players P, fav_players F
+				WHERE P.playerID = F.favPlayerID 
+				AND F.playerID = ".$playerID." 
+				AND P.playerID <> ".$playerID." 
+				AND P.activate=1 
+				ORDER BY P.lastConnection DESC";
+	
+	return mysql_query($tmpQuery); 
+}
+
+/* Récupère un favori */
+function getPlayerFavorite($playerID, $favPlayerID)
+{
+	$res_favorite = mysql_query("SELECT favoriteID FROM fav_players WHERE playerID = ".$playerID." AND favPlayerID = ".$favPlayerID);
+    $favorite = mysql_fetch_array($res_favorite, MYSQL_ASSOC);
+    return $favorite;
+}
 ?>

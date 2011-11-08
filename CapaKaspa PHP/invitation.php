@@ -9,7 +9,7 @@
 	
 	//require 'dac_players.php';
 	
-	$Mode = isset($_GET['mode']) ? $_GET['mode']:Null;
+	$Mode = isset($_GET['mode']) ? $_GET['mode']:'actif';
 
     $titre_page = "Echecs en différé - Proposition de partie";
     $desc_page = "Jouer aux échecs en différé. Recherchez un adversaire pour lui proposer une partie d'échecs en différé.";
@@ -76,35 +76,34 @@
 	<?
 	/* connect to the database */
 	require 'connectdb.php';
-	if ($Mode == 'passif')
+	switch($Mode)
 	{
+		case 'passif':
 		$tmpPlayers = listPlayersPassifs();
-	}
-	else
-	{
+		break;
+		
+		case 'actif':
 		$tmpPlayers = listPlayersActifs();
+		break;
+		
+		case 'favoris':
+		$tmpPlayers = listPlayersFavoris($_SESSION['playerID']);
+		break;
 	}	
 	?>
 	<div id="tabliste">
-	<?
-	if ($Mode == 'passif')
-	{
-		echo ("<img src='images/joueur_actif.gif' /> <a href='invitation.php?mode=actif'>Voir les joueurs actifs</a>");
-	}
-	else
-	{
-		echo ("<img src='images/joueur_passif.gif' /> <a href='invitation.php?mode=passif'>Voir les joueurs passifs</a>");
-	}
-	?>
+	<img src='images/joueur_actif.gif' /> <?if ($Mode != 'actif') echo("<a href='invitation.php?mode=actif'>");?>Les joueurs actifs<?if ($Mode != 'actif') echo("</a>");?> - 
+	<img src='images/joueur_passif.gif' /> <?if ($Mode != 'passif') echo("<a href='invitation.php?mode=passif'>");?>Les joueurs passifs<?if ($Mode != 'passif') echo("</a>");?> - 
+	<img src='images/favori-etoile-icone.png' /> <?if ($Mode != 'favoris') echo("<a href='invitation.php?mode=favoris'>");?>Mes joueurs favoris<?if ($Mode != 'favoris') echo("</a>");?>
 	
 	<table border="0" width="680">
 	  <tr>
 	  	
-		<th>Surnom</th>
-		<th>Elo</th>
-		<th>Age</th>
-		<th>Localisation</th>
-		<th>Profil</th>
+		<th width="20%">Surnom</th>
+		<th width="5%">Elo</th>
+		<th width="5%">Age</th>
+		<th width="15%">Localisation</th>
+		<th width="35%">Profil</th>
 		<th width="20%">Invitation</th>
 	  </tr>
 		<?
@@ -131,7 +130,7 @@
 					echo ("</td>");
 					
 					echo ("<td>");
-					echo (stripslashes($tmpPlayer['profil']));
+					echo ("<TEXTAREA NAME='txtProfil' COLS='45' ROWS='3' readonly='readonly'>".stripslashes($tmpPlayer['profil'])."</TEXTAREA>");
 					echo ("</td>");
 					
 					echo ("<td>");

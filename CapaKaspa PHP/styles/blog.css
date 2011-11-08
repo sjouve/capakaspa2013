@@ -303,6 +303,15 @@
 		font-style: normal;
 		background-color:beige;
 	}
+	#tabliste td TEXTAREA {
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		color: #000000;
+		border-color:beige;
+		font-size: 10px;/*x-small;*/
+		font-weight: normal;
+		font-style: normal;
+		background-color:beige;
+	}
 	#tabliste td a {
 		text-decoration: none;
 		font-weight: bold;
@@ -938,7 +947,7 @@
 	}
 	.profil {
 	  	width: 125px;
-	  	height: 125px;
+	  	height: 160px;
 	  	float: left;
 	  	/*padding: 5px;
 		background-color: beige;
