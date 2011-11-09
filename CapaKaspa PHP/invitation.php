@@ -10,7 +10,8 @@
 	//require 'dac_players.php';
 	
 	$Mode = isset($_GET['mode']) ? $_GET['mode']:'actif';
-
+	$level = isset($_GET['level']) ? $_GET['level']:'DEB';
+	
     $titre_page = "Echecs en différé - Proposition de partie";
     $desc_page = "Jouer aux échecs en différé. Recherchez un adversaire pour lui proposer une partie d'échecs en différé.";
     require 'page_header.php';
@@ -89,12 +90,23 @@
 		case 'favoris':
 		$tmpPlayers = listPlayersFavoris($_SESSION['playerID']);
 		break;
+		
+		case 'elo':
+		$tmpPlayers = listPlayersByLevel($_GET['level']);
+		break;
 	}	
 	?>
 	<div id="tabliste">
+	
 	<img src='images/joueur_actif.gif' /> <?if ($Mode != 'actif') echo("<a href='invitation.php?mode=actif'>");?>Les joueurs actifs<?if ($Mode != 'actif') echo("</a>");?> - 
 	<img src='images/joueur_passif.gif' /> <?if ($Mode != 'passif') echo("<a href='invitation.php?mode=passif'>");?>Les joueurs passifs<?if ($Mode != 'passif') echo("</a>");?> - 
 	<img src='images/favori-etoile-icone.png' /> <?if ($Mode != 'favoris') echo("<a href='invitation.php?mode=favoris'>");?>Mes joueurs favoris<?if ($Mode != 'favoris') echo("</a>");?>
+	<br/>
+	Les joueurs dont le Elo est : 
+	<?if ($Mode != 'elo' || ($Mode == 'elo' && $level != 'DEB')) echo("<a href='invitation.php?mode=elo&level=DEB'>");?>inférieur à 1300<?if ($Mode != 'elo' || ($Mode == 'elo' && $level != 'DEB')) echo("</a>");?> - 
+	<?if ($Mode != 'elo' || ($Mode == 'elo' && $level != 'MOY')) echo("<a href='invitation.php?mode=elo&level=MOY'>");?>égal à 1300<?if ($Mode != 'elo' || ($Mode == 'elo' && $level != 'MOY')) echo("</a>");?> - 
+	<?if ($Mode != 'elo' || ($Mode == 'elo' && $level != 'COF')) echo("<a href='invitation.php?mode=elo&level=COF'>");?>entre 1301 et 1400<?if ($Mode != 'elo' || ($Mode == 'elo' && $level != 'COF')) echo("</a>");?> - 
+	<?if ($Mode != 'elo' || ($Mode == 'elo' && $level != 'MAI')) echo("<a href='invitation.php?mode=elo&level=MAI'>");?>supérieur à 1400<?if ($Mode != 'elo' || ($Mode == 'elo' && $level != 'MAI')) echo("</a>");?> 
 	
 	<table border="0" width="680">
 	  <tr>
@@ -126,7 +138,7 @@
 					echo (date("Y")-$tmpPlayer['anneeNaissance']);
 					echo ("</td>");
 					echo ("<td>");
-					echo (stripslashes($tmpPlayer['situationGeo']));
+					echo ("<TEXTAREA NAME='txtProfil' COLS='15' ROWS='3' readonly='readonly'>".stripslashes($tmpPlayer['situationGeo'])."</TEXTAREA>");
 					echo ("</td>");
 					
 					echo ("<td>");

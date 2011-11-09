@@ -199,4 +199,36 @@ function getPlayerFavorite($playerID, $favPlayerID)
     $favorite = mysql_fetch_array($res_favorite, MYSQL_ASSOC);
     return $favorite;
 }
+
+/* Liste joueurs par tranche de Elo */
+function listPlayersByLevel($level)
+{
+	switch ($level)
+	{
+		case "DEB":
+			$levelCondition = "elo < 1300";
+			break;
+		
+		case "MOY":
+			$levelCondition = "elo = 1300";
+			break;
+			
+		case "COF":
+			$levelCondition = "elo > 1300 AND elo <= 1400";
+			break;
+			
+		case "MAI":
+			$levelCondition = "elo > 1400";
+			break;
+		
+	}
+	
+	$tmpQuery = "SELECT playerID, nick, anneeNaissance, profil, situationGeo, elo 
+				FROM players 
+				WHERE playerID <> ".$_SESSION['playerID']." 
+				AND ".$levelCondition." 
+				AND activate=1 ORDER BY lastConnection DESC";
+	
+	return mysql_query($tmpQuery); 
+}
 ?>
