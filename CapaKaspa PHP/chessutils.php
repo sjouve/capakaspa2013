@@ -457,7 +457,8 @@
 		$mailmsg .= "\n\nCapaKaspa c'est aussi :\n";
 		$mailmsg .= "Le blog (http://blog.capakaspa.info) pour découvrir\n";
 		$mailmsg .= "Le forum (http://forum.capakaspa.info) pour partager\n";
-		$mailmsg .= "La boutique (http://capakaspa.zlio.com) pour se faire plaisir\n";
+		$mailmsg .= "Nous suivre sur Facebook (http://www.facebook.com/capakaspa)\n";
+		$mailmsg .= "Nous suivre sur Google+ (http://plus.google.com/114694270583726807082)\n";
 		
 		$headers .= "From: CapaKaspa <".$CFG_MAILADDRESS.">\r\n";
 		$headers .= "Reply-To: CapaKaspa <".$CFG_MAILADDRESS.">\r\n";
