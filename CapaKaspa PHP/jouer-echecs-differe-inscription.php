@@ -71,6 +71,8 @@ require 'page_header.php';
 <script type="text/javascript">
 	function validateForm()
 	{
+		var dayDate = new Date();
+		var annee = dayDate.getFullYear();
 		
 		if (isEmpty(document.userdata.txtFirstName.value)
 			|| isEmpty(document.userdata.txtLastName.value)
@@ -103,9 +105,9 @@ require 'page_header.php';
 			return;
 		}
 		
-		if (!isNumber(document.userdata.txtAnneeNaissance.value) || !isWithinRange(document.userdata.txtAnneeNaissance.value, 1900, 2100))
+		if (!isNumber(document.userdata.txtAnneeNaissance.value) || !isWithinRange(document.userdata.txtAnneeNaissance.value, 1900, annee))
 		{
-			alert("L'année de naissance est un nombre à 4 chiffres compris entre 1900 et 2010.");
+			alert("L'année de naissance est un nombre à 4 chiffres compris entre 1900 et l'année courante.");
 			return;
 		}
 		

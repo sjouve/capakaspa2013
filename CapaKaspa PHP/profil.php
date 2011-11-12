@@ -44,6 +44,8 @@
 <script type="text/javascript">
 		function validatePersonalInfo()
 		{
+			var dayDate = new Date();
+			var annee = dayDate.getFullYear();
 			if (isEmpty(document.Profil.txtFirstName.value)
 				|| isEmpty(document.Profil.txtLastName.value)
 				|| isEmpty(document.Profil.txtEmail.value)
@@ -61,9 +63,9 @@
 				return;
 			}
 			
-			if (!isNumber(document.Profil.txtAnneeNaissance.value) || !isWithinRange(document.Profil.txtAnneeNaissance.value, 1900, 2100))
+			if (!isNumber(document.Profil.txtAnneeNaissance.value) || !isWithinRange(document.Profil.txtAnneeNaissance.value, 1900, annee))
 			{
-				alert("L'année de naissance est un nombre à 4 chiffres compris entre 1900 et 2010.");
+				alert("L'année de naissance est un nombre à 4 chiffres compris entre 1900 et l'année courante.");
 				return;
 			}
 			
