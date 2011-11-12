@@ -215,7 +215,7 @@
 					if ($notifEmail == 'oui')
 					{
 						/* notify opponent of invitation via email */
-						webchessMail('accepted', $opponentEmail, '', $_SESSION['nick']);
+						webchessMail('accepted', $opponentEmail, $_POST['respMessage'], $_SESSION['nick']);
 					}
 				}
 					
@@ -245,7 +245,7 @@
 					if ($notifEmail == 'oui')
 					{
 						/* notify opponent of invitation via email */
-						webchessMail('declined', $opponentEmail, '', $_SESSION['nick']);
+						webchessMail('declined', $opponentEmail, $_POST['respMessage'], $_SESSION['nick']);
 					}
 				}
 			}
@@ -453,9 +453,9 @@
             <tr>
               <th width="150">Adversaire</th>
               <th width="50">Votre couleur</th>
-              <th width="200">Type</th>
-			  <th width="150">Statut</th>
-              <th width="100">Annulation</th>
+              <th width="120">Type</th>
+			  <th width="230">Statut</th>
+              <th width="100">Action</th>
             </tr>
             <?
 	/* if game is marked playerInvited and the invite is from the current player */
@@ -541,15 +541,16 @@
             <tr>
               <th width="150">Adversaire</th>
               <th width="50">Votre couleur</th>
-              <th width="200">Type</th>
-              <th width="250">Réponse</th>
+              <th width="120">Type</th>
+              <th width="230">Réponse</th>
+              <th width="100">Action</th>
             </tr>
             <?
 	$tmpQuery = "SELECT * FROM games WHERE gameMessage = 'playerInvited' AND ((whitePlayer = ".$_SESSION['playerID']." AND messageFrom = 'black') OR (blackPlayer = ".$_SESSION['playerID']." AND messageFrom = 'white')) ORDER BY dateCreated";
 	$tmpGames = mysql_query($tmpQuery);
 
 	if (mysql_num_rows($tmpGames) == 0)
-		echo("<tr><td colspan='4'>Personne ne vous propose de partie</td></tr>\n");
+		echo("<tr><td colspan='5'>Personne ne vous propose de partie</td></tr>\n");
 	else
 		while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
 		{
@@ -601,9 +602,13 @@
 			
 			/* Response */
 			echo ("</td><td align='center'>");
+			echo ("<TEXTAREA NAME='respMessage' COLS='33' ROWS='3' style='background-color:white;border-color:#CCCCCC;'></TEXTAREA>");
+			
+			/* Action */
+			echo ("</td><td align='center'>");
 			echo ("<input type='button' value='Accepter' onclick=\"sendResponse('accepted', '".$tmpFrom."', ".$tmpGame['gameID'].")\">");
 			echo ("<input type='button' value='Refuser' onclick=\"sendResponse('declined', '".$tmpFrom."', ".$tmpGame['gameID'].")\">");
-
+			
 			echo("</td></tr>\n");
 		}
 ?>

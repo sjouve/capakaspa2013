@@ -405,56 +405,58 @@
 		{
 			case 'test':
 				$mailsubject = "WebChess: Test Message";
-	$mailmsg = "Congratulations!!!\n
-	If you can see this message, you have successfully setup your email notification!\n\n
-	This message has been automatically been sent by WebChess and should not be replied to.\n";
-
+				$mailmsg = "Congratulations!!!\n
+				If you can see this message, you have successfully setup your email notification!\n\n
+				This message has been automatically been sent by WebChess and should not be replied to.\n";
 				break;
+				
 			case 'invitation':
 				$mailsubject = "[CapaKaspa] Vous etes invité à jouer une nouvelle partie";
-				$mailmsg = $opponent." vous invite à jouer une nouvelle partie.";
-				$mailmsg .= "\n\nCe message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).\n";
-
+				$mailmsg = "Le joueur ".$opponent." vous invite à jouer une nouvelle partie.";
 				break;
+				
 			case 'withdrawal':
 				$mailsubject = "[CapaKaspa] Invitation annulée";
-				$mailmsg = $opponent." a annulé son invitation pour jouer une nouvelle partie.";
-				$mailmsg .= "\n\nCe message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).\n";
-
+				$mailmsg = "Le joueur ".$opponent." a annulé son invitation pour jouer une nouvelle partie.";
 				break;
+				
 			case 'resignation':
 				$mailsubject = "[CapaKaspa] Abandon";
-	$mailmsg = "Votre adversaire ".$opponent." a abandonné la partie.";
-	$mailmsg .= "\n\nCe message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).\n";
-
+				$mailmsg = "Votre adversaire ".$opponent." a abandonné la partie.";
 				break;
+				
 			case 'move':
 				$mailsubject = "[CapaKaspa] Nouveau coup";
 				$mailmsg = "Votre adversaire ".$opponent." a joué le coup suivant :";
-				$mailmsg .= "\n".$move."\n\n";
-				$mailmsg .= "\n\nCe message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).\n";
+				$mailmsg .= "\n".$move;
 				break;
+				
 			case 'accepted':
 				$mailsubject = "[CapaKaspa] Invitation acceptée";
-				$mailmsg = $opponent." a accepté votre invitation. Une nouvelle partie a commencé.";
-				$mailmsg .= "\n".$move;
-				$mailmsg .= "\n\nCe message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).\n";
+				$mailmsg = "Le joueur ".$opponent." a accepté votre invitation. Une nouvelle partie a commencé.";
+				if ($move) {
+					$mailmsg .= "\n\n".$opponent." a joint un message :";
+					$mailmsg .= "\n".stripslashes(strip_tags($move));
+				}
 				break;
+				
 			case 'declined':
 				$mailsubject = "[CapaKaspa] Invitation refusée";
-				$mailmsg = $opponent." a refusé votre invitation.";
-				$mailmsg .= "\n".$move;
-				$mailmsg .= "\n\nCe message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).\n";
+				$mailmsg = "Le joueur ".$opponent." a refusé votre invitation.";
+				if ($move) {
+					$mailmsg .= "\n\n".$opponent." a joint un message à son refus :";
+					$mailmsg .= "\n".stripslashes(strip_tags($move));
+				}
 				break;
+				
 			case 'draw':
 				$mailsubject = "[CapaKaspa] Proposition de nulle acceptée";
-				$mailmsg = $opponent." a accepté votre proposition de nulle. La partie s'est terminée sur le score : 1/2-1/2.";
-				$mailmsg .= "\n".$move;
-				$mailmsg .= "\n\nCe message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).\n";
+				$mailmsg = "Le joueur ".$opponent." a accepté votre proposition de nulle.\nLa partie s'est terminée sur le score : 1/2-1/2.";
 				break;
 		}
 		
-		$mailmsg .= "\n\nCapaKaspa c'est aussi :\n";
+		$mailmsg .= "\n\nCe message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).\n";
+		$mailmsg .= "\nCapaKaspa c'est aussi :\n";
 		$mailmsg .= "Le blog (http://blog.capakaspa.info) pour découvrir\n";
 		$mailmsg .= "Le forum (http://forum.capakaspa.info) pour partager\n";
 		$mailmsg .= "Nous suivre sur Facebook (http://www.facebook.com/capakaspa)\n";
