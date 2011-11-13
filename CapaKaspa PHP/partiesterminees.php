@@ -73,7 +73,7 @@
 								AND G.eco = E.eco
                                 ORDER BY G.eco ASC, G.lastMove DESC");
 		?>
-        
+        <A NAME="defaites"></A>
 		<h3>Défaites (<?echo(mysql_num_rows($tmpGames));?>)</h3>
         <div id="tabliste">
           <table border="0" width="650">
@@ -142,20 +142,9 @@
                                 AND G.eco = E.eco
                                 ORDER BY E.eco ASC, G.lastMove DESC");?>
 		
-		<br/><center><script type="text/javascript"><!--
-        google_ad_client = "ca-pub-8069368543432674";
-        /* CapaKaspa Parties terminees Bandeau Centre */
-        google_ad_slot = "1022904258";
-        google_ad_width = 468;
-        google_ad_height = 60;
-        //-->
-        </script>
-        <script type="text/javascript"
-        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-        </script>
-		</center>
 		<br/>
 		
+		<A NAME="nulles"></A>
 		<h3>Nulles (<?echo(mysql_num_rows($tmpGames));?>)</h3>
         <div id="tabliste">
           <table border="0" width="650">
@@ -219,7 +208,9 @@
 
 	<br/>
 	
+	<A NAME="victoires"></A>
 	<h3>Victoires (<?echo(mysql_num_rows($tmpGames));?>)</h3>
+	
         <div id="tabliste">
           <table border="0" width="650">
             <tr>

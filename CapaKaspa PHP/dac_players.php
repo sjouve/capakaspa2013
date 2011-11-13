@@ -231,4 +231,14 @@ function listPlayersByLevel($level)
 	
 	return mysql_query($tmpQuery); 
 }
+
+function listEloProgress($playerID)
+{
+	$tmpQuery = "SELECT elo 
+				FROM elo_history 
+				WHERE playerID = ".$playerID." 
+				ORDER BY eloDate ASC";
+	
+	return mysql_query($tmpQuery);
+}
 ?>

@@ -215,7 +215,7 @@
 		<br/>
 		
 		<? if ($_SESSION['playerID']!=$player['playerID']) {?>
-		<h3>Vos parties contre <? echo($player['nick']); ?></h3>
+		<h3>Mes parties contre <? echo($player['nick']); ?></h3>
 		
 		<form name="endedGames" action="partie.php" method="post">
 
@@ -325,6 +325,9 @@
             <td><? echo($nbDefaites); ?></td>
           </tr>
 		 </table>	
+		 <br/>
+		 <img src="graph_elo_progress.php?playerID=<?php echo($playerID);?>&elo=<?php echo($player['elo']);?>" width="650" height="250" />
+		 
     </div>
   </div>
 <?

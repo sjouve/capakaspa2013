@@ -11,6 +11,7 @@
 	/* connect to database */
 	require 'connectdb.php';
 	
+	require 'dac_games.php';
 	require 'bwc_players.php';
 	
 	/* check session status */
@@ -131,7 +132,7 @@
 		}
 		?>
       <form name="Profil" action="profil.php" method="post">
-	  <h3>Vos informations personnelles</h3>
+	  <h3>Mes informations personnelles</h3>
         <table border="0" width="650">
           <tr>
             <td width="180"> Surnom : </td>
@@ -192,7 +193,7 @@
         </table>
         
       
-      <h3>Vos préférences</h3>
+      <h3>Mes préférences</h3>
       
         <table border="0" width="650">
           <tr>
@@ -316,7 +317,36 @@
 	      	<input type="hidden" name="ToDo" value="CreateVacation">
     	</form>
     	<? }?>
-    	<br/><br/><br/>
+    	<br/>
+    	
+    	<h3>Statistiques</h3>
+		<?
+		$dateDeb = date("Y-m-d", mktime(0,0,0, 1, 1, 1990));
+		$dateFin = date("Y-m-d", mktime(0,0,0, 12, 31, 2020));
+		$countLost = countLost($_SESSION['playerID'], $dateDeb, $dateFin);
+		$nbDefaites = $countLost['nbGames'];
+		$countDraw = countDraw($_SESSION['playerID'], $dateDeb, $dateFin);
+		$nbNulles = $countDraw['nbGames'];
+		$countWin = countWin($_SESSION['playerID'], $dateDeb, $dateFin);
+		$nbVictoires = $countWin['nbGames'];
+		$nbParties = $nbDefaites + $nbNulles + $nbVictoires;
+		?>
+		<table border="0" width="650">
+          <tr>
+            <td width="180"> Victoires : </td>
+            <td><a href="partiesterminees.php#victoires"><? echo($nbVictoires); ?></a></td>
+          </tr>
+		  <tr>
+            <td> Nulles : </td>
+            <td><a href="partiesterminees.php#nulles"><? echo($nbNulles); ?></a></td>
+          </tr>
+		  <tr>
+            <td> Défaites : </td>
+            <td><a href="partiesterminees.php#defaites"><? echo($nbDefaites); ?></a></td>
+          </tr>
+		 </table>	
+		 <br/>
+		 <img src="graph_elo_progress.php?playerID=<?php echo($_SESSION['playerID']);?>&elo=<?php echo($_SESSION['elo']);?>" width="650" height="250" />
     	
     	
     </div>
