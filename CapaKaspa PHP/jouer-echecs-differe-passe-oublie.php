@@ -42,7 +42,7 @@ require 'page_body.php';
 	<h3>Mot de passe oublié</h3>
     	Vous disposez déjà d'un compte pour accéder à la zone de jeu en différé mais <b>vous avez oublié votre mot de passe</b>.<br/>
     	<p>Saisissez l'adresse de messagerie que vous avez associé à ce compte. Un message sera envoyé à cette adresse. Il contiendra les informations nécessaires à la connexion.</p>
-		<form name="userdata" method="post" action="passeoublie.php">
+		<form name="userdata" method="post" action="jouer-echecs-differe-passe-oublie.php">
 			<table align="center">
 				<tr>
 		            <td> Email : </td>
