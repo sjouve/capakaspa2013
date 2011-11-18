@@ -49,12 +49,6 @@
     	<div class="blogbody">
     		<div class="block">
 	      		<div class="blocktitle">Découvrir les échecs, apprendre et jouer</div>
-			
-				<img src="/images/pos_initiale.jpg" alt="Echiquier position initiale" style="FLOAT: left; MARGIN: 0px 5px 5px 0px;"/>
-				CapaKaspa c'est un bon moyen de découvrir les échecs. Comment commencer ? Trouvez une réponse dans la section <a href="echecs-apprentissage.php">apprentissage</a>.<br/><br/>
-				Puis vous pourrez mettre en pratique grâce à la <a href="tableaubord.php">zone de jeu en différé</a> pour jouer des parties à votre rythme. 
-				<br/>Et continuez votre découverte grâce au <a href="http://forum.capakaspa.info">forum</a>, au <a href="http://blog.capakaspa.info">blog</a>.
-				<br/><br/>
 				
 				<!-- AddThis Button BEGIN -->
 			    <div class="addthis_toolbox addthis_default_style ">
@@ -68,6 +62,14 @@
 			    </div>
 			    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e7cb2a45be34669"></script>
 			   	<!-- AddThis Button END -->
+			   	
+				<img src="/images/pos_initiale.jpg" alt="Echiquier position initiale" style="FLOAT: left; MARGIN: 3px 5px 5px 0px;"/>
+				CapaKaspa c'est un bon moyen de découvrir les échecs. Comment commencer ? Trouvez une réponse dans la section <a href="echecs-apprentissage.php">apprentissage</a>.<br/><br/>
+				Puis vous pourrez mettre en pratique grâce à la <a href="tableaubord.php">zone de jeu en différé</a> pour jouer des parties à votre rythme. 
+				<br/>Et continuez votre découverte grâce au <a href="http://forum.capakaspa.info">forum</a>, au <a href="http://blog.capakaspa.info">blog</a>.
+				<br/><br/>
+				
+				
 			   	
 			</div>
 		</div>
