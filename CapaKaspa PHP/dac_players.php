@@ -234,7 +234,7 @@ function listPlayersByLevel($level)
 
 function listEloProgress($playerID)
 {
-	$tmpQuery = "SELECT elo 
+	$tmpQuery = "SELECT elo, DATE_FORMAT(eloDate, '%c/%y') eloDateF
 				FROM elo_history 
 				WHERE playerID = ".$playerID." 
 				ORDER BY eloDate ASC";

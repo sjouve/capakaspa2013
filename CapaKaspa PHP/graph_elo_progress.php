@@ -14,16 +14,19 @@ require 'dac_players.php';
 // Data
 $eloProgress = listEloProgress($_GET['playerID']);
 $tableauEloPprogress = array();
+$eloDates = array();
 
 $i = 0;
-$tableauEloPprogress[$i] = '1300';
+$eloDates[$i] = '-';
+//$tableauEloPprogress[$i] = '1300';
 while($tmpElo = mysql_fetch_array($eloProgress, MYSQL_ASSOC))
 {
-	$i++;
-	$tableauEloPprogress[$i] = $tmpElo['elo'];
 	
+	$tableauEloPprogress[$i] = $tmpElo['elo'];
+	$i++;
+	$eloDates[$i] = $tmpElo['eloDateF'];
 }
-$i++;
+
 $tableauEloPprogress[$i] = $_GET['elo'];
 
 // Create the graph. These two calls are always required
@@ -47,6 +50,8 @@ $lineplot->mark->SetFillColor("green");
 // Taille
 $lineplot->mark->SetWidth(3);
 
+// Libellé axe des mois
+$graph->xaxis->SetTickLabels($eloDates);
 // Add the plot to the graph
 $graph->Add($lineplot);
  
