@@ -16,18 +16,28 @@ $eloProgress = listEloProgress($_GET['playerID']);
 $tableauEloPprogress = array();
 $eloDates = array();
 
-$i = 0;
-$eloDates[$i] = '-';
-//$tableauEloPprogress[$i] = '1300';
-while($tmpElo = mysql_fetch_array($eloProgress, MYSQL_ASSOC))
+if (mysql_numrows($eloProgress)>0)
 {
+	$i = 0;
+	$eloDates[$i] = '-';
+	$tableauEloPprogress[$i] = '1300';
+	while($tmpElo = mysql_fetch_array($eloProgress, MYSQL_ASSOC))
+	{
+		
+		$tableauEloPprogress[$i] = $tmpElo['elo'];
+		$i++;
+		$eloDates[$i] = $tmpElo['eloDateF'];
+	}
 	
-	$tableauEloPprogress[$i] = $tmpElo['elo'];
-	$i++;
-	$eloDates[$i] = $tmpElo['eloDateF'];
+	$tableauEloPprogress[$i] = $_GET['elo'];
 }
-
-$tableauEloPprogress[$i] = $_GET['elo'];
+else
+{
+	$tableauEloPprogress[0] = '1300';
+	$eloDates[0] = '1';
+	$tableauEloPprogress[1] = '1300';
+	$eloDates[1] = '2';
+}
 
 // Create the graph. These two calls are always required
 $graph = new Graph(650,250);
