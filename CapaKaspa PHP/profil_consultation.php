@@ -154,6 +154,7 @@
 		<br/>
 		<?}?>
 		
+		
 		<h3>Parties en cours de <? echo($player['nick']); ?></h3>
 		
 		<form name="existingGames" action="partie.php" method="post">
@@ -271,9 +272,7 @@
 				
 							/* Last Move */
 							echo ("</td><td align='center'>".$tmpGame['lastMove']."</td></tr>\n");
-						}
-						
-						
+						}					
 					}
 				?>
           </table>
@@ -281,23 +280,25 @@
         <input type="hidden" name="gameID" value="">
         <input type="hidden" name="sharePC" value="no">
         <input type="hidden" name="from" value="toutes">
-      </form>
+      	</form>
 		<br/>
 		<?}?>
 		
+		
 		<center>
-		<script type="text/javascript"><!--
-		google_ad_client = "pub-8069368543432674";
-		/* 468x60, Profil consultation bandeau */
-		google_ad_slot = "3062307582";
-		google_ad_width = 468;
-		google_ad_height = 60;
-		//-->
-		</script>
-		<script type="text/javascript"
-		src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-		</script>
+			<script type="text/javascript"><!--
+			google_ad_client = "pub-8069368543432674";
+			/* 468x60, Profil consultation bandeau */
+			google_ad_slot = "3062307582";
+			google_ad_width = 468;
+			google_ad_height = 60;
+			//-->
+			</script>
+			<script type="text/javascript"
+			src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			</script>
 		</center>
+		
 		<br/>
 		<h3>Statistiques de <? echo($player['nick']); ?></h3>
 		<?
@@ -324,7 +325,13 @@
             <td> Défaites : </td>
             <td><? echo($nbDefaites); ?></td>
           </tr>
-		 </table>	
+		 </table>
+		 
+		<? if ($_SESSION['playerID']!=$player['playerID']) {?>
+			<img src="images/puce.gif"/> <a href='partiesterminees.php?playerID=<?php echo($player['playerID']);?>'>Voir les parties terminées de <?php echo($player['nick']);?></a>
+			<br/>
+		<?}?>	
+		
 		 <br/>
 		 <img src="graph_elo_progress.php?playerID=<?php echo($playerID);?>&elo=<?php echo($player['elo']);?>" width="650" height="250" />
 		 
