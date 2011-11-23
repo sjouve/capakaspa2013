@@ -3,19 +3,19 @@
 			
 	/* load settings */
 	if (!isset($_CONFIG))
-		require 'config.php';
+		require '../config.php';
 
 	/* load external functions for setting up new game */
-	require_once('chessutils.php');
-	require 'chessconstants.php';
-	require 'bwc_board.php';
-	require 'bwc_players.php';
-	require 'bwc_games.php';
-	require 'gui_games.php';
-	require 'gui_rss.php';
+	require_once('../chessutils.php');
+	require '../chessconstants.php';
+	require '../bwc_board.php';
+	require '../bwc_players.php';
+	require '../bwc_games.php';
+	require '../gui_games.php';
+	require '../gui_rss.php';
 
 	/* connect to database */
-	require 'connectdb.php';
+	require '../connectdb.php';
 	
 	$tmpNewUser = false;
 	$errMsg = "";
@@ -28,7 +28,7 @@
 			if ($res == -1)
 			{
 				// TODO Passer le nick et password
-				header("Location: activation.php");
+				header("Location: ../activation.php");
 				exit;
 			}
 			if ($res == 0)
@@ -290,13 +290,13 @@
 	}
 
 	/* check session status */
-	require 'sessioncheck.php';
+	require '../sessioncheck.php';
 
 	/* set default playing mode to different PCs (as opposed to both players sharing a PC) */
 	$_SESSION['isSharedPC'] = false;
 
-    $titre_page = "Echecs en différé - Tableau de bord";
-    $desc_page = "Jouer aux échecs en différé. Retrouvez vos parties d'échecs en différé en cours et vos invitations en attente de réponse";
+    $titre_page = "Echecs en différé (mobile) - Tableau de bord";
+    $desc_page = "Jouer aux échecs en différé sur votre smartphone. Retrouvez vos parties d'échecs en différé en cours et vos invitations en attente de réponse";
     require 'page_header.php';
 ?>
 <script type="text/javascript">
@@ -332,132 +332,28 @@
 <? } ?>
 	</script>
 <?
-    $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Mes parties";
+   
     require 'page_body.php';
 ?>
-  <div id="contentlarge">
-    <div class="blogbody">
-    <table width="100%">
-		<tr>
-		 
-		<td ><?displayBodyRSSPlage(URL_RSS_FORUM, 0, 0);?>
-    	<!--  <div class='rsstitlefirst'><img src='images/porte_voix.png'><b> Classement ELO du 3eme Trimestre 2011 </b></div>
-    	<div class='rssdescriptionfirst'>Les classements ELO des membres vont de 1999 à 1051 points. Félicitations et encouragements !</div>
-    	-->
-    	</td>
-		<td>
-		<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) {return;}
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1";
-		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
+
+	<div id="onglet">
+	<table width="100%" cellpadding="0" cellspacing="0">
+	<tr>
+		<td><div class="ongletenable">Parties</div></td>
+		<td><div class="ongletdisable"><a href="invitation.php">Invitation</a></div></td>
+		<td><div class="ongletdisable"><a href="profil.php">Mon profil</a></div></td>	
+	</tr>
+	</table>
+	</div>
+	
+	<?
+	if ($errMsg != "")
+		echo("<div class='error'>".$errMsg."</div>");
 		
-		<div class="fb-like-box" data-href="http://www.facebook.com/capakaspa" data-width="280" data-show-faces="false" data-stream="false" data-header="false"></div>
-		</td>
-        </tr>
-    </table>
-    
-	  <?
-		if ($errMsg != "")
-			echo("<div class='error'>".$errMsg."</div>");
-		
-		$res_current_vacation = getCurrentVacation($_SESSION['playerID']);
-		if (mysql_num_rows($res_current_vacation) > 0)
-				echo("<div class='success'>Vous avez une absence en cours ! Vos parties sont ajournées.</div>");
-		?>
-      <form name="existingGames" action="partie.php" method="post">
-        <h3> Mes parties en cours</h3>
-        
-		<div id="mosaique">
-        <?
-        	
-			$tmpGames = mysql_query("SELECT G.gameID gameID, G.eco eco, DATE_FORMAT(G.lastMove, '%d/%m/%Y %T') dateCreatedF, DATE_FORMAT(lastMove, '%Y-%m-%d') lastMove, G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, G.position position, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick
-                                        FROM games G, players W, players B
-                                        WHERE gameMessage = ''
-                                        AND (whitePlayer = ".$_SESSION['playerID']." OR blackPlayer = ".$_SESSION['playerID'].")
-                                        AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
-                                        ORDER BY dateCreated");
-
-            $nbGame = mysql_num_rows($tmpGames);
-
-            if ($nbGame > 0)
-        	{
-                
-                $numGame = 1;
-                $nbGameLigne = 1;
-                echo("<table width='100%' border='0'>");
-                while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
-        		{
-                     if ($nbGameLigne>3) $nbGameLigne=1;
-
-                     if ($nbGameLigne==1)
-                     {
-                       echo("<tr>");
-                     }
-                     echo("<td align='center'>");
-                     drawboardGame($tmpGame['gameID'],$tmpGame['whitePlayer'],$tmpGame['blackPlayer'], $tmpGame['position']);
-
-                     echo($numGame.". <a href='profil_consultation.php?playerID=".$tmpGame['whitePlayerID']."'>".$tmpGame['whiteNick']."</a>-<a href='profil_consultation.php?playerID=".$tmpGame['blackPlayerID']."'>".$tmpGame['blackNick']."</a> [".$tmpGame['eco']."] ");
-                     if ($isPlayersTurn)
-    				        echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'><img src='images/hand.gif' border=0 alt='Jouer'/></a>");
-                     else
-    				        echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'><img src='images/eye.gif' border=0 alt='Voir'/></a>");
-    				 
-					 list($year, $month, $day) = explode("-", $tmpGame['lastMove']);
-					 
-    				 $expireDate = date("d/m/Y", mktime(0,0,0, $month, $day + $CFG_EXPIREGAME, $year));
-    				 echo("<br/>Expire le : ".$expireDate);
-                     echo("</td>");
-                     if ($nbGameLigne==3 || $numGame == $nbGame)
-                     {
-                       echo("</tr>");
-                     }
-                     $numGame = $numGame + 1;
-                     $nbGameLigne = $nbGameLigne + 1;
-                }
-                echo("</table>");
-            } else
-            {
-			  echo("<p>Vous n'avez aucune partie en cours...</p>");
-			}
-            
-        ?>
-        </div>
-        <input type="hidden" name="gameID" value="">
-        <input type="hidden" name="sharePC" value="no">
-        <input type="hidden" name="from" value="encours">
-      </form>
-      <br/>
-      <center><script type="text/javascript"><!--
-        google_ad_client = "ca-pub-8069368543432674";
-        /* CapaKaspa Tableau bord Bandeau Partie */
-        google_ad_slot = "3190675956";
-        google_ad_width = 468;
-        google_ad_height = 60;
-        //-->
-        </script>
-        <script type="text/javascript"
-        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-        </script>
-		</center>
-		<br/>
-      <form name="withdrawRequestForm" action="tableaubord.php" method="post">
-        <h3>Mes propositions de partie</h3>
-        
-        <div id="tabliste">
-          <table border="0" width="650">
-            <tr>
-              <th width="150">Adversaire</th>
-              <th width="50">Votre couleur</th>
-              <th width="120">Type</th>
-			  <th width="230">Statut</th>
-              <th width="100">Action</th>
-            </tr>
-            <?
+	$res_current_vacation = getCurrentVacation($_SESSION['playerID']);
+	if (mysql_num_rows($res_current_vacation) > 0)
+		echo("<div class='success'>Vous avez une absence en cours ! Vos parties sont ajournées.</div>");
+	
 	/* if game is marked playerInvited and the invite is from the current player */
 	$tmpQuery = "SELECT * FROM games WHERE (gameMessage = 'playerInvited' AND ((whitePlayer = ".$_SESSION['playerID']." AND messageFrom = 'white') OR (blackPlayer = ".$_SESSION['playerID']." AND messageFrom = 'black'))";
 
@@ -465,10 +361,24 @@
 	$tmpQuery .= ") OR (gameMessage = 'inviteDeclined' AND ((whitePlayer = ".$_SESSION['playerID']." AND messageFrom = 'black') OR (blackPlayer = ".$_SESSION['playerID']." AND messageFrom = 'white')))  ORDER BY dateCreated";
 
 	$tmpGames = mysql_query($tmpQuery);
+	
+	if (mysql_num_rows($tmpGames) > 0)
+	{
+	?>
+		
+		<form name="withdrawRequestForm" action="tableaubord.php" method="post">
+        <h3>Mes propositions de partie</h3>
+        
+        <div id="tabliste">
+          <table border="0" width="100%">
+            <tr>
+              <th>Adversaire</th>
+              <th>Votre couleur</th>
+              <th>Type / Statut</th>
+              <th>Action</th>
+            </tr>
 
-	if (mysql_num_rows($tmpGames) == 0)
-		echo("<tr><td colspan='5'>Vous n'avez proposé aucune partie</td></tr>\n");
-	else
+	<?
 		while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
 		{
 			/* Opponent */
@@ -514,7 +424,7 @@
 				
 				
 			/* Status */
-			echo ("</td><td>");
+			echo ("<br/>");
 			if ($tmpGame['gameMessage'] == 'playerInvited')
 				echo ("Réponse en attente");
 			else if ($tmpGame['gameMessage'] == 'inviteDeclined')
@@ -526,32 +436,34 @@
 
 			echo("</td></tr>\n");
 		}
-?>
+	?>
           </table>
         </div>
         <input type="hidden" name="gameID" value="">
         <input type="hidden" name="ToDo" value="WithdrawRequest">
       </form>
-      
+	<? }?>
+	
+	<?
+	$tmpQuery = "SELECT * FROM games WHERE gameMessage = 'playerInvited' AND ((whitePlayer = ".$_SESSION['playerID']." AND messageFrom = 'black') OR (blackPlayer = ".$_SESSION['playerID']." AND messageFrom = 'white')) ORDER BY dateCreated";
+	$tmpGames = mysql_query($tmpQuery);
+	
+	if (mysql_num_rows($tmpGames) > 0)
+	{
+	?>
       <form name="responseToInvite" action="tableaubord.php" method="post">
         <h3> On me propose une partie</h3>
         
         <div id="tabliste">
-          <table border="0" width="650">
+          <table border="0" width="100%">
             <tr>
-              <th width="150">Adversaire</th>
-              <th width="50">Votre couleur</th>
-              <th width="120">Type</th>
-              <th width="230">Réponse</th>
-              <th width="100">Action</th>
+              <th>Adversaire</th>
+              <th>Votre couleur</th>
+              <th>Type / Réponse</th>
+              <th>Action</th>
             </tr>
+            
             <?
-	$tmpQuery = "SELECT * FROM games WHERE gameMessage = 'playerInvited' AND ((whitePlayer = ".$_SESSION['playerID']." AND messageFrom = 'black') OR (blackPlayer = ".$_SESSION['playerID']." AND messageFrom = 'white')) ORDER BY dateCreated";
-	$tmpGames = mysql_query($tmpQuery);
-
-	if (mysql_num_rows($tmpGames) == 0)
-		echo("<tr><td colspan='5'>Personne ne vous propose de partie</td></tr>\n");
-	else
 		while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
 		{
 			/* Opponent */
@@ -601,8 +513,8 @@
 			}
 			
 			/* Response */
-			echo ("</td><td align='center'>");
-			echo ("<TEXTAREA NAME='respMessage' COLS='33' ROWS='3' style='background-color:white;border-color:#CCCCCC;'></TEXTAREA>");
+			echo ("<br/>");
+			echo ("<TEXTAREA NAME='respMessage' COLS='15' ROWS='3' style='background-color:white;border-color:#CCCCCC;'></TEXTAREA>");
 			
 			/* Action */
 			echo ("</td><td align='center'>");
@@ -611,7 +523,7 @@
 			
 			echo("</td></tr>\n");
 		}
-?>
+	?>
           </table>
         </div>
         <input type="hidden" name="response" value="">
@@ -619,8 +531,69 @@
         <input type="hidden" name="gameID" value="">
         <input type="hidden" name="ToDo" value="ResponseToInvite">
       </form>
-    </div>
-  </div>
+	<? }?>
+	
+      <form name="existingGames" action="partie.php" method="post">
+        <h3> Mes parties en cours</h3>
+        
+		<div id="mosaique">
+        <?
+        	
+			$tmpGames = mysql_query("SELECT G.gameID gameID, G.eco eco, DATE_FORMAT(G.lastMove, '%d/%m/%Y %T') dateCreatedF, DATE_FORMAT(lastMove, '%Y-%m-%d') lastMove, G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, G.position position, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick
+                                        FROM games G, players W, players B
+                                        WHERE gameMessage = ''
+                                        AND (whitePlayer = ".$_SESSION['playerID']." OR blackPlayer = ".$_SESSION['playerID'].")
+                                        AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
+                                        ORDER BY dateCreated");
+
+            $nbGame = mysql_num_rows($tmpGames);
+
+            if ($nbGame > 0)
+        	{
+                
+                $numGame = 1;
+                
+                echo("<table width='100%' border='0'>");
+                while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
+        		{
+                     
+                     echo("<tr>");
+                     
+                     echo("<td align='center'>");
+                     drawboardGame($tmpGame['gameID'],$tmpGame['whitePlayer'],$tmpGame['blackPlayer'], $tmpGame['position']);
+
+                     echo($numGame.". <a href='profil_consultation.php?playerID=".$tmpGame['whitePlayerID']."'>".$tmpGame['whiteNick']."</a>-<a href='profil_consultation.php?playerID=".$tmpGame['blackPlayerID']."'>".$tmpGame['blackNick']."</a> [".$tmpGame['eco']."] ");
+                     if ($isPlayersTurn)
+    				        echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'><img src='/images/hand.gif' border=0 alt='Jouer'/></a>");
+                     else
+    				        echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'><img src='/images/eye.gif' border=0 alt='Voir'/></a>");
+    				 
+					 list($year, $month, $day) = explode("-", $tmpGame['lastMove']);
+					 
+    				 $expireDate = date("d/m/Y", mktime(0,0,0, $month, $day + $CFG_EXPIREGAME, $year));
+    				 echo("<br/>Expire le : ".$expireDate);
+                     echo("</td>");
+                     
+                     echo("</tr>");
+                     
+                     $numGame = $numGame + 1;
+                }
+                echo("</table>");
+            } else
+            {
+			  echo("<p>Vous n'avez aucune partie en cours...</p>");
+			}
+            
+        ?>
+        </div>
+        <input type="hidden" name="gameID" value="">
+        <input type="hidden" name="sharePC" value="no">
+        <input type="hidden" name="from" value="encours">
+      </form>
+      <br/>
+      
+      
+ 
 <?
     require 'page_footer.php';
     mysql_close();

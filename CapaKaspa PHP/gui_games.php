@@ -115,7 +115,7 @@
 	}
 
     /* Utilisé dans l'écran d'une partie */
-    function drawboard()
+    function drawboard($withCoord)
 	{
 		global $board, $playersColor, $numMoves, $nb_game_vacation;
 
@@ -145,13 +145,7 @@
 
 		/* determine if board is disabled */
 		$isDisabled = isBoardDisabled();
-
-		echo ("<table border='0'>\n");
-		if ($isDisabled)
-			echo ("<tr bgcolor='#DDDDDD'>");
-		else
-			echo ("<tr bgcolor='beige'>");
-
+		
 		/* setup vars to show player's perspective of the board */
 		if ($perspective == "white")
 		{
@@ -173,26 +167,39 @@
 			$rightCol = 0;
 			$colStep = -1;
 		}
-
-		/* column headers */
-		echo ("<th>&nbsp;</th>");
-
-		/* NOTE: end condition is ($rightCol + $colStep) since we want to output $rightCol */
-		for ($i = $leftCol; $i != ($rightCol + $colStep); $i += $colStep)
-			echo ("<th>".chr($i + 97)."</th>");
-
-		echo ("</tr>\n");
-
+		
+		echo ("<table border='0'>\n");
+		
+		if ($withCoord)
+		{
+			if ($isDisabled)
+				echo ("<tr bgcolor='#DDDDDD'>");
+			else
+				echo ("<tr bgcolor='beige'>");
+			
+			/* column headers */
+			echo ("<th>&nbsp;</th>");
+	
+			/* NOTE: end condition is ($rightCol + $colStep) since we want to output $rightCol */
+			for ($i = $leftCol; $i != ($rightCol + $colStep); $i += $colStep)
+				echo ("<th>".chr($i + 97)."</th>");
+	
+			echo ("</tr>\n");
+		}
+		
 		/* for each row... */
 		/* NOTE: end condition is ($bottomRow + $rowStep) since we want to output $bottomRow */
 		for ($i = $topRow; $i != ($bottomRow + $rowStep); $i += $rowStep)
 		{
 			echo ("<tr>\n");
-			if ($isDisabled)
-				echo ("<th width='20' bgcolor='#DDDDDD'>".($i+1)."</th>\n");
-			else
-				echo ("<th width='20' bgcolor='beige'>".($i+1)."</th>\n");
-
+			if ($withCoord)
+			{
+				if ($isDisabled)
+					echo ("<th width='20' bgcolor='#DDDDDD'>".($i+1)."</th>\n");
+				else
+					echo ("<th width='20' bgcolor='beige'>".($i+1)."</th>\n");
+			}
+			
 			/* for each col... */
 			/* NOTE: end condition is ($rightCol + $colStep) since we want to output $rightCol */
 			for ($j = $leftCol; $j != ($rightCol + $colStep); $j += $colStep)
@@ -484,11 +491,11 @@
 		<?
 	}
 
-	function writePromotion()
+	function writePromotion($isMobile)
 	{
 	?>
 		
-		<table width="350" border="0">
+		<table <?if (!isMobile) {?>width="350"><?}?> border="0">
 		<tr><td>
 			Promouvoir le pion en :
 			<br>
@@ -503,11 +510,11 @@
 	<?
 	}
 
-	function writeUndoRequest()
+	function writeUndoRequest($isMobile)
 	{
 	?>
 		
-		<table width="350" border="0">
+		<table <?if (!isMobile) {?>width="350"><?}?> border="0">
 		<tr><td>
 			Votre adversaire voudrait annuler son dernier coup.  Vous l'autorisez ?
 			<br>
@@ -521,11 +528,11 @@
 	<?
 	}
 
-	function writeDrawRequest()
+	function writeDrawRequest($isMobile)
 	{
 	?>
 		
-		<table width="350" border="0">
+		<table <?if (!isMobile) {?>width="350"><?}?> border="0">
 		<tr><td>
 			Votre adversaire vous propose une nulle.  Etes vous d'accord ?
 			<br>

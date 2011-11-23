@@ -3,19 +3,19 @@
 
 	/* load settings */
 	if (!isset($_CONFIG))
-		require 'config.php';
+		require '../config.php';
 	
 	/* define constants */
-	require 'chessconstants.php';
+	require '../chessconstants.php';
 
 	/* include outside functions */
-	require_once('chessutils.php');
-	require 'gui_games.php';
-	require 'bwc_games.php';
-	require 'bwc_board.php';
+	require_once('../chessutils.php');
+	require '../gui_games.php';
+	require '../bwc_games.php';
+	require '../bwc_board.php';
 
 	/* check session status */
-	require 'sessioncheck.php';
+	require '../sessioncheck.php';
 	
 	/* check if loading game 
 	if (isset($_POST['gameID']))
@@ -25,7 +25,7 @@
 	define ("DEBUG", 0);
 
 	/* connect to database */
-	require 'connectdb.php';
+	require '../connectdb.php';
 
 	/* ajoute un message au dialogue */
 	$isMessage = isset($_POST['addMessage']) ? $_POST['addMessage']:Null;
@@ -154,10 +154,11 @@
 	if ($_SESSION['isSharedPC'])
 		$titre_page = '';
 	else if ($isPlayersTurn)
-        $titre_page = "Echecs en différé - Votre coup";
+        $titre_page = "Echecs en différé (mobile) - Votre coup";
 	else
-        $titre_page = "Echecs en différé - Le coup de l'adversaire";
-	$desc_page = "Jouer aux échecs en différé. C'est votre partie, à vous de jouer.";
+        $titre_page = "Echecs en différé (mobile) - Le coup de l'adversaire";
+	
+    $desc_page = "Jouer aux échecs en différé sur votre smartphone. C'est votre partie, à vous de jouer.";
     require 'page_header.php';
     //echo("<meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>\n");
 ?>
@@ -169,84 +170,67 @@
 if (DEBUG)
 	alert("Game initilization complete!");
 </script>
-<script type="text/javascript" src="javascript/chessutils.js">
+<script type="text/javascript" src="http://www.capakaspa.info/javascript/chessutils.js">
  /* these are utility functions used by other functions */
 </script>
-<script type="text/javascript" src="javascript/commands.js">
+<script type="text/javascript" src="http://www.capakaspa.info/javascript/commands.js">
 // these functions interact with the server
 </script>
-<script type="text/javascript" src="javascript/validation.js">
+<script type="text/javascript" src="http://www.capakaspa.info/javascript/validation.js">
 // these functions are used to test the validity of moves
 </script>
-<script type="text/javascript" src="javascript/isCheckMate.js">
+<script type="text/javascript" src="http://www.capakaspa.info/javascript/isCheckMate.js">
 // these functions are used to test the validity of moves
 </script>
-<script type="text/javascript" src="javascript/squareclicked.js">
+<script type="text/javascript" src="http://www.capakaspa.info/javascript/squareclicked.js">
 // this is the main function that interacts with the user everytime they click on a square
 </script>
-<script type="text/javascript" src="iechecs/js/action.js">
- /* Actions échiquier en ligne */
-</script>
 <?
-    $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-
-    if ($_POST['from'] == "encours" )
-        $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > <a href='tableaubord.php'>Mes parties</a> > Une partie";
-    else if ($_POST['from'] == "toutes")
-        $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > <a href='listeparties.php'>Les autres parties en cours</a> > Une partie";
-    else if ($_POST['from'] == "archive")
-        $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > <a href='partiesterminees.php'>Les parties terminées</a> > Une partie";
-
     require 'page_body.php';
 ?>
-  <div id="contentlarge">
-    <div class="blogbody">
-      <table>
-      		<tr>
-	      		<td valign="middle"><img src="images/ampoule.jpg"></td> 
-	      		<td valign="middle">Utilisez l'échiquier en ligne pour manipuler votre partie mais aussi pour revoir les règles du jeu...</td>
-				<td>
-				<div id="fb-root"></div>
-				<script>(function(d, s, id) {
-				  var js, fjs = d.getElementsByTagName(s)[0];
-				  if (d.getElementById(id)) {return;}
-				  js = d.createElement(s); js.id = id;
-				  js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1";
-				  fjs.parentNode.insertBefore(js, fjs);
-				}(document, 'script', 'facebook-jssdk'));</script>
-				
-				<div class="fb-like-box" data-href="http://www.facebook.com/capakaspa" data-width="280" data-show-faces="false" data-stream="false" data-header="false"></div>
-				</td>
-        	</tr>
-        </table>
-        <?
-        if ($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['whitePlayer'])
-		{
-        	if (mysql_num_rows($res_adv_vacation) > 0)
-				echo("<div class='success'>Votre adversaire est absent en ce moment ! La partie est ajournée.</div>");
-
-			else
-				echo("<br/>");
-		}
-		?>
-        
-		<form name="gamedata" method="post" action="partie.php">
-	  <table border="0">
+	<div id="onglet">
+	<table width="100%" cellpadding="0" cellspacing="0">
+	<tr>
+		<td><div class="ongletdisable"><a href="tableaubord.php">Parties</a></div></td>
+		<td><div class="ongletdisable"><a href="invitation.php">Invitation</a></div></td>
+		<td><div class="ongletdisable"><a href="profil.php">Mon profil</a></div></td>	
+	</tr>
+	</table>
+	</div>
+<?
+	if ($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['whitePlayer'])
+	{
+        if (mysql_num_rows($res_adv_vacation) > 0)
+			echo("<div class='success'>Votre adversaire est absent en ce moment ! La partie est ajournée.</div>");
+		else
+			echo("<br/>");
+	}
+?>
+    <center>   
+	<form name="gamedata" method="post" action="partie.php">
+		<table border="0">
         <tr valign="top" align="center">
-          <td>
-              <?
-		if ($isPromoting)
-			writePromotion(false);
-	?>
-              <?
-		if ($isUndoRequested)
-			writeUndoRequest(false);
-	?>
-              <?
-		if ($isDrawRequested)
-			writeDrawRequest(false);
-	?>
-              <? drawboard(true); ?>
+        <td>
+        	<? writeStatus(); ?>
+			
+			<input type="hidden" name="from" value="<? echo($_POST['from']) ?>" />
+        </td>
+        </tr>
+        <tr valign="top" align="center">
+        <td>
+	        <?
+			if ($isPromoting)
+				writePromotion(true);
+			?>
+	        <?
+			if ($isUndoRequested)
+				writeUndoRequest(true);
+			?>
+	        <?
+			if ($isDrawRequested)
+				writeDrawRequest(true);
+			?>
+	        <? drawboard(false); ?>
               <nobr>
               <input type="button" name="btnUndo" value="Annuler votre coup" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='undo()'"); ?>>
               <input type="button" name="btnReload" value="Actualiser l'échiquier" onClick="document.gamedata.submit();">
@@ -269,29 +253,13 @@ if (DEBUG)
               <input type="hidden" name="isInCheck" value="false">
               <input type="hidden" name="isCheckMate" value="false">
             
-            </td>
-          <td width="15">&nbsp;</td>
-          <td><? writeStatus(); ?>
-            
-           
-		   
-		    <? 
-				$listeCoups = writeHistory();
-				$pgnstring = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $listeCoups);
-			?>
-			<img src="images/puce.gif"/> <a href="javascript:void(0)" onclick='window.open("http://www.iechecs.com/iechecs.htm?app,<? if ($playersColor == "black") echo("p=t,"); ?> pgn=<? echo($pgnstring); ?>","iechecs","height=413,width=675,status=no,toolbar=no,menubar=no,location=no,resizable=yes")' >Ouvrir la partie dans l'échiquier en ligne</a>
-			
-			<br />
-			
-			<input type="hidden" name="from" value="<? echo($_POST['from']) ?>" />
           </td>
-        </tr>
+          </tr>
+          
         <tr>
-        <td colspan="3">
+        <td>
         <?
-              
-					
-					
+              		
 					echo "<TABLE widht='100%'>";
 					echo "<TR><TD>";
 					$c=0;
@@ -327,30 +295,28 @@ if (DEBUG)
               ?>
             </td>
         </tr>
+        <tr>
+          <td valign="top" align="center">   
+		  	<? 
+				$listeCoups = writeHistory();
+				$pgnstring = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $listeCoups);
+			?>
+			
+        </td>
+        </tr>
       </table>
       
-      <center><script type="text/javascript"><!--
-      google_ad_client = "ca-pub-8069368543432674";
-      /* CapaKaspa Partie Bandeau Discussion */
-      google_ad_slot = "9888264481";
-      google_ad_width = 468;
-      google_ad_height = 60;
-      //-->
-      </script>
-      <script type="text/javascript"
-      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-      </script>
-		</center>
+      
       <h3>Commentaires</h3>
  		<p>     
-      	<input type="text" name="message" maxlength="255" size="87" />
+      	<input type="text" name="message" maxlength="255" size="30" />
 		<input type="button" name="btnSend" value="Poster" <? echo ("onClick='send()'"); ?> />
-      	<TEXTAREA NAME='dialogue' COLS='74' ROWS='8' readonly><? echo($dialogue); ?></TEXTAREA>
-			</p>	
+		<br/>
+      	<TEXTAREA NAME='dialogue' COLS='40' ROWS='8' readonly><? echo($dialogue); ?></TEXTAREA>
+		</p>	
 		<input type="hidden" name="addMessage" value="no" />
 	  </form>
-    </div>
-  </div>
+    </center>
 <?
     require 'page_footer.php';
 ?>
