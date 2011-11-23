@@ -11,8 +11,7 @@
     	<div class="blogbody">
     		<center>
     		
-	 		<!-- Google Search Result Snippet Begins -->
-		    <div id="cse-search-results"></div>
+	 		<div id="cse-search-results"></div>
 			<script type="text/javascript">
 			  var googleSearchIframeName = "cse-search-results";
 			  var googleSearchFormName = "cse-search-box";
@@ -21,8 +20,6 @@
 			  var googleSearchPath = "/cse";
 			</script>
 			<script type="text/javascript" src="http://www.google.com/afsonline/show_afs_search.js"></script>
-    		<!-- Google Search Result Snippet Ends -->
-    		
       		</center>  
       	</div>
 	  </div>

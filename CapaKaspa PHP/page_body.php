@@ -60,9 +60,10 @@ getMois($month);
 			print "$mois[$month] ";
 			print Date(Y);?></h1></td>
 			<td width="125"><h2><img src="images/point.png"/>&nbsp;<a href="tableaubord.php">ZONE JEUX</a></h2></td>
+			<td width="125"><h2><img src="images/point.png"/>&nbsp;<a href="http://mobile.capakaspa.info">MOBILE</a></h2></td>
 			<td width="125"><h2><img src="images/point.png"/>&nbsp;<a href="http://forum.capakaspa.info">FORUM</a></h2></td>
 			<td width="125"><h2><img src="images/point.png"/>&nbsp;<a href="http://blog.capakaspa.info">BLOG</a></h2></td>
-			<td width="125"><h2><img src="images/point.png"/>&nbsp;<a href="http://www.facebook.com/capakaspa" target="_blank">FACEBOOK</a></h2></td>
+			
 		</tr>
     </table>
   </div>
@@ -81,9 +82,9 @@ getMois($month);
         
         	<form action="http://www.capakaspa.info/recherche.php" id="cse-search-box">
 			  <div>
-			    <input type="hidden" name="cx" value="partner-pub-8069368543432674:5914611902" />
+			    <input type="hidden" name="cx" value="partner-pub-8069368543432674:7445098107" />
 			    <input type="hidden" name="cof" value="FORID:10" />
-			    <input type="hidden" name="ie" value="UTF-8" />
+			    <input type="hidden" name="ie" value="ISO-8859-1" />
 			    <input type="text" name="q" size="31" />
 			    <input type="submit" name="sa" value="Rechercher" />
 			  </div>
