@@ -9,7 +9,7 @@
 		border-bottom-style: none;
 		border-left-style: none;
 		border-width: 1px;
-		border-color: #99B2CC;">CapaKaspa v4.4 - 11/2011 - Conception : <a href="http://www.netassistant.fr" target="_blank">NetAssistant.fr</a> - Contactez l'administrateur : capakaspa@capakaspa.info
+		border-color: #99B2CC;">CapaKaspa v4.4.1 - 11/2011 - Conception : <a href="http://www.netassistant.fr" target="_blank">NetAssistant.fr</a> - Contactez l'administrateur : capakaspa@capakaspa.info
 	</div>
   
 </div>

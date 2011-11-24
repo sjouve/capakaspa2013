@@ -2,7 +2,7 @@
 	require_once('rss_fetch.inc');			
 	
 	// Les URLs des fils RSS utilisés
-	define ("URL_RSS_BLOG", "http://blog.capakaspa.info/atom.php");
+	define ("URL_RSS_BLOG", "http://blog.capakaspa.info/rss.php");
 	define ("URL_RSS_FORUM", "http://forum.capakaspa.info/topics_anywhere.php?mode=show&out=rss2.0&f=a&n=5&sfn=y&r=y&sr=y&a=y&so=d&b=non&lpb=0&lpd=0&af=p2xibKcgKKdmbqcpIKd0dKd8p2xwYacsIKdscHSnICincmVwpyk%3D");
 	define ("URL_RSS_ABOUT", "http://z.about.com/6/g/chess/b/index.xml");
 	define ("URL_RSS_ABOUT_POP", "http://z.about.com/6/o/m/chess_p.xml");
@@ -27,8 +27,8 @@
 			{
 				$href = $item['link'];
 				$title = $item['title'];
-				$description = $item['summary'];
-				$pubDate = $item['updated'];
+				$description = $item['description'];
+				$pubDate = $item['dc:date'];
 				
 				if ($nb==0) 
 				{	echo("<div class='rsstitlefirst'><img src='images/porte_voix.png'><b> $title</b>");}
