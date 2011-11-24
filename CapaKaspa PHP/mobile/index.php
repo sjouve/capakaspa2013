@@ -57,7 +57,7 @@ require 'page_body.php';
       	<br/>
       	<!-- <img src="/images/puce.gif"/> <a href="jouer-echecs-differe-inscription.php">S'inscrire</a>-->
 	  	<img src="/images/puce.gif"/> <a href="jouer-echecs-differe-passe-oublie.php">Mot de passe oublié</a>
-	  	<p>Pour vous inscrire et accéder à la zone de jeu d'échecs en différé du site CapaKaspa veuillez vous diriger vers la version pour ordinateur du site en cliquant sur le lien ci-dessous.</p>
+	  	<p>Pour vous inscrire et accéder à la zone de jeu d'échecs en différé du site CapaKaspa veuillez vous diriger vers la version pour ordinateur du site en cliquant sur le lien plus bas.</p>
 	  	
 	  	</center>
 	<? } else {?>
@@ -78,17 +78,17 @@ require 'page_body.php';
         <input type="hidden" name="ToDo" value="Logout">
         <input type="submit" value="Deconnexion">
         <br/><br/>
-        <div class="navlinks">
+		
+      	</form>
+	<? } ?>
+	<div class="navlinks">
 			<div class="title">Statistiques</div>
 		  	<ul>
 				<li><img src="images/hand.gif" />  Parties en cours : <? echo(getNbActiveGameForAll())?></li>
 				<li><img src="images/joueur_actif.gif" />  Joueurs actifs : <? echo(getNbActivePlayers())?></li>
 				<li><img src="images/joueur_passif.gif" />  Joueurs passifs : <? echo(getNbPassivePlayers())?></li>
 		  	</ul> 	
-		</div>
-		
-      	</form>
-	<? } ?>
+	</div>
 	<br/>
 	
 <?
