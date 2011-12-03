@@ -39,7 +39,8 @@ function getPlayerByNickEmail($nick, $email)
 /* Insérer un joueur */	
 function insertPlayer($password, $firstName, $lastName, $nick, $email, $profil, $situationGeo, $anneeNaissance)
 {
-	$res_player = mysql_query("INSERT INTO players (password, firstName, lastName, nick, email, profil, situationGeo, anneeNaissance) VALUES ('".$password."', '".addslashes(strip_tags($firstName))."', '".addslashes(strip_tags($lastName))."', '".$nick."', '".$email."', '".addslashes(strip_tags($profil))."', '".addslashes(strip_tags($situationGeo))."', '".$anneeNaissance."')");
+	$res_player = mysql_query("INSERT INTO players (password, firstName, lastName, nick, email, profil, situationGeo, anneeNaissance, creationDate) 
+	VALUES ('".$password."', '".addslashes(strip_tags($firstName))."', '".addslashes(strip_tags($lastName))."', '".$nick."', '".$email."', '".addslashes(strip_tags($profil))."', '".addslashes(strip_tags($situationGeo))."', '".$anneeNaissance."', now())");
 
 	if ($res_player)	
 		return mysql_insert_id();
@@ -51,6 +52,19 @@ function insertPlayer($password, $firstName, $lastName, $nick, $email, $profil, 
 function updatePlayer($playerID, $password, $firstName, $lastName, $nick, $email, $profil, $situationGeo, $anneeNaissance, $activate)
 { 		
 	  $res_player = mysql_query("UPDATE players SET password='".$password."', firstName='".addslashes(strip_tags($firstName))."', lastName='".addslashes(strip_tags($lastName))."', nick='".$nick."', email='".$email."', profil='".addslashes(strip_tags($profil))."', situationGeo='".addslashes(strip_tags($situationGeo))."', anneeNaissance='".$anneeNaissance."', activate=".$activate." WHERE playerID = ".$playerID);
+	  
+	if ($res_player)	
+		return TRUE;
+	else
+		return FALSE;
+}
+
+/* Mettre à jour un joueur avec données réseau social */
+function updatePlayerWithSocial($playerID, $password, $firstName, $lastName, $nick, $email, $profil, $situationGeo, $anneeNaissance, $activate, $socialNetwork, $socialID)
+{ 		
+	  $res_player = mysql_query("UPDATE players 
+	  							SET password='".$password."', firstName='".addslashes(strip_tags($firstName))."', lastName='".addslashes(strip_tags($lastName))."', nick='".$nick."', email='".$email."', profil='".addslashes(strip_tags($profil))."', situationGeo='".addslashes(strip_tags($situationGeo))."', anneeNaissance='".$anneeNaissance."', activate=".$activate.", socialID='".$socialID."', socialNetwork='".$socialNetwork."'  
+	  							WHERE playerID = ".$playerID);
 	  
 	if ($res_player)	
 		return TRUE;
@@ -238,6 +252,55 @@ function listEloProgress($playerID)
 				FROM elo_history 
 				WHERE playerID = ".$playerID." 
 				ORDER BY eloDate ASC";
+	
+	return mysql_query($tmpQuery);
+}
+
+/*
+ * Recherche des utilisateurs
+ * $mode : count = renvoi le nb de résultat de la recherche sinon le résultat
+ * $debut :
+ * $limit : nb résultat par page 
+ * 
+ */
+function searchPlayers($mode, $debut, $limit, $critFavorite, $critStatus, $critEloStart, $critEloEnd)
+{
+	
+	if ($mode=="count")
+		$tmpQuery = "SELECT count(*) nbPlayers 
+				FROM players P";
+	else
+		$tmpQuery = "SELECT P.playerID, P.nick, P.anneeNaissance, P.profil, P.situationGeo, P.elo 
+				FROM players P";
+	
+	if ($critFavorite == "oui")
+		$tmpQuery .= ", fav_players F";
+	
+	$tmpQuery .= " WHERE activate=1 
+				AND P.playerID <> ".$_SESSION['playerID'];
+	
+	if ($critStatus == "actif")			 
+		$tmpQuery .= " AND DATE_ADD(P.lastConnection, INTERVAL 14 DAY) >= NOW()"; 
+	
+	if ($critStatus == "passif")			
+		$tmpQuery .= " AND DATE_ADD(P.lastConnection, INTERVAL 14 DAY) < NOW()";
+
+	
+	if ($critEloStart != '' and $critEloEnd != '')
+		$tmpQuery .= " AND P.elo >= ".$critEloStart." AND P.elo <= ".$critEloEnd;
+	if ($critEloStart != '' and $critEloEnd == '')		
+		$tmpQuery .= " AND P.elo >= ".$critEloStart;
+	if ($critEloStart == '' and $critEloEnd != '')	
+		$tmpQuery .= " AND P.elo <= ".$critEloStart;		
+				
+	if ($critFavorite == "oui")			
+				$tmpQuery .= " AND P.playerID = F.favPlayerID 
+				AND F.playerID = ".$_SESSION['playerID'];
+				 
+		$tmpQuery .= " ORDER BY P.nick ASC";
+				
+	if ($mode != "count")
+		$tmpQuery .= " limit ".$debut.",".$limit;
 	
 	return mysql_query($tmpQuery);
 }

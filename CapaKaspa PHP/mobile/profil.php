@@ -24,7 +24,7 @@
 		
 		case 'UpdateProfil':
 			
-			$err = updateProfil($_SESSION['playerID'], $_POST['pwdPassword'], $_POST['pwdOldPassword'], strip_tags($_POST['txtFirstName']), strip_tags($_POST['txtLastName']), $_POST['txtEmail'], strip_tags($_POST['txtProfil']), strip_tags($_POST['txtSituationGeo']), $_POST['txtAnneeNaissance'], $_POST['rdoTheme'], $_POST['txtEmailNotification']);
+			$err = updateProfil($_SESSION['playerID'], $_POST['pwdPassword'], $_POST['pwdOldPassword'], strip_tags($_POST['txtFirstName']), strip_tags($_POST['txtLastName']), $_POST['txtEmail'], strip_tags($_POST['txtProfil']), strip_tags($_POST['txtSituationGeo']), $_POST['txtAnneeNaissance'], $_POST['rdoTheme'], $_POST['txtEmailNotification'], $_POST['rdoSocialNetwork'], $_POST['txtSocialID']);
 			break;
 			
 		case 'CreateVacation':
@@ -177,6 +177,26 @@
             </td>
           </tr>
 		  <tr>
+            <td> Photo : </td>
+            <td>
+            	<img src="<?echo(getPicturePath($_SESSION['socialNetwork'], $_SESSION['socialID']));?>" width="50" height="50" style="float: left;margin-right: 5px;"/>
+            	Afficher la photo de votre profil :
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><input name="rdoSocialNetwork" type="radio" value="" <? if ($_SESSION['socialNetwork']=="") echo("checked");?>> Aucun
+            	<input name="rdoSocialNetwork" type="radio" value="FB" <? if ($_SESSION['socialNetwork']=="FB") echo("checked");?>> Facebook<br/>
+            	<input name="rdoSocialNetwork" type="radio" value="GP" <? if ($_SESSION['socialNetwork']=="GP") echo("checked");?>> Google+
+            	<input name="rdoSocialNetwork" type="radio" value="TW" <? if ($_SESSION['socialNetwork']=="TW") echo("checked");?>> Twitter
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>ID réseau : <input name="txtSocialID" type="text" size="20" maxlength="100" value="<? echo($_SESSION['socialID']); ?>"> 
+            </td>
+          </tr>
+          <tr>
             <td colspan="2">&nbsp</td>
           </tr>
           <tr>

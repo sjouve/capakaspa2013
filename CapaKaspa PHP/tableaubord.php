@@ -1,4 +1,5 @@
-<?
+<?	require 'mobilecheck.php';
+	
 	session_start();
 			
 	/* load settings */

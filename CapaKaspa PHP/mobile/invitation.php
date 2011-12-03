@@ -4,17 +4,30 @@
 	/* chess utils */
 	require_once('../chessutils.php');
 	
+	require 'gui_list.php';
+	
+	/* connect to the database */
+	require '../connectdb.php';
+	
 	/* check session status */
 	require '../sessioncheck.php';
 	
 	//require 'dac_players.php';
 	
-	$Mode = isset($_GET['mode']) ? $_GET['mode']:'actif';
-	$level = isset($_GET['level']) ? $_GET['level']:'DEB';
-	
     $titre_page = "Echecs en différé (mobile) - Proposition de partie";
     $desc_page = "Jouer aux échecs en différé sur votre smartphone. Recherchez un adversaire pour lui proposer une partie d'échecs en différé.";
     require 'page_header.php';
+?>
+	<script type="text/javascript">
+
+		function loadPage(page)
+		{
+			document.searchPlayers.page.value = page;
+			document.searchPlayers.submit();
+		}
+		
+	</script>
+<?
     require 'page_body.php';
 ?>
 	<div id="onglet">
@@ -66,46 +79,69 @@
 	</form>
 	<br/>
 	<?
-	/* connect to the database */
-	require '../connectdb.php';
-	switch($Mode)
-	{
-		case 'passif':
-		$tmpPlayers = listPlayersPassifs();
-		break;
+            $critStatus = isset($_POST['critStatus']) ? $_POST['critStatus']:"actif";
+            $critFavorite = isset($_POST['critFavorite']) ? $_POST['critFavorite']:"na";
+            
+			$pge = isset($_POST['page']) ? $_POST['page']:0;
+            $limit = 25;
+			$debut = $pge*$limit;
+			$res_count = searchPlayers("count", 0, 0, $_POST['critFavorite'], $critStatus, $_POST['critEloStart'], $_POST['critEloEnd']); 
+			$count = mysql_fetch_array($res_count, MYSQL_ASSOC);
+			$nb_tot = $count['nbPlayers'];
+			$nbpages = ceil($nb_tot/$limit); // ceil = plafond : pour arrondir à la valeur supérieure
+			$resultats = searchPlayers("", $debut, $limit, $_POST['critFavorite'], $critStatus, $_POST['critEloStart'], $_POST['critEloEnd']); 
+			
+		?>
+		<h3>Rechercher un joueur</h3>
 		
-		case 'actif':
-		$tmpPlayers = listPlayersActifs();
-		break;
-		
-		case 'favoris':
-		$tmpPlayers = listPlayersFavoris($_SESSION['playerID']);
-		break;
-		
-		case 'elo':
-		$tmpPlayers = listPlayersByLevel($_GET['level']);
-		break;
-	}	
-	?>
-	<h3>Tous les joueurs</h3>
-	<table>
-	<tr>
-	<td>
-		<img src='images/joueur_actif.gif' /><?if ($Mode != 'actif') echo("<a href='invitation.php?mode=actif'>");?> Actifs<?if ($Mode != 'actif') echo("</a>");?> | 
-		<img src='images/joueur_passif.gif' /><?if ($Mode != 'passif') echo("<a href='invitation.php?mode=passif'>");?> Passifs<?if ($Mode != 'passif') echo("</a>");?> | 
-		<img src='images/favori-etoile-icone.png' /><?if ($Mode != 'favoris') echo("<a href='invitation.php?mode=favoris'>");?> Favoris<?if ($Mode != 'favoris') echo("</a>");?>
-	</td>
-	</tr>
-	<tr>
-	<td>
-		Elo : 
-		<?if ($Mode != 'elo' || ($Mode == 'elo' && $level != 'DEB')) echo("<a href='invitation.php?mode=elo&level=DEB'>");?>< 1300<?if ($Mode != 'elo' || ($Mode == 'elo' && $level != 'DEB')) echo("</a>");?> | 
-		<?if ($Mode != 'elo' || ($Mode == 'elo' && $level != 'MOY')) echo("<a href='invitation.php?mode=elo&level=MOY'>");?>= 1300<?if ($Mode != 'elo' || ($Mode == 'elo' && $level != 'MOY')) echo("</a>");?> | 
-		<?if ($Mode != 'elo' || ($Mode == 'elo' && $level != 'COF')) echo("<a href='invitation.php?mode=elo&level=COF'>");?>1301 à 1400<?if ($Mode != 'elo' || ($Mode == 'elo' && $level != 'COF')) echo("</a>");?> | 
-		<?if ($Mode != 'elo' || ($Mode == 'elo' && $level != 'MAI')) echo("<a href='invitation.php?mode=elo&level=MAI'>");?>> 1400<?if ($Mode != 'elo' || ($Mode == 'elo' && $level != 'MAI')) echo("</a>");?> 
-	</td>
-	</tr>
-	</table>
+			<form name="searchPlayers" action="invitation.php" method="post">
+				<table border="0" width="100%">
+		          <tr>
+		            <td width="20%">Favoris :</td>
+		            <td width="24%">
+		              <input name="critFavorite" type="radio" value="na" <?if ($critFavorite=='na') echo('checked');?>>
+		              Indiff. 
+		            </td>
+		            <td width="26%">
+		              <input name="critFavorite" type="radio" value="oui" <?if ($critFavorite=='oui') echo('checked');?>>
+		              <img src='images/favori-etoile-icone.png' /> Oui  
+		            </td>
+		            <td width="30%">&nbsp;</td>
+		          </tr>
+		          <tr>
+		            <td>Activité :</td>
+		            <td>
+		              <input name="critStatus" type="radio" value="tous" <?if ($critStatus=='tous') echo('checked');?>>
+		              Tous
+		            </td>
+		            <td> 
+		              <input name="critStatus" type="radio" value="actif" <?if ($critStatus=='actif') echo('checked');?>>
+		              <img src='images/joueur_actif.gif' /> Actif
+		            </td>
+		            <td>
+		              <input name="critStatus" type="radio" value="passif" <?if ($critStatus=='passif') echo('checked');?>>
+		              <img src='images/joueur_passif.gif' /> Passif
+		            </td>
+		          </tr>
+		          <tr>
+		            <td width="20%">Elo :</td>
+		            <td>
+		              Entre <input name="critEloStart" type="text" size="4" maxlength="4" value="<? echo($_POST['critEloStart']);?>">
+		            </td>
+		            <td>
+		              et <input name="critEloEnd" type="text" size="4" maxlength="4" value="<? echo($_POST['critEloEnd']);?>">
+		            </td>
+		            <td>
+		            	<input name="Filter" type="submit" value="Filtrer">
+		            </td>
+		          </tr>
+		          
+		        </table>
+	        	<?
+	         	displayPageNav($pge, $limit, $nb_tot, $nbpages);
+	        	?>
+	        	<input type="hidden" name="page" value="">
+	        </form>
 	
 	<div id="tabliste">
 	<table border="0" width="100%">
@@ -117,11 +153,11 @@
 		<th width="25%">Invitation</th>
 	  </tr>
 		<?
-			if (mysql_num_rows($tmpPlayers) == 0)
+			if (mysql_num_rows($resultats) == 0)
 				echo("<tr><td colspan='6'>Il n'y a pas de joueurs</td></tr>\n");
 			else
 			{
-				while($tmpPlayer = mysql_fetch_array($tmpPlayers, MYSQL_ASSOC))
+				while($tmpPlayer = mysql_fetch_array($resultats, MYSQL_ASSOC))
 				{
 					echo ("<tr>");
 					echo ("<form action='tableaubord.php' method='post'>");

@@ -1,4 +1,4 @@
-<?
+<?	require 'mobilecheck.php';
 	session_start();
 
 	/* load settings */
@@ -70,7 +70,9 @@
       < <a href="javascript:history.go(-1)">Retour</a><br/><br/>
 	  <h3>Profil de <? echo($player['nick']); ?> <?if ($favorite) echo("<img src='images/favori-etoile-icone.png'/>");?></h3>
 	  	<div class="profil">
-  			<img src="images/profil_echiquier.png">
+	  	
+	  		<center><img src="<?echo(getPicturePath($player['socialNetwork'], $player['socialID']));?>" width="50" height="50"/>
+  			</center>
   			<? if ($_SESSION['playerID']!=$player['playerID'] && !$favorite) {?>
 			<form action="profil_consultation.php" method="post">
 				<input type="hidden" name="ToDo" value="AddFavorite">

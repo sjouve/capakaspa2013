@@ -436,40 +436,69 @@
 
 	function writeStatus()
 	{
-		global $numMoves, $history, $isCheckMate, $statusMessage, $isPlayersTurn, $whiteNick, $blackNick, $whitePlayerID, $blackPlayerID, $ecoCode, $ecoName, $dateCreated;
-
-		?>
-		<table border="0" width="300" align="center">
-		<tr bgcolor="beige">
+		global $numMoves, $history, $isCheckMate, $statusMessage, $isPlayersTurn, $whiteNick, $blackNick, $whitePlayerID, $blackPlayerID, $ecoCode, $ecoName, $dateCreated, $whiteElo, $blackElo, $whiteSocialID, $whiteSocialNet, $blackSocialID, $blackSocialNet;
 			
-			<th width='100%'>
+		?>
+		<table border="0" width="300" align="center" cellspacing="0" cellpadding="0">
+		<tr bgcolor="beige" valign="top">
+			<th width="15%">
+				<img src="<?echo(getPicturePath($whiteSocialNet, $whiteSocialID));?>" width="40" height="40" style="margin:3px;"/>
+			</th>
+			<th width="35%" align="left">
 			<?
-				
 				if ($isPlayersTurn)
-				{
-					if ($whiteNick == $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
-					echo("<a href='profil_consultation.php?playerID=".$whitePlayerID."'>".$whiteNick."</a> - ");
-					if ($blackNick == $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
-					echo("<a href='profil_consultation.php?playerID=".$blackPlayerID."'>".$blackNick."</a>");	
+				{	
+					echo("<div class='playername'><a href='profil_consultation.php?playerID=".$whitePlayerID."'>".$whiteNick."</a><br/>".$whiteElo);
+					if ($whiteNick == $_SESSION['nick']) echo (" <img src='images/hand.gif'/></div>");
 				}
 				else
 				{
 					if ($whiteNick == $_SESSION['nick'] || $blackNick == $_SESSION['nick'])
 					{
-					  	if ($whiteNick != $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
-						echo("<a href='profil_consultation.php?playerID=".$whitePlayerID."'>".$whiteNick."</a> - "); 
-						if ($blackNick != $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
-						echo("<a href='profil_consultation.php?playerID=".$blackPlayerID."'>".$blackNick."</a>");	
+					  	
+						echo("<div class='playername'><a href='profil_consultation.php?playerID=".$whitePlayerID."'>".$whiteNick."</a><br/>".$whiteElo);
+						if ($whiteNick != $_SESSION['nick']) echo (" <img src='images/hand.gif'/></div>"); 
 					}
 					else
 					{
-					  	echo("<a href='profil_consultation.php?playerID=".$whitePlayerID."'>".$whiteNick."</a> - <a href='profil_consultation.php?playerID=".$blackPlayerID."'>".$blackNick."</a>");
+					  	echo("<div class='playername'><a href='profil_consultation.php?playerID=".$whitePlayerID."'>".$whiteNick."</a><br/>".$whiteElo."</div>");
 					}
 				}
-				
 			?>
-			<br><div class="econame"><?echo("[".$ecoCode."] ".$ecoName);?></div>
-			<div class="econame">Partie débutée le : <?echo($dateCreated);?></div>
+			</th>
+			<th width="35%" align="right">
+			<?
+				if ($isPlayersTurn)
+				{
+					
+					echo("<div class='playername'><a href='profil_consultation.php?playerID=".$blackPlayerID."'>".$blackNick."</a><br/>");
+					if ($blackNick == $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
+					echo($blackElo."</div>");	
+				}
+				else
+				{
+					if ($whiteNick == $_SESSION['nick'] || $blackNick == $_SESSION['nick'])
+					{
+						
+						echo("<div class='playername'><a href='profil_consultation.php?playerID=".$blackPlayerID."'>".$blackNick."</a><br/>");
+						if ($blackNick != $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
+						echo($blackElo."</div>");	
+					}
+					else
+					{
+					  	echo("<div class='playername'><a href='profil_consultation.php?playerID=".$blackPlayerID."'>".$blackNick."</a><br/>".$blackElo."</div>");
+					}
+				}
+			?>
+			</th>
+			<th width="15%">
+				<img src="<?echo(getPicturePath($blackSocialNet, $blackSocialID));?>" width="40" height="40" style="margin:3px;"/><br/>
+			</th>
+		</tr>
+		<tr bgcolor="beige">
+			<th colspan="4">
+				<div class="econame"><?echo("[".$ecoCode."] ".$ecoName);?></div>
+				<div class="econame">Partie débutée le : <?echo($dateCreated);?></div>
 			</th>
 			
 		</tr>
@@ -482,9 +511,9 @@
 			$curColor = "Les Noirs";
 
 		if (!$isCheckMate && ($history[$numMoves]['isInCheck'] == 1))
-			echo("<td align='center' bgcolor='red'>\n<b>".$curColor." sont en échecs!</b><br>\n".$statusMessage."</td>\n");
+			echo("<td align='center' bgcolor='red' colspan='4'>\n<b>".$curColor." sont en échecs!</b><br>\n".$statusMessage."</td>\n");
 		else
-			echo("<td >".$statusMessage."&nbsp;</td>\n");
+			echo("<td colspan='4'>".$statusMessage."&nbsp;</td>\n");
 		?>
 		</tr>
 		</table>
@@ -495,7 +524,7 @@
 	{
 	?>
 		
-		<table <?if (!isMobile) {?>width="350"><?}?> border="0">
+		<table <?if (!isMobile) {?>width="350"<?};?> border="0">
 		<tr><td>
 			Promouvoir le pion en :
 			<br>
@@ -514,7 +543,7 @@
 	{
 	?>
 		
-		<table <?if (!isMobile) {?>width="350"><?}?> border="0">
+		<table <?if (!isMobile) {?>width="350"<?};?> border="0">
 		<tr><td>
 			Votre adversaire voudrait annuler son dernier coup.  Vous l'autorisez ?
 			<br>
@@ -532,7 +561,7 @@
 	{
 	?>
 		
-		<table <?if (!isMobile) {?>width="350"><?}?> border="0">
+		<table <?if (!isMobile) {?>width="350"<?};?> border="0">
 		<tr><td>
 			Votre adversaire vous propose une nulle.  Etes vous d'accord ?
 			<br>

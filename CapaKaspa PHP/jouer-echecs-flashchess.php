@@ -11,14 +11,9 @@
 ?>
   <div id="contentlarge">
     <div class="blogbody">
-    <table>
-		<tr>
-		<td valign="middle"><img src="images/ampoule.jpg"></td> 
-		<td valign="middle">Exercez-vous, jouez une partie d'échecs contre un adversaire toujours disponible !</td>
-    </tr>
-    </table>
+    <h3>Jouez une partie d'échecs en Flash contre un adversaire toujours disponible !</h3>
     
-        <br/>
+        
       <!-- AddThis Button BEGIN -->
       <div class="addthis_toolbox addthis_default_style ">
       <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -28,14 +23,10 @@
       </div>
       <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e7cb2a45be34669"></script>
       <!-- AddThis Button END -->
+		<br/>
 		<center>
 		
-    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="650" height="500">
-			<param name=movie value="flashchess3.swf">
-			<param name=quality value=high>
-			<embed src="flashchess3.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="650" height="500">
-			</embed>
-		</object>
+    	<embed width="650" height="500" name="plugin" src="/bin/FLChess.swf" type="application/x-shockwave-flash">
 
 		</center>
 		<br/>

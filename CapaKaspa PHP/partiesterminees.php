@@ -1,4 +1,4 @@
-<?
+<?	require 'mobilecheck.php';
     /*commentaire*/
     session_start();
 

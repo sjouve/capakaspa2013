@@ -1,4 +1,4 @@
-<?
+<?	require 'mobilecheck.php';
 	session_start();
 
 	/* load settings */
@@ -142,7 +142,7 @@
 		}
 	}
 
-	mysql_close();
+	//mysql_close();
 	
 	/* find out if it's the current player's turn */
 	if (( (($numMoves == -1) || (($numMoves % 2) == 1)) && ($playersColor == "white"))
@@ -205,18 +205,6 @@ if (DEBUG)
       		<tr>
 	      		<td valign="middle"><img src="images/ampoule.jpg"></td> 
 	      		<td valign="middle">Utilisez l'échiquier en ligne pour manipuler votre partie mais aussi pour revoir les règles du jeu...</td>
-				<td>
-				<div id="fb-root"></div>
-				<script>(function(d, s, id) {
-				  var js, fjs = d.getElementsByTagName(s)[0];
-				  if (d.getElementById(id)) {return;}
-				  js = d.createElement(s); js.id = id;
-				  js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1";
-				  fjs.parentNode.insertBefore(js, fjs);
-				}(document, 'script', 'facebook-jssdk'));</script>
-				
-				<div class="fb-like-box" data-href="http://www.facebook.com/capakaspa" data-width="280" data-show-faces="false" data-stream="false" data-header="false"></div>
-				</td>
         	</tr>
         </table>
         <?
@@ -353,4 +341,5 @@ if (DEBUG)
   </div>
 <?
     require 'page_footer.php';
+    mysql_close();
 ?>

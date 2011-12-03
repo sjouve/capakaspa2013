@@ -23,7 +23,7 @@ document.jchess.SetLevel(0, parseInt(temps)*1000, parseInt(prof))
   <div id="contentlarge">
     <div class="blogbody">
     
-		<h3>Jouez une partie d'échecs contre un adversaire toujours disponible !</h3>
+		<h3>Jouez une partie d'échecs contre Jchess, un adversaire toujours disponible !</h3>
         
         <!-- AddThis Button BEGIN -->
       <div class="addthis_toolbox addthis_default_style ">
@@ -37,7 +37,7 @@ document.jchess.SetLevel(0, parseInt(temps)*1000, parseInt(prof))
       <br/>
 		<center>
 		<applet
-			code=jchess.class archive="jchess.zip"
+			code=jchess.class archive="/bin/jchess.zip"
 			name=jchess width=600 height=400>
 		  <PARAM NAME="bgcolor" VALUE="#FFFFFF">
 		  <PARAM NAME="color" VALUE="#000080">

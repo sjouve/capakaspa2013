@@ -268,10 +268,18 @@ function sendEmailNotification($history, $isPromoting, $numMoves, $isInCheck)
 		
 function loadGame()
 {
-	global $board, $playersColor, $whiteNick, $blackNick, $whitePlayerID, $blackPlayerID,$numMoves, $CFG_EXPIREGAME, $dialogue, $ecoCode, $ecoName, $dateCreated;
+	global $board, $playersColor, $whiteNick, $blackNick, $whitePlayerID, $blackPlayerID,$numMoves, $CFG_EXPIREGAME, $dialogue, $ecoCode, $ecoName, $dateCreated, $whiteElo, $blackElo, $whiteSocialID, $whiteSocialNet, $blackSocialID, $blackSocialNet;
 	
 	// Informations sur la partie : voir le type de partie (position normale ou pas) et le problème du code ECO
-	$tmpQuery = "SELECT G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, G.dialogue dialogue, G.position position, G.eco eco, DATE_FORMAT(G.lastMove, '%Y-%m-%d') lastMove, DATE_FORMAT(G.dateCreated, '%d/%m/%Y %T') dateCreatedF, G.type type, G.flagBishop flagBishop, G.flagKnight flagKnight, G.flagRook flagRook, G.flagQueen flagQueen, E.name ecoName, W.nick whiteNick, B.nick blackNick FROM games G left join eco E on E.eco = G.eco, players W, players B WHERE gameID = ".$_POST['gameID']." AND G.whitePlayer = W.playerID AND G.blackPlayer = B.playerID";
+	$tmpQuery = "SELECT G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, G.dialogue dialogue, G.position position, 
+	G.eco eco, DATE_FORMAT(G.lastMove, '%Y-%m-%d') lastMove, DATE_FORMAT(G.dateCreated, '%d/%m/%Y %T') dateCreatedF, 
+	G.type type, G.flagBishop flagBishop, G.flagKnight flagKnight, G.flagRook flagRook, G.flagQueen flagQueen, 
+	E.name ecoName, W.nick whiteNick, B.nick blackNick, W.elo whiteElo, B.elo blackElo, W.socialNetwork whiteSocialNet,
+	B.socialNetwork blackSocialNet,  W.socialID whiteSocialID, B.socialID blackSocialID 
+	FROM games G left join eco E on E.eco = G.eco, players W, players B 
+	WHERE gameID = ".$_POST['gameID']." 
+	AND G.whitePlayer = W.playerID 
+	AND G.blackPlayer = B.playerID";
 	
 	$tmpGames = mysql_query($tmpQuery);
 	$tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC);
@@ -308,6 +316,12 @@ function loadGame()
 	$blackPlayerID = $tmpGame['blackPlayer'];
 	$whiteNick = $tmpGame['whiteNick'];
 	$whitePlayerID = $tmpGame['whitePlayer'];
+	$blackElo = $tmpGame['blackElo'];
+	$blackSocialID = $tmpGame['blackSocialID'];
+	$blackSocialNet = $tmpGame['blackSocialNet'];
+	$whiteElo = $tmpGame['whiteElo'];
+	$whiteSocialID = $tmpGame['whiteSocialID'];
+	$whiteSocialNet = $tmpGame['whiteSocialNet'];
 	
 	// A qui le tour
 	if (($numMoves == -1) || ($numMoves % 2 == 1))

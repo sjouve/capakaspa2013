@@ -43,6 +43,7 @@ require 'page_body.php';
 	
 	<? if (!isset($_SESSION['playerID'])||$_SESSION['playerID']==-1) {?>
 		<center>
+		<p>La zone de jeu d'échecs en différé du site CapaKaspa vous permet de jouer vos parties sur votre smartphone avec le meilleur confort d'utilisation possible.</p>
 		<form method="post" action="tableaubord.php">
         <br/>
         Surnom : <input name="txtNick" type="text" size="13" maxlength="20"/><br/>

@@ -15,16 +15,16 @@
 	$CFG_DATABASE = "capakaspa";*/
 
     /* remote server 1and1 */
-	/*$CFG_SERVER = "	db317.1and1.fr";
+	$CFG_SERVER = "db317.1and1.fr";
 	$CFG_USER = "dbo148414304";
 	$CFG_PASSWORD = "4tgtrwae";
-	$CFG_DATABASE = "db148414304";*/
+	$CFG_DATABASE = "db148414304";
 	
 	/* remote server 1and1 test */
-	$CFG_SERVER = "db496.1and1.fr";
+	/*$CFG_SERVER = "db496.1and1.fr";
 	$CFG_USER = "dbo151183899";
 	$CFG_PASSWORD = "NMFTAtrX";
-	$CFG_DATABASE = "db151183899";
+	$CFG_DATABASE = "db151183899";*/
 	
 	/* server settings */
 	// session times out if user doesn't interact after 600 secs (10 mins)

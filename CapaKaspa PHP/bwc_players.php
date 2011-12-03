@@ -62,7 +62,7 @@ function createPlayer()
 }
 
 /* Mettre à jour le profil utilisateur */
-function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $lastName, $email, $profil, $situationGeo, $anneeNaissance, $prefTheme, $prefEmailNotification)
+function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $lastName, $email, $profil, $situationGeo, $anneeNaissance, $prefTheme, $prefEmailNotification, $socialNetwork, $socialID)
 {
 	$player = getPlayer($playerID);
 	if (!$player)
@@ -79,7 +79,7 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 	// Changement de mot de passe
 	if (isset($pwdPassword) && $pwdPassword != "")
 	{
-		$res = updatePlayer($playerID, $pwdPassword, $firstName, $lastName, $player['nick'], $email, $profil, $situationGeo, $anneeNaissance, $player['activate']);
+		$res = updatePlayerWithSocial($playerID, $pwdPassword, $firstName, $lastName, $player['nick'], $email, $profil, $situationGeo, $anneeNaissance, $player['activate'], $socialNetwork, $socialID);
 		if (!$res)
 		{
 			@mysql_query("ROLLBACK");
@@ -88,7 +88,7 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 	}
 	else
 	{
-		$res = updatePlayer($playerID, $player['PASSWORD'], $firstName, $lastName, $player['nick'], $email, $profil, $situationGeo, $anneeNaissance, $player['activate']);
+		$res = updatePlayerWithSocial($playerID, $player['PASSWORD'], $firstName, $lastName, $player['nick'], $email, $profil, $situationGeo, $anneeNaissance, $player['activate'], $socialNetwork, $socialID);
 		if (!$res)
 		{
 			@mysql_query("ROLLBACK");
@@ -122,7 +122,9 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 	$_SESSION['profil'] = stripslashes(strip_tags($_POST['txtProfil']));
 	$_SESSION['anneeNaissance'] = $_POST['txtAnneeNaissance'];
 	$_SESSION['pref_theme'] =  $_POST['rdoTheme'];
-	$_SESSION['pref_emailnotification'] = $_POST['txtEmailNotification'];	
+	$_SESSION['pref_emailnotification'] = $_POST['txtEmailNotification'];
+	$_SESSION['socialID'] = $_POST['txtSocialID'];
+	$_SESSION['socialNetwork'] = $_POST['rdoSocialNetwork'];
 	
 	@mysql_query("COMMIT");
 	return 1;
@@ -231,6 +233,8 @@ function loginPlayer($nick, $password, $flagAuto)
 	$_SESSION['profil'] = stripslashes($player['profil']);
 	$_SESSION['anneeNaissance'] = $player['anneeNaissance'];
 	$_SESSION['elo'] = $player['elo'];
+	$_SESSION['socialNetwork'] = $player['socialNetwork'];
+	$_SESSION['socialID'] = $player['socialID'];
 
 	/* Mettre à jour la date de connexion */
 	// TODO Requête dans DAC
@@ -406,5 +410,29 @@ function countAvailableVacation($playerID)
 	
 	$nbVacation = countVacation($playerID, date('Y'));
 	return MAX_NB_JOUR_ABSENCE - $nbVacation;
+}
+
+/* Récupère le chemin de la photo du profil */
+function getPicturePath($socialNetwork, $socialID)
+{
+	$picturePath = "images/default_avatar.jpg";
+	switch($socialNetwork)
+	{	
+		case 'GP':
+			$profil_googleplus_json = file_get_contents("https://www.googleapis.com/plus/v1/people/".$socialID."?key=AIzaSyARMoBOA-ghsfjIGLpwiq-h92zb7awhnXw");
+			$profil_googleplus = json_decode($profil_googleplus_json);
+			$picturePath = $profil_googleplus->image->url;
+			break;
+		
+		case 'FB':
+			$picturePath = "https://graph.facebook.com/".$socialID."/picture";
+			break;
+			
+		case 'TW':
+			$picturePath = "http://api.twitter.com/1/users/profile_image/".$socialID.".xml";
+			break;
+	}
+	
+	return $picturePath;
 }
 ?>
