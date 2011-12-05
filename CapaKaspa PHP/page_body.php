@@ -117,7 +117,7 @@ getMois($month);
   
   <div id="leftbar">
     <div class="navlinks">
-    	<div class="title">Echecs en différé <img src="../images/lock.gif" /></div>
+    	<div class="title">Jouer aux Echecs <img src="../images/lock.gif" /></div>
     	<div id="connexion">
 	      <? if (!isset($_SESSION['playerID'])||$_SESSION['playerID']==-1) {?>
 	      <form method="post" action="tableaubord.php">
@@ -184,10 +184,11 @@ getMois($month);
       <div class="navlinks">
       <div class="title">Découvrir les échecs</div>
       <ul>
-	  	<li><img src="images/puce.gif"/> <a href="echecs-videos.php">Vidéos !!</a></li>
-		<li><img src="images/puce.gif"/> <a href="echecs-apprentissage.php">Apprentissage</a></li>
-	  	<li><img src="images/puce.gif"/> <a href="echecs-sites-livres.php">Sites & Livres</a></li>
-        <li><img src="images/puce.gif"/> <a href="echecs-outils-informatique.php">Informatique</a></li>
+	  	<li><img src="images/puce.gif"/> <a href="echecs-videos.php">Vidéos sur les échecs</a></li>
+		<li><img src="images/puce.gif"/> <a href="echecs-apprentissage.php">Apprentissage des échecs</a></li>
+		<li><img src="images/puce.gif"/> <img src="images/puce.gif"/> <a href="echecs-ouvertures.php">Ouvertures</a></li>
+	  	<li><img src="images/puce.gif"/> <img src="images/puce.gif"/> <a href="echecs-sites-livres.php">Sites & Livres</a></li>
+        <li><img src="images/puce.gif"/> <a href="echecs-outils-informatique.php">Echecs et informatique</a></li>
         
       </ul>
       </div>

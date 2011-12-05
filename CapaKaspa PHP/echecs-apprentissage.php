@@ -9,18 +9,8 @@
 ?>
 <div id="contentlarge">
 	<div class="blogbody">
-	<div id="onglet">
-        <table width="680" cellpadding="0">
-          <tr>
-		  	<td ><div class="ongletdisable">Phases</div></td>
-			<td ><div class="ongletenable"><a href="echecs-ouvertures.php">Ouvertures</a></div></td>
-			<td ><div class="ongletenable">Tactique</div></td>
-			<td ><div class="ongletenable">Stratégie</div></td>
-			<td ><div class="ongletenable">Finales</div></td>
-			<td width="100%"><div class="ongletend">&nbsp</div></td>		
-          </tr>
-        </table>
-      </div>
+	
+      <h3>Les phases de l'apprentissage aux échecs</h3>
       <!-- AddThis Button BEGIN -->
       <div class="addthis_toolbox addthis_default_style ">
       <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
