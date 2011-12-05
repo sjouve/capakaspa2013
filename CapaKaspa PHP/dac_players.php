@@ -291,7 +291,7 @@ function searchPlayers($mode, $debut, $limit, $critFavorite, $critStatus, $critE
 	if ($critEloStart != '' and $critEloEnd == '')		
 		$tmpQuery .= " AND P.elo >= ".$critEloStart;
 	if ($critEloStart == '' and $critEloEnd != '')	
-		$tmpQuery .= " AND P.elo <= ".$critEloStart;		
+		$tmpQuery .= " AND P.elo <= ".$critEloEnd;		
 				
 	if ($critFavorite == "oui")			
 				$tmpQuery .= " AND P.playerID = F.favPlayerID 

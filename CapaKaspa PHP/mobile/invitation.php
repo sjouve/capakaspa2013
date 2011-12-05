@@ -85,9 +85,13 @@
 			$pge = isset($_POST['page']) ? $_POST['page']:0;
             $limit = 25;
 			$debut = $pge*$limit;
+			$nb_tot = 0;
 			$res_count = searchPlayers("count", 0, 0, $_POST['critFavorite'], $critStatus, $_POST['critEloStart'], $_POST['critEloEnd']); 
-			$count = mysql_fetch_array($res_count, MYSQL_ASSOC);
-			$nb_tot = $count['nbPlayers'];
+			if ($res_count)
+			{
+				$count = mysql_fetch_array($res_count, MYSQL_ASSOC);
+				$nb_tot = $count['nbPlayers'];
+			}
 			$nbpages = ceil($nb_tot/$limit); // ceil = plafond : pour arrondir à la valeur supérieure
 			$resultats = searchPlayers("", $debut, $limit, $_POST['critFavorite'], $critStatus, $_POST['critEloStart'], $_POST['critEloEnd']); 
 			
