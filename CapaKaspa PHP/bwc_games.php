@@ -567,13 +567,13 @@ function processMessages()
 					case 'approved':
 						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$_POST['gameID']." AND msgType = 'undo' AND msgStatus = 'approved' AND destination = '".$playersColor."'";
 						mysql_query($tmpQuery);
-						$statusMessage .= "Annulation acceptée.<br>\n";
+						$statusMessage .= "Annulation de coup acceptée.<br>\n";
 						break;
 					case 'denied':
 						$isUndoing = false;
 						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$_POST['gameID']." AND msgType = 'undo' AND msgStatus = 'denied' AND destination = '".$playersColor."'";
 						mysql_query($tmpQuery);
-						$statusMessage .= "Annulation refusée.<br>\n";
+						$statusMessage .= "Annulation de coup refusée.<br>\n";
 						break;
 				}
 				break;
@@ -587,12 +587,12 @@ function processMessages()
 					case 'approved':
 						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$_POST['gameID']." AND msgType = 'draw' AND msgStatus = 'approved' AND destination = '".$playersColor."'";
 						mysql_query($tmpQuery);
-						$statusMessage .= "Nulle acceptée.<br>\n";
+						$statusMessage .= "Proposition de nulle acceptée.<br>\n";
 						break;
 					case 'denied':
 						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$_POST['gameID']." AND msgType = 'draw' AND msgStatus = 'denied' AND destination = '".$playersColor."'";
 						mysql_query($tmpQuery);
-						$statusMessage .= "Nulle refusée.<br>\n";
+						$statusMessage .= "Proposition de nulle refusée.<br>\n";
 						break;
 				}
 				break;
@@ -608,10 +608,10 @@ function processMessages()
 		switch($tmpMessage['msgType'])
 		{
 			case 'undo':
-				$statusMessage .= "Votre demande d'annulation est en attente.<br>\n";
+				$statusMessage .= "Annulation de coup en attente.<br>\n";
 				break;
 			case 'draw':
-				$statusMessage .= "Votre propostion de nulle est en attente.<br>\n";
+				$statusMessage .= "Proposition de nulle en attente.<br>\n";
 				break;
 		}
 	}	

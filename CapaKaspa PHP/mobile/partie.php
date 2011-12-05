@@ -232,9 +232,9 @@ if (DEBUG)
 			?>
 	        <? drawboard(false); ?>
               <nobr>
-              <input type="button" name="btnUndo" value="Annuler votre coup" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='undo()'"); ?>>
-              <input type="button" name="btnReload" value="Actualiser l'échiquier" onClick="document.gamedata.submit();">
-              <br /><input type="button" name="btnDraw" value="Proposer nulle" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='draw()'"); ?>>
+              <input type="button" name="btnUndo" value="Annuler le coup" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='undo()'"); ?>>
+              <!-- <input type="button" name="btnReload" value="Actualiser l'échiquier" onClick="document.gamedata.submit();"> -->
+              <input type="button" name="btnDraw" value="Proposer nulle" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='draw()'"); ?>>
               <input type="button" name="btnResign" value="Abandonner" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='resigngame()'"); ?>>
 			  
               

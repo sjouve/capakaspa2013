@@ -11,26 +11,36 @@
 	
 	function undo()
 	{
-		document.gamedata.requestUndo.value = "yes";
-		if (DEBUG)
-			alert("gamedata.requestUndo = " + document.gamedata.requestUndo.value);
+		var vok=false;
+		vok = confirm("Confirmez-vous votre demande d'annulation de votre dernier coup ?");
+		if (vok)
+		{
+			document.gamedata.requestUndo.value = "yes";
+			if (DEBUG)
+				alert("gamedata.requestUndo = " + document.gamedata.requestUndo.value);
 
-		document.gamedata.submit();
+			document.gamedata.submit();
+		}
 	}
 
 	function draw()
 	{
-		document.gamedata.requestDraw.value = "yes";
-		if (DEBUG)
-			alert("gamedata.requestDraw = " + document.gamedata.requestDraw.value);
-
-		document.gamedata.submit();
+		var vok=false;
+		vok = confirm("Confirmez-vous votre proposition de partie nulle ?");
+		if (vok)
+		{
+			document.gamedata.requestDraw.value = "yes";
+			if (DEBUG)
+				alert("gamedata.requestDraw = " + document.gamedata.requestDraw.value);
+	
+			document.gamedata.submit();
+		}
 	}
 
 	function resigngame()
 	{
 		var vok=false;
-		vok = confirm("Etes vous sûr ?");
+		vok = confirm("Confirmez-vous votre abandon ?");
 		if (vok)
 		{
 			document.gamedata.resign.value = "yes";

@@ -498,7 +498,8 @@
 		<tr bgcolor="beige">
 			<th colspan="4">
 				<div class="econame"><?echo("[".$ecoCode."] ".$ecoName);?></div>
-				<div class="econame">Partie débutée le : <?echo($dateCreated);?></div>
+				<div class="econame"><a href="javascript:document.gamedata.submit();"><img src="images/icone_rafraichir.png" border="0" alt="Rafraîchir"/></a>
+               Partie débutée le : <?echo($dateCreated);?></div>
 			</th>
 			
 		</tr>
@@ -511,9 +512,10 @@
 			$curColor = "Les Noirs";
 
 		if (!$isCheckMate && ($history[$numMoves]['isInCheck'] == 1))
-			echo("<td align='center' bgcolor='red' colspan='4'>\n<b>".$curColor." sont en échecs!</b><br>\n".$statusMessage."</td>\n");
+			echo("<td align='center' bgcolor='red' colspan='4'>\n<b>".$curColor." sont en échecs !</b><br/>\n".$statusMessage."</td>\n");
 		else
-			echo("<td colspan='4'>".$statusMessage."&nbsp;</td>\n");
+			echo("<td align='center' colspan='4'><b>".$statusMessage."&nbsp;</b></td>\n");
+			
 		?>
 		</tr>
 		</table>

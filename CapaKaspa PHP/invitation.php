@@ -37,7 +37,7 @@
   
 		
 		<form action="tableaubord.php" method="post">
-		<h3>Proposez une nouvelle partie au joueur de votre choix</h3>
+		<h3>Proposez une nouvelle partie au joueur de votre choix <a href="manuel-utilisateur-jouer-echecs-capakaspa.pdf#page=10" target="_blank"><img src="images/point-interrogation.gif" border="0"/></a></h3>
 		<input type="hidden" name="ToDo" value="InvitePlayerByNick">
 	
 		<table width="100%">
@@ -63,7 +63,7 @@
 					<input type="radio" name="color" value="white" checked> Blancs
 					<input type="radio" name="color" value="black"> Noirs
 				</td>
-				<td width="25%" >
+				<td width="25%">
 					<input type="submit" value="Inviter">
 				</td>
 			</tr>
@@ -91,7 +91,7 @@
 			$resultats = searchPlayers("", $debut, $limit, $_POST['critFavorite'], $critStatus, $_POST['critEloStart'], $_POST['critEloEnd']); 
 			
 		?>
-		<h3>Rechercher un joueur</h3>
+		<h3>Rechercher un joueur </h3>
 		<div>
 			<form name="searchPlayers" action="invitation.php" method="post">
 				<table border="0" width="650">
@@ -133,6 +133,7 @@
 		            </td>
 		            <td>
 		            	<input name="Filter" type="submit" value="Filtrer">
+		
 		            </td>
 		          </tr>
 		          

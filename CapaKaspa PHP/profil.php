@@ -182,7 +182,7 @@
           
           <tr>
             <td>&nbsp;</td>
-            <td>ID réseau : <input name="txtSocialID" type="text" size="50" maxlength="100" value="<? echo($_SESSION['socialID']); ?>"> 
+            <td>ID réseau : <input name="txtSocialID" type="text" size="50" maxlength="100" value="<? echo($_SESSION['socialID']); ?>"> <a href="manuel-utilisateur-jouer-echecs-capakaspa.pdf#page=14" target="_blank"><img src="images/point-interrogation.gif" border="0"/></a>
             </td>
           </tr>
 		  <tr>

@@ -534,7 +534,7 @@
 	<? }?>
 	
       <form name="existingGames" action="partie.php" method="post">
-        <h3> Mes parties en cours</h3>
+        <h3> Mes parties en cours <a href="tableaubord.php"><img src="images/icone_rafraichir.png" border="0" alt="Rafraîchir" /></a></h3>
         
 		<div id="mosaique">
         <?
