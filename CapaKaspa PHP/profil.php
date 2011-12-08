@@ -48,18 +48,11 @@
 			var annee = dayDate.getFullYear();
 			if (isEmpty(document.Profil.txtFirstName.value)
 				|| isEmpty(document.Profil.txtLastName.value)
-				|| isEmpty(document.Profil.txtEmail.value)
 				|| isEmpty(document.Profil.txtSituationGeo.value)
 				|| isEmpty(document.Profil.txtProfil.value)
 				|| isEmpty(document.Profil.txtAnneeNaissance.value))
 			{
 				alert("Toutes les informations personnelles sont obligatoires.");
-				return;
-			}
-			
-			if (!isEmailAddress(document.Profil.txtEmail.value))
-			{
-				alert("L'adresse de messagerie n'est pas au bon format.");
 				return;
 			}
 			
@@ -150,7 +143,7 @@
           </tr>
 		  <tr>
             <td> Email : </td>
-            <td><input name="txtEmail" type="text" size="50" maxlength="50" value="<? echo($_SESSION['email']); ?>">
+            <td><? echo($_SESSION['email']); ?><input type="hidden" name="txtEmail" value="<? echo($_SESSION['email']); ?>">
             </td>
           </tr>
 		  <tr>
