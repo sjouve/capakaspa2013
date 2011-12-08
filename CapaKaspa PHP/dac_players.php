@@ -268,10 +268,10 @@ function searchPlayers($mode, $debut, $limit, $critFavorite, $critStatus, $critE
 	
 	if ($mode=="count")
 		$tmpQuery = "SELECT count(*) nbPlayers 
-				FROM players P";
+				FROM players P left join online_players O on O.playerID = P.playerID";
 	else
-		$tmpQuery = "SELECT P.playerID, P.nick, P.anneeNaissance, P.profil, P.situationGeo, P.elo 
-				FROM players P";
+		$tmpQuery = "SELECT P.playerID, P.nick, P.anneeNaissance, P.profil, P.situationGeo, P.elo, O.lastActionTime 
+				FROM players P left join online_players O on O.playerID = P.playerID";
 	
 	if ($critFavorite == "oui")
 		$tmpQuery .= ", fav_players F";
@@ -297,11 +297,11 @@ function searchPlayers($mode, $debut, $limit, $critFavorite, $critStatus, $critE
 				$tmpQuery .= " AND P.playerID = F.favPlayerID 
 				AND F.playerID = ".$_SESSION['playerID'];
 				 
-		$tmpQuery .= " ORDER BY P.nick ASC";
+		$tmpQuery .= " ORDER BY O.lastActionTime DESC, P.nick ASC";
 				
 	if ($mode != "count")
 		$tmpQuery .= " limit ".$debut.",".$limit;
-	
+
 	return mysql_query($tmpQuery);
 }
 

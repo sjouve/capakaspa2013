@@ -174,6 +174,8 @@
 						echo ("<input type='hidden' name='ToDo' value='InvitePlayer'>");
 						echo ("<td>");
 						echo ("<input type='hidden' name='opponent' value='".$tmpPlayer['playerID']."'><a href='profil_consultation.php?playerID=".$tmpPlayer['playerID']."'>".$tmpPlayer['nick']."</a>");
+						if ($tmpPlayer['lastActionTime'])
+							echo("<br/><img src='images/user_online.gif'/>");
 						echo ("</td>");
 						echo ("<td>");
 						echo ($tmpPlayer['elo']);
