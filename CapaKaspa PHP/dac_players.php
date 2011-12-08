@@ -304,4 +304,52 @@ function searchPlayers($mode, $debut, $limit, $critFavorite, $critStatus, $critE
 	
 	return mysql_query($tmpQuery);
 }
+
+/* Charger un utilisateur par son ID */
+function getOnlinePlayer($playerID)
+{
+	$res_olplayer = mysql_query("SELECT * FROM online_players WHERE playerID = ".$playerID);
+    $olplayer = mysql_fetch_array($res_olplayer, MYSQL_ASSOC);
+    return $olplayer;
+}
+
+/* Insérer joueur en ligne */	
+function insertOnlinePlayer($playerID)
+{
+	$res_olplayer = mysql_query("INSERT INTO online_players (playerID, lastActionTime) 
+								VALUES (".$playerID.", now())");
+
+	if ($res_olplayer)	
+		return mysql_insert_id();
+	else
+		return FALSE;
+}
+
+/* Mettre à jour joueur en ligne*/
+function updateOnlinePlayer($playerID)
+{ 		
+	  $res_olplayer = mysql_query("UPDATE online_players 
+	  							SET lastActionTime = now() 
+	  							WHERE playerID = ".$playerID);
+	  
+	if ($res_olplayer)	
+		return TRUE;
+	else
+		return FALSE;
+}
+
+/* Supprime tous les joueurs hors ligne */
+function deleteOnlinePlayers()
+{
+	$res_olplayer = mysql_query("DELETE FROM online_players 
+	  							WHERE now() > DATE_ADD(lastActionTime, INTERVAL 10 MINUTE)");
+	
+	return $res_olplayer;
+}
+
+function countOnlinePlayers()
+{
+	$res_olplayer = mysql_query("SELECT count(playerID) nbPlayers FROM online_players");
+	return mysql_fetch_array($res_olplayer, MYSQL_ASSOC);
+}
 ?>

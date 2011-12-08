@@ -33,4 +33,18 @@
 		header('Location: jouer-echecs-differe-inscription.php');
 		exit;
 	}
+	
+	// Gestion des joueurs en ligne
+	if ($_SESSION['playerID'] != -1)
+	{
+		// Insert or Update
+		$online_player = getOnlinePlayer($_SESSION['playerID']);
+		if ($online_player)
+			updateOnlinePlayer($_SESSION['playerID']);
+		else
+			insertOnlinePlayer($_SESSION['playerID']);
+			
+		// Supprimer les joueurs hors ligne
+		deleteOnlinePlayers();
+	}
 ?>

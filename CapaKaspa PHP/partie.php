@@ -14,6 +14,9 @@
 	require 'bwc_games.php';
 	require 'bwc_board.php';
 
+	/* connect to database */
+	require 'connectdb.php';
+	
 	/* check session status */
 	require 'sessioncheck.php';
 	
@@ -23,9 +26,6 @@
 	
 	/* debug flag */
 	define ("DEBUG", 0);
-
-	/* connect to database */
-	require 'connectdb.php';
 
 	/* ajoute un message au dialogue */
 	$isMessage = isset($_POST['addMessage']) ? $_POST['addMessage']:Null;

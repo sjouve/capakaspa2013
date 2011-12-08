@@ -66,10 +66,8 @@
 				<img src="/images/pos_initiale.jpg" alt="Echiquier position initiale" style="FLOAT: left; MARGIN: 3px 5px 5px 0px;"/>
 				CapaKaspa c'est un bon moyen de découvrir les échecs. Comment commencer ? Trouvez une réponse dans la section <a href="echecs-apprentissage.php">apprentissage</a>.<br/><br/>
 				Puis vous pourrez mettre en pratique grâce à la <a href="tableaubord.php">zone de jeu en différé</a> pour jouer des parties à votre rythme. 
-				<br/><br/>Et continuez votre découverte grâce au <a href="http://forum.capakaspa.info">forum</a>, au <a href="http://blog.capakaspa.info">blog</a>.
-				
-				
-			   	
+				<br/><br/>Trouvez les réponses à vos questions, faites profiter de votre expérience les autres membres sur le <a href="http://forum.capakaspa.info">forum</a>, et continuez votre découverte grâce aux articles du <a href="http://blog.capakaspa.info">blog</a>.
+					
 			</div>
 		</div>
   	</div>
@@ -82,8 +80,8 @@
 					<li><img src="images/hand.gif" /> Parties en cours : <? echo(getNbActiveGameForAll())?></li>
 					<li><img src="images/joueur_actif.gif" /> Joueurs actifs : <? echo(getNbActivePlayers())?></li>
 					<li><img src="images/joueur_passif.gif" /> Joueurs passifs : <? echo(getNbPassivePlayers())?></li>
+					<li><img src="images/user_online.gif" /> Joueurs en ligne : <? echo(getNbOnlinePlayers())?></li>
 		  		</ul>
-		  	
 		</div>
 		<div class="blockright" style="height:115px">
 			

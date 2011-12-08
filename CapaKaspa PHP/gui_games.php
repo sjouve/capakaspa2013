@@ -449,19 +449,24 @@
 				if ($isPlayersTurn)
 				{	
 					echo("<div class='playername'><a href='profil_consultation.php?playerID=".$whitePlayerID."'>".$whiteNick."</a><br/>".$whiteElo);
-					if ($whiteNick == $_SESSION['nick']) echo (" <img src='images/hand.gif'/></div>");
+					if (getOnlinePlayer($whitePlayerID)) echo (" <img src='images/user_online.gif'/>");
+					if ($whiteNick == $_SESSION['nick']) echo (" <img src='images/hand.gif'/>");
+					echo("</div>");
 				}
 				else
 				{
 					if ($whiteNick == $_SESSION['nick'] || $blackNick == $_SESSION['nick'])
 					{
-					  	
 						echo("<div class='playername'><a href='profil_consultation.php?playerID=".$whitePlayerID."'>".$whiteNick."</a><br/>".$whiteElo);
-						if ($whiteNick != $_SESSION['nick']) echo (" <img src='images/hand.gif'/></div>"); 
+						if (getOnlinePlayer($whitePlayerID)) echo (" <img src='images/user_online.gif'/>");
+						if ($whiteNick != $_SESSION['nick']) echo (" <img src='images/hand.gif'/>"); 
+						echo("</div>");
 					}
 					else
 					{
-					  	echo("<div class='playername'><a href='profil_consultation.php?playerID=".$whitePlayerID."'>".$whiteNick."</a><br/>".$whiteElo."</div>");
+					  	echo("<div class='playername'><a href='profil_consultation.php?playerID=".$whitePlayerID."'>".$whiteNick."</a><br/>".$whiteElo);
+					  	if (getOnlinePlayer($whitePlayerID)) echo (" <img src='images/user_online.gif'/>");
+						echo("</div>");
 					}
 				}
 			?>
@@ -473,6 +478,7 @@
 					
 					echo("<div class='playername'><a href='profil_consultation.php?playerID=".$blackPlayerID."'>".$blackNick."</a><br/>");
 					if ($blackNick == $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
+					if (getOnlinePlayer($blackPlayerID)) echo (" <img src='images/user_online.gif'/>");
 					echo($blackElo."</div>");	
 				}
 				else
@@ -482,11 +488,14 @@
 						
 						echo("<div class='playername'><a href='profil_consultation.php?playerID=".$blackPlayerID."'>".$blackNick."</a><br/>");
 						if ($blackNick != $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
+						if (getOnlinePlayer($blackPlayerID)) echo (" <img src='images/user_online.gif'/>");
 						echo($blackElo."</div>");	
 					}
 					else
 					{
-					  	echo("<div class='playername'><a href='profil_consultation.php?playerID=".$blackPlayerID."'>".$blackNick."</a><br/>".$blackElo."</div>");
+					  	echo("<div class='playername'><a href='profil_consultation.php?playerID=".$blackPlayerID."'>".$blackNick."</a><br/>");
+					  	if (getOnlinePlayer($blackPlayerID)) echo (" <img src='images/user_online.gif'/>");
+					  	echo($blackElo."</div>");
 					}
 				}
 			?>

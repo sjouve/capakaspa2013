@@ -14,6 +14,9 @@
 	require '../bwc_games.php';
 	require '../bwc_board.php';
 
+	/* connect to database */
+	require '../connectdb.php';
+	
 	/* check session status */
 	require '../sessioncheck.php';
 	
@@ -23,9 +26,6 @@
 	
 	/* debug flag */
 	define ("DEBUG", 0);
-
-	/* connect to database */
-	require '../connectdb.php';
 
 	/* ajoute un message au dialogue */
 	$isMessage = isset($_POST['addMessage']) ? $_POST['addMessage']:Null;
@@ -142,7 +142,7 @@
 		}
 	}
 
-	mysql_close();
+	//mysql_close();
 	
 	/* find out if it's the current player's turn */
 	if (( (($numMoves == -1) || (($numMoves % 2) == 1)) && ($playersColor == "white"))
@@ -319,4 +319,5 @@ if (DEBUG)
     </center>
 <?
     require 'page_footer.php';
+    mysql_close();
 ?>

@@ -68,7 +68,7 @@
     <div class="blogbody">
       
       < <a href="javascript:history.go(-1)">Retour</a><br/><br/>
-	  <h3>Profil de <? echo($player['nick']); ?> <?if ($favorite) echo("<img src='images/favori-etoile-icone.png'/>");?></h3>
+	  <h3>Profil de <? echo($player['nick']); if ($favorite) echo(" <img src='images/favori-etoile-icone.png'/>"); if (getOnlinePlayer($player['playerID'])) echo (" <img src='images/user_online.gif'/>");?></h3>
 	  	<div class="profil">
 	  	
 	  		<center><img src="<?echo(getPicturePath($player['socialNetwork'], $player['socialID']));?>" width="50" height="50"/>
@@ -92,7 +92,7 @@
         <table border="0" width="530">
           <tr>
             <td width="180"> Elo : </td>
-            <td><? 	echo($player['elo']); 
+            <td widht="350"><? 	echo($player['elo']); 
 					if ($player['eloProgress'] == 0)
 					{echo (" (=)");}
 					else if ($player['eloProgress'] == 1)

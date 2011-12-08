@@ -435,4 +435,11 @@ function getPicturePath($socialNetwork, $socialID)
 	
 	return $picturePath;
 }
+
+/* Compte le nombre de joueurs en ligne sur le site */
+function getNbOnlinePlayers()
+{
+	$res = countOnlinePlayers();
+	return $res['nbPlayers'];
+}
 ?>

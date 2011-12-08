@@ -88,6 +88,7 @@ require 'page_body.php';
 				<li><img src="images/hand.gif" />  Parties en cours : <? echo(getNbActiveGameForAll())?></li>
 				<li><img src="images/joueur_actif.gif" />  Joueurs actifs : <? echo(getNbActivePlayers())?></li>
 				<li><img src="images/joueur_passif.gif" />  Joueurs passifs : <? echo(getNbPassivePlayers())?></li>
+				<li><img src="images/user_online.gif" /> Joueurs en ligne : <? echo(getNbOnlinePlayers())?></li>
 		  	</ul> 	
 	</div>
 	<br/>
