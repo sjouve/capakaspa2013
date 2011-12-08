@@ -15,7 +15,7 @@
 <body <?echo($attribut_body)?>>
 
 <div id="top">
-	<a href="index.php"><img src='images/icon_home.gif'> CapaKaspa mobile</a>
+	<a href="index.php"><img src="images/icon_home.gif"> CapaKaspa Echecs</a>
 </div>
 <div id="advertisement">
 	<script type="text/javascript"><!--
