@@ -219,9 +219,21 @@ function saveHistory()
 
 	if ($board[$_POST['toRow']][$_POST['toCol']] == 0)
 	{
-		$tmpQuery = "INSERT INTO history (timeOfMove, gameID, curPiece, curColor, fromRow, fromCol, toRow, toCol, replaced, promotedTo, isInCheck) VALUES (Now(), ".$_POST['gameID'].", '".getPieceName($board[$_POST['fromRow']][$_POST['fromCol']])."', '$curColor', ".$_POST['fromRow'].", ".$_POST['fromCol'].", ".$_POST['toRow'].", ".$_POST['toCol'].", null, null, ".$history[$numMoves]['isInCheck'].")"; 
-		$history[$numMoves]['replaced'] = null;
-		$tmpReplaced = "";
+		// Prise en passant
+		if ($history[$numMoves]['curPiece'] == "pawn" and $history[$numMoves]['fromCol'] != $history[$numMoves]['toCol'])
+		{
+			$tmpQuery = "INSERT INTO history (timeOfMove, gameID, curPiece, curColor, fromRow, fromCol, toRow, toCol, replaced, promotedTo, isInCheck) VALUES (Now(), ".$_POST['gameID'].", '".getPieceName($board[$_POST['fromRow']][$_POST['fromCol']])."', '$curColor', ".$_POST['fromRow'].", ".$_POST['fromCol'].", ".$_POST['toRow'].", ".$_POST['toCol'].", 'pawn', null, ".$history[$numMoves]['isInCheck'].")"; 
+
+			$history[$numMoves]['replaced'] = "pawn";
+			$tmpReplaced = $history[$numMoves]['replaced'];	
+		}
+		else
+		{
+			$tmpQuery = "INSERT INTO history (timeOfMove, gameID, curPiece, curColor, fromRow, fromCol, toRow, toCol, replaced, promotedTo, isInCheck) VALUES (Now(), ".$_POST['gameID'].", '".getPieceName($board[$_POST['fromRow']][$_POST['fromCol']])."', '$curColor', ".$_POST['fromRow'].", ".$_POST['fromCol'].", ".$_POST['toRow'].", ".$_POST['toCol'].", null, null, ".$history[$numMoves]['isInCheck'].")"; 
+			$history[$numMoves]['replaced'] = null;
+			$tmpReplaced = "";
+		}
+		
 	}
 	else
 	{
