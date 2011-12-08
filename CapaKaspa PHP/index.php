@@ -86,10 +86,16 @@
 		  	
 		</div>
 		<div class="blockright" style="height:115px">
-			<center>
-				CapaKaspa est maintenant aussi sur Google+ !!<br/><br/>
-			 <a href="https://plus.google.com/114694270583726807082/?prsrc=3" style="text-decoration: none;"><img src="https://ssl.gstatic.com/images/icons/gplus-32.png" width="32" height="32" style="border: 0;"/></a>
-			</center>
+			
+				Suivre l'actualité du site et des échecs<br/>
+				<table widht="100%">
+				<tr>
+				<td widht="33%" height="50px"><a href="http://www.facebook.com/capakaspa"><img src="images/icone_facebook.png" alt="Suivre CapaKaspa sur Facebook" width="32" height="32" style="border: 0;"/></a>
+				</td>
+				<td widht="33%"><a href="http://www.twitter.com/CapaKaspa"><img src="http://twitter-badges.s3.amazonaws.com/t_logo-a.png" alt="Suivre CapaKaspa sur Twitter" width="32" height="32" style="border: 0;"/></a></td>
+				<td widht="34%"><a href="https://plus.google.com/114694270583726807082/?prsrc=3" style="text-decoration: none;"><img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt="Suivre CapaKaspa sur Google+" width="32" height="32" style="border: 0;"/></a></td>
+				</tr>
+				</table>	
 		</div>
 	</div>
 		

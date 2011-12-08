@@ -886,11 +886,12 @@
 	  	padding: 5px;
 	  	background-color: #E7E5FF;
 		font-family: Verdana, Arial, Helvetica, sans-serif;
-		color: #404040;
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		color: #3D3866;
 		font-size: 13px;/*small;*/
-		font-weight: normal;
+		font-weight: bold;
 		font-style: normal;
-		text-transform: none;
+		text-transform: uppercase;
 		text-align: left;
 		line-height: 150%;
 		border-top-style: solid;
