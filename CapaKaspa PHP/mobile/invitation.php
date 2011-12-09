@@ -169,6 +169,8 @@
 					
 					echo ("<td>");
 					echo ("<input type='hidden' name='opponent' value='".$tmpPlayer['playerID']."'><a href='profil_consultation.php?playerID=".$tmpPlayer['playerID']."'>".substr($tmpPlayer['nick'],0,15)."</a>");
+					if ($tmpPlayer['lastActionTime'])
+							echo("<br/><img src='images/user_online.gif'/>");
 					echo ("</td>");
 					
 					echo ("<td>");
