@@ -296,7 +296,7 @@
       Tant qu'un des joueurs d'une partie est en congé la partie est gelée (il est impossible de jouer un coup)
        -->
       
-      <h3>Gestion des absences</h3>
+      <h3>Gestion des absences <a href="manuel-utilisateur-jouer-echecs-capakaspa.pdf#page=15" target="_blank"><img src="images/point-interrogation.gif" border="0"/></a></h3>
       Vous disposez encore de <b><?echo(countAvailableVacation($_SESSION['playerID']));?> jours</b> d'absence pour l'année <?echo(date('Y'))?> (tous les jours d'une éventuelle absence à cheval sur l'année précédente sont décomptés en <?echo(date('Y'))?>).<br/>
       <br/>
       <?	
