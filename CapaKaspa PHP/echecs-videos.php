@@ -21,13 +21,14 @@
         </div>
         <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e7cb2a45be34669"></script>
         <!-- AddThis Button END -->
-        <p>Une sélection de vidéos pour revivre l'histoire du jeu d'échecs, découvrir quelques curiosités...</p>
+        <p>Une sélection de vidéos pour revivre l'histoire du jeu d'échecs, découvrir quelques curiosités... 
+        <br/>(Extrait de la chaîne <a href="http://www.youtube.com/user/CapaKaspaEchecs?feature=creators_cornier-http%253A%2F%2Fs.ytimg.com%2Fyt%2Fimg%2Fcreators_corner%2FYouTube%2Fyoutube_32x32.png"><img src="http://s.ytimg.com/yt/img/creators_corner/YouTube/youtube_32x32.png" alt="Abonnez-vous aux vidéos sur YouTube" width="16px" height=16px"/></a><img src="http://www.youtube-nocookie.com/gen_204?feature=creators_cornier-http%3A//s.ytimg.com/yt/img/creators_corner/YouTube/youtube_32x32.png" style="display: none"/>)
+        </p>
         
+       	<center>
+        <iframe width="640" height="360" src="http://www.youtube.com/embed/videoseries?list=PL817884959CB02260&amp;hl=fr_FR" frameborder="0" allowfullscreen></iframe>
         
-
-        <object width='680' height='420'><param name='movie' value='http://fr.youtube.com/cp/vjVQa1PpcFNYtN1YMIXW5GRe0RMoBs4Qq54iVZ0lkrI='></param><param name='wmode' value='transparent'></params><embed src='http://fr.youtube.com/cp/vjVQa1PpcFNYtN1YMIXW5GRe0RMoBs4Qq54iVZ0lkrI=' type='application/x-shockwave-flash' wmode='transparent' width='680' height='420'></embed></object>
-        
-		<center>
+		<br/><br/>
 		<script type="text/javascript"><!--
 	    google_ad_client = "ca-pub-8069368543432674";
 	    /* CapaKaspa Video Bandeau */

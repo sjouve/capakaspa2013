@@ -161,7 +161,7 @@ getMois($month);
       <? if (!isset($_SESSION['playerID'])||$_SESSION['playerID']==-1) {?>
       	<li><img src="images/puce.gif"/> <a href="jouer-echecs-differe-inscription.php">S'inscrire</a></li>
       	<li><img src="images/puce.gif"/> <a href="jouer-echecs-differe-passe-oublie.php">Mot de passe oublié</a></li>
-      	
+      	<li><img src="images/icone_video.png"/> <a href="http://youtu.be/J6pMC2Ceaxw" target="_blank">Démonstration vidéo</a></li>
       <? } else {?>
         <li><img src="images/puce.gif"/> <a href="tableaubord.php">Mes parties en cours</a></li>
 		<li><img src="images/puce.gif"/> <a href="partiesterminees.php">Mes parties terminées</a></li>
@@ -169,7 +169,7 @@ getMois($month);
 		<li><img src="images/puce.gif"/> <a href="invitation.php">Les autres joueurs</a></li>
 		<li><img src="images/puce.gif"/> <a href="profil.php">Mon profil</a></li>
 	<? } ?>
-        <li><img src="images/livre.gif"/><a href="../manuel-utilisateur-jouer-echecs-capakaspa.pdf" target="_blank">Manuel utilisateur (PDF)</a></li>
+        <li><img src="images/icone_pdf.gif"/> <a href="../manuel-utilisateur-jouer-echecs-capakaspa.pdf" target="_blank">Manuel utilisateur</a></li>
       </ul>
       </div>
       <div class="navlinks">
