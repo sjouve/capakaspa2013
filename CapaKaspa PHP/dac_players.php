@@ -270,7 +270,7 @@ function searchPlayers($mode, $debut, $limit, $critFavorite, $critStatus, $critE
 		$tmpQuery = "SELECT count(*) nbPlayers 
 				FROM players P left join online_players O on O.playerID = P.playerID";
 	else
-		$tmpQuery = "SELECT P.playerID, P.nick, P.anneeNaissance, P.profil, P.situationGeo, P.elo, O.lastActionTime 
+		$tmpQuery = "SELECT P.playerID, P.nick, P.anneeNaissance, P.profil, P.situationGeo, P.elo, O.lastActionTime, P.creationDate 
 				FROM players P left join online_players O on O.playerID = P.playerID";
 	
 	if ($critFavorite == "oui")
@@ -284,7 +284,6 @@ function searchPlayers($mode, $debut, $limit, $critFavorite, $critStatus, $critE
 	
 	if ($critStatus == "passif")			
 		$tmpQuery .= " AND DATE_ADD(P.lastConnection, INTERVAL 14 DAY) < NOW()";
-
 	
 	if ($critEloStart != '' and $critEloEnd != '')
 		$tmpQuery .= " AND P.elo >= ".$critEloStart." AND P.elo <= ".$critEloEnd;

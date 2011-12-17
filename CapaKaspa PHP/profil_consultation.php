@@ -68,7 +68,15 @@
     <div class="blogbody">
       
       < <a href="javascript:history.go(-1)">Retour</a><br/><br/>
-	  <h3>Profil de <? echo($player['nick']); if ($favorite) echo(" <img src='images/favori-etoile-icone.png'/>"); if (getOnlinePlayer($player['playerID'])) echo (" <img src='images/user_online.gif'/>");?></h3>
+	  <h3>Profil de 
+	  <? 
+	  	echo($player['nick']); 
+	  	if ($favorite) echo(" <img src='images/favori-etoile-icone.png'/>"); 
+	  	if (getOnlinePlayer($player['playerID'])) echo (" <img src='images/user_online.gif'/>");
+	  	if (isNewPlayer($player['creationDate'])) echo (" <img src='images/user_new.gif'/>");
+	  ?>
+	  	
+	  	</h3>
 	  	<div class="profil">
 	  	
 	  		<center><img src="<?echo(getPicturePath($player['socialNetwork'], $player['socialID']));?>" width="50" height="50"/>

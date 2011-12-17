@@ -153,7 +153,7 @@
         </div>
         
 		<div id="tabliste">  	
-		<table border="0" width="680">
+		<table border="0" width="100%">
 		  	<tr>
 			<th width="20%">Surnom</th>
 			<th width="5%">Elo</th>
@@ -169,13 +169,15 @@
 				{
 					while($tmpPlayer = mysql_fetch_array($resultats, MYSQL_ASSOC))
 					{
-						echo ("<tr>");
+						echo ("<tr valign='top'>");
 						echo ("<form action='tableaubord.php' method='post'>");
 						echo ("<input type='hidden' name='ToDo' value='InvitePlayer'>");
 						echo ("<td>");
-						echo ("<input type='hidden' name='opponent' value='".$tmpPlayer['playerID']."'><a href='profil_consultation.php?playerID=".$tmpPlayer['playerID']."'>".$tmpPlayer['nick']."</a>");
+						echo ("<input type='hidden' name='opponent' value='".$tmpPlayer['playerID']."'><a href='profil_consultation.php?playerID=".$tmpPlayer['playerID']."'>".$tmpPlayer['nick']."</a><br/>");
 						if ($tmpPlayer['lastActionTime'])
-							echo("<br/><img src='images/user_online.gif'/>");
+							echo("<img src='images/user_online.gif'/>");
+						if (isNewPlayer($tmpPlayer['creationDate']))
+							echo("<img src='images/user_new.gif'/>");
 						echo ("</td>");
 						echo ("<td>");
 						echo ($tmpPlayer['elo']);
@@ -184,10 +186,12 @@
 						echo (date("Y")-$tmpPlayer['anneeNaissance']);
 						echo ("</td>");
 						echo ("<td>");
-						echo ("<TEXTAREA NAME='txtProfil' COLS='15' ROWS='3' readonly='readonly'>".stripslashes($tmpPlayer['situationGeo'])."</TEXTAREA>");
+						//echo ("<TEXTAREA NAME='txtProfil' COLS='13' ROWS='3' readonly='readonly'>".stripslashes($tmpPlayer['situationGeo'])."</TEXTAREA>");
+						echo ("<div style='word-wrap: break-word;width: 90px;'>".stripslashes($tmpPlayer['situationGeo'])."</div>");
 						echo ("</td>");
 						echo ("<td>");
-						echo ("<TEXTAREA NAME='txtProfil' COLS='40' ROWS='3' readonly='readonly'>".stripslashes($tmpPlayer['profil'])."</TEXTAREA>");
+						//echo ("<TEXTAREA NAME='txtProfil' COLS='40' ROWS='3' readonly='readonly'>".stripslashes($tmpPlayer['profil'])."</TEXTAREA>");
+						echo ("<div style='word-wrap: break-word;width: 220px;'>".stripslashes($tmpPlayer['profil'])."</div>");
 						echo ("</td>");
 						echo ("<td><input type='radio' name='color' value='white' checked> Blancs
 								<input type='radio' name='color' value='black'> Noirs <br/>

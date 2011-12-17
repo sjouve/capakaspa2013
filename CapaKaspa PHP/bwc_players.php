@@ -419,7 +419,7 @@ function getPicturePath($socialNetwork, $socialID)
 	switch($socialNetwork)
 	{	
 		case 'GP':
-			$profil_googleplus_json = file_get_contents("https://www.googleapis.com/plus/v1/people/".$socialID."?key=AIzaSyARMoBOA-ghsfjIGLpwiq-h92zb7awhnXw");
+			$profil_googleplus_json = file_get_contents("https://www.googleapis.com/plus/v1/people/".$socialID."?key=AIzaSyDbsmnLMbP6QxydxzhqZlCwxOVG1ewIX0o");
 			$profil_googleplus = json_decode($profil_googleplus_json);
 			$picturePath = $profil_googleplus->image->url;
 			break;
@@ -441,5 +441,18 @@ function getNbOnlinePlayers()
 {
 	$res = countOnlinePlayers();
 	return $res['nbPlayers'];
+}
+
+/* Est un nouveau joueur en fonction date de création */
+function isNewPlayer($creationDate)
+{
+	$maxDate = date('Y/m/d', strtotime('-7 day'));
+	list($year, $month, $day) = explode("-", $creationDate);
+	$creationDate = date("Y/m/d", mktime(0,0,0, $month, $day, $year));
+	
+	if ($creationDate > $maxDate)
+		return true;
+	else
+		return false; 
 }
 ?>
