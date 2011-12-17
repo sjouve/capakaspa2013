@@ -1,5 +1,5 @@
   	<div id="footer">
-		CapaKaspa v4.5.1 - 12/2011 - Conception et réalisation : Sébastien JOUVE - 
+		CapaKaspa v4.5.3 - 12/2011 - Conception et réalisation : Sébastien JOUVE - 
 		Signaler un problème, faire une suggestion : capakaspa@capakaspa.info<br/><br/>
 	</div>
   
