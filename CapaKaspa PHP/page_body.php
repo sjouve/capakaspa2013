@@ -73,7 +73,7 @@ getMois($month);
 				</h1>
 			</td>
 			<td width="170"><h2><img src="images/point.png"/>&nbsp;<a href="tableaubord.php">Jouer aux Echecs</a></h2></td>
-			<td width="130"><h2><img src="images/point.png"/>&nbsp;<a href="http://mobile.capakaspa.info">Sur Mobile</a></h2></td>
+			<td width="130"><h2><img src="images/point.png"/>&nbsp;<a href="echecs-boutique.php">La boutique</a></h2></td>
 			<td width="100"><h2><img src="images/point.png"/>&nbsp;<a href="http://forum.capakaspa.info">Le Forum</a></h2></td>
 			<td width="100"><h2><img src="images/point.png"/>&nbsp;<a href="http://blog.capakaspa.info">Le Blog</a></h2></td>
 			
@@ -170,6 +170,7 @@ getMois($month);
 		<li><img src="images/puce.gif"/> <a href="profil.php">Mon profil</a></li>
 	<? } ?>
         <li><img src="images/icone_pdf.gif"/> <a href="../manuel-utilisateur-jouer-echecs-capakaspa.pdf" target="_blank">Manuel utilisateur</a></li>
+        <!-- <li><img src="images/icone-mobile.png"/> <a href="http://mobile.capakaspa.info">Version mobile</a></li> -->
       </ul>
       </div>
       <div class="navlinks">

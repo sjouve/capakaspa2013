@@ -73,7 +73,7 @@ getMois($month);
 				</h1>
 			</td>
 			<td width="170"><h2><img src="images/point.png"/>&nbsp;<a href="tableaubord.php">Jouer aux Echecs</a></h2></td>
-			<td width="130"><h2><img src="images/point.png"/>&nbsp;<a href="http://mobile.capakaspa.info">Sur Mobile</a></h2></td>
+			<td width="130"><h2><img src="images/point.png"/>&nbsp;<a href="echecs-boutique.php">La boutique</a></h2></td>
 			<td width="100"><h2><img src="images/point.png"/>&nbsp;<a href="http://forum.capakaspa.info">Le Forum</a></h2></td>
 			<td width="100"><h2><img src="images/point.png"/>&nbsp;<a href="http://blog.capakaspa.info">Le Blog</a></h2></td>
 			
