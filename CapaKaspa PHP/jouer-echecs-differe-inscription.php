@@ -159,7 +159,7 @@ require 'page_header.php';
 	<p><ul><li>Cette inscription est complètement gratuite</li></ul>La seule contrainte est de nous fournir toutes les informations ci-dessous. <i>Cependant votre nom, prénom et adresse de messagerie ne seront pas connus des autres joueurs</i>. Les informations restantes sont publiées dans la liste des joueurs du site.</p>
 	<p><ul><li>Cette inscription nécessite une validation par messagerie électronique</li></ul>L'adresse de messagerie associée à votre compte doit donc être valide.</p>
 	
-	<form name="userdata" method="post" action="jouer-echecs-differe-inscription.php">
+	<form name="userdata" method="post" action="jouer-echecs-differe-inscription.php?ToDo=NewUser">
 	<h3>Vos informations personnelles</h3>
 	<table>
 		
@@ -282,7 +282,7 @@ require 'page_header.php';
 		</tr>
 		</table>
 
-		<input name="ToDo" value="NewUser" type="hidden">
+		<!-- <input name="ToDo" value="NewUser" type="hidden"> -->
 	</form>
 	<?}?>
 	</div>

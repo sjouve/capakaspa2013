@@ -34,6 +34,7 @@
 			<li><a href="http://jesweb.net/zoom/echecs/echecs.html" target="_blank">Jeu d'échecs : comment débuter, s'améliorer et apprendre aux enfants</a>
 	        <li><a href="http://www.corse-echecs.com/shop/Le-Manuel-des-Echecs_p3.html" target="_blank">Le Manuel des échecs</a>
 	        <li><a href="http://jeu-echecs.bnpparibas.com" target="_blank">Apprendre à jouer aux échecs avec BNP Paribas, Partenaire officiel de la Fédération Française des Echecs</a>
+	        <li><a href="http://www.echecspassion.com" target="_blank">Echecspassion.com s'adresse à toute personne intéressée par les échecs</a>
 	      </ul>
 		  
 		  <h3>Livres</h3>
