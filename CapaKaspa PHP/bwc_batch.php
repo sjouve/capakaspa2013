@@ -176,8 +176,8 @@ function calculerElo()
 {
 	echo("<htlm><body>");
 	// Dates
-	$dateDeb = date("Y-m-d", mktime(0,0,0, 10, 1, 2011));
-	$dateFin = date("Y-m-d", mktime(0,0,0, 12, 31, 2011));
+	$dateDeb = date("Y-m-d", mktime(0,0,0, 07, 1, 2012));
+	$dateFin = date("Y-m-d", mktime(0,0,0, 9, 30, 2012));
 	echo("TRIM ".$dateDeb." -> ".$dateFin."<br/>");
 	$listPlayers = listPlayersForElo();
 	$bonusMalusTable = array(100	=>	470	,

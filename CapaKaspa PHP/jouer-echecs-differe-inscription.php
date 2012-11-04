@@ -1,10 +1,14 @@
 <?
+session_start();
 /* load settings */
 if (!isset($_CONFIG))
 	require 'config.php';
 
 require 'connectdb.php';
 require 'bwc_players.php';
+// Captcha
+include_once $_SERVER['DOCUMENT_ROOT'] . '/securimage/securimage.php';
+$securimage = new Securimage();
 		
 /* Traitement des actions */
 $err=false;
@@ -34,6 +38,11 @@ switch($ToDo)
 		{
 			$err = 'existEmail';
 			break;
+		}
+		
+		if ($securimage->check($_POST['captcha_code']) == false) {
+		  $err = 'captcha';
+		  break;
 		}
 		
 		// Création du joueur et envoi message confirmation
@@ -135,7 +144,9 @@ require 'page_header.php';
 			echo("<div class='error'>Surnom vide</div>");
 		if ($err == 'db')
 			echo("<div class='error'>Une erreur technique s'est produite</div>");
-		
+		if ($err == 'captcha')
+			echo("<div class='error'>Le code de vérification est érroné. Essayez de nouveau.</div>");
+			
 	?>
 	<?if ($ToDo == 'activer' && !$err) {?>
 	<b>Votre compte vient d'être activé.</b>
@@ -226,8 +237,8 @@ require 'page_header.php';
             <td><input name="txtAnneeNaissance" type="text" size="4" maxlength="4" value="<? echo($_POST['txtAnneeNaissance']); ?>">
             </td>
           </tr>
-		  <tr>
-            <td> Profil : </td>
+		  <tr valign="top">
+            <td> A propos de vous : </td>
             <td><TEXTAREA NAME="txtProfil" COLS="50" ROWS="5" ><? echo($_POST['txtProfil']); ?></TEXTAREA>
             </td>
           </tr>
@@ -272,6 +283,18 @@ require 'page_header.php';
 																	<img src="images/plain30x30/white_pawn.gif" />
 				<br>
 				
+			</td>
+		</tr>
+		</table>
+		<h3>Code de vérification</h3>
+		<table>
+		<tr>
+			<td width="250">
+				<img id="captcha" src="/securimage/securimage_show.php" alt="CAPTCHA Image" />
+			</td>
+			<td>
+				<input type="text" name="captcha_code" size="10" maxlength="6" />
+				<a href="#" onclick="document.getElementById('captcha').src = '/securimage/securimage_show.php?' + Math.random(); return false">Autre image</a>
 			</td>
 		</tr>
 		

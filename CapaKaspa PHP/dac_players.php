@@ -83,7 +83,7 @@ function listPlayers()
 /* Liste tous les joueurs */
 function listPlayersForElo()
 {
-	$tmpQuery = "SELECT P.playerID playerID, E.elo elo, P.nick nick FROM players P, elo_history E WHERE P.playerID = E.playerID AND P.activate=1 AND E.eloDate > '2011-12-31' ORDER BY playerID";
+	$tmpQuery = "SELECT P.playerID playerID, E.elo elo, P.nick nick FROM players P, elo_history E WHERE P.playerID = E.playerID AND P.activate=1 AND E.eloDate > '2012-09-30' ORDER BY playerID";
 	
 	return mysql_query($tmpQuery);  
 }
