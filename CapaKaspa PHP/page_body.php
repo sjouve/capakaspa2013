@@ -146,13 +146,9 @@ getMois($month);
 	        <?}?>
 	      </form>
 	      <? } else {?>
-	      <form name="logout" action="tableaubord.php" method="post">
-	        <div class="item">Bienvenue <? echo ($_SESSION['playerName'])?></div>
-	        <center>
-	        <input type="hidden" name="ToDo" value="Logout">
-	        <input type="submit" value="Deconnexion">
-	        </center>
-	      </form>
+	      
+	        <div class="item"><a href="profil.php"><img src="<?echo(getPicturePath($_SESSION['socialNetwork'], $_SESSION['socialID']));?>" width="40" height="40" border="0" style="float: left;margin-right: 10px;"/></a> <b></b><a href="profil.php"><? echo (substr($_SESSION['nick'], 0, 17))?></a></b></div>
+	        <div class="item">Elo : <? echo ($_SESSION['elo'])?></div>
 	      <? } ?>
 		</div>
 		
@@ -167,11 +163,18 @@ getMois($month);
 		<li><img src="images/puce.gif"/> <a href="partiesterminees.php">Mes parties terminées</a></li>
         <li><img src="images/puce.gif"/> <a href="listeparties.php">Les autres parties</a></li>
 		<li><img src="images/puce.gif"/> <a href="invitation.php">Les autres joueurs</a></li>
-		<li><img src="images/puce.gif"/> <a href="profil.php">Mon profil</a></li>
 	<? } ?>
         <li><img src="images/icone_pdf.gif"/> <a href="../manuel-utilisateur-jouer-echecs-capakaspa.pdf" target="_blank">Manuel utilisateur</a></li>
         <!-- <li><img src="images/icone-mobile.png"/> <a href="http://mobile.capakaspa.info">Version mobile</a></li> -->
       </ul>
+      <? if (isset($_SESSION['playerID'])&&$_SESSION['playerID']!=-1) {?>
+      <form name="logout" action="tableaubord.php" method="post">
+	        <center>
+	        <input type="hidden" name="ToDo" value="Logout">
+	        <input type="submit" value="Deconnexion">
+	        </center>
+	  </form>
+	  <? } ?>
       </div>
       <div class="navlinks">
 	  <div class="title">Jeux en ligne</div>

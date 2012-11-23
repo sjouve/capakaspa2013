@@ -1,5 +1,6 @@
 <?
 	session_start();
+	require 'bwc_players.php';
 	$titre_page = "Découvrir les échecs - Apprentissage des ouvertures";
 	$desc_page = "Découvrir les échecs. Bien débuter une partie d'échecs passe par l'apprentissage des ouvertures.";
     require 'page_header.php';

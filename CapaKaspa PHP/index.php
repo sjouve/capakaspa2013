@@ -38,7 +38,7 @@
 	}
 
 	
-	$titre_page = "Découvrir les échecs, apprendre et jouer - Accueil";
+	$titre_page = "Jouer aux échecs, apprendre et progresser - Accueil";
 	$desc_page = "Les échecs conviviaux sur le Net : découvrir les échecs, apprendre, jouer aux échecs en ligne et partager grâce au forum et au blog";
     require 'page_header.php';
     $image_bandeau = 'bandeau_capakaspa_global.jpg';
@@ -48,7 +48,7 @@
   	<div id="content">
     	<div class="blogbody">
     		<div class="block">
-	      		<div class="blocktitle">Découvrir les échecs, apprendre et jouer</div>
+	      		<div class="blocktitle">Jouer aux échecs, apprendre et progresser</div>
 				
 				<!-- AddThis Button BEGIN -->
 			    <div class="addthis_toolbox addthis_default_style ">

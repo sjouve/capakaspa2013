@@ -1,5 +1,6 @@
 <?
 	session_start();
+	require 'bwc_players.php';
 	$titre_page = "Jeux en ligne - Jouer aux échecs avec Crazy Chess";
 	$desc_page = "Jeux en ligne. Apprenez à maîtriser les mouvements du Cavalier grâce à ce jeu en flash un peu fou.";
     require 'page_header.php';

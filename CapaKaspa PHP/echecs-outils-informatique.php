@@ -1,5 +1,6 @@
 <?
 	session_start();
+	require 'bwc_players.php';
 	require 'gui_rss.php';
 	$titre_page = "Découvrir les échecs - Les outils informatique";
 	$desc_page = "Découvrir les échecs. Présentation des outils informatiques qui ont pris une grande importance dans l'apprentissage et la pratique des échecs.";

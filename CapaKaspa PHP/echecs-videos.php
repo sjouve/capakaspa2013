@@ -1,5 +1,6 @@
 <?
 	session_start();
+	require 'bwc_players.php';
 	$titre_page = 'Découvrir les échecs - Les vidéos au sujet des échecs';
 	$desc_page = "Découvrir les échecs. Une sélection de vidéos au sujet des échecs pour découvrir les différents aspects du jeu.";
     require 'page_header.php';

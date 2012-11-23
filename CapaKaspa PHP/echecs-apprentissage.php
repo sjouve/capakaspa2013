@@ -1,5 +1,6 @@
 <?
 	session_start();
+	require 'bwc_players.php';
 	$titre_page = "Découvrir les échecs - Apprentissage des échecs";
 	$desc_page = "Découvrir les échecs. Comment faire son apprentissage du jeu d'échecs ? Présentation des différentes phases de la progression du joueur.";
     require 'page_header.php';

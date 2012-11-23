@@ -1,5 +1,6 @@
 <?
 	session_start();
+	require 'bwc_players.php';
 	$titre_page = "Découvrir les échecs - Les sites Internet et les livres aux sujets des échecs";
 	$desc_page = "Découvrir les échecs. Présentation des ressources disponibles pour étudier les échecs : quelques sites Interne pour bien débuter et les types de livre disponibles.";
     require 'page_header.php';
