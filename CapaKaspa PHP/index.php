@@ -151,14 +151,6 @@
 				</table>
 			</div>	
     
-		    <!--<div class="block">
-		    <div class="blocktitle">Casino en ligne</div>
-		    Vous aimez les jeux de toutes sortes, jeux de société, jeux de table ? 
-		    Alors pourquoi ne pas tenter de jouer au casino depuis votre ordinateur sur le <a href="http://www.spinpalace.com/francais/" target="_blank">casino français Spin Palace.com</a> ? <br>
-		    Vous pourrez ainsi tenter votre en chance aux machines à sous, au black jack, ou encore au <a href="http://www.spinpalace.com/francais/craps/" target="_blank">craps en ligne</a>.
-		    
-		    </div>-->
-    
     		<div class="blocklarge">  
     
 			  	<div class="blocktitle">A la une sur le blog ... <?displayIconRSS(URL_RSS_BLOG);?></div>
