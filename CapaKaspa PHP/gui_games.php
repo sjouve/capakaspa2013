@@ -1,6 +1,6 @@
-<? /* functions for outputting to html and javascript */
+ï»¿<? /* functions for outputting to html and javascript */
 
-    /* Utilisé pour la mosaique */
+    /* UtilisÃ© pour la mosaique */
     function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
 	{
 
@@ -11,7 +11,7 @@
 		$thisMove = mysql_fetch_array($allMoves, MYSQL_ASSOC);
 		$numMoves = $thisMove['nbMove'] - 1;
 
-        // Remplir l'échiquier
+        // Remplir l'Ã©chiquier
 		$strPos = 0;
 		for ($i = 0; $i < 8; $i++)
 			for ($j = 0; $j < 8; $j++)
@@ -114,7 +114,7 @@
 		echo ("</table></td></tr></table>\n\n");
 	}
 
-    /* Utilisé dans l'écran d'une partie */
+    /* UtilisÃ© dans l'Ã©cran d'une partie */
     function drawboard($withCoord)
 	{
 		global $board, $playersColor, $numMoves, $nb_game_vacation;
@@ -374,7 +374,7 @@
 	{
 		global $history, $numMoves;
 
-		/* Entête */
+		/* EntÃªte */
 		echo ("<table border='0'>\n");
 		//echo ("<tr>");
 		//echo ("<th bgcolor='white' width='80'><font color='black'>$whiteNick</font></th>");
@@ -507,8 +507,8 @@
 		<tr bgcolor="beige">
 			<th colspan="4">
 				<div class="econame"><?echo("[".$ecoCode."] ".$ecoName);?></div>
-				<div class="econame"><a href="javascript:document.gamedata.submit();"><img src="images/icone_rafraichir.png" border="0" alt="Rafraîchir"/></a>
-               Partie débutée le : <?echo($dateCreated);?></div>
+				<div class="econame"><a href="javascript:document.gamedata.submit();"><img src="images/icone_rafraichir.png" border="0" alt="RafraÃ®chir"/></a>
+               Partie dÃ©butÃ©e le : <?echo($dateCreated);?></div>
 			</th>
 			
 		</tr>
@@ -521,7 +521,7 @@
 			$curColor = "Les Noirs";
 
 		if (!$isCheckMate && ($history[$numMoves]['isInCheck'] == 1))
-			echo("<td align='center' bgcolor='red' colspan='4'>\n<b>".$curColor." sont en échecs !</b><br/>\n".$statusMessage."</td>\n");
+			echo("<td align='center' bgcolor='red' colspan='4'>\n<b>".$curColor." sont en Ã©checs !</b><br/>\n".$statusMessage."</td>\n");
 		else
 			echo("<td align='center' colspan='4'><b>".$statusMessage."&nbsp;</b></td>\n");
 			

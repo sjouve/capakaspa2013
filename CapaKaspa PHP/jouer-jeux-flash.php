@@ -1,4 +1,4 @@
-<?
+ï»¿<?
 	session_start();
 	require 'bwc_players.php';
 	$titre_page = "Jeux en ligne - Jeux flash pour se divertir";
@@ -28,18 +28,18 @@
         <tr>
 			<td width="50%" align="center">
 			<a href="javascript:window.open('/tinc?key=N99u423Z', 'flashgamePopup', 'menubar=no,status=no,toolbar=no,resizable=yes,scrollbars=no,width=605,height=405');void(0);"><img src="images/jeux_black_jack.jpg"/></a><br/>
-			Un jeu de cartes apprécié des joueurs de casino.<br/><br/>
+			Un jeu de cartes apprÃ©ciÃ© des joueurs de casino.<br/><br/>
 			</td>
 			<td width="50%" align="center">
 			<a href="javascript:window.open('/tinc?key=FL4pZDJH', 'flashgamePopup', 'menubar=no,status=no,toolbar=no,resizable=yes,scrollbars=no,width=755,height=405');void(0);"><img src="images/jeux_siggi_hippocampe.jpg"/></a><br/>
-			Siggi se lance dans une course acharnée.
+			Siggi se lance dans une course acharnÃ©e.
 			<br/><br/>
 			</td>
 		</tr>
 		<tr>
 			<td align="center">
 			<a href="javascript:window.open('/tinc?key=qojj0uIN', 'flashgamePopup', 'menubar=no,status=no,toolbar=no,resizable=yes,scrollbars=no,width=605,height=405');void(0);"><img src="images/jeux_memo.jpg"/></a><br/>
-			Serez-vous capable de mémoriser toutes les couleurs ?
+			Serez-vous capable de mÃ©moriser toutes les couleurs ?
 			</td>
 			<td align="center" valign="top">
 			<a href="javascript:window.open('/tinc?key=mLskWxgU', 'flashgamePopup', 'menubar=no,status=no,toolbar=no,resizable=yes,scrollbars=no,width=645,height=405');void(0);"><img src="images/jeux_neutra_virus.jpg"/></a><br/>
@@ -55,7 +55,7 @@
 		<center>
 		<script type="text/javascript"><!--
 		google_ad_client = "pub-8069368543432674";
-		//468x60, date de création 21/11/07
+		//468x60, date de crÃ©ation 21/11/07
 		google_ad_slot = "5192976858";
 		google_ad_width = 468;
 		google_ad_height = 60;

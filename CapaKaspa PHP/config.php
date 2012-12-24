@@ -1,12 +1,12 @@
-<?
+﻿<?
 	$_CONFIG = true;
 
 	/* database settings */
 	/* local server */
-	/*$CFG_SERVER = "localhost";
-	$CFG_USER = "";
+	$CFG_SERVER = "localhost";
+	$CFG_USER = "root";
 	$CFG_PASSWORD = "";
-	$CFG_DATABASE = "capakaspa"*/
+	$CFG_DATABASE = "capakaspa";
 	
 	/* remote server free */
 	/*$CFG_SERVER = "sql.free.fr";
@@ -15,10 +15,10 @@
 	$CFG_DATABASE = "capakaspa";*/
 
     /* remote server 1and1 */
-	$CFG_SERVER = "db317.1and1.fr";
+	/*$CFG_SERVER = "db317.1and1.fr";
 	$CFG_USER = "dbo148414304";
 	$CFG_PASSWORD = "4tgtrwae";
-	$CFG_DATABASE = "db148414304";
+	$CFG_DATABASE = "db148414304";*/
 	
 	/* remote server 1and1 test */
 	/*$CFG_SERVER = "db496.1and1.fr";

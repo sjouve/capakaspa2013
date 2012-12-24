@@ -1,4 +1,4 @@
-<?
+Ôªø<?
 	session_start();
 	
 	/* load settings */
@@ -38,8 +38,8 @@
 	}
 
 	
-	$titre_page = "Jouer aux Èchecs, apprendre et progresser - Accueil";
-	$desc_page = "Les Èchecs conviviaux sur le Net : dÈcouvrir les Èchecs, apprendre, jouer aux Èchecs en ligne et partager gr‚ce au forum et au blog";
+	$titre_page = "Jouer aux √©checs, apprendre et progresser - Accueil";
+	$desc_page = "Les √©checs conviviaux sur le Net : d√©couvrir les √©checs, apprendre, jouer aux √©checs en ligne et partager gr√¢ce au forum et au blog";
     require 'page_header.php';
     $image_bandeau = 'bandeau_capakaspa_global.jpg';
     $barre_progression = "Accueil";
@@ -48,9 +48,9 @@
   	<div id="content">
     	<div class="blogbody">
     		<div class="block">
-	      		<div class="blocktitle">Jouer aux Èchecs, apprendre et progresser</div>
+	      		<div class="blocktitle"><?php echo _("Play chess");?></div>
 				
-				<!-- AddThis Button BEGIN -->
+				<!-- AddThis Button BEGIN 
 			    <div class="addthis_toolbox addthis_default_style ">
 			    <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 			    <span class="addthis_separator">|</span>
@@ -61,12 +61,12 @@
 			    <a class="addthis_counter addthis_pill_style"></a>
 			    </div>
 			    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e7cb2a45be34669"></script>
-			   	<!-- AddThis Button END -->
+			   	AddThis Button END -->
 			   	
-				<img src="/images/pos_initiale.jpg" alt="Echiquier position initiale" style="FLOAT: left; MARGIN: 3px 5px 5px 0px;"/>
-				CapaKaspa c'est un bon moyen de dÈcouvrir les Èchecs. Comment commencer ? Trouvez une rÈponse dans la section <a href="echecs-apprentissage.php">apprentissage</a>.<br/><br/>
-				Puis vous pourrez mettre en pratique gr‚ce ‡ la <a href="tableaubord.php">zone de jeu en diffÈrÈ</a> pour jouer des parties ‡ votre rythme. 
-				<br/><br/>Trouvez les rÈponses ‡ vos questions, faites profiter de votre expÈrience les autres membres sur le <a href="http://forum.capakaspa.info">forum</a>, et continuez votre dÈcouverte gr‚ce aux articles du <a href="http://blog.capakaspa.info">blog</a>.
+				<img src="images/pos_initiale.jpg" alt="Echiquier position initiale" style="FLOAT: left; MARGIN: 3px 5px 5px 0px;"/>
+				CapaKaspa c'est un bon moyen de d√©couvrir les √©checs. Comment commencer ? Trouvez une r√©ponse dans la section <a href="echecs-apprentissage.php">apprentissage</a>.<br/><br/>
+				Puis vous pourrez mettre en pratique gr√¢ce √† la <a href="tableaubord.php">zone de jeu en diff√©r√©</a> pour jouer des parties √† votre rythme. 
+				<br/><br/>Trouvez les r√©ponses √† vos questions, faites profiter de votre exp√©rience les autres membres sur le <a href="http://forum.capakaspa.info">forum</a>, et continuez votre d√©couverte gr√¢ce aux articles du <a href="http://blog.capakaspa.info">blog</a>.
 					
 			</div>
 		</div>
@@ -85,14 +85,14 @@
 		</div>
 		<div class="blockright" style="height:115px">
 			
-				Suivre l'actualitÈ du site et des Èchecs<br/>
+				Suivre l'actualit√© du site et des √©checs<br/>
 				<table width="100%">
 				<tr>
 				<td width="25%" height="50px"><a href="http://www.facebook.com/capakaspa"><img src="images/icone_facebook.png" alt="Suivre CapaKaspa sur Facebook" width="32" height="32" style="border: 0;"/></a>
 				</td>
 				<td width="25%"><a href="http://www.twitter.com/CapaKaspa"><img src="http://twitter-badges.s3.amazonaws.com/t_logo-a.png" alt="Suivre CapaKaspa sur Twitter" width="32" height="32" style="border: 0;"/></a></td>
 				<td width="25%"><a href="https://plus.google.com/114694270583726807082/?prsrc=3" style="text-decoration: none;"><img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt="Suivre CapaKaspa sur Google+" width="32" height="32" style="border: 0;"/></a></td>
-				<td width="25%"><a href="http://www.youtube.com/user/CapaKaspaEchecs?feature=creators_cornier-http%253A%2F%2Fs.ytimg.com%2Fyt%2Fimg%2Fcreators_corner%2FYouTube%2Fyoutube_32x32.png"><img src="http://s.ytimg.com/yt/img/creators_corner/YouTube/youtube_32x32.png" alt="Abonnez-vous aux vidÈos sur YouTube"/></a><img src="http://www.youtube-nocookie.com/gen_204?feature=creators_cornier-http%3A//s.ytimg.com/yt/img/creators_corner/YouTube/youtube_32x32.png" style="display: none"/>
+				<td width="25%"><a href="http://www.youtube.com/user/CapaKaspaEchecs?feature=creators_cornier-http%253A%2F%2Fs.ytimg.com%2Fyt%2Fimg%2Fcreators_corner%2FYouTube%2Fyoutube_32x32.png"><img src="http://s.ytimg.com/yt/img/creators_corner/YouTube/youtube_32x32.png" alt="Abonnez-vous aux vidÔøΩos sur YouTube"/></a><img src="http://www.youtube-nocookie.com/gen_204?feature=creators_cornier-http%3A//s.ytimg.com/yt/img/creators_corner/YouTube/youtube_32x32.png" style="display: none"/>
 				</td>
 				</tr>
 				</table>	
@@ -102,7 +102,7 @@
 	<div id="contentlarge">
     	<div class="blogbody">	
 			<div class="blockvideo">
-				<div class="blocktitle">VidÈo ‡ la une - 07/10/11</div>
+				<div class="blocktitle">Vid√©o √† la une - 07/10/11</div>
 				<iframe width="330" height="232" src="http://www.youtube.com/embed/pfLM1mcX1k8" frameborder="0" allowfullscreen></iframe>
 	      		<!--  <object width="330" height="232">
 					<param name="movie" value="http://www.youtube.com/v/CxwKBNXd46M?fs=1&amp;hl=fr_FR"></param>
@@ -125,39 +125,7 @@
 			</div>
 		
        	
-    		<div class="blocklarge">
-		      	<div class="blocktitle">Le fil du forum ... <?displayIconRSS(URL_RSS_FORUM);?></div>
-				<table>
-				<tr>
-				<td valign="top" width="75%">
-				<?
-						displayBodyRSS(URL_RSS_FORUM, 4);
-				?>
-				</td>
-				<td>
-				<script type="text/javascript"><!--
-			      google_ad_client = "ca-pub-8069368543432674";
-			      /* CapaKaspa Accueil CarrÈ Centre */
-			      google_ad_slot = "1181101877";
-			      google_ad_width = 200;
-			      google_ad_height = 200;
-			      //-->
-			      </script>
-			      <script type="text/javascript"
-			      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-			 	</script>
-			 	</td>
-			 	</tr>
-				</table>
-			</div>	
-    
-    		<div class="blocklarge">  
-    
-			  	<div class="blocktitle">A la une sur le blog ... <?displayIconRSS(URL_RSS_BLOG);?></div>
-	        	<?
-					displayBodyRSS(URL_RSS_BLOG, 2);
-				?>
-    		</div>
+    		
     	</div>
 	</div>
   

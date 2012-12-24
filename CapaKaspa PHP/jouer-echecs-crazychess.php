@@ -1,18 +1,18 @@
-<?
+Ôªø<?
 	session_start();
 	require 'bwc_players.php';
-	$titre_page = "Jeux en ligne - Jouer aux Èchecs avec Crazy Chess";
-	$desc_page = "Jeux en ligne. Apprenez ‡ maÓtriser les mouvements du Cavalier gr‚ce ‡ ce jeu en flash un peu fou.";
+	$titre_page = "Jeux en ligne - Jouer aux √©checs avec Crazy Chess";
+	$desc_page = "Jeux en ligne. Apprenez √† ma√Ætriser les mouvements du Cavalier gr√¢ce √† ce jeu en flash un peu fou.";
     require 'page_header.php';
     
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "<a href='/'>Accueil</a> > Jeux en ligne > Jouer ‡ Crazy Chess";
+    $barre_progression = "<a href='/'>Accueil</a> > Jeux en ligne > Jouer √† Crazy Chess";
     require 'page_body.php';
 ?>
 	<div id="contentlarge">
     	<div class="blogbody">
     
-		<h3>MaÓtrisez les mouvements du Cavalier gr‚ce ‡ ce petit jeu un peu fou !</h3>
+		<h3>Ma√Ætrisez les mouvements du Cavalier gr√¢ce √† ce petit jeu un peu fou !</h3>
 		
         <!-- AddThis Button BEGIN -->
       	<div class="addthis_toolbox addthis_default_style ">

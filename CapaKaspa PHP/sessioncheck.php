@@ -1,4 +1,4 @@
-<?
+﻿<?
 	require_once('bwc_players.php');
 	
 	/* load settings */

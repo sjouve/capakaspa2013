@@ -1,4 +1,4 @@
-<?
+ï»¿<?
 session_start();
 /* load settings */
 if (!isset($_CONFIG))
@@ -18,14 +18,14 @@ switch($ToDo)
 {
 	case 'NewUser':
 
-		// Contrôle serveur du nick vide
+		// ContrÃ´le serveur du nick vide
 		if ($_POST['txtNick'] == "")
 		{
 		  	$err = 'emptyNick';
 	    	break;
 		}
 		
-		// Contrôle existence joueur avec même surnom ou email
+		// ContrÃ´le existence joueur avec mÃªme surnom ou email
 		$player = getPlayerByNickEmail($_POST['txtNick'], $_POST['txtEmail']);
 		
 		if (strtolower($player['nick']) == strtolower($_POST['txtNick']))
@@ -45,7 +45,7 @@ switch($ToDo)
 		  break;
 		}
 		
-		// Création du joueur et envoi message confirmation
+		// CrÃ©ation du joueur et envoi message confirmation
 		if (!createPlayer())
 		{
 		  	// Erreur technique
@@ -56,7 +56,7 @@ switch($ToDo)
 		break;
 		
 	case 'activer':
-		// On vérifie si le compte n'est pas déjà activé
+		// On vÃ©rifie si le compte n'est pas dÃ©jÃ  activÃ©
 		$player = getPlayer($_GET['playerID']);
 		if ($player && $player[activate] == 1)
 		{
@@ -69,8 +69,8 @@ switch($ToDo)
 		
 }
 
-$titre_page = "Echecs en différé - Inscription à la zone de jeu";
-$desc_page = "Jouer aux échecs en différé. Inscrivez-vous à la zone de jeu en différé et jouer des parties d'échecs à votre rythme.";
+$titre_page = "Echecs en diffÃ©rÃ© - Inscription Ã  la zone de jeu";
+$desc_page = "Jouer aux Ã©checs en diffÃ©rÃ©. Inscrivez-vous Ã  la zone de jeu en diffÃ©rÃ© et jouer des parties d'Ã©checs Ã  votre rythme.";
 require 'page_header.php';
     
 ?>
@@ -98,13 +98,13 @@ require 'page_header.php';
 		
 		if (!isAlphaNumeric(document.userdata.txtNick.value))
 		{
-			alert("Le surnom doit être alphanumérique.");
+			alert("Le surnom doit Ãªtre alphanumÃ©rique.");
 			return;
 		}
 		
 		if (!isAlphaNumeric(document.userdata.pwdPassword.value))
 		{
-			alert("Le mot de passe doit être alphanumérique.");
+			alert("Le mot de passe doit Ãªtre alphanumÃ©rique.");
 			return;
 		}
 		
@@ -116,7 +116,7 @@ require 'page_header.php';
 		
 		if (!isNumber(document.userdata.txtAnneeNaissance.value) || !isWithinRange(document.userdata.txtAnneeNaissance.value, 1900, annee))
 		{
-			alert("L'année de naissance est un nombre à 4 chiffres compris entre 1900 et l'année courante.");
+			alert("L'annÃ©e de naissance est un nombre Ã  4 chiffres compris entre 1900 et l'annÃ©e courante.");
 			return;
 		}
 		
@@ -129,7 +129,7 @@ require 'page_header.php';
 </script>
 <?
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Inscription";
+    $barre_progression = "<a href='/'>Accueil</a> > Echecs en diffÃ©rÃ© > Inscription";
     require 'page_body.php';
 ?>
 	<div id="contentlarge">
@@ -137,28 +137,28 @@ require 'page_header.php';
 	<?
 		/* Traiter les erreurs */
 		if ($err == 'existNick')
-			echo("<div class='error'>Le surnom (".$_POST['txtNick'].") que vous avez choisi  est déjà utilisé.  Essayez un autre surnom.</div>");
+			echo("<div class='error'>Le surnom (".$_POST['txtNick'].") que vous avez choisi  est dÃ©jÃ  utilisÃ©.  Essayez un autre surnom.</div>");
 		if ($err == 'existEmail')
-			echo("<div class='error'>L'email (".$_POST['txtEmail'].") que vous avez choisi  est déjà utilisé.  Essayez un autre email.</div>");
+			echo("<div class='error'>L'email (".$_POST['txtEmail'].") que vous avez choisi  est dÃ©jÃ  utilisÃ©.  Essayez un autre email.</div>");
 		if ($err == 'emptyNick')
 			echo("<div class='error'>Surnom vide</div>");
 		if ($err == 'db')
 			echo("<div class='error'>Une erreur technique s'est produite</div>");
 		if ($err == 'captcha')
-			echo("<div class='error'>Le code de vérification est érroné. Essayez de nouveau.</div>");
+			echo("<div class='error'>Le code de vÃ©rification est Ã©rronÃ©. Essayez de nouveau.</div>");
 			
 	?>
 	<?if ($ToDo == 'activer' && !$err) {?>
-	<b>Votre compte vient d'être activé.</b>
+	<b>Votre compte vient d'Ãªtre activÃ©.</b>
 	<p>
-	Vous pouvez maintenant vous connecter à la zone de jeu en différé.
+	Vous pouvez maintenant vous connecter Ã  la zone de jeu en diffÃ©rÃ©.
 	</p>
 	<?} else if ($ToDo == 'activer' && $err == 'db') {?>
 	Une erreur s'est produite lors de l'activation !!!
 	<?} else if (!$err && $ToDo == 'NewUser') {?>
-	<b>Un message de confirmation d'inscription a été envoyé à l'adresse de messagerie que vous avez choisi : <? echo($_POST['txtEmail']); ?> .</b>
-	<p>En attendant, vous pouvez consulter le <a href="../manuel-utilisateur-jouer-echecs-capakaspa.pdf" target="_blank">manuel utilisateur</a> de la zone de jeu en différé.</p>
-	<p>Si vous souhaitez discuter au sujet des échecs ou faire des remarques et suggestions concernant le site CapaKaspa, vous pouvez aussi vous <a href="http://forum.capakaspa.info/profile.php?mode=register">inscrire sur le forum</a> de CapaKaspa.</p><br/>
+	<b>Un message de confirmation d'inscription a Ã©tÃ© envoyÃ© Ã  l'adresse de messagerie que vous avez choisi : <? echo($_POST['txtEmail']); ?> .</b>
+	<p>En attendant, vous pouvez consulter le <a href="../manuel-utilisateur-jouer-echecs-capakaspa.pdf" target="_blank">manuel utilisateur</a> de la zone de jeu en diffÃ©rÃ©.</p>
+	<p>Si vous souhaitez discuter au sujet des Ã©checs ou faire des remarques et suggestions concernant le site CapaKaspa, vous pouvez aussi vous <a href="http://forum.capakaspa.info/profile.php?mode=register">inscrire sur le forum</a> de CapaKaspa.</p><br/>
 	<hr/>
 	
 	
@@ -166,9 +166,9 @@ require 'page_header.php';
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 	<?} else  {?>
 	
-	<b>L'accès à la zone de jeu en différé nécessite une inscription.</b>
-	<p><ul><li>Cette inscription est complètement gratuite</li></ul>La seule contrainte est de nous fournir toutes les informations ci-dessous. <i>Cependant votre nom, prénom et adresse de messagerie ne seront pas connus des autres joueurs</i>. Les informations restantes sont publiées dans la liste des joueurs du site.</p>
-	<p><ul><li>Cette inscription nécessite une validation par messagerie électronique</li></ul>L'adresse de messagerie associée à votre compte doit donc être valide.</p>
+	<b>L'accÃ¨s Ã  la zone de jeu en diffÃ©rÃ© nÃ©cessite une inscription.</b>
+	<p><ul><li>Cette inscription est complÃ¨tement gratuite</li></ul>La seule contrainte est de nous fournir toutes les informations ci-dessous. <i>Cependant votre nom, prÃ©nom et adresse de messagerie ne seront pas connus des autres joueurs</i>. Les informations restantes sont publiÃ©es dans la liste des joueurs du site.</p>
+	<p><ul><li>Cette inscription nÃ©cessite une validation par messagerie Ã©lectronique</li></ul>L'adresse de messagerie associÃ©e Ã  votre compte doit donc Ãªtre valide.</p>
 	
 	<form name="userdata" method="post" action="jouer-echecs-differe-inscription.php?ToDo=NewUser">
 	<h3>Vos informations personnelles</h3>
@@ -205,7 +205,7 @@ require 'page_header.php';
 		</tr>
 		<tr>
 			<td >
-				Prénom :
+				PrÃ©nom :
 			</td>
 			
 			<td>
@@ -228,12 +228,12 @@ require 'page_header.php';
             </td>
           </tr>
 		  <tr>
-            <td> Situation géographique : </td>
+            <td> Situation gÃ©ographique : </td>
             <td><input name="txtSituationGeo" type="text" size="50" maxlength="50" value="<? echo($_POST['txtSituationGeo']); ?>">
             </td>
           </tr>
 		  <tr>
-            <td> Année de naissance : </td>
+            <td> AnnÃ©e de naissance : </td>
             <td><input name="txtAnneeNaissance" type="text" size="4" maxlength="4" value="<? echo($_POST['txtAnneeNaissance']); ?>">
             </td>
           </tr>
@@ -247,7 +247,7 @@ require 'page_header.php';
 			<td colspan="2">&nbsp</td>
 		</tr>
 		</table>
-		<h3>Vos préférences</h3>
+		<h3>Vos prÃ©fÃ©rences</h3>
 		<table>
 		<tr valign="top">
 			<td width="250">
@@ -264,7 +264,7 @@ require 'page_header.php';
 
 		<tr valign="top">
 			<td>
-				Thèmes :
+				ThÃ¨mes :
 			</td>
 
 			<td>
@@ -286,7 +286,7 @@ require 'page_header.php';
 			</td>
 		</tr>
 		</table>
-		<h3>Code de vérification</h3>
+		<h3>Code de vÃ©rification</h3>
 		<table>
 		<tr>
 			<td width="250">

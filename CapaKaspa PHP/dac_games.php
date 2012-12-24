@@ -1,5 +1,5 @@
-<?
-/* Accès aux données concernant la table Games, History, Pieces, Messages */
+ï»¿<?
+/* AccÃ¨s aux donnÃ©es concernant la table Games, History, Pieces, Messages */
 
 function countActiveGame($playerID)
 {
@@ -9,12 +9,12 @@ function countActiveGame($playerID)
 
 function countActiveGameForAll()
 {
-	$activeGames = mysql_query("SELECT count(gameID) nbGames FROM games WHERE gameMessage=''");
+	$activeGames = mysql_query("SELECT count(gameID) nbGames FROM games WHERE gameMessage=''") or die(mysql_error());
 	return mysql_fetch_array($activeGames, MYSQL_ASSOC);
 }
 
 /**
-* Liste des parties terminées d'un joueur pour calcul moyenne elo adversaire
+* Liste des parties terminÃ©es d'un joueur pour calcul moyenne elo adversaire
 **/
 function listEndedGames($playerID, $dateDeb, $dateFin)
 {
@@ -94,20 +94,20 @@ function calculMoyenneElo($playerID, $dateDeb, $dateFin)
 
 /*
  * Recherche de parties
- * Critères :
- * - Etat : En cours, terminées
+ * CritÃ¨res :
+ * - Etat : En cours, terminÃ©es
  * - Joueurs : Tous, Id joueur
- * - Pas le joueur connecté
- * - Couleur du joueur (si sélectionné) : Blancs, Noirs
- * - Résultat du joueur : Victoire, Défaite, Nulle
+ * - Pas le joueur connectÃ©
+ * - Couleur du joueur (si sÃ©lectionnÃ©) : Blancs, Noirs
+ * - RÃ©sultat du joueur : Victoire, DÃ©faite, Nulle
  * - Type partie : Normal ou avec position
  * - Code ECO
  * - Plage date de fin (sur date du dernier coup)
- * - Plage date de début
+ * - Plage date de dÃ©but
  */
 function searchGames($debut, $limit)
 {
-	// TODO Recherche de parties à implémenter
+	// TODO Recherche de parties Ã  implÃ©menter
 	$requete = "SELECT G.gameID, G.eco eco, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, DATE_FORMAT(G.dateCreated, '%d/%m/%Y %T') dateCreatedF, DATE_FORMAT(G.lastMove, '%d/%m/%Y %T') lastMove
                 FROM games G, players W, players B
                 WHERE W.playerID = G.whitePlayer

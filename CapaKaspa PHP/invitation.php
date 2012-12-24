@@ -1,4 +1,4 @@
-<?
+ï»¿<?
 	session_start(); 
 
 	/* chess utils */
@@ -14,8 +14,8 @@
 	
 	//require 'dac_players.php';
 	
-    $titre_page = "Echecs en différé - Proposition de partie";
-    $desc_page = "Jouer aux échecs en différé. Recherchez un adversaire pour lui proposer une partie d'échecs en différé.";
+    $titre_page = "Echecs en diffÃ©rÃ© - Proposition de partie";
+    $desc_page = "Jouer aux Ã©checs en diffÃ©rÃ©. Recherchez un adversaire pour lui proposer une partie d'Ã©checs en diffÃ©rÃ©.";
     require 'page_header.php';
 ?>
 	<script type="text/javascript">
@@ -29,7 +29,7 @@
 	</script>
 <?
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Les autres joueurs";
+    $barre_progression = "<a href='/'>Accueil</a> > Echecs en diffÃ©rÃ© > Les autres joueurs";
     require 'page_body.php';
 ?>
 	<div id="contentlarge">
@@ -73,11 +73,13 @@
 		<table width="90%">
 			<tr>
 			<td valign="middle"><img src="images/ampoule.jpg"></td> 
-			<td valign="middle">Un joueur est considéré passif s'il ne s'est plus connecté au site depuis 2 semaines, ramenez-le parmi nous : invitez le !</td>
+			<td valign="middle">Un joueur est considÃ©rÃ© passif s'il ne s'est plus connectÃ© au site depuis 2 semaines, ramenez-le parmi nous : invitez le !</td>
 	        </tr>
 		</table>
     	<br/>
 		<?
+            $critEloStart = isset($_POST['critEloStart']) ? $_POST['critEloStart'] : "";
+            $critEloEnd = isset($_POST['critEloEnd']) ? $_POST['critEloEnd'] : "";
             $critStatus = isset($_POST['critStatus']) ? $_POST['critStatus']:"actif";
             $critFavorite = isset($_POST['critFavorite']) ? $_POST['critFavorite']:"na";
             
@@ -85,15 +87,15 @@
             $limit = 25;
 			$debut = $pge*$limit;
 			$nb_tot = 0;
-			$res_count = searchPlayers("count", 0, 0, $_POST['critFavorite'], $critStatus, $_POST['critEloStart'], $_POST['critEloEnd']); 
+			$res_count = searchPlayers("count", 0, 0, $critFavorite, $critStatus, $critEloStart, $critEloEnd); 
 			if ($res_count)
 			{
 				$count = mysql_fetch_array($res_count, MYSQL_ASSOC);
 				$nb_tot = $count['nbPlayers'];
 			}
 			
-			$nbpages = ceil($nb_tot/$limit); // ceil = plafond : pour arrondir à la valeur supérieure
-			$resultats = searchPlayers("", $debut, $limit, $_POST['critFavorite'], $critStatus, $_POST['critEloStart'], $_POST['critEloEnd']); 
+			$nbpages = ceil($nb_tot/$limit); // ceil = plafond : pour arrondir Ã  la valeur supÃ©rieure
+			$resultats = searchPlayers("", $debut, $limit, $critFavorite, $critStatus, $critEloStart, $critEloEnd); 
 			
 		?>
 		<h3>Rechercher un joueur </h3>
@@ -104,7 +106,7 @@
 		            <td width="180">Vos joueurs favoris :</td>
 		            <td>
 		              <input name="critFavorite" type="radio" value="na" <?if ($critFavorite=='na') echo('checked');?>>
-		              Indifférent 
+		              IndiffÃ©rent 
 		            </td>
 		            <td colspan="2">
 		              <input name="critFavorite" type="radio" value="oui" <?if ($critFavorite=='oui') echo('checked');?>>
@@ -114,7 +116,7 @@
 		            
 		          </tr>
 		          <tr>
-		            <td width="180">Activité :</td>
+		            <td width="180">ActivitÃ© :</td>
 		            <td>
 		              <input name="critStatus" type="radio" value="tous" <?if ($critStatus=='tous') echo('checked');?>>
 		              Tous
@@ -131,10 +133,10 @@
 		          <tr>
 		            <td width="180">Classement Elo :</td>
 		            <td>
-		              Entre <input name="critEloStart" type="text" size="4" maxlength="4" value="<? echo($_POST['critEloStart']);?>">
+		              Entre <input name="critEloStart" type="text" size="4" maxlength="4" value="<? echo($critEloStart);?>">
 		            </td>
 		            <td>
-		              et <input name="critEloEnd" type="text" size="4" maxlength="4" value="<? echo($_POST['critEloEnd']);?>">
+		              et <input name="critEloEnd" type="text" size="4" maxlength="4" value="<? echo($critEloEnd);?>">
 		            </td>
 		            <td>
 		            	<input name="Filter" type="submit" value="Filtrer">

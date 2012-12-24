@@ -1,4 +1,4 @@
-<?	require 'mobilecheck.php';
+ï»¿<?	require 'mobilecheck.php';
 	session_start();
 
 	/* load settings */
@@ -69,7 +69,7 @@
 		$nb_game_vacation = mysql_num_rows($res_adv_vacation) + mysql_num_rows($res_vacation);
 	}
 	
-	// Pièces capturées
+	// PiÃ¨ces capturÃ©es
 	// TODO Mettre cette requete dans dac_games
 	$f=mysql_query("select curPiece,curColor,replaced from history where replaced > '' and gameID =  '".$_POST['gameID']."' order by curColor desc , replaced desc");
 	
@@ -155,10 +155,10 @@
 	if ($_SESSION['isSharedPC'])
 		$titre_page = '';
 	else if ($isPlayersTurn)
-        $titre_page = "Echecs en différé - Votre coup";
+        $titre_page = "Echecs en diffÃ©rÃ© - Votre coup";
 	else
-        $titre_page = "Echecs en différé - Le coup de l'adversaire";
-	$desc_page = "Jouer aux échecs en différé. C'est votre partie, à vous de jouer.";
+        $titre_page = "Echecs en diffÃ©rÃ© - Le coup de l'adversaire";
+	$desc_page = "Jouer aux Ã©checs en diffÃ©rÃ©. C'est votre partie, Ã  vous de jouer.";
     require 'page_header.php';
     //echo("<meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>\n");
 ?>
@@ -186,17 +186,17 @@ if (DEBUG)
 // this is the main function that interacts with the user everytime they click on a square
 </script>
 <script type="text/javascript" src="iechecs/js/action.js">
- /* Actions échiquier en ligne */
+ /* Actions Ã©chiquier en ligne */
 </script>
 <?
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
 
     if ($_POST['from'] == "encours" )
-        $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > <a href='tableaubord.php'>Mes parties</a> > Une partie";
+        $barre_progression = "<a href='/'>Accueil</a> > Echecs en diffÃ©rÃ© > <a href='tableaubord.php'>Mes parties</a> > Une partie";
     else if ($_POST['from'] == "toutes")
-        $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > <a href='listeparties.php'>Les autres parties en cours</a> > Une partie";
+        $barre_progression = "<a href='/'>Accueil</a> > Echecs en diffÃ©rÃ© > <a href='listeparties.php'>Les autres parties en cours</a> > Une partie";
     else if ($_POST['from'] == "archive")
-        $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > <a href='partiesterminees.php'>Les parties terminées</a> > Une partie";
+        $barre_progression = "<a href='/'>Accueil</a> > Echecs en diffÃ©rÃ© > <a href='partiesterminees.php'>Les parties terminÃ©es</a> > Une partie";
 
     require 'page_body.php';
 ?>
@@ -205,14 +205,14 @@ if (DEBUG)
       <table>
       		<tr>
 	      		<td valign="middle"><img src="images/ampoule.jpg"></td> 
-	      		<td valign="middle">Utilisez l'échiquier en ligne pour manipuler votre partie mais aussi pour revoir les règles du jeu...</td>
+	      		<td valign="middle">Utilisez l'Ã©chiquier en ligne pour manipuler votre partie mais aussi pour revoir les rÃ¨gles du jeu...</td>
         	</tr>
         </table>
         <?
         if ($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['whitePlayer'])
 		{
         	if (mysql_num_rows($res_adv_vacation) > 0)
-				echo("<div class='success'>Votre adversaire est absent en ce moment ! La partie est ajournée.</div>");
+				echo("<div class='success'>Votre adversaire est absent en ce moment ! La partie est ajournÃ©e.</div>");
 
 			else
 				echo("<br/>");
@@ -238,7 +238,7 @@ if (DEBUG)
               <? drawboard(true); ?>
               <nobr>
               <input type="button" name="btnUndo" value="Annuler le coup" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='undo()'"); ?>>
-              <!-- <input type="button" name="btnReload" value="Actualiser l'échiquier" onClick="document.gamedata.submit();"> -->
+              <!-- <input type="button" name="btnReload" value="Actualiser l'Ã©chiquier" onClick="document.gamedata.submit();"> -->
               <input type="button" name="btnDraw" value="Proposer nulle" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='draw()'"); ?>>
               <input type="button" name="btnResign" value="Abandonner" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='resigngame()'"); ?>>
 			  <a href="manuel-utilisateur-jouer-echecs-capakaspa.pdf#page=6" target="_blank"><img src="images/point-interrogation.gif" border="0"/></a>
@@ -268,7 +268,7 @@ if (DEBUG)
 				$listeCoups = writeHistory();
 				$pgnstring = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $listeCoups);
 			?>
-			<img src="images/puce.gif"/> <a href="javascript:void(0)" onclick='window.open("http://www.iechecs.com/iechecs.htm?app,<? if ($playersColor == "black") echo("p=t,"); ?> pgn=<? echo($pgnstring); ?>","iechecs","height=413,width=675,status=no,toolbar=no,menubar=no,location=no,resizable=yes")' >Ouvrir la partie dans l'échiquier en ligne</a>
+			<img src="images/puce.gif"/> <a href="javascript:void(0)" onclick='window.open("http://www.iechecs.com/iechecs.htm?app,<? if ($playersColor == "black") echo("p=t,"); ?> pgn=<? echo($pgnstring); ?>","iechecs","height=413,width=675,status=no,toolbar=no,menubar=no,location=no,resizable=yes")' >Ouvrir la partie dans l'Ã©chiquier en ligne</a>
 			
 			<br />
 			

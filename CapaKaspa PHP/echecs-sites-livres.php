@@ -1,17 +1,17 @@
-<?
+ï»¿<?
 	session_start();
 	require 'bwc_players.php';
-	$titre_page = "Découvrir les échecs - Les sites Internet et les livres aux sujets des échecs";
-	$desc_page = "Découvrir les échecs. Présentation des ressources disponibles pour étudier les échecs : quelques sites Interne pour bien débuter et les types de livre disponibles.";
+	$titre_page = "DÃ©couvrir les Ã©checs - Les sites Internet et les livres aux sujets des Ã©checs";
+	$desc_page = "DÃ©couvrir les Ã©checs. PrÃ©sentation des ressources disponibles pour Ã©tudier les Ã©checs : quelques sites Interne pour bien dÃ©buter et les types de livre disponibles.";
     require 'page_header.php';
     
 	$image_bandeau = 'bandeau_capakaspa_global.jpg';
-    $barre_progression = "<a href='/'>Accueil</a> > Découvrir les échecs > Sites Internet et Livres";
+    $barre_progression = "<a href='/'>Accueil</a> > DÃ©couvrir les Ã©checs > Sites Internet et Livres";
     require 'page_body.php';
 ?>
 	<div id="contentlarge">
     	<div class="blogbody">
-			<h3>Les ressources pour étudier les échecs</h3>
+			<h3>Les ressources pour Ã©tudier les Ã©checs</h3>
 		      <!-- AddThis Button BEGIN -->
 		      <div class="addthis_toolbox addthis_default_style ">
 		      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -21,41 +21,41 @@
 		      </div>
       		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e7cb2a45be34669"></script>
       		<!-- AddThis Button END -->
-			<p>Chaque phase de l'apprentissage nécessite d'étudier certaines parties de la théorie des échecs. Comme il n'est pas nécessaire de refaire ce que d'autres ont déjà trés bien fait,
+			<p>Chaque phase de l'apprentissage nÃ©cessite d'Ã©tudier certaines parties de la thÃ©orie des Ã©checs. Comme il n'est pas nÃ©cessaire de refaire ce que d'autres ont dÃ©jÃ  trÃ©s bien fait,
 			je vous fournis ici un ensemble de ressources qui pourront vous accompagner dans votre travail.
-			</p><P>Pour tout complément d'informations, n'hésitez pas à faire vos demandes sur le <a href="http://forum.capakaspa.info">forum</a>.</p>
+			</p><P>Pour tout complÃ©ment d'informations, n'hÃ©sitez pas Ã  faire vos demandes sur le <a href="http://forum.capakaspa.info">forum</a>.</p>
 		
 
 	
 		  <h3>Sites Internet</h3>
-	      <p>Les sites suivants sont bourrés d'informations pour débuter et progresser :</p>
+	      <p>Les sites suivants sont bourrÃ©s d'informations pour dÃ©buter et progresser :</p>
 	      <ul>
-	        <li><a href="http://normandlamoureux.com/echecs/" target="_blank">Le jeu d'échecs expliqué : ressources diverses sur le noble jeu</a>
-	        <li><a href="http://www.iechecs.com/index.htm" target="_blank">L'univers du jeu d'échecs</a>
-			<li><a href="http://jesweb.net/zoom/echecs/echecs.html" target="_blank">Jeu d'échecs : comment débuter, s'améliorer et apprendre aux enfants</a>
-	        <li><a href="http://www.corse-echecs.com/shop/Le-Manuel-des-Echecs_p3.html" target="_blank">Le Manuel des échecs</a>
-	        <li><a href="http://jeu-echecs.bnpparibas.com" target="_blank">Apprendre à jouer aux échecs avec BNP Paribas, Partenaire officiel de la Fédération Française des Echecs</a>
-	        <li><a href="http://www.echecspassion.com" target="_blank">Echecspassion.com s'adresse à toute personne intéressée par les échecs</a>
+	        <li><a href="http://normandlamoureux.com/echecs/" target="_blank">Le jeu d'Ã©checs expliquÃ© : ressources diverses sur le noble jeu</a>
+	        <li><a href="http://www.iechecs.com/index.htm" target="_blank">L'univers du jeu d'Ã©checs</a>
+			<li><a href="http://jesweb.net/zoom/echecs/echecs.html" target="_blank">Jeu d'Ã©checs : comment dÃ©buter, s'amÃ©liorer et apprendre aux enfants</a>
+	        <li><a href="http://www.corse-echecs.com/shop/Le-Manuel-des-Echecs_p3.html" target="_blank">Le Manuel des Ã©checs</a>
+	        <li><a href="http://jeu-echecs.bnpparibas.com" target="_blank">Apprendre Ã  jouer aux Ã©checs avec BNP Paribas, Partenaire officiel de la FÃ©dÃ©ration FranÃ§aise des Echecs</a>
+	        <li><a href="http://www.echecspassion.com" target="_blank">Echecspassion.com s'adresse Ã  toute personne intÃ©ressÃ©e par les Ã©checs</a>
 	      </ul>
 		  
 		  <h3>Livres</h3>
-	      <p>Les livres sont indispensables pour creuser certains aspects du jeu ou pour améliorer sa compréhension.
+	      <p>Les livres sont indispensables pour creuser certains aspects du jeu ou pour amÃ©liorer sa comprÃ©hension.
 		  Prenons le cas des finales :</p>
 	      <ul>
-	        <li>On pourra trouver des livres qui répertorient l'ensemble des finales avec des exemples théoriques,
-	        <li>ou bien des livres qui les abordent sous un certain angle ("La stratégie dans les finales" de M. Cherechevski).
+	        <li>On pourra trouver des livres qui rÃ©pertorient l'ensemble des finales avec des exemples thÃ©oriques,
+	        <li>ou bien des livres qui les abordent sous un certain angle ("La stratÃ©gie dans les finales" de M. Cherechevski).
 	      </ul>
 	      <p></p>
 		  <p>Dans le cas des ouvertures : </p>
 		  <ul>
-	        <li>On trouvera des monographies sur une ouverture particulière ou même une variante d'une ouverture,
-			<li>ou bien un livre qui permettra d'améliorer sa compréhension ("Les Idées cachées dans les ouvertures d'échecs" de R. Fine).
+	        <li>On trouvera des monographies sur une ouverture particuliÃ¨re ou mÃªme une variante d'une ouverture,
+			<li>ou bien un livre qui permettra d'amÃ©liorer sa comprÃ©hension ("Les IdÃ©es cachÃ©es dans les ouvertures d'Ã©checs" de R. Fine).
 	      </ul>
 	      <p></p>
-		  <p>Il en est de même pour la stratégie et la tactique. Pour aborder la stratégie il y aura :</p>
+		  <p>Il en est de mÃªme pour la stratÃ©gie et la tactique. Pour aborder la stratÃ©gie il y aura :</p>
 		  <ul>
-		    <li>Les 3 tomes de "La stratégie moderne aux échecs" de L. Pachman,
-			<li>ou l'excellent "Comment mûrir son style" de J. Silmann.
+		    <li>Les 3 tomes de "La stratÃ©gie moderne aux Ã©checs" de L. Pachman,
+			<li>ou l'excellent "Comment mÃ»rir son style" de J. Silmann.
 		  </ul>
 		   <p></p>
 		</div>

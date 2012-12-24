@@ -1,4 +1,4 @@
-// Copyright Frank Milard - http://www.asaisir.com/a-la-page
+﻿// Copyright Frank Milard - http://www.asaisir.com/a-la-page
 
 if(document.all && !document.getElementById) {
     document.getElementById = function(id) {

@@ -1,5 +1,5 @@
-<?
-/* Accès aux données concernant les tables Players et Preferences */
+ï»¿<?
+/* AccÃ¨s aux donnÃ©es concernant les tables Players et Preferences */
 
 /* Constantes du module */
 define ("MAX_NB_JOUR_ABSENCE", 35);
@@ -36,7 +36,7 @@ function getPlayerByNickEmail($nick, $email)
     return $player;
 }
 
-/* Insérer un joueur */	
+/* InsÃ©rer un joueur */	
 function insertPlayer($password, $firstName, $lastName, $nick, $email, $profil, $situationGeo, $anneeNaissance)
 {
 	$res_player = mysql_query("INSERT INTO players (password, firstName, lastName, nick, email, profil, situationGeo, anneeNaissance, creationDate) 
@@ -48,7 +48,7 @@ function insertPlayer($password, $firstName, $lastName, $nick, $email, $profil, 
 		return FALSE;
 }
 
-/* Mettre à jour un joueur */
+/* Mettre Ã  jour un joueur */
 function updatePlayer($playerID, $password, $firstName, $lastName, $nick, $email, $profil, $situationGeo, $anneeNaissance, $activate)
 { 		
 	  $res_player = mysql_query("UPDATE players SET password='".$password."', firstName='".addslashes(strip_tags($firstName))."', lastName='".addslashes(strip_tags($lastName))."', nick='".$nick."', email='".$email."', profil='".addslashes(strip_tags($profil))."', situationGeo='".addslashes(strip_tags($situationGeo))."', anneeNaissance='".$anneeNaissance."', activate=".$activate." WHERE playerID = ".$playerID);
@@ -59,7 +59,7 @@ function updatePlayer($playerID, $password, $firstName, $lastName, $nick, $email
 		return FALSE;
 }
 
-/* Mettre à jour un joueur avec données réseau social */
+/* Mettre Ã  jour un joueur avec donnÃ©es rÃ©seau social */
 function updatePlayerWithSocial($playerID, $password, $firstName, $lastName, $nick, $email, $profil, $situationGeo, $anneeNaissance, $activate, $socialNetwork, $socialID)
 { 		
 	  $res_player = mysql_query("UPDATE players 
@@ -121,8 +121,8 @@ function countPassivePlayers()
 	return mysql_fetch_array($res_player, MYSQL_ASSOC);
 }
 	
-/* Préférences */
-/* Insérer une préférence d'un joueur */
+/* PrÃ©fÃ©rences */
+/* InsÃ©rer une prÃ©fÃ©rence d'un joueur */
 function insertPreference($playerID, $preference, $value)
 {
 	
@@ -130,7 +130,7 @@ function insertPreference($playerID, $preference, $value)
 	return $res_preference;
 }
 
-/* Mise à jour d'une préférence */
+/* Mise Ã  jour d'une prÃ©fÃ©rence */
 function updatePreference($playerID, $preference, $value)
 {
 	
@@ -142,7 +142,7 @@ function updatePreference($playerID, $preference, $value)
 		return FALSE;
 }
 
-/* Insérer un congé */
+/* InsÃ©rer un congÃ© */
 /* Format date YYYY-MM-DD */
 function insertVacation($playerID, $duration)
 {
@@ -154,18 +154,18 @@ function insertVacation($playerID, $duration)
 	return $res_absence;
 }
 
-/* Compte le nombre de jours d'absence pour un joueur sur une année */
-/* Format de l'année YYYY */
+/* Compte le nombre de jours d'absence pour un joueur sur une annÃ©e */
+/* Format de l'annÃ©e YYYY */
 function countVacation($playerID, $year)
 {
-	// Nombre de jours pour congés complètement sur l'année
+	// Nombre de jours pour congÃ©s complÃ¨tement sur l'annÃ©e
 	$res = mysql_query("SELECT SUM(duration) nbVacation FROM vacation WHERE playerID=".$playerID." AND YEAR(endDate)=".$year)  or die(mysql_error()."\n".$requete);
 	$res_vacation = mysql_fetch_array($res, MYSQL_ASSOC);   
 	
 	return $res_vacation['nbVacation'] + $d;;
 }
 
-/* Récupère les vacances en cours d'un joueur */
+/* RÃ©cupÃ¨re les vacances en cours d'un joueur */
 function getCurrentVacation($playerID)
 {
 	$res_vacation = mysql_query("SELECT beginDate, DATE_FORMAT(beginDate, '%d/%m/%Y') beginDateF, endDate, DATE_FORMAT(endDate, '%d/%m/%Y') endDateF, duration 
@@ -175,7 +175,7 @@ function getCurrentVacation($playerID)
 	return $res_vacation;
 }
 
-/* Créer un favori joueur */
+/* CrÃ©er un favori joueur */
 function insertFavPlayer($playerID, $favPlayerID)
 {
 	
@@ -206,7 +206,7 @@ function listPlayersFavoris($playerID)
 	return mysql_query($tmpQuery); 
 }
 
-/* Récupère un favori */
+/* RÃ©cupÃ¨re un favori */
 function getPlayerFavorite($playerID, $favPlayerID)
 {
 	$res_favorite = mysql_query("SELECT favoriteID FROM fav_players WHERE playerID = ".$playerID." AND favPlayerID = ".$favPlayerID);
@@ -258,9 +258,9 @@ function listEloProgress($playerID)
 
 /*
  * Recherche des utilisateurs
- * $mode : count = renvoi le nb de résultat de la recherche sinon le résultat
+ * $mode : count = renvoi le nb de rÃ©sultat de la recherche sinon le rÃ©sultat
  * $debut :
- * $limit : nb résultat par page 
+ * $limit : nb rÃ©sultat par page 
  * 
  */
 function searchPlayers($mode, $debut, $limit, $critFavorite, $critStatus, $critEloStart, $critEloEnd)
@@ -312,7 +312,7 @@ function getOnlinePlayer($playerID)
     return $olplayer;
 }
 
-/* Insérer joueur en ligne */	
+/* InsÃ©rer joueur en ligne */	
 function insertOnlinePlayer($playerID)
 {
 	$res_olplayer = mysql_query("INSERT INTO online_players (playerID, lastActionTime) 
@@ -324,7 +324,7 @@ function insertOnlinePlayer($playerID)
 		return FALSE;
 }
 
-/* Mettre à jour joueur en ligne*/
+/* Mettre Ã  jour joueur en ligne*/
 function updateOnlinePlayer($playerID)
 { 		
 	  $res_olplayer = mysql_query("UPDATE online_players 

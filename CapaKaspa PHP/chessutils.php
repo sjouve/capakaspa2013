@@ -1,8 +1,8 @@
-<?
+ï»¿<?
 	/* these are utility functions used by other functions */
 	function getPieceName($piece)
 	{
-		// TODO A franciser (voir alt sur case de l'échiquier)
+		// TODO A franciser (voir alt sur case de l'Ã©chiquier)
 		// Save
 		switch($piece & COLOR_MASK)
 		{
@@ -411,29 +411,29 @@
 				break;
 				
 			case 'invitation':
-				$mailsubject = "[CapaKaspa] Vous etes invité à jouer une nouvelle partie";
-				$mailmsg = "Le joueur ".$opponent." vous invite à jouer une nouvelle partie.";
+				$mailsubject = "[CapaKaspa] Vous etes invitÃ© Ã  jouer une nouvelle partie";
+				$mailmsg = "Le joueur ".$opponent." vous invite Ã  jouer une nouvelle partie.";
 				break;
 				
 			case 'withdrawal':
-				$mailsubject = "[CapaKaspa] Invitation annulée";
-				$mailmsg = "Le joueur ".$opponent." a annulé son invitation pour jouer une nouvelle partie.";
+				$mailsubject = "[CapaKaspa] Invitation annulÃ©e";
+				$mailmsg = "Le joueur ".$opponent." a annulÃ© son invitation pour jouer une nouvelle partie.";
 				break;
 				
 			case 'resignation':
 				$mailsubject = "[CapaKaspa] Abandon";
-				$mailmsg = "Votre adversaire ".$opponent." a abandonné la partie.";
+				$mailmsg = "Votre adversaire ".$opponent." a abandonnÃ© la partie.";
 				break;
 				
 			case 'move':
 				$mailsubject = "[CapaKaspa] Nouveau coup";
-				$mailmsg = "Votre adversaire ".$opponent." a joué le coup suivant :";
+				$mailmsg = "Votre adversaire ".$opponent." a jouÃ© le coup suivant :";
 				$mailmsg .= "\n".$move;
 				break;
 				
 			case 'accepted':
-				$mailsubject = "[CapaKaspa] Invitation acceptée";
-				$mailmsg = "Le joueur ".$opponent." a accepté votre invitation. Une nouvelle partie a commencé.";
+				$mailsubject = "[CapaKaspa] Invitation acceptÃ©e";
+				$mailmsg = "Le joueur ".$opponent." a acceptÃ© votre invitation. Une nouvelle partie a commencÃ©.";
 				if ($move) {
 					$mailmsg .= "\n\n".$opponent." a joint un message :";
 					$mailmsg .= "\n".stripslashes(strip_tags($move));
@@ -441,31 +441,31 @@
 				break;
 				
 			case 'declined':
-				$mailsubject = "[CapaKaspa] Invitation refusée";
-				$mailmsg = "Le joueur ".$opponent." a refusé votre invitation.";
+				$mailsubject = "[CapaKaspa] Invitation refusÃ©e";
+				$mailmsg = "Le joueur ".$opponent." a refusÃ© votre invitation.";
 				if ($move) {
-					$mailmsg .= "\n\n".$opponent." a joint un message à son refus :";
+					$mailmsg .= "\n\n".$opponent." a joint un message Ã  son refus :";
 					$mailmsg .= "\n".stripslashes(strip_tags($move));
 				}
 				break;
 				
 			case 'draw':
-				$mailsubject = "[CapaKaspa] Proposition de nulle acceptée";
-				$mailmsg = "Le joueur ".$opponent." a accepté votre proposition de nulle.\nLa partie s'est terminée sur le score : 1/2-1/2.";
+				$mailsubject = "[CapaKaspa] Proposition de nulle acceptÃ©e";
+				$mailmsg = "Le joueur ".$opponent." a acceptÃ© votre proposition de nulle.\nLa partie s'est terminÃ©e sur le score : 1/2-1/2.";
 				break;
 		}
 		
-		$mailmsg .= "\n\nCe message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).\n";
+		$mailmsg .= "\n\nCe message a Ã©tÃ© envoyÃ© automatiquement Ã  partir du site CapaKaspa (http://www.capakaspa.info).\n";
 		$mailmsg .= "\nCapaKaspa c'est aussi :\n";
-		$mailmsg .= "Le blog (http://blog.capakaspa.info) pour découvrir\n";
+		$mailmsg .= "Le blog (http://blog.capakaspa.info) pour dÃ©couvrir\n";
 		$mailmsg .= "Le forum (http://forum.capakaspa.info) pour partager\n";
 		$mailmsg .= "Nous suivre sur Facebook (http://www.facebook.com/capakaspa)\n";
 		$mailmsg .= "Nous suivre sur Google+ (http://plus.google.com/114694270583726807082)\n";
 		
-		$headers .= "From: CapaKaspa <".$CFG_MAILADDRESS.">\r\n";
+		$headers = "From: CapaKaspa <".$CFG_MAILADDRESS.">\r\n";
 		$headers .= "Reply-To: CapaKaspa <".$CFG_MAILADDRESS.">\r\n";
 		
-		mail($msgTo, $mailsubject, $mailmsg, $headers);
+		//mail($msgTo, $mailsubject, $mailmsg, $headers);
 	}
 
 	/* returns true if current version of PHP is greater than vercheck */

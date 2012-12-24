@@ -1,4 +1,4 @@
-<?	require 'mobilecheck.php';
+ï»¿<?	require 'mobilecheck.php';
 	session_start();
 
 	/* load settings */
@@ -37,8 +37,8 @@
 	/* Charger le favori */
     $favorite = getPlayerFavorite($_SESSION['playerID'], $player['playerID']);
     
- 	$titre_page = "Echecs en différé - Consulter un profil";
- 	$desc_page = "Jouez aux échecs en différé. Consulter le profil d'un jouer de la zone de jeu d'échecs en différé : son classement Elo, sa description, ses parties...";
+ 	$titre_page = "Echecs en diffÃ©rÃ© - Consulter un profil";
+ 	$desc_page = "Jouez aux Ã©checs en diffÃ©rÃ©. Consulter le profil d'un jouer de la zone de jeu d'Ã©checs en diffÃ©rÃ© : son classement Elo, sa description, ses parties...";
     require 'page_header.php';
 ?>
 
@@ -61,7 +61,7 @@
 
 <?    
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Consulter un profil";
+    $barre_progression = "<a href='/'>Accueil</a> > Echecs en diffÃ©rÃ© > Consulter un profil";
     require 'page_body.php';
 ?>
   <div id="contentlarge">
@@ -110,11 +110,11 @@
 			</td>
           </tr>
 		  <tr>
-            <td> Situation géographique : </td>
+            <td> Situation gÃ©ographique : </td>
             <td><? echo(stripslashes($player['situationGeo'])); ?></td>
           </tr>
 		  <tr>
-            <td> Année de naissance : </td>
+            <td> AnnÃ©e de naissance : </td>
             <td><? echo($player['anneeNaissance']); ?></td>
           </tr>
 		  <tr>
@@ -122,7 +122,7 @@
             <td><TEXTAREA NAME="txtProfil" COLS="40" ROWS="5" readonly="readonly"><? echo(stripslashes($player['profil'])); ?></TEXTAREA></td>
           </tr>
           <tr>
-            <td> Dernière connexion le : </td>
+            <td> DerniÃ¨re connexion le : </td>
             <td><? 	list($annee, $mois, $jour) = explode("-", substr($player['lastConnection'], 0,10)); 
 					echo($jour.'/'.$mois.'/'.$annee);
 				?>
@@ -132,7 +132,7 @@
 		<br/>
 		<? if ($_SESSION['playerID']!=$player['playerID']) {?>
 		<form action="tableaubord.php" method="post">
-			<h3>Proposez une nouvelle partie à <? echo($player['nick']); ?></h3>
+			<h3>Proposez une nouvelle partie Ã  <? echo($player['nick']); ?></h3>
 			<input type="hidden" name="ToDo" value="InvitePlayer">
 			<input type="hidden" name="opponent" value="<? echo($player['playerID']);?>">
 			<table width="100%">
@@ -174,9 +174,9 @@
             <tr>
               <th width="17%">Blancs</th>
               <th width="17%">Noirs</th>
-              <th width="8%">Résultat</th>
+              <th width="8%">RÃ©sultat</th>
               <th width="8%">ECO</th>
-              <th width="25%">Début</th>
+              <th width="25%">DÃ©but</th>
               <th width="25%">Dernier coup</th>
             </tr>
             <?
@@ -235,9 +235,9 @@
             <tr>
               <th width="17%">Blancs</th>
               <th width="17%">Noirs</th>
-              <th width="8%">Résultat</th>
+              <th width="8%">RÃ©sultat</th>
               <th width="8%">ECO</th>
-              <th width="25%">Début</th>
+              <th width="25%">DÃ©but</th>
               <th width="25%">Dernier coup</th>
             </tr>
             <?
@@ -249,7 +249,7 @@
 				                            ORDER BY G.dateCreated");
 					
 					if (mysql_num_rows($tmpGames) == 0)
-						echo("<tr><td colspan='6'>Vous n'avez joué aucune partie contre ce joueur</td></tr>\n");
+						echo("<tr><td colspan='6'>Vous n'avez jouÃ© aucune partie contre ce joueur</td></tr>\n");
 					else
 					{
 						while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
@@ -332,13 +332,13 @@
             <td><? echo($nbNulles); ?></td>
           </tr>
 		  <tr>
-            <td> Défaites : </td>
+            <td> DÃ©faites : </td>
             <td><? echo($nbDefaites); ?></td>
           </tr>
 		 </table>
 		 
 		<? if ($_SESSION['playerID']!=$player['playerID']) {?>
-			<img src="images/puce.gif"/> <a href='partiesterminees.php?playerID=<?php echo($player['playerID']);?>'>Voir les parties terminées de <?php echo($player['nick']);?></a>
+			<img src="images/puce.gif"/> <a href='partiesterminees.php?playerID=<?php echo($player['playerID']);?>'>Voir les parties terminÃ©es de <?php echo($player['nick']);?></a>
 			<br/>
 		<?}?>	
 		

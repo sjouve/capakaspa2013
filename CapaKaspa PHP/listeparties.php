@@ -1,4 +1,4 @@
-<?
+ï»¿<?
 	session_start();
 
 	/* load settings */
@@ -20,8 +20,8 @@
 	/* set default playing mode to different PCs (as opposed to both players sharing a PC) */
 	$_SESSION['isSharedPC'] = false;
 	
-	$titre_page = "Echecs en différé - Les autres parties en cours";
-	$desc_page = "Jouer aux échecs en différé. Retrouvez la liste de toutes les parties en cours dans la zone de jeu en différé.";
+	$titre_page = "Echecs en diffÃ©rÃ© - Les autres parties en cours";
+	$desc_page = "Jouer aux Ã©checs en diffÃ©rÃ©. Retrouvez la liste de toutes les parties en cours dans la zone de jeu en diffÃ©rÃ©.";
     require 'page_header.php';
 ?>
     <script type="text/javascript">
@@ -41,7 +41,7 @@
 	</script>
 <?
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Les autres parties en cours";
+    $barre_progression = "<a href='/'>Accueil</a> > Echecs en diffÃ©rÃ© > Les autres parties en cours";
     require 'page_body.php';
 ?>
 	<div id="contentlarge">
@@ -64,7 +64,7 @@
 			$debut = $pge*$limit;
 			$total = mysql_query($requete) or die("SQL1 : ".mysql_error()); 
 			$nb_tot = mysql_num_rows($total);
-			$nbpages = ceil($nb_tot/$limit); // ceil = plafond : pour arrondir à la valeur supérieure
+			$nbpages = ceil($nb_tot/$limit); // ceil = plafond : pour arrondir Ã  la valeur supÃ©rieure
 			$resultats = mysql_query($requete." limit ".$debut.",".$limit) or die("SQL1 : ".mysql_error()); 
 		?>
         
@@ -81,9 +81,9 @@
 	            <tr>
 	              <th width="17%">Blancs</th>
 	              <th width="17%">Noirs</th>
-	              <th width="8%">Résultat</th>
+	              <th width="8%">RÃ©sultat</th>
 	              <th width="8%">ECO</th>
-	              <th width="25%">Début</th>
+	              <th width="25%">DÃ©but</th>
 	              <th width="25%">Dernier coup</th>
 	            </tr>
             

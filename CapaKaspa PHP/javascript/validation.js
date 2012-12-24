@@ -1,4 +1,4 @@
-// these functions are used to test the validity of moves
+﻿// these functions are used to test the validity of moves
 DEBUG = false;
 // object definition (used by isSafe)
 function GamePiece()

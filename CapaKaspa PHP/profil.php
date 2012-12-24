@@ -1,4 +1,4 @@
-<?	require 'mobilecheck.php';
+ï»¿<?	require 'mobilecheck.php';
 	session_start();
 
 	/* load settings */
@@ -34,8 +34,8 @@
 			
 	}
 		
- 	$titre_page = "Echecs en différé - Modifier votre profil";
- 	$desc_page = "Jouer aux échecs en différé. Modifier votre profil de joueur de la zone de jeu d'échecs en différé";
+ 	$titre_page = "Echecs en diffÃ©rÃ© - Modifier votre profil";
+ 	$desc_page = "Jouer aux Ã©checs en diffÃ©rÃ©. Modifier votre profil de joueur de la zone de jeu d'Ã©checs en diffÃ©rÃ©";
     require 'page_header.php';
 ?>
 <script type="text/javascript" src="javascript/formValidation.js">
@@ -58,7 +58,7 @@
 			
 			if (!isNumber(document.Profil.txtAnneeNaissance.value) || !isWithinRange(document.Profil.txtAnneeNaissance.value, 1900, annee))
 			{
-				alert("L'année de naissance est un nombre à 4 chiffres compris entre 1900 et l'année courante.");
+				alert("L'annÃ©e de naissance est un nombre Ã  4 chiffres compris entre 1900 et l'annÃ©e courante.");
 				return;
 			}
 			
@@ -71,7 +71,7 @@
 			
 			if (!isEmpty(document.Profil.pwdPassword.value) && !isAlphaNumeric(document.Profil.pwdPassword.value))
 			{
-				alert("Le mot de passe doit être alphanumérique.");
+				alert("Le mot de passe doit Ãªtre alphanumÃ©rique.");
 				return;
 			}
 			
@@ -85,11 +85,11 @@
 		{
 			if (!isWithinRange(document.Vacation.nbDays.value, 1, 30))
 			{
-				alert("Le nombre de jours doit être compris entre 0 et 30.");
+				alert("Le nombre de jours doit Ãªtre compris entre 0 et 30.");
 				return;
 			}
 			var vok=false;
-			vok = confirm("L'ajout de cette absence ne peut être annulée et toutes vos parties seront immédiatement ajournées. Veuillez confirmer sa prise en compte ?");
+			vok = confirm("L'ajout de cette absence ne peut Ãªtre annulÃ©e et toutes vos parties seront immÃ©diatement ajournÃ©es. Veuillez confirmer sa prise en compte ?");
 			if (vok)
 			{
 				document.Vacation.submit();
@@ -98,7 +98,7 @@
 	</script>
 <?
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Mon profil";
+    $barre_progression = "<a href='/'>Accueil</a> > Echecs en diffÃ©rÃ© > Mon profil";
     require 'page_body.php';
 ?>
   <div id="contentlarge">
@@ -106,21 +106,21 @@
       
       	<?
       	if ($err == 0)
-				echo("<div class='error'>Un problème technique a empêché l'opération</div>");
+				echo("<div class='error'>Un problÃ¨me technique a empÃªchÃ© l'opÃ©ration</div>");
 		if ($ToDo == 'UpdateProfil')
       	{
 			
 			if ($err == -1)
 				echo("<div class='error'>Votre ancien mot de passe n'est pas celui que vous avez saisi</div>");
 			if ($err == 1)
-				echo("<div class='success'>Les modifications de votre profil ont bien été enregistrées</div>");
+				echo("<div class='success'>Les modifications de votre profil ont bien Ã©tÃ© enregistrÃ©es</div>");
 		}
 		if ($ToDo == 'CreateVacation')
 		{
 			if ($err == -100)
 				echo("<div class='error'>Le nombre de jours d'absence que vous demandez n'est pas valide</div>");
 			if ($err == 1)
-				echo("<div class='success'>Votre demande d'absence a bien été enregistrée</div>");
+				echo("<div class='success'>Votre demande d'absence a bien Ã©tÃ© enregistrÃ©e</div>");
 		}
 		?>
       <form name="Profil" action="profil.php" method="post">
@@ -132,7 +132,7 @@
             </td>
           </tr>
 		  <tr>
-            <td width="180"> Prénom : </td>
+            <td width="180"> PrÃ©nom : </td>
             <td><input name="txtFirstName" type="text" size="20" maxlength="20" value="<? echo($_SESSION['firstName']); ?>">
             </td>
           </tr>
@@ -147,12 +147,12 @@
             </td>
           </tr>
 		  <tr>
-            <td> Situation géographique : </td>
+            <td> Situation gÃ©ographique : </td>
             <td><input name="txtSituationGeo" type="text" size="50" maxlength="50" value="<? echo($_SESSION['situationGeo']); ?>">
             </td>
           </tr>
 		  <tr>
-            <td> Année de naissance : </td>
+            <td> AnnÃ©e de naissance : </td>
             <td><input name="txtAnneeNaissance" type="text" size="4" maxlength="4" value="<? echo($_SESSION['anneeNaissance']); ?>">
             </td>
           </tr>
@@ -175,7 +175,7 @@
           
           <tr>
             <td>&nbsp;</td>
-            <td>ID réseau : <input name="txtSocialID" type="text" size="50" maxlength="100" value="<? echo($_SESSION['socialID']); ?>"> <a href="manuel-utilisateur-jouer-echecs-capakaspa.pdf#page=14" target="_blank"><img src="images/point-interrogation.gif" border="0"/></a>
+            <td>ID rÃ©seau : <input name="txtSocialID" type="text" size="50" maxlength="100" value="<? echo($_SESSION['socialID']); ?>"> <a href="manuel-utilisateur-jouer-echecs-capakaspa.pdf#page=14" target="_blank"><img src="images/point-interrogation.gif" border="0"/></a>
             </td>
           </tr>
 		  <tr>
@@ -202,7 +202,7 @@
         </table>
         
       
-      <h3>Mes préférences</h3>
+      <h3>Mes prÃ©fÃ©rences</h3>
       
         <table border="0" width="650">
           <tr>
@@ -214,7 +214,7 @@
               <input name="txtEmailNotification" type="radio" value="oui" checked>
               Oui 
               <input name="txtEmailNotification" type="radio" value="non">
-              Non (Evènements partie, commentaires et messages)
+              Non (EvÃ¨nements partie, commentaires et messages)
               <?
 					}
 					else
@@ -223,13 +223,13 @@
               <input name="txtEmailNotification" type="radio" value="oui">
               Oui 
               <input name="txtEmailNotification" type="radio" value="non" checked>
-              Non (Evènements partie, commentaires et messages)
+              Non (EvÃ¨nements partie, commentaires et messages)
               <?	}
 				?>
             </td>
           </tr>
           <tr>
-            <td>Thème :</td>
+            <td>ThÃ¨me :</td>
             <td><?
 					if ($_SESSION['pref_theme'] == 'beholder')
 					{
@@ -282,22 +282,22 @@
       
       <!-- 
       Gestion des absences
-      Le joueur saisie la durée de son congé qui est effectif à partir du lendemain
+      Le joueur saisie la durÃ©e de son congÃ© qui est effectif Ã  partir du lendemain
       On demande confirmation car toute annulation est impossible
-      La saisi du congé n'est plus possible pendant la durée d'un congé
-      Le solde de congé du joueur est décrémenté du nombre de jour saisi
-      Le système enregistre la date de début du congé (date du jour + 1), la durée et la date de fin (date de début + durée)
+      La saisi du congÃ© n'est plus possible pendant la durÃ©e d'un congÃ©
+      Le solde de congÃ© du joueur est dÃ©crÃ©mentÃ© du nombre de jour saisi
+      Le systÃ¨me enregistre la date de dÃ©but du congÃ© (date du jour + 1), la durÃ©e et la date de fin (date de dÃ©but + durÃ©e)
       
-      Lors de la saisie du congé il faut modifier la date du dernier des parties du joueur :
+      Lors de la saisie du congÃ© il faut modifier la date du dernier des parties du joueur :
       Pour chaque partie
-      	Si pas de congé en cours pour l'adversaire on ajoute la durée du congé saisi +1 à la date du dernier coup
-      	Sinon on ajoute la durée du congé saisi - (date de fin du congé en cours de l'adversaire - date de début du congé saisi)      
+      	Si pas de congÃ© en cours pour l'adversaire on ajoute la durÃ©e du congÃ© saisi +1 Ã  la date du dernier coup
+      	Sinon on ajoute la durÃ©e du congÃ© saisi - (date de fin du congÃ© en cours de l'adversaire - date de dÃ©but du congÃ© saisi)      
       
-      Tant qu'un des joueurs d'une partie est en congé la partie est gelée (il est impossible de jouer un coup)
+      Tant qu'un des joueurs d'une partie est en congÃ© la partie est gelÃ©e (il est impossible de jouer un coup)
        -->
       
       <h3>Gestion des absences <a href="manuel-utilisateur-jouer-echecs-capakaspa.pdf#page=15" target="_blank"><img src="images/point-interrogation.gif" border="0"/></a></h3>
-      Vous disposez encore de <b><?echo(countAvailableVacation($_SESSION['playerID']));?> jours</b> d'absence pour l'année <?echo(date('Y'))?> (tous les jours d'une éventuelle absence à cheval sur l'année précédente sont décomptés en <?echo(date('Y'))?>).<br/>
+      Vous disposez encore de <b><?echo(countAvailableVacation($_SESSION['playerID']));?> jours</b> d'absence pour l'annÃ©e <?echo(date('Y'))?> (tous les jours d'une Ã©ventuelle absence Ã  cheval sur l'annÃ©e prÃ©cÃ©dente sont dÃ©comptÃ©s en <?echo(date('Y'))?>).<br/>
       <br/>
       <?	
       		$tmpVacations = getCurrentVacation($_SESSION['playerID']);
@@ -307,7 +307,7 @@
 			else
 			{
 				$tmpVacation = mysql_fetch_array($tmpVacations, MYSQL_ASSOC);
-				echo("Votre avez un absence à prendre en compte du ");
+				echo("Votre avez un absence Ã  prendre en compte du ");
 				echo("<b>".$tmpVacation['beginDateF']."</b> ");
     			echo(" au " );
 				echo("<b>".$tmpVacation['endDateF']."</b>.");
@@ -322,7 +322,7 @@
 	  	<?	$tomorrow  = mktime(0, 0, 0, date("m")  , date("d")+1, date("Y")); 
 	  		$today = date("d/m/Y", $tomorrow);
 	  	?> 
-	        Vous souhaitez vous absenter pour <input name="nbDays" size="2" maxlength="2" type="text" value=""> jour(s) <input name="Validate" type="button" value="Valider" onClick="validateVacation()"> à compter du <? echo($today)?> (vos parties seront ajournées immédiatement).
+	        Vous souhaitez vous absenter pour <input name="nbDays" size="2" maxlength="2" type="text" value=""> jour(s) <input name="Validate" type="button" value="Valider" onClick="validateVacation()"> Ã  compter du <? echo($today)?> (vos parties seront ajournÃ©es immÃ©diatement).
 	      	<input type="hidden" name="ToDo" value="CreateVacation">
     	</form>
     	<? }?>
@@ -350,7 +350,7 @@
             <td><a href="partiesterminees.php#nulles"><? echo($nbNulles); ?></a></td>
           </tr>
 		  <tr>
-            <td> Défaites : </td>
+            <td> DÃ©faites : </td>
             <td><a href="partiesterminees.php#defaites"><? echo($nbDefaites); ?></a></td>
           </tr>
 		 </table>	

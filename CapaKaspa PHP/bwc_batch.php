@@ -1,4 +1,4 @@
-<?
+ï»¿<?
 require 'chessconstants.php';
 require_once('chessutils.php');
 require 'dac_players.php';
@@ -18,13 +18,13 @@ function batchActivation()
 		{
 			// Envoi du message de confirmation
 			$mailSubject = "[CapaKaspa] Confirmation de votre inscription";
-			$mailMsg = "Vous recevez ce message car vous disposez d'un compte pour la zone de jeu en différé du site CapaKaspa :\n";
+			$mailMsg = "Vous recevez ce message car vous disposez d'un compte pour la zone de jeu en diffÃ©rÃ© du site CapaKaspa :\n";
 			$mailMsg .= "- Surnom : ".$player['nick']."\n";
 			$mailMsg .= "- Passe : ".$player['PASSWORD']."\n\n";
-			$mailMsg .= "La procédure d'inscription ayant évoluée, les anciens comptes doivent maintenant confirmer leur inscription.\n\n";
-			$mailMsg .= "Pour activer votre compte veuillez cliquer sur le lien suivant (en cas de problème copier le lien dans la barre d'adresse de votre navigateur) :\n";
+			$mailMsg .= "La procÃ©dure d'inscription ayant Ã©voluÃ©e, les anciens comptes doivent maintenant confirmer leur inscription.\n\n";
+			$mailMsg .= "Pour activer votre compte veuillez cliquer sur le lien suivant (en cas de problÃ¨me copier le lien dans la barre d'adresse de votre navigateur) :\n";
 			$mailMsg .= "http://www.capakaspa.info/jouer-echecs-differe-inscription.php?ToDo=activer&playerID=".$player['playerID']."&nick=".$player['nick'];
-			$mailMsg .= "\n\nCe message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).\n";
+			$mailMsg .= "\n\nCe message a Ã©tÃ© envoyÃ© automatiquement Ã  partir du site CapaKaspa (http://www.capakaspa.info).\n";
 			
 			$res = sendMail($player['email'], $mailSubject, $mailMsg);
 			echo($player['nick']." - ".$player['email']);
@@ -34,7 +34,7 @@ function batchActivation()
 		
 }
 
-/* Batch mise à jour des positions */
+/* Batch mise Ã  jour des positions */
 function batchPosition()
 {
 	$games = mysql_query("SELECT gameID FROM games");
@@ -59,7 +59,7 @@ function batchPosition()
 	}
 }
 
-/* Mise à jour du code ECO des anciennes parties */
+/* Mise Ã  jour du code ECO des anciennes parties */
 function batchEco()
 {
 	global $board;
@@ -120,7 +120,7 @@ function batchEco()
 			
 			//
 			//
-			// Construire la chaîne de la position courante à partir de l'échiquier
+			// Construire la chaÃ®ne de la position courante Ã  partir de l'Ã©chiquier
 			// Pour chaque ligne
 			for ($i = 0; $i < 8; $i++)
 			{
@@ -140,7 +140,7 @@ function batchEco()
 			else
 				$turnColor = "b";
 				
-			// Contrôle code ECO de la position
+			// ContrÃ´le code ECO de la position
 			$fen_eco = getEco($position);
 			if ($fen_eco)
 			{
@@ -152,7 +152,7 @@ function batchEco()
 			{
 				echo("ECO : ".$ecoCode."\n");
 				$ecoCode = $newEco;
-				// Mettre à jour la date du dernier coup et la position
+				// Mettre Ã  jour la date du dernier coup et la position
 				$res = mysql_query("UPDATE games SET eco = '".$ecoCode."' WHERE gameID = ".$thisGame['gameID']);
 			}
 			
@@ -163,10 +163,10 @@ function batchEco()
 /** 
 Pour chaque joueur
 - Enregistrer le ELO initial
-- Compter le nombre de parties jouées
+- Compter le nombre de parties jouÃ©es
 - Compter le nombre de victoires
 - Compter le nombre de nulles
-- Compter le nombre de défaites
+- Compter le nombre de dÃ©faites
 - Calculer la moyenne ELO des adversaires
 - Appliquer la formule
 - Enregistrer le nouvel ELO dans l'historique
@@ -363,10 +363,10 @@ function calculerElo()
 			if ($eloInitial>$eloFinal) $eloProgress = 1;
 			if ($eloInitial<$eloFinal) $eloProgress = -1;
 			
-			// Mise à jour ELO player
+			// Mise Ã  jour ELO player
 			$res_player = mysql_query("UPDATE players SET elo=".$eloFinal.", eloProgress =".$eloProgress." WHERE playerID = ".$player['playerID']);
 			
-			// Mise à jour historique
+			// Mise Ã  jour historique
 		}
 		echo("=> ELO = ".$eloFinal."<br/><hr/><br/>");
 	}

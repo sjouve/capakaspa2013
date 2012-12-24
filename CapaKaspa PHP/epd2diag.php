@@ -1,8 +1,8 @@
-<?
+ï»¿<?
 	session_start();
 	require 'bwc_players.php';
 	$titre_page = "Outils - EPD/FEN en diagramme";
-	$desc_page = "Un outil pour transformer votre chaine de caractères au format FEN ou EPD en un diagramme.";
+	$desc_page = "Un outil pour transformer votre chaine de caractÃ¨res au format FEN ou EPD en un diagramme.";
     require 'page_header.php';
 ?>
 <SCRIPT language="JavaScript">
@@ -338,7 +338,7 @@ function makeBoard()
   document.writeln("</CENTER></P>");
 
   document.writeln("<P align=\"center\"><CENTER>");
-  document.write("<B><FONT color=\"blue\">Entrer une chaîne EPD</FONT></B><BR>");
+  document.write("<B><FONT color=\"blue\">Entrer une chaÃ®ne EPD</FONT></B><BR>");
   if (Browser == "N")
     document.writeln("<INPUT type=\"text\" value=\"\" size=\"60\" name=\"epd\"><BR>");
   else
@@ -348,9 +348,9 @@ function makeBoard()
   document.writeln("&nbsp;&nbsp;");
   document.writeln("<SELECT name=\"selOptions\" onchange=\"doSelOption(this.form)\">");
   document.writeln("<OPTION selected value=\"none\">--Choisir une option--</OPTION>");
-  document.writeln("<OPTION value=\"clear\">Vider l'échiquier</OPTION>");
+  document.writeln("<OPTION value=\"clear\">Vider l'Ã©chiquier</OPTION>");
   document.writeln("<OPTION value=\"init\">Position initiale</OPTION>");
-  document.writeln("<OPTION value=\"html\">Créer un tableau HTML</OPTION>");
+  document.writeln("<OPTION value=\"html\">CrÃ©er un tableau HTML</OPTION>");
   document.writeln("<OPTION value=\"valid\">Valider la position</OPTION>");
   if (MasterSite)
     document.writeln("<OPTION value=\"licence\">Show Licence Information</OPTION>");
@@ -359,7 +359,7 @@ function makeBoard()
   document.writeln("<INPUT type=\"button\" value=\"  A propos  \" onclick=\"showInfo()\">");
   document.writeln("<BR>&nbsp;<BR>");
   document.writeln("<INPUT checked type=\"checkbox\" name=\"cbvalid\" onclick=\"doSwitchValidation(this.form)\">");
-  document.writeln("<FONT size=\"-1\"> Seules les positions valides sont permises pour créer un tableau HTML</FONT>");
+  document.writeln("<FONT size=\"-1\"> Seules les positions valides sont permises pour crÃ©er un tableau HTML</FONT>");
 
   document.writeln("<HR>");
   document.writeln("<B><FONT color=\"blue\">Tableau HTML</FONT></B><BR>");

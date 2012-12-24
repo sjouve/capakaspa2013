@@ -1,4 +1,4 @@
-// this is the main function that interacts with the user everytime they click on a square
+ï»¿// this is the main function that interacts with the user everytime they click on a square
 
 	/* called whenever a square is clicked on */
 	var is1stClick = true;
@@ -23,7 +23,7 @@
 			is1stClick = false;
 		}
 		else
-			alert("Vous jouez les pièces " + curColorFR + ".");
+			alert("Vous jouez les piÃ¨ces " + curColorFR + ".");
 
 	}
 	
@@ -96,7 +96,7 @@
 				document.gamedata.toRow.value = "";
 				document.gamedata.toCol.value = "";
 				
-				alert("Déplacement invalide :\n" + errMsg);
+				alert("DÃ©placement invalide :\n" + errMsg);
 			}
 		}
 	}

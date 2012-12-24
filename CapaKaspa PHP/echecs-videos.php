@@ -1,18 +1,18 @@
-<?
+ï»¿<?
 	session_start();
 	require 'bwc_players.php';
-	$titre_page = 'Découvrir les échecs - Les vidéos au sujet des échecs';
-	$desc_page = "Découvrir les échecs. Une sélection de vidéos au sujet des échecs pour découvrir les différents aspects du jeu.";
+	$titre_page = 'DÃ©couvrir les Ã©checs - Les vidÃ©os au sujet des Ã©checs';
+	$desc_page = "DÃ©couvrir les Ã©checs. Une sÃ©lection de vidÃ©os au sujet des Ã©checs pour dÃ©couvrir les diffÃ©rents aspects du jeu.";
     require 'page_header.php';
 
     $image_bandeau = 'bandeau_capakaspa_global.jpg';
-    $barre_progression = "<a href='/'>Accueil</a> > Découvrir les échecs > Vidéos";
+    $barre_progression = "<a href='/'>Accueil</a> > DÃ©couvrir les Ã©checs > VidÃ©os";
     require 'page_body.php';
 ?>
   <div id="contentlarge">
     <div class="blogbody">
     	
-        <h3>Vidéos sur les échecs</h3>
+        <h3>VidÃ©os sur les Ã©checs</h3>
         <!-- AddThis Button BEGIN -->
         <div class="addthis_toolbox addthis_default_style ">
         <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -22,8 +22,8 @@
         </div>
         <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e7cb2a45be34669"></script>
         <!-- AddThis Button END -->
-        <p>Une sélection de vidéos pour revivre l'histoire du jeu d'échecs, découvrir quelques curiosités... 
-        <br/>(Extrait de la chaîne <a href="http://www.youtube.com/user/CapaKaspaEchecs?feature=creators_cornier-http%253A%2F%2Fs.ytimg.com%2Fyt%2Fimg%2Fcreators_corner%2FYouTube%2Fyoutube_32x32.png"><img src="http://s.ytimg.com/yt/img/creators_corner/YouTube/youtube_32x32.png" alt="Abonnez-vous aux vidéos sur YouTube" width="16px" height=16px"/></a><img src="http://www.youtube-nocookie.com/gen_204?feature=creators_cornier-http%3A//s.ytimg.com/yt/img/creators_corner/YouTube/youtube_32x32.png" style="display: none"/>)
+        <p>Une sÃ©lection de vidÃ©os pour revivre l'histoire du jeu d'Ã©checs, dÃ©couvrir quelques curiositÃ©s... 
+        <br/>(Extrait de la chaÃ®ne <a href="http://www.youtube.com/user/CapaKaspaEchecs?feature=creators_cornier-http%253A%2F%2Fs.ytimg.com%2Fyt%2Fimg%2Fcreators_corner%2FYouTube%2Fyoutube_32x32.png"><img src="http://s.ytimg.com/yt/img/creators_corner/YouTube/youtube_32x32.png" alt="Abonnez-vous aux vidÃ©os sur YouTube" width="16px" height=16px"/></a><img src="http://www.youtube-nocookie.com/gen_204?feature=creators_cornier-http%3A//s.ytimg.com/yt/img/creators_corner/YouTube/youtube_32x32.png" style="display: none"/>)
         </p>
         
        	<center>

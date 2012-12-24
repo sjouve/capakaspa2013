@@ -1,17 +1,17 @@
-<?
+ï»¿<?
 	session_start();
 	require 'bwc_players.php';
-	$titre_page = "Découvrir les échecs - Apprentissage des échecs";
-	$desc_page = "Découvrir les échecs. Comment faire son apprentissage du jeu d'échecs ? Présentation des différentes phases de la progression du joueur.";
+	$titre_page = "DÃ©couvrir les Ã©checs - Apprentissage des Ã©checs";
+	$desc_page = "DÃ©couvrir les Ã©checs. Comment faire son apprentissage du jeu d'Ã©checs ? PrÃ©sentation des diffÃ©rentes phases de la progression du joueur.";
     require 'page_header.php';
     $image_bandeau = 'bandeau_capakaspa_global.jpg';
-    $barre_progression = "<a href='/'>Accueil</a> > Découvrir les échecs > Apprentissage";
+    $barre_progression = "<a href='/'>Accueil</a> > DÃ©couvrir les Ã©checs > Apprentissage";
     require 'page_body.php';
 ?>
 <div id="contentlarge">
 	<div class="blogbody">
 	
-      <h3>Les phases de l'apprentissage aux échecs</h3>
+      <h3>Les phases de l'apprentissage aux Ã©checs</h3>
       <!-- AddThis Button BEGIN -->
       <div class="addthis_toolbox addthis_default_style ">
       <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -21,27 +21,27 @@
       </div>
       <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e7cb2a45be34669"></script>
       <!-- AddThis Button END -->
-	<p>A travers mon expérience, et avec un peu de recul, je pense que nous pouvons voir la progression d'un joueur d'échecs en 3 phases : </p>
+	<p>A travers mon expÃ©rience, et avec un peu de recul, je pense que nous pouvons voir la progression d'un joueur d'Ã©checs en 3 phases : </p>
       
 	  <h3>Phase 1 : Assimiler (Extrait du <a href="http://blog.capakaspa.info">Blog</a>)</h3> 
-      <p>Cette phase concerne bien évidemment une personne ne connaissant rien à ce jeu et désireuse de commencer à jouer. Comme dans tous les jeux il va d'abord falloir répondre à 2 questions :</p>
+      <p>Cette phase concerne bien Ã©videmment une personne ne connaissant rien Ã  ce jeu et dÃ©sireuse de commencer Ã  jouer. Comme dans tous les jeux il va d'abord falloir rÃ©pondre Ã  2 questions :</p>
       <ul>
         <li>Quel est le but du jeu ? Le Mat.
-        <li>Quels sont les règles ? Les pièces, leurs déplacements, leurs prises...
+        <li>Quels sont les rÃ¨gles ? Les piÃ¨ces, leurs dÃ©placements, leurs prises...
       </ul>
       <table width="680" border="0">
         <tr>
-          <td width="217"><img src="images/pos_initiale.jpg" alt="Echiquier position initiale questions" /><div class="itemfooter"><center>Bien des questions se posent au débutant...</center></div></td>
-          <td width="453" valign="top"><p>Je n'ai pas pour objectif de répondre complètement à ces questions aujourd'hui. Je voudrais juste essayé de comprendre ce qui passe dans la tête d'un joueur lors de ses toutes premières parties. Dans quelle direction s'oriente sa réflexion ? Quels sont les éléments qu'il assimile lors de ces premiers coups qui lui permettront de passer à un stade supérieur ? </p>
-            <p>D'après mon expérience assez récente, le joueur, lorsqu'il débute, se demande tout le temps quels sont les coups possibles ? Il imagine péniblement où ses pièces peuvent bien aller, quelles autres pièces adverses elles peuvent "manger" ? Il veut éviter à tout pris de perdre une pièce bêtement. Il ne reste donc plus beaucoup de place pour autre chose dans sa réflexion. </p></td>
+          <td width="217"><img src="images/pos_initiale.jpg" alt="Echiquier position initiale questions" /><div class="itemfooter"><center>Bien des questions se posent au dÃ©butant...</center></div></td>
+          <td width="453" valign="top"><p>Je n'ai pas pour objectif de rÃ©pondre complÃ¨tement Ã  ces questions aujourd'hui. Je voudrais juste essayÃ© de comprendre ce qui passe dans la tÃªte d'un joueur lors de ses toutes premiÃ¨res parties. Dans quelle direction s'oriente sa rÃ©flexion ? Quels sont les Ã©lÃ©ments qu'il assimile lors de ces premiers coups qui lui permettront de passer Ã  un stade supÃ©rieur ? </p>
+            <p>D'aprÃ¨s mon expÃ©rience assez rÃ©cente, le joueur, lorsqu'il dÃ©bute, se demande tout le temps quels sont les coups possibles ? Il imagine pÃ©niblement oÃ¹ ses piÃ¨ces peuvent bien aller, quelles autres piÃ¨ces adverses elles peuvent "manger" ? Il veut Ã©viter Ã  tout pris de perdre une piÃ¨ce bÃªtement. Il ne reste donc plus beaucoup de place pour autre chose dans sa rÃ©flexion. </p></td>
         </tr>
       </table>
-      <p>Il me semble que toutes les parties jouées à ce stade n'ont donc pour objectif que <b>"d'oublier les règles"</b> ou plutôt les faire siennes. Il restera alors plus de place pour autre chose, et il pourra, s'il le souhaite, entrevoir la phase 2...</p>
+      <p>Il me semble que toutes les parties jouÃ©es Ã  ce stade n'ont donc pour objectif que <b>"d'oublier les rÃ¨gles"</b> ou plutÃ´t les faire siennes. Il restera alors plus de place pour autre chose, et il pourra, s'il le souhaite, entrevoir la phase 2...</p>
       
 	
 	  <h3>Phase 2 : Calculer (Extrait du <a href="http://blog.capakaspa.info">Blog</a>)</h3>
-      <p>La phase 2 de la progression d'un joueur d'échecs commence donc lorsqu'il est parvenu à assimiler les règles du jeu. Il a intégré les mouvements des pièces ainsi que le but du jeu. Il entrevoit d'autres horizons.</p>
-      <p>L'objectif devient bien déterminé : il faut mater ce roi adverse au plus vite. L'adversaire n'offre plus ses pièces comme avant et il faut <b>calculer</b> plus profondément, construire ses premières combinaisons. Pour cela il faut entrevoir les premières notions de <b>tactique</b> : clouage, attaque double, la déviation, les mats simples.</p>
+      <p>La phase 2 de la progression d'un joueur d'Ã©checs commence donc lorsqu'il est parvenu Ã  assimiler les rÃ¨gles du jeu. Il a intÃ©grÃ© les mouvements des piÃ¨ces ainsi que le but du jeu. Il entrevoit d'autres horizons.</p>
+      <p>L'objectif devient bien dÃ©terminÃ© : il faut mater ce roi adverse au plus vite. L'adversaire n'offre plus ses piÃ¨ces comme avant et il faut <b>calculer</b> plus profondÃ©ment, construire ses premiÃ¨res combinaisons. Pour cela il faut entrevoir les premiÃ¨res notions de <b>tactique</b> : clouage, attaque double, la dÃ©viation, les mats simples.</p>
 	  <table width="680" border="0">
         <tr>
           <td height="246" align="center"><img src="images/pos_debut.jpg" alt="Echiquier position initiale mouvements"/>
@@ -49,8 +49,8 @@
           <td align="center"><img src="images/pos_finale.jpg" alt="Echiquier position finale" /><div class="itemfooter"><center>Un pion de plus !</center></div></td>
         </tr>
       </table>
-      <p>De plus une question taraude toujours le joueur devant la position initiale : quel coup jouer en premier ? Il faut donc répondre à cette question et entrevoir les premières notions d'<b>ouverture</b>. En tout cas celles qui lui permettront de répondre à son objectif : attaquer le roi adverse.
-      <p>Le dernier point pour ce joueur avide de calculs est de percevoir les particularités de chaque pièce et de peser leur importance. Pourquoi un pion de plus peut faire gagner une partie ? C'est l'étude des <b>finales</b> les plus simples qui lui apporteront des éléments de réponses.
+      <p>De plus une question taraude toujours le joueur devant la position initiale : quel coup jouer en premier ? Il faut donc rÃ©pondre Ã  cette question et entrevoir les premiÃ¨res notions d'<b>ouverture</b>. En tout cas celles qui lui permettront de rÃ©pondre Ã  son objectif : attaquer le roi adverse.
+      <p>Le dernier point pour ce joueur avide de calculs est de percevoir les particularitÃ©s de chaque piÃ¨ce et de peser leur importance. Pourquoi un pion de plus peut faire gagner une partie ? C'est l'Ã©tude des <b>finales</b> les plus simples qui lui apporteront des Ã©lÃ©ments de rÃ©ponses.
       
       <center><script type="text/javascript"><!--
       google_ad_client = "ca-pub-8069368543432674";
@@ -64,24 +64,24 @@
       src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
       </script></center>
 	<br/>
-	  <h3>Phase 3 : Prévoir (Extrait du <a href="http://blog.capakaspa.info">Blog</a>)</h3>
-      <p>Pour commencer le joueur a assimilé les règles du jeu et la marche des pièces. Par la suite il a pu se mettre à calculer avec un objectif précis : attaquer le roi adverse. Maintenant il est confronté à de bonnes défenses et les limites du « mat à tout prix » se font sentir. </p>
+	  <h3>Phase 3 : PrÃ©voir (Extrait du <a href="http://blog.capakaspa.info">Blog</a>)</h3>
+      <p>Pour commencer le joueur a assimilÃ© les rÃ¨gles du jeu et la marche des piÃ¨ces. Par la suite il a pu se mettre Ã  calculer avec un objectif prÃ©cis : attaquer le roi adverse. Maintenant il est confrontÃ© Ã  de bonnes dÃ©fenses et les limites du Â« mat Ã  tout prix Â» se font sentir. </p>
       <table width="680" border="0">
   <tr>
-    <td><p>Il va falloir trouver d'autres plans ! Pour cela la tactique doit être complétée par des notions de <b>stratégie</b> : la paire de fous, bon et mauvais fou, les colonnes ouvertes, le pion passé, arriéré, isolé, le centre. </p>
+    <td><p>Il va falloir trouver d'autres plans ! Pour cela la tactique doit Ãªtre complÃ©tÃ©e par des notions de <b>stratÃ©gie</b> : la paire de fous, bon et mauvais fou, les colonnes ouvertes, le pion passÃ©, arriÃ©rÃ©, isolÃ©, le centre. </p>
    
-	  <p>Afin de tout <b>prévoir</b> :</p>
+	  <p>Afin de tout <b>prÃ©voir</b> :</p>
       <ul>
-        <li>il est nécessaire de construire un répertoire d'ouvertures plus conséquent et adapté à son style de jeu,</li>
-        <li>il faut maîtriser tout les types de finales.</li>
+        <li>il est nÃ©cessaire de construire un rÃ©pertoire d'ouvertures plus consÃ©quent et adaptÃ© Ã  son style de jeu,</li>
+        <li>il faut maÃ®triser tout les types de finales.</li>
       </ul></td>
     <td><img src="images/pos_fous.jpg" alt="Echiquier position finale fous"/><div class="itemfooter"><center>Bon ou mauvais fou ?</center></div></td>
   </tr>
 </table>
 
 	  
-      <p>La phase 3 de la progression du joueur demandera un important travail personnel. J'essayerais de vous faire partager ma petite expérience dans ces domaines. Pour ma part je n'ai réalisé qu'une infime partie du travail nécessaire. </p>
-      <p>Celui qui arrivera au stade que je décris ne sera alors qu'un bon joueur de club. Je n'ai pas la prétention de connaître tout ce qui permet de faire les très grands joueurs. Je souhaite seulement témoigner de mon apprentissage des échecs avec le recul de ces années passées. </p>
+      <p>La phase 3 de la progression du joueur demandera un important travail personnel. J'essayerais de vous faire partager ma petite expÃ©rience dans ces domaines. Pour ma part je n'ai rÃ©alisÃ© qu'une infime partie du travail nÃ©cessaire. </p>
+      <p>Celui qui arrivera au stade que je dÃ©cris ne sera alors qu'un bon joueur de club. Je n'ai pas la prÃ©tention de connaÃ®tre tout ce qui permet de faire les trÃ¨s grands joueurs. Je souhaite seulement tÃ©moigner de mon apprentissage des Ã©checs avec le recul de ces annÃ©es passÃ©es. </p>
       <br/>
 	</div>
 </div>

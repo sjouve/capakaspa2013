@@ -1,10 +1,10 @@
-<?
+ï»¿<?
 	session_start();
-	$titre_page = "La boutique jeu d'échecs";
-	$desc_page = "La boutique du jeu d'échecs, découvrez une sélection de livres, logiciels et matériel.";
+	$titre_page = "La boutique jeu d'Ã©checs";
+	$desc_page = "La boutique du jeu d'Ã©checs, dÃ©couvrez une sÃ©lection de livres, logiciels et matÃ©riel.";
     require 'page_header.php';
     $image_bandeau = 'bandeau_capakaspa_global.jpg';
-    $barre_progression = "<a href='/'>Accueil</a> > La boutique du jeu d'échecs";
+    $barre_progression = "<a href='/'>Accueil</a> > La boutique du jeu d'Ã©checs";
     require 'page_body_no_menu.php';
 ?>
     <div id="contentxlarge">

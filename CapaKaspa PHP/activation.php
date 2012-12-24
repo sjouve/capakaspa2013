@@ -1,4 +1,4 @@
-<?
+ï»¿<?
 session_start();
 /* load settings */
 if (!isset($_CONFIG))
@@ -21,11 +21,11 @@ switch($ToDo)
 		break;
 }	
 
-$titre_page = "Echecs en différé - Activation du compte";
-$desc_page = "Activez votre compte pour accéder à la zone de jeu d'échecs en différé et jouer des parties à votre rythme.";
+$titre_page = "Echecs en diffÃ©rÃ© - Activation du compte";
+$desc_page = "Activez votre compte pour accÃ©der Ã  la zone de jeu d'Ã©checs en diffÃ©rÃ© et jouer des parties Ã  votre rythme.";
 require 'page_header.php';
 $image_bandeau = 'bandeau_capakaspa_global.jpg';
-$barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Activation du compte";
+$barre_progression = "<a href='/'>Accueil</a> > Echecs en diffÃ©rÃ© > Activation du compte";
 require 'page_body.php';
 ?>
   <div id="content">
@@ -34,24 +34,24 @@ require 'page_body.php';
 		if ($err == 0)
 			echo("<div class='error'>Le compte n'existe pas</div>");
 		if ($err == -1)
-			echo("<div class='error'>Un problème technique a empêché l'envoi du message</div>");
+			echo("<div class='error'>Un problÃ¨me technique a empÃªchÃ© l'envoi du message</div>");
 		if ($err == -2)
-			echo("<div class='error'>L'adresse de messagerie est déjà utilisée</div>");
+			echo("<div class='error'>L'adresse de messagerie est dÃ©jÃ  utilisÃ©e</div>");
 		if ($err == -3)
 			echo("<div class='error'>L'adresse de messagerie est invalide</div>");
 			
 	?>
 	<? if ($err == 1 && $ToDo == 'Valider') {?>
-		<b>Un message d'activation a été envoyé à l'adresse de messagerie indiquée.</b>
+		<b>Un message d'activation a Ã©tÃ© envoyÃ© Ã  l'adresse de messagerie indiquÃ©e.</b>
 	<? } else {?>
-	<b>Votre compte n'est pas activé.</b>
-	<p>Vous êtes sûrement dans l'un des cas suivant :
+	<b>Votre compte n'est pas activÃ©.</b>
+	<p>Vous Ãªtes sÃ»rement dans l'un des cas suivant :
 		<ul>
-		<li>Vous avez reçu le message contenant le lien d'activation de votre compte mais vous ne l'avez pas encore utilisé,</li>
-		<li>vous n'avez pas reçu de message contenant le lien d'activation.</li>
+		<li>Vous avez reÃ§u le message contenant le lien d'activation de votre compte mais vous ne l'avez pas encore utilisÃ©,</li>
+		<li>vous n'avez pas reÃ§u de message contenant le lien d'activation.</li>
 		</ul>
      </p>
-	 <p>Dans ce dernier cas, vous pouvez utiliser le formulaire ci-dessous pour mettre à jour votre adresse de messagerie associée à votre compte et relancer le processus d'activation.</p>
+	 <p>Dans ce dernier cas, vous pouvez utiliser le formulaire ci-dessous pour mettre Ã  jour votre adresse de messagerie associÃ©e Ã  votre compte et relancer le processus d'activation.</p>
 	 <br/>
 	 <form name="userdata" method="post" action="activation.php">
 			<table align="center">

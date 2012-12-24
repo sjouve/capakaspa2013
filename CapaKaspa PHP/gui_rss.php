@@ -28,7 +28,7 @@
 				$href = $item['link'];
 				$title = $item['title'];
 				$description = $item['description'];
-				$pubDate = $item['dc:date'];
+				$pubDate = "";//$item['dc:date'];
 				
 				if ($nb==0) 
 				{	echo("<div class='rsstitlefirst'><img src='images/porte_voix.png'><b> $title</b>");}
@@ -71,7 +71,7 @@
 					$href = $item['link'];
 					$title = $item['title'];
 					$description = $item['summary'];
-					$pubDate = substr($item['issued'], 0, 10);
+					$pubDate = "";//substr($item['issued'], 0, 10);
 					
 					if ($nb==0) 
 					{	echo("<div class='rsstitlefirst'><img src='images/porte_voix.png'><b> $title</b>");}

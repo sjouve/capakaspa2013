@@ -1,4 +1,4 @@
-<? 
+﻿<? 
 	/* these functions are used to start a new game */
 	function initBoard($flagRook, $flagQueen, $flagKnight, $flagBishop)
 	{

@@ -1,7 +1,7 @@
-<?
+ï»¿<?
 	session_start();
 	require 'bwc_players.php';
-	$titre_page = 'Jouer aux échecs contre flashChess';
+	$titre_page = 'Jouer aux Ã©checs contre flashChess';
     require 'page_header.php';
 ?>
 
@@ -12,7 +12,7 @@
 ?>
   <div id="contentlarge">
     <div class="blogbody">
-    <h3>Jouez une partie d'échecs en Flash contre un adversaire toujours disponible !</h3>
+    <h3>Jouez une partie d'Ã©checs en Flash contre un adversaire toujours disponible !</h3>
     
         
       <!-- AddThis Button BEGIN -->

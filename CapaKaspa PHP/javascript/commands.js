@@ -1,4 +1,4 @@
-// these functions interact with the server
+﻿// these functions interact with the server
 
 	function send()
 	{

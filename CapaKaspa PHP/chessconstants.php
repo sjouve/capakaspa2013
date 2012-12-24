@@ -1,4 +1,4 @@
-<?
+﻿<?
 	/* define constants */
 	define ("EMPTY", 0);	/* 0000 0000 */
 	define ("PAWN", 1);	/* 0000 0001 */

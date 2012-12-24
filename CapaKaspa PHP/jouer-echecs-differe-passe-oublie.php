@@ -1,4 +1,4 @@
-<?
+ï»¿<?
 session_start();
 /* load settings */
 if (!isset($_CONFIG))
@@ -20,28 +20,28 @@ switch($ToDo)
 		break;
 }	
 
-$titre_page = "Echecs en différé - Mot de passe oublié";
-$desc_page = "Jouer aux échecs en différé. Retrouvez votre mot de passe afin d'accder à la zone de jeu en différé et jouer des parties d'échecs à votre rythme.";
+$titre_page = "Echecs en diffÃ©rÃ© - Mot de passe oubliÃ©";
+$desc_page = "Jouer aux Ã©checs en diffÃ©rÃ©. Retrouvez votre mot de passe afin d'accder Ã  la zone de jeu en diffÃ©rÃ© et jouer des parties d'Ã©checs Ã  votre rythme.";
 require 'page_header.php';
 $image_bandeau = 'bandeau_capakaspa_global.jpg';
-$barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Mot de passe oublié";
+$barre_progression = "<a href='/'>Accueil</a> > Echecs en diffÃ©rÃ© > Mot de passe oubliÃ©";
 require 'page_body.php';
 ?>
   <div id="content">
     <div class="blogbody">
     <?/* Traiter les erreurs */
 		if ($err == 0)
-			echo("<div class='error'>Il n'y a aucun compte associé à cette adresse de messagerie</div>");
+			echo("<div class='error'>Il n'y a aucun compte associÃ© Ã  cette adresse de messagerie</div>");
 		if ($err == -1)
-			echo("<div class='error'>Un problème technique a empêché l'envoi du message</div>");
+			echo("<div class='error'>Un problÃ¨me technique a empÃªchÃ© l'envoi du message</div>");
 			
 	?>
 	<? if ($err == 1 && $ToDo == 'Valider') {?>
-		<div class='success'>Un message a été envoyé à l'adresse de messagerie indiquée.</div>
+		<div class='success'>Un message a Ã©tÃ© envoyÃ© Ã  l'adresse de messagerie indiquÃ©e.</div>
 	<? } else {?>
-	<h3>Mot de passe oublié</h3>
-    	Vous disposez déjà d'un compte pour accéder à la zone de jeu en différé mais <b>vous avez oublié votre mot de passe</b>.<br/>
-    	<p>Saisissez l'adresse de messagerie que vous avez associé à ce compte. Un message sera envoyé à cette adresse. Il contiendra les informations nécessaires à la connexion.</p>
+	<h3>Mot de passe oubliÃ©</h3>
+    	Vous disposez dÃ©jÃ  d'un compte pour accÃ©der Ã  la zone de jeu en diffÃ©rÃ© mais <b>vous avez oubliÃ© votre mot de passe</b>.<br/>
+    	<p>Saisissez l'adresse de messagerie que vous avez associÃ© Ã  ce compte. Un message sera envoyÃ© Ã  cette adresse. Il contiendra les informations nÃ©cessaires Ã  la connexion.</p>
 		<form name="userdata" method="post" action="jouer-echecs-differe-passe-oublie.php">
 			<table align="center">
 				<tr>

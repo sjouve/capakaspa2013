@@ -1,8 +1,8 @@
-<?php // content="text/plain; charset=utf-8"
+ï»¿<?php // content="text/plain; charset=utf-8"
 require_once ("jpgraph/jpgraph.php");
 require_once ("jpgraph/jpgraph_line.php");
 
-// Paramètres
+// ParamÃ¨tres
 if (!isset($_CONFIG))
 	require 'config.php';
 
@@ -60,7 +60,7 @@ $lineplot->mark->SetFillColor("green");
 // Taille
 $lineplot->mark->SetWidth(3);
 
-// Libellé axe des mois
+// LibellÃ© axe des mois
 $graph->xaxis->SetTickLabels($eloDates);
 // Add the plot to the graph
 $graph->Add($lineplot);

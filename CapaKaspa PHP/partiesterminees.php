@@ -1,4 +1,4 @@
-<?	require 'mobilecheck.php';
+ï»¿<?	require 'mobilecheck.php';
     /*commentaire*/
     session_start();
 
@@ -19,15 +19,15 @@
 	
 	/* Id du joueur */
 	$playerID = isset($_GET['playerID']) ? $_GET['playerID']:$_SESSION['playerID'];
-	// Si le joueur n'est pas celui connecté on récupère ces infos
+	// Si le joueur n'est pas celui connectÃ© on rÃ©cupÃ¨re ces infos
     if (isset($_GET['playerID']))
     	$player = getPlayer($playerID);
     	
 	/* set default playing mode to different PCs (as opposed to both players sharing a PC) */
 	$_SESSION['isSharedPC'] = false;
 	
-	$titre_page = "Echecs en différé - Les parties terminées";
-	$desc_page = "Jouer aux échecs en différé. Retrouvez la liste de vos parties d'échecs en différé terminées.";
+	$titre_page = "Echecs en diffÃ©rÃ© - Les parties terminÃ©es";
+	$desc_page = "Jouer aux Ã©checs en diffÃ©rÃ©. Retrouvez la liste de vos parties d'Ã©checs en diffÃ©rÃ© terminÃ©es.";
     require 'page_header.php';
 ?>
     <script type="text/javascript">
@@ -49,9 +49,9 @@
 <?
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
     if (isset($_GET['playerID']))
-    	$barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Les parties terminées de ".$player['nick'];
+    	$barre_progression = "<a href='/'>Accueil</a> > Echecs en diffÃ©rÃ© > Les parties terminÃ©es de ".$player['nick'];
     else
-    	$barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Mes parties terminées";
+    	$barre_progression = "<a href='/'>Accueil</a> > Echecs en diffÃ©rÃ© > Mes parties terminÃ©es";
     require 'page_body.php';
 ?>
   <div id="contentlarge">
@@ -64,7 +64,7 @@
 		<table>
 		<tr>
 		<td valign="middle"><img src="images/ampoule.jpg"></td> 
-		<td valign="middle">Analysez rapidement vos défaites pour éviter de faire les mêmes erreurs !</td>
+		<td valign="middle">Analysez rapidement vos dÃ©faites pour Ã©viter de faire les mÃªmes erreurs !</td>
 		
         </tr>
         </table>
@@ -84,21 +84,21 @@
                                 ORDER BY G.eco ASC, G.lastMove DESC");
 		?>
         <A NAME="defaites"></A>
-		<h3>Défaites (<?echo(mysql_num_rows($tmpGames));?>) <?if (isset($_GET['playerID'])) echo('de '.$player['nick']);?></h3>
+		<h3>DÃ©faites (<?echo(mysql_num_rows($tmpGames));?>) <?if (isset($_GET['playerID'])) echo('de '.$player['nick']);?></h3>
         <div id="tabliste">
           <table border="0" width="650">
             <tr>
               <th width="17%">Blancs</th>
               <th width="17%">Noirs</th>
-              <th width="8%">Résultat</th>
+              <th width="8%">RÃ©sultat</th>
               <th width="8%">ECO</th>
-              <th width="25%">Début</th>
+              <th width="25%">DÃ©but</th>
               <th width="25%">Dernier coup</th>
             </tr>
             
 	<?
 	if (mysql_num_rows($tmpGames) == 0)
-		echo("<tr><td colspan='6'>Vous n'avez aucune défaite</td></tr>\n");
+		echo("<tr><td colspan='6'>Vous n'avez aucune dÃ©faite</td></tr>\n");
 	else
 	{
 		while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
@@ -161,9 +161,9 @@
             <tr>
               <th width="17%">Blancs</th>
               <th width="17%">Noirs</th>
-              <th width="8%">Résultat</th>
+              <th width="8%">RÃ©sultat</th>
               <th width="8%">ECO</th>
-              <th width="25%">Début</th>
+              <th width="25%">DÃ©but</th>
               <th width="25%">Dernier coup</th>
             </tr>
             
@@ -226,9 +226,9 @@
             <tr>
               <th width="17%">Blancs</th>
               <th width="17%">Noirs</th>
-              <th width="8%">Résultat</th>
+              <th width="8%">RÃ©sultat</th>
               <th width="8%">ECO</th>
-              <th width="25%">Début</th>
+              <th width="25%">DÃ©but</th>
               <th width="25%">Dernier coup</th>
             </tr>
            

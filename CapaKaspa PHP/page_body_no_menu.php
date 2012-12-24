@@ -1,4 +1,4 @@
-</head>
+ï»¿</head>
 <body <?echo($attribut_body)?>>
 <?
 $jour["Monday"] = "Lundi";
@@ -15,17 +15,17 @@ function getJour($day)
 }
 
 $mois["January"] = "Janvier";
-$mois["February"] = "Février";
+$mois["February"] = "FÃ©vrier";
 $mois["March"] = "Mars";
 $mois["April"] = "Avril";
 $mois["May"] = "Mai";
 $mois["June"] = "Juin";
 $mois["July"] = "Juillet";
-$mois["August"] = "Août";
+$mois["August"] = "AoÃ»t";
 $mois["September"] = "Septembre";
 $mois["October"] = "Octobre";
 $mois["November"] = "Novembre";
-$mois["December"] = "Décembre";
+$mois["December"] = "DÃ©cembre";
 
 function getMois($month)
 {

@@ -1,42 +1,41 @@
-</head>
-<body <?echo($attribut_body)?>>
+ï»¿</head>
+<body <?echo(isset($attribut_body) ? $attribut_body:"")?>>
 <?
-$jour["Monday"] = "Lundi";
-$jour["Tuesday"] = "Mardi";
-$jour["Wednesday"] = "Mercredi";
-$jour["Thursday"] = "Jeudi";
-$jour["Friday"] = "Vendredi";
-$jour["Saturday"] = "Samedi";
-$jour["Sunday"] = "Dimanche";
+require_once("localization.php");
 
 function getJour($day) 
 {
+	$jour["Monday"] = "Lundi";
+	$jour["Tuesday"] = "Mardi";
+	$jour["Wednesday"] = "Mercredi";
+	$jour["Thursday"] = "Jeudi";
+	$jour["Friday"] = "Vendredi";
+	$jour["Saturday"] = "Samedi";
+	$jour["Sunday"] = "Dimanche";
+	
 	return $jour[$day];
 }
 
-$mois["January"] = "Janvier";
-$mois["February"] = "Février";
-$mois["March"] = "Mars";
-$mois["April"] = "Avril";
-$mois["May"] = "Mai";
-$mois["June"] = "Juin";
-$mois["July"] = "Juillet";
-$mois["August"] = "Août";
-$mois["September"] = "Septembre";
-$mois["October"] = "Octobre";
-$mois["November"] = "Novembre";
-$mois["December"] = "Décembre";
-
 function getMois($month)
 {
+	$mois["January"] = "Janvier";
+	$mois["February"] = "FÃ©vrier";
+	$mois["March"] = "Mars";
+	$mois["April"] = "Avril";
+	$mois["May"] = "Mai";
+	$mois["June"] = "Juin";
+	$mois["July"] = "Juillet";
+	$mois["August"] = "AoÃ»t";
+	$mois["September"] = "Septembre";
+	$mois["October"] = "Octobre";
+	$mois["November"] = "Novembre";
+	$mois["December"] = "DÃ©cembre";
+	
 	return $mois[$month];
 }
 
-$month = Date(F);
-$day = Date(l);
-
-getJour($day);
-getMois($month);
+$month = Date('F');
+$day = Date('l');
 
 ?>
 
@@ -66,10 +65,10 @@ getMois($month);
     	<tr height="20">
 			<td width="400">
 				<h1><?
-				print "$jour[$day] ";
-				print Date(d)." ";
-				print "$mois[$month] ";
-				print Date(Y);?>
+				print getJour($day);
+				print Date('d')." ";
+				print getMois($month);
+				print Date('Y');?>
 				</h1>
 			</td>
 			<td width="170"><h2><img src="images/point.png"/>&nbsp;<a href="tableaubord.php">Jouer aux Echecs</a></h2></td>
@@ -117,7 +116,7 @@ getMois($month);
   
   <div id="leftbar">
     <div class="navlinks">
-    	<div class="title">Jouer aux Echecs <img src="../images/lock.gif" /></div>
+    	<div class="title">Jouer aux Echecs <img src="images/lock.gif" /></div>
     	<div id="connexion">
 	      <? if (!isset($_SESSION['playerID'])||$_SESSION['playerID']==-1) {?>
 	      <form method="post" action="tableaubord.php">
@@ -156,11 +155,11 @@ getMois($month);
       <ul>
       <? if (!isset($_SESSION['playerID'])||$_SESSION['playerID']==-1) {?>
       	<li><img src="images/puce.gif"/> <a href="jouer-echecs-differe-inscription.php">S'inscrire</a></li>
-      	<li><img src="images/puce.gif"/> <a href="jouer-echecs-differe-passe-oublie.php">Mot de passe oublié</a></li>
-      	<li><img src="images/icone_video.png"/> <a href="http://youtu.be/J6pMC2Ceaxw" target="_blank">Démonstration vidéo</a></li>
+      	<li><img src="images/puce.gif"/> <a href="jouer-echecs-differe-passe-oublie.php">Mot de passe oubliÃ©</a></li>
+      	<li><img src="images/icone_video.png"/> <a href="http://youtu.be/J6pMC2Ceaxw" target="_blank">DÃ©monstration vidÃ©o</a></li>
       <? } else {?>
         <li><img src="images/puce.gif"/> <a href="tableaubord.php">Mes parties en cours</a></li>
-		<li><img src="images/puce.gif"/> <a href="partiesterminees.php">Mes parties terminées</a></li>
+		<li><img src="images/puce.gif"/> <a href="partiesterminees.php">Mes parties terminÃ©es</a></li>
         <li><img src="images/puce.gif"/> <a href="listeparties.php">Les autres parties</a></li>
 		<li><img src="images/puce.gif"/> <a href="invitation.php">Les autres joueurs</a></li>
 	<? } ?>
@@ -181,15 +180,15 @@ getMois($month);
       <ul>
         <li><img src="images/puce.gif"/> <a href="jouer-echecs-jchess.php">Jouer contre JChess</a></li>
         <li><img src="images/puce.gif"/> <a href="jouer-echecs-flashchess.php">Jouer contre flashChess</a></li>
-        <li><img src="images/puce.gif"/> <a href="jouer-echecs-crazychess.php">Jouer à Crazy Chess</a></li>
+        <li><img src="images/puce.gif"/> <a href="jouer-echecs-crazychess.php">Jouer Ã  Crazy Chess</a></li>
         <li><img src="images/puce.gif"/> <a href="jouer-jeux-flash.php">Autres jeux</a></li>
       </ul>
 	</div>
       <div class="navlinks">
-      <div class="title">Découvrir les échecs</div>
+      <div class="title">DÃ©couvrir les Ã©checs</div>
       <ul>
-	  	<li><img src="images/puce.gif"/> <a href="echecs-videos.php">Vidéos sur les échecs</a></li>
-		<li><img src="images/puce.gif"/> <a href="echecs-apprentissage.php">Apprentissage des échecs</a></li>
+	  	<li><img src="images/puce.gif"/> <a href="echecs-videos.php">VidÃ©os sur les Ã©checs</a></li>
+		<li><img src="images/puce.gif"/> <a href="echecs-apprentissage.php">Apprentissage des Ã©checs</a></li>
 		<li><img src="images/puce.gif"/> <img src="images/puce.gif"/> <a href="echecs-ouvertures.php">Ouvertures</a></li>
 	  	<li><img src="images/puce.gif"/> <img src="images/puce.gif"/> <a href="echecs-sites-livres.php">Sites & Livres</a></li>
         <li><img src="images/puce.gif"/> <a href="echecs-outils-informatique.php">Echecs et informatique</a></li>
@@ -200,7 +199,7 @@ getMois($month);
        <div class="title">Outils <img src="images/tools.gif"/></div>
       <ul>
 		<li><img src="images/puce.gif"/> <a href="epd2diag.php">EPD/FEN en diagramme</a></li>
-		<li><img src="images/puce.gif"/> <a href="javascript:void(0)" onclick='window.open("http://www.iechecs.com/iechecs.htm?app","iechecs","height=413,width=675,status=no,toolbar=no,menubar=no,location=no,resizable=yes")' >iEchecs : l'échiquier en ligne</a></li>
+		<li><img src="images/puce.gif"/> <a href="javascript:void(0)" onclick='window.open("http://www.iechecs.com/iechecs.htm?app","iechecs","height=413,width=675,status=no,toolbar=no,menubar=no,location=no,resizable=yes")' >iEchecs : l'Ã©chiquier en ligne</a></li>
       </ul>	
     
 	</div>

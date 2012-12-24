@@ -1,10 +1,10 @@
-<?
+ï»¿<?
 if (!isset($_CONFIG))
 		require 'config.php';
 require_once('dac_players.php');
 require_once('chessutils.php');
 
-/* Création du joueur et de ses préférences */
+/* CrÃ©ation du joueur et de ses prÃ©fÃ©rences */
 function createPlayer()
 {
 	@mysql_query("BEGIN");
@@ -12,7 +12,7 @@ function createPlayer()
 	if ($_POST['pwdPassword']=='') return FALSE;
 	if ($_POST['pwdPassword']!=$_POST['pwdPassword2']) return FALSE;
 	
-	// Crée l'utilisateur
+	// CrÃ©e l'utilisateur
 	$playerID = insertPlayer($_POST['pwdPassword'], $_POST['txtFirstName'], $_POST['txtLastName'], $_POST['txtNick'], $_POST['txtEmail'], $_POST['txtProfil'], $_POST['txtSituationGeo'], $_POST['txtAnneeNaissance']);	
 	if (!$playerID)
 	{
@@ -46,9 +46,9 @@ function createPlayer()
 	
 	// Envoi du message de confirmation
 	$mailSubject = "[CapaKaspa] Confirmation de votre inscription";
-	$mailMsg = "Pour finaliser votre inscription veuillez cliquer sur le lien suivant (en cas de problème copier le lien dans la barre d'adresse de votre navigateur) :\n";
+	$mailMsg = "Pour finaliser votre inscription veuillez cliquer sur le lien suivant (en cas de problÃ¨me copier le lien dans la barre d'adresse de votre navigateur) :\n";
 	$mailMsg .= "http://www.capakaspa.info/jouer-echecs-differe-inscription.php?ToDo=activer&playerID=".$playerID."&nick=".$_POST['txtNick'];
-	$mailMsg .= "\n\nCe message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).\n";
+	$mailMsg .= "\n\nCe message a Ã©tÃ© envoyÃ© automatiquement Ã  partir du site CapaKaspa (http://www.capakaspa.info).\n";
 	$res = sendMail($_POST['txtEmail'], $mailSubject, $mailMsg);
 	
 	if (!$res)
@@ -61,7 +61,7 @@ function createPlayer()
 	return TRUE;
 }
 
-/* Mettre à jour le profil utilisateur */
+/* Mettre Ã  jour le profil utilisateur */
 function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $lastName, $email, $profil, $situationGeo, $anneeNaissance, $prefTheme, $prefEmailNotification, $socialNetwork, $socialID)
 {
 	$player = getPlayer($playerID);
@@ -96,8 +96,8 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 		}
 	}
 	
-	// Préférences	
-	// Thème
+	// PrÃ©fÃ©rences	
+	// ThÃ¨me
 	$res = updatePreference($playerID, 'theme', $prefTheme);
 	if (!$res)
 	{
@@ -134,13 +134,13 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 function activationRequest($nick, $password, $email)
 {
 	
-	// Contrôle format email
+	// ContrÃ´le format email
 	if (!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$", $email))
 	{ 
 		return -3;
 	}
 	
-	// Contrôle unicité email
+	// ContrÃ´le unicitÃ© email
 	$player = getPlayerByEmail($email);
 	
 	if ($player && $player['nick'] != $nick )
@@ -167,9 +167,9 @@ function activationRequest($nick, $password, $email)
 	
 	// Envoi du message de confirmation
 	$mailSubject = "[CapaKaspa] Confirmation de votre inscription";
-	$mailMsg = "Pour activer votre compte veuillez cliquer sur le lien suivant (en cas de problème copier le lien dans la barre d'adresse de votre navigateur) :\n";
+	$mailMsg = "Pour activer votre compte veuillez cliquer sur le lien suivant (en cas de problÃ¨me copier le lien dans la barre d'adresse de votre navigateur) :\n";
 	$mailMsg .= "http://www.capakaspa.info/jouer-echecs-differe-inscription.php?ToDo=activer&playerID=".$player['playerID']."&nick=".$player['nick'];
-	$mailMsg .= "\n\nCe message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).\n";
+	$mailMsg .= "\n\nCe message a Ã©tÃ© envoyÃ© automatiquement Ã  partir du site CapaKaspa (http://www.capakaspa.info).\n";
 	$res = sendMail($_POST['txtEmail'], $mailSubject, $mailMsg);
 	
 	if (!$res)
@@ -215,7 +215,7 @@ function loginPlayer($nick, $password, $flagAuto)
 		return 0;
 	}
 	
-	// Le joueur est-il activé ?
+	// Le joueur est-il activÃ© ?
 	if ($player['activate'] == 0)
 	{
 		return -1; 
@@ -236,13 +236,13 @@ function loginPlayer($nick, $password, $flagAuto)
 	$_SESSION['socialNetwork'] = $player['socialNetwork'];
 	$_SESSION['socialID'] = $player['socialID'];
 
-	/* Mettre à jour la date de connexion */
-	// TODO Requête dans DAC
+	/* Mettre Ã  jour la date de connexion */
+	// TODO RequÃªte dans DAC
 	$tmpQuery = "UPDATE players SET lastConnection = now() WHERE playerID = ".$_SESSION['playerID'];
 	$tmpPlayers = mysql_query($tmpQuery);
 
 	/* load user preferences */
-	// TODO Requête dans DAC
+	// TODO RequÃªte dans DAC
 	$tmpQuery = "SELECT * FROM preferences WHERE playerID = ".$_SESSION['playerID'];
 	$tmpPreferences = mysql_query($tmpQuery);
 
@@ -269,7 +269,7 @@ function loginPlayer($nick, $password, $flagAuto)
 		$isPreferenceFound[$tmpPreference['preference']] = true;
 	}
 	
-	// Si se souvenir de moi création du cookie
+	// Si se souvenir de moi crÃ©ation du cookie
 	if ($flagAuto == "on")
 	{
 		setcookie('capakaspacn[nick]', $nick, (time()+3600*24*30));
@@ -281,7 +281,7 @@ function loginPlayer($nick, $password, $flagAuto)
 return 1;
 }
 
-/* Envoi mot de passe oublié */
+/* Envoi mot de passe oubliÃ© */
 function sendPassword($email)
 {
 	$player = getPlayerByEmail($email);
@@ -297,7 +297,7 @@ function sendPassword($email)
 	$mailMsg = "Voici les informations de votre compte :\n";
 	$mailMsg .= "Surnom : ".$player['nick']."\n";
 	$mailMsg .= "Passe : ".$player['PASSWORD']."\n";
-	$mailMsg .= "\n\nCe message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).\n";
+	$mailMsg .= "\n\nCe message a Ã©tÃ© envoyÃ© automatiquement Ã  partir du site CapaKaspa (http://www.capakaspa.info).\n";
 	$res = sendMail($email, $mailSubject, $mailMsg);
 	
 	if (!$res)
@@ -326,7 +326,7 @@ function getNbPassivePlayers()
 function createVacation($playerID, $nbDays, $delai_expiration)
 {
 	
-	// Contrôler le nombre de jours disponibles
+	// ContrÃ´ler le nombre de jours disponibles
 	if ($nbDays > countAvailableVacation($playerID) || $nbDays < 1)
 	{
 		return -100;
@@ -334,7 +334,7 @@ function createVacation($playerID, $nbDays, $delai_expiration)
 	
 	@mysql_query("BEGIN");
 	
-	// Insérer l'absence
+	// InsÃ©rer l'absence
 	$res = insertVacation($playerID, $nbDays);
 	if (!$res) 
 	{
@@ -344,12 +344,13 @@ function createVacation($playerID, $nbDays, $delai_expiration)
 	
 	$nbDays = $nbDays + 1;
 	
-	/*Lors de la saisie du congé il faut modifier la date du dernier des parties du joueur :
-      Pour chaque partie (non expirée)
-      	Si pas de congé en cours pour l'adversaire on ajoute la durée du congé saisi +1 à la date du dernier coup
-      	Sinon on ajoute la durée du congé saisi - (date de fin du congé en cours de l'adversaire - date de début du congé saisi)
+	/*Lors de la saisie du congÃ© il faut modifier la date du dernier des parties du joueur :
+      Pour chaque partie (non expirÃ©e)
+      	Si pas de congÃ© en cours pour l'adversaire on ajoute la durÃ©e du congÃ© saisi +1 Ã  la date du dernier coup
+      	Sinon on ajoute la durÃ©e du congÃ© saisi - (date de fin du congÃ© en cours de l'adversaire - date de dÃ©but du congÃ© saisi)
       		si l'ajout reste positif      
-	*/  
+	*/
+	// TODO gameMessage = '' OR gameMessage is NULL  
 	$tmpGames = mysql_query("SELECT * 
                              FROM games
                              WHERE gameMessage = ''
@@ -357,7 +358,7 @@ function createVacation($playerID, $nbDays, $delai_expiration)
                              AND lastMove >= DATE_SUB(CURDATE(), INTERVAL ".$delai_expiration." DAY)  
                              ORDER BY dateCreated");
 
-	// Ne pas modifier les parties expirées pas encore terminées
+	// Ne pas modifier les parties expirÃ©es pas encore terminÃ©es
 	while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
     {
     	if ($tmpGame['whitePlayer']==$playerID)
@@ -404,7 +405,7 @@ function createVacation($playerID, $nbDays, $delai_expiration)
 	return 1;
 }
 
-/* Compte le nombre de jours d'absence disponible sur l'année en cours */
+/* Compte le nombre de jours d'absence disponible sur l'annÃ©e en cours */
 function countAvailableVacation($playerID)
 {
 	
@@ -412,7 +413,7 @@ function countAvailableVacation($playerID)
 	return MAX_NB_JOUR_ABSENCE - $nbVacation;
 }
 
-/* Récupère le chemin de la photo du profil */
+/* RÃ©cupÃ¨re le chemin de la photo du profil */
 function getPicturePath($socialNetwork, $socialID)
 {
 	$picturePath = "images/default_avatar.jpg";
@@ -443,12 +444,12 @@ function getNbOnlinePlayers()
 	return $res['nbPlayers'];
 }
 
-/* Est un nouveau joueur en fonction date de création */
+/* Est un nouveau joueur en fonction date de crÃ©ation */
 function isNewPlayer($creationDate)
 {
 	$maxDate = date('Y/m/d', strtotime('-7 day'));
 	list($year, $month, $day) = explode("-", $creationDate);
-	$creationDate = date("Y/m/d", mktime(0,0,0, $month, $day, $year));
+	$creationDate = date("Y/m/d", mktime(0,0,0, $month, substr($day, 0, 2), $year));
 	
 	if ($creationDate > $maxDate)
 		return true;

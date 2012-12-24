@@ -1,8 +1,8 @@
-<?
+Ôªø<?
 require_once('dac_players.php');
 require 'dac_games.php';
 
-/* AccËs aux donnÈes concernant la table Games, History, Messages */
+/* Acc√®s aux donn√©es concernant la table Games, History, Messages */
 
 /* Return le PGN de la partie */
 function getPGN($whiteNick, $blackNick, $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $listeCoups)
@@ -40,7 +40,7 @@ function getPGN($whiteNick, $blackNick, $type, $flagBishop, $flagKnight, $flagRo
 	}
 	
 	$pattern = "[\n\r]";
-	$pgnstring = "[FEN %22".$startFEN."%22][White %22".$whiteNick."%22][Black %22".$blackNick."%22]".eregi_replace($pattern," ",$listeCoups);
+	$pgnstring = "[FEN %22".$startFEN."%22][White %22".$whiteNick."%22][Black %22".$blackNick."%22]".mb_eregi_replace($pattern," ",$listeCoups);
 	
 	return $pgnstring;
 	
@@ -68,14 +68,14 @@ function getNbActiveGameForAll()
 	return $res['nbGames'];
 }
 
-/* Met ‡ jour la date de dernier coup d'une partie */
+/* Met √† jour la date de dernier coup d'une partie */
 function updateTimestamp()
 {
 	
 	mysql_query("UPDATE games SET lastMove = NOW() WHERE gameID = ".$_POST['gameID']);
 }
 
-/* Met ‡ jour la position et le code ECO d'une partie */
+/* Met √† jour la position et le code ECO d'une partie */
 function updateGame($gameID, $position, $ecoCode)
 {
 	
@@ -85,7 +85,7 @@ function updateGame($gameID, $position, $ecoCode)
 
 
 /* 	
- Calcul de la date cible de la partie : date qui ne doit pas dÈpasser la date du dernier coup
+ Calcul de la date cible de la partie : date qui ne doit pas d√©passer la date du dernier coup
  Prend en compte la cadence
 */
 function calculateTargetDate($lastMove, $whitePlayerID, $blackPlayerID, $cadence)
@@ -143,7 +143,7 @@ function savePromotion()
 		else
 			$oppColor = "white";
 		
-		// RÈcupÈrer les informations sur l'adversaire
+		// R√©cup√©rer les informations sur l'adversaire
 		if ($oppColor == 'white')
 		{	
 			$tmpOpponent = mysql_query("SELECT P.email email, PR.value value FROM games G, players P, preferences PR WHERE G.gameID = ".$_POST['gameID']." AND G.whitePlayer = P.playerID AND PR.playerID = P.playerID AND PR.preference='emailnotification'");
@@ -282,7 +282,7 @@ function loadGame()
 {
 	global $board, $playersColor, $whiteNick, $blackNick, $whitePlayerID, $blackPlayerID,$numMoves, $CFG_EXPIREGAME, $dialogue, $ecoCode, $ecoName, $dateCreated, $whiteElo, $blackElo, $whiteSocialID, $whiteSocialNet, $blackSocialID, $blackSocialNet;
 	
-	// Informations sur la partie : voir le type de partie (position normale ou pas) et le problËme du code ECO
+	// Informations sur la partie : voir le type de partie (position normale ou pas) et le probl√®me du code ECO
 	$tmpQuery = "SELECT G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, G.dialogue dialogue, G.position position, 
 	G.eco eco, DATE_FORMAT(G.lastMove, '%Y-%m-%d') lastMove, DATE_FORMAT(G.dateCreated, '%d/%m/%Y %T') dateCreatedF, 
 	G.type type, G.flagBishop flagBishop, G.flagKnight flagKnight, G.flagRook flagRook, G.flagQueen flagQueen, 
@@ -296,7 +296,7 @@ function loadGame()
 	$tmpGames = mysql_query($tmpQuery);
 	$tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC);
 	
-	// Remplir l'Èchiquier
+	// Remplir l'√©chiquier
 	$strPos = 0;
 	for ($i = 0; $i < 8; $i++)
 		for ($j = 0; $j < 8; $j++)
@@ -323,7 +323,7 @@ function loadGame()
 		// Le joueur ne joue pas la partie
 		$playerColor = "";
 	
-	// RÈcupÈrer les surnom et ID
+	// R√©cup√©rer les surnom et ID
 	$blackNick = $tmpGame['blackNick'];
 	$blackPlayerID = $tmpGame['blackPlayer'];
 	$whiteNick = $tmpGame['whiteNick'];
@@ -341,11 +341,11 @@ function loadGame()
 	else
 		$turnColor = "black";
 		
-	// DÈpassement dÈlai entre 2 coups
-	// Ajouter ici le nombre de jours d'absence ‡ prendre en compte
+	// D√©passement d√©lai entre 2 coups
+	// Ajouter ici le nombre de jours d'absence √† prendre en compte
 	$targetDate = calculateTargetDate($tmpGame['lastMove'], $whitePlayerID, $blackPlayerID, $CFG_EXPIREGAME);
 	
-	// Terminer la partie si dÈpassement de temps
+	// Terminer la partie si d√©passement de temps
 	$res = mysql_query("UPDATE games SET gameMessage = 'playerResigned', messageFrom = '".$turnColor."' WHERE lastMove < '".$targetDate."' AND (gameMessage <> 'draw' AND gameMessage <> 'checkMate' AND gameMessage <> 'playerResigned') AND gameID = ".$_POST['gameID']);
 	
 	return $tmpGame;
@@ -356,12 +356,12 @@ function saveGame()
 {
 	global $board, $playersColor, $ecoCode, $ecoName, $numMoves;
 	
-	// Sauvegarde de l'Èchiquier sous la forme d'une chaÓne de 64 caractËres
+	// Sauvegarde de l'√©chiquier sous la forme d'une cha√Æne de 64 caract√®res
 	// tcfdrfct pppppppp 00000000 00000000 00000000 00000000 PPPPPPPP TCFDRFCT
 	
 	$position = "";
 	
-	// Construire la chaÓne de la position courante ‡ partir de l'Èchiquier
+	// Construire la cha√Æne de la position courante √† partir de l'√©chiquier
 	// Pour chaque ligne
 	for ($i = 0; $i < 8; $i++)
 	{
@@ -379,7 +379,7 @@ function saveGame()
 	else
 		$turnColor = "b";
 		
-	// ContrÙle code ECO de la position
+	// Contr√¥le code ECO de la position
 	$fen_eco = getEco($position);
 	if ($fen_eco)
 	{
@@ -394,7 +394,7 @@ function saveGame()
 	}
 	
 			
-	// Mettre ‡ jour la date du dernier coup et la position
+	// Mettre √† jour la date du dernier coup et la position
 	$res = updateGame($_POST['gameID'], $position, $ecoCode);
 	return $res;
 }
@@ -579,13 +579,13 @@ function processMessages()
 					case 'approved':
 						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$_POST['gameID']." AND msgType = 'undo' AND msgStatus = 'approved' AND destination = '".$playersColor."'";
 						mysql_query($tmpQuery);
-						$statusMessage .= "Annulation de coup acceptÈe.<br>\n";
+						$statusMessage .= "Annulation de coup accept√©e.<br>\n";
 						break;
 					case 'denied':
 						$isUndoing = false;
 						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$_POST['gameID']." AND msgType = 'undo' AND msgStatus = 'denied' AND destination = '".$playersColor."'";
 						mysql_query($tmpQuery);
-						$statusMessage .= "Annulation de coup refusÈe.<br>\n";
+						$statusMessage .= "Annulation de coup refus√©e.<br>\n";
 						break;
 				}
 				break;
@@ -599,12 +599,12 @@ function processMessages()
 					case 'approved':
 						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$_POST['gameID']." AND msgType = 'draw' AND msgStatus = 'approved' AND destination = '".$playersColor."'";
 						mysql_query($tmpQuery);
-						$statusMessage .= "Proposition de nulle acceptÈe.<br>\n";
+						$statusMessage .= "Proposition de nulle accept√©e.<br>\n";
 						break;
 					case 'denied':
 						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$_POST['gameID']." AND msgType = 'draw' AND msgStatus = 'denied' AND destination = '".$playersColor."'";
 						mysql_query($tmpQuery);
-						$statusMessage .= "Proposition de nulle refusÈe.<br>\n";
+						$statusMessage .= "Proposition de nulle refus√©e.<br>\n";
 						break;
 				}
 				break;
@@ -654,13 +654,13 @@ function processMessages()
 	
 	if ($tmpMessage['gameMessage'] == "playerResigned")
 	{
-		$statusMessage .= $tmpColor." ont abandonnÈ la partie.<br>\n";
+		$statusMessage .= $tmpColor." ont abandonn√© la partie.<br>\n";
 		$isGameOver = true;
 	}
 
 	if ($tmpMessage['gameMessage'] == "checkMate")
 	{
-		$statusMessage .= "Echec et Mat! ".$tmpColor." ont gagnÈ la partie.<br>\n";
+		$statusMessage .= "Echec et Mat! ".$tmpColor." ont gagn√© la partie.<br>\n";
 		$isGameOver = true;
 		$isCheckMate = true;
 	}

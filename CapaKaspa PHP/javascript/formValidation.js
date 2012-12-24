@@ -1,4 +1,4 @@
-// check to see if input is whitespace only or empty
+﻿// check to see if input is whitespace only or empty
 function isEmpty(val)
 {
 	if (val.match(/^s+$/) || val == "")

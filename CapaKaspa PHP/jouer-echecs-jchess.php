@@ -1,8 +1,8 @@
-<?
+ï»¿<?
 	session_start();
 	require 'bwc_players.php';
-	$titre_page = "Jeux en ligne - Jouer aux échecs contre JChess";
-	$desc_page = "Jeux en ligne. Jouez en ligne une partie d'échecs contre JChess, un adversaire disponible de bon niveau.";
+	$titre_page = "Jeux en ligne - Jouer aux Ã©checs contre JChess";
+	$desc_page = "Jeux en ligne. Jouez en ligne une partie d'Ã©checs contre JChess, un adversaire disponible de bon niveau.";
     require 'page_header.php';
 ?>
 <script type="text/javascript">
@@ -24,7 +24,7 @@ document.jchess.SetLevel(0, parseInt(temps)*1000, parseInt(prof))
   <div id="contentlarge">
     <div class="blogbody">
     
-		<h3>Jouez une partie d'échecs contre Jchess, un adversaire toujours disponible !</h3>
+		<h3>Jouez une partie d'Ã©checs contre Jchess, un adversaire toujours disponible !</h3>
         
         <!-- AddThis Button BEGIN -->
       <div class="addthis_toolbox addthis_default_style ">
@@ -50,7 +50,7 @@ document.jchess.SetLevel(0, parseInt(temps)*1000, parseInt(prof))
 		  <PARAM NAME="but4txt" VALUE="A propos">
 		</applet>
 		<input type="button" value="Jouer avec les noirs" onclick="nouveau();jouer()" />
-		<input type="button" value="Retourner l'échiquier" onclick="retourner()" />
+		<input type="button" value="Retourner l'Ã©chiquier" onclick="retourner()" />
 		</center>
 		<br/>
 		<br/>

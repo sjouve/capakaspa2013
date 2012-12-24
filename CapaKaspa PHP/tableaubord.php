@@ -1,4 +1,4 @@
-<?	require 'mobilecheck.php';
+ï»¿<?	require 'mobilecheck.php';
 	
 	session_start();
 			
@@ -114,7 +114,7 @@
 			break;
 
 		case 'InvitePlayerByNick':
-			// Récupérer l'id du player dans le cas de l'invitation par saisie surnom
+			// RÃ©cupÃ©rer l'id du player dans le cas de l'invitation par saisie surnom
 			if (isset($_POST['txtNick']) && $_POST['txtNick'] != $_SESSION['nick'])
 			{
 				$tmpQueryId = "SELECT playerID FROM players WHERE nick = '".$_POST['txtNick']."' AND activate=1";
@@ -188,8 +188,8 @@
 			{
 				
 				/* update game data */
-				$tmpQuery = "UPDATE games SET gameMessage = '', messageFrom = '' WHERE gameID = ".$_POST['gameID'];
-				mysql_query($tmpQuery);
+				$tmpQuery = "UPDATE games SET gameMessage = DEFAULT, messageFrom = DEFAULT WHERE gameID = ".$_POST['gameID'];
+				mysql_query($tmpQuery) or die (mysql_error());
 
 				/* setup new board */
 				//$_SESSION['gameID'] = $_POST['gameID'];
@@ -296,8 +296,8 @@
 	/* set default playing mode to different PCs (as opposed to both players sharing a PC) */
 	$_SESSION['isSharedPC'] = false;
 
-    $titre_page = "Echecs en différé - Tableau de bord";
-    $desc_page = "Jouer aux échecs en différé. Retrouvez vos parties d'échecs en différé en cours et vos invitations en attente de réponse";
+    $titre_page = "Echecs en diffÃ©rÃ© - Tableau de bord";
+    $desc_page = "Jouer aux Ã©checs en diffÃ©rÃ©. Retrouvez vos parties d'Ã©checs en diffÃ©rÃ© en cours et vos invitations en attente de rÃ©ponse";
     require 'page_header.php';
 ?>
 <script type="text/javascript">
@@ -334,7 +334,7 @@
 	</script>
 <?
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Mes parties";
+    $barre_progression = "<a href='/'>Accueil</a> > Echecs en diffÃ©rÃ© > Mes parties";
     require 'page_body.php';
 ?>
   <div id="contentlarge">
@@ -344,10 +344,10 @@
 		 
 		<td ><?displayBodyRSSPlage(URL_RSS_FORUM, 0, 0);?>
     	<!--  <div class='rsstitlefirst'><img src='images/porte_voix.png'><b> Classement ELO du 3eme Trimestre 2011 </b></div>
-    	<div class='rssdescriptionfirst'>Les classements ELO des membres vont de 1999 à 1051 points. Félicitations et encouragements !</div>
+    	<div class='rssdescriptionfirst'>Les classements ELO des membres vont de 1999 Ã  1051 points. FÃ©licitations et encouragements !</div>
     	-->
     	</td>
-		<td>
+		<!-- <td>
 		<div id="fb-root"></div>
 		<script>(function(d, s, id) {
 		  var js, fjs = d.getElementsByTagName(s)[0];
@@ -358,7 +358,7 @@
 		}(document, 'script', 'facebook-jssdk'));</script>
 		
 		<div class="fb-like-box" data-href="http://www.facebook.com/capakaspa" data-width="280" data-show-faces="false" data-stream="false" data-header="false"></div>
-		</td>
+		</td> -->
         </tr>
     </table>
     
@@ -368,17 +368,17 @@
 		
 		$res_current_vacation = getCurrentVacation($_SESSION['playerID']);
 		if (mysql_num_rows($res_current_vacation) > 0)
-				echo("<div class='success'>Vous avez une absence en cours ! Vos parties sont ajournées.</div>");
+				echo("<div class='success'>Vous avez une absence en cours ! Vos parties sont ajournÃ©es.</div>");
 		?>
       <form name="existingGames" action="partie.php" method="post">
-        <h3> Mes parties en cours <a href="tableaubord.php"><img src="images/icone_rafraichir.png" border="0" alt="Rafraîchir" /></a></h3>
+        <h3> Mes parties en cours <a href="tableaubord.php"><img src="images/icone_rafraichir.png" border="0" alt="RafraÃ®chir" /></a></h3>
         
 		<div id="mosaique">
         <?
         	
 			$tmpGames = mysql_query("SELECT G.gameID gameID, G.eco eco, DATE_FORMAT(G.lastMove, '%d/%m/%Y %T') dateCreatedF, DATE_FORMAT(lastMove, '%Y-%m-%d') lastMove, G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, G.position position, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick
                                         FROM games G, players W, players B
-                                        WHERE gameMessage = ''
+                                        WHERE gameMessage is NULL
                                         AND (whitePlayer = ".$_SESSION['playerID']." OR blackPlayer = ".$_SESSION['playerID'].")
                                         AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
                                         ORDER BY dateCreated");
@@ -468,7 +468,7 @@
 	$tmpGames = mysql_query($tmpQuery);
 
 	if (mysql_num_rows($tmpGames) == 0)
-		echo("<tr><td colspan='5'>Vous n'avez proposé aucune partie</td></tr>\n");
+		echo("<tr><td colspan='5'>Vous n'avez proposÃ© aucune partie</td></tr>\n");
 	else
 		while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
 		{
@@ -490,9 +490,9 @@
 			/* Your Color */
 			echo ("</td><td align='center'>");
 			if ($tmpGame['whitePlayer'] == $_SESSION['playerID'])
-				echo ("<img src='/images/white_pawn.gif'/>");
+				echo ("<img src='images/white_pawn.gif'/>");
 			else
-				echo ("<img src='/images/black_pawn.gif'/>");
+				echo ("<img src='images/black_pawn.gif'/>");
 			
 			/* Type de partie */
 			echo ("</td><td>");
@@ -517,9 +517,9 @@
 			/* Status */
 			echo ("</td><td>");
 			if ($tmpGame['gameMessage'] == 'playerInvited')
-				echo ("Réponse en attente");
+				echo ("RÃ©ponse en attente");
 			else if ($tmpGame['gameMessage'] == 'inviteDeclined')
-				echo ("Invitation déclinée");
+				echo ("Invitation dÃ©clinÃ©e");
 
 			/* Withdraw Request */
 			echo ("</td><td align='center'>");
@@ -543,7 +543,7 @@
               <th width="150">Adversaire</th>
               <th width="50">Votre couleur</th>
               <th width="120">Type</th>
-              <th width="230">Réponse</th>
+              <th width="230">RÃ©ponse</th>
               <th width="100">Action</th>
             </tr>
             <?
@@ -573,12 +573,12 @@
 			echo ("</td><td align='center'>");
 			if ($tmpGame['whitePlayer'] == $_SESSION['playerID'])
 			{
-				echo ("<img src='/images/white_pawn.gif'/>");
+				echo ("<img src='images/white_pawn.gif'/>");
 				$tmpFrom = "white";
 			}
 			else
 			{
-				echo ("<img src='/images/black_pawn.gif'/>");
+				echo ("<img src='images/black_pawn.gif'/>");
 				$tmpFrom = "black";
 			}
 			
