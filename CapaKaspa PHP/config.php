@@ -1,4 +1,4 @@
-﻿<?
+<?
 	$_CONFIG = true;
 
 	/* database settings */

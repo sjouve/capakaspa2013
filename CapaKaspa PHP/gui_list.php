@@ -1,4 +1,4 @@
-﻿<?
+<?
 
 /* Affichage navigation pagination liste
  * $pge = numéro de la page courante

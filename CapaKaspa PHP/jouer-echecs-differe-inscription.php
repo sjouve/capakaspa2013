@@ -7,12 +7,12 @@ if (!isset($_CONFIG))
 require 'connectdb.php';
 require 'bwc_players.php';
 // Captcha
-include_once $_SERVER['DOCUMENT_ROOT'] . '/securimage/securimage.php';
+include_once  '/securimage/securimage.php';
 $securimage = new Securimage();
 		
 /* Traitement des actions */
 $err=false;
-$ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:$_GET['ToDo'];
+$ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:isset($_GET['ToDo']) ? $_GET['ToDo']:"" ;
 
 switch($ToDo)
 {
@@ -180,7 +180,7 @@ require 'page_header.php';
 			</td>
 
 			<td width="450">
-				<input name="txtNick" type="text" size="20" maxlength="20" value="<? echo($_POST['txtNick']); ?>">
+				<input name="txtNick" type="text" size="20" maxlength="20" value="<? echo(isset($_POST['txtNick'])?$_POST['txtNick']:""); ?>">
 			</td>
 		</tr>
 
@@ -209,7 +209,7 @@ require 'page_header.php';
 			</td>
 			
 			<td>
-				<input name="txtFirstName" type="text" size="20" maxlength="20" value="<? echo($_POST['txtFirstName']); ?>">
+				<input name="txtFirstName" type="text" size="20" maxlength="20" value="<? echo(isset($_POST['txtFirstName'])?$_POST['txtFirstName']:""); ?>">
 			</td>
 		</tr>
 
@@ -219,27 +219,27 @@ require 'page_header.php';
 			</td>
 
 			<td>
-				<input name="txtLastName" type="text" size="20" maxlength="20" value="<? echo($_POST['txtLastName']); ?>">
+				<input name="txtLastName" type="text" size="20" maxlength="20" value="<? echo(isset($_POST['txtLastName'])?$_POST['txtLastName']:""); ?>">
 			</td>
 		</tr>
 		<tr>
             <td> Email : </td>
-            <td><input name="txtEmail" type="text" size="50" maxlength="50" value="<? echo($_POST['txtEmail']); ?>">
+            <td><input name="txtEmail" type="text" size="50" maxlength="50" value="<? echo(isset($_POST['txtEmail'])?$_POST['txtEmail']:""); ?>">
             </td>
           </tr>
 		  <tr>
             <td> Situation géographique : </td>
-            <td><input name="txtSituationGeo" type="text" size="50" maxlength="50" value="<? echo($_POST['txtSituationGeo']); ?>">
+            <td><input name="txtSituationGeo" type="text" size="50" maxlength="50" value="<? echo(isset($_POST['txtSituationGeo'])?$_POST['txtSituationGeo']:""); ?>">
             </td>
           </tr>
 		  <tr>
             <td> Année de naissance : </td>
-            <td><input name="txtAnneeNaissance" type="text" size="4" maxlength="4" value="<? echo($_POST['txtAnneeNaissance']); ?>">
+            <td><input name="txtAnneeNaissance" type="text" size="4" maxlength="4" value="<? echo(isset($_POST['txtAnneeNaissance'])?$_POST['txtAnneeNaissance']:""); ?>">
             </td>
           </tr>
 		  <tr valign="top">
             <td> A propos de vous : </td>
-            <td><TEXTAREA NAME="txtProfil" COLS="50" ROWS="5" ><? echo($_POST['txtProfil']); ?></TEXTAREA>
+            <td><TEXTAREA NAME="txtProfil" COLS="50" ROWS="5" ><? echo(isset($_POST['txtProfil'])?$_POST['txtProfil']:""); ?></TEXTAREA>
             </td>
           </tr>
 		
@@ -290,11 +290,11 @@ require 'page_header.php';
 		<table>
 		<tr>
 			<td width="250">
-				<img id="captcha" src="/securimage/securimage_show.php" alt="CAPTCHA Image" />
+				<img id="captcha" src="securimage/securimage_show.php" alt="CAPTCHA Image" />
 			</td>
 			<td>
 				<input type="text" name="captcha_code" size="10" maxlength="6" />
-				<a href="#" onclick="document.getElementById('captcha').src = '/securimage/securimage_show.php?' + Math.random(); return false">Autre image</a>
+				<a href="#" onclick="document.getElementById('captcha').src = 'securimage/securimage_show.php?' + Math.random(); return false">Autre image</a>
 			</td>
 		</tr>
 		

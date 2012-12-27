@@ -1,5 +1,4 @@
 ﻿/* CSS Document */
-
 @media screen {
 	body {
 		margin: 0px 0px 0px 0px;
@@ -8,7 +7,7 @@
 	}
 	#container {
 		position:relative;
-		width: 902px;
+		width: 1000px;
 		padding: 0px;
 		background-color: #FFFFFF;
 		border-top-style: none;
@@ -46,7 +45,7 @@
 	}
 	#contentxlarge {
 		float: left;
-		width: 900px;
+		width: 1000px;
 		background-color: #FFFFFF;
 		border-top-style: none;
 		border-right-style: none;

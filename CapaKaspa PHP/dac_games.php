@@ -1,4 +1,4 @@
-﻿<?
+<?
 /* Accès aux données concernant la table Games, History, Pieces, Messages */
 
 function countActiveGame($playerID)

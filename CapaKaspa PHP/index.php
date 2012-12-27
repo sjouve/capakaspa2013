@@ -1,51 +1,49 @@
-﻿<?
-	session_start();
-	
-	/* load settings */
-	if (!isset($_CONFIG))
-		require 'config.php';
+<?session_start();
+require_once("localization.php");
 
-	/* Pour les statistiques */
-	require 'bwc_players.php';
-	require 'bwc_games.php';
-	require 'gui_rss.php';
+/* load settings */
+if (!isset($_CONFIG))
+	require 'config.php';
 
-	/* connect to database */
-	require 'connectdb.php';
+/* Pour les statistiques */
+require 'bwc_players.php';
+require 'bwc_games.php';
+
+/* connect to database */
+require 'connectdb.php';
 	
-	/* check session status */
-	// Si cookie alors connexion auto
-	if ((!isset($_SESSION['playerID'])||$_SESSION['playerID'] == -1) && isset($_COOKIE['capakaspacn']['nick']))
-	{
-		loginPlayer($_COOKIE['capakaspacn']['nick'], $_COOKIE['capakaspacn']['password'], 0);
-	}
-	
-	if (!isset($_SESSION['playerID']))
-	{
-	  	$_SESSION['playerID'] = -1;
-	}
+/* check session status */
+// Si cookie alors connexion auto
+if ((!isset($_SESSION['playerID'])||$_SESSION['playerID'] == -1) && isset($_COOKIE['capakaspacn']['nick']))
+{
+	loginPlayer($_COOKIE['capakaspacn']['nick'], $_COOKIE['capakaspacn']['password'], 0);
+}
+
+if (!isset($_SESSION['playerID']))
+{
+  	$_SESSION['playerID'] = -1;
+}
 		
-	if ($_SESSION['playerID'] != -1)
+if ($_SESSION['playerID'] != -1)
+{
+	if (time() - $_SESSION['lastInputTime'] >= $CFG_SESSIONTIMEOUT)
 	{
-		if (time() - $_SESSION['lastInputTime'] >= $CFG_SESSIONTIMEOUT)
-		{
-		  $_SESSION['playerID'] = -1;
-		}
-		else if (!isset($_GET['autoreload']))	
-		{
-		  	$_SESSION['lastInputTime'] = time();
-		}
+	  $_SESSION['playerID'] = -1;
 	}
-
+	else if (!isset($_GET['autoreload']))	
+	{
+	  	$_SESSION['lastInputTime'] = time();
+	}
+}
 	
-	$titre_page = "Jouer aux échecs, apprendre et progresser - Accueil";
-	$desc_page = "Les échecs conviviaux sur le Net : découvrir les échecs, apprendre, jouer aux échecs en ligne et partager grâce au forum et au blog";
-    require 'page_header.php';
-    $image_bandeau = 'bandeau_capakaspa_global.jpg';
-    $barre_progression = "Accueil";
-    require 'page_body.php';
+$titre_page = "Jouer aux échecs, apprendre et progresser - Accueil";
+$desc_page = "Les échecs conviviaux sur le Net : découvrir les échecs, apprendre, jouer aux échecs en ligne et partager grâce au forum et au blog";
+require 'page_header.php';
+$image_bandeau = 'bandeau_capakaspa_global.jpg';
+$barre_progression = "Accueil";
+require 'page_body.php';
 ?>
-  	<div id="content">
+<div id="content">
     	<div class="blogbody">
     		<div class="block">
 	      		<div class="blocktitle"><?php echo _("Play chess");?></div>
@@ -123,12 +121,7 @@
 				
 				<div class="fb-like-box" data-href="http://www.facebook.com/capakaspa" data-width="295" data-show-faces="true" data-border-color="#FFFFFF" data-stream="false" data-header="false"></div>
 			</div>
-		
-       	
     		
     	</div>
 	</div>
-  
-<?
-    require 'page_footer.php';
-?>
+<?require 'page_footer.php';?>

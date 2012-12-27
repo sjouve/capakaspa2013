@@ -27,7 +27,7 @@
 		<br/>
 		<center>
 		
-    	<embed width="650" height="500" name="plugin" src="/bin/FLChess.swf" type="application/x-shockwave-flash">
+    	<embed width="650" height="500" name="plugin" src="bin/FLChess.swf" type="application/x-shockwave-flash">
 
 		</center>
 		<br/>

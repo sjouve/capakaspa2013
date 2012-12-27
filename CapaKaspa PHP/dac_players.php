@@ -1,4 +1,4 @@
-﻿<?
+<?
 /* Accès aux données concernant les tables Players et Preferences */
 
 /* Constantes du module */
@@ -162,7 +162,7 @@ function countVacation($playerID, $year)
 	$res = mysql_query("SELECT SUM(duration) nbVacation FROM vacation WHERE playerID=".$playerID." AND YEAR(endDate)=".$year)  or die(mysql_error()."\n".$requete);
 	$res_vacation = mysql_fetch_array($res, MYSQL_ASSOC);   
 	
-	return $res_vacation['nbVacation'] + $d;;
+	return $res_vacation['nbVacation'];
 }
 
 /* Récupère les vacances en cours d'un joueur */

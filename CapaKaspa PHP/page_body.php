@@ -1,8 +1,6 @@
-﻿</head>
+</head>
 <body <?echo(isset($attribut_body) ? $attribut_body:"")?>>
 <?
-require_once("localization.php");
-
 function getJour($day) 
 {
 	$jour["Monday"] = "Lundi";
@@ -36,53 +34,18 @@ function getMois($month)
 
 $month = Date('F');
 $day = Date('l');
-
 ?>
-
 <div id="container">
-	
   <div id="topbar">
-  	<table cellpadding="0" cellspacing="0" width="900" style="background-image: url(./images/<?echo($image_bandeau)?>) ">
+  	<table cellpadding="0" cellspacing="0" width="1000">
   		<tr height="60">
-			<td width="430" height="60"><a href="http://www.capakaspa.info" style="display: block; height: 100%; width: 100%;">&nbsp;</a></td>
+			<td width="430" height="60"><a href="index.php" style="display: block; height: 100%; width: 100%;">&nbsp;</a></td>
 			<td width="470" colspan="4">
-        		<h3>Rechercher dans tout CapaKaspa (dont Forum et Blog)</h3>
-	          	<form action="http://www.capakaspa.info/recherche.php" id="cse-search-box">
-				  <div>
-				  	
-				    <input type="hidden" name="cx" value="partner-pub-8069368543432674:7445098107" />
-				    <input type="hidden" name="cof" value="FORID:10" />
-				    <input type="hidden" name="ie" value="ISO-8859-1" />
-				    <input type="text" name="q" size="31" />
-				    <input type="submit" name="sa" value="Rechercher" />
-				  </div>
-				</form>
-				
-				<script type="text/javascript" src="http://www.google.fr/coop/cse/brand?form=cse-search-box&amp;lang=fr"></script>
 
         	</td>
 		</tr>
-    	<tr height="20">
-			<td width="400">
-				<h1><?
-				print getJour($day);
-				print Date('d')." ";
-				print getMois($month);
-				print Date('Y');?>
-				</h1>
-			</td>
-			<td width="170"><h2><img src="images/point.png"/>&nbsp;<a href="tableaubord.php">Jouer aux Echecs</a></h2></td>
-			<td width="130"><h2><img src="images/point.png"/>&nbsp;<a href="echecs-boutique.php">La boutique</a></h2></td>
-			<td width="100"><h2><img src="images/point.png"/>&nbsp;<a href="http://forum.capakaspa.info">Le Forum</a></h2></td>
-			<td width="100"><h2><img src="images/point.png"/>&nbsp;<a href="http://blog.capakaspa.info">Le Blog</a></h2></td>
-			
-		</tr>
     </table>
   </div>
-  
-	<div id="progressbar">
-		<img src="images/puce.gif"/>  <? echo($barre_progression) ?>
-	</div>
   
   <div id="contentxlarge">
     <center>
@@ -203,7 +166,4 @@ $day = Date('l');
       </ul>	
     
 	</div>
-	
     </div>
-    
-

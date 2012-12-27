@@ -38,7 +38,7 @@ document.jchess.SetLevel(0, parseInt(temps)*1000, parseInt(prof))
       <br/>
 		<center>
 		<applet
-			code=jchess.class archive="/bin/jchess.zip"
+			code=jchess.class archive="bin/jchess.zip"
 			name=jchess width=600 height=400>
 		  <PARAM NAME="bgcolor" VALUE="#FFFFFF">
 		  <PARAM NAME="color" VALUE="#000080">

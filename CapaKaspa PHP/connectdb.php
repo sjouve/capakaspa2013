@@ -1,4 +1,4 @@
-﻿<?
+<?
 	/* load settings */
 	if (!isset($_CONFIG))
 		require 'config.php';

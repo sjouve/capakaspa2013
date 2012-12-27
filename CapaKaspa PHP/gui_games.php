@@ -1,4 +1,4 @@
-﻿<? /* functions for outputting to html and javascript */
+<? /* functions for outputting to html and javascript */
 
     /* Utilisé pour la mosaique */
     function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)

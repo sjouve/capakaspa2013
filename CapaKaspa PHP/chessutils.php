@@ -1,4 +1,4 @@
-﻿<?
+<?
 	/* these are utility functions used by other functions */
 	function getPieceName($piece)
 	{

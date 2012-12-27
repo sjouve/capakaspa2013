@@ -1,4 +1,4 @@
-﻿<?	require_once('class.detect_device.php');
+<?	require_once('class.detect_device.php');
 	$actual_device = new detect_device();
 	if (isset($_GET[ 'prevent_redirection' ])) {
     	$actual_device->prevent_redirection();

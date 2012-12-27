@@ -1,4 +1,4 @@
-﻿<?
+<?
 require_once('dac_players.php');
 require 'dac_games.php';
 
