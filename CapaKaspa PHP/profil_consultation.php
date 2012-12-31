@@ -131,7 +131,7 @@
         </table>
 		<br/>
 		<? if ($_SESSION['playerID']!=$player['playerID']) {?>
-		<form action="tableaubord.php" method="post">
+		<form action="index.php" method="post">
 			<h3>Proposez une nouvelle partie à <? echo($player['nick']); ?></h3>
 			<input type="hidden" name="ToDo" value="InvitePlayer">
 			<input type="hidden" name="opponent" value="<? echo($player['playerID']);?>">

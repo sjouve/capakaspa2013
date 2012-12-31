@@ -6,12 +6,14 @@ if (!isset($_CONFIG))
 
 require 'connectdb.php';
 require 'bwc_players.php';
+require 'bwc_games.php';
+
 // Captcha
 include_once  '/securimage/securimage.php';
 $securimage = new Securimage();
 		
 /* Traitement des actions */
-$err=false;
+$err = false;
 $ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:isset($_GET['ToDo']) ? $_GET['ToDo']:"" ;
 
 switch($ToDo)
@@ -60,7 +62,7 @@ switch($ToDo)
 		$player = getPlayer($_GET['playerID']);
 		if ($player && $player[activate] == 1)
 		{
-			header("Location: tableaubord.php");
+			header("Location: index.php");
 			exit;
 		}
 		else if (!activatePlayer($_GET['playerID'], $_GET['nick']))
@@ -69,8 +71,8 @@ switch($ToDo)
 		
 }
 
-$titre_page = "Echecs en différé - Inscription à la zone de jeu";
-$desc_page = "Jouer aux échecs en différé. Inscrivez-vous à la zone de jeu en différé et jouer des parties d'échecs à votre rythme.";
+$titre_page = _("CapaKaspa");
+$desc_page = _("Sign up for CapaKaspa, play chess and share your games.");
 require 'page_header.php';
     
 ?>
@@ -82,58 +84,95 @@ require 'page_header.php';
 	{
 		var dayDate = new Date();
 		var annee = dayDate.getFullYear();
+
+		document.getElementById("fields_required_error").style.display = "none";
+		document.getElementById("login_format_error").style.display = "none";
+		document.getElementById("password_format_error").style.display = "none";
+		document.getElementById("email_format_error").style.display = "none";
+		document.getElementById("year_format_error").style.display = "none";
+		document.getElementById("confirm_password_error").style.display = "none";
 		
 		if (isEmpty(document.userdata.txtFirstName.value)
 			|| isEmpty(document.userdata.txtLastName.value)
 			|| isEmpty(document.userdata.txtNick.value)
 			|| isEmpty(document.userdata.pwdPassword.value)
 			|| isEmpty(document.userdata.txtEmail.value)
-			|| isEmpty(document.userdata.txtProfil.value)
 			|| isEmpty(document.userdata.txtSituationGeo.value)
 			|| isEmpty(document.userdata.txtAnneeNaissance.value))
 		{
-			alert("Toutes les informations personnelles sont obligatoires.");
+			document.getElementById("fields_required_error").style.display = "block";
 			return;
 		}
 		
 		if (!isAlphaNumeric(document.userdata.txtNick.value))
 		{
-			alert("Le surnom doit être alphanumérique.");
+			document.getElementById("login_format_error").style.display = "block";
 			return;
 		}
 		
 		if (!isAlphaNumeric(document.userdata.pwdPassword.value))
 		{
-			alert("Le mot de passe doit être alphanumérique.");
+			document.getElementById("password_format_error").style.display = "block";
 			return;
 		}
 		
 		if (!isEmailAddress(document.userdata.txtEmail.value))
 		{
-			alert("L'adresse de messagerie n'est pas au bon format.");
+			document.getElementById("email_format_error").style.display = "block";
 			return;
 		}
 		
 		if (!isNumber(document.userdata.txtAnneeNaissance.value) || !isWithinRange(document.userdata.txtAnneeNaissance.value, 1900, annee))
 		{
-			alert("L'année de naissance est un nombre à 4 chiffres compris entre 1900 et l'année courante.");
+			document.getElementById("year_format_error").style.display = "block";
 			return;
 		}
 		
 		if (document.userdata.pwdPassword.value == document.userdata.pwdPassword2.value)
 			document.userdata.submit();
 		else
-			alert("Vous avez fait une erreur de saisie de mot de passe.");
+			document.getElementById("confirm_password_error").style.display = "block";
 		
 	}
 </script>
 <?
-    $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Inscription";
-    require 'page_body.php';
+require 'page_body.php';
 ?>
 	<div id="contentlarge">
     <div class="blogbody">
+    	
+	<?if ($ToDo == 'activer' && !$err) {?>
+	<b>Votre compte vient d'être activé.</b>
+	<p>
+	Vous pouvez maintenant vous connecter à la zone de jeu en différé.
+	</p>
+	<?} else if ($ToDo == 'activer' && $err == 'db') {?>
+	Une erreur s'est produite lors de l'activation !!!
+	<?} else if (!$err && $ToDo == 'NewUser') {?>
+	<b>Un message de confirmation d'inscription a été envoyé à l'adresse de messagerie que vous avez choisi : <? echo($_POST['txtEmail']); ?> .</b>
+	<p>En attendant, vous pouvez consulter le <a href="../manuel-utilisateur-jouer-echecs-capakaspa.pdf" target="_blank">manuel utilisateur</a> de la zone de jeu en différé.</p>
+	<p>Si vous souhaitez discuter au sujet des échecs ou faire des remarques et suggestions concernant le site CapaKaspa, vous pouvez aussi vous <a href="http://forum.capakaspa.info/profile.php?mode=register">inscrire sur le forum</a> de CapaKaspa.</p><br/>
+	<hr/>
+
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<?} else  {?>
+	
+	<p>
+	<h1><?php echo _("Play Chess and share your Games !");?></h1>
+	Play chess and share your games
+	</p>
+	<p><img src="images/icone_video.png"/> <a href="http://youtu.be/J6pMC2Ceaxw" target="_blank"><?php echo _("Demo video");?></a>
+	</p>
+	<p><img src="images/icone_pdf.gif"/> <a href="../manuel-utilisateur-jouer-echecs-capakaspa.pdf" target="_blank"><?php echo _("User manual");?></a>
+	</p>
+	<form name="userdata" method="post" action="jouer-echecs-differe-inscription.php?ToDo=NewUser">
+	<h3><?php echo _("New on CapaKaspa ? Sign up");?></h3>
+	<div class="error" id="fields_required_error" style="display: none"><?echo _("All fields are required")?></div>
+	<div class="error" id="login_format_error" style="display: none"><?echo _("Bad format for login")?></div>
+	<div class="error" id="password_format_error" style="display: none"><?echo _("Bad format for password")?></div>
+	<div class="error" id="email_format_error" style="display: none"><?echo _("Bad format for email")?></div>
+	<div class="error" id="year_format_error" style="display: none"><?echo _("Bad format for year")?></div>
+	<div class="error" id="confirm_password_error" style="display: none"><?echo _("Password confirmation error")?></div>
 	<?
 		/* Traiter les erreurs */
 		if ($err == 'existNick')
@@ -148,35 +187,11 @@ require 'page_header.php';
 			echo("<div class='error'>Le code de vérification est érroné. Essayez de nouveau.</div>");
 			
 	?>
-	<?if ($ToDo == 'activer' && !$err) {?>
-	<b>Votre compte vient d'être activé.</b>
-	<p>
-	Vous pouvez maintenant vous connecter à la zone de jeu en différé.
-	</p>
-	<?} else if ($ToDo == 'activer' && $err == 'db') {?>
-	Une erreur s'est produite lors de l'activation !!!
-	<?} else if (!$err && $ToDo == 'NewUser') {?>
-	<b>Un message de confirmation d'inscription a été envoyé à l'adresse de messagerie que vous avez choisi : <? echo($_POST['txtEmail']); ?> .</b>
-	<p>En attendant, vous pouvez consulter le <a href="../manuel-utilisateur-jouer-echecs-capakaspa.pdf" target="_blank">manuel utilisateur</a> de la zone de jeu en différé.</p>
-	<p>Si vous souhaitez discuter au sujet des échecs ou faire des remarques et suggestions concernant le site CapaKaspa, vous pouvez aussi vous <a href="http://forum.capakaspa.info/profile.php?mode=register">inscrire sur le forum</a> de CapaKaspa.</p><br/>
-	<hr/>
-	
-	
-
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-	<?} else  {?>
-	
-	<b>L'accès à la zone de jeu en différé nécessite une inscription.</b>
-	<p><ul><li>Cette inscription est complètement gratuite</li></ul>La seule contrainte est de nous fournir toutes les informations ci-dessous. <i>Cependant votre nom, prénom et adresse de messagerie ne seront pas connus des autres joueurs</i>. Les informations restantes sont publiées dans la liste des joueurs du site.</p>
-	<p><ul><li>Cette inscription nécessite une validation par messagerie électronique</li></ul>L'adresse de messagerie associée à votre compte doit donc être valide.</p>
-	
-	<form name="userdata" method="post" action="jouer-echecs-differe-inscription.php?ToDo=NewUser">
-	<h3>Vos informations personnelles</h3>
 	<table>
 		
 		<tr>
 			<td width="250">
-				Surnom :
+				<?php echo _("Login");?> :
 			</td>
 
 			<td width="450">
@@ -186,7 +201,7 @@ require 'page_header.php';
 
 		<tr>
 			<td>
-				Mot de passe :
+				<?php echo _("Password");?> :
 			</td>
 
 			<td>
@@ -196,7 +211,7 @@ require 'page_header.php';
 
 		<tr>
 			<td>
-				Mot de passe confirmation:
+				<?php echo _("Confirm password");?> :
 			</td>
 
 			<td>
@@ -205,7 +220,7 @@ require 'page_header.php';
 		</tr>
 		<tr>
 			<td >
-				Prénom :
+				<?php echo _("First name");?> :
 			</td>
 			
 			<td>
@@ -215,7 +230,7 @@ require 'page_header.php';
 
 		<tr>
 			<td>
-				Nom :
+				<?php echo _("Last name");?> :
 			</td>
 
 			<td>
@@ -223,31 +238,31 @@ require 'page_header.php';
 			</td>
 		</tr>
 		<tr>
-            <td> Email : </td>
+            <td> <?php echo _("Email");?> : </td>
             <td><input name="txtEmail" type="text" size="50" maxlength="50" value="<? echo(isset($_POST['txtEmail'])?$_POST['txtEmail']:""); ?>">
             </td>
           </tr>
 		  <tr>
-            <td> Situation géographique : </td>
+            <td> <?php echo _("Country");?> : </td>
             <td><input name="txtSituationGeo" type="text" size="50" maxlength="50" value="<? echo(isset($_POST['txtSituationGeo'])?$_POST['txtSituationGeo']:""); ?>">
             </td>
           </tr>
 		  <tr>
-            <td> Année de naissance : </td>
+            <td> <?php echo _("Year of birth");?> : </td>
             <td><input name="txtAnneeNaissance" type="text" size="4" maxlength="4" value="<? echo(isset($_POST['txtAnneeNaissance'])?$_POST['txtAnneeNaissance']:""); ?>">
             </td>
           </tr>
-		  <tr valign="top">
+		  <!-- <tr valign="top">
             <td> A propos de vous : </td>
             <td><TEXTAREA NAME="txtProfil" COLS="50" ROWS="5" ><? echo(isset($_POST['txtProfil'])?$_POST['txtProfil']:""); ?></TEXTAREA>
             </td>
-          </tr>
+          </tr> -->
 		
 		<tr>
 			<td colspan="2">&nbsp</td>
 		</tr>
 		</table>
-		<h3>Vos préférences</h3>
+		<!-- <h3>Vos préférences</h3>
 		<table>
 		<tr valign="top">
 			<td width="250">
@@ -285,22 +300,22 @@ require 'page_header.php';
 				
 			</td>
 		</tr>
-		</table>
-		<h3>Code de vérification</h3>
+		</table> -->
+		
 		<table>
 		<tr>
 			<td width="250">
-				<img id="captcha" src="securimage/securimage_show.php" alt="CAPTCHA Image" />
+				<img id="captcha" src="securimage/securimage_show.php" alt="<?php echo _("Captcha Image");?>" title="<?php echo _("Captcha Image");?>"/>
 			</td>
 			<td>
 				<input type="text" name="captcha_code" size="10" maxlength="6" />
-				<a href="#" onclick="document.getElementById('captcha').src = 'securimage/securimage_show.php?' + Math.random(); return false">Autre image</a>
+				<a href="#" onclick="document.getElementById('captcha').src = 'securimage/securimage_show.php?' + Math.random(); return false"><img src="images/icone_rafraichir.png" border="0" alt="<?php echo _("Other image");?>" title="<?php echo _("Other image");?>"/></a>
 			</td>
 		</tr>
 		
 		<tr>
-			<td align="center" colspan="2">
-				<input name="btnCreate" type="button" value="Valider" onClick="validateForm()">
+			<td align="left" colspan="2">
+				<input name="btnCreate" type="button" value="<?php echo _("Sign up for CapaKaspa");?>" onClick="validateForm()" class="button">
 			</td>
 		</tr>
 		</table>

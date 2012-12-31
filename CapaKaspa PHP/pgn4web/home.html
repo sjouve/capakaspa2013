@@ -1,0 +1,166 @@
+<html>
+
+<!--
+  pgn4web javascript chessboard
+  copyright (C) 2009-2012 Paolo Casaschi
+  see README file and http://pgn4web.casaschi.net
+  for credits, license and more details
+-->
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+<title>pgn4web</title>
+
+<script src="pgn4web-server-config.js" type="text/javascript"></script>
+
+<style type="text/css">
+
+body {
+  color: black;
+  background: white;
+  font-family: sans-serif;
+  padding: 1em;
+}
+
+a:link, a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  color: red;
+  text-decoration: none;
+}
+
+.menu_heading {
+  font-weight: normal;
+  margin-left: 0;
+  margin-right: 2.5em;
+  margin-top: 1.5em;
+  margin-bottom: 0;
+}
+
+.menu_item {
+  font-weight: bold;
+  margin-left: 1.25em;
+  margin-right: 2.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+
+.menu_subitem {
+  display: inline-block;
+  font-size: 0.8em;
+  margin-left: 1em;
+  margin-top: 0.4em;
+}
+
+.banner {
+  font-size: 1.25em;
+  font-weight: bold;
+  margin-top: 1.75em;
+  margin-bottom: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.iframe_area {
+  background-color: #EDE8D5;
+  margin-top: 6em;
+  margin-bottom: 2em;
+  margin-right: 1em;
+  box-shadow: 0px 0px 20px #663300;
+  border-style: solid;
+  border-color: #EDE8D5;
+  border-width: 13px;
+  border-radius: 10px;
+}
+
+</style>
+
+<link rel="shortcut icon" href="pawn.ico" />
+
+
+<!-- start of google analytics code -->
+
+<!-- end of google analytics code -->
+
+
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="99.9%"><tbody><tr>
+<td align="left" valign="top" rowspan="2">
+
+<div class="menu_heading" style="margin-top: 0;"><a title="read how to add the chess puzzler to your website or your blog" href="http://code.google.com/p/pgn4web/wiki/Example_Puzzler">chess&nbsp;puzzler</a></div>
+<div class="menu_item" style="margin-left: 0;">
+<iframe height='218' width='194' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='puzzler.php?pgnData=tactics.pgn&gameNum=&pieceFont=hash&squareSize=24&lightColorHex=FFFFFF&darkColorHex=EEEEEE&controlBackgroundColorHex=FFFFFF&controlTextColorHex=888888&frameBorderColorHex=none'>
+iframe support required to display the chess puzzler
+</iframe>
+</div>
+<div class="menu_heading"><a href="http://code.google.com/p/pgn4web/wiki/ServiceAvailability">online&nbsp;services</a></div>
+<div class="menu_item"><a title="online service adding an interactive chessboard to your website or your blog" href="board-generator.html">board&nbsp;generator</a></div>
+<div class="menu_item"><a id="viewer_link" title="online service for viewing chess games from *.PGN files, from links to *.PGN URLs and from PGN text" href=.>games&nbsp;viewer</a></div>
+<div class="menu_item"><a title="online service broadcasting live games from current chess events" href="live/live.html">live&nbsp;broadcast</a><br/><a class="menu_subitem" title="live broadcast analysis view" href="live/live.html?m=a">analysis&nbsp;view</a><br/><a class="menu_subitem" title="live broadcast fullscreen view" href="live/live-fullscreen.html?scf=t">fullscreen&nbsp;view</a><br/><a class="menu_subitem" title="live broadcast mosaic view with multiple chessboards" href="live/live-mosaic.html">mosaic&nbsp;view</a><br/><a class="menu_subitem" title="live broadcast results view" href="live/live-results.html">results&nbsp;view</a></div>
+<div class="menu_heading"><a href="http://code.google.com/p/pgn4web/">software</a></div>
+<div class="menu_item"><a href="demo.html">demo</a></div>
+<div class="menu_item"><a href="http://code.google.com/p/pgn4web/downloads/list">downloads</a></div>
+<div class="menu_item"><a href="http://code.google.com/p/pgn4web/wiki/Index">wiki</a></div>
+<div class="menu_heading"><a href="http://code.google.com/p/pgn4web/wiki/Credits_and_License">contacts</a></div>
+<div class="menu_item"><a id="blog_link" href=.>blog</a></div>
+
+
+<!-- start of donations code -->
+
+<!-- end of donations code -->
+
+
+<div class="menu_item"><a id="email_link" href=.>email</a></div>
+
+</td><td align="center" valign="top">
+
+<h1 style="font-family: sans-serif; color: red;"><a style="color: red;" href=.>pgn4web</a></h1>
+
+</td><td align="right" valign="top">
+
+<a href=.><img src="pawns.png" width="143" border="0"></a>
+
+</td><tr><td align="center" valign="top" width="100%" colspan="2">
+
+<div class="banner">javascript chess games viewer<br/>for websites, blogs and live broadcasts</div>
+
+<iframe
+  class='iframe_area' height='354' width='708' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'
+  src='board.html?am=l&d=3000&ih=1&ss=41&ps=34&pf=r&lcs=Wtyk&dcs=OXJO&bbcs=OXJO&hm=n&hcs=ZbNv&bd=h&hd=c&md=f&tm=17&fhcs=nkYj&fhs=14&fmcs=nkYj&fccs=nkYj&hmcs=ZbNv&fms=14&fcs=m&cd=h&bcs=Wtyk&fp=10&hl=t&fh=b&fw=p&pd=gotd.php'
+>
+  your web browser and/or your host do not support iframes as required to display the chessboard
+</iframe>
+
+</td>
+</tr></tbody></table>
+
+
+<!-- start of news feed code -->
+
+<!-- end of news feed code -->
+
+
+<!-- start of hostedBy code -->
+
+<!-- end of hostedBy code -->
+
+
+<script type="text/javascript">
+
+if (theObj = document.getElementById("viewer_link")) { theObj.href = pgn4web_viewer_url; }
+if (theObj = document.getElementById("blog_link")) { theObj.href = pgn4web_project_blog; }
+if (theObj = document.getElementById("email_link")) { theObj.href = "mailto:" + pgn4web_project_email; }
+
+</script>
+
+</body>
+
+</html>

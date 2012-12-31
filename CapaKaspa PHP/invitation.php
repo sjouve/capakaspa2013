@@ -36,7 +36,7 @@
 		<div class="blogbody">
   
 		
-		<form action="tableaubord.php" method="post">
+		<form action="index.php" method="post">
 		<h3>Proposez une nouvelle partie au joueur de votre choix <a href="manuel-utilisateur-jouer-echecs-capakaspa.pdf#page=10" target="_blank"><img src="images/point-interrogation.gif" border="0"/></a></h3>
 		<input type="hidden" name="ToDo" value="InvitePlayerByNick">
 	
@@ -172,7 +172,7 @@
 					while($tmpPlayer = mysql_fetch_array($resultats, MYSQL_ASSOC))
 					{
 						echo ("<tr valign='top'>");
-						echo ("<form action='tableaubord.php' method='post'>");
+						echo ("<form action='index.php' method='post'>");
 						echo ("<input type='hidden' name='ToDo' value='InvitePlayer'>");
 						echo ("<td>");
 						echo ("<input type='hidden' name='opponent' value='".$tmpPlayer['playerID']."'><a href='profil_consultation.php?playerID=".$tmpPlayer['playerID']."'>".$tmpPlayer['nick']."</a><br/>");

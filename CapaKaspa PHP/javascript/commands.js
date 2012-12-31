@@ -12,7 +12,7 @@
 	function undo()
 	{
 		var vok=false;
-		vok = confirm("Confirmez-vous votre demande d'annulation de votre dernier coup ?");
+		vok = confirm(document.getElementById('#confirm_cancel_move_id').innerHTML);
 		if (vok)
 		{
 			document.gamedata.requestUndo.value = "yes";
@@ -26,7 +26,7 @@
 	function draw()
 	{
 		var vok=false;
-		vok = confirm("Confirmez-vous votre proposition de partie nulle ?");
+		vok = confirm(document.getElementById('#confirm_draw_proposal_id').innerHTML);
 		if (vok)
 		{
 			document.gamedata.requestDraw.value = "yes";
@@ -40,7 +40,7 @@
 	function resigngame()
 	{
 		var vok=false;
-		vok = confirm("Confirmez-vous votre abandon ?");
+		vok = confirm(document.getElementById('#confirm_resign_game_id').innerHTML);
 		if (vok)
 		{
 			document.gamedata.resign.value = "yes";

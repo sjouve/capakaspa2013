@@ -168,7 +168,7 @@
 			$colStep = -1;
 		}
 		
-		echo ("<table border='0'>\n");
+		echo ("<table class='boardTable' border='0' cellspacing='0'>\n");
 		
 		if ($withCoord)
 		{
@@ -374,13 +374,7 @@
 	{
 		global $history, $numMoves;
 
-		/* Entête */
-		echo ("<table border='0'>\n");
-		//echo ("<tr>");
-		//echo ("<th bgcolor='white' width='80'><font color='black'>$whiteNick</font></th>");
-		//echo ("<th bgcolor='black' width='80'><font color='white'>$blackNick</font></th></tr>\n");
-
-		echo("<tr><td colspan='2'>");
+		
 		$listeCoups = "";
 
 		for ($i = 0; $i <= $numMoves; $i+=2)
@@ -420,9 +414,6 @@
 
 		}
    		
-		echo("<TEXTAREA NAME='coups' COLS='25' ROWS='14' readonly>$listeCoups</TEXTAREA>");
-		echo("</td></tr>\n");
-		echo ("</table>\n");
 		
 		return $listeCoups;
 	}
@@ -507,8 +498,8 @@
 		<tr bgcolor="beige">
 			<th colspan="4">
 				<div class="econame"><?echo("[".$ecoCode."] ".$ecoName);?></div>
-				<div class="econame"><a href="javascript:document.gamedata.submit();"><img src="images/icone_rafraichir.png" border="0" alt="Rafraîchir"/></a>
-               Partie débutée le : <?echo($dateCreated);?></div>
+				<div class="econame"><a href="manuel-utilisateur-jouer-echecs-capakaspa.pdf#page=6" target="_blank" title="<?php echo _("Open help")?>"><img src="images/point-interrogation.gif" border="0"/></a> <a href="javascript:document.gamedata.submit();"><img src="images/icone_rafraichir.png" border="0" title="<?echo _("Refresh game")?>" alt="<?echo _("Refresh game")?>"/></a>
+               <?echo _("Game started at")?> : <? echo($dateCreated);?></div>
 			</th>
 			
 		</tr>
@@ -516,12 +507,12 @@
 		<tr>
 		<?
 		if (($numMoves == -1) || ($numMoves % 2 == 1))
-			$curColor = "Les Blancs";
+			$curColor = _("Whites");
 		else
-			$curColor = "Les Noirs";
+			$curColor = _("Blacks");
 
 		if (!$isCheckMate && ($history[$numMoves]['isInCheck'] == 1))
-			echo("<td align='center' bgcolor='red' colspan='4'>\n<b>".$curColor." sont en échecs !</b><br/>\n".$statusMessage."</td>\n");
+			echo("<td align='center' bgcolor='red' colspan='4'>\n<b>".$curColor." "._("are in check")." !</b><br/>\n".$statusMessage."</td>\n");
 		else
 			echo("<td align='center' colspan='4'><b>".$statusMessage."&nbsp;</b></td>\n");
 			
@@ -535,15 +526,15 @@
 	{
 	?>
 		
-		<table <?if (!isMobile) {?>width="350"<?};?> border="0">
+		<table <?if (!$isMobile) {?>width="350"<?};?> border="0">
 		<tr><td>
-			Promouvoir le pion en :
+			<?echo _("Promote the pawn in")?> :
 			<br>
-			<input type="radio" name="promotion" value="<? echo (QUEEN); ?>" checked="checked"> Dame
-			<input type="radio" name="promotion" value="<? echo (ROOK); ?>"> Tour
-			<input type="radio" name="promotion" value="<? echo (KNIGHT); ?>"> Cavalier
-			<input type="radio" name="promotion" value="<? echo (BISHOP); ?>"> Fou
-			<input type="button" name="btnPromote" value="Valider" onClick="promotepawn()" />
+			<input type="radio" name="promotion" value="<? echo (QUEEN); ?>" checked="checked"> <?echo _("Queen")?>
+			<input type="radio" name="promotion" value="<? echo (ROOK); ?>"> <?echo _("Rook")?>
+			<input type="radio" name="promotion" value="<? echo (KNIGHT); ?>"> <?echo _("Knight")?>
+			<input type="radio" name="promotion" value="<? echo (BISHOP); ?>"> <?echo _("Bishop")?>
+			<input type="button" name="btnPromote" value="<? echo _("OK")?>" class="button" onClick="promotepawn()" />
 		</td></tr>
 		</table>
 		
@@ -554,14 +545,14 @@
 	{
 	?>
 		
-		<table <?if (!isMobile) {?>width="350"<?};?> border="0">
+		<table <?if (!$isMobile) {?>width="350"<?};?> border="0">
 		<tr><td>
-			Votre adversaire voudrait annuler son dernier coup.  Vous l'autorisez ?
+			<?echo _("Your opponent wants to cancel last move. Are you agree ?")?>
 			<br>
-			<input type="radio" name="undoResponse" value="yes"> Oui
-			<input type="radio" name="undoResponse" value="no" checked="checked"> Non
+			<input type="radio" name="undoResponse" value="yes"> <?echo _("Yes")?>
+			<input type="radio" name="undoResponse" value="no" checked="checked"> <?echo _("No")?>
 			<input type="hidden" name="isUndoResponseDone" value="no">
-			<input type="button" value="Valider" onClick="this.form.isUndoResponseDone.value = 'yes'; this.form.submit()">
+			<input type="button" value="<? echo _("OK")?>" class="button" onClick="this.form.isUndoResponseDone.value = 'yes'; this.form.submit()">
 		</td></tr>
 		</table>
 		
@@ -572,14 +563,14 @@
 	{
 	?>
 		
-		<table <?if (!isMobile) {?>width="350"<?};?> border="0">
+		<table <?if (!$isMobile) {?>width="350"<?};?> border="0">
 		<tr><td>
-			Votre adversaire vous propose une nulle.  Etes vous d'accord ?
+			<?echo _("Your opponent do a draw proposal. Are you agree ?")?>
 			<br>
-			<input type="radio" name="drawResponse" value="yes"> Oui
-			<input type="radio" name="drawResponse" value="no" checked="checked"> Non
+			<input type="radio" name="drawResponse" value="yes"> <?echo _("Yes")?>
+			<input type="radio" name="drawResponse" value="no" checked="checked"> <?echo _("No")?>
 			<input type="hidden" name="isDrawResponseDone" value="no">
-			<input type="button" value="Valider" onClick="this.form.isDrawResponseDone.value = 'yes'; this.form.submit()">
+			<input type="button" value="<? echo _("OK")?>" class="button" onClick="this.form.isDrawResponseDone.value = 'yes'; this.form.submit()">
 		</td></tr>
 		</table>
 		

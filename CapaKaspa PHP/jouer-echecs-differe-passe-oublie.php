@@ -7,51 +7,47 @@ if (!isset($_CONFIG))
 require 'connectdb.php';
 require 'bwc_players.php';
 require 'bwc_games.php';
-require 'gui_rss.php';
 	
 /* Traitement des actions */
 $err=1;
-$ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:$_GET['ToDo'];
+$ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:"";
 
 switch($ToDo)
 {
-	case 'Valider':
+	case 'Send':
 		$err = sendPassword($_POST['txtEmail']);
 		break;
 }	
 
-$titre_page = "Echecs en différé - Mot de passe oublié";
-$desc_page = "Jouer aux échecs en différé. Retrouvez votre mot de passe afin d'accder à la zone de jeu en différé et jouer des parties d'échecs à votre rythme.";
+$titre_page = _("Forgotten password - CapaKaspa");
+$desc_page = _("Play chess and share your games. Retrieve your password");
 require 'page_header.php';
-$image_bandeau = 'bandeau_capakaspa_global.jpg';
-$barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Mot de passe oublié";
 require 'page_body.php';
 ?>
-  <div id="content">
+  <div id="contentlarge">
     <div class="blogbody">
     <?/* Traiter les erreurs */
 		if ($err == 0)
-			echo("<div class='error'>Il n'y a aucun compte associé à cette adresse de messagerie</div>");
+			echo("<div class='error'>"._("No account available with this email")."</div>");
 		if ($err == -1)
-			echo("<div class='error'>Un problème technique a empêché l'envoi du message</div>");
-			
+			echo("<div class='error'>"._("A technical problem prevented the sending of the message")."</div>");	
 	?>
 	<? if ($err == 1 && $ToDo == 'Valider') {?>
-		<div class='success'>Un message a été envoyé à l'adresse de messagerie indiquée.</div>
+		<div class='success'><?php echo _("A message has been sent to the specified email address.");?></div>
 	<? } else {?>
-	<h3>Mot de passe oublié</h3>
-    	Vous disposez déjà d'un compte pour accéder à la zone de jeu en différé mais <b>vous avez oublié votre mot de passe</b>.<br/>
-    	<p>Saisissez l'adresse de messagerie que vous avez associé à ce compte. Un message sera envoyé à cette adresse. Il contiendra les informations nécessaires à la connexion.</p>
+	<h3><?php echo _("Forgotten password");?></h3>
+    	<p><?php echo _("Already have an account to access the play area but <b>you forgot your password</b>.");?></p>
+    	<p><?php echo _("Enter the email address that you assigned to this account. A message will be sent to this address. It will contain the information for sign in.");?></p>
 		<form name="userdata" method="post" action="jouer-echecs-differe-passe-oublie.php">
 			<table align="center">
 				<tr>
 		            <td> Email : </td>
-		            <td><input name="txtEmail" type="text" size="50" maxlength="50" value="<?echo($_POST['txtEmail']);?>">
+		            <td><input name="txtEmail" type="text" size="50" maxlength="50" value="<?echo(isset($_POST['txtEmail'])?$_POST['txtEmail']:"");?>">
 		            </td>
 		        </tr>
 			</table>
-	
-			<center><input name="ToDo" value="Valider" type="submit"></center>
+			<input type="hidden" name="ToDo" value="Send">
+			<center><input name="Send" value="<?php echo _("Send");?>" type="submit" class="button"></center>
 		</form>
       <?}?>
       <br/><br/><br/><br/>
@@ -59,23 +55,7 @@ require 'page_body.php';
       
     </div>
   </div>
-  <div id="rightbar">
-    <div class="navlinks">
-    	
-      
-      	<div class="title">Statistiques</div>
-		  <ul>
-			<li><img src="images/hand.gif" /> Parties en cours : <? echo(getNbActiveGameForAll())?></li>
-			<li><img src="images/joueur_actif.gif" /> Joueurs actifs : <? echo(getNbActivePlayers())?></li>
-			<li><img src="images/joueur_passif.gif" /> Joueurs passifs : <? echo(getNbPassivePlayers())?></li>
-		  </ul>
-		
-		<br/><br/>
-	
-
- 	</div>
- 	</div>
 <?
-    require 'page_footer.php';
-    mysql_close();
+require 'page_footer.php';
+mysql_close();
 ?>

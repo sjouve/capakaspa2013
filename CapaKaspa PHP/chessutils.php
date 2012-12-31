@@ -209,19 +209,19 @@
 				$pgnCode = "";
 				break;
 			case 'knight':
-				$pgnCode = "C";
+				$pgnCode = "N";
 				break;
 			case 'bishop':
-				$pgnCode = "F";
+				$pgnCode = "B";
 				break;
 			case 'rook':
-				$pgnCode = "T";
+				$pgnCode = "R";
 				break;
 			case 'queen':
-				$pgnCode = "D";
+				$pgnCode = "Q";
 				break;
 			case 'king':
-				$pgnCode = "R";
+				$pgnCode = "K";
 				break;
 		}
 

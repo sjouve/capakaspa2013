@@ -1,90 +1,32 @@
-﻿</head>
-<body <?echo($attribut_body)?>>
-<?
-$jour["Monday"] = "Lundi";
-$jour["Tuesday"] = "Mardi";
-$jour["Wednesday"] = "Mercredi";
-$jour["Thursday"] = "Jeudi";
-$jour["Friday"] = "Vendredi";
-$jour["Saturday"] = "Samedi";
-$jour["Sunday"] = "Dimanche";
+</head>
+<body <?echo(isset($attribut_body) ? $attribut_body:"")?>>
 
-function getJour($day) 
-{
-	return $jour[$day];
-}
-
-$mois["January"] = "Janvier";
-$mois["February"] = "Février";
-$mois["March"] = "Mars";
-$mois["April"] = "Avril";
-$mois["May"] = "Mai";
-$mois["June"] = "Juin";
-$mois["July"] = "Juillet";
-$mois["August"] = "Août";
-$mois["September"] = "Septembre";
-$mois["October"] = "Octobre";
-$mois["November"] = "Novembre";
-$mois["December"] = "Décembre";
-
-function getMois($month)
-{
-	return $mois[$month];
-}
-
-$month = Date(F);
-$day = Date(l);
-
-getJour($day);
-getMois($month);
-
-?>
-
+<div id="topbar">
+<div id="container">
+	<span class="title">CapaKaspa</span>
+	<span class="social"><a href="http://www.facebook.com/capakaspa"><img src="images/icone_facebook.png" alt="Suivre CapaKaspa sur Facebook" width="32" height="32" style="border: 0;"/></a>
+	<a href="http://www.twitter.com/CapaKaspa"><img src="http://twitter-badges.s3.amazonaws.com/t_logo-a.png" alt="Suivre CapaKaspa sur Twitter" width="32" height="32" style="border: 0;"/></a>
+	<a href="https://plus.google.com/114694270583726807082/?prsrc=3" style="text-decoration: none;"><img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt="Suivre CapaKaspa sur Google+" width="32" height="32" style="border: 0;"/></a>
+	<a href="http://www.youtube.com/user/CapaKaspaEchecs?feature=creators_cornier-http%253A%2F%2Fs.ytimg.com%2Fyt%2Fimg%2Fcreators_corner%2FYouTube%2Fyoutube_32x32.png"><img src="http://s.ytimg.com/yt/img/creators_corner/YouTube/youtube_32x32.png" alt="Abonnez-vous aux vid�os sur YouTube"/></a><img src="http://www.youtube-nocookie.com/gen_204?feature=creators_cornier-http%3A//s.ytimg.com/yt/img/creators_corner/YouTube/youtube_32x32.png" style="display: none"/>
+	</span>
+	<!--  <div class="blocktop"></div>
+	<div class="blocktop">
+		<table width="100%">
+				<tr>
+				<td width="25%" height="50px"><a href="http://www.facebook.com/capakaspa"><img src="images/icone_facebook.png" alt="Suivre CapaKaspa sur Facebook" width="32" height="32" style="border: 0;"/></a>
+				</td>
+				<td width="25%"><a href="http://www.twitter.com/CapaKaspa"><img src="http://twitter-badges.s3.amazonaws.com/t_logo-a.png" alt="Suivre CapaKaspa sur Twitter" width="32" height="32" style="border: 0;"/></a></td>
+				<td width="25%"><a href="https://plus.google.com/114694270583726807082/?prsrc=3" style="text-decoration: none;"><img src="https://ssl.gstatic.com/images/icons/gplus-32.png" alt="Suivre CapaKaspa sur Google+" width="32" height="32" style="border: 0;"/></a></td>
+				<td width="25%"><a href="http://www.youtube.com/user/CapaKaspaEchecs?feature=creators_cornier-http%253A%2F%2Fs.ytimg.com%2Fyt%2Fimg%2Fcreators_corner%2FYouTube%2Fyoutube_32x32.png"><img src="http://s.ytimg.com/yt/img/creators_corner/YouTube/youtube_32x32.png" alt="Abonnez-vous aux vid�os sur YouTube"/></a><img src="http://www.youtube-nocookie.com/gen_204?feature=creators_cornier-http%3A//s.ytimg.com/yt/img/creators_corner/YouTube/youtube_32x32.png" style="display: none"/>
+				</td>
+				</tr>
+		</table>
+	</div>-->
+	</div>
+</div>
+	
 <div id="container">
 	
-  <div id="topbar">
-  	<table cellpadding="0" cellspacing="0" width="900" style="background-image: url(./images/<?echo($image_bandeau)?>) ">
-  		<tr height="60">
-			<td width="430" height="60"><a href="http://www.capakaspa.info" style="display: block; height: 100%; width: 100%;">&nbsp;</a></td>
-			<td width="470" colspan="4">
-        		<h3>Rechercher dans tout CapaKaspa (dont Forum et Blog)</h3>
-	          	<form action="http://www.capakaspa.info/recherche.php" id="cse-search-box">
-				  <div>
-				  	
-				    <input type="hidden" name="cx" value="partner-pub-8069368543432674:7445098107" />
-				    <input type="hidden" name="cof" value="FORID:10" />
-				    <input type="hidden" name="ie" value="ISO-8859-1" />
-				    <input type="text" name="q" size="31" />
-				    <input type="submit" name="sa" value="Rechercher" />
-				  </div>
-				</form>
-				
-				<script type="text/javascript" src="http://www.google.fr/coop/cse/brand?form=cse-search-box&amp;lang=fr"></script>
-
-        	</td>
-		</tr>
-    	<tr height="20">
-			<td width="400">
-				<h1><?
-				print "$jour[$day] ";
-				print Date(d)." ";
-				print "$mois[$month] ";
-				print Date(Y);?>
-				</h1>
-			</td>
-			<td width="170"><h2><img src="images/point.png"/>&nbsp;<a href="tableaubord.php">Jouer aux Echecs</a></h2></td>
-			<td width="130"><h2><img src="images/point.png"/>&nbsp;<a href="echecs-boutique.php">La boutique</a></h2></td>
-			<td width="100"><h2><img src="images/point.png"/>&nbsp;<a href="http://forum.capakaspa.info">Le Forum</a></h2></td>
-			<td width="100"><h2><img src="images/point.png"/>&nbsp;<a href="http://blog.capakaspa.info">Le Blog</a></h2></td>
-			
-		</tr>
-    </table>
-  </div>
-  
-	<div id="progressbar">
-		<img src="images/puce.gif"/>  <? echo($barre_progression) ?>
-	</div>
-  
   <div id="contentxlarge">
     <center>
       <script type="text/javascript"><!--

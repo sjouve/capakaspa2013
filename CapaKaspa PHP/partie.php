@@ -155,20 +155,42 @@
 	if ($_SESSION['isSharedPC'])
 		$titre_page = '';
 	else if ($isPlayersTurn)
-        $titre_page = "Echecs en différé - Votre coup";
+        $titre_page = _("Play chess - Your move");
 	else
-        $titre_page = "Echecs en différé - Le coup de l'adversaire";
-	$desc_page = "Jouer aux échecs en différé. C'est votre partie, à vous de jouer.";
+        $titre_page = _("Play chess - Opponent move");
+	$desc_page = _("Play chess and share your game. It's your game, it's up to you !");
     require 'page_header.php';
     //echo("<meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>\n");
 ?>
-<script type="text/javascript">
-/* transfer board data to javacripts */
-<? writeJSboard(); ?>
-<? writeJShistory(); ?>
+<link href="styles/pgn4web.css" type="text/css" rel="stylesheet" />
+<link href="pgn4web/fonts/pgn4web-font-ChessSansPiratf.css" type="text/css" rel="stylesheet" />
 
-if (DEBUG)
-	alert("Game initilization complete!");
+<script src="pgn4web/pgn4web.js" type="text/javascript"></script>
+<script type="text/javascript">
+   SetImagePath ("pgn4web/alpha/37");
+   SetImageType("png");
+   SetCommentsOnSeparateLines(true);
+   SetAutoplayDelay(2500); // milliseconds
+   SetAutostartAutoplay(false);
+   SetAutoplayNextGame(true);
+   SetShortcutKeysEnabled(false);
+
+	/* transfer board data to javacripts */
+	<? writeJSboard(); ?>
+	<? writeJShistory(); ?>
+
+	function afficheplayer(){
+	      document.getElementById("player").style.display = "block";
+	      document.getElementById("viewer").style.display = "none";
+	      document.getElementById("cache").style.display = "inline";
+	      document.getElementById("voir").style.display = "none";
+	    }
+	function afficheviewer(){
+		document.getElementById("player").style.display = "none";
+	      document.getElementById("viewer").style.display = "block";
+	      document.getElementById("cache").style.display = "none";
+	      document.getElementById("voir").style.display = "inline";
+	}
 </script>
 <script type="text/javascript" src="javascript/chessutils.js">
  /* these are utility functions used by other functions */
@@ -185,108 +207,88 @@ if (DEBUG)
 <script type="text/javascript" src="javascript/squareclicked.js">
 // this is the main function that interacts with the user everytime they click on a square
 </script>
-<script type="text/javascript" src="iechecs/js/action.js">
- /* Actions échiquier en ligne */
-</script>
 <?
-    $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-
-    if ($_POST['from'] == "encours" )
-        $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > <a href='tableaubord.php'>Mes parties</a> > Une partie";
-    else if ($_POST['from'] == "toutes")
-        $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > <a href='listeparties.php'>Les autres parties en cours</a> > Une partie";
-    else if ($_POST['from'] == "archive")
-        $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > <a href='partiesterminees.php'>Les parties terminées</a> > Une partie";
-
-    require 'page_body.php';
+require 'page_body.php';
 ?>
-  <div id="contentlarge">
-    <div class="blogbody">
-      <table>
-      		<tr>
-	      		<td valign="middle"><img src="images/ampoule.jpg"></td> 
-	      		<td valign="middle">Utilisez l'échiquier en ligne pour manipuler votre partie mais aussi pour revoir les règles du jeu...</td>
-        	</tr>
-        </table>
+<div id="contentlarge">
+	<div class="blogbody">
+      
         <?
         if ($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['whitePlayer'])
 		{
         	if (mysql_num_rows($res_adv_vacation) > 0)
-				echo("<div class='success'>Votre adversaire est absent en ce moment ! La partie est ajournée.</div>");
-
+				echo("<div class='success'>"._("Your opponent is absent at the moment. The game is postponed").".</div>");
 			else
 				echo("<br/>");
 		}
 		?>
-        
-		<form name="gamedata" method="post" action="partie.php">
-	  <table border="0">
-        <tr valign="top" align="center">
-          <td>
-              <?
-		if ($isPromoting)
-			writePromotion(false);
-	?>
-              <?
-		if ($isUndoRequested)
-			writeUndoRequest(false);
-	?>
-              <?
-		if ($isDrawRequested)
-			writeDrawRequest(false);
-	?>
-              <? drawboard(true); ?>
-              <nobr>
-              <input type="button" name="btnUndo" value="Annuler le coup" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='undo()'"); ?>>
-              <!-- <input type="button" name="btnReload" value="Actualiser l'échiquier" onClick="document.gamedata.submit();"> -->
-              <input type="button" name="btnDraw" value="Proposer nulle" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='draw()'"); ?>>
-              <input type="button" name="btnResign" value="Abandonner" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='resigngame()'"); ?>>
-			  <a href="manuel-utilisateur-jouer-echecs-capakaspa.pdf#page=6" target="_blank"><img src="images/point-interrogation.gif" border="0"/></a>
-              
-              </nobr>
-              
-			  
-              
-              <input type="hidden" name="gameID" value="<? echo ($_POST['gameID']); ?>">
-              <input type="hidden" name="requestUndo" value="no">
-              <input type="hidden" name="requestDraw" value="no">
-              <input type="hidden" name="resign" value="no">
-              <input type="hidden" name="fromRow" value="<? if ($isPromoting) echo ($TestFromRow); ?>">
-              <input type="hidden" name="fromCol" value="<? if ($isPromoting) echo ($_POST['fromCol']); ?>">
-              <input type="hidden" name="toRow" value="<? if ($isPromoting) echo ($_POST['toRow']); ?>">
-              <input type="hidden" name="toCol" value="<? if ($isPromoting) echo ($_POST['toCol']); ?>">
-              <input type="hidden" name="isInCheck" value="false">
-              <input type="hidden" name="isCheckMate" value="false">
-            
-            </td>
-          <td width="15">&nbsp;</td>
-          <td><? writeStatus(); ?>
-            
-           
-		   
-		    <? 
+    <span id="#confirm_cancel_move_id" style="display: none"><?echo _("Are you sure you want to cancel your last move ?")?></span>
+    <span id="#confirm_draw_proposal_id" style="display: none"><?echo _("Confirm your draw proposal ?")?></span>
+    <span id="#confirm_resign_game_id" style="display: none"><?echo _("Are you sure you want to resign ?")?></span>    
+	<form name="gamedata" method="post" action="partie.php">
+	<table border="0">
+        <tr valign="top">
+			<td>
+				<div id="player" style="display:block;">
+				
+				<? drawboard(false); ?>
+	              <nobr>
+	              <input type="button" name="btnUndo" class="button" value="<?php echo _("Cancel move")?>" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='undo()'"); ?>>
+	              <input type="button" name="btnDraw" class="button" value="<?php echo _("Draw proposal")?>" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='draw()'"); ?>>
+	              <input type="button" name="btnResign" class="button" value="<?php echo _("Resign")?>" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='resigngame()'"); ?>>
+				  
+	              </nobr>
+	              <input type="hidden" name="gameID" value="<? echo ($_POST['gameID']); ?>">
+	              <input type="hidden" name="requestUndo" value="no">
+	              <input type="hidden" name="requestDraw" value="no">
+	              <input type="hidden" name="resign" value="no">
+	              <input type="hidden" name="fromRow" value="<? if ($isPromoting) echo ($TestFromRow); ?>">
+	              <input type="hidden" name="fromCol" value="<? if ($isPromoting) echo ($_POST['fromCol']); ?>">
+	              <input type="hidden" name="toRow" value="<? if ($isPromoting) echo ($_POST['toRow']); ?>">
+	              <input type="hidden" name="toCol" value="<? if ($isPromoting) echo ($_POST['toCol']); ?>">
+	              <input type="hidden" name="isInCheck" value="false">
+	              <input type="hidden" name="isCheckMate" value="false">
+				</div>
+				<div id="viewer" style="display:none;">
+					<div id="GameBoard"></div>
+					<div id="GameButtons"></div>
+				</div>
+			</td>
+          	
+          	<td width="15">&nbsp;</td>
+          	
+          	<td>
+	          	<?
+	          	writeStatus(); 
 				$listeCoups = writeHistory();
 				$pgnstring = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $listeCoups);
-			?>
-			<img src="images/puce.gif"/> <a href="javascript:void(0)" onclick='window.open("http://www.iechecs.com/iechecs.htm?app,<? if ($playersColor == "black") echo("p=t,"); ?> pgn=<? echo($pgnstring); ?>","iechecs","height=413,width=675,status=no,toolbar=no,menubar=no,location=no,resizable=yes")' >Ouvrir la partie dans l'échiquier en ligne</a>
-			
-			<br />
-			
-			<input type="hidden" name="from" value="<? echo($_POST['from']) ?>" />
-          </td>
+				
+				if ($isPromoting) writePromotion(false);
+				if ($isUndoRequested) writeUndoRequest(false);
+				if ($isDrawRequested) writeDrawRequest(false);
+				?>
+				<a href="javascript:afficheviewer();" id="cache" style="display:inline;">Viewer</a>
+				<a href="javascript:afficheplayer();" id="voir" style="display:none;">Player</a>
+				<form style="display: none;">
+				<textarea style="display: none;" id="pgnText">
+				<? echo($pgnstring); ?>
+				</textarea>
+				</form>
+				<div id="GameText"></div>
+				<input type="hidden" name="from" value="<? echo($_POST['from']) ?>" />
+          	</td>
         </tr>
+        
         <tr>
         <td colspan="3">
-        <?
-					
-					echo "<TABLE widht='100%'>";
-					echo "<TR><TD>";
-					$c=0;
+        	<table widht='100%'>
+        	<tr><td>
+					<?$c=0;
 					$d=0;
 					
 					while($row=mysql_fetch_array($f, MYSQL_ASSOC)){
 					
-						if(ereg("white",$row['curColor'])){
+						if(preg_match("/white/", $row['curColor'])){
 							$color="black_";
 							$c++;
 						}
@@ -295,47 +297,41 @@ if (DEBUG)
 							}
 					
 						if($c==1){
-							//echo"\n</TD></TR><TR><TD>";
 							$d=0;
 						}
-					
 						$d++;
-					
-						echo"\n<img src=\"images/mosaique/".$color.$row['replaced'].".gif\">";
-						/*if(($d%8)==0){
-							echo "<BR>\n";
-						}*/
+						echo "\n<img src=\"images/mosaique/".$color.$row['replaced'].".gif\">";
 					
 					} // End while
-					
-					echo "</TD></TR></TABLE>";
-					
-              
-              ?>
+					?>
+				</tr></td>
+				</table>
             </td>
         </tr>
       </table>
-      
-      <center><script type="text/javascript"><!--
-      google_ad_client = "ca-pub-8069368543432674";
-      /* CapaKaspa Partie Bandeau Discussion */
-      google_ad_slot = "9888264481";
-      google_ad_width = 468;
-      google_ad_height = 60;
-      //-->
-      </script>
-      <script type="text/javascript"
-      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-      </script>
-		</center>
-      <h3>Commentaires</h3>
+	
+      <h3><?php echo _("Comments")?></h3>
  		<p>     
       	<input type="text" name="message" maxlength="255" size="87" />
-		<input type="button" name="btnSend" value="Poster" <? echo ("onClick='send()'"); ?> />
+		<input type="button" name="btnSend" class="button" value="<?php echo _("Post")?>" <? echo ("onClick='send()'"); ?> />
       	<TEXTAREA NAME='dialogue' COLS='74' ROWS='8' readonly><? echo($dialogue); ?></TEXTAREA>
 			</p>	
 		<input type="hidden" name="addMessage" value="no" />
 	  </form>
+	  
+		<center>
+	      <script type="text/javascript"><!--
+	      google_ad_client = "ca-pub-8069368543432674";
+	      /* CapaKaspa Partie Bandeau Discussion */
+	      google_ad_slot = "9888264481";
+	      google_ad_width = 468;
+	      google_ad_height = 60;
+	      //-->
+	      </script>
+	      <script type="text/javascript"
+	      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	      </script>
+      </center>
     </div>
   </div>
 <?

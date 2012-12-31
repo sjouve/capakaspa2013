@@ -40,7 +40,7 @@ function getPGN($whiteNick, $blackNick, $type, $flagBishop, $flagKnight, $flagRo
 	}
 	
 	$pattern = "[\n\r]";
-	$pgnstring = "[FEN %22".$startFEN."%22][White %22".$whiteNick."%22][Black %22".$blackNick."%22]".mb_eregi_replace($pattern," ",$listeCoups);
+	$pgnstring = "[FEN \"".$startFEN."\"][White \"".$whiteNick."\"][Black \"".$blackNick."\"] ".mb_eregi_replace($pattern," ",$listeCoups);
 	
 	return $pgnstring;
 	
@@ -381,6 +381,8 @@ function saveGame()
 		
 	// Contrôle code ECO de la position
 	$fen_eco = getEco($position);
+	$turnColorEco = "";
+	$newEco = "";
 	if ($fen_eco)
 	{
 		$newEco = $fen_eco['eco'];
@@ -579,13 +581,13 @@ function processMessages()
 					case 'approved':
 						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$_POST['gameID']." AND msgType = 'undo' AND msgStatus = 'approved' AND destination = '".$playersColor."'";
 						mysql_query($tmpQuery);
-						$statusMessage .= "Annulation de coup acceptée.<br>\n";
+						$statusMessage .= _("Move cancellation accepted")."<br>\n";
 						break;
 					case 'denied':
 						$isUndoing = false;
 						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$_POST['gameID']." AND msgType = 'undo' AND msgStatus = 'denied' AND destination = '".$playersColor."'";
 						mysql_query($tmpQuery);
-						$statusMessage .= "Annulation de coup refusée.<br>\n";
+						$statusMessage .= _("Move cancellation refused")."<br>\n";
 						break;
 				}
 				break;
@@ -599,12 +601,12 @@ function processMessages()
 					case 'approved':
 						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$_POST['gameID']." AND msgType = 'draw' AND msgStatus = 'approved' AND destination = '".$playersColor."'";
 						mysql_query($tmpQuery);
-						$statusMessage .= "Proposition de nulle acceptée.<br>\n";
+						$statusMessage .= _("Draw proposal accepted")."<br>\n";
 						break;
 					case 'denied':
 						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$_POST['gameID']." AND msgType = 'draw' AND msgStatus = 'denied' AND destination = '".$playersColor."'";
 						mysql_query($tmpQuery);
-						$statusMessage .= "Proposition de nulle refusée.<br>\n";
+						$statusMessage .= _("Draw proposal refused")."<br>\n";
 						break;
 				}
 				break;
@@ -620,10 +622,10 @@ function processMessages()
 		switch($tmpMessage['msgType'])
 		{
 			case 'undo':
-				$statusMessage .= "Annulation de coup en attente.<br>\n";
+				$statusMessage .= _("Move cancellation pending")."<br>\n";
 				break;
 			case 'draw':
-				$statusMessage .= "Proposition de nulle en attente.<br>\n";
+				$statusMessage .= _("Draw proposal pending")."<br>\n";
 				break;
 		}
 	}	
@@ -640,27 +642,27 @@ function processMessages()
 	
 	if ($tmpMessage['gameMessage'] == "draw")
 	{
-		$statusMessage .= "Partie finie sur une Nulle.<br>\n";
+		$statusMessage .= _("Draw game")."<br>\n";
 		$isGameOver = true;
 	}
 	
 	if ($tmpMessage['messageFrom'] == "white")
 	{
-		$tmpColor = "Les blancs";
+		$tmpColor = _("Whites");
 	} else
 	{
-		$tmpColor = "Les noirs";
+		$tmpColor = _("Blacks");
 	}
 	
 	if ($tmpMessage['gameMessage'] == "playerResigned")
 	{
-		$statusMessage .= $tmpColor." ont abandonné la partie.<br>\n";
+		$statusMessage .= $tmpColor." "._("resign game")."<br>\n";
 		$isGameOver = true;
 	}
 
 	if ($tmpMessage['gameMessage'] == "checkMate")
 	{
-		$statusMessage .= "Echec et Mat! ".$tmpColor." ont gagné la partie.<br>\n";
+		$statusMessage .= _("Check and Mat!")." ".$tmpColor." "._("win the game")."<br>\n";
 		$isGameOver = true;
 		$isCheckMate = true;
 	}
