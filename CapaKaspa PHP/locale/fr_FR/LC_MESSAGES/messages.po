@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
 "POT-Creation-Date: 2013-01-02 22:02+0100\n"
-"PO-Revision-Date: 2013-01-02 22:04+0100\n"
+"PO-Revision-Date: 2013-01-05 15:28+0100\n"
 "Last-Translator: S. JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: French\n"
@@ -254,7 +254,7 @@ msgstr ""
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa
 #: PHP/jouer-echecs-differe-inscription.php:147
 msgid "Play Chess and share your Games !"
-msgstr ""
+msgstr "Jouer aux échecs et partager ses parties !"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa
 #: PHP/jouer-echecs-differe-inscription.php:152

@@ -19,14 +19,14 @@ function createPlayer()
 		@mysql_query("ROLLBACK");
 		return FALSE;  
 	}
-
-	/* set History format preference
-	$res = insertPreference($playerID, 'history', $_POST['rdoHistory']);
+	
+	// set Language preference
+	$res = insertPreference($playerID, "language", getenv("LC_ALL"));
 	if (!$res)
 	{
 		@mysql_query("ROLLBACK");
-		return FALSE;  
-	}*/
+		return FALSE;
+	}
 	
 	// set Theme preference
 	$res = insertPreference($playerID, "theme", "beholder");
@@ -46,10 +46,10 @@ function createPlayer()
 	
 	// Envoi du message de confirmation
 	$mailSubject = _("[CapaKaspa] Sign up confirmation");
-	$mailMsg = _("Pour finaliser votre inscription veuillez cliquer sur le lien suivant (en cas de problème copier le lien dans la barre d'adresse de votre navigateur)")." :\n";
+	$mailMsg = _("To complete your sign up please click the following link (in case of problems copy the link into the address bar of your browser)")." :\n";
 	$mailMsg .= "http://www.capakaspa.info/jouer-echecs-differe-inscription.php?ToDo=activer&playerID=".$playerID."&nick=".$_POST['txtNick'];
-	$mailMsg .= "\n\n"._("Ce message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).")."\n";
-	//$res = sendMail($_POST['txtEmail'], $mailSubject, $mailMsg);
+	$mailMsg .= "\n\n"._("This message was sent automatically from the site CapaKaspa")." (http://www.capakaspa.info).\n";
+	$res = sendMail($_POST['txtEmail'], $mailSubject, $mailMsg);
 	
 	if (!$res)
 	{
@@ -166,10 +166,10 @@ function activationRequest($nick, $password, $email)
 	}
 	
 	// Envoi du message de confirmation
-	$mailSubject = "[CapaKaspa] Confirmation de votre inscription";
-	$mailMsg = "Pour activer votre compte veuillez cliquer sur le lien suivant (en cas de problème copier le lien dans la barre d'adresse de votre navigateur) :\n";
+	$mailSubject = _("[CapaKaspa] Confirm activation");
+	$mailMsg = _("To activate your account please click the following link (in case of problems copy the link into the address bar of your browser)")." :\n";
 	$mailMsg .= "http://www.capakaspa.info/jouer-echecs-differe-inscription.php?ToDo=activer&playerID=".$player['playerID']."&nick=".$player['nick'];
-	$mailMsg .= "\n\nCe message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).\n";
+	$mailMsg .= "\n\n"._("This message was sent automatically from the site CapaKaspa")." (http://www.capakaspa.info).\n";
 	$res = sendMail($_POST['txtEmail'], $mailSubject, $mailMsg);
 	
 	if (!$res)
@@ -221,7 +221,7 @@ function loginPlayer($nick, $password, $flagAuto)
 		return -1; 
 	}
 	
-	// if such a player exists, log him in
+	// Save data in session
 	$_SESSION['playerID'] = $player['playerID'];
 	$_SESSION['lastInputTime'] = time();
 	$_SESSION['playerName'] = stripslashes($player['firstName'])." ".stripslashes($player['lastName']);
@@ -235,47 +235,30 @@ function loginPlayer($nick, $password, $flagAuto)
 	$_SESSION['elo'] = $player['elo'];
 	$_SESSION['socialNetwork'] = $player['socialNetwork'];
 	$_SESSION['socialID'] = $player['socialID'];
+	$_SESSION['countryCode'] = $player['countryCode'];
 
-	/* Mettre à jour la date de connexion */
-	// TODO Requête dans DAC
-	$tmpQuery = "UPDATE players SET lastConnection = now() WHERE playerID = ".$_SESSION['playerID'];
-	$tmpPlayers = mysql_query($tmpQuery);
-
-	/* load user preferences */
-	// TODO Requête dans DAC
+	// Load user preferences
+	// TODO Requête dans DAC à utiliser pour updateProfil
 	$tmpQuery = "SELECT * FROM preferences WHERE playerID = ".$_SESSION['playerID'];
 	$tmpPreferences = mysql_query($tmpQuery);
 
-	$isPreferenceFound['history'] = false;
-	$isPreferenceFound['theme'] = false;
-	$isPreferenceFound['emailnotification'] = false;
-
 	while($tmpPreference = mysql_fetch_array($tmpPreferences, MYSQL_ASSOC))
 	{
-		switch($tmpPreference['preference'])
-		{
-			case 'history':
-			case 'theme':
-				/* setup SESSION var of name pref_PREF, like pref_history */
-				$_SESSION['pref_'.$tmpPreference['preference']] = $tmpPreference['value'];
-				break;
-
-			case 'emailnotification':
-				$_SESSION['pref_emailnotification'] = $tmpPreference['value'];
-				break;
-
-		}
-
-		$isPreferenceFound[$tmpPreference['preference']] = true;
+		// setup SESSION var of name pref_PREF, like pref_theme
+		$_SESSION['pref_'.$tmpPreference['preference']] = $tmpPreference['value'];
+		
 	}
+	
+	// Update last connection date
+	// TODO Requête dans DAC
+	$tmpQuery = "UPDATE players SET lastConnection = now() WHERE playerID = ".$_SESSION['playerID'];
+	$tmpPlayers = mysql_query($tmpQuery);
 	
 	// Si se souvenir de moi création du cookie
 	if ($flagAuto == "on")
 	{
 		setcookie('capakaspacn[nick]', $nick, (time()+3600*24*30));
 		setcookie('capakaspacn[password]', $password, (time()+3600*24*30));
-		//echo("PLAYER : ".$nick."/".$password);
-		//echo("COOKIE : ".$_COOKIE['capakaspacn']['nick']."/".$_COOKIE['capakaspacn']['password']);
 	}
 	
 return 1;
@@ -293,11 +276,11 @@ function sendPassword($email)
 	}
 	
 	// Envoi du message avec mot de passe
-	$mailSubject = "[CapaKaspa] Votre mot de passe";
-	$mailMsg = "Voici les informations de votre compte :\n";
-	$mailMsg .= "Surnom : ".$player['nick']."\n";
-	$mailMsg .= "Passe : ".$player['PASSWORD']."\n";
-	$mailMsg .= "\n\nCe message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).\n";
+	$mailSubject = _("[CapaKaspa] Your password");
+	$mailMsg = _("Data about your account")." :\n";
+	$mailMsg .= _("User name")." : ".$player['nick']."\n";
+	$mailMsg .= _("Password")." : ".$player['PASSWORD']."\n";
+	$mailMsg .= "\n\n"._("This message was sent automatically from the site CapaKaspa")." (http://www.capakaspa.info).\n";
 	$res = sendMail($email, $mailSubject, $mailMsg);
 	
 	if (!$res)
