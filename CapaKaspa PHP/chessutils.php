@@ -383,7 +383,7 @@
 		$mailmsg = "";
 		$mailsubject = "CapaKaspa";
 
-		$headers .= "From: CapaKaspa <".$CFG_MAILADDRESS.">\r\n";
+		$headers = "From: CapaKaspa <".$CFG_MAILADDRESS.">\r\n";
 		$headers .= "To: ".$msgTo."\r\n";
 		$headers .= "Reply-To: CapaKaspa <".$CFG_MAILADDRESS.">\r\n";
 

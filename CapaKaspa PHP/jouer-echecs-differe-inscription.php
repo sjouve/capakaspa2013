@@ -62,7 +62,7 @@ switch($ToDo)
 	case 'activer':
 		// On vérifie si le compte n'est pas déjà activé
 		$player = getPlayer($_GET['playerID']);
-		if ($player && $player[activate] == 1)
+		if ($player && $player['activate'] == 1)
 		{
 			header("Location: index.php");
 			exit;

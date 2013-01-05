@@ -571,7 +571,7 @@
                 echo("</table>");
             } else
             {
-			  echo("<p>Vous n'avez aucune partie en cours...</p>");
+			  echo("<p>"._("No games in progress...")."</p>");
 			}
             
         ?>
