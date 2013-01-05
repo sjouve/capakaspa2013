@@ -37,10 +37,10 @@ function getPlayerByNickEmail($nick, $email)
 }
 
 /* Insérer un joueur */	
-function insertPlayer($password, $firstName, $lastName, $nick, $email, $profil, $situationGeo, $anneeNaissance)
+function insertPlayer($password, $firstName, $lastName, $nick, $email, $countryCode, $anneeNaissance)
 {
-	$res_player = mysql_query("INSERT INTO players (password, firstName, lastName, nick, email, profil, situationGeo, anneeNaissance, creationDate) 
-	VALUES ('".$password."', '".addslashes(strip_tags($firstName))."', '".addslashes(strip_tags($lastName))."', '".$nick."', '".$email."', '".addslashes(strip_tags($profil))."', '".addslashes(strip_tags($situationGeo))."', '".$anneeNaissance."', now())");
+	$res_player = mysql_query("INSERT INTO players (password, firstName, lastName, nick, email, countryCode, anneeNaissance, creationDate) 
+	VALUES ('".$password."', '".addslashes(strip_tags($firstName))."', '".addslashes(strip_tags($lastName))."', '".$nick."', '".$email."', '".$countryCode."', '".$anneeNaissance."', now())");
 
 	if ($res_player)	
 		return mysql_insert_id();

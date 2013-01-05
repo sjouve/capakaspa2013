@@ -13,23 +13,23 @@ function createPlayer()
 	if ($_POST['pwdPassword']!=$_POST['pwdPassword2']) return FALSE;
 	
 	// Crée l'utilisateur
-	$playerID = insertPlayer($_POST['pwdPassword'], $_POST['txtFirstName'], $_POST['txtLastName'], $_POST['txtNick'], $_POST['txtEmail'], $_POST['txtProfil'], $_POST['txtSituationGeo'], $_POST['txtAnneeNaissance']);	
+	$playerID = insertPlayer($_POST['pwdPassword'], $_POST['txtFirstName'], $_POST['txtLastName'], $_POST['txtNick'], $_POST['txtEmail'], $_POST['txtCountryCode'], $_POST['txtAnneeNaissance']);	
 	if (!$playerID)
 	{
 		@mysql_query("ROLLBACK");
 		return FALSE;  
 	}
 
-	// set History format preference
+	/* set History format preference
 	$res = insertPreference($playerID, 'history', $_POST['rdoHistory']);
 	if (!$res)
 	{
 		@mysql_query("ROLLBACK");
 		return FALSE;  
-	}
+	}*/
 	
 	// set Theme preference
-	$res = insertPreference($playerID, 'theme', $_POST['rdoTheme']);
+	$res = insertPreference($playerID, "theme", "beholder");
 	if (!$res)
 	{
 		@mysql_query("ROLLBACK");
@@ -37,7 +37,7 @@ function createPlayer()
 	}
 	
 	// set Email notification preference
-	$res = insertPreference($playerID, 'emailnotification', $_POST['txtEmailNotification']);
+	$res = insertPreference($playerID, 'emailnotification', "oui");
 	if (!$res)
 	{
 		@mysql_query("ROLLBACK");
@@ -45,11 +45,11 @@ function createPlayer()
 	}
 	
 	// Envoi du message de confirmation
-	$mailSubject = "[CapaKaspa] Confirmation de votre inscription";
-	$mailMsg = "Pour finaliser votre inscription veuillez cliquer sur le lien suivant (en cas de problème copier le lien dans la barre d'adresse de votre navigateur) :\n";
+	$mailSubject = _("[CapaKaspa] Sign up confirmation");
+	$mailMsg = _("Pour finaliser votre inscription veuillez cliquer sur le lien suivant (en cas de problème copier le lien dans la barre d'adresse de votre navigateur)")." :\n";
 	$mailMsg .= "http://www.capakaspa.info/jouer-echecs-differe-inscription.php?ToDo=activer&playerID=".$playerID."&nick=".$_POST['txtNick'];
-	$mailMsg .= "\n\nCe message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).\n";
-	$res = sendMail($_POST['txtEmail'], $mailSubject, $mailMsg);
+	$mailMsg .= "\n\n"._("Ce message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).")."\n";
+	//$res = sendMail($_POST['txtEmail'], $mailSubject, $mailMsg);
 	
 	if (!$res)
 	{
@@ -135,7 +135,7 @@ function activationRequest($nick, $password, $email)
 {
 	
 	// Contrôle format email
-	if (!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$", $email))
+	if (!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $email))
 	{ 
 		return -3;
 	}

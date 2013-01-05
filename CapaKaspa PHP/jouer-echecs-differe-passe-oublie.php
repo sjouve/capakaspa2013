@@ -50,9 +50,7 @@ require 'page_body.php';
 			<center><input name="Send" value="<?php echo _("Send");?>" type="submit" class="button"></center>
 		</form>
       <?}?>
-      <br/><br/><br/><br/>
-		      
-      
+		   
     </div>
   </div>
 <?

@@ -8,4 +8,5 @@
 		or die ('CapaKaspa cannot connect to the database.  Please check the database settings in your config : '.mysql_error());
 
 	mysql_select_db ($CFG_DATABASE);
+	mysql_query("SET NAMES UTF8");
 ?>

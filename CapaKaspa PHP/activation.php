@@ -6,13 +6,13 @@ if (!isset($_CONFIG))
 
 /* connect to database */
 require 'connectdb.php';
-require 'gui_rss.php';
 require 'bwc_players.php';
 require 'bwc_games.php';
 	
 /* Traitement des actions */
 $err=1;
-$ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:$_GET['ToDo'];
+$ToDo="";
+$ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:(isset($_GET['ToDo']) ? $_GET['ToDo']:"");
 
 switch($ToDo)
 {
@@ -24,11 +24,9 @@ switch($ToDo)
 $titre_page = "Echecs en différé - Activation du compte";
 $desc_page = "Activez votre compte pour accéder à la zone de jeu d'échecs en différé et jouer des parties à votre rythme.";
 require 'page_header.php';
-$image_bandeau = 'bandeau_capakaspa_global.jpg';
-$barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Activation du compte";
 require 'page_body.php';
 ?>
-  <div id="content">
+  <div id="contentlarge">
     <div class="blogbody">
     <?/* Traiter les erreurs */
 		if ($err == 0)
@@ -57,61 +55,30 @@ require 'page_body.php';
 			<table align="center">
 				<tr>
 		            <td> Surnom : </td>
-		            <td><input name="txtNick" type="text" size="20" maxlength="20" value="<?echo($_POST['txtNick']);?>">
+		            <td><input name="txtNick" type="text" size="20" maxlength="20" value="<?echo(isset($_POST['txtNick'])?$_POST['txtNick']:"");?>">
 		            </td>
 		        </tr>
 		        <tr>
 					<td> Passe : </td>
-		            <td><input name="txtPassword" type="password" size="16" maxlength="16" value="<?echo($_POST['txtPassword']);?>">
+		            <td><input name="txtPassword" type="password" size="16" maxlength="16" value="<?echo(isset($_POST['txtPassword'])?$_POST['txtPassword']:"");?>">
 		            </td>
 		        </tr>
 		        <tr>
 					<td> Email : </td>
-		            <td><input name="txtEmail" type="text" size="50" maxlength="50" value="<?echo($_POST['txtEmail']);?>">
+		            <td><input name="txtEmail" type="text" size="50" maxlength="50" value="<?echo(isset($_POST['txtEmail'])?$_POST['txtEmail']:"");?>">
 		            </td>
 		        </tr>
 			</table>
 	
-			<center><input name="ToDo" value="Valider" type="submit"></center>
+			<center><input name="ToDo" value="Valider" type="submit" class="button"></center>
 		</form> 
 		<br/>
 		<? } ?>
 		<br/>
 		<br/>
-      <h3>En direct du forum ... <?displayIconRSS(URL_RSS_FORUM);?></h3>
-      
-      	<?
-				displayBodyRSS(URL_RSS_FORUM, 2);
-		?>
-			
-			
-          <h3>En direct du blog ... <?displayIconRSS(URL_RSS_BLOG);?></h3>
-      	<?
-			displayBodyRSS(URL_RSS_BLOG, 2);
-		?>
       <br />
     </div>
   </div>
-  <div id="rightbar">
-    <div class="navlinks">
-    
-		<div class="title">Statistiques</div>
-		  <ul>
-			<li><img src="images/hand.gif" /> Parties en cours : <? echo(getNbActiveGameForAll())?></li>
-			<li><img src="images/joueur_actif.gif" /> Joueurs actifs : <? echo(getNbActivePlayers())?></li>
-			<li><img src="images/joueur_passif.gif" /> Joueurs passifs : <? echo(getNbPassivePlayers())?></li>
-		  </ul>
-		
-	
-    	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="180" height="150">
-		  <param name="movie" value="images/capakaspa.swf" />
-		  <param name="quality" value="high" />
-		  <embed src="images/capakaspa.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="180" height="150"></embed>
-		</object>
-	
-
- 	</div>
- </div>
 
 <?
     require 'page_footer.php';

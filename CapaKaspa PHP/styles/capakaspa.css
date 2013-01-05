@@ -456,7 +456,7 @@
 	}
 	
 	.button {
-    	background: #5F5A88;
+    	background: #ED7D1C;
     	color: #FFFFFF;
     	padding: 3px;
 	}
@@ -555,7 +555,7 @@
 	.blogbody h1 {
 		font-family: Verdana, Arial, Helvetica, sans-serif;
 		color:#000000;
-		font-size: 24px;
+		font-size: 36px;
 		font-weight: normal;
 		font-style: normal;
 		text-transform: none;
@@ -564,25 +564,20 @@
 		border-right-style: none;
 		border-bottom-style: none;
 		border-left-style: none;
-		border-width: 1px;
-		border-color: #;
 		margin-bottom: 10px;
 		padding: 0px;
 	}
 	.blogbody h2 {
 		font-family: Verdana, Arial, Helvetica, sans-serif;
-		color: #000000;
-		font-size: 13px;
-		font-weight: bold;
+		font-size: 20px;
+		font-weight: normal;
 		font-style: normal;
 		text-transform: none;
 		text-align: left;
 		border-top-style: none;
 		border-right-style: none;
-		border-bottom-style: solid;
+		border-bottom-style: none;
 		border-left-style: none;
-		border-width: 1px;
-		border-color: #CCCCCC;
 		margin-top: 10px;
 		margin-bottom: 1px;
 		padding: 0px;

@@ -1,4 +1,5 @@
 </head>
+<?require_once("localization.php");?>
 <body <?echo(isset($attribut_body) ? $attribut_body:"")?>>
 
 <div id="topbar">
@@ -7,7 +8,7 @@
 		<span class="social"><? if (isset($_SESSION['playerID'])&&$_SESSION['playerID']!=-1) {?>
 	      <form name="logout" action="index.php" method="post">
 		        <input type="hidden" name="ToDo" value="Logout">
-		        <input type="submit" value="<?php echo _("Log out");?>" class="button">
+		        <input type="submit" value="<?php echo _("Sign out");?>" class="button">
 		  </form>
 	  	<? } ?>
 	  	</span>
@@ -26,13 +27,13 @@
 	      <? if (!isset($_SESSION['playerID'])||$_SESSION['playerID']==-1) {?>
 	      <form method="post" action="index.php">
 	        
-	        <div class="item"><input name="txtNick" type="text" size="13" maxlength="20"/> <?php echo _("Login");?></div>
+	        <div class="item"><input name="txtNick" type="text" size="13" maxlength="20" placeholder="User name"/> <?php echo _("User name");?></div>
 	        <div class="item"><input name="pwdPassword" type="password" size="13" maxlength="16"/> <?php echo _("Password");?></div>
-	        <div class="item"><input name="chkAutoConn" type="checkbox"/> <?php echo _("Keep me logged in");?></div>
-	        <input name="ToDo" value="Login" type="hidden" /><input name="login" value="<?php echo _("Sign in");?>" type="submit" class="button"/>
 	        <?if (isset($_GET['err'])&&$_GET['err']=='login') {?>
 	        <div class='error'><?php echo _("Invalid login or password !");?></div>
 	        <?}?>
+	        <div class="item"><input name="chkAutoConn" type="checkbox"/> <?php echo _("Remember me");?></div>
+	        <input name="ToDo" value="Login" type="hidden" /><input name="login" value="<?php echo _("Sign in");?>" type="submit" class="button"/>
 	      </form>
 	      <? } else {?>
 	      
@@ -43,7 +44,7 @@
 		
       <ul>
       <? if (!isset($_SESSION['playerID'])||$_SESSION['playerID']==-1) {?>
-      	<li><img src="images/puce.gif"/> <a href="jouer-echecs-differe-passe-oublie.php"><?php echo _("Forgotten password");?></a></li>
+      	<li><img src="images/puce.gif"/> <a href="jouer-echecs-differe-passe-oublie.php"><?php echo _("Forgot password ?");?></a></li>
       <? } else {?>
         <li><img src="images/puce.gif"/> <a href="index.php"><?php echo _("My games in progress");?></a></li>
 		<li><img src="images/puce.gif"/> <a href="partiesterminees.php"><?php echo _("My games ended");?></a></li>
