@@ -3,7 +3,7 @@ session_start();
 /* load settings */
 if (!isset($_CONFIG))
 	require 'config.php';
-
+require 'localization.php';
 require 'connectdb.php';
 require 'dac_common.php';
 require 'bwc_common.php';

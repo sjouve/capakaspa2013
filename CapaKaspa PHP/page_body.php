@@ -1,5 +1,4 @@
 </head>
-<?require_once("localization.php");?>
 <body <?echo(isset($attribut_body) ? $attribut_body:"")?>>
 
 <div id="topbar">
@@ -35,26 +34,38 @@
 	        <div class="item"><input name="chkAutoConn" type="checkbox"/> <?php echo _("Remember me");?></div>
 	        <input name="ToDo" value="Login" type="hidden" /><input name="login" value="<?php echo _("Sign in");?>" type="submit" class="button"/>
 	      </form>
+	      <ul>
+	      	<li><img src="images/puce.gif"/> <a href="jouer-echecs-differe-passe-oublie.php"><?php echo _("Forgot password ?");?></a></li>
+	      </ul>
 	      <? } else {?>
-	      
-	        <div class="item"><a href="profil.php"><img src="<?echo(getPicturePath($_SESSION['socialNetwork'], $_SESSION['socialID']));?>" width="40" height="40" border="0" style="float: left;margin-right: 10px;"/></a> <b><a href="profil.php"><? echo($_SESSION['firstName']." ".$_SESSION['lastName'])?></a></b></div>
+	        <div class="item"><a href="profil_consultation.php?playerID=<?echo($_SESSION['playerID'])?>"><img src="<?echo(getPicturePath($_SESSION['socialNetwork'], $_SESSION['socialID']));?>" width="40" height="40" border="0" style="float: left;margin-right: 10px;"/></a> <b><a href="profil_consultation.php?playerID=<?echo($_SESSION['playerID'])?>"><? echo($_SESSION['firstName']." ".$_SESSION['lastName'])?></a></b></div>
 	        <div class="item">...</div>
 	      <? } ?>
 		</div>
-		
+	</div>
+	
+	
+	<? if (isset($_SESSION['playerID'])&&$_SESSION['playerID']!=-1) {?>
+	<div class="navlinks">
+	<div class="title"><?php echo _("Chess games");?></div>		
       <ul>
-      <? if (!isset($_SESSION['playerID'])||$_SESSION['playerID']==-1) {?>
-      	<li><img src="images/puce.gif"/> <a href="jouer-echecs-differe-passe-oublie.php"><?php echo _("Forgot password ?");?></a></li>
-      <? } else {?>
         <li><img src="images/puce.gif"/> <a href="index.php"><?php echo _("My games in progress");?></a></li>
 		<li><img src="images/puce.gif"/> <a href="partiesterminees.php"><?php echo _("My games ended");?></a></li>
         <li><img src="images/puce.gif"/> <a href="listeparties.php"><?php echo _("Other games");?></a></li>
-		<li><img src="images/puce.gif"/> <a href="invitation.php"><?php echo _("Other players");?></a></li>
-	<? } ?>
+		<li><img src="images/puce.gif"/> <a href="invitation.php"><?php echo _("Proposal");?></a></li>
         <!-- <li><img src="images/icone-mobile.png"/> <a href="http://mobile.capakaspa.info">Version mobile</a></li> -->
-      </ul>
-      
-      </div>
+      </ul>  
+	</div>
+	<div class="navlinks">
+	<div class="title"><?php echo _("Players");?></div>		
+      <ul>
+        <li><img src="images/puce.gif"/> <a href=""><?php echo _("Activity");?></a></li>
+		<li><img src="images/puce.gif"/> <a href=""><?php echo _("Messages");?></a></li>
+        <li><img src="images/puce.gif"/> <a href="invitation.php"><?php echo _("Search");?></a></li>
+      </ul>  
+	</div>
+	 <? } ?>
+	 
 	<? if (!isset($_SESSION['playerID'])||$_SESSION['playerID']==-1) {?>
 	<div class="navlinks">
 		<div class="title"><?php echo _("Statistics");?></div>
@@ -66,6 +77,7 @@
 	  		</ul>
 	</div>
 	<? } ?>
+	
 	<div class="navlinks">
 		<div class="title"><?php echo _("Applications");?></div>
 			<ul>

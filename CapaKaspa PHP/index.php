@@ -8,6 +8,7 @@
 
 	/* load external functions for setting up new game */
 	require_once('chessutils.php');
+	require 'localization.php';
 	require 'chessconstants.php';
 	require 'bwc_board.php';
 	require 'bwc_players.php';

@@ -21,7 +21,6 @@ function createPlayer()
 	}
 	
 	// set Language preference
-	// TODO Remonter localization.php pour augmenter la portée du setenv
 	$lang = getenv("LC_ALL");
 	$res = insertPreference($playerID, "language", $lang);
 	if (!$res)

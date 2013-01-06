@@ -4,6 +4,7 @@
 	/* load settings */
 	if (!isset($_CONFIG))
 		require 'config.php';
+	require 'localization.php';
 	
 	/* connect to database */
 	require 'connectdb.php';
@@ -20,7 +21,7 @@
     $player = getPlayer($playerID);
     
     /* Action */
-    $ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:$_GET['ToDo'];
+    $ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:(isset($_GET['ToDo'])?$_GET['ToDo']:"");
 
 	switch($ToDo)
 	{
@@ -60,42 +61,39 @@
 </script>
 
 <?    
-    $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Consulter un profil";
-    require 'page_body.php';
+    require 'page_body_no_menu.php';
 ?>
   <div id="contentlarge">
     <div class="blogbody">
       
-      < <a href="javascript:history.go(-1)">Retour</a><br/><br/>
-	  <h3>Profil de 
+	  <h3>
+	  <form action="profil_consultation.php" method="post">
+	  <img src="<?echo(getPicturePath($player['socialNetwork'], $player['socialID']));?>" width="50" height="50"/>
 	  <? 
-	  	echo($player['nick']); 
+	  	echo($player['firstName']." ".$player['lastName']); 
 	  	if ($favorite) echo(" <img src='images/favori-etoile-icone.png'/>"); 
 	  	if (getOnlinePlayer($player['playerID'])) echo (" <img src='images/user_online.gif'/>");
 	  	if (isNewPlayer($player['creationDate'])) echo (" <img src='images/user_new.gif'/>");
 	  ?>
-	  	
-	  	</h3>
-	  	<div class="profil">
-	  	
-	  		<center><img src="<?echo(getPicturePath($player['socialNetwork'], $player['socialID']));?>" width="50" height="50"/>
-  			</center>
-  			<? if ($_SESSION['playerID']!=$player['playerID'] && !$favorite) {?>
-			<form action="profil_consultation.php" method="post">
+	  <? if ($_SESSION['playerID']!=$player['playerID'] && !$favorite) {?>
+			
 				<input type="hidden" name="ToDo" value="AddFavorite">
 				<input type="hidden" name="playerID" value="<? echo($player['playerID']);?>">
-				<input type="submit" value="Ajouter aux favoris">
-			</form>
+				<input type="submit" value="<? echo _("Follow");?>" class="button">
+			
 			<? }?>
 			<? if ($_SESSION['playerID']!=$player['playerID'] && $favorite) {?>
-			<form action="profil_consultation.php" method="post">
+			
 				<input type="hidden" name="ToDo" value="DelFavorite">
 				<input type="hidden" name="playerID" value="<? echo($player['playerID']);?>">
-				<input type="submit" value="Retirer des favoris">
-			</form>
-			<? }?>
-		</div>
+				<input type="submit" value="<? echo _("Unfollow");?>" class="button">
+			
+		<? }?>
+		<? if ($_SESSION['playerID']==$player['playerID']) {?>
+		<a href="profil.php"><?php echo _("Update my information")?></a>
+		<? }?>
+	  	</form>
+	  	</h3>
 		
         <table border="0" width="530">
           <tr>
@@ -156,7 +154,7 @@
 						<input type="radio" name="color" value="black"> Noirs
 					</td>
 					<td align="right">
-						<input type="submit" value="Inviter">
+						<input type="submit" value="<? echo _("Invite");?>" class="button">
 					</td>
 				</tr>
 			</table>

@@ -179,7 +179,7 @@ function getCurrentVacation($playerID)
 function insertFavPlayer($playerID, $favPlayerID)
 {
 	
-	$res_favplayer = mysql_query("INSERT INTO fav_players (playerID, favPlayerID) 
+	$res_fav_player = mysql_query("INSERT INTO fav_players (playerID, favPlayerID) 
 								VALUES (".$playerID.", '".$favPlayerID."')");
 	return $res_fav_player;
 }

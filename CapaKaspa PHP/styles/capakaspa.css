@@ -960,10 +960,10 @@
 	.navlinks .title {
 		font-family: Verdana, Arial, Helvetica, sans-serif;
 		color: #3D3866;
-		font-size: 13px;/*small;*/
+		font-size: 12px;/*small;*/
 		font-weight: bold;
 		font-style: normal;
-		text-transform: uppercase;
+		text-transform: none;
 		text-align: left;
 		border-top-style: none;
 		border-right-style: none;
@@ -976,7 +976,7 @@
 	.navlinks ul {
 		padding: 0px;
 		margin: 0px;
-		margin-bottom: 20px;
+		margin-bottom: 10px;
 		list-style-type: none;
 	}
 	
@@ -1007,7 +1007,7 @@
 		font-style: normal;
 		text-align: left;
 		line-height: 150%;
-		margin-top: 10px;
+		margin-top: 5px;
 	}
 	.navlinks .item {
 		font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -1017,7 +1017,7 @@
 		font-style: normal;
 		text-align: left;
 		line-height: 150%;
-		margin-top: 10px;
+		margin-top: 5px;
 		margin-bottom: 2px;
 	}
 	.profil {
