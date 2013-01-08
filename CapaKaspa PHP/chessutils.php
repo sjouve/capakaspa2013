@@ -398,41 +398,35 @@
 
 		/* default message and subject */
 		$mailmsg = "";
-		$mailsubject = "CapaKaspa";
+		$mailsubject = "[CapaKaspa] ";
 		
 		/* load specific message and subject */
 		switch($msgType)
 		{
-			case 'test':
-				$mailsubject = "WebChess: Test Message";
-				$mailmsg = "Congratulations!!!\n
-				If you can see this message, you have successfully setup your email notification!\n\n
-				This message has been automatically been sent by WebChess and should not be replied to.\n";
-				break;
 				
 			case 'invitation':
-				$mailsubject = "[CapaKaspa] Vous etes invité à jouer une nouvelle partie";
+				$mailsubject .= _("Vous etes invité à jouer une nouvelle partie");
 				$mailmsg = "Le joueur ".$opponent." vous invite à jouer une nouvelle partie.";
 				break;
 				
 			case 'withdrawal':
-				$mailsubject = "[CapaKaspa] Invitation annulée";
+				$mailsubject .= _("Invitation annulée");
 				$mailmsg = "Le joueur ".$opponent." a annulé son invitation pour jouer une nouvelle partie.";
 				break;
 				
 			case 'resignation':
-				$mailsubject = "[CapaKaspa] Abandon";
+				$mailsubject .= _("Abandon");
 				$mailmsg = "Votre adversaire ".$opponent." a abandonné la partie.";
 				break;
 				
 			case 'move':
-				$mailsubject = "[CapaKaspa] Nouveau coup";
+				$mailsubject = _("Nouveau coup");
 				$mailmsg = "Votre adversaire ".$opponent." a joué le coup suivant :";
 				$mailmsg .= "\n".$move;
 				break;
 				
 			case 'accepted':
-				$mailsubject = "[CapaKaspa] Invitation acceptée";
+				$mailsubject .= _("Invitation acceptée");
 				$mailmsg = "Le joueur ".$opponent." a accepté votre invitation. Une nouvelle partie a commencé.";
 				if ($move) {
 					$mailmsg .= "\n\n".$opponent." a joint un message :";
@@ -441,7 +435,7 @@
 				break;
 				
 			case 'declined':
-				$mailsubject = "[CapaKaspa] Invitation refusée";
+				$mailsubject .= _("Invitation refusée");
 				$mailmsg = "Le joueur ".$opponent." a refusé votre invitation.";
 				if ($move) {
 					$mailmsg .= "\n\n".$opponent." a joint un message à son refus :";
@@ -450,7 +444,7 @@
 				break;
 				
 			case 'draw':
-				$mailsubject = "[CapaKaspa] Proposition de nulle acceptée";
+				$mailsubject .= _("Proposition de nulle acceptée");
 				$mailmsg = "Le joueur ".$opponent." a accepté votre proposition de nulle.\nLa partie s'est terminée sur le score : 1/2-1/2.";
 				break;
 		}
