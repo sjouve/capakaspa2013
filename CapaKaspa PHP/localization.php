@@ -5,7 +5,7 @@ $locale = "en_EN";
 $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 if ($lang="fr") $locale = "fr_FR";
 // 3- If user connected get preference language
-if (isSet($_SESSION["pref_locale"])) $locale = $_SESSION["pref_language"];
+if (isSet($_SESSION["pref_language"])) $locale = $_SESSION["pref_language"];
 // 4- Finally language in URL
 if (isSet($_GET["locale"])) $locale = $_GET["locale"];
 putenv("LC_ALL=$locale");
