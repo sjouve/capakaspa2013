@@ -162,7 +162,7 @@
     require 'page_header.php';
     //echo("<meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>\n");
 ?>
-<link href="styles/pgn4web.css" type="text/css" rel="stylesheet" />
+<link href="css/pgn4web.css" type="text/css" rel="stylesheet" />
 <link href="pgn4web/fonts/pgn4web-font-ChessSansPiratf.css" type="text/css" rel="stylesheet" />
 
 <script src="pgn4web/pgn4web.js" type="text/javascript"></script>

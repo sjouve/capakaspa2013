@@ -2,8 +2,8 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	<link rel="stylesheet" href="http://www.capakaspa.info/styles/blog.css" type="text/css" />
-	<link rel="stylesheet" href="styles/mobile.css" type="text/css" />
+	<link rel="stylesheet" href="http://www.capakaspa.info/css/capakaspa.css" type="text/css" />
+	<link rel="stylesheet" href="css/mobile.css" type="text/css" />
 	<title>CapaKaspa - <? echo($titre_page)?></title>
 	<meta name="description" content="<? echo($desc_page)?>" />
 	<meta name="robots" content="index, follow" />
