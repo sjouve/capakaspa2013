@@ -2,7 +2,7 @@
 	session_start(); 
 
 	/* chess utils */
-	require_once('chessutils.php');
+	require_once('bwc/bwc_chessutils.php');
 	
 	require 'gui_list.php';
 	

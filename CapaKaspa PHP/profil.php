@@ -6,7 +6,7 @@
 		require 'config.php';
 
 	/* load external functions for setting up new game */
-	require_once('chessutils.php');
+	require_once('bwc/bwc_chessutils.php');
 	
 	/* connect to database */
 	require 'connectdb.php';

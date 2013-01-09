@@ -3,7 +3,7 @@ if (!isset($_CONFIG))
 		require 'config.php';
 require_once('dac/dac_players.php');
 require_once('bwc/bwc_common.php');
-require_once('chessutils.php');
+require_once('bwc/bwc_chessutils.php');
 
 /* Création du joueur et de ses préférences */
 function createPlayer()

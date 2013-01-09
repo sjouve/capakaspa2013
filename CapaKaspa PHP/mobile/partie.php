@@ -9,7 +9,7 @@
 	require '../chessconstants.php';
 
 	/* include outside functions */
-	require_once('../chessutils.php');
+	require_once('../bwc/bwc_chessutils.php');
 	require '../gui_games.php';
 	require '../bwc/bwc_games.php';
 	require '../bwc/bwc_board.php';

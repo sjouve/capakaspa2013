@@ -8,7 +8,7 @@
 	/* connect to database */
 	require '../connectdb.php';
 	/* check session status */
-	require_once('../chessutils.php');
+	require_once('../bwc/bwc_chessutils.php');
 	
 	require '../dac/dac_players.php';
 	require '../dac/dac_games.php';
