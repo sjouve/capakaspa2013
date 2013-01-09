@@ -1,9 +1,9 @@
 <?
 /* load settings */
 if (!isset($_CONFIG))
-	require '../config.php';
+	require '../include/config.php';
 
-require '../connectdb.php';
+require '../include/connectdb.php';
 require '../bwc/bwc_players.php';
 		
 /* Traitement des actions */

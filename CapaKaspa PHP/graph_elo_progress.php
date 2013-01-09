@@ -4,10 +4,10 @@ require_once ("jpgraph/jpgraph_line.php");
 
 // Paramètres
 if (!isset($_CONFIG))
-	require 'config.php';
+	require 'include/config.php';
 
 // Connexion BDD
-require 'connectdb.php';
+require 'include/connectdb.php';
 
 require 'dac/dac_players.php';
 	

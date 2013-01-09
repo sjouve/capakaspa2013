@@ -3,17 +3,17 @@
 
 	/* load settings */
 	if (!isset($_CONFIG))
-		require '../config.php';
+		require '../include/config.php';
 	
 	/* connect to database */
-	require '../connectdb.php';
+	require '../include/connectdb.php';
 	/* check session status */
 	require_once('../bwc/bwc_chessutils.php');
 	
 	require '../dac/dac_players.php';
 	require '../dac/dac_games.php';
 
-	require '../sessioncheck.php';
+	require '../include/sessioncheck.php';
 
 	/* Charger le profil */
 	$playerID = isset($_POST['playerID']) ? $_POST['playerID']:$_GET['playerID'];

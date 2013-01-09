@@ -3,7 +3,7 @@
 	
 	/* load settings */
 	if (!isset($_CONFIG))
-		require 'config.php';
+		require 'include/config.php';
 	
 	// Si cookie alors connexion auto
 	if ((!isset($_SESSION['playerID'])||$_SESSION['playerID'] == -1) && isset($_COOKIE['capakaspacn']['nick']))

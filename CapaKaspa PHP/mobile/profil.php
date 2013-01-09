@@ -3,19 +3,19 @@
 
 	/* load settings */
 	if (!isset($_CONFIG))
-		require '../config.php';
+		require '../include/config.php';
 
 	/* load external functions for setting up new game */
 	require_once('../bwc/bwc_chessutils.php');
 	
 	/* connect to database */
-	require '../connectdb.php';
+	require '../include/connectdb.php';
 	
 	require '../dac/dac_games.php';
 	require '../bwc/bwc_players.php';
 	
 	/* check session status */
-	require '../sessioncheck.php';
+	require '../include/sessioncheck.php';
 	
 	$err = 1;
 	$ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:Null;

@@ -1,5 +1,5 @@
 ﻿<?
-require 'chessconstants.php';
+require 'include/constants.php';
 require_once('bwc/bwc_chessutils.php');
 require 'dac/dac_players.php';
 require 'bwc/bwc_board.php';

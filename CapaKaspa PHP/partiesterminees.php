@@ -1,21 +1,21 @@
-<?	require 'mobilecheck.php';
+<?	require 'include/mobilecheck.php';
     /*commentaire*/
     session_start();
 
 	/* load settings */
 	if (!isset($_CONFIG))
-		require 'config.php';
+		require 'include/config.php';
 
 	/* load external functions for setting up new game */
 	require 'bwc/bwc_games.php';
 	
 	/* connect to database */
-	require 'connectdb.php';
+	require 'include/connectdb.php';
 
 	$errMsg = "";
 
 	/* check session status */
-	require 'sessioncheck.php';
+	require 'include/sessioncheck.php';
 	
 	/* Id du joueur */
 	$playerID = isset($_GET['playerID']) ? $_GET['playerID']:$_SESSION['playerID'];

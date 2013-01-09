@@ -1,22 +1,22 @@
-<?	require 'mobilecheck.php';
+<?	require 'include/mobilecheck.php';
 	
 	session_start();
 			
 	/* load settings */
 	if (!isset($_CONFIG))
-		require 'config.php';
+		require 'include/config.php';
 
 	/* load external functions for setting up new game */
 	require_once('bwc/bwc_chessutils.php');
-	require 'localization.php';
-	require 'chessconstants.php';
+	require 'include/localization.php';
+	require 'include/constants.php';
 	require 'bwc/bwc_board.php';
 	require 'bwc/bwc_players.php';
 	require 'bwc/bwc_games.php';
 	require 'gui_games.php';
 
 	/* connect to database */
-	require 'connectdb.php';
+	require 'include/connectdb.php';
 	
 	$tmpNewUser = false;
 	$errMsg = "";
@@ -287,7 +287,7 @@
 	}
 
 	/* check session status */
-	require 'sessioncheck.php';
+	require 'include/sessioncheck.php';
 
 	/* set default playing mode to different PCs (as opposed to both players sharing a PC) */
 	$_SESSION['isSharedPC'] = false;

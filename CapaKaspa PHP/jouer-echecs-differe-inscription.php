@@ -2,9 +2,9 @@
 session_start();
 /* load settings */
 if (!isset($_CONFIG))
-	require 'config.php';
-require 'localization.php';
-require 'connectdb.php';
+	require 'include/config.php';
+require 'include/localization.php';
+require 'include/connectdb.php';
 require 'dac/dac_common.php';
 require 'bwc/bwc_common.php';
 require 'bwc/bwc_players.php';

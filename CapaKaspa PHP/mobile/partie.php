@@ -3,10 +3,10 @@
 
 	/* load settings */
 	if (!isset($_CONFIG))
-		require '../config.php';
+		require '../include/config.php';
 	
 	/* define constants */
-	require '../chessconstants.php';
+	require '../include/constants.php';
 
 	/* include outside functions */
 	require_once('../bwc/bwc_chessutils.php');
@@ -15,10 +15,10 @@
 	require '../bwc/bwc_board.php';
 
 	/* connect to database */
-	require '../connectdb.php';
+	require '../include/connectdb.php';
 	
 	/* check session status */
-	require '../sessioncheck.php';
+	require '../include/sessioncheck.php';
 	
 	/* check if loading game 
 	if (isset($_POST['gameID']))

@@ -3,19 +3,19 @@
 
 	/* load settings */
 	if (!isset($_CONFIG))
-		require 'config.php';
+		require 'include/config.php';
 
 	/* load external functions for setting up new game */
 	//require 'bwc/bwc_games.php';
 	require 'gui_list.php';
 	
 	/* connect to database */
-	require 'connectdb.php';
+	require 'include/connectdb.php';
 
 	$errMsg = "";
 
 	/* check session status */
-	require 'sessioncheck.php';
+	require 'include/sessioncheck.php';
 
 	/* set default playing mode to different PCs (as opposed to both players sharing a PC) */
 	$_SESSION['isSharedPC'] = false;

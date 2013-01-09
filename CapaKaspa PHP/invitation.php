@@ -7,10 +7,10 @@
 	require 'gui_list.php';
 	
 	/* connect to the database */
-	require 'connectdb.php';
+	require 'include/connectdb.php';
 		
 	/* check session status */
-	require 'sessioncheck.php';
+	require 'include/sessioncheck.php';
 	
 	//require 'dac/dac_players.php';
 	

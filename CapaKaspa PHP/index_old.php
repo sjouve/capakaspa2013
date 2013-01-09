@@ -1,16 +1,16 @@
 <?session_start();
-require_once("localization.php");
+require_once("include/localization.php");
 
 /* load settings */
 if (!isset($_CONFIG))
-	require 'config.php';
+	require 'include/config.php';
 
 /* Pour les statistiques */
 require 'bwc/bwc_players.php';
 require 'bwc/bwc_games.php';
 
 /* connect to database */
-require 'connectdb.php';
+require 'include/connectdb.php';
 	
 /* check session status */
 // Si cookie alors connexion auto

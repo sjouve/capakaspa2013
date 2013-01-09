@@ -1,20 +1,20 @@
-<?	require 'mobilecheck.php';
+<?	require 'include/mobilecheck.php';
 	session_start();
 
 	/* load settings */
 	if (!isset($_CONFIG))
-		require 'config.php';
-	require 'localization.php';
+		require 'include/config.php';
+	require 'include/localization.php';
 	
 	/* connect to database */
-	require 'connectdb.php';
+	require 'include/connectdb.php';
 	/* check session status */
 	require_once('bwc/bwc_chessutils.php');
 	
 	require 'dac/dac_players.php';
 	require 'dac/dac_games.php';
 
-	require 'sessioncheck.php';
+	require 'include/sessioncheck.php';
 
 	/* Charger le profil */
 	$playerID = isset($_POST['playerID']) ? $_POST['playerID']:$_GET['playerID'];

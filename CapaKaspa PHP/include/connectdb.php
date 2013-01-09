@@ -1,7 +1,7 @@
 <?
 	/* load settings */
 	if (!isset($_CONFIG))
-		require 'config.php';
+		require 'include/config.php';
 	
 	/* connect to database */
 	$dbh=mysql_connect ($CFG_SERVER, $CFG_USER, $CFG_PASSWORD)
