@@ -6,8 +6,8 @@ if (!isset($_CONFIG))
 	require 'config.php';
 
 /* Pour les statistiques */
-require 'bwc_players.php';
-require 'bwc_games.php';
+require 'bwc/bwc_players.php';
+require 'bwc/bwc_games.php';
 
 /* connect to database */
 require 'connectdb.php';

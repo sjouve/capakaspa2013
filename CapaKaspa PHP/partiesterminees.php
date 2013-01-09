@@ -7,7 +7,7 @@
 		require 'config.php';
 
 	/* load external functions for setting up new game */
-	require 'bwc_games.php';
+	require 'bwc/bwc_games.php';
 	
 	/* connect to database */
 	require 'connectdb.php';

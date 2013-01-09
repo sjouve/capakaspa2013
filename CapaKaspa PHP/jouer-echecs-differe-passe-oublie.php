@@ -5,8 +5,8 @@ if (!isset($_CONFIG))
 	require 'config.php';
 
 require 'connectdb.php';
-require 'bwc_players.php';
-require 'bwc_games.php';
+require 'bwc/bwc_players.php';
+require 'bwc/bwc_games.php';
 	
 /* Traitement des actions */
 $err=1;

@@ -6,9 +6,9 @@ if (!isset($_CONFIG))
 require 'localization.php';
 require 'connectdb.php';
 require 'dac/dac_common.php';
-require 'bwc_common.php';
-require 'bwc_players.php';
-require 'bwc_games.php';
+require 'bwc/bwc_common.php';
+require 'bwc/bwc_players.php';
+require 'bwc/bwc_games.php';
 
 // Captcha
 include_once  '/securimage/securimage.php';

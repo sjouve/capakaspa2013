@@ -6,8 +6,8 @@ if (!isset($_CONFIG))
 	require '../config.php';
 
 require '../connectdb.php';
-require '../bwc_players.php';
-require '../bwc_games.php';
+require '../bwc/bwc_players.php';
+require '../bwc/bwc_games.php';
 
 /* check session status */
 // Si cookie alors connexion auto
@@ -33,8 +33,8 @@ if ($_SESSION['playerID'] != -1)
 	}
 }
 
-$titre_page = "Echecs en différé (mobile) - Accueil";
-$desc_page = "Jouer aux échecs en différé sur votre smartphone. Inscrivez-vous à la zone de jeu en différé et jouer des parties d'échecs à votre rythme.";
+$titre_page = "Echecs en diffï¿½rï¿½ (mobile) - Accueil";
+$desc_page = "Jouer aux ï¿½checs en diffï¿½rï¿½ sur votre smartphone. Inscrivez-vous ï¿½ la zone de jeu en diffï¿½rï¿½ et jouer des parties d'ï¿½checs ï¿½ votre rythme.";
 require 'page_header.php';
     
 require 'page_body.php';
@@ -43,7 +43,7 @@ require 'page_body.php';
 	
 	<? if (!isset($_SESSION['playerID'])||$_SESSION['playerID']==-1) {?>
 		<center>
-		<p>La zone de jeu d'échecs en différé du site CapaKaspa vous permet de jouer vos parties sur votre smartphone avec le meilleur confort d'utilisation possible.</p>
+		<p>La zone de jeu d'ï¿½checs en diffï¿½rï¿½ du site CapaKaspa vous permet de jouer vos parties sur votre smartphone avec le meilleur confort d'utilisation possible.</p>
 		<form method="post" action="tableaubord.php">
         <br/>
         Surnom : <input name="txtNick" type="text" size="13" maxlength="20"/><br/>
@@ -57,8 +57,8 @@ require 'page_body.php';
 		</form>
       	<br/>
       	<!-- <img src="/images/puce.gif"/> <a href="jouer-echecs-differe-inscription.php">S'inscrire</a>-->
-	  	<img src="/images/puce.gif"/> <a href="jouer-echecs-differe-passe-oublie.php">Mot de passe oublié</a>
-	  	<p>Pour vous inscrire et accéder à la zone de jeu d'échecs en différé du site CapaKaspa veuillez vous diriger vers la version pour ordinateur du site en cliquant sur le lien plus bas.</p>
+	  	<img src="/images/puce.gif"/> <a href="jouer-echecs-differe-passe-oublie.php">Mot de passe oubliï¿½</a>
+	  	<p>Pour vous inscrire et accï¿½der ï¿½ la zone de jeu d'ï¿½checs en diffï¿½rï¿½ du site CapaKaspa veuillez vous diriger vers la version pour ordinateur du site en cliquant sur le lien plus bas.</p>
 	  	
 	  	</center>
 	<? } else {?>
@@ -74,7 +74,7 @@ require 'page_body.php';
 		
       	<form name="logout" action="tableaubord.php" method="post">
         <p>Bienvenue <b><? echo ($_SESSION['playerName'])?></b>,</p>
-        <p>vous êtes connecté à la zone de jeu d'échecs en différé optimisée pour les smartphones du site CapaKaspa.</p>
+        <p>vous ï¿½tes connectï¿½ ï¿½ la zone de jeu d'ï¿½checs en diffï¿½rï¿½ optimisï¿½e pour les smartphones du site CapaKaspa.</p>
         
         <input type="hidden" name="ToDo" value="Logout">
         <input type="submit" value="Deconnexion">

@@ -11,8 +11,8 @@
 	/* include outside functions */
 	require_once('chessutils.php');
 	require 'gui_games.php';
-	require 'bwc_games.php';
-	require 'bwc_board.php';
+	require 'bwc/bwc_games.php';
+	require 'bwc/bwc_board.php';
 
 	/* connect to database */
 	require 'connectdb.php';

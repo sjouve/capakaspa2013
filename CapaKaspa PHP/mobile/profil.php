@@ -12,7 +12,7 @@
 	require '../connectdb.php';
 	
 	require '../dac/dac_games.php';
-	require '../bwc_players.php';
+	require '../bwc/bwc_players.php';
 	
 	/* check session status */
 	require '../sessioncheck.php';

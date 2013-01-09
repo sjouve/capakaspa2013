@@ -1,5 +1,5 @@
 <?
-	require_once('bwc_players.php');
+	require_once('bwc/bwc_players.php');
 	
 	/* load settings */
 	if (!isset($_CONFIG))

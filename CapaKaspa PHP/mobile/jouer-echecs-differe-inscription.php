@@ -4,7 +4,7 @@ if (!isset($_CONFIG))
 	require '../config.php';
 
 require '../connectdb.php';
-require '../bwc_players.php';
+require '../bwc/bwc_players.php';
 		
 /* Traitement des actions */
 $err=false;
@@ -14,14 +14,14 @@ switch($ToDo)
 {
 	case 'NewUser':
 
-		// Contrôle serveur du nick vide
+		// Contrï¿½le serveur du nick vide
 		if ($_POST['txtNick'] == "")
 		{
 		  	$err = 'emptyNick';
 	    	break;
 		}
 		
-		// Contrôle existence joueur avec même surnom ou email
+		// Contrï¿½le existence joueur avec mï¿½me surnom ou email
 		$player = getPlayerByNickEmail($_POST['txtNick'], $_POST['txtEmail']);
 		
 		if (strtolower($player['nick']) == strtolower($_POST['txtNick']))
@@ -36,7 +36,7 @@ switch($ToDo)
 			break;
 		}
 		
-		// Création du joueur et envoi message confirmation
+		// Crï¿½ation du joueur et envoi message confirmation
 		if (!createPlayer())
 		{
 		  	// Erreur technique
@@ -47,7 +47,7 @@ switch($ToDo)
 		break;
 		
 	case 'activer':
-		// On vérifie si le compte n'est pas déjà activé
+		// On vï¿½rifie si le compte n'est pas dï¿½jï¿½ activï¿½
 		$player = getPlayer($_GET['playerID']);
 		if ($player && $player[activate] == 1)
 		{
@@ -60,8 +60,8 @@ switch($ToDo)
 		
 }
 
-$titre_page = "Echecs en différé (mobile) - Inscription à la zone de jeu";
-$desc_page = "Jouer aux échecs en différé sur votre smartphone. Inscrivez-vous à la zone de jeu en différé et jouer des parties d'échecs à votre rythme.";
+$titre_page = "Echecs en diffï¿½rï¿½ (mobile) - Inscription ï¿½ la zone de jeu";
+$desc_page = "Jouer aux ï¿½checs en diffï¿½rï¿½ sur votre smartphone. Inscrivez-vous ï¿½ la zone de jeu en diffï¿½rï¿½ et jouer des parties d'ï¿½checs ï¿½ votre rythme.";
 require 'page_header.php';
     
 ?>
@@ -89,13 +89,13 @@ require 'page_header.php';
 		
 		if (!isAlphaNumeric(document.userdata.txtNick.value))
 		{
-			alert("Le surnom doit être alphanumérique.");
+			alert("Le surnom doit ï¿½tre alphanumï¿½rique.");
 			return;
 		}
 		
 		if (!isAlphaNumeric(document.userdata.pwdPassword.value))
 		{
-			alert("Le mot de passe doit être alphanumérique.");
+			alert("Le mot de passe doit ï¿½tre alphanumï¿½rique.");
 			return;
 		}
 		
@@ -107,7 +107,7 @@ require 'page_header.php';
 		
 		if (!isNumber(document.userdata.txtAnneeNaissance.value) || !isWithinRange(document.userdata.txtAnneeNaissance.value, 1900, annee))
 		{
-			alert("L'année de naissance est un nombre à 4 chiffres compris entre 1900 et l'année courante.");
+			alert("L'annï¿½e de naissance est un nombre ï¿½ 4 chiffres compris entre 1900 et l'annï¿½e courante.");
 			return;
 		}
 		
@@ -125,9 +125,9 @@ require 'page_header.php';
 	<?
 		/* Traiter les erreurs */
 		if ($err == 'existNick')
-			echo("<div class='error'>Le surnom (".$_POST['txtNick'].") que vous avez choisi  est déjà utilisé.  Essayez un autre surnom.</div>");
+			echo("<div class='error'>Le surnom (".$_POST['txtNick'].") que vous avez choisi  est dï¿½jï¿½ utilisï¿½.  Essayez un autre surnom.</div>");
 		if ($err == 'existEmail')
-			echo("<div class='error'>L'email (".$_POST['txtEmail'].") que vous avez choisi  est déjà utilisé.  Essayez un autre email.</div>");
+			echo("<div class='error'>L'email (".$_POST['txtEmail'].") que vous avez choisi  est dï¿½jï¿½ utilisï¿½.  Essayez un autre email.</div>");
 		if ($err == 'emptyNick')
 			echo("<div class='error'>Surnom vide</div>");
 		if ($err == 'db')
@@ -135,16 +135,16 @@ require 'page_header.php';
 		
 	?>
 	<?if ($ToDo == 'activer' && !$err) {?>
-	<p><b>Votre compte vient d'être activé.</b></p>
+	<p><b>Votre compte vient d'ï¿½tre activï¿½.</b></p>
 	<p>
-	Vous pouvez maintenant vous connecter à la zone de jeu en différé.
+	Vous pouvez maintenant vous connecter ï¿½ la zone de jeu en diffï¿½rï¿½.
 	</p>
 	<?} else if ($ToDo == 'activer' && $err == 'db') {?>
 	<p>Une erreur s'est produite lors de l'activation !!!</p>
 	<?} else if (!$err && $ToDo == 'NewUser') {?>
-	<p><b>Un message de confirmation d'inscription a été envoyé à l'adresse de messagerie que vous avez choisi : <? echo($_POST['txtEmail']); ?> .</b></p>
-	<p>En attendant, vous pouvez consulter le <a href="../manuel-utilisateur-jouer-echecs-capakaspa.pdf" target="_blank">manuel utilisateur</a> de la zone de jeu en différé.</p>
-	<p>Si vous souhaitez discuter au sujet des échecs ou faire des remarques et suggestions concernant le site CapaKaspa, vous pouvez aussi vous <a href="http://forum.capakaspa.info/profile.php?mode=register">inscrire sur le forum</a> de CapaKaspa.</p><br/>
+	<p><b>Un message de confirmation d'inscription a ï¿½tï¿½ envoyï¿½ ï¿½ l'adresse de messagerie que vous avez choisi : <? echo($_POST['txtEmail']); ?> .</b></p>
+	<p>En attendant, vous pouvez consulter le <a href="../manuel-utilisateur-jouer-echecs-capakaspa.pdf" target="_blank">manuel utilisateur</a> de la zone de jeu en diffï¿½rï¿½.</p>
+	<p>Si vous souhaitez discuter au sujet des ï¿½checs ou faire des remarques et suggestions concernant le site CapaKaspa, vous pouvez aussi vous <a href="http://forum.capakaspa.info/profile.php?mode=register">inscrire sur le forum</a> de CapaKaspa.</p><br/>
 	<hr/>
 	
 	
@@ -152,13 +152,13 @@ require 'page_header.php';
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 	<?} else  {?>
 	
-	<h3>Inscription à la zone de jeu d'échecs en différé</h3>
-	<ul><li>Cette inscription est complètement gratuite</li></ul>
+	<h3>Inscription ï¿½ la zone de jeu d'ï¿½checs en diffï¿½rï¿½</h3>
+	<ul><li>Cette inscription est complï¿½tement gratuite</li></ul>
 	<p>La seule contrainte est de nous fournir toutes les informations ci-dessous. 
-	<i>Cependant votre nom, prénom et adresse de messagerie ne seront pas connus des autres joueurs</i>. 
-	Les informations restantes sont publiées dans la liste des joueurs du site.</p>
-	<ul><li>Cette inscription nécessite une validation par messagerie électronique</li></ul>
-	<p>L'adresse de messagerie associée à votre compte doit donc être valide.</p>
+	<i>Cependant votre nom, prï¿½nom et adresse de messagerie ne seront pas connus des autres joueurs</i>. 
+	Les informations restantes sont publiï¿½es dans la liste des joueurs du site.</p>
+	<ul><li>Cette inscription nï¿½cessite une validation par messagerie ï¿½lectronique</li></ul>
+	<p>L'adresse de messagerie associï¿½e ï¿½ votre compte doit donc ï¿½tre valide.</p>
 	
 	<form name="userdata" method="post" action="jouer-echecs-differe-inscription.php">
 	<h3>Vos informations personnelles</h3>
@@ -195,7 +195,7 @@ require 'page_header.php';
 		</tr>
 		<tr>
 			<td >
-				Prénom :
+				Prï¿½nom :
 			</td>
 			
 			<td>
@@ -218,12 +218,12 @@ require 'page_header.php';
             </td>
           </tr>
 		  <tr>
-            <td> Situation géographique : </td>
+            <td> Situation gï¿½ographique : </td>
             <td><input name="txtSituationGeo" type="text" size="30" maxlength="50" value="<? echo($_POST['txtSituationGeo']); ?>">
             </td>
           </tr>
 		  <tr>
-            <td> Année de naissance : </td>
+            <td> Annï¿½e de naissance : </td>
             <td><input name="txtAnneeNaissance" type="text" size="4" maxlength="4" value="<? echo($_POST['txtAnneeNaissance']); ?>">
             </td>
           </tr>
@@ -237,7 +237,7 @@ require 'page_header.php';
 			<td colspan="2">&nbsp</td>
 		</tr>
 		</table>
-		<h3>Vos préférences</h3>
+		<h3>Vos prï¿½fï¿½rences</h3>
 		<table>
 		<tr >
 			<td width="30%">
@@ -253,7 +253,7 @@ require 'page_header.php';
 
 		<tr >
 			<td>
-				Thèmes :
+				Thï¿½mes :
 			</td>
 
 			<td>

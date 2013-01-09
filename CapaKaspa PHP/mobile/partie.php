@@ -11,8 +11,8 @@
 	/* include outside functions */
 	require_once('../chessutils.php');
 	require '../gui_games.php';
-	require '../bwc_games.php';
-	require '../bwc_board.php';
+	require '../bwc/bwc_games.php';
+	require '../bwc/bwc_board.php';
 
 	/* connect to database */
 	require '../connectdb.php';
@@ -69,7 +69,7 @@
 		$nb_game_vacation = mysql_num_rows($res_adv_vacation) + mysql_num_rows($res_vacation);
 	}
 	
-	// Pièces capturées
+	// Piï¿½ces capturï¿½es
 	$f=mysql_query("select curPiece,curColor,replaced from history where replaced > '' and gameID =  '".$_POST['gameID']."' order by curColor desc , replaced desc");
 	
 			
@@ -154,11 +154,11 @@
 	if ($_SESSION['isSharedPC'])
 		$titre_page = '';
 	else if ($isPlayersTurn)
-        $titre_page = "Echecs en différé (mobile) - Votre coup";
+        $titre_page = "Echecs en diffï¿½rï¿½ (mobile) - Votre coup";
 	else
-        $titre_page = "Echecs en différé (mobile) - Le coup de l'adversaire";
+        $titre_page = "Echecs en diffï¿½rï¿½ (mobile) - Le coup de l'adversaire";
 	
-    $desc_page = "Jouer aux échecs en différé sur votre smartphone. C'est votre partie, à vous de jouer.";
+    $desc_page = "Jouer aux ï¿½checs en diffï¿½rï¿½ sur votre smartphone. C'est votre partie, ï¿½ vous de jouer.";
     require 'page_header.php';
     //echo("<meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>\n");
 ?>
@@ -201,7 +201,7 @@ if (DEBUG)
 	if ($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['whitePlayer'])
 	{
         if (mysql_num_rows($res_adv_vacation) > 0)
-			echo("<div class='success'>Votre adversaire est absent en ce moment ! La partie est ajournée.</div>");
+			echo("<div class='success'>Votre adversaire est absent en ce moment ! La partie est ajournï¿½e.</div>");
 		else
 			echo("<br/>");
 	}
@@ -233,7 +233,7 @@ if (DEBUG)
 	        <? drawboard(false); ?>
               <nobr>
               <input type="button" name="btnUndo" value="Annuler le coup" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='undo()'"); ?>>
-              <!-- <input type="button" name="btnReload" value="Actualiser l'échiquier" onClick="document.gamedata.submit();"> -->
+              <!-- <input type="button" name="btnReload" value="Actualiser l'ï¿½chiquier" onClick="document.gamedata.submit();"> -->
               <input type="button" name="btnDraw" value="Proposer nulle" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='draw()'"); ?>>
               <input type="button" name="btnResign" value="Abandonner" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='resigngame()'"); ?>>
 			  

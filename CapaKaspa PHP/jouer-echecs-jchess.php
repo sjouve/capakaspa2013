@@ -1,6 +1,6 @@
 ﻿<?
 	session_start();
-	require 'bwc_players.php';
+	require 'bwc/bwc_players.php';
 	$titre_page = "Jeux en ligne - Jouer aux échecs contre JChess";
 	$desc_page = "Jeux en ligne. Jouez en ligne une partie d'échecs contre JChess, un adversaire disponible de bon niveau.";
     require 'page_header.php';

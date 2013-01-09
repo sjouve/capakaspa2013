@@ -5,7 +5,7 @@ if (!isset($_CONFIG))
 
 /* connect to database */
 require 'connectdb.php';
-require 'bwc_batch.php';
+require 'bwc/bwc_batch.php';
 
 /* Traitement des actions */
 $err=1;

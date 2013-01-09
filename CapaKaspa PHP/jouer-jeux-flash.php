@@ -1,6 +1,6 @@
 ﻿<?
 	session_start();
-	require 'bwc_players.php';
+	require 'bwc/bwc_players.php';
 	$titre_page = "Jeux en ligne - Jeux flash pour se divertir";
 	$desc_page = "Jeux en ligne. Jouez avec quelques jeux classiques en Flash pour vous divertir.";
     require 'page_header.php';

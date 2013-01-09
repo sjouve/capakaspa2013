@@ -1,6 +1,6 @@
 ﻿<?
 	session_start();
-	require 'bwc_players.php';
+	require 'bwc/bwc_players.php';
 	$titre_page = "Outils - EPD/FEN en diagramme";
 	$desc_page = "Un outil pour transformer votre chaine de caractères au format FEN ou EPD en un diagramme.";
     require 'page_header.php';

@@ -1,6 +1,6 @@
 ﻿<?
 	session_start();
-	require 'bwc_players.php';
+	require 'bwc/bwc_players.php';
 	$titre_page = 'Jouer aux échecs contre flashChess';
     require 'page_header.php';
 ?>

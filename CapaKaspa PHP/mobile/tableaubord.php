@@ -8,9 +8,9 @@
 	/* load external functions for setting up new game */
 	require_once('../chessutils.php');
 	require '../chessconstants.php';
-	require '../bwc_board.php';
-	require '../bwc_players.php';
-	require '../bwc_games.php';
+	require '../bwc/bwc_board.php';
+	require '../bwc/bwc_players.php';
+	require '../bwc/bwc_games.php';
 	require '../gui_games.php';
 	require '../gui_rss.php';
 
@@ -113,7 +113,7 @@
 			break;
 
 		case 'InvitePlayerByNick':
-			// Récupérer l'id du player dans le cas de l'invitation par saisie surnom
+			// Rï¿½cupï¿½rer l'id du player dans le cas de l'invitation par saisie surnom
 			if (isset($_POST['txtNick']) && $_POST['txtNick'] != $_SESSION['nick'])
 			{
 				$tmpQueryId = "SELECT playerID FROM players WHERE nick = '".$_POST['txtNick']."' AND activate=1";
@@ -295,8 +295,8 @@
 	/* set default playing mode to different PCs (as opposed to both players sharing a PC) */
 	$_SESSION['isSharedPC'] = false;
 
-    $titre_page = "Echecs en différé (mobile) - Tableau de bord";
-    $desc_page = "Jouer aux échecs en différé sur votre smartphone. Retrouvez vos parties d'échecs en différé en cours et vos invitations en attente de réponse";
+    $titre_page = "Echecs en diffï¿½rï¿½ (mobile) - Tableau de bord";
+    $desc_page = "Jouer aux ï¿½checs en diffï¿½rï¿½ sur votre smartphone. Retrouvez vos parties d'ï¿½checs en diffï¿½rï¿½ en cours et vos invitations en attente de rï¿½ponse";
     require 'page_header.php';
 ?>
 <script type="text/javascript">
@@ -352,7 +352,7 @@
 		
 	$res_current_vacation = getCurrentVacation($_SESSION['playerID']);
 	if (mysql_num_rows($res_current_vacation) > 0)
-		echo("<div class='success'>Vous avez une absence en cours ! Vos parties sont ajournées.</div>");
+		echo("<div class='success'>Vous avez une absence en cours ! Vos parties sont ajournï¿½es.</div>");
 	
 	/* if game is marked playerInvited and the invite is from the current player */
 	$tmpQuery = "SELECT * FROM games WHERE (gameMessage = 'playerInvited' AND ((whitePlayer = ".$_SESSION['playerID']." AND messageFrom = 'white') OR (blackPlayer = ".$_SESSION['playerID']." AND messageFrom = 'black'))";
@@ -426,9 +426,9 @@
 			/* Status */
 			echo ("<br/>");
 			if ($tmpGame['gameMessage'] == 'playerInvited')
-				echo ("Réponse en attente");
+				echo ("Rï¿½ponse en attente");
 			else if ($tmpGame['gameMessage'] == 'inviteDeclined')
-				echo ("Invitation déclinée");
+				echo ("Invitation dï¿½clinï¿½e");
 
 			/* Withdraw Request */
 			echo ("</td><td align='center'>");
@@ -459,7 +459,7 @@
             <tr>
               <th>Adversaire</th>
               <th>Votre couleur</th>
-              <th>Type / Réponse</th>
+              <th>Type / Rï¿½ponse</th>
               <th>Action</th>
             </tr>
             
@@ -534,7 +534,7 @@
 	<? }?>
 	
       <form name="existingGames" action="partie.php" method="post">
-        <h3> Mes parties en cours <a href="tableaubord.php"><img src="images/icone_rafraichir.png" border="0" alt="Rafraîchir" /></a></h3>
+        <h3> Mes parties en cours <a href="tableaubord.php"><img src="images/icone_rafraichir.png" border="0" alt="Rafraï¿½chir" /></a></h3>
         
 		<div id="mosaique">
         <?
