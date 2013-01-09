@@ -4,7 +4,7 @@
 	/* chess utils */
 	require_once('../bwc/bwc_chessutils.php');
 	
-	require 'gui_list.php';
+	require 'bwc/bwc_common.php';
 	
 	/* connect to the database */
 	require '../include/connectdb.php';

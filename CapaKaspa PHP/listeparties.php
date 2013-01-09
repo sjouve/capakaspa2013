@@ -7,7 +7,7 @@
 
 	/* load external functions for setting up new game */
 	//require 'bwc/bwc_games.php';
-	require 'gui_list.php';
+	require 'bwc/bwc_common.php';
 	
 	/* connect to database */
 	require 'include/connectdb.php';

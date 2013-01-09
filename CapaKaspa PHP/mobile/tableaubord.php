@@ -11,9 +11,7 @@
 	require '../bwc/bwc_board.php';
 	require '../bwc/bwc_players.php';
 	require '../bwc/bwc_games.php';
-	require '../gui_games.php';
-	require '../gui_rss.php';
-
+	
 	/* connect to database */
 	require '../include/connectdb.php';
 	
