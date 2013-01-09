@@ -269,10 +269,6 @@
 	{
 		global $board, $numMoves;
 
-		/* old PHP versions don't have _POST, _GET and _SESSION as auto_globals */
-		if (!minimum_version("4.1.0"))
-			global $_POST, $_GET, $_SESSION;
-
 		/* write out constants */
 		echo ("var DEBUG = ".DEBUG.";\n");
 
@@ -331,44 +327,6 @@
 		}
 }
 
-	function writeVerbousHistory()
-	{
-		global $history, $numMoves;
-
-		echo ("<table width='300' border='0'>\n");
-		echo ("<tr><th bgcolor='beige' colspan='2'>Feuille de partie</th></tr>\n");
-
-		for ($i = $numMoves; $i >= 0; $i--)
-		{
-			if ($i % 2 == 1)
-			{
-				echo ("<tr bgcolor='black'>");
-				echo ("<td width='20'><font color='white'>".($i + 1)."</font></td><td><font color='white'>");
-			}
-			else
-			{
-				echo ("<tr bgcolor='white'>");
-				echo ("<td width='20'>".($i + 1)."</td><td><font color='black'>");
-			}
-
-			$tmpReplaced = "";
-			if (!is_null($history[$i]['replaced']))
-				$tmpReplaced = $history[$i]['replaced'];
-
-			$tmpPromotedTo = "";
-			if (!is_null($history[$i]['promotedTo']))
-				$tmpPromotedTo = $history[$i]['promotedTo'];
-
-			$tmpCheck = ($history[$i]['isInCheck'] == 1);
-
-			echo(moveToVerbousString($history[$i]['curColor'], $history[$i]['curPiece'], $history[$i]['fromRow'], $history[$i]['fromCol'], $history[$i]['toRow'], $history[$i]['toCol'], $tmpReplaced, $tmpPromotedTo, $tmpCheck));
-
-			echo ("</font></td></tr>\n");
-		}
-
-		echo ("<tr bgcolor='#BBBBBB'><td>0</td><td>Nouvelle partie</td></tr>\n");
-		echo ("</table>\n");
-	}
 
 	function writeHistoryPGN()
 	{

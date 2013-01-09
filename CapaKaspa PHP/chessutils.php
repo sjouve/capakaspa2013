@@ -228,61 +228,6 @@
 		return $pgnCode;
 	}
 	
-	function getPieceNameFR($piecename)
-	{
-		switch($piecename)
-		{
-			case 'pawn':
-				$pieceNameFR = "pion";
-				break;
-			case 'knight':
-				$pieceNameFR = "cavalier";
-				break;
-			case 'bishop':
-				$pieceNameFR = "fou";
-				break;
-			case 'rook':
-				$pieceNameFR = "tour";
-				break;
-			case 'queen':
-				$pieceNameFR = "dame";
-				break;
-			case 'king':
-				$pieceNameFR = "roi";
-				break;
-		}
-		return $pieceNameFR;
-	}
-	
-	function getColorFR($color, $piece)
-	{
-		switch($color)
-		{
-			case 'white':
-				if ($piece == "queen" || $piece == "rook")
-				{
-					$colorFR = "blanche";
-				}
-				else
-				{
-					$colorFR = "blanc";
-				}
-				break;
-			case 'black':
-				if ($piece == "queen" || $piece == "rook")
-				{
-					$colorFR = "noire";
-				}
-				else
-				{
-					$colorFR = "noir";
-				}
-				break;
-		}
-		
-		return $colorFR;
-	}
-	
 	function isBoardDisabled()
 	{
 		global $board, $isPromoting, $isUndoRequested, $isDrawRequested, $isGameOver, $playersColor, $nb_game_vacation;
@@ -348,30 +293,6 @@
 		/* if checkmate, $pgnString .= "#"; */
 
 		return $pgnString;
-	}
-
-	function moveToVerbousString($curColor, $piece, $fromRow, $fromCol, $toRow, $toCol, $pieceCaptured, $promotedTo, $isChecked)
-	{
-		$verbousString = "";
-		
-		/* ex: white queen from a4 to c6 */
-		$verbousString .= getPieceNameFR($piece)." ".getColorFR($curColor, $piece)." de ".chr($fromCol + 97).($fromRow + 1)." vers ".chr($toCol + 97).($toRow + 1);
-
-		/* check for castling */
-		if (($piece == "king") && (abs($toCol - $fromCol) == 2))
-			$verbousString .= " (roque)";
-
-		/* check for en passant */
-		if (($piece == "pawn") && ($toCol != $fromCol) && ($pieceCaptured == ""))
-			$verbousString .= " mange le pion en-passant";
-			
-		if ($pieceCaptured != "")
-			$verbousString .= " mange ".getPieceNameFR($pieceCaptured);
-
-		if ($promotedTo != "")
-			$verbousString .= "<br>pion promu en ".getPieceNameFR($promotedTo);
-		
-		return $verbousString;
 	}
 	
 	/* Fonction d'envoi de mail */
@@ -460,105 +381,5 @@
 		$headers .= "Reply-To: CapaKaspa <".$CFG_MAILADDRESS.">\r\n";
 		
 		//mail($msgTo, $mailsubject, $mailmsg, $headers);
-	}
-
-	/* returns true if current version of PHP is greater than vercheck */
-	/* donated to PHP page (http://www.php.net/manual/en/function.version-compare.php) */
-	/* by savetz@northcoast.com and is PHP < 4.1.0 safe */
-	function minimum_version( $vercheck ) {
-		$minver = explode(".", $vercheck);
-		$curver = explode(".", phpversion());
-		
-		if (($curver[0] < $minver[0])
-			|| (($curver[0] == $minver[0])
-				&& ($curver[1] < $minver[1]))
-			|| (($curver[0] == $minver[0])
-				&& ($curver[1] == $minver[1])
-				&& ($curver[2][0] < $minver[2][0])))
-			return false;
-		else
-			return true;
-	}
-
-	/* allow WebChess to be run on PHP systems < 4.1.0, using old http vars */
-	/* heavily based on php4-1-0_varfix.php by Tom Harrison (thetomharrison@hotmail.com) */
-	/* only doing the opposite: creating _SESSION, _GET and _POST based on */
-	/* their HTTP_*_VARS equivalent */
-	function createNewHttpVars($type)
-	{
-		global $HTTP_POST_VARS, $HTTP_GET_VARS, $HTTP_SESSION_VARS;
-
-		$temp = array();
-		switch(strtoupper($type))
-		{
-			case 'POST':   $temp2 = &$HTTP_POST_VARS;   break;
-			case 'GET':    $temp2 = &$HTTP_GET_VARS;    break;
-			case 'SESSION':    $temp2 = &$HTTP_SESSION_VARS;    break;
-			default: return 0;
-		}
-
-		while (list($varname, $varvalue) = each($temp2)) {
-			$temp[$varname] = $varvalue;
-		}
-		
-		return ($temp);
-	}
-	
-	function fixOldPHPVersions()
-	{
-		global $_fixOldPHPVersions;
-
-		if (isset($_fixOldPHPVersions))
-			return;
-		
-		if (!minimum_version("4.1.0"))
-		{
-			global $_POST, $_GET, $_SESSION;
-
-			$_POST = createNewHttpVars("POST");
-			$_GET = createNewHttpVars("GET");
-			//$_SESSION = createNewHttpVars("SESSION");
-			
-			if (!isset($HTTP_SESSION_VARS["_SESSION"]))
-				session_register("_SESSION");
-		}
-
-		$_fixOldPHPVersions = true;
-	}
-
-	// this function was taken from the PHP documentation
-	// http://www.php.net/manual/en/function.mt-srand.php
-	// seed with microseconds
-	function make_seed() {
-		list($usec, $sec) = explode(' ', microtime());
-		return (float) $sec + ((float) $usec * 100000);
-	}
-	
-	
-	// this function was provided to the PHP documentation
-	// by houtex_boy@yahoo.com and slightly modified to use
-	// the above make_seed()
-	// http://www.php.net/manual/en/function.srand.php
-	// ensures srand() is only called once
-	function init_srand($seed = '')
-	{
-		static $wascalled = FALSE;
-		if (!$wascalled){
-			$seed = $seed === '' ? make_seed() : $seed;
-			srand($seed);
-			$wascalled = TRUE;
-		}
-	}
-
-	function nbJours($debut, $fin) {
-		$tDeb = explode("-", $debut);
-		$tFin = explode("-", $fin);
-		
-		$diff = mktime(0, 0, 0, $tFin[1], $tFin[2], $tFin[0]) - 
-		          mktime(0, 0, 0, $tDeb[1], $tDeb[2], $tDeb[0]);
-		  
-		return(($diff / 86400)+1);
-		
-	}
-	
+	}	
 ?>

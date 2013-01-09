@@ -2,6 +2,7 @@
 if (!isset($_CONFIG))
 		require 'config.php';
 require_once('dac/dac_players.php');
+require_once('bwc/bwc_common.php');
 require_once('chessutils.php');
 
 /* Création du joueur et de ses préférences */
@@ -366,7 +367,7 @@ function createVacation($playerID, $nbDays, $delai_expiration)
     		
     		$beginDate = date("Y-m-d", mktime(0, 0, 0, date("m"), date("d"),  date("Y")));
     		$res_adv_vacation = mysql_fetch_array($res_adv_vacations, MYSQL_ASSOC);
-    		$nbDaysPlus = nbJours($beginDate, $res_adv_vacation['endDate']);
+    		$nbDaysPlus = nbDays($beginDate, $res_adv_vacation['endDate']);
     		
     		if ($nbDaysPlus < $nbDays)
     		{

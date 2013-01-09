@@ -3,8 +3,6 @@
 	$titre_page = "Résultat de la recherche";
 	$desc_page = "Résultat d'une recherche sur les sites des échecs CapaKaspa : la zone de jeu d'échecs, le blog et le forum.";
     require 'page_header.php';
-    $image_bandeau = 'bandeau_capakaspa_global.jpg';
-    $barre_progression = "<a href='/'>Accueil</a> > Résultat de la recherche";
     require 'page_body_no_menu.php';
 ?>
     <div id="contentxlarge">

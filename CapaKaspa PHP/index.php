@@ -63,8 +63,6 @@
 
 			if (mysql_num_rows($tmpExistingRequests) == 0)
 			{
-				if (!minimum_version("4.2.0"))
-					init_srand();
 
 				if ($_POST['color'] == 'random')
 					$tmpColor = (mt_rand(0,1) == 1) ? "white" : "black";
@@ -133,8 +131,6 @@
 
 						if (mysql_num_rows($tmpExistingRequests) == 0)
 						{
-							if (!minimum_version("4.2.0"))
-								init_srand();
 
 							if ($_POST['color'] == 'random')
 								$tmpColor = (mt_rand(0,1) == 1) ? "white" : "black";
