@@ -143,7 +143,7 @@ require 'page_body.php';
 	<h2>Play chess and share your games</h2>
 	</p>
 	<p><img src="images/icone_video.png"/> <a href="http://youtu.be/J6pMC2Ceaxw" target="_blank"><?php echo _("Demo video");?></a> 
-	<img src="images/icone_pdf.gif"/> <a href="../manuel-utilisateur-jouer-echecs-capakaspa.pdf" target="_blank"><?php echo _("User manual");?></a>
+	<img src="images/icone_pdf.gif"/> <a href="doc/manuel-utilisateur-jouer-echecs-capakaspa.pdf" target="_blank"><?php echo _("User manual");?></a>
 	</p>
 	
 	<h3><?php echo _("New on CapaKaspa ? Sign up");?></h3>
