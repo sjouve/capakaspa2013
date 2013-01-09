@@ -11,8 +11,8 @@
 	/* check session status */
 	require_once('chessutils.php');
 	
-	require 'dac_players.php';
-	require 'dac_games.php';
+	require 'dac/dac_players.php';
+	require 'dac/dac_games.php';
 
 	require 'sessioncheck.php';
 

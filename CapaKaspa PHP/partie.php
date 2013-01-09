@@ -70,7 +70,7 @@
 	}
 	
 	// Pièces capturées
-	// TODO Mettre cette requete dans dac_games
+	// TODO Mettre cette requete dans dac/dac_games
 	$f=mysql_query("select curPiece,curColor,replaced from history where replaced > '' and gameID =  '".$_POST['gameID']."' order by curColor desc , replaced desc");
 	
 			

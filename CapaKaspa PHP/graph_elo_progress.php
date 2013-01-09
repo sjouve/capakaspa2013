@@ -9,7 +9,7 @@ if (!isset($_CONFIG))
 // Connexion BDD
 require 'connectdb.php';
 
-require 'dac_players.php';
+require 'dac/dac_players.php';
 	
 // Data
 $eloProgress = listEloProgress($_GET['playerID']);

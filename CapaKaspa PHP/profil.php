@@ -11,7 +11,7 @@
 	/* connect to database */
 	require 'connectdb.php';
 	
-	require 'dac_games.php';
+	require 'dac/dac_games.php';
 	require 'bwc_players.php';
 	
 	/* check session status */

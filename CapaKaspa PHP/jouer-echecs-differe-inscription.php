@@ -5,7 +5,7 @@ if (!isset($_CONFIG))
 	require 'config.php';
 require 'localization.php';
 require 'connectdb.php';
-require 'dac_common.php';
+require 'dac/dac_common.php';
 require 'bwc_common.php';
 require 'bwc_players.php';
 require 'bwc_games.php';

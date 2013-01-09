@@ -12,7 +12,7 @@
 	/* check session status */
 	require 'sessioncheck.php';
 	
-	//require 'dac_players.php';
+	//require 'dac/dac_players.php';
 	
     $titre_page = "Echecs en différé - Proposition de partie";
     $desc_page = "Jouer aux échecs en différé. Recherchez un adversaire pour lui proposer une partie d'échecs en différé.";

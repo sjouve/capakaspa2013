@@ -10,8 +10,8 @@
 	/* check session status */
 	require_once('../chessutils.php');
 	
-	require '../dac_players.php';
-	require '../dac_games.php';
+	require '../dac/dac_players.php';
+	require '../dac/dac_games.php';
 
 	require '../sessioncheck.php';
 
@@ -37,8 +37,8 @@
 	/* Charger le favori */
     $favorite = getPlayerFavorite($_SESSION['playerID'], $player['playerID']);
     
- 	$titre_page = "Echecs en différé (mobile) - Consulter un profil";
- 	$desc_page = "Jouez aux échecs en différé sur votre smartphone. Consulter le profil d'un jouer de la zone de jeu d'échecs en différé : son classement Elo, sa description, ses parties...";
+ 	$titre_page = "Echecs en diffï¿½rï¿½ (mobile) - Consulter un profil";
+ 	$desc_page = "Jouez aux ï¿½checs en diffï¿½rï¿½ sur votre smartphone. Consulter le profil d'un jouer de la zone de jeu d'ï¿½checs en diffï¿½rï¿½ : son classement Elo, sa description, ses parties...";
     require 'page_header.php';
 ?>
 
@@ -86,11 +86,11 @@
 			</td>
           </tr>
 		  <tr>
-            <td> Situation géographique : </td>
+            <td> Situation gï¿½ographique : </td>
             <td><? echo(stripslashes($player['situationGeo'])); ?></td>
           </tr>
 		  <tr>
-            <td> Année de naissance : </td>
+            <td> Annï¿½e de naissance : </td>
             <td><? echo($player['anneeNaissance']); ?></td>
           </tr>
 		  <tr>
@@ -98,7 +98,7 @@
             <td><TEXTAREA NAME="txtProfil" COLS="30" ROWS="5" readonly="readonly"><? echo(stripslashes($player['profil'])); ?></TEXTAREA></td>
           </tr>
           <tr>
-            <td> Dernière connexion le : </td>
+            <td> Derniï¿½re connexion le : </td>
             <td><? 	list($annee, $mois, $jour) = explode("-", substr($player['lastConnection'], 0,10)); 
 					echo($jour.'/'.$mois.'/'.$annee);
 				?>
@@ -123,7 +123,7 @@
 		
 		<? if ($_SESSION['playerID']!=$player['playerID']) {?>
 		<form action="tableaubord.php" method="post">
-			<h3>Proposez une nouvelle partie à <? echo($player['nick']); ?></h3>
+			<h3>Proposez une nouvelle partie ï¿½ <? echo($player['nick']); ?></h3>
 			<input type="hidden" name="ToDo" value="InvitePlayer">
 			<input type="hidden" name="opponent" value="<? echo($player['playerID']);?>">
 			<table width="100%">
@@ -169,7 +169,7 @@
             <tr>
               <th width="25%">Blancs</th>
               <th width="25%">Noirs</th>
-              <th width="10%">Résultat</th>
+              <th width="10%">Rï¿½sultat</th>
               <th width="10%">ECO</th>
               <th width="30%">Dernier coup</th>
             </tr>
@@ -227,7 +227,7 @@
             <tr>
               <th width="25%">Blancs</th>
               <th width="25%">Noirs</th>
-              <th width="10%">Résultat</th>
+              <th width="10%">Rï¿½sultat</th>
               <th width="10%">ECO</th>
               <th width="30%">Dernier coup</th>
             </tr>
@@ -240,7 +240,7 @@
 				                            ORDER BY G.dateCreated");
 					
 					if (mysql_num_rows($tmpGames) == 0)
-						echo("<tr><td colspan='6'>Vous n'avez joué aucune partie contre ce joueur</td></tr>\n");
+						echo("<tr><td colspan='6'>Vous n'avez jouï¿½ aucune partie contre ce joueur</td></tr>\n");
 					else
 					{
 						while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
@@ -305,7 +305,7 @@
             <td><? echo($nbNulles); ?></td>
           </tr>
 		  <tr>
-            <td> Défaites : </td>
+            <td> Dï¿½faites : </td>
             <td><? echo($nbDefaites); ?></td>
           </tr>
 		 </table>

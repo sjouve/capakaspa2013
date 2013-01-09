@@ -1,7 +1,7 @@
 ﻿<?
 require 'chessconstants.php';
 require_once('chessutils.php');
-require 'dac_players.php';
+require 'dac/dac_players.php';
 require 'bwc_board.php';
 require 'bwc_games.php';
 

@@ -1,7 +1,7 @@
 <?
 if (!isset($_CONFIG))
 		require 'config.php';
-require_once('dac_players.php');
+require_once('dac/dac_players.php');
 require_once('chessutils.php');
 
 /* Création du joueur et de ses préférences */

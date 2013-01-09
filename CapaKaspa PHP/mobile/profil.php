@@ -11,7 +11,7 @@
 	/* connect to database */
 	require '../connectdb.php';
 	
-	require '../dac_games.php';
+	require '../dac/dac_games.php';
 	require '../bwc_players.php';
 	
 	/* check session status */
@@ -35,8 +35,8 @@
 	}
 
 		
- 	$titre_page = "Echecs en différé (mobile) - Modifier votre profil";
- 	$desc_page = "Jouer aux échecs en différé sur votre smartphone. Modifier votre profil de joueur de la zone de jeu d'échecs en différé";
+ 	$titre_page = "Echecs en diffï¿½rï¿½ (mobile) - Modifier votre profil";
+ 	$desc_page = "Jouer aux ï¿½checs en diffï¿½rï¿½ sur votre smartphone. Modifier votre profil de joueur de la zone de jeu d'ï¿½checs en diffï¿½rï¿½";
     require 'page_header.php';
 ?>
 <script type="text/javascript" src="http://www.capakaspa.info/javascript/formValidation.js">
@@ -59,7 +59,7 @@
 			
 			if (!isNumber(document.Profil.txtAnneeNaissance.value) || !isWithinRange(document.Profil.txtAnneeNaissance.value, 1900, annee))
 			{
-				alert("L'année de naissance est un nombre à 4 chiffres compris entre 1900 et l'année courante.");
+				alert("L'annï¿½e de naissance est un nombre ï¿½ 4 chiffres compris entre 1900 et l'annï¿½e courante.");
 				return;
 			}
 			
@@ -72,7 +72,7 @@
 			
 			if (!isEmpty(document.Profil.pwdPassword.value) && !isAlphaNumeric(document.Profil.pwdPassword.value))
 			{
-				alert("Le mot de passe doit être alphanumérique.");
+				alert("Le mot de passe doit ï¿½tre alphanumï¿½rique.");
 				return;
 			}
 			
@@ -86,11 +86,11 @@
 		{
 			if (!isWithinRange(document.Vacation.nbDays.value, 1, 30))
 			{
-				alert("Le nombre de jours doit être compris entre 0 et 30.");
+				alert("Le nombre de jours doit ï¿½tre compris entre 0 et 30.");
 				return;
 			}
 			var vok=false;
-			vok = confirm("L'ajout de cette absence ne peut être annulée et toutes vos parties seront immédiatement ajournées. Veuillez confirmer sa prise en compte ?");
+			vok = confirm("L'ajout de cette absence ne peut ï¿½tre annulï¿½e et toutes vos parties seront immï¿½diatement ajournï¿½es. Veuillez confirmer sa prise en compte ?");
 			if (vok)
 			{
 				document.Vacation.submit();
@@ -114,21 +114,21 @@
 	
       	<?
       	if ($err == 0)
-				echo("<div class='error'>Un problème technique a empêché l'opération</div>");
+				echo("<div class='error'>Un problï¿½me technique a empï¿½chï¿½ l'opï¿½ration</div>");
 		if ($ToDo == 'UpdateProfil')
       	{
 			
 			if ($err == -1)
 				echo("<div class='error'>Votre ancien mot de passe n'est pas celui que vous avez saisi</div>");
 			if ($err == 1)
-				echo("<div class='success'>Les modifications de votre profil ont bien été enregistrées</div>");
+				echo("<div class='success'>Les modifications de votre profil ont bien ï¿½tï¿½ enregistrï¿½es</div>");
 		}
 		if ($ToDo == 'CreateVacation')
 		{
 			if ($err == -100)
 				echo("<div class='error'>Le nombre de jours d'absence que vous demandez n'est pas valide</div>");
 			if ($err == 1)
-				echo("<div class='success'>Votre demande d'absence a bien été enregistrée</div>");
+				echo("<div class='success'>Votre demande d'absence a bien ï¿½tï¿½ enregistrï¿½e</div>");
 		}
 		?>
       <form name="Profil" action="profil.php" method="post">
@@ -140,7 +140,7 @@
             </td>
           </tr>
 		  <tr>
-            <td> Prénom : </td>
+            <td> Prï¿½nom : </td>
             <td><input name="txtFirstName" type="text" size="20" maxlength="20" value="<? echo($_SESSION['firstName']); ?>">
             </td>
           </tr>
@@ -155,12 +155,12 @@
             </td>
           </tr>
 		  <tr>
-            <td> Situation géographique : </td>
+            <td> Situation gï¿½ographique : </td>
             <td><input name="txtSituationGeo" type="text" size="30" maxlength="50" value="<? echo($_SESSION['situationGeo']); ?>">
             </td>
           </tr>
 		  <tr>
-            <td> Année de naissance : </td>
+            <td> Annï¿½e de naissance : </td>
             <td><input name="txtAnneeNaissance" type="text" size="4" maxlength="4" value="<? echo($_SESSION['anneeNaissance']); ?>">
             </td>
           </tr>
@@ -186,7 +186,7 @@
           </tr>
           <tr>
             <td>&nbsp;</td>
-            <td>ID réseau : <input name="txtSocialID" type="text" size="20" maxlength="100" value="<? echo($_SESSION['socialID']); ?>"> 
+            <td>ID rï¿½seau : <input name="txtSocialID" type="text" size="20" maxlength="100" value="<? echo($_SESSION['socialID']); ?>"> 
             </td>
           </tr>
           <tr>
@@ -213,7 +213,7 @@
         </table>
         
       
-      <h3>Mes préférences</h3>
+      <h3>Mes prï¿½fï¿½rences</h3>
       
         <table border="0" width="100%">
           <tr>
@@ -225,7 +225,7 @@
               <input name="txtEmailNotification" type="radio" value="oui" checked>
               Oui 
               <input name="txtEmailNotification" type="radio" value="non">
-              Non (Evènements partie, commentaires et messages)
+              Non (Evï¿½nements partie, commentaires et messages)
               <?
 					}
 					else
@@ -234,13 +234,13 @@
               <input name="txtEmailNotification" type="radio" value="oui">
               Oui 
               <input name="txtEmailNotification" type="radio" value="non" checked>
-              Non (Evènements partie, commentaires et messages)
+              Non (Evï¿½nements partie, commentaires et messages)
               <?	}
 				?>
             </td>
           </tr>
           <tr>
-            <td>Thème :</td>
+            <td>Thï¿½me :</td>
             <td><?
 					if ($_SESSION['pref_theme'] == 'beholder')
 					{
@@ -293,22 +293,22 @@
       
       <!-- 
       Gestion des absences
-      Le joueur saisie la durée de son congé qui est effectif à partir du lendemain
+      Le joueur saisie la durï¿½e de son congï¿½ qui est effectif ï¿½ partir du lendemain
       On demande confirmation car toute annulation est impossible
-      La saisi du congé n'est plus possible pendant la durée d'un congé
-      Le solde de congé du joueur est décrémenté du nombre de jour saisi
-      Le système enregistre la date de début du congé (date du jour + 1), la durée et la date de fin (date de début + durée)
+      La saisi du congï¿½ n'est plus possible pendant la durï¿½e d'un congï¿½
+      Le solde de congï¿½ du joueur est dï¿½crï¿½mentï¿½ du nombre de jour saisi
+      Le systï¿½me enregistre la date de dï¿½but du congï¿½ (date du jour + 1), la durï¿½e et la date de fin (date de dï¿½but + durï¿½e)
       
-      Lors de la saisie du congé il faut modifier la date du dernier des parties du joueur :
+      Lors de la saisie du congï¿½ il faut modifier la date du dernier des parties du joueur :
       Pour chaque partie
-      	Si pas de congé en cours pour l'adversaire on ajoute la durée du congé saisi +1 à la date du dernier coup
-      	Sinon on ajoute la durée du congé saisi - (date de fin du congé en cours de l'adversaire - date de début du congé saisi)      
+      	Si pas de congï¿½ en cours pour l'adversaire on ajoute la durï¿½e du congï¿½ saisi +1 ï¿½ la date du dernier coup
+      	Sinon on ajoute la durï¿½e du congï¿½ saisi - (date de fin du congï¿½ en cours de l'adversaire - date de dï¿½but du congï¿½ saisi)      
       
-      Tant qu'un des joueurs d'une partie est en congé la partie est gelée (il est impossible de jouer un coup)
+      Tant qu'un des joueurs d'une partie est en congï¿½ la partie est gelï¿½e (il est impossible de jouer un coup)
        -->
       
       <h3>Gestion des absences</h3>
-      <p>Vous disposez encore de <b><?echo(countAvailableVacation($_SESSION['playerID']));?> jours</b> d'absence pour l'année <?echo(date('Y'))?> (tous les jours d'une éventuelle absence à cheval sur l'année précédente sont décomptés en <?echo(date('Y'))?>).</p>
+      <p>Vous disposez encore de <b><?echo(countAvailableVacation($_SESSION['playerID']));?> jours</b> d'absence pour l'annï¿½e <?echo(date('Y'))?> (tous les jours d'une ï¿½ventuelle absence ï¿½ cheval sur l'annï¿½e prï¿½cï¿½dente sont dï¿½comptï¿½s en <?echo(date('Y'))?>).</p>
     
       <?	
       		$tmpVacations = getCurrentVacation($_SESSION['playerID']);
@@ -318,7 +318,7 @@
 			else
 			{
 				$tmpVacation = mysql_fetch_array($tmpVacations, MYSQL_ASSOC);
-				echo("<p>Votre avez un absence à prendre en compte du ");
+				echo("<p>Votre avez un absence ï¿½ prendre en compte du ");
 				echo("<b>".$tmpVacation['beginDateF']."</b> ");
     			echo(" au " );
 				echo("<b>".$tmpVacation['endDateF']."</b>.</p>");
@@ -332,7 +332,7 @@
 	  	<?	$tomorrow  = mktime(0, 0, 0, date("m")  , date("d")+1, date("Y")); 
 	  		$today = date("d/m/Y", $tomorrow);
 	  	?> 
-	        <p>Vous souhaitez vous absenter pour <input name="nbDays" size="2" maxlength="2" type="text" value=""> jour(s) <input name="Validate" type="button" value="Valider" onClick="validateVacation()"> à compter du <? echo($today)?> (vos parties seront ajournées immédiatement).</p>
+	        <p>Vous souhaitez vous absenter pour <input name="nbDays" size="2" maxlength="2" type="text" value=""> jour(s) <input name="Validate" type="button" value="Valider" onClick="validateVacation()"> ï¿½ compter du <? echo($today)?> (vos parties seront ajournï¿½es immï¿½diatement).</p>
 	      	<input type="hidden" name="ToDo" value="CreateVacation">
     	</form>
     	<? }?>

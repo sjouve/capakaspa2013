@@ -12,10 +12,10 @@
 	/* check session status */
 	require '../sessioncheck.php';
 	
-	//require 'dac_players.php';
+	//require 'dac/dac_players.php';
 	
-    $titre_page = "Echecs en différé (mobile) - Proposition de partie";
-    $desc_page = "Jouer aux échecs en différé sur votre smartphone. Recherchez un adversaire pour lui proposer une partie d'échecs en différé.";
+    $titre_page = "Echecs en diffï¿½rï¿½ (mobile) - Proposition de partie";
+    $desc_page = "Jouer aux ï¿½checs en diffï¿½rï¿½ sur votre smartphone. Recherchez un adversaire pour lui proposer une partie d'ï¿½checs en diffï¿½rï¿½.";
     require 'page_header.php';
 ?>
 	<script type="text/javascript">
@@ -92,7 +92,7 @@
 				$count = mysql_fetch_array($res_count, MYSQL_ASSOC);
 				$nb_tot = $count['nbPlayers'];
 			}
-			$nbpages = ceil($nb_tot/$limit); // ceil = plafond : pour arrondir à la valeur supérieure
+			$nbpages = ceil($nb_tot/$limit); // ceil = plafond : pour arrondir ï¿½ la valeur supï¿½rieure
 			$resultats = searchPlayers("", $debut, $limit, $_POST['critFavorite'], $critStatus, $_POST['critEloStart'], $_POST['critEloEnd']); 
 			
 		?>
@@ -113,7 +113,7 @@
 		            <td width="30%">&nbsp;</td>
 		          </tr>
 		          <tr>
-		            <td>Activité :</td>
+		            <td>Activitï¿½ :</td>
 		            <td>
 		              <input name="critStatus" type="radio" value="tous" <?if ($critStatus=='tous') echo('checked');?>>
 		              Tous
