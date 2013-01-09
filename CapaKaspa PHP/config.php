@@ -7,12 +7,6 @@
 	$CFG_USER = "root";
 	$CFG_PASSWORD = "";
 	$CFG_DATABASE = "capakaspa";
-	
-	/* remote server free */
-	/*$CFG_SERVER = "sql.free.fr";
-	$CFG_USER = "capakaspa";
-	$CFG_PASSWORD = "b4rm7i3n";
-	$CFG_DATABASE = "capakaspa";*/
 
     /* remote server 1and1 */
 	/*$CFG_SERVER = "db317.1and1.fr";
@@ -40,13 +34,5 @@
 	$CFG_USEEMAILNOTIFICATION = true;	
 	
 	// email address people see when receiving CapaKaspa generated mail
-	$CFG_MAILADDRESS = "capakaspa@capakaspa.info";
-	
-	/* NON UTILISE : A SUPPRIMER */
-	// min number of secs between automatic reloads reloads
-	$CFG_MINAUTORELOAD = 5;			
-	$CFG_MAXUSERS = 50;
-	$CFG_MAXACTIVEGAMES = 10;
-	// whether a user can change their nick from the main menu
-	$CFG_NICKCHANGEALLOWED = false;		
+	$CFG_MAILADDRESS = "capakaspa@capakaspa.info";		
 ?>
