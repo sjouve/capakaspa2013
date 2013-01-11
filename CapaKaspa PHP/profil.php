@@ -36,7 +36,7 @@
 		
  	$titre_page = "Echecs en différé - Modifier votre profil";
  	$desc_page = "Jouer aux échecs en différé. Modifier votre profil de joueur de la zone de jeu d'échecs en différé";
-    require 'page_header.php';
+    require 'include/page_header.php';
 ?>
 <script type="text/javascript" src="javascript/formValidation.js">
  /* fonctions de validation des champs d'un formulaire */
@@ -99,7 +99,7 @@
 <?
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
     $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Mon profil";
-    require 'page_body.php';
+    require 'include/page_body.php';
 ?>
   <div id="contentlarge">
     <div class="blogbody">
@@ -361,6 +361,6 @@
     </div>
   </div>
 <?
-    require 'page_footer.php';
+    require 'include/page_footer.php';
     mysql_close();
 ?>

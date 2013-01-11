@@ -40,7 +40,7 @@
     
  	$titre_page = "Echecs en différé - Consulter un profil";
  	$desc_page = "Jouez aux échecs en différé. Consulter le profil d'un jouer de la zone de jeu d'échecs en différé : son classement Elo, sa description, ses parties...";
-    require 'page_header.php';
+    require 'include/page_header.php';
 ?>
 
 <script type="text/javascript">
@@ -61,7 +61,7 @@
 </script>
 
 <?    
-    require 'page_body_no_menu.php';
+    require 'include/page_body_no_menu.php';
 ?>
   <div id="contentlarge">
     <div class="blogbody">
@@ -346,6 +346,6 @@
     </div>
   </div>
 <?
-    require 'page_footer.php';
+    require 'include/page_footer.php';
     mysql_close();
 ?>

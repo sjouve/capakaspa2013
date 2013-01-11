@@ -37,7 +37,7 @@
 		
  	$titre_page = "Echecs en diff�r� (mobile) - Modifier votre profil";
  	$desc_page = "Jouer aux �checs en diff�r� sur votre smartphone. Modifier votre profil de joueur de la zone de jeu d'�checs en diff�r�";
-    require 'page_header.php';
+    require 'include/page_header.php';
 ?>
 <script type="text/javascript" src="http://www.capakaspa.info/javascript/formValidation.js">
  /* fonctions de validation des champs d'un formulaire */
@@ -99,7 +99,7 @@
 	</script>
 <?
     
-    require 'page_body.php';
+    require 'include/page_body.php';
 ?>
  
 	<div id="onglet">
@@ -339,6 +339,6 @@
     	<br/>
     	
 <?
-    require 'page_footer.php';
+    require 'include/page_footer.php';
     mysql_close();
 ?>

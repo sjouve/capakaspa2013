@@ -3,11 +3,11 @@
 	require 'bwc/bwc_players.php';
 	$titre_page = "Jeux en ligne - Jouer aux échecs avec Crazy Chess";
 	$desc_page = "Jeux en ligne. Apprenez à maîtriser les mouvements du Cavalier grâce à ce jeu en flash un peu fou.";
-    require 'page_header.php';
+    require 'include/page_header.php';
     
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
     $barre_progression = "<a href='/'>Accueil</a> > Jeux en ligne > Jouer à Crazy Chess";
-    require 'page_body.php';
+    require 'include/page_body.php';
 ?>
 	<div id="contentlarge">
     	<div class="blogbody">
@@ -58,5 +58,5 @@
 
 
 <?
-    require 'page_footer.php';
+    require 'include/page_footer.php';
 ?>

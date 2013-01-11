@@ -38,10 +38,10 @@ if ($_SESSION['playerID'] != -1)
 	
 $titre_page = "Jouer aux échecs, apprendre et progresser - Accueil";
 $desc_page = "Les échecs conviviaux sur le Net : découvrir les échecs, apprendre, jouer aux échecs en ligne et partager grâce au forum et au blog";
-require 'page_header.php';
+require 'include/page_header.php';
 $image_bandeau = 'bandeau_capakaspa_global.jpg';
 $barre_progression = "Accueil";
-require 'page_body_no_menu.php';
+require 'include/page_body_no_menu.php';
 ?>
 <div id="content">
 	<div class="blogbody">
@@ -157,4 +157,4 @@ require 'page_body_no_menu.php';
     		
     	</div>
 	</div>
-<?require 'page_footer.php';?>
+<?require 'include/page_footer.php';?>

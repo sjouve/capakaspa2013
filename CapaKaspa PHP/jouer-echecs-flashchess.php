@@ -2,13 +2,13 @@
 	session_start();
 	require 'bwc/bwc_players.php';
 	$titre_page = 'Jouer aux échecs contre flashChess';
-    require 'page_header.php';
+    require 'include/page_header.php';
 ?>
 
 <?
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
     $barre_progression = "Jeux en ligne > Jouer contre flashChess";
-    require 'page_body.php';
+    require 'include/page_body.php';
 ?>
   <div id="contentlarge">
     <div class="blogbody">
@@ -54,5 +54,5 @@
 
 
 <?
-    require 'page_footer.php';
+    require 'include/page_footer.php';
 ?>

@@ -75,7 +75,7 @@ switch($ToDo)
 
 $titre_page = _("CapaKaspa");
 $desc_page = _("Sign up for CapaKaspa, play chess and share your games.");
-require 'page_header.php';
+require 'include/page_header.php';
     
 ?>
 <script type="text/javascript" src="javascript/formValidation.js">
@@ -131,7 +131,7 @@ require 'page_header.php';
 	}
 </script>
 <?
-require 'page_body.php';
+require 'include/page_body.php';
 ?>
 	<div id="contentlarge">
     <div class="blogbody">
@@ -265,6 +265,6 @@ require 'page_body.php';
 	</div>
 </div>
 <?
-    require 'page_footer.php';
+    require 'include/page_footer.php';
     mysql_close();
 ?>

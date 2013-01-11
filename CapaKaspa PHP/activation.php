@@ -23,8 +23,8 @@ switch($ToDo)
 
 $titre_page = "Echecs en différé - Activation du compte";
 $desc_page = "Activez votre compte pour accéder à la zone de jeu d'échecs en différé et jouer des parties à votre rythme.";
-require 'page_header.php';
-require 'page_body.php';
+require 'include/page_header.php';
+require 'include/page_body.php';
 ?>
   <div id="contentlarge">
     <div class="blogbody">
@@ -81,6 +81,6 @@ require 'page_body.php';
   </div>
 
 <?
-    require 'page_footer.php';
+    require 'include/page_footer.php';
     mysql_close();
 ?>

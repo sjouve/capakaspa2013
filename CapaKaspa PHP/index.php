@@ -293,7 +293,7 @@
 
     $titre_page = _("My games in progress");
     $desc_page = _("Play chess and share your games. My games in progress.");
-    require 'page_header.php';
+    require 'include/page_header.php';
 ?>
 <script type="text/javascript">
 
@@ -328,7 +328,7 @@
 <? } ?>
 	</script>
 <?
-    require 'page_body.php';
+    require 'include/page_body.php';
 ?>
   <div id="contentlarge">
     <div class="blogbody">
@@ -595,6 +595,6 @@
     </div>
   </div>
 <?
-    require 'page_footer.php';
+    require 'include/page_footer.php';
     mysql_close();
 ?>

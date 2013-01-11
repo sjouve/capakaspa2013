@@ -28,7 +28,7 @@
 	
 	$titre_page = "Echecs en différé - Les parties terminées";
 	$desc_page = "Jouer aux échecs en différé. Retrouvez la liste de vos parties d'échecs en différé terminées.";
-    require 'page_header.php';
+    require 'include/page_header.php';
 ?>
     <script type="text/javascript">
 
@@ -52,7 +52,7 @@
     	$barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Les parties terminées de ".$player['nick'];
     else
     	$barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Mes parties terminées";
-    require 'page_body.php';
+    require 'include/page_body.php';
 ?>
   <div id="contentlarge">
     <div class="blogbody">
@@ -285,6 +285,6 @@
     </div>
   </div>
 <?
-    require 'page_footer.php';
+    require 'include/page_footer.php';
     mysql_close();
 ?>

@@ -291,7 +291,7 @@
 
     $titre_page = "Echecs en diff�r� (mobile) - Tableau de bord";
     $desc_page = "Jouer aux �checs en diff�r� sur votre smartphone. Retrouvez vos parties d'�checs en diff�r� en cours et vos invitations en attente de r�ponse";
-    require 'page_header.php';
+    require 'include/page_header.php';
 ?>
 <script type="text/javascript">
 
@@ -327,7 +327,7 @@
 	</script>
 <?
    
-    require 'page_body.php';
+    require 'include/page_body.php';
 ?>
 
 	<div id="onglet">
@@ -589,6 +589,6 @@
       
  
 <?
-    require 'page_footer.php';
+    require 'include/page_footer.php';
     mysql_close();
 ?>

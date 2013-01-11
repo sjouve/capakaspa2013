@@ -39,7 +39,7 @@
     
  	$titre_page = "Echecs en diff�r� (mobile) - Consulter un profil";
  	$desc_page = "Jouez aux �checs en diff�r� sur votre smartphone. Consulter le profil d'un jouer de la zone de jeu d'�checs en diff�r� : son classement Elo, sa description, ses parties...";
-    require 'page_header.php';
+    require 'include/page_header.php';
 ?>
 
 <script type="text/javascript">
@@ -60,7 +60,7 @@
 </script>
 
 <?     
-    require 'page_body.php';
+    require 'include/page_body.php';
 ?>
   
 	<div id="onglet">
@@ -312,6 +312,6 @@
 		 <br/>	
 		
 <?
-    require 'page_footer.php';
+    require 'include/page_footer.php';
     mysql_close();
 ?>

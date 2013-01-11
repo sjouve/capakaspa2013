@@ -158,7 +158,7 @@
         $titre_page = "Echecs en diff�r� (mobile) - Le coup de l'adversaire";
 	
     $desc_page = "Jouer aux �checs en diff�r� sur votre smartphone. C'est votre partie, � vous de jouer.";
-    require 'page_header.php';
+    require 'include/page_header.php';
     //echo("<meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>\n");
 ?>
 <script type="text/javascript">
@@ -185,7 +185,7 @@ if (DEBUG)
 // this is the main function that interacts with the user everytime they click on a square
 </script>
 <?
-    require 'page_body.php';
+    require 'include/page_body.php';
 ?>
 	<div id="onglet">
 	<table width="100%" cellpadding="0" cellspacing="0">
@@ -317,6 +317,6 @@ if (DEBUG)
 	  </form>
     </center>
 <?
-    require 'page_footer.php';
+    require 'include/page_footer.php';
     mysql_close();
 ?>

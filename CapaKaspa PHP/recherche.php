@@ -2,8 +2,8 @@
 	session_start();
 	$titre_page = "Résultat de la recherche";
 	$desc_page = "Résultat d'une recherche sur les sites des échecs CapaKaspa : la zone de jeu d'échecs, le blog et le forum.";
-    require 'page_header.php';
-    require 'page_body_no_menu.php';
+    require 'include/page_header.php';
+    require 'include/page_body_no_menu.php';
 ?>
     <div id="contentxlarge">
     	<div class="blogbody">
@@ -22,5 +22,5 @@
       	</div>
 	  </div>
 <?
-    require 'page_footer.php';
+    require 'include/page_footer.php';
 ?>

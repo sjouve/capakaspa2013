@@ -3,11 +3,11 @@
 	require 'bwc/bwc_players.php';
 	$titre_page = "Jeux en ligne - Jeux flash pour se divertir";
 	$desc_page = "Jeux en ligne. Jouez avec quelques jeux classiques en Flash pour vous divertir.";
-    require 'page_header.php';
+    require 'include/page_header.php';
 
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
     $barre_progression = "<a href='/'>Accueil</a> > Jeux en ligne > Autres jeux";
-    require 'page_body.php';
+    require 'include/page_body.php';
 ?>
   <div id="contentlarge">
     <div class="blogbody">
@@ -70,5 +70,5 @@
 </div>
 
 <?
-    require 'page_footer.php';
+    require 'include/page_footer.php';
 ?>

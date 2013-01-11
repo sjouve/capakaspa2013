@@ -16,7 +16,7 @@
 	
     $titre_page = "Echecs en différé - Proposition de partie";
     $desc_page = "Jouer aux échecs en différé. Recherchez un adversaire pour lui proposer une partie d'échecs en différé.";
-    require 'page_header.php';
+    require 'include/page_header.php';
 ?>
 	<script type="text/javascript">
 
@@ -30,7 +30,7 @@
 <?
     $image_bandeau = 'bandeau_capakaspa_zone.jpg';
     $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Les autres joueurs";
-    require 'page_body.php';
+    require 'include/page_body.php';
 ?>
 	<div id="contentlarge">
 		<div class="blogbody">
@@ -213,5 +213,5 @@
 		</div>
 	</div>
 <?
-    require 'page_footer.php';
+    require 'include/page_footer.php';
 ?>

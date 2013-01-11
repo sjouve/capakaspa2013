@@ -21,8 +21,8 @@ switch($ToDo)
 
 $titre_page = _("Forgotten password - CapaKaspa");
 $desc_page = _("Play chess and share your games. Retrieve your password");
-require 'page_header.php';
-require 'page_body.php';
+require 'include/page_header.php';
+require 'include/page_body.php';
 ?>
   <div id="contentlarge">
     <div class="blogbody">
@@ -54,6 +54,6 @@ require 'page_body.php';
     </div>
   </div>
 <?
-require 'page_footer.php';
+require 'include/page_footer.php';
 mysql_close();
 ?>

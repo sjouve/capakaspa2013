@@ -35,9 +35,9 @@ if ($_SESSION['playerID'] != -1)
 
 $titre_page = "Echecs en diff�r� (mobile) - Accueil";
 $desc_page = "Jouer aux �checs en diff�r� sur votre smartphone. Inscrivez-vous � la zone de jeu en diff�r� et jouer des parties d'�checs � votre rythme.";
-require 'page_header.php';
+require 'include/page_header.php';
     
-require 'page_body.php';
+require 'include/page_body.php';
 ?>
 
 	
@@ -94,6 +94,6 @@ require 'page_body.php';
 	<br/>
 	
 <?
-require 'page_footer.php';
+require 'include/page_footer.php';
 mysql_close();
 ?>

@@ -16,7 +16,7 @@
 	
     $titre_page = "Echecs en diff�r� (mobile) - Proposition de partie";
     $desc_page = "Jouer aux �checs en diff�r� sur votre smartphone. Recherchez un adversaire pour lui proposer une partie d'�checs en diff�r�.";
-    require 'page_header.php';
+    require 'include/page_header.php';
 ?>
 	<script type="text/javascript">
 
@@ -28,7 +28,7 @@
 		
 	</script>
 <?
-    require 'page_body.php';
+    require 'include/page_body.php';
 ?>
 	<div id="onglet">
 	<table width="100%" cellpadding="0" cellspacing="0">
@@ -200,5 +200,5 @@
 	?>
 
 <?
-    require 'page_footer.php';
+    require 'include/page_footer.php';
 ?>

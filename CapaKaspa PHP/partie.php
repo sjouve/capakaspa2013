@@ -158,7 +158,7 @@
 	else
         $titre_page = _("Play chess - Opponent move");
 	$desc_page = _("Play chess and share your game. It's your game, it's up to you !");
-    require 'page_header.php';
+    require 'include/page_header.php';
     //echo("<meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>\n");
 ?>
 <link href="css/pgn4web.css" type="text/css" rel="stylesheet" />
@@ -207,7 +207,7 @@
 // this is the main function that interacts with the user everytime they click on a square
 </script>
 <?
-require 'page_body.php';
+require 'include/page_body.php';
 ?>
 <div id="contentlarge">
 	<div class="blogbody">
@@ -334,6 +334,6 @@ require 'page_body.php';
     </div>
   </div>
 <?
-    require 'page_footer.php';
+    require 'include/page_footer.php';
     mysql_close();
 ?>
