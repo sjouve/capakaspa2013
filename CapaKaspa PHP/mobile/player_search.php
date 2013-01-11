@@ -33,15 +33,15 @@
 	<div id="onglet">
 	<table width="100%" cellpadding="0" cellspacing="0">
 	<tr>
-		<td><div class="ongletdisable"><a href="tableaubord.php">Parties</a></div></td>
+		<td><div class="ongletdisable"><a href="game_list_inprogress.php">Parties</a></div></td>
 		<td><div class="ongletenable">Invitation</div></td>
-		<td><div class="ongletdisable"><a href="profil.php">Mon profil</a></div></td>	
+		<td><div class="ongletdisable"><a href="player_update.php">Mon profil</a></div></td>	
 	</tr>
 	</table>
 	</div>
 	
 	<h3>Proposez une partie</h3> 
-	<form action="tableaubord.php" method="post">
+	<form action="game_list_inprogress.php" method="post">
 	
 		<input type="hidden" name="ToDo" value="InvitePlayerByNick">
 	
@@ -98,7 +98,7 @@
 		?>
 		<h3>Rechercher un joueur</h3>
 		
-			<form name="searchPlayers" action="invitation.php" method="post">
+			<form name="searchPlayers" action="player_search.php" method="post">
 				<table border="0" width="100%">
 		          <tr>
 		            <td width="20%">Favoris :</td>
@@ -164,11 +164,11 @@
 				while($tmpPlayer = mysql_fetch_array($resultats, MYSQL_ASSOC))
 				{
 					echo ("<tr>");
-					echo ("<form action='tableaubord.php' method='post'>");
+					echo ("<form action='game_list_inprogress.php' method='post'>");
 					echo ("<input type='hidden' name='ToDo' value='InvitePlayer'>");
 					
 					echo ("<td>");
-					echo ("<input type='hidden' name='opponent' value='".$tmpPlayer['playerID']."'><a href='profil_consultation.php?playerID=".$tmpPlayer['playerID']."'>".substr($tmpPlayer['nick'],0,15)."</a>");
+					echo ("<input type='hidden' name='opponent' value='".$tmpPlayer['playerID']."'><a href='player_view.php?playerID=".$tmpPlayer['playerID']."'>".substr($tmpPlayer['nick'],0,15)."</a>");
 					if ($tmpPlayer['lastActionTime'])
 							echo("<br/><img src='images/user_online.gif'/>");
 					echo ("</td>");

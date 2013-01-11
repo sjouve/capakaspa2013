@@ -224,7 +224,7 @@ require 'include/page_body.php';
     <span id="#confirm_cancel_move_id" style="display: none"><?echo _("Are you sure you want to cancel your last move ?")?></span>
     <span id="#confirm_draw_proposal_id" style="display: none"><?echo _("Confirm your draw proposal ?")?></span>
     <span id="#confirm_resign_game_id" style="display: none"><?echo _("Are you sure you want to resign ?")?></span>    
-	<form name="gamedata" method="post" action="partie.php">
+	<form name="gamedata" method="post" action="game_board.php">
 	<table border="0">
         <tr valign="top">
 			<td>

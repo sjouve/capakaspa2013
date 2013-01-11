@@ -23,7 +23,7 @@ function batchActivation()
 			$mailMsg .= "- Passe : ".$player['PASSWORD']."\n\n";
 			$mailMsg .= "La procédure d'inscription ayant évoluée, les anciens comptes doivent maintenant confirmer leur inscription.\n\n";
 			$mailMsg .= "Pour activer votre compte veuillez cliquer sur le lien suivant (en cas de problème copier le lien dans la barre d'adresse de votre navigateur) :\n";
-			$mailMsg .= "http://www.capakaspa.info/jouer-echecs-differe-inscription.php?ToDo=activer&playerID=".$player['playerID']."&nick=".$player['nick'];
+			$mailMsg .= "http://www.capakaspa.info/sign-up.php?ToDo=activer&playerID=".$player['playerID']."&nick=".$player['nick'];
 			$mailMsg .= "\n\nCe message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).\n";
 			
 			$res = sendMail($player['email'], $mailSubject, $mailMsg);

@@ -69,7 +69,7 @@
         </tr>
         </table>
     
-      <form name="endedGames" action="partie.php" method="post">
+      <form name="endedGames" action="game_board.php" method="post">
         <?
     	$tmpGames = mysql_query("SELECT G.gameID gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage gameMessage, G.messageFrom messageFrom, DATE_FORMAT(G.dateCreated, '%d/%m/%Y %T') dateCreated, DATE_FORMAT(G.lastMove, '%d/%m/%Y %T') lastMoveF
                                 FROM games G, players W, players B, eco E 
@@ -105,11 +105,11 @@
 		{
 			/* White */
 			echo("<tr><td>");
-			echo("<a href='profil_consultation.php?playerID=".$tmpGame['whitePlayerID']."'>".$tmpGame['whiteNick']."</a>");
+			echo("<a href='player_view.php?playerID=".$tmpGame['whitePlayerID']."'>".$tmpGame['whiteNick']."</a>");
 			
 			/* Black */
 			echo ("</td><td>");
-			echo("<a href='profil_consultation.php?playerID=".$tmpGame['blackPlayerID']."'>".$tmpGame['blackNick']."</a>");
+			echo("<a href='player_view.php?playerID=".$tmpGame['blackPlayerID']."'>".$tmpGame['blackNick']."</a>");
 			
 			/* Status */
 			if (is_null($tmpGame['gameMessage']))
@@ -176,11 +176,11 @@
 		{
 			/* White */
 			echo("<tr><td>");
-			echo("<a href='profil_consultation.php?playerID=".$tmpGame['whitePlayerID']."'>".$tmpGame['whiteNick']."</a>");
+			echo("<a href='player_view.php?playerID=".$tmpGame['whitePlayerID']."'>".$tmpGame['whiteNick']."</a>");
 			
 			/* Black */
 			echo ("</td><td>");
-			echo("<a href='profil_consultation.php?playerID=".$tmpGame['blackPlayerID']."'>".$tmpGame['blackNick']."</a>");
+			echo("<a href='player_view.php?playerID=".$tmpGame['blackPlayerID']."'>".$tmpGame['blackNick']."</a>");
 
 			/* Status */
 			if (is_null($tmpGame['gameMessage']))
@@ -241,11 +241,11 @@
 		{
 			/* White */
 			echo("<tr><td>");
-			echo("<a href='profil_consultation.php?playerID=".$tmpGame['whitePlayerID']."'>".$tmpGame['whiteNick']."</a>");
+			echo("<a href='player_view.php?playerID=".$tmpGame['whitePlayerID']."'>".$tmpGame['whiteNick']."</a>");
 			
 			/* Black */
 			echo ("</td><td>");
-			echo("<a href='profil_consultation.php?playerID=".$tmpGame['blackPlayerID']."'>".$tmpGame['blackNick']."</a>");
+			echo("<a href='player_view.php?playerID=".$tmpGame['blackPlayerID']."'>".$tmpGame['blackNick']."</a>");
 
 			/* Status */
 			if (is_null($tmpGame['gameMessage']))

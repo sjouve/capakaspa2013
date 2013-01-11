@@ -30,7 +30,7 @@
 	
 	if ($_SESSION['playerID'] == -1)
 	{
-		header('Location: jouer-echecs-differe-inscription.php');
+		header('Location: sign-up.php');
 		exit;
 	}
 	

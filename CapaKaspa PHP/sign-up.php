@@ -176,7 +176,7 @@ require 'include/page_body.php';
 		if ($err == 'captcha')
 			echo("<div class='error'>"._("Security code error. Try again.")."</div>");
 	?>
-	<form name="userdata" method="post" action="jouer-echecs-differe-inscription.php?ToDo=NewUser">
+	<form name="userdata" method="post" action="sign-up.php?ToDo=NewUser">
 	<table>
 		<tr>
 			<td width="250"><?php echo _("User name");?> :</td>

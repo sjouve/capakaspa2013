@@ -49,7 +49,7 @@ function createPlayer()
 	// Envoi du message de confirmation
 	$mailSubject = _("[CapaKaspa] Sign up confirmation");
 	$mailMsg = _("To complete your sign up please click the following link (in case of problems copy the link into the address bar of your browser)")." :\n";
-	$mailMsg .= "http://www.capakaspa.info/jouer-echecs-differe-inscription.php?ToDo=activer&playerID=".$playerID."&nick=".$_POST['txtNick'];
+	$mailMsg .= "http://www.capakaspa.info/sign-up.php?ToDo=activer&playerID=".$playerID."&nick=".$_POST['txtNick'];
 	$mailMsg .= "\n\n"._("This message was sent automatically from the site CapaKaspa")." (http://www.capakaspa.info).\n";
 	$res = sendMail($_POST['txtEmail'], $mailSubject, $mailMsg);
 	
@@ -170,7 +170,7 @@ function activationRequest($nick, $password, $email)
 	// Envoi du message de confirmation
 	$mailSubject = _("[CapaKaspa] Confirm activation");
 	$mailMsg = _("To activate your account please click the following link (in case of problems copy the link into the address bar of your browser)")." :\n";
-	$mailMsg .= "http://www.capakaspa.info/jouer-echecs-differe-inscription.php?ToDo=activer&playerID=".$player['playerID']."&nick=".$player['nick'];
+	$mailMsg .= "http://www.capakaspa.info/sign-up.php?ToDo=activer&playerID=".$player['playerID']."&nick=".$player['nick'];
 	$mailMsg .= "\n\n"._("This message was sent automatically from the site CapaKaspa")." (http://www.capakaspa.info).\n";
 	$res = sendMail($_POST['txtEmail'], $mailSubject, $mailMsg);
 	

@@ -100,7 +100,7 @@
 		?>
 		<h3>Rechercher un joueur </h3>
 		<div>
-			<form name="searchPlayers" action="invitation.php" method="post">
+			<form name="searchPlayers" action="player_search.php" method="post">
 				<table border="0" width="650">
 		          <tr>
 		            <td width="180">Vos joueurs favoris :</td>
@@ -175,7 +175,7 @@
 						echo ("<form action='index.php' method='post'>");
 						echo ("<input type='hidden' name='ToDo' value='InvitePlayer'>");
 						echo ("<td>");
-						echo ("<input type='hidden' name='opponent' value='".$tmpPlayer['playerID']."'><a href='profil_consultation.php?playerID=".$tmpPlayer['playerID']."'>".$tmpPlayer['nick']."</a><br/>");
+						echo ("<input type='hidden' name='opponent' value='".$tmpPlayer['playerID']."'><a href='player_view.php?playerID=".$tmpPlayer['playerID']."'>".$tmpPlayer['nick']."</a><br/>");
 						if ($tmpPlayer['lastActionTime'])
 							echo("<img src='images/user_online.gif'/>");
 						if (isNewPlayer($tmpPlayer['creationDate']))

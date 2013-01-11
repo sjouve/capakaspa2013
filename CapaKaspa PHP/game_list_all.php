@@ -68,7 +68,7 @@
 			$resultats = mysql_query($requete." limit ".$debut.",".$limit) or die("SQL1 : ".mysql_error()); 
 		?>
         
-	        <form name="searchGames" action="listeparties.php" method="post">
+	        <form name="searchGames" action="game_list_all.php" method="post">
 	        	<?
 	         	displayPageNav($pge, $limit, $nb_tot, $nbpages);
 	        	?>
@@ -76,7 +76,7 @@
 	        </form>
         
         <div id="tabliste">
-          	<form name="existingGames" action="partie.php" method="post">
+          	<form name="existingGames" action="game_board.php" method="post">
           	<table border="0" width="650">
 	            <tr>
 	              <th width="17%">Blancs</th>
@@ -96,11 +96,11 @@
 				{
 					/* White */
 					echo("<tr><td>");
-					echo("<a href='profil_consultation.php?playerID=".$tmpGame['whitePlayerID']."'>".$tmpGame['whiteNick']."</a>");
+					echo("<a href='player_view.php?playerID=".$tmpGame['whitePlayerID']."'>".$tmpGame['whiteNick']."</a>");
 					
 					/* Black */
 					echo ("</td><td>");
-					echo("<a href='profil_consultation.php?playerID=".$tmpGame['blackPlayerID']."'>".$tmpGame['blackNick']."</a>");
+					echo("<a href='player_view.php?playerID=".$tmpGame['blackPlayerID']."'>".$tmpGame['blackNick']."</a>");
 					
 					/* Current Turn */
 					echo ("</td><td align=center>");

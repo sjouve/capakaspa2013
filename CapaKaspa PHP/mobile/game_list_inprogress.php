@@ -334,8 +334,8 @@
 	<table width="100%" cellpadding="0" cellspacing="0">
 	<tr>
 		<td><div class="ongletenable">Parties</div></td>
-		<td><div class="ongletdisable"><a href="invitation.php">Invitation</a></div></td>
-		<td><div class="ongletdisable"><a href="profil.php">Mon profil</a></div></td>	
+		<td><div class="ongletdisable"><a href="player_search.php">Invitation</a></div></td>
+		<td><div class="ongletdisable"><a href="player_update.php">Mon profil</a></div></td>	
 	</tr>
 	</table>
 	</div>
@@ -360,7 +360,7 @@
 	{
 	?>
 		
-		<form name="withdrawRequestForm" action="tableaubord.php" method="post">
+		<form name="withdrawRequestForm" action="game_list_inprogress.php" method="post">
         <h3>Mes propositions de partie</h3>
         
         <div id="tabliste">
@@ -386,9 +386,9 @@
 			$opponent = mysql_result($tmpOpponent,0);
 			//echo($opponent);
 			if ($tmpGame['whitePlayer'] == $_SESSION['playerID'])
-				echo("<a href='profil_consultation.php?playerID=".$tmpGame['blackPlayer']."'>".$opponent."</a>");
+				echo("<a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$opponent."</a>");
 			else
-				echo("<a href='profil_consultation.php?playerID=".$tmpGame['whitePlayer']."'>".$opponent."</a>");
+				echo("<a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$opponent."</a>");
 				
 			/* Your Color */
 			echo ("</td><td align='center'>");
@@ -445,7 +445,7 @@
 	if (mysql_num_rows($tmpGames) > 0)
 	{
 	?>
-      <form name="responseToInvite" action="tableaubord.php" method="post">
+      <form name="responseToInvite" action="game_list_inprogress.php" method="post">
         <h3> On me propose une partie</h3>
         
         <div id="tabliste">
@@ -470,9 +470,9 @@
 			$opponent = mysql_result($tmpOpponent,0);
 			//echo($opponent);
 			if ($tmpGame['whitePlayer'] == $_SESSION['playerID'])
-				echo("<a href='profil_consultation.php?playerID=".$tmpGame['blackPlayer']."'>".$opponent."</a>");
+				echo("<a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$opponent."</a>");
 			else
-				echo("<a href='profil_consultation.php?playerID=".$tmpGame['whitePlayer']."'>".$opponent."</a>");
+				echo("<a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$opponent."</a>");
 
 			/* Your Color */
 			echo ("</td><td align='center'>");
@@ -527,8 +527,8 @@
       </form>
 	<? }?>
 	
-      <form name="existingGames" action="partie.php" method="post">
-        <h3> Mes parties en cours <a href="tableaubord.php"><img src="images/icone_rafraichir.png" border="0" alt="Rafra�chir" /></a></h3>
+      <form name="existingGames" action="game_board.php" method="post">
+        <h3> Mes parties en cours <a href="game_list_inprogress.php"><img src="images/icone_rafraichir.png" border="0" alt="Rafra�chir" /></a></h3>
         
 		<div id="mosaique">
         <?
@@ -556,7 +556,7 @@
                      echo("<td align='center'>");
                      drawboardGame($tmpGame['gameID'],$tmpGame['whitePlayer'],$tmpGame['blackPlayer'], $tmpGame['position']);
 
-                     echo($numGame.". <a href='profil_consultation.php?playerID=".$tmpGame['whitePlayerID']."'>".$tmpGame['whiteNick']."</a>-<a href='profil_consultation.php?playerID=".$tmpGame['blackPlayerID']."'>".$tmpGame['blackNick']."</a> [".$tmpGame['eco']."] ");
+                     echo($numGame.". <a href='player_view.php?playerID=".$tmpGame['whitePlayerID']."'>".$tmpGame['whiteNick']."</a>-<a href='player_view.php?playerID=".$tmpGame['blackPlayerID']."'>".$tmpGame['blackNick']."</a> [".$tmpGame['eco']."] ");
                      if ($isPlayersTurn)
     				        echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'><img src='/images/hand.gif' border=0 alt='Jouer'/></a>");
                      else

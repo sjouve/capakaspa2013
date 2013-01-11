@@ -35,10 +35,10 @@
 	        <input name="ToDo" value="Login" type="hidden" /><input name="login" value="<?php echo _("Sign in");?>" type="submit" class="button"/>
 	      </form>
 	      <ul>
-	      	<li><img src="images/puce.gif"/> <a href="jouer-echecs-differe-passe-oublie.php"><?php echo _("Forgot password ?");?></a></li>
+	      	<li><img src="images/puce.gif"/> <a href="password.php"><?php echo _("Forgot password ?");?></a></li>
 	      </ul>
 	      <? } else {?>
-	        <div class="item"><a href="profil_consultation.php?playerID=<?echo($_SESSION['playerID'])?>"><img src="<?echo(getPicturePath($_SESSION['socialNetwork'], $_SESSION['socialID']));?>" width="40" height="40" border="0" style="float: left;margin-right: 10px;"/></a> <b><a href="profil_consultation.php?playerID=<?echo($_SESSION['playerID'])?>"><? echo($_SESSION['firstName']." ".$_SESSION['lastName'])?></a></b></div>
+	        <div class="item"><a href="player_view.php?playerID=<?echo($_SESSION['playerID'])?>"><img src="<?echo(getPicturePath($_SESSION['socialNetwork'], $_SESSION['socialID']));?>" width="40" height="40" border="0" style="float: left;margin-right: 10px;"/></a> <b><a href="player_view.php?playerID=<?echo($_SESSION['playerID'])?>"><? echo($_SESSION['firstName']." ".$_SESSION['lastName'])?></a></b></div>
 	        <div class="item">...</div>
 	      <? } ?>
 		</div>
@@ -50,9 +50,9 @@
 	<div class="title"><?php echo _("Chess games");?></div>		
       <ul>
         <li><img src="images/puce.gif"/> <a href="index.php"><?php echo _("My games in progress");?></a></li>
-		<li><img src="images/puce.gif"/> <a href="partiesterminees.php"><?php echo _("My games ended");?></a></li>
-        <li><img src="images/puce.gif"/> <a href="listeparties.php"><?php echo _("Other games");?></a></li>
-		<li><img src="images/puce.gif"/> <a href="invitation.php"><?php echo _("Proposal");?></a></li>
+		<li><img src="images/puce.gif"/> <a href="game_list_ended.php"><?php echo _("My games ended");?></a></li>
+        <li><img src="images/puce.gif"/> <a href="game_list_all.php"><?php echo _("Other games");?></a></li>
+		<li><img src="images/puce.gif"/> <a href="player_search.php"><?php echo _("Proposal");?></a></li>
         <!-- <li><img src="images/icone-mobile.png"/> <a href="http://mobile.capakaspa.info">Version mobile</a></li> -->
       </ul>  
 	</div>
@@ -61,7 +61,7 @@
       <ul>
         <li><img src="images/puce.gif"/> <a href=""><?php echo _("Activity");?></a></li>
 		<li><img src="images/puce.gif"/> <a href=""><?php echo _("Messages");?></a></li>
-        <li><img src="images/puce.gif"/> <a href="invitation.php"><?php echo _("Search");?></a></li>
+        <li><img src="images/puce.gif"/> <a href="player_search.php"><?php echo _("Search");?></a></li>
       </ul>  
 	</div>
 	 <? } ?>
@@ -81,10 +81,10 @@
 	<div class="navlinks">
 		<div class="title"><?php echo _("Applications");?></div>
 			<ul>
-		        <li><img src="images/puce.gif"/> <a href="jouer-echecs-jchess.php"><?php echo _("Play JChess");?></a></li>
-		        <li><img src="images/puce.gif"/> <a href="jouer-echecs-flashchess.php"><?php echo _("Play flashChess");?></a></li>
+		        <li><img src="images/puce.gif"/> <a href="app_jchess.php"><?php echo _("Play JChess");?></a></li>
+		        <li><img src="images/puce.gif"/> <a href="app_flashchess.php"><?php echo _("Play flashChess");?></a></li>
 		        <li><img src="images/puce.gif"/> <a href="jouer-jeux-flash.php"><?php echo _("Other flash games");?></a></li>
-		        <li><img src="images/puce.gif"/> <a href="epd2diag.php"><?php echo _("EPD/FEN to diagram");?></a></li>
+		        <li><img src="images/puce.gif"/> <a href="app_epd2diag.php"><?php echo _("EPD/FEN to diagram");?></a></li>
       		</ul>
 	</div>   
 </div>

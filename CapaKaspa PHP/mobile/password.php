@@ -40,7 +40,7 @@ require 'include/page_body.php';
 	<h3>Mot de passe oubli�</h3>
     	<p>Vous disposez d�j� d'un compte pour acc�der � la zone de jeu en diff�r� mais <b>vous avez oubli� votre mot de passe</b>.</p>
     	<p>Saisissez l'adresse de messagerie que vous avez associ� � ce compte. Un message sera envoy� � cette adresse. Il contiendra les informations n�cessaires � la connexion.</p>
-		<form name="userdata" method="post" action="jouer-echecs-differe-passe-oublie.php">
+		<form name="userdata" method="post" action="password.php">
 			<table align="center">
 				<tr>
 		            <td> Email : </td>

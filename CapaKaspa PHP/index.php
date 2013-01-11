@@ -33,7 +33,7 @@
 			}
 			if ($res == 0)
 			{
-				header("Location: jouer-echecs-differe-inscription.php?err=login");
+				header("Location: sign-up.php?err=login");
 				exit;
 			}
 			break;
@@ -46,7 +46,7 @@
 			  }
 			}
 			$_SESSION['playerID'] = -1;
-			header("Location: jouer-echecs-differe-inscription.php");
+			header("Location: sign-up.php");
 			exit;
 			break;
 	
@@ -377,9 +377,9 @@
 			$opponent = mysql_result($tmpOpponent,0);
 			//echo($opponent);
 			if ($tmpGame['whitePlayer'] == $_SESSION['playerID'])
-				echo("<a href='profil_consultation.php?playerID=".$tmpGame['blackPlayer']."'>".$opponent."</a>");
+				echo("<a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$opponent."</a>");
 			else
-				echo("<a href='profil_consultation.php?playerID=".$tmpGame['whitePlayer']."'>".$opponent."</a>");
+				echo("<a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$opponent."</a>");
 				
 			/* Your Color */
 			echo ("</td><td align='center'>");
@@ -458,9 +458,9 @@
 			$opponent = mysql_result($tmpOpponent,0);
 			//echo($opponent);
 			if ($tmpGame['whitePlayer'] == $_SESSION['playerID'])
-				echo("<a href='profil_consultation.php?playerID=".$tmpGame['blackPlayer']."'>".$opponent."</a>");
+				echo("<a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$opponent."</a>");
 			else
-				echo("<a href='profil_consultation.php?playerID=".$tmpGame['whitePlayer']."'>".$opponent."</a>");
+				echo("<a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$opponent."</a>");
 
 			/* Your Color */
 			echo ("</td><td align='center'>");
@@ -514,7 +514,7 @@
         <input type="hidden" name="ToDo" value="ResponseToInvite">
       </form>
       </br>
-      <form name="existingGames" action="partie.php" method="post">
+      <form name="existingGames" action="game_board.php" method="post">
         <h3><?php echo _("My games in progress")?> <a href="index.php"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a></h3>
         
 		<div id="mosaique">
@@ -546,7 +546,7 @@
                      echo("<td align='center'>");
                      drawboardGame($tmpGame['gameID'],$tmpGame['whitePlayer'],$tmpGame['blackPlayer'], $tmpGame['position']);
 
-                     echo($numGame.". <a href='profil_consultation.php?playerID=".$tmpGame['whitePlayerID']."'>".$tmpGame['whiteNick']."</a>-<a href='profil_consultation.php?playerID=".$tmpGame['blackPlayerID']."'>".$tmpGame['blackNick']."</a> [".$tmpGame['eco']."] ");
+                     echo($numGame.". <a href='player_view.php?playerID=".$tmpGame['whitePlayerID']."'>".$tmpGame['whiteNick']."</a>-<a href='player_view.php?playerID=".$tmpGame['blackPlayerID']."'>".$tmpGame['blackNick']."</a> [".$tmpGame['eco']."] ");
                      if ($isPlayersTurn)
     				        echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'><img src='images/hand.gif' border=0 alt='Jouer'/></a>");
                      else

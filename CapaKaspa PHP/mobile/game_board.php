@@ -190,9 +190,9 @@ if (DEBUG)
 	<div id="onglet">
 	<table width="100%" cellpadding="0" cellspacing="0">
 	<tr>
-		<td><div class="ongletdisable"><a href="tableaubord.php">Parties</a></div></td>
-		<td><div class="ongletdisable"><a href="invitation.php">Invitation</a></div></td>
-		<td><div class="ongletdisable"><a href="profil.php">Mon profil</a></div></td>	
+		<td><div class="ongletdisable"><a href="game_list_inprogress.php">Parties</a></div></td>
+		<td><div class="ongletdisable"><a href="player_search.php">Invitation</a></div></td>
+		<td><div class="ongletdisable"><a href="player_update.php">Mon profil</a></div></td>	
 	</tr>
 	</table>
 	</div>
@@ -206,7 +206,7 @@ if (DEBUG)
 	}
 ?>
     <center>   
-	<form name="gamedata" method="post" action="partie.php">
+	<form name="gamedata" method="post" action="game_board.php">
 		<table border="0">
         <tr valign="top" align="center">
         <td>

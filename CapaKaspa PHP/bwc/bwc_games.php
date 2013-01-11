@@ -1067,7 +1067,7 @@ function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
 			<?
 				if ($isPlayersTurn)
 				{	
-					echo("<div class='playername'><a href='profil_consultation.php?playerID=".$whitePlayerID."'>".$whiteNick."</a><br/>".$whiteElo);
+					echo("<div class='playername'><a href='player_view.php?playerID=".$whitePlayerID."'>".$whiteNick."</a><br/>".$whiteElo);
 					if (getOnlinePlayer($whitePlayerID)) echo (" <img src='images/user_online.gif'/>");
 					if ($whiteNick == $_SESSION['nick']) echo (" <img src='images/hand.gif'/>");
 					echo("</div>");
@@ -1076,14 +1076,14 @@ function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
 				{
 					if ($whiteNick == $_SESSION['nick'] || $blackNick == $_SESSION['nick'])
 					{
-						echo("<div class='playername'><a href='profil_consultation.php?playerID=".$whitePlayerID."'>".$whiteNick."</a><br/>".$whiteElo);
+						echo("<div class='playername'><a href='player_view.php?playerID=".$whitePlayerID."'>".$whiteNick."</a><br/>".$whiteElo);
 						if (getOnlinePlayer($whitePlayerID)) echo (" <img src='images/user_online.gif'/>");
 						if ($whiteNick != $_SESSION['nick']) echo (" <img src='images/hand.gif'/>"); 
 						echo("</div>");
 					}
 					else
 					{
-					  	echo("<div class='playername'><a href='profil_consultation.php?playerID=".$whitePlayerID."'>".$whiteNick."</a><br/>".$whiteElo);
+					  	echo("<div class='playername'><a href='player_view.php?playerID=".$whitePlayerID."'>".$whiteNick."</a><br/>".$whiteElo);
 					  	if (getOnlinePlayer($whitePlayerID)) echo (" <img src='images/user_online.gif'/>");
 						echo("</div>");
 					}
@@ -1095,7 +1095,7 @@ function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
 				if ($isPlayersTurn)
 				{
 					
-					echo("<div class='playername'><a href='profil_consultation.php?playerID=".$blackPlayerID."'>".$blackNick."</a><br/>");
+					echo("<div class='playername'><a href='player_view.php?playerID=".$blackPlayerID."'>".$blackNick."</a><br/>");
 					if ($blackNick == $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
 					if (getOnlinePlayer($blackPlayerID)) echo (" <img src='images/user_online.gif'/>");
 					echo($blackElo."</div>");	
@@ -1105,14 +1105,14 @@ function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
 					if ($whiteNick == $_SESSION['nick'] || $blackNick == $_SESSION['nick'])
 					{
 						
-						echo("<div class='playername'><a href='profil_consultation.php?playerID=".$blackPlayerID."'>".$blackNick."</a><br/>");
+						echo("<div class='playername'><a href='player_view.php?playerID=".$blackPlayerID."'>".$blackNick."</a><br/>");
 						if ($blackNick != $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
 						if (getOnlinePlayer($blackPlayerID)) echo (" <img src='images/user_online.gif'/>");
 						echo($blackElo."</div>");	
 					}
 					else
 					{
-					  	echo("<div class='playername'><a href='profil_consultation.php?playerID=".$blackPlayerID."'>".$blackNick."</a><br/>");
+					  	echo("<div class='playername'><a href='player_view.php?playerID=".$blackPlayerID."'>".$blackNick."</a><br/>");
 					  	if (getOnlinePlayer($blackPlayerID)) echo (" <img src='images/user_online.gif'/>");
 					  	echo($blackElo."</div>");
 					}

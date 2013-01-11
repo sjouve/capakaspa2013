@@ -44,7 +44,7 @@ require 'include/page_body.php';
 	<? if (!isset($_SESSION['playerID'])||$_SESSION['playerID']==-1) {?>
 		<center>
 		<p>La zone de jeu d'�checs en diff�r� du site CapaKaspa vous permet de jouer vos parties sur votre smartphone avec le meilleur confort d'utilisation possible.</p>
-		<form method="post" action="tableaubord.php">
+		<form method="post" action="game_list_inprogress.php">
         <br/>
         Surnom : <input name="txtNick" type="text" size="13" maxlength="20"/><br/>
         Passe : <input name="pwdPassword" type="password" size="13" maxlength="16"/><br/>
@@ -56,8 +56,8 @@ require 'include/page_body.php';
         <?}?>
 		</form>
       	<br/>
-      	<!-- <img src="/images/puce.gif"/> <a href="jouer-echecs-differe-inscription.php">S'inscrire</a>-->
-	  	<img src="/images/puce.gif"/> <a href="jouer-echecs-differe-passe-oublie.php">Mot de passe oubli�</a>
+      	<!-- <img src="/images/puce.gif"/> <a href="sign-up.php">S'inscrire</a>-->
+	  	<img src="/images/puce.gif"/> <a href="password.php">Mot de passe oubli�</a>
 	  	<p>Pour vous inscrire et acc�der � la zone de jeu d'�checs en diff�r� du site CapaKaspa veuillez vous diriger vers la version pour ordinateur du site en cliquant sur le lien plus bas.</p>
 	  	
 	  	</center>
@@ -65,14 +65,14 @@ require 'include/page_body.php';
 		<div id="onglet">
 		<table width="100%" cellpadding="0" cellspacing="0">
 		<tr>
-			<td><div class="ongletdisable"><a href="tableaubord.php">Parties</a></div></td>
-			<td><div class="ongletdisable"><a href="invitation.php">Invitation</a></div></td>
-			<td><div class="ongletdisable"><a href="profil.php">Mon profil</a></div></td>	
+			<td><div class="ongletdisable"><a href="game_list_inprogress.php">Parties</a></div></td>
+			<td><div class="ongletdisable"><a href="player_search.php">Invitation</a></div></td>
+			<td><div class="ongletdisable"><a href="player_update.php">Mon profil</a></div></td>	
 		</tr>
 		</table>
 		</div>
 		
-      	<form name="logout" action="tableaubord.php" method="post">
+      	<form name="logout" action="game_list_inprogress.php" method="post">
         <p>Bienvenue <b><? echo ($_SESSION['playerName'])?></b>,</p>
         <p>vous �tes connect� � la zone de jeu d'�checs en diff�r� optimis�e pour les smartphones du site CapaKaspa.</p>
         
