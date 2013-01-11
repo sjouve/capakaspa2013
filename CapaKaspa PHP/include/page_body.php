@@ -83,7 +83,6 @@
 			<ul>
 		        <li><img src="images/puce.gif"/> <a href="app_jchess.php"><?php echo _("Play JChess");?></a></li>
 		        <li><img src="images/puce.gif"/> <a href="app_flashchess.php"><?php echo _("Play flashChess");?></a></li>
-		        <li><img src="images/puce.gif"/> <a href="jouer-jeux-flash.php"><?php echo _("Other flash games");?></a></li>
 		        <li><img src="images/puce.gif"/> <a href="app_epd2diag.php"><?php echo _("EPD/FEN to diagram");?></a></li>
       		</ul>
 	</div>   
