@@ -59,7 +59,7 @@
 	<div class="navlinks">
 	<div class="title"><?php echo _("Players");?></div>		
       <ul>
-        <li><img src="images/puce.gif"/> <a href=""><?php echo _("Activity");?></a></li>
+        <li><img src="images/puce.gif"/> <a href="activity.php"><?php echo _("Activity");?></a></li>
 		<li><img src="images/puce.gif"/> <a href=""><?php echo _("Messages");?></a></li>
         <li><img src="images/puce.gif"/> <a href="player_search.php"><?php echo _("Search");?></a></li>
       </ul>  

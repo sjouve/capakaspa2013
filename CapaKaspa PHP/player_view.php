@@ -64,7 +64,7 @@
     require 'include/page_body_no_menu.php';
 ?>
   <div id="contentlarge">
-    <div class="blogbody">
+    <div class="contentbody">
       
 	  <h3>
 	  <form action="player_view.php" method="post">

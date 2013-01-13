@@ -102,7 +102,7 @@
     require 'include/page_body.php';
 ?>
   <div id="contentlarge">
-    <div class="blogbody">
+    <div class="contentbody">
       
       	<?
       	if ($err == 0)

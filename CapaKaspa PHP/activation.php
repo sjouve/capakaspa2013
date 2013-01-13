@@ -27,7 +27,7 @@ require 'include/page_header.php';
 require 'include/page_body.php';
 ?>
   <div id="contentlarge">
-    <div class="blogbody">
+    <div class="contentbody">
     <?/* Traiter les erreurs */
 		if ($err == 0)
 			echo("<div class='error'>Le compte n'existe pas</div>");

@@ -33,7 +33,7 @@
     require 'include/page_body.php';
 ?>
 	<div id="contentlarge">
-		<div class="blogbody">
+		<div class="contentbody">
   
 		
 		<form action="index.php" method="post">

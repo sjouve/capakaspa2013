@@ -22,7 +22,7 @@ document.jchess.SetLevel(0, parseInt(temps)*1000, parseInt(prof))
     require 'include/page_body.php';
 ?>
   <div id="contentlarge">
-    <div class="blogbody">
+    <div class="contentbody">
     
 		<h3>Jouez une partie d'échecs contre Jchess, un adversaire toujours disponible !</h3>
         

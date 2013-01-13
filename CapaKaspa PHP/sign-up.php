@@ -134,7 +134,7 @@ require 'include/page_header.php';
 require 'include/page_body.php';
 ?>
 	<div id="contentlarge">
-    <div class="blogbody">
+    <div class="contentbody">
     
     <p>
 	<h1><?php echo _("Play Chess and share your Games !");?></h1>

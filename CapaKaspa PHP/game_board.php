@@ -210,7 +210,7 @@
 require 'include/page_body.php';
 ?>
 <div id="contentlarge">
-	<div class="blogbody">
+	<div class="contentbody">
       
         <?
         if ($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['whitePlayer'])

@@ -1557,7 +1557,7 @@ function doSelOption(form)
     require 'include/page_body.php';
 ?>
   <div id="contentlarge">
-    <div class="blogbody">
+    <div class="contentbody">
         <SCRIPT language="JavaScript">
         <!-- Begin JavaScript
           makeBoard();

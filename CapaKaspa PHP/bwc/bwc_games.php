@@ -686,106 +686,100 @@ function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
 	for ($i = 0; $i < 8; $i++)
 		for ($j = 0; $j < 8; $j++)
 		{
-		$board[$i][$j] = getPieceCodeChar($position{$strPos});
-		$strPos++;
-	}
+			$board[$i][$j] = getPieceCodeChar($position{$strPos});
+			$strPos++;
+		}
 
-	/* Couleur du joueur qui charge la partie */
-	if ($whitePlayer == $_SESSION['playerID'])
-	$playersColor = "white";
+	// Couleur du joueur qui charge la partie
+	if ($whitePlayer == $_SESSION['playerID']) 
+		$playersColor = "white";
 	else if ($blackPlayer == $_SESSION['playerID'])
-	$playersColor = "black";
+		$playersColor = "black";
 	else
-		/* Le joueur ne joue pas la partie */
+		//Le joueur ne joue pas la partie
 		$playerColor = "";
 
-
 	/* find out if it's the current player's turn */
-	if (( (($numMoves == -1) || (($numMoves % 2) == 1)) && ($playersColor == "white"))
-	|| ((($numMoves % 2) == 0) && ($playersColor == "black")) )
-	$isPlayersTurn = true;
+	if (( (($numMoves == -1) || (($numMoves % 2) == 1)) && ($playersColor == "white")) || ((($numMoves % 2) == 0) && ($playersColor == "black")) )
+		$isPlayersTurn = true;
 	else
-	$isPlayersTurn = false;
+		$isPlayersTurn = false;
 
 	/* determine who's perspective of the board to show */
 	$perspective = $playersColor;
 
-
 	echo ("<table border='0' bgcolor='#000000' cellpadding='0' cellspacing'0'><tr><td><table bgcolor='#ffffff' border='0' cellpadding='0' cellspacing'0'>\n");
-
 
 	/* setup vars to show player's perspective of the board */
 	if ($perspective == "white")
 	{
-	$topRow = 7;
-	$bottomRow = 0;
-	$rowStep = -1;
-
-	$leftCol = 0;
-	$rightCol = 7;
-	$colStep = 1;
+		$topRow = 7;
+		$bottomRow = 0;
+		$rowStep = -1;
+	
+		$leftCol = 0;
+		$rightCol = 7;
+		$colStep = 1;
 	}
 	else
 	{
-	$topRow = 0;
-	$bottomRow = 7;
-	$rowStep = 1;
-
-	$leftCol = 7;
-	$rightCol = 0;
-	$colStep = -1;
+		$topRow = 0;
+		$bottomRow = 7;
+		$rowStep = 1;
+	
+		$leftCol = 7;
+		$rightCol = 0;
+		$colStep = -1;
 	}
-
 
 	/* for each row... */
 	/* NOTE: end condition is ($bottomRow + $rowStep) since we want to output $bottomRow */
 	for ($i = $topRow; $i != ($bottomRow + $rowStep); $i += $rowStep)
 	{
-	echo ("<tr>\n");
+		echo ("<tr>\n");
 
-	/* for each col... */
-	/* NOTE: end condition is ($rightCol + $colStep) since we want to output $rightCol */
-	for ($j = $leftCol; $j != ($rightCol + $colStep); $j += $colStep)
-	{
-	echo ("   <td bgcolor='");
-
-	if (($j + ($i % 2)) % 2 == 0)
-		echo ("#AA7777'>");
-		else
-		echo ("#CCBBBB'>");
-
-				echo ("<img name='pos$i-$j' src='images/mosaique/");
-
-				/* if position is empty... */
-				if ($board[$i][$j] == 0)
-				{
+		/* for each col... */
+		/* NOTE: end condition is ($rightCol + $colStep) since we want to output $rightCol */
+		for ($j = $leftCol; $j != ($rightCol + $colStep); $j += $colStep)
+		{
+			echo ("   <td bgcolor='");
+	
+			if (($j + ($i % 2)) % 2 == 0)
+				echo ("#AA7777'>");
+			else
+				echo ("#CCBBBB'>");
+	
+			echo ("<img name='pos$i-$j' src='images/mosaique/");
+	
+			/* if position is empty... */
+			if ($board[$i][$j] == 0)
+			{
 				/* draw empty square */
 				$tmpALT="blank";
-	}
-	else
-	{
-	/* draw correct piece */
-	if ($board[$i][$j] & BLACK)
-		$tmpALT = "black_";
-		else
-		$tmpALT = "white_";
-
-		$tmpALT .= getPieceName($board[$i][$j]);
-		}
-
-		echo($tmpALT.".gif' height='25' width='25' border='0' alt='".$tmpALT."'>");
-
-		echo ("</td>\n");
+			}
+			else
+			{
+				/* draw correct piece */
+				if ($board[$i][$j] & BLACK)
+					$tmpALT = "black_";
+				else
+					$tmpALT = "white_";
+		
+				$tmpALT .= getPieceName($board[$i][$j]);
+			}
+	
+			echo($tmpALT.".gif' height='25' width='25' border='0' alt='".$tmpALT."'>");
+			echo ("</td>\n");
 		}
 
 		echo ("</tr>\n");
-		}
-
-		echo ("</table></td></tr></table>\n\n");
 	}
 
-	/* Utilisé dans l'écran d'une partie */
-		function drawboard($withCoord)
+	echo ("</table></td></tr></table>\n\n");
+}
+
+/* Utilisé dans l'écran d'une partie */
+function drawboard($withCoord)
 		{
 		global $board, $playersColor, $numMoves, $nb_game_vacation;
 
@@ -1046,15 +1040,15 @@ function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
 				return $listeCoups;
 				}
 
-				function writeHistory()
-				{
+function writeHistory()
+{
 
-				$listeCoups = writeHistoryPGN();
-				return $listeCoups;
-				}
+	$listeCoups = writeHistoryPGN();
+	return $listeCoups;
+}
 
-				function writeStatus()
-				{
+function writeStatus()
+{
 		global $numMoves, $history, $isCheckMate, $statusMessage, $isPlayersTurn, $whiteNick, $blackNick, $whitePlayerID, $blackPlayerID, $ecoCode, $ecoName, $dateCreated, $whiteElo, $blackElo, $whiteSocialID, $whiteSocialNet, $blackSocialID, $blackSocialNet;
 		
 		?>

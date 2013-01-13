@@ -45,7 +45,7 @@
     require 'include/page_body.php';
 ?>
 	<div id="contentlarge">
-    	<div class="blogbody">
+    	<div class="contentbody">
 	  	<?
 		if ($errMsg != "")
 			echo("<div class='error'>".$errMsg."</div>");

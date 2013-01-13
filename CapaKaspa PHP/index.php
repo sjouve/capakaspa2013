@@ -326,12 +326,12 @@
 			document.preferences.submit();
 		}
 <? } ?>
-	</script>
+</script>
 <?
-    require 'include/page_body.php';
+require 'include/page_body.php';
 ?>
   <div id="contentlarge">
-    <div class="blogbody">
+    <div class="contentbody">
     
 	  <?
 		if ($errMsg != "")
