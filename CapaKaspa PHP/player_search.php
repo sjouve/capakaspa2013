@@ -154,7 +154,7 @@
 	        </form>
         </div>
         
-		<div id="tabliste">  	
+		<div class="tabliste">  	
 		<table border="0" width="100%">
 		  	<tr>
 			<th width="20%">Surnom</th>

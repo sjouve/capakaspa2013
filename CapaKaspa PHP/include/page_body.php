@@ -87,7 +87,7 @@
 	</div>   
 </div>
 
-<div id="contentlarge">
+<div id="advertisement">
 	<div class="leaderboard">
 		<script type="text/javascript"><!--
 	      google_ad_client = "ca-pub-8069368543432674";

@@ -363,7 +363,7 @@
 		<form name="withdrawRequestForm" action="game_list_inprogress.php" method="post">
         <h3>Mes propositions de partie</h3>
         
-        <div id="tabliste">
+        <div class="tabliste">
           <table border="0" width="100%">
             <tr>
               <th>Adversaire</th>
@@ -448,7 +448,7 @@
       <form name="responseToInvite" action="game_list_inprogress.php" method="post">
         <h3> On me propose une partie</h3>
         
-        <div id="tabliste">
+        <div class="tabliste">
           <table border="0" width="100%">
             <tr>
               <th>Adversaire</th>

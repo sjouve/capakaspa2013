@@ -75,7 +75,7 @@
 	        	<input type="hidden" name="page" value="">
 	        </form>
         
-        <div id="tabliste">
+        <div class="tabliste">
           	<form name="existingGames" action="game_board.php" method="post">
           	<table border="0" width="650">
 	            <tr>

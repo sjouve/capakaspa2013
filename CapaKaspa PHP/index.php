@@ -343,7 +343,7 @@ require 'include/page_body.php';
 		?>
 		<form name="withdrawRequestForm" action="index.php" method="post">
         <h3><?php echo _("My pending requests");?></h3>
-        <div id="tabliste">
+        <div class="tabliste">
           <table border="0" width="650">
             <tr>
               <th width="150"><?php echo _("To");?></th>
@@ -430,7 +430,7 @@ require 'include/page_body.php';
       </br>
       <form name="responseToInvite" action="index.php" method="post">
         
-        <div id="tabliste">
+        <div class="tabliste">
           <table border="0" width="650">
             <tr>
               <th width="150"><?php echo _("From");?></th>

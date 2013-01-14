@@ -164,7 +164,7 @@
 		
 		<form name="existingGames" action="game_board.php" method="post">
 
-        <div id="tabliste">
+        <div class="tabliste">
           <table border="0" width="100%">
             <tr>
               <th width="25%">Blancs</th>
@@ -222,7 +222,7 @@
 		
 		<form name="endedGames" action="game_board.php" method="post">
 
-        <div id="tabliste">
+        <div class="tabliste">
           <table border="0" width="100%">
             <tr>
               <th width="25%">Blancs</th>

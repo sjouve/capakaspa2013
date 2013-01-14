@@ -147,7 +147,7 @@
 	        	<input type="hidden" name="page" value="">
 	        </form>
 	
-	<div id="tabliste">
+	<div class="tabliste">
 	<table border="0" width="100%">
 	  <tr>
 	  	

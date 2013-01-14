@@ -85,7 +85,7 @@
 		?>
         <A NAME="defaites"></A>
 		<h3>Défaites (<?echo(mysql_num_rows($tmpGames));?>) <?if (isset($_GET['playerID'])) echo('de '.$player['nick']);?></h3>
-        <div id="tabliste">
+        <div class="tabliste">
           <table border="0" width="650">
             <tr>
               <th width="17%">Blancs</th>
@@ -156,7 +156,7 @@
 		
 		<A NAME="nulles"></A>
 		<h3>Nulles (<?echo(mysql_num_rows($tmpGames));?>) <?if (isset($_GET['playerID'])) echo('de '.$player['nick']);?></h3>
-        <div id="tabliste">
+        <div class="tabliste">
           <table border="0" width="650">
             <tr>
               <th width="17%">Blancs</th>
@@ -221,7 +221,7 @@
 	<A NAME="victoires"></A>
 	<h3>Victoires (<?echo(mysql_num_rows($tmpGames));?>) <?if (isset($_GET['playerID'])) echo('de '.$player['nick']);?></h3>
 	
-        <div id="tabliste">
+        <div class="tabliste">
           <table border="0" width="650">
             <tr>
               <th width="17%">Blancs</th>
