@@ -708,7 +708,7 @@ function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
 	/* determine who's perspective of the board to show */
 	$perspective = $playersColor;
 
-	echo ("<table border='0' bgcolor='#000000' cellpadding='0' cellspacing'0'><tr><td><table bgcolor='#ffffff' border='0' cellpadding='0' cellspacing'0'>\n");
+	echo ("<table border='0' bgcolor='#000000' cellpadding='0' cellspacing='1'><tr><td><table bgcolor='#ffffff' border='0' cellpadding='0' cellspacing='0'>\n");
 
 	/* setup vars to show player's perspective of the board */
 	if ($perspective == "white")
@@ -745,9 +745,9 @@ function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
 			echo ("   <td bgcolor='");
 	
 			if (($j + ($i % 2)) % 2 == 0)
-				echo ("#AA7777'>");
+				echo ("#9B6A15'>");
 			else
-				echo ("#CCBBBB'>");
+				echo ("#F2A521'>");
 	
 			echo ("<img name='pos$i-$j' src='images/mosaique/");
 	
@@ -881,9 +881,9 @@ function drawboard($withCoord)
 				else
 				{
 				if (($j + ($i % 2)) % 2 == 0)
-					echo ("#AA7777'>");
+					echo ("#9B6A15'>");
 					else
-					echo ("#CCBBBB'>");
+					echo ("#F2A521'>");
 				}
 
 				/* if disabled or not player's turn, can't click pieces */

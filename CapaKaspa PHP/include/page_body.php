@@ -43,8 +43,7 @@
 	      <? } ?>
 		</div>
 	</div>
-	
-	
+		
 	<? if (isset($_SESSION['playerID'])&&$_SESSION['playerID']!=-1) {?>
 	<div class="navlinks">
 	<div class="title"><?php echo _("Chess games");?></div>		
@@ -60,7 +59,7 @@
 	<div class="title"><?php echo _("Players");?></div>		
       <ul>
         <li><img src="images/puce.gif"/> <a href="activity.php"><?php echo _("Activity");?></a></li>
-		<li><img src="images/puce.gif"/> <a href=""><?php echo _("Messages");?></a></li>
+		<li><img src="images/puce.gif"/> <a href="message.php"><?php echo _("Messages");?></a></li>
         <li><img src="images/puce.gif"/> <a href="player_search.php"><?php echo _("Search");?></a></li>
       </ul>  
 	</div>
@@ -89,18 +88,20 @@
 </div>
 
 <div id="contentlarge">
-	<script type="text/javascript"><!--
-      google_ad_client = "ca-pub-8069368543432674";
-      /* CapaKaspa Leaderboard */
-      google_ad_slot = "6207727366";
-      google_ad_width = 728;
-      google_ad_height = 90;
-      //-->
-	</script>
-	<script type="text/javascript"
-      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-	</script>
-	<br/>
+	<div class="leaderboard">
+		<script type="text/javascript"><!--
+	      google_ad_client = "ca-pub-8069368543432674";
+	      /* CapaKaspa Leaderboard */
+	      google_ad_slot = "6207727366";
+	      google_ad_width = 728;
+	      google_ad_height = 90;
+	      //-->
+		</script>
+		<script type="text/javascript"
+	      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>
+	</div>
+	
     <div class="skyscraper">
 	  	<script type="text/javascript"><!--
 	    google_ad_client = "ca-pub-8069368543432674";

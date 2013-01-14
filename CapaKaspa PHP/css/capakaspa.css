@@ -9,7 +9,6 @@
 		position:relative;
 		width: 1000px;
 		padding: 0px;
-		
 		border-top-style: none;
 		border-right-style: none;
 		border-bottom-style: none;
@@ -22,17 +21,6 @@
 	#content {
 		float: left;
 		width: 598px;
-		border-top-style: none;
-		border-right-style: none;
-		border-bottom-style: none;
-		border-left-style: none;
-		border-width: 1px;
-		border-color: #99B2CC;
-		overflow: hidden;
-	}
-	#contenthome {
-		float: left;
-		width: 490px;
 		border-top-style: none;
 		border-right-style: none;
 		border-bottom-style: none;
@@ -66,16 +54,6 @@
 	#rightbar {
 		float: left;
 		width: 200px;
-		border-top-style: none;
-		border-right-style: none;
-		border-bottom-style: none;
-		border-left-style: none;
-		border-width: 1px;
-		overflow: hidden;
-	}
-	#rightbarhome {
-		float: left;
-		width: 190px;
 		border-top-style: none;
 		border-right-style: none;
 		border-bottom-style: none;
@@ -135,7 +113,7 @@
 		text-decoration: none;
 	}
 	#mosaique a:hover {
-		color: #334C66;
+		color: #ED7D1C;
 		text-decoration: none;
 	}
 	
@@ -153,6 +131,13 @@
 		border-left-style: none;
 		border-width: 1px;
 		border-color: #CCCCCC;
+	}
+	
+	.leaderboard {
+		float: left;
+		overflow: hidden;
+		padding-left: 10px;
+		padding-bottom: 10px;
 	}
 	
 	.skyscraper {
@@ -179,7 +164,7 @@
 		text-decoration: underline;
 	}
 	a:hover {
-		color: #3D3866;
+		color: #ED7D1C;
 		text-decoration: none;
 	}
 	hr {
@@ -200,68 +185,6 @@
 		padding: 0px;
 	}
 	
-	
-	.helpBoxDIV {
-		padding: 2px;
-		background: #FFFFE1;
-		border: 1px solid black;
-		font-family: Verdana;
-		color: #000000;
-		font-size: 6px;
-		font-style: Normal;
-	}
-	.ongletenable {
-		font-family: Verdana, Arial, Helvetica, sans-serif;
-		color: #000000;
-		font-size: 13px;/*small;*/
-		font-weight: bold;
-		font-style: normal;
-		background-color:#FFFFFF;
-		text-align: left;
-		border-width: 1px;
-		border-color: #3D3866;
-		border-style: solid;
-		padding-left: 15px;
-		padding-right: 15px;
-	}
-	.ongletdisable {
-		font-family: Verdana, Arial, Helvetica, sans-serif;
-		color: #FFFFFF;
-		font-size: 13px;/*small;*/
-		font-weight: bold;
-		font-style: normal;
-		background-color:#3D3866;
-		text-align: left;
-		border-width: 1px;
-		border-color: #3D3866;
-		border-style: solid;
-		padding-left: 15px;
-		padding-right: 15px;
-	}
-	.ongletend {
-		border-bottom-width: 1px;
-		border-bottom-color: #3D3866;
-		border-bottom-style: solid;
-	}
-	#onglet a {
-		text-decoration: none;
-	}
-	#onglet a:link {
-		color: #334C66;
-		text-decoration: none;
-	}
-	#onglet a:visited {
-		color: #334C66;
-		text-decoration: none;
-	}
-	#onglet a:active {
-		color: #334C66;
-		text-decoration: none;
-	}
-	#onglet a:hover {
-		color: #334C66;
-		text-decoration: none;
-	}
 	#navliste {
 		border-top-style: none;
 		border-right-style: none;
@@ -324,7 +247,7 @@
 		font-family: Verdana, Arial, Helvetica, sans-serif;
 		color: #000000;
 		border-color:beige;
-		font-size: 10px;/*x-small;*/
+		font-size: 10px;
 		font-weight: normal;
 		font-style: normal;
 		background-color:beige;
@@ -428,9 +351,16 @@
 	}
 	
 	.button {
-    	background: #ED7D1C;
+    	background: #9B6A15;
     	color: #FFFFFF;
-    	padding: 3px;
+    	padding-left: 5px;
+    	padding-right: 5px;
+    	padding-top: 3px;
+    	padding-bottom: 3px;
+    	border-width: 1px;
+    	border-color: #AAAAAA;
+    	font-weight: bold;
+    	font-size: 12px;
 	}
     .form {
 		font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -892,6 +822,7 @@
 		border-color: #CCCCCC;
 		padding: 0px;
 	}
+	
 	.navlinks ul {
 		padding: 0px;
 		margin: 0px;
@@ -902,22 +833,27 @@
 	.navlinks a {
 		text-decoration: none;
 	}
+	
 	.navlinks a:link {
 		text-decoration: none;
 		color: #3D3866;
 	}
+	
 	.navlinks a:visited {
 		text-decoration: none;
 		color: #3D3866;
 	}
+	
 	.navlinks a:active {
 		text-decoration: none;
 		color: #3D3866;
 	}
+	
 	.navlinks a:hover {
 		text-decoration: none;
-		color: #AA7777;
+		color: #ED7D1C;
 	}
+	
 	.navlinks li {
 		font-family: Verdana, Arial, Helvetica, sans-serif;
 		color: #404040;
@@ -928,6 +864,7 @@
 		line-height: 150%;
 		margin-top: 5px;
 	}
+	
 	.navlinks .item {
 		font-family: Verdana, Arial, Helvetica, sans-serif;
 		color: #404040;
@@ -939,6 +876,7 @@
 		margin-top: 5px;
 		margin-bottom: 2px;
 	}
+	
 	.profil {
 	  	width: 135px;
 	  	height: 160px;
@@ -946,5 +884,82 @@
 		overflow: hidden;
 		margin: 5px;
 		
+	}
+	
+	.activity {
+		float: left;
+		width: 100%;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		border-top-style: solid;
+		border-right-style: none;
+		border-bottom-style: none;
+		border-left-style: none;
+		border-width: 1px;
+		border-color: #CCCCCC;
+		overflow: hidden;
+		/*background-color: #DDDDDD;*/
+	}
+	.activity .leftbar{
+		float: left;
+		width: 45px;
+		border-top-style: none;
+		border-right-style: none;
+		border-bottom-style: none;
+		border-left-style: none;
+		overflow: hidden;
+		/*background-color: #BBBBBB;*/
+	}
+	.activity .details{
+		float: left;
+		width: 600px;
+		border-top-style: none;
+		border-right-style: none;
+		border-bottom-style: none;
+		border-left-style: none;
+		overflow: hidden;
+		/*background-color: #BBBBBB;*/
+	}
+	.activity .details .title{
+		float: left;
+		width: 600px;
+		border-top-style: none;
+		border-right-style: none;
+		border-bottom-style: none;
+		border-left-style: none;
+		overflow: hidden;
+		/*background-color: #999999;*/
+	}
+	.activity .details .content{
+		float: left;
+		width: 600px;
+		border-top-style: none;
+		border-right-style: none;
+		border-bottom-style: none;
+		border-left-style: none;
+		overflow: hidden;
+		/*background-color: #777777;*/
+	}
+	.activity .details .footer{
+		float: left;
+		width: 600px;
+		font-size: 10px;
+		border-top-style: none;
+		border-right-style: none;
+		border-bottom-style: none;
+		border-left-style: none;
+		overflow: hidden;
+		/*background-color: #555555;*/
+	}
+	.comment{
+		float: left;
+		width: 600px;
+		border-top-style: none;
+		border-right-style: none;
+		border-bottom-style: none;
+		border-left-style: none;
+		overflow: hidden;
+		background-color: #555555;
+		display: none;
 	}
 }
