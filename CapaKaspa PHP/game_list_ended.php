@@ -47,11 +47,6 @@
 <? } ?>
 	</script>
 <?
-    $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    if (isset($_GET['playerID']))
-    	$barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Les parties terminées de ".$player['nick'];
-    else
-    	$barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Mes parties terminées";
     require 'include/page_body.php';
 ?>
   <div id="contentlarge">

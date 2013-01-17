@@ -20,17 +20,11 @@
 	$desc_page = _("Activity");
     require 'include/page_header.php';
 ?>
-    <script type="text/javascript">
-    function displayComment(divId)
-	{
-    	document.getElementById(divId).style.display = "block";
-	}
-		
-	</script>
+    <script src="javascript/comment.js" type="text/javascript"></script>
 <?
     require 'include/page_body.php';
 ?>
-	<div id="contentlarge">
+	<div id="content">
     	<div class="contentbody">
 	  	<?
 		if ($errMsg != "")
@@ -43,16 +37,16 @@
 			</div>
 			<div class="details">
 				<div class="title">
-					Sébastien Jouve a joué le coup 1.e4 contre Eric Jouve
+					<a href=""><span class='name'>Sébastien Jouve</span></a> a joué le coup 1.e4 contre <span class='name'>Eric Jouve</span>
 				</div>
 				<div class="content">
 					<? drawboardGame(2798, 1, 408, "tcfdrfctppp0pppp00000000000p00000000000000000000PPPPPPPPTCFDRFCT");?>
 				</div>
 				<div class="footer">
-					! Bon - <a href="javascript:displayComment('comment1');">Commenter</a> - Il y a 30 minutes
+					! Bon - <a href="javascript:displayComment('<?echo(ACTIVITY)?>', 1);">Commenter</a> - Il y a 30 minutes
 				</div>
 				<div class="comment" id="comment1">
-					Test commentaires
+					<? echo _("Load comments...");?>
 				</div>
 			</div>
 		</div>
@@ -63,16 +57,16 @@
 			</div>
 			<div class="details">
 				<div class="title">
-					Sébastien Jouve a joué le coup 1.e4 contre Eric Jouve
+					<span class='name'>Sébastien Jouve</span> a joué le coup 1.e4 contre <span class='name'>Eric Jouve</span>
 				</div>
 				<div class="content">
 					<? drawboardGame(2798, 1, 408, "tcfdrfctppp0pppp00000000000p00000000000000000000PPPPPPPPTCFDRFCT");?>
 				</div>
 				<div class="footer">
-					! Bon - <a href="javascript:displayComment('comment2');">Commenter</a> - Il y a 30 minutes
+					! Bon - <a href="javascript:displayComment('<?echo(ACTIVITY)?>', 2);">Commenter</a> - Il y a 30 minutes
 				</div>
 				<div class="comment" id="comment2">
-					Test commentaires
+					Comments
 				</div>
 			</div>
 			

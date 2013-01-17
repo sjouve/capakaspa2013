@@ -104,9 +104,9 @@ function listPlayersPassifs()
   	return mysql_query($tmpQuery);  
 }
 
-function deletePlayer()
+function disablePlayer()
 {
-	// TODO suppression joueur ?
+	// TODO désactivation joueur
 }
 
 function countActivePlayers()

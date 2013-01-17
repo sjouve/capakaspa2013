@@ -29,12 +29,22 @@ function insertComment($playerID, $type, $entityID, $message)
 
 function deleteComment($commentID)
 {
-	
+	$res_comment = mysql_query("DELETE FROM comment WHERE commentID = ".$commentID);
+		
+	return $res_comment;
 }
 
-function searchComment($playerID, $type, $entityID)
+function listEntityComments($type, $entityID)
 {
+	$tmpQuery = "SELECT C.commentID, P.playerID, P.firstName, P.lastName, C.message, C.postDate
+	FROM comment C, players P 
+	WHERE C.type = '".$type."' 
+	AND C.entityID = ".$entityID." 
+	AND C.playerID = P.playerID 
+	ORDER BY postDate asc";
+	//LIMIT ".$debut.", ".$limit;
 	
+	return mysql_query($tmpQuery);
 }
 
 // Like
