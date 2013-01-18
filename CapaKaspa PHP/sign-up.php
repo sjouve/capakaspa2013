@@ -179,7 +179,7 @@ require 'include/page_body.php';
 	<form name="userdata" method="post" action="sign-up.php?ToDo=NewUser">
 	<table>
 		<tr>
-			<td width="250"><?php echo _("User name");?> :</td>
+			<td ><?php echo _("User name");?> :</td>
 			<td width="450"><input name="txtNick" type="text" size="20" maxlength="20" value="<? echo(isset($_POST['txtNick'])?$_POST['txtNick']:""); ?>"></td>
 		</tr>
 		<tr>
@@ -242,18 +242,21 @@ require 'include/page_body.php';
 				?>
             </select></td>
         </tr>
-		
+        </table>
+		<table>
 		<tr>
-			<td width="250">
-				<img id="captcha" src="securimage/securimage_show.php" alt="<?php echo _("Captcha Image");?>" title="<?php echo _("Captcha Image");?>"/>
+			<td >
+				<?php echo _("Type the security code");?>
+				<input type="text" name="captcha_code" size="6" maxlength="6" />
+				<a href="#" onclick="document.getElementById('captcha').src = 'securimage/securimage_show.php?' + Math.random(); return false"><img src="images/icone_rafraichir.png" border="0" alt="<?php echo _("Try other security code");?>" title="<?php echo _("Try other security code");?>"/></a> 
+				
 			</td>
-			<td>
-				<input type="text" name="captcha_code" size="10" maxlength="6" />
-				<a href="#" onclick="document.getElementById('captcha').src = 'securimage/securimage_show.php?' + Math.random(); return false"><img src="images/icone_rafraichir.png" border="0" alt="<?php echo _("Try other security code");?>" title="<?php echo _("Try other security code");?>"/></a>
+			<td valign="middle">
+				<img id="captcha" src="securimage/securimage_show.php" alt="<?php echo _("Captcha Image");?>" title="<?php echo _("Captcha Image");?>"/>
 			</td>
 		</tr>
 		<tr>
-			<td align="left" colspan="2">
+			<td align="center" colspan="2">
 				<input name="btnCreate" type="button" value="<?php echo _("Sign up for free");?>" onClick="validateForm()" class="button">
 			</td>
 		</tr>
