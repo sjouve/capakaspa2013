@@ -351,4 +351,31 @@ function countOnlinePlayers()
 	$res_olplayer = mysql_query("SELECT count(playerID) nbPlayers FROM online_players");
 	return mysql_fetch_array($res_olplayer, MYSQL_ASSOC);
 }
+
+function getPrefNotification($gameID, $playerColor)
+{
+	// Check player notification preferences
+	if ($playerColor == 'white')
+	{
+		$tmpReceiver = mysql_query("SELECT P.email email, PR.value value, PR2.value language 
+									FROM games G, players P left join preferences PR2 on PR2.playerID = P.playerID AND PR2.preference='language', preferences PR
+									WHERE G.gameID =".$gameID."
+									AND G.whitePlayer = P.playerID 
+									AND PR.playerID = P.playerID 
+									AND PR.preference='emailnotification'");
+	}
+	else
+	{
+		$tmpReceiver = mysql_query("SELECT P.email email, PR.value value, PR2.value language 
+									FROM games G, players P left join preferences PR2 on PR2.playerID = P.playerID AND PR2.preference='language', preferences PR
+									WHERE G.gameID =".$gameID."
+									AND G.blackPlayer = P.playerID 
+									AND PR.playerID = P.playerID 
+									AND PR.preference='emailnotification'");
+	}
+	
+	$receiver = mysql_fetch_array($tmpReceiver, MYSQL_ASSOC);
+	
+	return $receiver;
+}
 ?>

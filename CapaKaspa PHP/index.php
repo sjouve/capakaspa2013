@@ -8,7 +8,6 @@
 
 	/* load external functions for setting up new game */
 	require_once('bwc/bwc_chessutils.php');
-	require 'include/localization.php';
 	require 'include/constants.php';
 	require 'bwc/bwc_board.php';
 	require 'bwc/bwc_players.php';
@@ -45,7 +44,9 @@
 			     setcookie("capakaspacn[$nom]", 0, time()-3600*24);    
 			  }
 			}
+			// TODO Vider la session
 			$_SESSION['playerID'] = -1;
+			//unset($_SESSION);
 			header("Location: sign-up.php");
 			exit;
 			break;
@@ -82,31 +83,23 @@
 				
 				$tmpQuery = "INSERT INTO games (whitePlayer, blackPlayer, gameMessage, messageFrom, dateCreated, lastMove, type, flagBishop, flagKnight, flagRook, flagQueen) VALUES (";
 				if ($tmpColor == 'white')
+				{
 					$tmpQuery .= $_SESSION['playerID'].", ".$_POST['opponent'];
+					$oppColor = 'black';
+				}
 				else
+				{
 					$tmpQuery .= $_POST['opponent'].", ".$_SESSION['playerID'];
+					$oppColor = 'white';
+				}
 
 				$tmpQuery .= ", 'playerInvited', '".$tmpColor."', NOW(), NOW(), ".$type.", ".$flagBishop.", ".$flagKnight.", ".$flagRook.", ".$flagQueen.")";
 				
 				mysql_query($tmpQuery);
 				
-				/* if email notification is activated... */
-				if ($CFG_USEEMAILNOTIFICATION)
-				{
-					/* if opponent is using email notification... */
-					$tmpOpponentEmail = mysql_query("SELECT email FROM players WHERE playerID = ".$_POST['opponent']);
-					if (mysql_num_rows($tmpOpponentEmail) > 0)
-					{
-						$opponentEmail = mysql_result($tmpOpponentEmail, 0);
-						$tmpNotifEmail = mysql_query("SELECT value FROM preferences WHERE playerID = ".$_POST['opponent']." AND preference = 'emailNotification'");
-						$notifEmail = mysql_result($tmpNotifEmail, 0);
-						if ($notifEmail == 'oui')
-						{
-							/* notify opponent of invitation via email */
-							webchessMail('invitation', $opponentEmail, '', $_SESSION['nick']);
-						}
-					}
-				}
+				/* Notification */
+				chessNotification('invitation', $oppColor, '', $_SESSION['nick'], mysql_insert_id());
+			
 			}
 			break;
 
@@ -147,30 +140,22 @@
 							
 							$tmpQuery = "INSERT INTO games (whitePlayer, blackPlayer, gameMessage, messageFrom, dateCreated, lastMove, type, flagBishop, flagKnight, flagRook, flagQueen) VALUES (";
 							if ($tmpColor == 'white')
+							{
 								$tmpQuery .= $_SESSION['playerID'].", ".$tmpPlayer['playerID'];
+								$oppColor = "black";
+							}
 							else
+							{
 								$tmpQuery .= $tmpPlayer['playerID'].", ".$_SESSION['playerID'];
+								$oppColor = "white";
+							}
 
 							$tmpQuery .= ", 'playerInvited', '".$tmpColor."', NOW(), NOW(), ".$_POST['type'].", ".$flagBishop.", ".$flagKnight.", ".$flagRook.", ".$flagQueen.")";
 							mysql_query($tmpQuery);
 							
-							/* if email notification is activated... */
-							if ($CFG_USEEMAILNOTIFICATION)
-							{
-								/* if opponent is using email notification... */
-								$tmpOpponentEmail = mysql_query("SELECT email FROM players WHERE playerID = ".$tmpPlayer['playerID']);
-								if (mysql_num_rows($tmpOpponentEmail) > 0)
-								{
-									$opponentEmail = mysql_result($tmpOpponentEmail, 0);
-									$tmpNotifEmail = mysql_query("SELECT value FROM preferences WHERE playerID = ".$tmpPlayer['playerID']." AND preference = 'emailNotification'");
-									$notifEmail = mysql_result($tmpNotifEmail, 0);
-									if ($notifEmail == 'oui')
-									{
-										/* notify opponent of invitation via email */
-										webchessMail('invitation', $opponentEmail, '', $_SESSION['nick']);
-									}
-								}
-							}
+							/* Notification */
+							chessNotification('invitation', $oppColor, '', $_SESSION['nick'], mysql_insert_id());
+							
 						}
 					}
 				}
@@ -191,28 +176,21 @@
 				createNewGame($_POST['gameID']);
 				saveGame();
 				
-					
 				/* if opponent is using email notification... */
-				$tmpPlayersEmail = mysql_query("SELECT G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, WP.email whiteEmail, BP.email blackEmail FROM games G, players WP, players BP WHERE G.gameID = ".$_POST['gameID']." AND G.whitePlayer = WP.playerID AND G.blackPlayer = BP.playerID");
+				$tmpPlayersEmail = mysql_query("SELECT G.whitePlayer whitePlayer, G.blackPlayer blackPlayer FROM games G, players WP, players BP WHERE G.gameID = ".$_POST['gameID']." AND G.whitePlayer = WP.playerID AND G.blackPlayer = BP.playerID");
 				if (mysql_num_rows($tmpPlayersEmail) > 0)
 				{
 					$playersEmail = mysql_fetch_array($tmpPlayersEmail, MYSQL_ASSOC);
 					if ($playersEmail['whitePlayer'] != $_SESSION['playerID'])
 					{
-						$opponentEmail = $playersEmail['whiteEmail'];
-						$opponentID = $playersEmail['whitePlayer'];
-					} else {
-					  	$opponentEmail = $playersEmail['blackEmail'];
-					  	$opponentID = $playersEmail['blackPlayer'];
+						$oppColor = "white";
+					} else 
+					{
+					  	$oppColor = "black";
 					}
 					
-					$tmpNotifEmail = mysql_query("SELECT value FROM preferences WHERE playerID = ".$opponentID." AND preference = 'emailNotification'");
-					$notifEmail = mysql_result($tmpNotifEmail, 0);
-					if ($notifEmail == 'oui')
-					{
-						/* notify opponent of invitation via email */
-						webchessMail('accepted', $opponentEmail, $_POST['respMessage'], $_SESSION['nick']);
-					}
+					/* Notification */
+					chessNotification('accepted', $oppColor, $_POST['respMessage'], $_SESSION['nick'], $_POST['gameID']);
 				}
 					
 			}
@@ -223,26 +201,19 @@
 				mysql_query($tmpQuery);
 				
 				/* if opponent is using email notification... */
-				$tmpPlayersEmail = mysql_query("SELECT G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, WP.email whiteEmail, BP.email blackEmail FROM games G, players WP, players BP WHERE G.gameID = ".$_POST['gameID']." AND G.whitePlayer = WP.playerID AND G.blackPlayer = BP.playerID");
+				$tmpPlayersEmail = mysql_query("SELECT G.whitePlayer whitePlayer, G.blackPlayer blackPlayer FROM games G, players WP, players BP WHERE G.gameID = ".$_POST['gameID']." AND G.whitePlayer = WP.playerID AND G.blackPlayer = BP.playerID");
 				if (mysql_num_rows($tmpPlayersEmail) > 0)
 				{
 					$playersEmail = mysql_fetch_array($tmpPlayersEmail, MYSQL_ASSOC);
 					if ($playersEmail['whitePlayer'] != $_SESSION['playerID'])
 					{
-						$opponentEmail = $playersEmail['whiteEmail'];
-						$opponentID = $playersEmail['whitePlayer'];
+						$oppColor = "white";
 					} else {
-					  	$opponentEmail = $playersEmail['blackEmail'];
-					  	$opponentID = $playersEmail['blackPlayer'];
+					  	$oppColor = "black";
 					}
 					
-					$tmpNotifEmail = mysql_query("SELECT value FROM preferences WHERE playerID = ".$opponentID." AND preference = 'emailNotification'");
-					$notifEmail = mysql_result($tmpNotifEmail, 0);
-					if ($notifEmail == 'oui')
-					{
-						/* notify opponent of invitation via email */
-						webchessMail('declined', $opponentEmail, $_POST['respMessage'], $_SESSION['nick']);
-					}
+					/* Notification */
+					chessNotification('declined', $oppColor, $_POST['respMessage'], $_SESSION['nick'], $_POST['gameID']);
 				}
 			}
 
@@ -258,28 +229,18 @@
 
 				if ($opponentID == $_SESSION['playerID'])
 				{
-					$tmpOpponentID = mysql_query("SELECT blackPlayer FROM games WHERE gameID = ".$_POST['gameID']);
-					$opponentID = mysql_result($tmpOpponentID, 0);
+					$oppColor = "black";
+				}
+				else
+				{
+					$oppColor = "white";
 				}
 
+				/* notify opponent of invitation via email */
+				chessNotification('withdrawal', $oppColor, '', $_SESSION['nick'], $_POST['gameID']);
+				
 				$tmpQuery = "DELETE FROM games WHERE gameID = ".$_POST['gameID'];
 				mysql_query($tmpQuery);
-
-				/* if email notification is activated... */
-				if ($CFG_USEEMAILNOTIFICATION)
-				{
-					/* if opponent is using email notification... */
-					$tmpOpponentEmail = mysql_query("SELECT email FROM players WHERE playerID = ".$opponentID);
-					if (mysql_num_rows($tmpOpponentEmail) > 0)
-					{
-						$opponentEmail = mysql_result($tmpOpponentEmail, 0);
-						if ($opponentEmail != '')
-						{
-							/* notify opponent of invitation via email */
-							webchessMail('withdrawal', $opponentEmail, '', $_SESSION['nick']);
-						}
-					}
-				}
 			}
 			break;
 
@@ -290,7 +251,10 @@
 
 	/* set default playing mode to different PCs (as opposed to both players sharing a PC) */
 	$_SESSION['isSharedPC'] = false;
-
+	
+	// Localization after login
+	require 'include/localization.php';
+	
     $titre_page = _("My games in progress");
     $desc_page = _("Play chess and share your games. My games in progress.");
     require 'include/page_header.php';
@@ -319,13 +283,6 @@
 			document.withdrawRequestForm.submit();
 		}
 
-<? if ($CFG_USEEMAILNOTIFICATION) { ?>
-		function testEmail()
-		{
-			document.preferences.ToDo.value = "TestEmail";
-			document.preferences.submit();
-		}
-<? } ?>
 </script>
 <?
 require 'include/page_body.php';

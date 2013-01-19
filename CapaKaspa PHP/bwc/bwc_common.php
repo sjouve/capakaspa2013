@@ -19,7 +19,7 @@ function nbDays($debut, $fin) {
 }
 
 /* Affichage navigation pagination liste
- * $pge = numéro de la page courante
+* $pge = numéro de la page courante
 * $limit = nombre de résultats par page
 * $nb_tot = nombre de résultats
 * $nbpages = nombre de pages
@@ -73,5 +73,29 @@ function displayPageNav($pge, $limit, $nb_tot, $nbpages)
 	}
 	echo("<div class='pages'> (".$nbpages." pages - ".$nb_tot." résultats)</div>");
 	echo("</div>");
+}
+
+/* Fonction d'envoi de mail */
+function sendMail($msgTo, $mailSubject, $mailMsg)
+{
+	global $CFG_MAILADDRESS, $CFG_USEEMAILNOTIFICATION;
+
+	$headers = "From: CapaKaspa <".$CFG_MAILADDRESS.">\r\n";
+	$headers .= "To: ".$msgTo."\r\n";
+	$headers .= "Reply-To: CapaKaspa <".$CFG_MAILADDRESS.">\r\n";
+	
+	$mailMsg .= "\n\nCe message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).\n";
+	$mailMsg .= "\nCapaKaspa c'est aussi :\n";
+	$mailMsg .= "Le blog (http://blog.capakaspa.info) pour découvrir\n";
+	$mailMsg .= "Le forum (http://forum.capakaspa.info) pour partager\n";
+	$mailMsg .= "Nous suivre sur Facebook (http://www.facebook.com/capakaspa)\n";
+	$mailMsg .= "Nous suivre sur Google+ (http://plus.google.com/114694270583726807082)\n";
+	
+	if ($CFG_USEEMAILNOTIFICATION)
+	{
+		$res = mail($msgTo, $mailSubject, $mailMsg, $headers);
+	}
+	
+	return $res;
 }
 ?>

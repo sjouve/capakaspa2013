@@ -792,6 +792,12 @@
 		overflow: hidden;
 		/*background-color: #555555;*/
 	}
+	.activity .details .footer .date{
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		font-weight: normal;
+		font-style: normal;
+		color: #666666;
+	}
 	.comment{
 		float: left;
 		width: 100%;

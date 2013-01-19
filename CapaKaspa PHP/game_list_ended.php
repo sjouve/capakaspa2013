@@ -38,13 +38,6 @@
 			document.endedGames.submit();
 		}
 
-<? if ($CFG_USEEMAILNOTIFICATION) { ?>
-		function testEmail()
-		{
-			document.preferences.ToDo.value = "TestEmail";
-			document.preferences.submit();
-		}
-<? } ?>
 	</script>
 <?
     require 'include/page_body.php';

@@ -9,8 +9,8 @@ function insertActivity($playerID, $type, $entityID, $message)
 
 function listActivityFollowing($debut, $limit, $playerID)
 {
-	$tmpQuery = "SELECT *
-		FROM activity A, fav_players F
+	$tmpQuery = "SELECT A.activityID, A.message, A.postDate
+		FROM activity A, fav_players F, 
 		WHERE A.playerID = F.favPlayerID
 		AND F.playerID=".$playerID."
 		ORDER BY postDate desc

@@ -128,41 +128,16 @@ function savePromotion()
 	mysql_query($tmpQuery);
 
 	updateTimestamp();
-
-	/* if email notification is activated and move does not result in a pawn's promotion... */
-	if ($CFG_USEEMAILNOTIFICATION)
-	{
-		if ($history[$numMoves]['replaced'] == null)
-			$tmpReplaced = '';
-		else
-			$tmpReplaced = $history[$numMoves]['replaced'];
-
-		// Couleur de l'adversaire
-		if (($numMoves == -1) || ($numMoves % 2 == 1))
-			$oppColor = "black";
-		else
-			$oppColor = "white";
-		
-		// Récupérer les informations sur l'adversaire
-		if ($oppColor == 'white')
-		{	
-			$tmpOpponent = mysql_query("SELECT P.email email, PR.value value FROM games G, players P, preferences PR WHERE G.gameID = ".$_POST['gameID']." AND G.whitePlayer = P.playerID AND PR.playerID = P.playerID AND PR.preference='emailnotification'");
-		}
-		else
-		{
-			$tmpOpponent = mysql_query("SELECT P.email email, PR.value value FROM games G, players P, preferences PR WHERE G.gameID = ".$_POST['gameID']." AND G.blackPlayer = P.playerID AND PR.playerID = P.playerID AND PR.preference='emailnotification'");
-		}
-		
-		$opponent = mysql_fetch_array($tmpOpponent, MYSQL_ASSOC);
 	
-		if ($opponent['value'] == 'oui')
-		{	
-				
-			// Avertir l'adversaire par email
-			webchessMail('move', $opponent['email'], moveToPGNString($history[$numMoves]['curColor'], $history[$numMoves]['curPiece'], $history[$numMoves]['fromRow'], $history[$numMoves]['fromCol'], $history[$numMoves]['toRow'], $history[$numMoves]['toCol'], $tmpReplaced, $history[$numMoves]['promotedTo'], $isInCheck), $_SESSION['nick']);
-		
-		}
-	}
+	if ($history[$numMoves]['replaced'] == null)
+		$tmpReplaced = '';
+	else
+		$tmpReplaced = $history[$numMoves]['replaced'];
+	
+	$oppColor = getTurnColor($numMoves);
+	
+	// Notification
+	chessNotification('move', $oppColor, moveToPGNString($history[$numMoves]['curColor'], $history[$numMoves]['curPiece'], $history[$numMoves]['fromRow'], $history[$numMoves]['fromCol'], $history[$numMoves]['toRow'], $history[$numMoves]['toCol'], $tmpReplaced, $history[$numMoves]['promotedTo'], $isInCheck), $_SESSION['nick'], $_POST['gameID']);
 }
 
 function saveHistory()
@@ -253,28 +228,13 @@ function saveHistory()
 
 function sendEmailNotification($history, $isPromoting, $numMoves, $isInCheck)
 {
-	/* if email notification is activated and move does not result in a pawn's promotion... */
+	/* if move does not result in a pawn's promotion... */
 	/* NOTE: moves resulting in pawn promotion are handled by savePromotion() above */
 	
-	// get opponent's player ID, email, nick et pref email notification
-	if (($numMoves == -1) || ($numMoves % 2 == 1))
-	{	
-		$tmpOpponent = mysql_query("SELECT P.email email, PR.value value FROM games G, players P, preferences PR WHERE G.gameID = ".$_POST['gameID']." AND G.whitePlayer = P.playerID AND PR.playerID = P.playerID AND PR.preference='emailnotification'");
-	}
-	else
-	{
-		$tmpOpponent = mysql_query("SELECT P.email email, PR.value value FROM games G, players P, preferences PR WHERE G.gameID = ".$_POST['gameID']." AND G.blackPlayer = P.playerID AND PR.playerID = P.playerID AND PR.preference='emailnotification'");
-	}
+	$oppColor = getTurnColor($numMoves);
 	
-	$opponent = mysql_fetch_array($tmpOpponent, MYSQL_ASSOC);
-	
-	if ($opponent['value'] == 'oui')
-	{	
-		
-		// notify opponent of move via email
-		webchessMail('move', $opponent['email'], moveToPGNString($history[$numMoves]['curColor'], $history[$numMoves]['curPiece'], $history[$numMoves]['fromRow'], $history[$numMoves]['fromCol'], $history[$numMoves]['toRow'], $history[$numMoves]['toCol'], $history[$numMoves]['replaced'], '', $isInCheck), $_SESSION['nick']);
-		
-	}
+	// Notification
+	chessNotification('move', $oppColor, moveToPGNString($history[$numMoves]['curColor'], $history[$numMoves]['curPiece'], $history[$numMoves]['fromRow'], $history[$numMoves]['fromCol'], $history[$numMoves]['toRow'], $history[$numMoves]['toCol'], $history[$numMoves]['replaced'], '', $isInCheck), $_SESSION['nick'], $_POST['gameID']);
 	
 }
 		
@@ -403,7 +363,7 @@ function saveGame()
 
 function processMessages()
 {
-	global $isUndoRequested, $isDrawRequested, $isUndoing, $isGameOver, $isCheckMate, $playersColor, $statusMessage, $CFG_USEEMAILNOTIFICATION;
+	global $isUndoRequested, $isDrawRequested, $isUndoing, $isGameOver, $isCheckMate, $playersColor, $statusMessage;
 	
 	if (DEBUG)
 		echo("Entering processMessages()<br>\n");
@@ -502,26 +462,8 @@ function processMessages()
 			/* if email notification is activated... */
 			if ($tmpStatus == "approved")
 			{
-				/* get opponent's player ID */
-				if ($playersColor == 'white')
-					$tmpOpponentID = mysql_query("SELECT blackPlayer FROM games WHERE gameID = ".$_POST['gameID']);
-				else
-					$tmpOpponentID = mysql_query("SELECT whitePlayer FROM games WHERE gameID = ".$_POST['gameID']);
-				
-				$opponentID = mysql_result($tmpOpponentID, 0);
-			
-				$tmpOpponentEmail = mysql_query("SELECT email FROM players WHERE playerID = ".$opponentID);
-				
-				/* if opponent is using email notification... */
-				if (mysql_num_rows($tmpOpponentEmail) > 0)
-				{
-					$opponentEmail = mysql_result($tmpOpponentEmail, 0);
-					if ($opponentEmail != '')
-					{
-						/* notify opponent of resignation via email */
-						webchessMail('draw', $opponentEmail, '', $_SESSION['nick']);
-					}
-				}
+				/* Notification */
+				chessNotification('draw', $opponentColor, '', $_SESSION['nick'], $_POST['gameID']);
 			}
 		}
 	}
@@ -535,30 +477,9 @@ function processMessages()
 
 		updateTimestamp();
 
-		/* if email notification is activated... */
-		if ($CFG_USEEMAILNOTIFICATION)
-		{
-			/* get opponent's player ID */
-			if ($playersColor == 'white')
-				$tmpOpponentID = mysql_query("SELECT blackPlayer FROM games WHERE gameID = ".$_POST['gameID']);
-			else
-				$tmpOpponentID = mysql_query("SELECT whitePlayer FROM games WHERE gameID = ".$_POST['gameID']);
+		/* Notification */
+		chessNotification('resignation', $opponentColor, '', $_SESSION['nick'], $_POST['gameID']);
 			
-			$opponentID = mysql_result($tmpOpponentID, 0);
-		
-			$tmpOpponentEmail = mysql_query("SELECT email FROM players WHERE playerID = ".$opponentID);
-			
-			/* if opponent is using email notification... */
-			if (mysql_num_rows($tmpOpponentEmail) > 0)
-			{
-				$opponentEmail = mysql_result($tmpOpponentEmail, 0);
-				if ($opponentEmail != '')
-				{
-					/* notify opponent of resignation via email */
-					webchessMail('resignation', $opponentEmail, '', $_SESSION['nick']);
-				}
-			}
-		}
 	}
 	
 	
@@ -1049,153 +970,153 @@ function writeHistory()
 
 function writeStatus()
 {
-		global $numMoves, $history, $isCheckMate, $statusMessage, $isPlayersTurn, $whiteNick, $blackNick, $whitePlayerID, $blackPlayerID, $ecoCode, $ecoName, $dateCreated, $whiteElo, $blackElo, $whiteSocialID, $whiteSocialNet, $blackSocialID, $blackSocialNet;
-		
-		?>
-		<table border="0" width="300" align="center" cellspacing="0" cellpadding="0">
-		<tr bgcolor="beige" valign="top">
-			<th width="15%">
-				<img src="<?echo(getPicturePath($whiteSocialNet, $whiteSocialID));?>" width="40" height="40" style="margin:3px;"/>
-			</th>
-			<th width="35%" align="left">
-			<?
-				if ($isPlayersTurn)
-				{	
+	global $numMoves, $history, $isCheckMate, $statusMessage, $isPlayersTurn, $whiteNick, $blackNick, $whitePlayerID, $blackPlayerID, $ecoCode, $ecoName, $dateCreated, $whiteElo, $blackElo, $whiteSocialID, $whiteSocialNet, $blackSocialID, $blackSocialNet;
+	
+	?>
+	<table border="0" width="300" align="center" cellspacing="0" cellpadding="0">
+	<tr bgcolor="beige" valign="top">
+		<th width="15%">
+			<img src="<?echo(getPicturePath($whiteSocialNet, $whiteSocialID));?>" width="40" height="40" style="margin:3px;"/>
+		</th>
+		<th width="35%" align="left">
+		<?
+			if ($isPlayersTurn)
+			{	
+				echo("<div class='playername'><a href='player_view.php?playerID=".$whitePlayerID."'>".$whiteNick."</a><br/>".$whiteElo);
+				if (getOnlinePlayer($whitePlayerID)) echo (" <img src='images/user_online.gif'/>");
+				if ($whiteNick == $_SESSION['nick']) echo (" <img src='images/hand.gif'/>");
+				echo("</div>");
+			}
+			else
+			{
+				if ($whiteNick == $_SESSION['nick'] || $blackNick == $_SESSION['nick'])
+				{
 					echo("<div class='playername'><a href='player_view.php?playerID=".$whitePlayerID."'>".$whiteNick."</a><br/>".$whiteElo);
 					if (getOnlinePlayer($whitePlayerID)) echo (" <img src='images/user_online.gif'/>");
-					if ($whiteNick == $_SESSION['nick']) echo (" <img src='images/hand.gif'/>");
+					if ($whiteNick != $_SESSION['nick']) echo (" <img src='images/hand.gif'/>"); 
 					echo("</div>");
 				}
 				else
 				{
-					if ($whiteNick == $_SESSION['nick'] || $blackNick == $_SESSION['nick'])
-					{
-						echo("<div class='playername'><a href='player_view.php?playerID=".$whitePlayerID."'>".$whiteNick."</a><br/>".$whiteElo);
-						if (getOnlinePlayer($whitePlayerID)) echo (" <img src='images/user_online.gif'/>");
-						if ($whiteNick != $_SESSION['nick']) echo (" <img src='images/hand.gif'/>"); 
-						echo("</div>");
-					}
-					else
-					{
-					  	echo("<div class='playername'><a href='player_view.php?playerID=".$whitePlayerID."'>".$whiteNick."</a><br/>".$whiteElo);
-					  	if (getOnlinePlayer($whitePlayerID)) echo (" <img src='images/user_online.gif'/>");
-						echo("</div>");
-					}
+				  	echo("<div class='playername'><a href='player_view.php?playerID=".$whitePlayerID."'>".$whiteNick."</a><br/>".$whiteElo);
+				  	if (getOnlinePlayer($whitePlayerID)) echo (" <img src='images/user_online.gif'/>");
+					echo("</div>");
 				}
-			?>
-			</th>
-			<th width="35%" align="right">
-			<?
-				if ($isPlayersTurn)
+			}
+		?>
+		</th>
+		<th width="35%" align="right">
+		<?
+			if ($isPlayersTurn)
+			{
+				
+				echo("<div class='playername'><a href='player_view.php?playerID=".$blackPlayerID."'>".$blackNick."</a><br/>");
+				if ($blackNick == $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
+				if (getOnlinePlayer($blackPlayerID)) echo (" <img src='images/user_online.gif'/>");
+				echo($blackElo."</div>");	
+			}
+			else
+			{
+				if ($whiteNick == $_SESSION['nick'] || $blackNick == $_SESSION['nick'])
 				{
 					
 					echo("<div class='playername'><a href='player_view.php?playerID=".$blackPlayerID."'>".$blackNick."</a><br/>");
-					if ($blackNick == $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
+					if ($blackNick != $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
 					if (getOnlinePlayer($blackPlayerID)) echo (" <img src='images/user_online.gif'/>");
 					echo($blackElo."</div>");	
 				}
 				else
 				{
-					if ($whiteNick == $_SESSION['nick'] || $blackNick == $_SESSION['nick'])
-					{
-						
-						echo("<div class='playername'><a href='player_view.php?playerID=".$blackPlayerID."'>".$blackNick."</a><br/>");
-						if ($blackNick != $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
-						if (getOnlinePlayer($blackPlayerID)) echo (" <img src='images/user_online.gif'/>");
-						echo($blackElo."</div>");	
-					}
-					else
-					{
-					  	echo("<div class='playername'><a href='player_view.php?playerID=".$blackPlayerID."'>".$blackNick."</a><br/>");
-					  	if (getOnlinePlayer($blackPlayerID)) echo (" <img src='images/user_online.gif'/>");
-					  	echo($blackElo."</div>");
-					}
+				  	echo("<div class='playername'><a href='player_view.php?playerID=".$blackPlayerID."'>".$blackNick."</a><br/>");
+				  	if (getOnlinePlayer($blackPlayerID)) echo (" <img src='images/user_online.gif'/>");
+				  	echo($blackElo."</div>");
 				}
-			?>
-			</th>
-			<th width="15%">
-				<img src="<?echo(getPicturePath($blackSocialNet, $blackSocialID));?>" width="40" height="40" style="margin:3px;"/><br/>
-			</th>
-		</tr>
-		<tr bgcolor="beige">
-			<th colspan="4">
-				<div class="econame"><?echo("[".$ecoCode."] ".$ecoName);?></div>
-				<div class="econame"><a href="manuel-utilisateur-jouer-echecs-capakaspa.pdf#page=6" target="_blank" title="<?php echo _("Open help")?>"><img src="images/point-interrogation.gif" border="0"/></a> <a href="javascript:document.gamedata.submit();"><img src="images/icone_rafraichir.png" border="0" title="<?echo _("Refresh game")?>" alt="<?echo _("Refresh game")?>"/></a>
-               <?echo _("Game started at")?> : <? echo($dateCreated);?></div>
-			</th>
-			
-		</tr>
-		
-		<tr>
-		<?
-		if (($numMoves == -1) || ($numMoves % 2 == 1))
-			$curColor = _("Whites");
-		else
-			$curColor = _("Blacks");
-
-		if (!$isCheckMate && ($history[$numMoves]['isInCheck'] == 1))
-			echo("<td align='center' bgcolor='red' colspan='4'>\n<b>".$curColor." "._("are in check")." !</b><br/>\n".$statusMessage."</td>\n");
-		else
-			echo("<td align='center' colspan='4'><b>".$statusMessage."&nbsp;</b></td>\n");
-			
+			}
 		?>
-		</tr>
-		</table>
-		<?
-	}
-
-	function writePromotion($isMobile)
-	{
-	?>
+		</th>
+		<th width="15%">
+			<img src="<?echo(getPicturePath($blackSocialNet, $blackSocialID));?>" width="40" height="40" style="margin:3px;"/><br/>
+		</th>
+	</tr>
+	<tr bgcolor="beige">
+		<th colspan="4">
+			<div class="econame"><?echo("[".$ecoCode."] ".$ecoName);?></div>
+			<div class="econame"><a href="manuel-utilisateur-jouer-echecs-capakaspa.pdf#page=6" target="_blank" title="<?php echo _("Open help")?>"><img src="images/point-interrogation.gif" border="0"/></a> <a href="javascript:document.gamedata.submit();"><img src="images/icone_rafraichir.png" border="0" title="<?echo _("Refresh game")?>" alt="<?echo _("Refresh game")?>"/></a>
+               <?echo _("Game started at")?> : <? echo($dateCreated);?></div>
+		</th>
 		
-		<table <?if (!$isMobile) {?>width="350"<?};?> border="0">
-		<tr><td>
-			<?echo _("Promote the pawn in")?> :
-			<br>
-			<input type="radio" name="promotion" value="<? echo (QUEEN); ?>" checked="checked"> <?echo _("Queen")?>
-			<input type="radio" name="promotion" value="<? echo (ROOK); ?>"> <?echo _("Rook")?>
-			<input type="radio" name="promotion" value="<? echo (KNIGHT); ?>"> <?echo _("Knight")?>
-			<input type="radio" name="promotion" value="<? echo (BISHOP); ?>"> <?echo _("Bishop")?>
-			<input type="button" name="btnPromote" value="<? echo _("OK")?>" class="button" onClick="promotepawn()" />
-		</td></tr>
-		</table>
-		
+	</tr>
+	
+	<tr>
 	<?
-	}
+	if (($numMoves == -1) || ($numMoves % 2 == 1))
+		$curColor = _("Whites");
+	else
+		$curColor = _("Blacks");
 
-	function writeUndoRequest($isMobile)
-	{
+	if (!$isCheckMate && ($history[$numMoves]['isInCheck'] == 1))
+		echo("<td align='center' bgcolor='red' colspan='4'>\n<b>".$curColor." "._("are in check")." !</b><br/>\n".$statusMessage."</td>\n");
+	else
+		echo("<td align='center' colspan='4'><b>".$statusMessage."&nbsp;</b></td>\n");
+		
 	?>
-		
-		<table <?if (!$isMobile) {?>width="350"<?};?> border="0">
-		<tr><td>
-			<?echo _("Your opponent wants to cancel last move. Are you agree ?")?>
-			<br>
-			<input type="radio" name="undoResponse" value="yes"> <?echo _("Yes")?>
-			<input type="radio" name="undoResponse" value="no" checked="checked"> <?echo _("No")?>
-			<input type="hidden" name="isUndoResponseDone" value="no">
-			<input type="button" value="<? echo _("OK")?>" class="button" onClick="this.form.isUndoResponseDone.value = 'yes'; this.form.submit()">
-		</td></tr>
-		</table>
-		
+	</tr>
+	</table>
 	<?
-	}
+}
 
-	function writeDrawRequest($isMobile)
-	{
-	?>
-		
-		<table <?if (!$isMobile) {?>width="350"<?};?> border="0">
-		<tr><td>
-			<?echo _("Your opponent do a draw proposal. Are you agree ?")?>
-			<br>
-			<input type="radio" name="drawResponse" value="yes"> <?echo _("Yes")?>
-			<input type="radio" name="drawResponse" value="no" checked="checked"> <?echo _("No")?>
-			<input type="hidden" name="isDrawResponseDone" value="no">
-			<input type="button" value="<? echo _("OK")?>" class="button" onClick="this.form.isDrawResponseDone.value = 'yes'; this.form.submit()">
-		</td></tr>
-		</table>
-		
-	<?
-	}
+function writePromotion($isMobile)
+{
+?>
+	
+	<table <?if (!$isMobile) {?>width="350"<?};?> border="0">
+	<tr><td>
+		<?echo _("Promote the pawn in")?> :
+		<br>
+		<input type="radio" name="promotion" value="<? echo (QUEEN); ?>" checked="checked"> <?echo _("Queen")?>
+		<input type="radio" name="promotion" value="<? echo (ROOK); ?>"> <?echo _("Rook")?>
+		<input type="radio" name="promotion" value="<? echo (KNIGHT); ?>"> <?echo _("Knight")?>
+		<input type="radio" name="promotion" value="<? echo (BISHOP); ?>"> <?echo _("Bishop")?>
+		<input type="button" name="btnPromote" value="<? echo _("OK")?>" class="button" onClick="promotepawn()" />
+	</td></tr>
+	</table>
+	
+<?
+}
+
+function writeUndoRequest($isMobile)
+{
+?>
+	
+	<table <?if (!$isMobile) {?>width="350"<?};?> border="0">
+	<tr><td>
+		<?echo _("Your opponent wants to cancel last move. Are you agree ?")?>
+		<br>
+		<input type="radio" name="undoResponse" value="yes"> <?echo _("Yes")?>
+		<input type="radio" name="undoResponse" value="no" checked="checked"> <?echo _("No")?>
+		<input type="hidden" name="isUndoResponseDone" value="no">
+		<input type="button" value="<? echo _("OK")?>" class="button" onClick="this.form.isUndoResponseDone.value = 'yes'; this.form.submit()">
+	</td></tr>
+	</table>
+	
+<?
+}
+
+function writeDrawRequest($isMobile)
+{
+?>
+	
+	<table <?if (!$isMobile) {?>width="350"<?};?> border="0">
+	<tr><td>
+		<?echo _("Your opponent do a draw proposal. Are you agree ?")?>
+		<br>
+		<input type="radio" name="drawResponse" value="yes"> <?echo _("Yes")?>
+		<input type="radio" name="drawResponse" value="no" checked="checked"> <?echo _("No")?>
+		<input type="hidden" name="isDrawResponseDone" value="no">
+		<input type="button" value="<? echo _("OK")?>" class="button" onClick="this.form.isDrawResponseDone.value = 'yes'; this.form.submit()">
+	</td></tr>
+	</table>
+	
+<?
+}
 ?>

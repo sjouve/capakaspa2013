@@ -30,47 +30,65 @@
 		if ($errMsg != "")
 			echo("<div class='error'>".$errMsg."</div>");
 		?>
-		
-		<div class="activity">
-			<div class="leftbar">
-				<img src="<?echo(getPicturePath("FB", "sebastien.jouve.fr"));?>" width="40" height="40" border="0"/>
-			</div>
-			<div class="details">
-				<div class="title">
-					<a href=""><span class='name'>Sébastien Jouve</span></a> a joué le coup 1.e4 contre <span class='name'>Eric Jouve</span>
+		<!--
+			Id joueur activité
+			Photo joueur activité
+			Non joueur activité
+			Elo joueur activité
+			Message activité
+			Date activité
+			Position partie
+			PARTIE
+			Id joueur adversaire
+			Nom joueur adversaire
+			Elo joueur adversaire
+			Id partie
+			ECO code partie
+			Position partie
+			ECO libellé
+			
+			Messages : coup, res:victoire, res:défaire, res:nulle, propose nulle, 
+		 -->
+			<div class="activity">
+				<div class="leftbar">
+					<img src="<?echo(getPicturePath("FB", "sebastien.jouve.fr"));?>" width="40" height="40" border="0"/>
 				</div>
-				<div class="content">
-					<? drawboardGame(2798, 1, 408, "tcfdrfctppp0pppp00000000000p00000000000000000000PPPPPPPPTCFDRFCT");?>
-				</div>
-				<div class="footer">
-					! Bon - <a href="javascript:displayComment('<?echo(ACTIVITY)?>', 1);">Commenter</a> - Il y a 30 minutes
-				</div>
-				<div class="comment" id="comment1">
-					<? echo _("Load comments...");?>
-				</div>
-			</div>
-		</div>
-		
-		<div class="activity">
-			<div class="leftbar">
-				<img src="<?echo(getPicturePath("", ""));?>" width="40" height="40" border="0"/>
-			</div>
-			<div class="details">
-				<div class="title">
-					<span class='name'>Sébastien Jouve</span> a joué le coup 1.e4 contre <span class='name'>Eric Jouve</span>
-				</div>
-				<div class="content">
-					<? drawboardGame(2798, 1, 408, "tcfdrfctppp0pppp00000000000p00000000000000000000PPPPPPPPTCFDRFCT");?>
-				</div>
-				<div class="footer">
-					! Bon - <a href="javascript:displayComment('<?echo(ACTIVITY)?>', 2);">Commenter</a> - Il y a 30 minutes
-				</div>
-				<div class="comment" id="comment2">
-					Comments
+				<div class="details">
+					<div class="title">
+						<a href=""><span class='name'>Sébastien Jouve</span></a> a joué le coup 1.e4 contre <span class='name'>Eric Jouve</span>
+					</div>
+					<div class="content">
+						<? drawboardGame(2798, 1, 408, "tcfdrfctppp0pppp00000000000p00000000000000000000PPPPPPPPTCFDRFCT");?>
+					</div>
+					<div class="footer">
+						! Bon - <a href="javascript:displayComment('<?echo(ACTIVITY)?>', 1);">Commenter</a> - <span class="date">Il y a 30 minutes</span>
+					</div>
+					<div class="comment" id="comment1">
+						<? echo _("Load comments...");?>
+					</div>
 				</div>
 			</div>
 			
-		</div>
+			<div class="activity">
+				<div class="leftbar">
+					<img src="<?echo(getPicturePath("", ""));?>" width="40" height="40" border="0"/>
+				</div>
+				<div class="details">
+					<div class="title">
+						<span class='name'>Sébastien Jouve</span> a joué le coup 1.e4 contre <span class='name'>Eric Jouve</span>
+					</div>
+					<div class="content">
+						<? drawboardGame(2798, 1, 408, "tcfdrfctppp0pppp00000000000p00000000000000000000PPPPPPPPTCFDRFCT");?>
+					</div>
+					<div class="footer">
+						! Bon - <a href="javascript:displayComment('<?echo(ACTIVITY)?>', 2);">Commenter</a> - Il y a 30 minutes
+					</div>
+					<div class="comment" id="comment2">
+						Comments
+					</div>
+				</div>
+				
+			</div>
 		
     	</div>
     </div>

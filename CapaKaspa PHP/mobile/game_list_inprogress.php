@@ -101,7 +101,8 @@
 						if ($notifEmail == 'oui')
 						{
 							/* notify opponent of invitation via email */
-							webchessMail('invitation', $opponentEmail, '', $_SESSION['nick']);
+							// TODO A modifier comme pour site normal
+							chessNotification('invitation', $opponentEmail, '', $_SESSION['nick']);
 						}
 					}
 				}
@@ -165,7 +166,8 @@
 									if ($notifEmail == 'oui')
 									{
 										/* notify opponent of invitation via email */
-										webchessMail('invitation', $opponentEmail, '', $_SESSION['nick']);
+										// TODO A modifier comme pour site normal
+										chessNotification('invitation', $opponentEmail, '', $_SESSION['nick']);
 									}
 								}
 							}
@@ -209,7 +211,8 @@
 					if ($notifEmail == 'oui')
 					{
 						/* notify opponent of invitation via email */
-						webchessMail('accepted', $opponentEmail, $_POST['respMessage'], $_SESSION['nick']);
+						// TODO A modifier comme pour site normal
+						chessNotification('accepted', $opponentEmail, $_POST['respMessage'], $_SESSION['nick']);
 					}
 				}
 					
@@ -239,7 +242,8 @@
 					if ($notifEmail == 'oui')
 					{
 						/* notify opponent of invitation via email */
-						webchessMail('declined', $opponentEmail, $_POST['respMessage'], $_SESSION['nick']);
+						// TODO A modifier comme pour site normal
+						chessNotification('declined', $opponentEmail, $_POST['respMessage'], $_SESSION['nick']);
 					}
 				}
 			}
@@ -274,7 +278,8 @@
 						if ($opponentEmail != '')
 						{
 							/* notify opponent of invitation via email */
-							webchessMail('withdrawal', $opponentEmail, '', $_SESSION['nick']);
+							// TODO A modifier comme pour site normal
+							chessNotification('withdrawal', $opponentEmail, '', $_SESSION['nick']);
 						}
 					}
 				}

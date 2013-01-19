@@ -3,7 +3,7 @@ session_start();
 /* load settings */
 if (!isset($_CONFIG))
 	require 'include/config.php';
-require 'include/localization.php';
+
 require 'include/connectdb.php';
 require 'dac/dac_common.php';
 require 'bwc/bwc_common.php';
@@ -72,6 +72,8 @@ switch($ToDo)
 		break;
 		
 }
+
+require 'include/localization.php';
 
 $titre_page = _("CapaKaspa");
 $desc_page = _("Sign up for CapaKaspa, play chess and share your games.");
