@@ -144,6 +144,9 @@
 
 	//mysql_close();
 	
+	// Localization
+	require 'include/localization.php';
+	
 	/* find out if it's the current player's turn */
 	if (( (($numMoves == -1) || (($numMoves % 2) == 1)) && ($playersColor == "white"))
 			|| ((($numMoves % 2) == 0) && ($playersColor == "black")))

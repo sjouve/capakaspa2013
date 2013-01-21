@@ -84,12 +84,11 @@ function sendMail($msgTo, $mailSubject, $mailMsg)
 	$headers .= "To: ".$msgTo."\r\n";
 	$headers .= "Reply-To: CapaKaspa <".$CFG_MAILADDRESS.">\r\n";
 	
-	$mailMsg .= "\n\nCe message a été envoyé automatiquement à partir du site CapaKaspa (http://www.capakaspa.info).\n";
-	$mailMsg .= "\nCapaKaspa c'est aussi :\n";
-	$mailMsg .= "Le blog (http://blog.capakaspa.info) pour découvrir\n";
-	$mailMsg .= "Le forum (http://forum.capakaspa.info) pour partager\n";
-	$mailMsg .= "Nous suivre sur Facebook (http://www.facebook.com/capakaspa)\n";
-	$mailMsg .= "Nous suivre sur Google+ (http://plus.google.com/114694270583726807082)\n";
+	$mailMsg .= _("\n\nThis email was sent automatically from site CapaKaspa (http://www.capakaspa.info).\n\n");
+	$mailMsg .= _("Follow us on Facebook (http://www.facebook.com/capakaspa)\n");
+	$mailMsg .= _("Follow us on Google+ (http://plus.google.com/114694270583726807082)\n");
+	$mailMsg .= _("Follow us on Twitter (http://)\n");
+	$mailMsg .= _("Follow us on YouTube (http://)\n");
 	
 	if ($CFG_USEEMAILNOTIFICATION)
 	{

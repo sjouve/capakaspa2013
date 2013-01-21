@@ -99,6 +99,7 @@
 				
 				/* Notification */
 				chessNotification('invitation', $oppColor, '', $_SESSION['nick'], mysql_insert_id());
+				insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'invitation');
 			
 			}
 			break;
@@ -155,7 +156,7 @@
 							
 							/* Notification */
 							chessNotification('invitation', $oppColor, '', $_SESSION['nick'], mysql_insert_id());
-							
+							insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'invitation');
 						}
 					}
 				}
@@ -191,6 +192,7 @@
 					
 					/* Notification */
 					chessNotification('accepted', $oppColor, $_POST['respMessage'], $_SESSION['nick'], $_POST['gameID']);
+					insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'accepted');
 				}
 					
 			}
@@ -214,6 +216,7 @@
 					
 					/* Notification */
 					chessNotification('declined', $oppColor, $_POST['respMessage'], $_SESSION['nick'], $_POST['gameID']);
+					insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'declined');
 				}
 			}
 
@@ -238,6 +241,7 @@
 
 				/* notify opponent of invitation via email */
 				chessNotification('withdrawal', $oppColor, '', $_SESSION['nick'], $_POST['gameID']);
+				insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'withdrawal');
 				
 				$tmpQuery = "DELETE FROM games WHERE gameID = ".$_POST['gameID'];
 				mysql_query($tmpQuery);

@@ -5,8 +5,6 @@
 	if (!isset($_CONFIG))
 		require 'include/config.php';
 	require 'include/constants.php';
-	require 'bwc/bwc_common.php';
-	require 'bwc/bwc_games.php';
 	
 	/* connect to database */
 	require 'include/connectdb.php';
@@ -16,13 +14,40 @@
 	/* check session status */
 	require 'include/sessioncheck.php';
 	
+	require 'include/localization.php';
+	
 	$titre_page = _("Activity");
 	$desc_page = _("Activity");
     require 'include/page_header.php';
 ?>
     <script src="javascript/comment.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    function displayActivity(start)
+	{
+		//document.getElementById("Activities"+entityId).style.display = "block";
+	
+		if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp=new XMLHttpRequest();
+		}
+		else
+		{// code for IE6, IE5
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange=function()
+		{
+			if (xmlhttp.readyState==4 && xmlhttp.status==200)
+			{
+				document.getElementById("activities"+start).innerHTML=xmlhttp.responseText;
+			}
+		};
+		xmlhttp.open("GET","bwc/bwc_display_activity.php?start="+start,true);
+		xmlhttp.send();
+	}
+    </script>
 <?
-    require 'include/page_body.php';
+    $attribut_body = "onload='displayActivity(0)'";
+	require 'include/page_body.php';
 ?>
 	<div id="content">
     	<div class="contentbody">
@@ -30,65 +55,7 @@
 		if ($errMsg != "")
 			echo("<div class='error'>".$errMsg."</div>");
 		?>
-		<!--
-			Id joueur activité
-			Photo joueur activité
-			Non joueur activité
-			Elo joueur activité
-			Message activité
-			Date activité
-			Position partie
-			PARTIE
-			Id joueur adversaire
-			Nom joueur adversaire
-			Elo joueur adversaire
-			Id partie
-			ECO code partie
-			Position partie
-			ECO libellé
-			
-			Messages : coup, res:victoire, res:défaire, res:nulle, propose nulle, 
-		 -->
-			<div class="activity">
-				<div class="leftbar">
-					<img src="<?echo(getPicturePath("FB", "sebastien.jouve.fr"));?>" width="40" height="40" border="0"/>
-				</div>
-				<div class="details">
-					<div class="title">
-						<a href=""><span class='name'>Sébastien Jouve</span></a> a joué le coup 1.e4 contre <span class='name'>Eric Jouve</span>
-					</div>
-					<div class="content">
-						<? drawboardGame(2798, 1, 408, "tcfdrfctppp0pppp00000000000p00000000000000000000PPPPPPPPTCFDRFCT");?>
-					</div>
-					<div class="footer">
-						! Bon - <a href="javascript:displayComment('<?echo(ACTIVITY)?>', 1);">Commenter</a> - <span class="date">Il y a 30 minutes</span>
-					</div>
-					<div class="comment" id="comment1">
-						<? echo _("Load comments...");?>
-					</div>
-				</div>
-			</div>
-			
-			<div class="activity">
-				<div class="leftbar">
-					<img src="<?echo(getPicturePath("", ""));?>" width="40" height="40" border="0"/>
-				</div>
-				<div class="details">
-					<div class="title">
-						<span class='name'>Sébastien Jouve</span> a joué le coup 1.e4 contre <span class='name'>Eric Jouve</span>
-					</div>
-					<div class="content">
-						<? drawboardGame(2798, 1, 408, "tcfdrfctppp0pppp00000000000p00000000000000000000PPPPPPPPTCFDRFCT");?>
-					</div>
-					<div class="footer">
-						! Bon - <a href="javascript:displayComment('<?echo(ACTIVITY)?>', 2);">Commenter</a> - Il y a 30 minutes
-					</div>
-					<div class="comment" id="comment2">
-						Comments
-					</div>
-				</div>
-				
-			</div>
+			<div id="activities0"><? echo_("Load activities")?></div>
 		
     	</div>
     </div>

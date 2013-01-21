@@ -1,20 +1,23 @@
 <?
 // Activity
-function insertActivity($playerID, $type, $entityID, $message)
+function insertActivity($playerID, $type, $entityID, $message, $msgType)
 {
-	$res_activity = mysql_query("INSERT INTO activity (playerID, type, entityID, postDate, message)
-			VALUES (".$playerID.", '".$type."', ".$entityID.", now(), '".$message."')");
+	$res_activity = mysql_query("INSERT INTO activity (playerID, type, entityID, postDate, message, msgType)
+			VALUES (".$playerID.", '".$type."', ".$entityID.", now(), '".$message."', '".$msgType."')");
 	return $res_activity;
 }
 
-function listActivityFollowing($debut, $limit, $playerID)
+function listActivityFollowing($start, $limit, $playerID)
 {
-	$tmpQuery = "SELECT A.activityID, A.message, A.postDate
-		FROM activity A, fav_players F, 
+	$tmpQuery = "SELECT A.activityID, A.type, A.entityID, A.msgType, A.message, A.postDate, G.eco, G.position, WP.playerID wPlayerID, BP.playerID bPlayerID 
+		FROM activity A, fav_players F, games G, players WP, players BP
 		WHERE A.playerID = F.favPlayerID
-		AND F.playerID=".$playerID."
+		AND F.playerID = ".$playerID."
+		AND A.entityID = G.gameID
+		AND G.whitePlayer = WP.playerID
+		AND G.blackPlayer = BP.playerID
 		ORDER BY postDate desc
-		LIMIT ".$debut.", ".$limit;
+		LIMIT ".$start.", ".$limit;
 	
 	return mysql_query($tmpQuery);
 }

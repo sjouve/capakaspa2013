@@ -113,7 +113,6 @@ function savePromotion()
 {
 	global $history, $numMoves, $isInCheck;
 
-	
 	if ($isInCheck)
 	{
 		$tmpIsInCheck = 1;
@@ -135,9 +134,13 @@ function savePromotion()
 		$tmpReplaced = $history[$numMoves]['replaced'];
 	
 	$oppColor = getTurnColor($numMoves);
+	$strMove = moveToPGNString($history[$numMoves]['curColor'], $history[$numMoves]['curPiece'], $history[$numMoves]['fromRow'], $history[$numMoves]['fromCol'], $history[$numMoves]['toRow'], $history[$numMoves]['toCol'], $tmpReplaced, $history[$numMoves]['promotedTo'], $isInCheck);
 	
 	// Notification
-	chessNotification('move', $oppColor, moveToPGNString($history[$numMoves]['curColor'], $history[$numMoves]['curPiece'], $history[$numMoves]['fromRow'], $history[$numMoves]['fromCol'], $history[$numMoves]['toRow'], $history[$numMoves]['toCol'], $tmpReplaced, $history[$numMoves]['promotedTo'], $isInCheck), $_SESSION['nick'], $_POST['gameID']);
+	chessNotification('move', $oppColor, $strMove, $_SESSION['nick'], $_POST['gameID']);
+	
+	// Activity
+	insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], $strMove, 'move');
 }
 
 function saveHistory()
@@ -232,10 +235,13 @@ function sendEmailNotification($history, $isPromoting, $numMoves, $isInCheck)
 	/* NOTE: moves resulting in pawn promotion are handled by savePromotion() above */
 	
 	$oppColor = getTurnColor($numMoves);
+	$strMove = moveToPGNString($history[$numMoves]['curColor'], $history[$numMoves]['curPiece'], $history[$numMoves]['fromRow'], $history[$numMoves]['fromCol'], $history[$numMoves]['toRow'], $history[$numMoves]['toCol'], $history[$numMoves]['replaced'], '', $isInCheck);
 	
 	// Notification
-	chessNotification('move', $oppColor, moveToPGNString($history[$numMoves]['curColor'], $history[$numMoves]['curPiece'], $history[$numMoves]['fromRow'], $history[$numMoves]['fromCol'], $history[$numMoves]['toRow'], $history[$numMoves]['toCol'], $history[$numMoves]['replaced'], '', $isInCheck), $_SESSION['nick'], $_POST['gameID']);
+	chessNotification('move', $oppColor, $strMove, $_SESSION['nick'], $_POST['gameID']);
 	
+	// Activity
+	insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], $strMove);
 }
 		
 function loadGame()
@@ -464,6 +470,7 @@ function processMessages()
 			{
 				/* Notification */
 				chessNotification('draw', $opponentColor, '', $_SESSION['nick'], $_POST['gameID']);
+				insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'draw');
 			}
 		}
 	}
@@ -479,6 +486,7 @@ function processMessages()
 
 		/* Notification */
 		chessNotification('resignation', $opponentColor, '', $_SESSION['nick'], $_POST['gameID']);
+		insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'resignation');
 			
 	}
 	

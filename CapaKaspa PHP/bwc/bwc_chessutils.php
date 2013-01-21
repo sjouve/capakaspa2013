@@ -313,59 +313,58 @@ function chessNotification($msgType, $receiverColor, $move, $senderName, $gameID
 	
 	$strPlayer = _("The player");
 	$strOpponent = _("Your opponent");
-	
+		
+	// Mail subject and message + Activity
+	switch($msgType)
+	{
+			
+		case 'invitation':
+			$mailsubject .= _("You are invited to play a new game");
+			$mailmsg = $strPlayer." ".$senderName._(" invites you to play a new game.");
+			break;
+			
+		case 'withdrawal':
+			$mailsubject .= _("Invitation canceled");
+			$mailmsg = $strPlayer." ".$senderName._(" canceled its invitation to play a new game.");
+			break;
+			
+		case 'resignation':
+			$mailsubject .= _("Resignation");
+			$mailmsg = $strOpponent." ".$senderName._(" resigned.");
+			break;
+			
+		case 'move':
+			$mailsubject .= _("New move");
+			$mailmsg = $strOpponent." ".$senderName._(" play the move :");
+			$mailmsg .= "\n".$move;
+			break;
+			
+		case 'accepted':
+			$mailsubject .= _("Invitation accepted");
+			$mailmsg = $strPlayer." ".$senderName._(" has accepted your invitation. A new game began.");
+			if ($move) {
+				$mailmsg .= "\n\n".$senderName._(" joined a message :");
+				$mailmsg .= "\n".stripslashes(strip_tags($move));
+			}
+			break;
+			
+		case 'declined':
+			$mailsubject .= _("Invitation refused");
+			$mailmsg = $strPlayer." ".$senderName._(" refused your invitation.");
+			if ($move) {
+				$mailmsg .= "\n\n".$senderName._(" joined a message :");
+				$mailmsg .= "\n".stripslashes(strip_tags($move));
+			}
+			break;
+			
+		case 'draw':
+			$mailsubject .= _("Draw proposal accepted");
+			$mailmsg = $strPlayer." ".$senderName._(" accepted your drax proposal.\nThe game ended : 1/2-1/2.");
+			break;
+	}
+		
 	if ($receiver['value'] == 'oui')
 	{
-		
-		/* load specific message and subject */
-		switch($msgType)
-		{
-				
-			case 'invitation':
-				$mailsubject .= _("You are invited to play a new game");
-				$mailmsg = $strPlayer." ".$senderName._(" invites you to play a new game.");
-				break;
-				
-			case 'withdrawal':
-				$mailsubject .= _("Invitation canceled");
-				$mailmsg = $strPlayer." ".$senderName._(" canceled its invitation to play a new game.");
-				break;
-				
-			case 'resignation':
-				$mailsubject .= _("Resignation");
-				$mailmsg = $strOpponent." ".$senderName._(" resigned.");
-				break;
-				
-			case 'move':
-				$mailsubject .= _("New move");
-				$mailmsg = $strOpponent." ".$senderName._(" play the move :");
-				$mailmsg .= "\n".$move;
-				break;
-				
-			case 'accepted':
-				$mailsubject .= _("Invitation accepted");
-				$mailmsg = $strPlayer." ".$senderName._(" has accepted your invitation. A new game began.");
-				if ($move) {
-					$mailmsg .= "\n\n".$senderName._(" joined a message :");
-					$mailmsg .= "\n".stripslashes(strip_tags($move));
-				}
-				break;
-				
-			case 'declined':
-				$mailsubject .= _("Invitation refused");
-				$mailmsg = $strPlayer." ".$senderName._(" refused your invitation.");
-				if ($move) {
-					$mailmsg .= "\n\n".$senderName._(" joined a message :");
-					$mailmsg .= "\n".stripslashes(strip_tags($move));
-				}
-				break;
-				
-			case 'draw':
-				$mailsubject .= _("Draw proposal accepted");
-				$mailmsg = $strPlayer." ".$senderName._(" accepted your drax proposal.\nThe game ended : 1/2-1/2.");
-				break;
-		}
-	
 		sendMail($receiver['email'], $mailsubject, $mailmsg);
 	}
 }
