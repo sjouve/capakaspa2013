@@ -41,7 +41,7 @@
 				document.getElementById("activities"+start).innerHTML=xmlhttp.responseText;
 			}
 		};
-		xmlhttp.open("GET","bwc/bwc_display_activity.php?start="+start,true);
+		xmlhttp.open("GET","ajax/ajx_display_activity.php?start="+start,true);
 		xmlhttp.send();
 	}
     </script>

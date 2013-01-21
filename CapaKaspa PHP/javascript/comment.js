@@ -18,7 +18,7 @@ function displayComment(entityType, entityId)
 			document.getElementById("comment"+entityId).innerHTML=xmlhttp.responseText;
 		}
 	};
-	xmlhttp.open("GET","bwc/bwc_display_comment.php?type="+entityType+"&id="+entityId,true);
+	xmlhttp.open("GET","ajax/ajx_display_comment.php?type="+entityType+"&id="+entityId,true);
 	xmlhttp.send();
 }
 
@@ -39,7 +39,7 @@ function deleteComment(entityType, entityId, commentId)
 			displayComment(entityType, entityId);
 		}
 	};
-	xmlhttp.open("GET","bwc/bwc_delete_comment.php?id="+commentId,true);
+	xmlhttp.open("GET","ajax/ajx_delete_comment.php?id="+commentId,true);
 	xmlhttp.send();
 }
 
@@ -61,6 +61,6 @@ function insertComment(entityType, entityId)
 			displayComment(entityType, entityId);
 		}
 	};
-	xmlhttp.open("GET","bwc/bwc_insert_comment.php?type="+entityType+"&id="+entityId+"&mes="+message,true);
+	xmlhttp.open("GET","ajax/ajx_insert_comment.php?type="+entityType+"&id="+entityId+"&mes="+message,true);
 	xmlhttp.send();
 }
