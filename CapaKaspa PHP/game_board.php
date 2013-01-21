@@ -11,6 +11,7 @@
 	/* include outside functions */
 	require 'dac/dac_players.php';
 	require 'dac/dac_games.php';
+	require 'dac/dac_activity.php';
 	require 'bwc/bwc_common.php';
 	require 'bwc/bwc_chessutils.php';
 	require 'bwc/bwc_games.php';
@@ -22,10 +23,6 @@
 	
 	/* check session status */
 	require 'include/sessioncheck.php';
-	
-	/* check if loading game 
-	if (isset($_POST['gameID']))
-		$_SESSION['gameID'] = $_POST['gameID'];*/
 	
 	/* debug flag */
 	define ("DEBUG", 0);

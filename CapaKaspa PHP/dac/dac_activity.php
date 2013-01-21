@@ -9,7 +9,8 @@ function insertActivity($playerID, $type, $entityID, $message, $msgType)
 
 function listActivityFollowing($start, $limit, $playerID)
 {
-	$tmpQuery = "SELECT A.activityID, A.type, A.entityID, A.msgType, A.message, A.postDate, G.eco, G.position, WP.playerID wPlayerID, BP.playerID bPlayerID 
+	$tmpQuery = "SELECT A.activityID, A.playerID, A.type, A.entityID, A.msgType, A.message, A.postDate, G.gameID, G.eco, G.position, 
+		WP.playerID wPlayerID, WP.firstName wFirstName, WP.lastName wLastName, BP.playerID bPlayerID, BP.firstName bFirstName, BP.lastName bLastName 
 		FROM activity A, fav_players F, games G, players WP, players BP
 		WHERE A.playerID = F.favPlayerID
 		AND F.playerID = ".$playerID."

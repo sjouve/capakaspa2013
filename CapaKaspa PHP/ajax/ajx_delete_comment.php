@@ -16,4 +16,5 @@ require '../dac/dac_activity.php';
 $commentID=$_GET["id"];
 
 deleteComment($commentID);
+mysql_close();
 ?>

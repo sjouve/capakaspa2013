@@ -297,7 +297,6 @@ function moveToPGNString($curColor, $piece, $fromRow, $fromCol, $toRow, $toCol, 
 
 function chessNotification($msgType, $receiverColor, $move, $senderName, $gameID)
 {
-	// TODO Création des activités
 	/* default message and subject */
 	$mailmsg = "";
 	$mailsubject = "[CapaKaspa] ";
@@ -359,7 +358,7 @@ function chessNotification($msgType, $receiverColor, $move, $senderName, $gameID
 			
 		case 'draw':
 			$mailsubject .= _("Draw proposal accepted");
-			$mailmsg = $strPlayer." ".$senderName._(" accepted your drax proposal.\nThe game ended : 1/2-1/2.");
+			$mailmsg = $strPlayer." ".$senderName._(" accepted your draw proposal.\nThe game ended : 1/2-1/2.");
 			break;
 	}
 		

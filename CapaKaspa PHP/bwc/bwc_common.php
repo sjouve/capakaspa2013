@@ -90,6 +90,8 @@ function sendMail($msgTo, $mailSubject, $mailMsg)
 	$mailMsg .= _("Follow us on Twitter (http://)\n");
 	$mailMsg .= _("Follow us on YouTube (http://)\n");
 	
+	$res = false;
+	
 	if ($CFG_USEEMAILNOTIFICATION)
 	{
 		$res = mail($msgTo, $mailSubject, $mailMsg, $headers);

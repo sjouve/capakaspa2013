@@ -9,6 +9,8 @@
 	/* load external functions for setting up new game */
 	require 'include/constants.php';
 	require 'dac/dac_players.php';
+	require 'dac/dac_games.php';
+	require 'dac/dac_activity.php';
 	require 'bwc/bwc_common.php';
 	require 'bwc/bwc_chessutils.php';
 	require 'bwc/bwc_board.php';
@@ -46,9 +48,7 @@
 			     setcookie("capakaspacn[$nom]", 0, time()-3600*24);    
 			  }
 			}
-			// TODO Vider la session
 			$_SESSION['playerID'] = -1;
-			//unset($_SESSION);
 			header("Location: sign-up.php");
 			exit;
 			break;
@@ -98,10 +98,11 @@
 				$tmpQuery .= ", 'playerInvited', '".$tmpColor."', NOW(), NOW(), ".$type.", ".$flagBishop.", ".$flagKnight.", ".$flagRook.", ".$flagQueen.")";
 				
 				mysql_query($tmpQuery);
+				$newGameID = mysql_insert_id();
 				
 				/* Notification */
-				chessNotification('invitation', $oppColor, '', $_SESSION['nick'], mysql_insert_id());
-				insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'invitation');
+				chessNotification('invitation', $oppColor, '', $_SESSION['nick'], $newGameID);
+				insertActivity($_SESSION['playerID'], GAME, $newGameID, "", 'invitation');
 			
 			}
 			break;
@@ -155,10 +156,11 @@
 
 							$tmpQuery .= ", 'playerInvited', '".$tmpColor."', NOW(), NOW(), ".$_POST['type'].", ".$flagBishop.", ".$flagKnight.", ".$flagRook.", ".$flagQueen.")";
 							mysql_query($tmpQuery);
+							$newGameID = mysql_insert_id();
 							
 							/* Notification */
-							chessNotification('invitation', $oppColor, '', $_SESSION['nick'], mysql_insert_id());
-							insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'invitation');
+							chessNotification('invitation', $oppColor, '', $_SESSION['nick'], $newGameID);
+							insertActivity($_SESSION['playerID'], GAME, $newGameID, "", 'invitation');
 						}
 					}
 				}

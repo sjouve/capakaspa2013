@@ -44,3 +44,6 @@ echo("
 ?>
 		<a href="javascript:insertComment('<?echo($entityType);?>',<?echo($entityID);?>)"><?php echo _("Add")?></a>
 	</div>
+<?
+mysql_close();
+?>

@@ -243,7 +243,7 @@ function sendEmailNotification($history, $isPromoting, $numMoves, $isInCheck)
 	chessNotification('move', $oppColor, $strMove, $_SESSION['nick'], $_POST['gameID']);
 	
 	// Activity
-	insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], $strMove);
+	insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], $strMove, 'move');
 }
 		
 function loadGame()
@@ -613,6 +613,7 @@ function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
 	$numMoves = $thisMove['nbMove'] - 1;
 
 	// Remplir l'échiquier
+	if (!isset($position)) $position = "tcfdrfctpppppppp00000000000000000000000000000000PPPPPPPPTCFDRFCT";
 	$strPos = 0;
 	for ($i = 0; $i < 8; $i++)
 		for ($j = 0; $j < 8; $j++)
@@ -628,7 +629,7 @@ function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
 		$playersColor = "black";
 	else
 		//Le joueur ne joue pas la partie
-		$playerColor = "";
+		$playersColor = "";
 
 	/* find out if it's the current player's turn */
 	if (( (($numMoves == -1) || (($numMoves % 2) == 1)) && ($playersColor == "white")) || ((($numMoves % 2) == 0) && ($playersColor == "black")) )

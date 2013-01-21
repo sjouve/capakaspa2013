@@ -12,9 +12,9 @@ define ("WHITE", 0);
 define ("COLOR_MASK", 127);	/* 0111 1111 */
 
 // Entity type
-define ("HISTORY", "History");
-define ("MESSAGE", "Message");
-define ("GAME", "Game");
-define ("ACTIVITY", "Activity");
-define ("COMMENT", "Comment");
+define ("HISTORY", "history");
+define ("MESSAGE", "message");
+define ("GAME", "game");
+define ("ACTIVITY", "activity");
+define ("COMMENT", "comment");
 ?>

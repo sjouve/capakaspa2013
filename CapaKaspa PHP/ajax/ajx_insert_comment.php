@@ -18,4 +18,5 @@ $entityID=$_GET["id"];
 $message=$_GET["mes"];
 
 insertComment($_SESSION['playerID'], $entityType, $entityID, $message);
+mysql_close();
 ?>
