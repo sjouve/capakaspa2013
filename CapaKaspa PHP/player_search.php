@@ -1,18 +1,20 @@
 <?
-	session_start(); 
-
-	/* chess utils */
-	require_once('bwc/bwc_chessutils.php');
+	session_start();
 	
+	/* load settings */
+	if (!isset($_CONFIG))
+		require 'include/config.php';
+	
+	require 'dac/dac_players.php';
 	require 'bwc/bwc_common.php';
+	require 'bwc/bwc_chessutils.php';
+	require 'bwc/bwc_players.php';
 	
 	/* connect to the database */
 	require 'include/connectdb.php';
 		
 	/* check session status */
 	require 'include/sessioncheck.php';
-	
-	//require 'dac/dac_players.php';
 	
     $titre_page = "Echecs en différé - Proposition de partie";
     $desc_page = "Jouer aux échecs en différé. Recherchez un adversaire pour lui proposer une partie d'échecs en différé.";
@@ -28,8 +30,6 @@
 		
 	</script>
 <?
-    $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Les autres joueurs";
     require 'include/page_body.php';
 ?>
 	<div id="contentlarge">

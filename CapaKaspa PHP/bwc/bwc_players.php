@@ -1,9 +1,16 @@
 <?
+/* Depend on:
 if (!isset($_CONFIG))
 		require 'include/config.php';
 require_once('dac/dac_players.php');
 require_once('bwc/bwc_common.php');
 require_once('bwc/bwc_chessutils.php');
+
+require 'dac/dac_players.php';
+require 'bwc/bwc_common.php';
+require 'bwc/bwc_chessutils.php';
+require 'bwc/bwc_players.php';
+*/
 
 /* Création du joueur et de ses préférences */
 function createPlayer()

@@ -1,50 +1,52 @@
 <?
-	require_once('bwc/bwc_players.php');
+/* Depend on
+require_once('bwc/bwc_players.php');
+
+// load settings
+if (!isset($_CONFIG))
+	require 'include/config.php';
+*/
+
+// Si cookie alors connexion auto
+if ((!isset($_SESSION['playerID'])||$_SESSION['playerID'] == -1) && isset($_COOKIE['capakaspacn']['nick']))
+{
+	loginPlayer($_COOKIE['capakaspacn']['nick'], $_COOKIE['capakaspacn']['password'], 0);
+}
+
+if (!isset($_SESSION['playerID']))
+{
+  	$_SESSION['playerID'] = -1;
+}
 	
-	/* load settings */
-	if (!isset($_CONFIG))
-		require 'include/config.php';
-	
-	// Si cookie alors connexion auto
-	if ((!isset($_SESSION['playerID'])||$_SESSION['playerID'] == -1) && isset($_COOKIE['capakaspacn']['nick']))
+if ($_SESSION['playerID'] != -1)
+{
+	if (time() - $_SESSION['lastInputTime'] >= $CFG_SESSIONTIMEOUT)
 	{
-		loginPlayer($_COOKIE['capakaspacn']['nick'], $_COOKIE['capakaspacn']['password'], 0);
+	  $_SESSION['playerID'] = -1;
 	}
-	
-	if (!isset($_SESSION['playerID']))
+	else if (!isset($_GET['autoreload']))	
 	{
-	  	$_SESSION['playerID'] = -1;
+	  	$_SESSION['lastInputTime'] = time();
 	}
+}
+
+if ($_SESSION['playerID'] == -1)
+{
+	header('Location: sign-up.php');
+	exit;
+}
+
+// Gestion des joueurs en ligne
+if ($_SESSION['playerID'] != -1)
+{
+	// Insert or Update
+	$online_player = getOnlinePlayer($_SESSION['playerID']);
+	if ($online_player)
+		updateOnlinePlayer($_SESSION['playerID']);
+	else
+		insertOnlinePlayer($_SESSION['playerID']);
 		
-	if ($_SESSION['playerID'] != -1)
-	{
-		if (time() - $_SESSION['lastInputTime'] >= $CFG_SESSIONTIMEOUT)
-		{
-		  $_SESSION['playerID'] = -1;
-		}
-		else if (!isset($_GET['autoreload']))	
-		{
-		  	$_SESSION['lastInputTime'] = time();
-		}
-	}
-	
-	if ($_SESSION['playerID'] == -1)
-	{
-		header('Location: sign-up.php');
-		exit;
-	}
-	
-	// Gestion des joueurs en ligne
-	if ($_SESSION['playerID'] != -1)
-	{
-		// Insert or Update
-		$online_player = getOnlinePlayer($_SESSION['playerID']);
-		if ($online_player)
-			updateOnlinePlayer($_SESSION['playerID']);
-		else
-			insertOnlinePlayer($_SESSION['playerID']);
-			
-		// Supprimer les joueurs hors ligne
-		deleteOnlinePlayers();
-	}
+	// Supprimer les joueurs hors ligne
+	deleteOnlinePlayers();
+}
 ?>

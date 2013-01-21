@@ -1,13 +1,18 @@
 ﻿<?
 session_start();
+
 /* load settings */
 if (!isset($_CONFIG))
 	require 'include/config.php';
 
-require 'include/connectdb.php';
+require 'dac/dac_players.php';
+require 'bwc/bwc_common.php';
+require 'bwc/bwc_chessutils.php';
 require 'bwc/bwc_players.php';
 require 'bwc/bwc_games.php';
-	
+
+require 'include/connectdb.php';
+
 /* Traitement des actions */
 $err=1;
 $ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:"";

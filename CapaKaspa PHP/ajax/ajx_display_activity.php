@@ -7,13 +7,20 @@ session_start();
 // Parameters
 if (!isset($_CONFIG))
 	require '../include/config.php';
-require '../include/localization.php';
+
+require '../include/constants.php';
+require '../dac/dac_activity.php';
+require '../dac/dac_players.php';
+require '../dac/dac_games.php';
+require '../bwc/bwc_common.php';
+require '../bwc/bwc_chessutils.php';
+require '../bwc/bwc_games.php';
+require '../bwc/bwc_players.php';
 
 // Connect DB
 require '../include/connectdb.php';
-require '../dac/dac_activity.php';
-require 'bwc_common.php';
-require 'bwc_games.php';
+
+require '../include/localization.php';
 
 // Load activity from 
 $start=$_GET["start"];

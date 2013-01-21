@@ -1,9 +1,17 @@
 ﻿<?
-	session_start();
-	require 'bwc/bwc_players.php';
-	$titre_page = "Jeux en ligne - Jouer aux échecs contre JChess";
-	$desc_page = "Jeux en ligne. Jouez en ligne une partie d'échecs contre JChess, un adversaire disponible de bon niveau.";
-    require 'include/page_header.php';
+session_start();
+
+if (!isset($_CONFIG))
+	require 'include/config.php';
+
+require 'dac/dac_players.php';
+require 'bwc/bwc_common.php';
+require 'bwc/bwc_chessutils.php';
+require 'bwc/bwc_players.php';
+
+$titre_page = "Jeux en ligne - Jouer aux échecs contre JChess";
+$desc_page = "Jeux en ligne. Jouez en ligne une partie d'échecs contre JChess, un adversaire disponible de bon niveau.";
+require 'include/page_header.php';
 ?>
 <script type="text/javascript">
 var g_flip = true;
@@ -17,9 +25,7 @@ document.jchess.SetLevel(0, parseInt(temps)*1000, parseInt(prof))
 }
 </script>
 <?
-    $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "<a href='/'>Accueil</a> > Jeux en ligne > Jouer contre JChess";
-    require 'include/page_body.php';
+require 'include/page_body.php';
 ?>
   <div id="contentlarge">
     <div class="contentbody">

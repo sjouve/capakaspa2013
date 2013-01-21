@@ -6,8 +6,10 @@
 		require 'include/config.php';
 
 	/* load external functions for setting up new game */
-	//require 'bwc/bwc_games.php';
+	require 'dac/dac_players.php';
 	require 'bwc/bwc_common.php';
+	require 'bwc/bwc_chessutils.php';
+	require 'bwc/bwc_players.php';
 	
 	/* connect to database */
 	require 'include/connectdb.php';

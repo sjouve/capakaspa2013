@@ -5,6 +5,13 @@ if (!isset($_CONFIG))
 
 /* connect to database */
 require 'include/connectdb.php';
+
+require 'include/constants.php';
+require 'dac/dac_players.php';
+require 'dac/dac_games.php';
+require 'bwc/bwc_chessutils.php';
+require 'bwc/bwc_board.php';
+require 'bwc/bwc_games.php';
 require 'bwc/bwc_batch.php';
 
 /* Traitement des actions */

@@ -1,10 +1,11 @@
 <?
 	session_start(); 
 
-	/* chess utils */
-	require_once('../bwc/bwc_chessutils.php');
-	
-	require 'bwc/bwc_common.php';
+	/* external function */
+	require '../dac/dac_players.php';
+	require '../bwc/bwc_chessutils.php';
+	require '../bwc/bwc_common.php';
+	require '../bwc/bwc_players.php';
 	
 	/* connect to the database */
 	require '../include/connectdb.php';
@@ -12,7 +13,6 @@
 	/* check session status */
 	require '../include/sessioncheck.php';
 	
-	//require 'dac/dac_players.php';
 	
     $titre_page = "Echecs en diff�r� (mobile) - Proposition de partie";
     $desc_page = "Jouer aux �checs en diff�r� sur votre smartphone. Recherchez un adversaire pour lui proposer une partie d'�checs en diff�r�.";

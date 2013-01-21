@@ -1,9 +1,17 @@
 ﻿<?
-	session_start();
-	require 'bwc/bwc_players.php';
-	$titre_page = "Outils - EPD/FEN en diagramme";
-	$desc_page = "Un outil pour transformer votre chaine de caractères au format FEN ou EPD en un diagramme.";
-    require 'include/page_header.php';
+session_start();
+
+if (!isset($_CONFIG))
+	require 'include/config.php';
+
+require 'dac/dac_players.php';
+require 'bwc/bwc_common.php';
+require 'bwc/bwc_chessutils.php';
+require 'bwc/bwc_players.php';
+
+$titre_page = "Outils - EPD/FEN en diagramme";
+$desc_page = "Un outil pour transformer votre chaine de caractères au format FEN ou EPD en un diagramme.";
+require 'include/page_header.php';
 ?>
 <SCRIPT language="JavaScript">
 <!-- Begin JavaScript
@@ -1552,8 +1560,7 @@ function doSelOption(form)
 </SCRIPT>
 <?
     $attribut_body = "onload='doLoadInit()'";
-    $image_bandeau = 'bandeau_capakaspa_global.jpg';
-    $barre_progression = "<a href='/'>Accueil</a> > Outils > EPD/FEN en diagramme";
+    
     require 'include/page_body.php';
 ?>
   <div id="contentlarge">

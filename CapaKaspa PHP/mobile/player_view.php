@@ -5,14 +5,16 @@
 	if (!isset($_CONFIG))
 		require '../include/config.php';
 	
-	/* connect to database */
-	require '../include/connectdb.php';
-	/* check session status */
-	require_once('../bwc/bwc_chessutils.php');
-	
 	require '../dac/dac_players.php';
 	require '../dac/dac_games.php';
-
+	require '../bwc/bwc_chessutils.php';
+	require '../bwc/bwc_common.php';
+	require '../bwc/bwc_players.php';
+	
+	/* connect to database */
+	require '../include/connectdb.php';
+	
+	/* check session status */
 	require '../include/sessioncheck.php';
 
 	/* Charger le profil */

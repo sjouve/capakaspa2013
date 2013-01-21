@@ -4,10 +4,15 @@ session_start();
 if (!isset($_CONFIG))
 	require 'include/config.php';
 
-/* connect to database */
-require 'include/connectdb.php';
+require 'dac/dac_players.php';
+require 'dac/dac_games.php';
+require 'bwc/bwc_common.php';
+require 'bwc/bwc_chessutils.php';
 require 'bwc/bwc_players.php';
 require 'bwc/bwc_games.php';
+
+/* connect to database */
+require 'include/connectdb.php';
 	
 /* Traitement des actions */
 $err=1;

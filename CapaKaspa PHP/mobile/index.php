@@ -5,9 +5,14 @@ session_start();
 if (!isset($_CONFIG))
 	require '../include/config.php';
 
-require '../include/connectdb.php';
+require '../dac/dac_players.php';
+require '../dac/dac_games.php';
+require '../bwc/bwc_common.php';
+require '../bwc/bwc_chessutils.php';
 require '../bwc/bwc_players.php';
 require '../bwc/bwc_games.php';
+
+require '../include/connectdb.php';
 
 /* check session status */
 // Si cookie alors connexion auto

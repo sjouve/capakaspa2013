@@ -1,6 +1,8 @@
 <?
+/* Depend on:
 require_once('dac/dac_players.php');
 require 'dac/dac_games.php';
+*/
 
 /* Accès aux données concernant la table Games, History, Messages */
 

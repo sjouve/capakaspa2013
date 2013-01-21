@@ -1,4 +1,4 @@
-<?php
+<?
 // 1- By default display in english
 $locale = "en_EN";
 // 2- If client language is french display french

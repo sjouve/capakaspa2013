@@ -4,7 +4,12 @@
 	/* load settings */
 	if (!isset($_CONFIG))
 		require 'include/config.php';
+	
 	require 'include/constants.php';
+	require 'dac/dac_players.php';
+	require 'bwc/bwc_common.php';
+	require 'bwc/bwc_chessutils.php';
+	require 'bwc/bwc_players.php';
 	
 	/* connect to database */
 	require 'include/connectdb.php';
@@ -55,7 +60,7 @@
 		if ($errMsg != "")
 			echo("<div class='error'>".$errMsg."</div>");
 		?>
-			<div id="activities0"><? echo_("Load activities")?></div>
+			<div id="activities0"><? echo _("Load activities")?></div>
 		
     	</div>
     </div>

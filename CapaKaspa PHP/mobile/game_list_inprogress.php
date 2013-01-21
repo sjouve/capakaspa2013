@@ -6,8 +6,11 @@
 		require '../include/config.php';
 
 	/* load external functions for setting up new game */
-	require_once('../bwc/bwc_chessutils.php');
 	require '../include/constants.php';
+	require '../dac/dac_players.php';
+	require '../dac/dac_games.php';
+	require '../bwc/bwc_common.php';
+	require '../bwc/bwc_chessutils.php';
 	require '../bwc/bwc_board.php';
 	require '../bwc/bwc_players.php';
 	require '../bwc/bwc_games.php';

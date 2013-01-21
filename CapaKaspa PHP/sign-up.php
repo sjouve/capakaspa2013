@@ -4,8 +4,10 @@ session_start();
 if (!isset($_CONFIG))
 	require 'include/config.php';
 
-require 'include/connectdb.php';
+require 'dac/dac_players.php';
 require 'dac/dac_common.php';
+require 'dac/dac_games.php';
+require 'bwc/bwc_chessutils.php';
 require 'bwc/bwc_common.php';
 require 'bwc/bwc_players.php';
 require 'bwc/bwc_games.php';
@@ -13,7 +15,9 @@ require 'bwc/bwc_games.php';
 // Captcha
 include_once  '/securimage/securimage.php';
 $securimage = new Securimage();
-		
+
+require 'include/connectdb.php';
+
 /* Traitement des actions */
 $err = false;
 $ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:(isset($_GET['ToDo']) ? $_GET['ToDo']:"");

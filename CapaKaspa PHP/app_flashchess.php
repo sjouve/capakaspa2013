@@ -1,14 +1,20 @@
 ﻿<?
-	session_start();
-	require 'bwc/bwc_players.php';
-	$titre_page = 'Jouer aux échecs contre flashChess';
-    require 'include/page_header.php';
+session_start();
+
+if (!isset($_CONFIG))
+	require 'include/config.php';
+
+require 'dac/dac_players.php';
+require 'bwc/bwc_common.php';
+require 'bwc/bwc_chessutils.php';
+require 'bwc/bwc_players.php';
+
+$titre_page = 'Jouer aux échecs contre flashChess';
+require 'include/page_header.php';
 ?>
 
 <?
-    $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "Jeux en ligne > Jouer contre flashChess";
-    require 'include/page_body.php';
+require 'include/page_body.php';
 ?>
   <div id="contentlarge">
     <div class="contentbody">
