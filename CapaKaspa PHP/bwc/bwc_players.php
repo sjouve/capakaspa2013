@@ -412,9 +412,10 @@ function getPicturePath($socialNetwork, $socialID)
 	switch($socialNetwork)
 	{	
 		case 'GP':
-			$profil_googleplus_json = file_get_contents("https://www.googleapis.com/plus/v1/people/".$socialID."?key=AIzaSyDbsmnLMbP6QxydxzhqZlCwxOVG1ewIX0o");
+			$picturePath = "https://plus.google.com/s2/photos/profile/".$socialID."?sz=32";
+			/*$profil_googleplus_json = file_get_contents("https://www.googleapis.com/plus/v1/people/".$socialID."?key=AIzaSyDbsmnLMbP6QxydxzhqZlCwxOVG1ewIX0o");
 			$profil_googleplus = json_decode($profil_googleplus_json);
-			$picturePath = $profil_googleplus->image->url;
+			$picturePath = $profil_googleplus->image->url;*/
 			break;
 		
 		case 'FB':

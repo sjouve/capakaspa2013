@@ -9,9 +9,11 @@ function insertActivity($playerID, $type, $entityID, $message, $msgType)
 
 function listActivityFollowing($start, $limit, $playerID)
 {
-	$tmpQuery = "SELECT A.activityID, A.playerID, A.type, A.entityID, A.msgType, A.message, A.postDate, G.gameID, G.eco, G.position, 
-		WP.playerID wPlayerID, WP.firstName wFirstName, WP.lastName wLastName, BP.playerID bPlayerID, BP.firstName bFirstName, BP.lastName bLastName 
-		FROM activity A, fav_players F, games G, players WP, players BP
+	$tmpQuery = "SELECT A.activityID, A.playerID, A.type, A.entityID, A.msgType, A.message, A.postDate, 
+				G.gameID, G.eco, G.position, G.lastMove, G.dateCreated, E.name ecoName,
+				WP.playerID wPlayerID, WP.firstName wFirstName, WP.lastName wLastName, WP.elo wElo, WP.socialNetwork wSocialNetwork, WP.socialID wSocialID,
+				BP.playerID bPlayerID, BP.firstName bFirstName, BP.lastName bLastName, BP.elo bElo, BP.socialNetwork bSocialNetwork, BP.socialID bSocialID
+		FROM activity A, fav_players F, games G left join eco E on E.eco = G.eco, players WP, players BP
 		WHERE A.playerID = F.favPlayerID
 		AND F.playerID = ".$playerID."
 		AND A.entityID = G.gameID
@@ -61,7 +63,9 @@ function insertLike($playerID, $type, $entityID)
 
 function deleteLike($likeID)
 {
+	$res_like = mysql_query("DELETE FROM like WHERE likeID = ".$likeID);
 	
+	return $res_like;
 }
 
 function searchLike($playerID, $type, $entityID)

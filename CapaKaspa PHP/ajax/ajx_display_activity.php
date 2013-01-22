@@ -24,9 +24,10 @@ require '../include/localization.php';
 
 // Load activities from 
 $start=$_GET["start"];
+$numPerPage = 4;
 
 $fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
-$limit = $start + 19;
+$limit = $start + $numPerPage;
 $tmpActivities = listActivityFollowing($start, $limit, $_SESSION['playerID']);
 $numActivities = mysql_num_rows($tmpActivities);
 
@@ -40,6 +41,8 @@ while($tmpActivity = mysql_fetch_array($tmpActivities, MYSQL_ASSOC))
 		$playerID = $tmpActivity['wPlayerID'];
 		$playerFirstName = $tmpActivity['wFirstName'];
 		$playerLastName = $tmpActivity['wLastName'];
+		$playerSocialNW = $tmpActivity['wSocialNetwork'];
+		$playerSocialID = $tmpActivity['wSocialID'];
 		$opponentID = $tmpActivity['bPlayerID'];
 		$opponentFirstName = $tmpActivity['bFirstName'];
 		$opponentLastName = $tmpActivity['bLastName'];
@@ -50,6 +53,8 @@ while($tmpActivity = mysql_fetch_array($tmpActivities, MYSQL_ASSOC))
 		$playerID = $tmpActivity['bPlayerID'];
 		$playerFirstName = $tmpActivity['bFirstName'];
 		$playerLastName = $tmpActivity['bLastName'];
+		$playerSocialNW = $tmpActivity['bSocialNetwork'];
+		$playerSocialID = $tmpActivity['bSocialID'];
 		$opponentID = $tmpActivity['wPlayerID'];
 		$opponentFirstName = $tmpActivity['wFirstName'];
 		$opponentLastName = $tmpActivity['wLastName'];
@@ -91,16 +96,24 @@ while($tmpActivity = mysql_fetch_array($tmpActivities, MYSQL_ASSOC))
 	echo("
 		<div class='activity'>
 				<div class='leftbar'>
-					<img src='".getPicturePath("FB", "sebastien.jouve.fr")."' width='40' height='40' border='0'/>
+					<img src='".getPicturePath($playerSocialNW, $playerSocialID)."' width='40' height='40' border='0'/>
 				</div>
 				<div class='details'>
 					<div class='title'>
 						<a href='player_view.php?playerID=".$playerID."'><span class='name'>".$playerFirstName." ".$playerLastName."</span></a> ".$message." <a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponentFirstName." ".$opponentLastName."</span></a>
 					</div>
 					<div class='content'>
-						");
+						<div class='gameboard'>");
 					drawboardGame($tmpActivity['gameID'], $tmpActivity['wPlayerID'], $tmpActivity['bPlayerID'], $tmpActivity['position']);
 				echo("</div>
+						<div class='gamedetails'>".
+							$tmpActivity['wFirstName']." ".$tmpActivity['wLastName']." - ".$tmpActivity['bFirstName']." ".$tmpActivity['bLastName']."
+							<br/>
+							".$tmpActivity['wElo']." - ".$tmpActivity['bElo']."
+							<br/>
+							[".$tmpActivity['eco']."] ".$tmpActivity['ecoName']."
+						</div>
+					</div>
 					<div class='footer'>"._("! Good")."
 						 - ");?> <a href="javascript:displayComment('<?echo(ACTIVITY);?>', <?echo($tmpActivity['activityID']);?>);"><?echo _("Comment");?></a> <? echo("- <span class='date'>".$strPostDate."</span>
 					</div>
@@ -112,12 +125,12 @@ while($tmpActivity = mysql_fetch_array($tmpActivities, MYSQL_ASSOC))
 	");
 }
 
-if ($numActivities > 19)
+if ($numActivities == $numPerPage)
 {
 ?>
-	<div id="activities<?echo($limit+1);?>" style="display: none;">
+	<div id="activities<?echo($limit);?>" style="display: none;">
 		<img src='images/ajaxloader.gif'/>
-		<input type="hidden" id="startPage" value="<?echo($limit+1);?>"/>
+		<input type="hidden" id="startPage" value="<?echo($limit);?>"/>
 	</div>
 <?
 }

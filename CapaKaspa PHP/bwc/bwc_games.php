@@ -640,7 +640,10 @@ function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
 	/* determine who's perspective of the board to show */
 	$perspective = $playersColor;
 
-	echo ("<table border='0' bgcolor='#000000' cellpadding='0' cellspacing='1'><tr><td><table bgcolor='#ffffff' border='0' cellpadding='0' cellspacing='0'>\n");
+	echo ("<table border='0' bgcolor='#000000' cellpadding='0' cellspacing='1'>
+			<tr>
+				<td>
+					<table bgcolor='#ffffff' border='0' cellpadding='0' cellspacing='0'>\n");
 
 	/* setup vars to show player's perspective of the board */
 	if ($perspective == "white")
