@@ -40,7 +40,7 @@ while($tmpComment = mysql_fetch_array($tmpComments, MYSQL_ASSOC))
 
 echo("
 	<div class='item'>
-		<textarea id='commenttext".$entityID."' rows='2' cols='95' placeholder='"._("Write a comment...")."'></textarea>");
+		<textarea id='commenttext".$entityID."' rows='2' placeholder='"._("Write a comment...")."'></textarea>");
 ?>
 		<a href="javascript:insertComment('<?echo($entityType);?>',<?echo($entityID);?>)"><?php echo _("Add")?></a>
 	</div>

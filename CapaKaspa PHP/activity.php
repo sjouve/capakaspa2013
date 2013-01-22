@@ -26,6 +26,7 @@ $desc_page = _("Activity");
 require 'include/page_header.php';
 ?>
 <script src="javascript/comment.js" type="text/javascript"></script>
+<script src="javascript/like.js" type="text/javascript"></script>
 <script type="text/javascript">
 function displayActivity(start)
 {

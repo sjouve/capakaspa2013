@@ -114,8 +114,14 @@ while($tmpActivity = mysql_fetch_array($tmpActivities, MYSQL_ASSOC))
 							[".$tmpActivity['eco']."] ".$tmpActivity['ecoName']."
 						</div>
 					</div>
-					<div class='footer'>"._("! Good")."
-						 - ");?> <a href="javascript:displayComment('<?echo(ACTIVITY);?>', <?echo($tmpActivity['activityID']);?>);"><?echo _("Comment");?></a> <? echo("- <span class='date'>".$strPostDate."</span>
+					<div class='footer'>");?>
+					<?if (isset($tmpActivity['likeID'])){?> 
+					<span id="like<?echo($tmpActivity['activityID']);?>"><a href="javascript:deleteLike('<?echo(ACTIVITY);?>', <?echo($tmpActivity['activityID']);?>, <?echo($tmpActivity['likeID']);?>);"><?echo _("! I no longer think it's good");?></a></span>
+					<?} else {?>
+					<span id="like<?echo($tmpActivity['activityID']);?>"><a href="javascript:insertLike('<?echo(ACTIVITY);?>', <?echo($tmpActivity['activityID']);?>);"><?echo _("! I think it's good");?></a></span>
+					<?}?>
+					- <a href="javascript:displayComment('<?echo(ACTIVITY);?>', <?echo($tmpActivity['activityID']);?>);"><?echo _("Comment");?></a> 
+					<? echo("- <span class='date'>".$strPostDate."</span>
 					</div>
 					<div class='comment' id='comment".$tmpActivity['activityID']."'>
 						<img src='images/ajaxloader.gif'/>

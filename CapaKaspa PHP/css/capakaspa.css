@@ -761,6 +761,7 @@
 	.activity .details .title{
 		float: left;
 		width: 100%;
+		margin-bottom:5px;
 		border-top-style: none;
 		border-right-style: none;
 		border-bottom-style: none;
@@ -787,7 +788,7 @@
 	}
 	.activity .details .content .gamedetails{
 		float: left;
-		width: 290px;
+		width: 295px;
 		height: 182px;
 		padding: 10px;
 		font-size: 10px;
@@ -837,7 +838,7 @@
 		border-left-style: none;
 		border-width: 1px;
 		border-color: #FFFFFF;
-		padding:4px;
+		padding: 4px;
 		overflow: hidden;
 	}
 	.comment .item TEXTAREA {
@@ -845,6 +846,7 @@
 		font-size: 10px;
 		font-weight: normal;
 		font-style: normal;
+		width: 450px;
 	}
 	.comment .item .date {
 		font-family: Verdana, Arial, Helvetica, sans-serif;
