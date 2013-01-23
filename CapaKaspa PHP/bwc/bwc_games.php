@@ -667,26 +667,26 @@ function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
 			else
 				echo ("#F2A521'>");
 	
-			echo ("<img name='pos$i-$j' src='images/mosaique/");
+			echo ("<img name='pos$i-$j' src='pgn4web/merida/25/");
 	
 			/* if position is empty... */
 			if ($board[$i][$j] == 0)
 			{
 				/* draw empty square */
-				$tmpALT="blank";
+				$tmpALT="clear";
 			}
 			else
 			{
 				/* draw correct piece */
 				if ($board[$i][$j] & BLACK)
-					$tmpALT = "black_";
+					$tmpALT = "b";
 				else
-					$tmpALT = "white_";
+					$tmpALT = "w";
 		
-				$tmpALT .= getPieceName($board[$i][$j]);
+				$tmpALT .= getPieceCharForImage($board[$i][$j]);
 			}
 	
-			echo($tmpALT.".gif' height='25' width='25' border='0' alt='".$tmpALT."'>");
+			echo($tmpALT.".png' border='0' alt='".$tmpALT."'>");
 			echo ("</td>\n");
 		}
 
@@ -813,26 +813,26 @@ function drawboard($withCoord)
 					echo ("false)'>");
 			}
 
-			echo ("<img name='pos$i-$j' src='images/".$_SESSION['pref_theme']."/");
+			echo ("<img name='pos$i-$j' src='pgn4web/merida/35/");
 
 			/* if position is empty... */
 			if ($board[$i][$j] == 0)
 			{
 				/* draw empty square */
-				$tmpALT="blank";
+				$tmpALT="clear";
 			}
 			else
 			{
 				/* draw correct piece */
 				if ($board[$i][$j] & BLACK)
-					$tmpALT = "black_";
+					$tmpALT = "b";
 				else
-					$tmpALT = "white_";
+					$tmpALT = "w";
 
-				$tmpALT .= getPieceName($board[$i][$j]);
+				$tmpALT .= getPieceCharForImage($board[$i][$j]);
 			}
 
-			echo($tmpALT.".gif' height='35' width='35' border='0' alt='".$tmpALT."'>");
+			echo($tmpALT.".png' border='0' alt='".$tmpALT."'>");
 
 			if (!$isDisabled && $isPlayersTurn)
 				echo ("</a>");

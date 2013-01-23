@@ -172,7 +172,7 @@
 <script src="javascript/comment.js" type="text/javascript"></script>
 <script src="javascript/like.js" type="text/javascript"></script>
 <script type="text/javascript">
-   SetImagePath ("pgn4web/alpha/37");
+   SetImagePath ("pgn4web/merida/37");
    SetImageType("png");
    SetCommentsOnSeparateLines(true);
    SetAutoplayDelay(2500); // milliseconds
@@ -318,7 +318,7 @@ require 'include/page_body.php';
       </table>
 	</form>
 	
-	<h3><?php echo _("Comments")?></h3>
+	<h3><?echo _("Comments")?></h3>
 	
  	<div class="comment" id="comment<?echo($_POST['gameID']);?>">
 		<img src="images/ajaxloader.gif"/>
@@ -348,6 +348,6 @@ require 'include/page_body.php';
     </div>
   </div>
 <?
-    require 'include/page_footer.php';
-    mysql_close();
+require 'include/page_footer.php';
+mysql_close();
 ?>

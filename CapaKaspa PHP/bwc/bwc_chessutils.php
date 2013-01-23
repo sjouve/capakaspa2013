@@ -1,5 +1,32 @@
 <?
 /* these are utility functions used by other functions */
+function getPieceCharForImage($piece)
+{
+	switch($piece & COLOR_MASK)
+	{
+		case PAWN:
+			$name = "p";
+			break;
+		case KNIGHT:
+			$name = "n";
+			break;
+		case BISHOP:
+			$name = "b";
+			break;
+		case ROOK:
+			$name = "r";
+			break;
+		case QUEEN:
+			$name = "q";
+			break;
+		case KING:
+			$name = "k";
+			break;
+	}
+
+	return $name;
+}
+
 function getPieceName($piece)
 {
 	// TODO A franciser (voir alt sur case de l'échiquier)
