@@ -13,7 +13,7 @@ function listActivityFollowing($start, $limit, $playerID)
 				G.gameID, G.eco, G.position, G.lastMove, G.dateCreated, E.name ecoName,
 				WP.playerID wPlayerID, WP.firstName wFirstName, WP.lastName wLastName, WP.elo wElo, WP.socialNetwork wSocialNetwork, WP.socialID wSocialID,
 				BP.playerID bPlayerID, BP.firstName bFirstName, BP.lastName bLastName, BP.elo bElo, BP.socialNetwork bSocialNetwork, BP.socialID bSocialID
-		FROM activity A left join like_entity L on L.entityID = A.activityID AND L.playerID = ".$playerID.", fav_players F, games G left join eco E on E.eco = G.eco, players WP, players BP
+		FROM activity A left join like_entity L on L.type = '".ACTIVITY."' AND L.entityID = A.activityID AND L.playerID = ".$_SESSION['playerID'].", fav_players F, games G left join eco E on E.eco = G.eco, players WP, players BP
 		WHERE A.playerID = F.favPlayerID
 		AND F.playerID = ".$playerID."
 		AND A.entityID = G.gameID
@@ -42,8 +42,8 @@ function deleteComment($commentID)
 
 function listEntityComments($type, $entityID)
 {
-	$tmpQuery = "SELECT C.commentID, P.playerID, P.firstName, P.lastName, C.message, C.postDate
-	FROM comment C, players P 
+	$tmpQuery = "SELECT C.commentID, C.message, C.postDate, L.likeID, P.playerID, P.firstName, P.lastName
+	FROM comment C left join like_entity L on L.type = '".COMMENT."' AND L.entityID = C.commentID AND L.playerID = ".$_SESSION['playerID'].", players P 
 	WHERE C.type = '".$type."' 
 	AND C.entityID = ".$entityID." 
 	AND C.playerID = P.playerID 
@@ -66,6 +66,14 @@ function deleteLike($likeID)
 	$res_like = mysql_query("DELETE FROM like_entity WHERE likeID = ".$likeID);
 	
 	return $res_like;
+}
+
+function countLike($type, $entityID)
+{
+	$res_count = mysql_query("SELECT count(likeID) nbLike FROM like_entity WHERE type = '".$type."' AND entityID = ".$entityID);
+	$res = mysql_fetch_array($res_count, MYSQL_ASSOC);
+	
+	return $res['nbLike'];
 }
 
 function searchLike($playerID, $type, $entityID)

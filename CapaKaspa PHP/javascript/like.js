@@ -1,7 +1,7 @@
 // Manage like on activity
 function displayLike(entityType, entityId)
 {
-	document.getElementById("like"+entityId).style.display = "block";
+	document.getElementById("like"+entityType+entityId).style.display = "block";
 
 	if (window.XMLHttpRequest)
 	{// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -15,7 +15,7 @@ function displayLike(entityType, entityId)
 	{
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
-			document.getElementById("like"+entityId).innerHTML=xmlhttp.responseText;
+			document.getElementById("like"+entityType+entityId).innerHTML=xmlhttp.responseText;
 		}
 	};
 	xmlhttp.open("GET","ajax/ajx_display_like.php?type="+entityType+"&id="+entityId,true);
@@ -36,7 +36,7 @@ function deleteLike(entityType, entityId, likeId)
 	{
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
-			document.getElementById("like"+entityId).innerHTML=xmlhttp.responseText;
+			document.getElementById("like"+entityType+entityId).innerHTML=xmlhttp.responseText;
 			displayComment(entityType, entityId);
 		}
 	};
@@ -59,7 +59,7 @@ function insertLike(entityType, entityId)
 	{
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
-			document.getElementById("like"+entityId).innerHTML=xmlhttp.responseText;
+			document.getElementById("like"+entityType+entityId).innerHTML=xmlhttp.responseText;
 			displayComment(entityType, entityId);
 		}
 	};
