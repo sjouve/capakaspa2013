@@ -819,6 +819,7 @@
 	.comment{
 		float: left;
 		width: 100%;
+		
 		background-color: #FFFFFF;
 		border-top-style: none;
 		border-right-style: none;
@@ -831,6 +832,7 @@
 		float: left;
 		width: 100%;
 		font-size: 10px;
+		color: #404040;
 		background-color: #EEEEEE;
 		border-top-style: none;
 		border-right-style: none;

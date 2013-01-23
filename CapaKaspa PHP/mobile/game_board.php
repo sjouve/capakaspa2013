@@ -168,8 +168,8 @@
 ?>
 <script type="text/javascript">
 /* transfer board data to javacripts */
-<? writeJSboard(); ?>
-<? writeJShistory(); ?>
+<? writeJSboard($board, $numMoves); ?>
+<? writeJSHistory($history, $numMoves); ?>
 
 if (DEBUG)
 	alert("Game initilization complete!");
@@ -215,7 +215,9 @@ if (DEBUG)
 		<table border="0">
         <tr valign="top" align="center">
         <td>
-        	<? writeStatus(); ?>
+        	<div id="status">
+	          	<?writeStatus($tmpGame);?>
+	        </div>
 			
 			<input type="hidden" name="from" value="<? echo($_POST['from']) ?>" />
         </td>
@@ -302,7 +304,7 @@ if (DEBUG)
         <tr>
           <td valign="top" align="center">   
 		  	<? 
-				$listeCoups = writeHistory();
+				$listeCoups = writeHistoryPGN($history, $numMoves);
 				$pgnstring = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $listeCoups);
 			?>
 			
