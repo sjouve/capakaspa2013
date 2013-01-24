@@ -37,10 +37,10 @@ function getPlayerByNickEmail($nick, $email)
 }
 
 /* Insérer un joueur */	
-function insertPlayer($password, $firstName, $lastName, $nick, $email, $countryCode, $anneeNaissance)
+function insertPlayer($password, $firstName, $lastName, $nick, $email, $countryCode, $anneeNaissance, $playerSex)
 {
-	$res_player = mysql_query("INSERT INTO players (password, firstName, lastName, nick, email, countryCode, anneeNaissance, creationDate) 
-	VALUES ('".$password."', '".addslashes(strip_tags($firstName))."', '".addslashes(strip_tags($lastName))."', '".$nick."', '".$email."', '".$countryCode."', '".$anneeNaissance."', now())");
+	$res_player = mysql_query("INSERT INTO players (password, firstName, lastName, nick, email, countryCode, anneeNaissance, creationDate, playerSex) 
+	VALUES ('".$password."', '".addslashes(strip_tags($firstName))."', '".addslashes(strip_tags($lastName))."', '".$nick."', '".$email."', '".$countryCode."', '".$anneeNaissance."', now(), '".$playerSex."')");
 
 	if ($res_player)	
 		return mysql_insert_id();
@@ -60,10 +60,21 @@ function updatePlayer($playerID, $password, $firstName, $lastName, $nick, $email
 }
 
 /* Mettre à jour un joueur avec données réseau social */
-function updatePlayerWithSocial($playerID, $password, $firstName, $lastName, $nick, $email, $profil, $situationGeo, $anneeNaissance, $activate, $socialNetwork, $socialID)
+function updatePlayerWithSocial($playerID, $password, $firstName, $lastName, $nick, $email, $profil, $situationGeo, $anneeNaissance, $activate, $socialNetwork, $socialID, $countryCode, $playerSex)
 { 		
 	  $res_player = mysql_query("UPDATE players 
-	  							SET password='".$password."', firstName='".addslashes(strip_tags($firstName))."', lastName='".addslashes(strip_tags($lastName))."', nick='".$nick."', email='".$email."', profil='".addslashes(strip_tags($profil))."', situationGeo='".addslashes(strip_tags($situationGeo))."', anneeNaissance='".$anneeNaissance."', activate=".$activate.", socialID='".$socialID."', socialNetwork='".$socialNetwork."'  
+	  							SET password='".$password."', 
+		  							firstName='".addslashes(strip_tags($firstName))."', 
+		  							lastName='".addslashes(strip_tags($lastName))."', 
+		  							nick='".$nick."', email='".$email."', 
+		  							profil='".addslashes(strip_tags($profil))."', 
+		  							situationGeo='".addslashes(strip_tags($situationGeo))."', 
+		  							anneeNaissance='".$anneeNaissance."', 
+		  							activate=".$activate.", 
+		  							socialID='".$socialID."', 
+		  							socialNetwork='".$socialNetwork."',
+	  								countryCode='".$countryCode."',
+	  								playerSex='".$playerSex."'   
 	  							WHERE playerID = ".$playerID);
 	  
 	if ($res_player)	
@@ -168,7 +179,7 @@ function countVacation($playerID, $year)
 /* Récupère les vacances en cours d'un joueur */
 function getCurrentVacation($playerID)
 {
-	$res_vacation = mysql_query("SELECT beginDate, DATE_FORMAT(beginDate, '%d/%m/%Y') beginDateF, endDate, DATE_FORMAT(endDate, '%d/%m/%Y') endDateF, duration 
+	$res_vacation = mysql_query("SELECT beginDate, endDate, duration 
 								FROM vacation 
 								WHERE playerID=".$playerID." 
 								AND endDate >= NOW()");

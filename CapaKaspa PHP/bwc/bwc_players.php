@@ -21,7 +21,7 @@ function createPlayer()
 	if ($_POST['pwdPassword']!=$_POST['pwdPassword2']) return FALSE;
 	
 	// Crée l'utilisateur
-	$playerID = insertPlayer($_POST['pwdPassword'], $_POST['txtFirstName'], $_POST['txtLastName'], $_POST['txtNick'], $_POST['txtEmail'], $_POST['txtCountryCode'], $_POST['txtAnneeNaissance']);	
+	$playerID = insertPlayer($_POST['pwdPassword'], $_POST['txtFirstName'], $_POST['txtLastName'], $_POST['txtNick'], $_POST['txtEmail'], $_POST['txtCountryCode'], $_POST['txtAnneeNaissance'], $_POST['txtSex']);	
 	if (!$playerID)
 	{
 		@mysql_query("ROLLBACK");
@@ -71,7 +71,7 @@ function createPlayer()
 }
 
 /* Mettre à jour le profil utilisateur */
-function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $lastName, $email, $profil, $situationGeo, $anneeNaissance, $prefTheme, $prefEmailNotification, $socialNetwork, $socialID)
+function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $lastName, $email, $profil, $situationGeo, $anneeNaissance, $prefTheme, $prefEmailNotification, $prefLanguage, $socialNetwork, $socialID, $countryCode, $playerSex)
 {
 	$player = getPlayer($playerID);
 	if (!$player)
@@ -88,7 +88,7 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 	// Changement de mot de passe
 	if (isset($pwdPassword) && $pwdPassword != "")
 	{
-		$res = updatePlayerWithSocial($playerID, $pwdPassword, $firstName, $lastName, $player['nick'], $email, $profil, $situationGeo, $anneeNaissance, $player['activate'], $socialNetwork, $socialID);
+		$res = updatePlayerWithSocial($playerID, $pwdPassword, $firstName, $lastName, $player['nick'], $email, $profil, $situationGeo, $anneeNaissance, $player['activate'], $socialNetwork, $socialID, $countryCode, $playerSex);
 		if (!$res)
 		{
 			@mysql_query("ROLLBACK");
@@ -97,7 +97,7 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 	}
 	else
 	{
-		$res = updatePlayerWithSocial($playerID, $player['PASSWORD'], $firstName, $lastName, $player['nick'], $email, $profil, $situationGeo, $anneeNaissance, $player['activate'], $socialNetwork, $socialID);
+		$res = updatePlayerWithSocial($playerID, $player['PASSWORD'], $firstName, $lastName, $player['nick'], $email, $profil, $situationGeo, $anneeNaissance, $player['activate'], $socialNetwork, $socialID, $countryCode, $playerSex);
 		if (!$res)
 		{
 			@mysql_query("ROLLBACK");
@@ -122,6 +122,14 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 		return 0;  
 	}
 	
+	// Language
+	$res = updatePreference($playerID, 'language', $prefLanguage);
+	if (!$res)
+	{
+		@mysql_query("ROLLBACK");
+		return 0;
+	}
+	
 	// Update current session
 	$_SESSION['playerName'] = stripslashes(strip_tags($_POST['txtFirstName']))." ".stripslashes(strip_tags($_POST['txtLastName']));
 	$_SESSION['firstName'] = stripslashes(strip_tags($_POST['txtFirstName']));
@@ -134,6 +142,11 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 	$_SESSION['pref_emailnotification'] = $_POST['txtEmailNotification'];
 	$_SESSION['socialID'] = $_POST['txtSocialID'];
 	$_SESSION['socialNetwork'] = $_POST['rdoSocialNetwork'];
+	$_SESSION['countryCode'] = $_POST['txtCountryCode'];
+	$_SESSION['playerSex'] = $_POST['txtSex'];
+	$_SESSION['pref_emailNotification'] = $_POST['txtEmailNotification'];
+	$_SESSION['pref_theme'] = $_POST['rdoTheme'];
+	$_SESSION['pref_language'] = $_POST['txtLanguage'];
 	
 	@mysql_query("COMMIT");
 	return 1;
@@ -245,6 +258,7 @@ function loginPlayer($nick, $password, $flagAuto)
 	$_SESSION['socialNetwork'] = $player['socialNetwork'];
 	$_SESSION['socialID'] = $player['socialID'];
 	$_SESSION['countryCode'] = $player['countryCode'];
+	$_SESSION['playerSex'] = $player['playerSex'];
 
 	// Load user preferences
 	// TODO Requête dans DAC à utiliser pour updateProfil

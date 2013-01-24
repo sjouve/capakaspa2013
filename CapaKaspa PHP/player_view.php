@@ -1,70 +1,68 @@
-<?	require 'include/mobilecheck.php';
-	session_start();
+<?	
+require 'include/mobilecheck.php';
+session_start();
 
-	/* load settings */
-	if (!isset($_CONFIG))
-		require 'include/config.php';
-	
-	require 'dac/dac_players.php';
-	require 'dac/dac_games.php';
-	require 'bwc/bwc_chessutils.php';
-	require 'bwc/bwc_common.php';
-	require 'bwc/bwc_players.php';
-	
-	/* connect to database */
-	require 'include/connectdb.php';
-	
-	/* check session status */
-	require 'include/sessioncheck.php';
-	
-	require 'include/localization.php';
-	
-	/* Charger le profil */
-	$playerID = isset($_POST['playerID']) ? $_POST['playerID']:$_GET['playerID'];
-    $player = getPlayer($playerID);
-    
-    /* Action */
-    $ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:(isset($_GET['ToDo'])?$_GET['ToDo']:"");
+/* load settings */
+if (!isset($_CONFIG))
+	require 'include/config.php';
 
-	switch($ToDo)
-	{
-		case 'AddFavorite':
-			insertFavPlayer($_SESSION['playerID'], $player['playerID']);
-			break;
-		
-		case 'DelFavorite':
-			$favorite = getPlayerFavorite($_SESSION['playerID'], $player['playerID']);
-			deleteFavPlayer($favorite['favoriteID']);
-			break;
-	}
+require 'dac/dac_players.php';
+require 'dac/dac_games.php';
+require 'bwc/bwc_chessutils.php';
+require 'bwc/bwc_common.php';
+require 'bwc/bwc_players.php';
 	
-	/* Charger le favori */
-    $favorite = getPlayerFavorite($_SESSION['playerID'], $player['playerID']);
+/* connect to database */
+require 'include/connectdb.php';
+
+/* check session status */
+require 'include/sessioncheck.php';
+
+require 'include/localization.php';
+	
+/* Charger le profil */
+$playerID = isset($_POST['playerID']) ? $_POST['playerID']:$_GET['playerID'];
+$player = getPlayer($playerID);
+
+/* Action */
+$ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:(isset($_GET['ToDo'])?$_GET['ToDo']:"");
+
+switch($ToDo)
+{
+	case 'AddFavorite':
+		insertFavPlayer($_SESSION['playerID'], $player['playerID']);
+		break;
+	
+	case 'DelFavorite':
+		$favorite = getPlayerFavorite($_SESSION['playerID'], $player['playerID']);
+		deleteFavPlayer($favorite['favoriteID']);
+		break;
+}
+	
+/* Charger le favori */
+$favorite = getPlayerFavorite($_SESSION['playerID'], $player['playerID']);
     
- 	$titre_page = "Echecs en différé - Consulter un profil";
- 	$desc_page = "Jouez aux échecs en différé. Consulter le profil d'un jouer de la zone de jeu d'échecs en différé : son classement Elo, sa description, ses parties...";
-    require 'include/page_header.php';
+$titre_page = _("View player profile");
+$desc_page = _("View player profile");
+require 'include/page_header.php';
 ?>
-
 <script type="text/javascript">
 
-		function loadEndedGame(gameID)
-		{
-			document.endedGames.gameID.value = gameID;
-			document.endedGames.submit();
-		}
-		
-		function loadGame(gameID)
-		{
-			
-			document.existingGames.gameID.value = gameID;
-			document.existingGames.submit();
-		}
+	function loadEndedGame(gameID)
+	{
+		document.endedGames.gameID.value = gameID;
+		document.endedGames.submit();
+	}
+	
+	function loadGame(gameID)
+	{
+		document.existingGames.gameID.value = gameID;
+		document.existingGames.submit();
+	}
 
 </script>
-
 <?    
-    require 'include/page_body_no_menu.php';
+require 'include/page_body_no_menu.php';
 ?>
   <div id="contentlarge">
     <div class="contentbody">

@@ -667,7 +667,7 @@ function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
 			else
 				echo ("#F2A521'>");
 	
-			echo ("<img name='pos$i-$j' src='pgn4web/merida/25/");
+			echo ("<img name='pos$i-$j' src='pgn4web/".$_SESSION['pref_theme']."/25/");
 	
 			/* if position is empty... */
 			if ($board[$i][$j] == 0)
@@ -813,7 +813,7 @@ function drawboard($withCoord)
 					echo ("false)'>");
 			}
 
-			echo ("<img name='pos$i-$j' src='pgn4web/merida/35/");
+			echo ("<img name='pos$i-$j' src='pgn4web/".$_SESSION['pref_theme']."/35/");
 
 			/* if position is empty... */
 			if ($board[$i][$j] == 0)

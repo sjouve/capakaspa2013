@@ -172,7 +172,7 @@
 <script src="javascript/comment.js" type="text/javascript"></script>
 <script src="javascript/like.js" type="text/javascript"></script>
 <script type="text/javascript">
-   SetImagePath ("pgn4web/merida/37");
+   SetImagePath ("pgn4web/<?echo($_SESSION['pref_theme']);?>/37");
    SetImageType("png");
    SetCommentsOnSeparateLines(true);
    SetAutoplayDelay(2500); // milliseconds

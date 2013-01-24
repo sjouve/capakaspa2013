@@ -2,7 +2,8 @@
 
 Table players
 - Situation géo n'est plus obligatoire
-- Ajout colonne countryCode
+- Ajout colonne countryCode default FR
+- Ajout colonne playerSex char(1) obligatoire default M
 
 Table games
 - Modifier type de gameID smallint à int
@@ -17,7 +18,7 @@ Ajout table activity
 - idEvent
 - postDate
 
-Ajout table activityNotation
+Ajout table like_entity
 - activityId
 - playerId
 
@@ -35,3 +36,8 @@ Ajout table privateMessage
 - toPlayerId
 - sendDate
 - text
+
+Reprise des préférences
+=> Ajout préférence language pour tous les anciens user
+=> modification préférence theme pour tous les ancien user (passer la valeur à "merida")
+=> Supprimer préférence history

@@ -133,7 +133,6 @@ require 'include/page_header.php';
 			document.userdata.submit();
 		else
 			document.getElementById("confirm_password_error").style.display = "block";
-		
 	}
 </script>
 <?
@@ -185,11 +184,20 @@ require 'include/page_body.php';
 	<form name="userdata" method="post" action="sign-up.php?ToDo=NewUser">
 	<table>
 		<tr>
+			<td width="180"><?php echo _("I am");?> : </td>
+            <td>
+				<select name="txtSex" id="txtSex">
+					<option value="M" selected><?echo _("Male");?></option>
+					<option value="F"><?echo _("Female");?></option>
+				</select>
+			</td>
+		</tr>
+		<tr>
 			<td ><?php echo _("User name");?> :</td>
 			<td width="450"><input name="txtNick" type="text" size="20" maxlength="20" value="<? echo(isset($_POST['txtNick'])?$_POST['txtNick']:""); ?>"></td>
 		</tr>
 		<tr>
-			<td><?php echo _("Password");?> :</td>
+			<td><?php echo _("Choose password");?> :</td>
 			<td><input name="pwdPassword" type="password" size="16" maxlength="16"></td>
 		</tr>
 		<tr>
@@ -229,7 +237,7 @@ require 'include/page_body.php';
         </tr>
         <tr>
             <td><?php echo _("Birth date");?> :</td>
-            <td><select name="txtAnneeNaissance" id="txtAnneeNaissance" placeholder="Année">
+            <td><select name="txtAnneeNaissance" id="txtAnneeNaissance">
             	<?php
             	echo "\t",'<option value="">', _("Select a year") ,'</option>',"\n";
             	// Parcours du tableau

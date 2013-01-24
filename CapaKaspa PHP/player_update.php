@@ -1,281 +1,336 @@
-<?	require 'include/mobilecheck.php';
-	session_start();
+<?	
+require 'include/mobilecheck.php';
+session_start();
 
-	/* load settings */
-	if (!isset($_CONFIG))
-		require 'include/config.php';
+/* load settings */
+if (!isset($_CONFIG))
+	require 'include/config.php';
 
-	/* load external functions for setting up new game */
-	require 'dac/dac_players.php';
-	require 'dac/dac_games.php';
-	require 'bwc/bwc_chessutils.php';
-	require 'bwc/bwc_common.php';
-	require 'bwc/bwc_chessutils.php';
-	require 'bwc/bwc_players.php';
+/* load external functions for setting up new game */
+require 'dac/dac_common.php';
+require 'dac/dac_players.php';
+require 'bwc/bwc_chessutils.php';
+require 'bwc/bwc_common.php';
+require 'bwc/bwc_players.php';
+
+/* connect to database */
+require 'include/connectdb.php';
+
+/* check session status */
+require 'include/sessioncheck.php';
+
+require 'include/localization.php';
+
+$err = 1;
+$ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:Null;
+switch($ToDo)
+{
 	
-	/* connect to database */
-	require 'include/connectdb.php';
+	case 'UpdateProfil':
+		
+		$err = updateProfil($_SESSION['playerID'], $_POST['pwdPassword'], $_POST['pwdOldPassword'], strip_tags($_POST['txtFirstName']), strip_tags($_POST['txtLastName']), $_POST['txtEmail'], strip_tags($_POST['txtProfil']), strip_tags($_POST['txtSituationGeo']), $_POST['txtAnneeNaissance'], $_POST['rdoTheme'], $_POST['txtEmailNotification'], $_POST['txtLanguage'],$_POST['rdoSocialNetwork'], $_POST['txtSocialID'], $_POST['txtCountryCode'], $_POST['txtSex']);
+		break;
+		
+	case 'CreateVacation':
 	
-	/* check session status */
-	require 'include/sessioncheck.php';
-	
-	$err = 1;
-	$ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:Null;
-	switch($ToDo)
-	{
+		$err = createVacation($_SESSION['playerID'], $_POST['nbDays'], $CFG_EXPIREGAME);	
+		break;
 		
-		case 'UpdateProfil':
-			
-			$err = updateProfil($_SESSION['playerID'], $_POST['pwdPassword'], $_POST['pwdOldPassword'], strip_tags($_POST['txtFirstName']), strip_tags($_POST['txtLastName']), $_POST['txtEmail'], strip_tags($_POST['txtProfil']), strip_tags($_POST['txtSituationGeo']), $_POST['txtAnneeNaissance'], $_POST['rdoTheme'], $_POST['txtEmailNotification'], $_POST['rdoSocialNetwork'], $_POST['txtSocialID']);
-			break;
-			
-		case 'CreateVacation':
+}
 		
-			$err = createVacation($_SESSION['playerID'], $_POST['nbDays'], $CFG_EXPIREGAME);	
-			break;
-			
-	}
-		
- 	$titre_page = "Echecs en différé - Modifier votre profil";
- 	$desc_page = "Jouer aux échecs en différé. Modifier votre profil de joueur de la zone de jeu d'échecs en différé";
-    require 'include/page_header.php';
+$titre_page = _("Update your profile");
+$desc_page = _("Update your profile");
+require 'include/page_header.php';
 ?>
 <script type="text/javascript" src="javascript/formValidation.js">
  /* fonctions de validation des champs d'un formulaire */
 </script>
 <script type="text/javascript">
-		function validatePersonalInfo()
+	
+	function validatePersonalInfo()
+	{
+		var dayDate = new Date();
+		var annee = dayDate.getFullYear();
+
+		document.getElementById("fields_required_error").style.display = "none";
+		document.getElementById("login_format_error").style.display = "none";
+		document.getElementById("password_format_error").style.display = "none";
+		document.getElementById("email_format_error").style.display = "none";
+		document.getElementById("confirm_password_error").style.display = "none";
+		document.getElementById("old_password_error").style.display = "none";
+		
+		if (isEmpty(document.userdata.txtFirstName.value)
+			|| isEmpty(document.userdata.txtLastName.value)
+			//|| isEmpty(document.userdata.txtNick.value)
+			|| isEmpty(document.userdata.txtEmail.value)
+			|| isEmpty(document.userdata.txtAnneeNaissance.value)
+			|| isEmpty(document.userdata.txtCountryCode.value))
 		{
-			var dayDate = new Date();
-			var annee = dayDate.getFullYear();
-			if (isEmpty(document.Profil.txtFirstName.value)
-				|| isEmpty(document.Profil.txtLastName.value)
-				|| isEmpty(document.Profil.txtSituationGeo.value)
-				|| isEmpty(document.Profil.txtProfil.value)
-				|| isEmpty(document.Profil.txtAnneeNaissance.value))
-			{
-				alert("Toutes les informations personnelles sont obligatoires.");
-				return;
-			}
-			
-			if (!isNumber(document.Profil.txtAnneeNaissance.value) || !isWithinRange(document.Profil.txtAnneeNaissance.value, 1900, annee))
-			{
-				alert("L'année de naissance est un nombre à 4 chiffres compris entre 1900 et l'année courante.");
-				return;
-			}
-			
-			if (!isEmpty(document.Profil.pwdPassword.value)
-				&& isEmpty(document.Profil.pwdOldPassword.value))
-			{
-				alert("Vous devez saisir votre ancien mot de passe.");
-				return;
-			}
-			
-			if (!isEmpty(document.Profil.pwdPassword.value) && !isAlphaNumeric(document.Profil.pwdPassword.value))
-			{
-				alert("Le mot de passe doit être alphanumérique.");
-				return;
-			}
-			
-			if (document.Profil.pwdPassword.value == document.Profil.pwdPassword2.value)
-				document.Profil.submit();
-			else
-				alert("Vous avez fait une erreur de saisie de mot de passe.");
+			document.getElementById("fields_required_error").style.display = "block";
+			return;
 		}
 		
-		function validateVacation()
+		if (!isEmpty(document.userdata.pwdPassword.value) && !isAlphaNumeric(document.userdata.pwdPassword.value))
 		{
-			if (!isWithinRange(document.Vacation.nbDays.value, 1, 30))
-			{
-				alert("Le nombre de jours doit être compris entre 0 et 30.");
-				return;
-			}
-			var vok=false;
-			vok = confirm("L'ajout de cette absence ne peut être annulée et toutes vos parties seront immédiatement ajournées. Veuillez confirmer sa prise en compte ?");
-			if (vok)
-			{
-				document.Vacation.submit();
-			}
+			document.getElementById("password_format_error").style.display = "block";
+			return;
 		}
-	</script>
+
+		if (!isEmpty(document.userdata.pwdPassword.value)
+				&& isEmpty(document.userdata.pwdOldPassword.value))
+		{
+			document.getElementById("old_password_error").style.display = "block";
+			return;
+		}
+		
+		if (!isEmailAddress(document.userdata.txtEmail.value))
+		{
+			document.getElementById("email_format_error").style.display = "block";
+			return;
+		}
+		
+		if (document.userdata.pwdPassword.value == document.userdata.pwdPassword2.value)
+			document.userdata.submit();
+		else
+			document.getElementById("confirm_password_error").style.display = "block";
+	}
+	
+	function validateVacation()
+	{
+		document.getElementById("number_days_error").style.display = "none";
+		
+		if (!isWithinRange(document.Vacation.nbDays.value, 1, 30))
+		{
+			document.getElementById("number_days_error").style.display = "block";
+			return;
+		}
+		var vok=false;
+		vok = confirm(document.getElementById('#confirm_add_vacation_id').innerHTML);
+		if (vok)
+		{
+			document.Vacation.submit();
+		}
+	}
+</script>
 <?
-    $image_bandeau = 'bandeau_capakaspa_zone.jpg';
-    $barre_progression = "<a href='/'>Accueil</a> > Echecs en différé > Mon profil";
-    require 'include/page_body.php';
+require 'include/page_body.php';
 ?>
-  <div id="contentlarge">
+<div id="contentlarge">
     <div class="contentbody">
-      
-      	<?
-      	if ($err == 0)
-				echo("<div class='error'>Un problème technique a empêché l'opération</div>");
-		if ($ToDo == 'UpdateProfil')
-      	{
-			
-			if ($err == -1)
-				echo("<div class='error'>Votre ancien mot de passe n'est pas celui que vous avez saisi</div>");
-			if ($err == 1)
-				echo("<div class='success'>Les modifications de votre profil ont bien été enregistrées</div>");
-		}
-		if ($ToDo == 'CreateVacation')
-		{
-			if ($err == -100)
-				echo("<div class='error'>Le nombre de jours d'absence que vous demandez n'est pas valide</div>");
-			if ($err == 1)
-				echo("<div class='success'>Votre demande d'absence a bien été enregistrée</div>");
-		}
-		?>
-      <form name="Profil" action="player_update.php" method="post">
-	  <h3>Mes informations personnelles</h3>
-        <table border="0" width="650">
+	
+	<?
+	if ($err == 0)
+		echo("<div class='error'>"._("A technical error has occured")."</div>");
+	if ($ToDo == 'UpdateProfil')
+	{
+		if ($err == -1)
+			echo("<div class='error'>"._("Your old password is wrong")."</div>");
+		if ($err == 1)
+			echo("<div class='success'>"._("Profile changes have been saved successfully")."</div>");
+	}
+	?>
+	<div class="error" id="fields_required_error" style="display: none"><?echo _("All fields are required")?></div>
+	<div class="error" id="login_format_error" style="display: none"><?echo _("Bad format for login")?></div>
+	<div class="error" id="password_format_error" style="display: none"><?echo _("Bad format for password")?></div>
+	<div class="error" id="email_format_error" style="display: none"><?echo _("Bad format for email")?></div>
+	<div class="error" id="confirm_password_error" style="display: none"><?echo _("Password confirmation error")?></div>
+	<div class="error" id="old_password_error" style="display: none"><?echo _("Old password is required")?></div>
+	<!-- For translation in javascript -->
+    <span id="#confirm_add_vacation_id" style="display: none"><?echo _("The addition of this absence can not be canceled and all your games will be immediately adjourned. Please confirm its inclusion ?")?></span>
+    
+	<form name="userdata" action="player_update.php" method="post">
+	  <h3><?php echo _("Basic info");?></h3>
+        <table border="0" width="100%">
           <tr>
-            <td width="180"> Surnom : </td>
-            <td><? echo($_SESSION['nick']); ?> (<? echo($_SESSION['elo']); ?>)
-            </td>
-          </tr>
-		  <tr>
-            <td width="180"> Prénom : </td>
-            <td><input name="txtFirstName" type="text" size="20" maxlength="20" value="<? echo($_SESSION['firstName']); ?>">
-            </td>
-          </tr>
-          <tr>
-            <td> Nom : </td>
-            <td><input name="txtLastName" type="text" size="20" maxlength="20" value="<? echo($_SESSION['lastName']); ?>">
-            </td>
-          </tr>
-		  <tr>
-            <td> Email : </td>
-            <td><? echo($_SESSION['email']); ?><input type="hidden" name="txtEmail" value="<? echo($_SESSION['email']); ?>">
-            </td>
-          </tr>
-		  <tr>
-            <td> Situation géographique : </td>
-            <td><input name="txtSituationGeo" type="text" size="50" maxlength="50" value="<? echo($_SESSION['situationGeo']); ?>">
-            </td>
-          </tr>
-		  <tr>
-            <td> Année de naissance : </td>
-            <td><input name="txtAnneeNaissance" type="text" size="4" maxlength="4" value="<? echo($_SESSION['anneeNaissance']); ?>">
-            </td>
-          </tr>
-		  <tr>
-            <td> Profil : </td>
-            <td><TEXTAREA NAME="txtProfil" COLS="50" ROWS="5"><? echo($_SESSION['profil']); ?></TEXTAREA>
-            </td>
-          </tr>
-          <tr>
-            <td> Photo : </td>
+            <td width="180"><?php echo _("I am");?> :</td>
             <td>
-            	<img src="<?echo(getPicturePath($_SESSION['socialNetwork'], $_SESSION['socialID']));?>" width="50" height="50" style="float: left;margin-right: 30px;"/>
-            	Afficher la photo de votre profil :<br/>
-            	<input name="rdoSocialNetwork" type="radio" value="" <? if ($_SESSION['socialNetwork']=="") echo("checked");?>> Aucun
-            	<input name="rdoSocialNetwork" type="radio" value="FB" <? if ($_SESSION['socialNetwork']=="FB") echo("checked");?>> Facebook
-            	<input name="rdoSocialNetwork" type="radio" value="GP" <? if ($_SESSION['socialNetwork']=="GP") echo("checked");?>> Google+
-            	<input name="rdoSocialNetwork" type="radio" value="TW" <? if ($_SESSION['socialNetwork']=="TW") echo("checked");?>> Twitter
+            	<select name="txtSex" id="txtSex">
+            		<option value="M" <?if ($_SESSION['playerSex'] == "M") echo("selected");?>><?echo _("Male");?></option>
+            		<option value="F" <?if ($_SESSION['playerSex'] == "F") echo("selected");?>><?echo _("Female");?></option>
+            	</select>
             </td>
+            <td colspan="2">&nbsp;</td>
           </tr>
-          
           <tr>
-            <td>&nbsp;</td>
-            <td>ID réseau : <input name="txtSocialID" type="text" size="50" maxlength="100" value="<? echo($_SESSION['socialID']); ?>"> <a href="manuel-utilisateur-jouer-echecs-capakaspa.pdf#page=14" target="_blank"><img src="images/point-interrogation.gif" border="0"/></a>
-            </td>
+            <td><?php echo _("User name");?> : </td>
+            <td><? echo($_SESSION['nick']); ?></td>
+            <td colspan="2"><?echo _("Enter data here to change password");?></td>
           </tr>
 		  <tr>
-            <td colspan="2">&nbsp</td>
+            <td><?php echo _("First name");?> : </td>
+            <td><input name="txtFirstName" type="text" size="20" maxlength="20" value="<? echo($_SESSION['firstName']); ?>"></td>
+            <td><?php echo _("Actual password");?> : </td>
+            <td><input name="pwdOldPassword" size="30" type="password" value=""></td>
           </tr>
           <tr>
-            <td> Mot de passe : </td>
-            <td><input name="pwdOldPassword" size="30" type="password" value="">
-            </td>
+            <td><?php echo _("Last name");?> : </td>
+            <td><input name="txtLastName" type="text" size="20" maxlength="20" value="<? echo($_SESSION['lastName']); ?>"></td>
+            <td><?php echo _("New password");?> : </td>
+            <td><input name="pwdPassword" size="30" type="password" value=""></td>
           </tr>
           <tr>
-            <td> Nouveau : </td>
-            <td><input name="pwdPassword" size="30" type="password" value="">
-            </td>
-          </tr>
-          <tr>
-            <td> Confirmation: </td>
-            <td><input name="pwdPassword2" size="30" type="password" value="">
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2" align="center">&nbsp            </td>
-          </tr>
+            <td><?php echo _("Birth date (year)");?> :</td>
+            <td><select name="txtAnneeNaissance" id="txtAnneeNaissance">
+            	<?php
+            	echo "\t",'<option value="">', _("Select a year") ,'</option>',"\n";
+            	// Parcours du tableau
+				$annee = $_SESSION['anneeNaissance'];
+				for($i=1900; $i<=date('Y'); $i++)
+				{
+					$selected = "";
+					// L'année est-elle celle postée ?
+					if($i == $annee)
+					{
+						$selected = " selected";
+					}
+					// Affichage de la ligne
+					echo "\t",'<option value="', $i ,'"', $selected ,'>', $i ,'</option>',"\n";
+				}
+				?>
+            </select></td>
+            <td><?php echo _("Confirm password");?>: </td>
+            <td><input name="pwdPassword2" size="30" type="password" value=""></td>
+        </tr>
         </table>
         
-      
-      <h3>Mes préférences</h3>
-      
+        <h3><?php echo _("Contact info");?></h3>
         <table border="0" width="650">
+		  <tr>
+            <td width="180"><?php echo _("Email");?> : </td>
+            <td><? echo($_SESSION['email']); ?><input type="hidden" name="txtEmail" value="<? echo($_SESSION['email']); ?>"></td>
+          </tr>
           <tr>
-            <td width="180">Notification par email :</td>
+            <td><?echo _("Country");?> :</td>
+            <td><select name="txtCountryCode" id="txtCountryCode">
+	            <?
+	            echo "\t",'<option value="">', _("Select your country") ,'</option>',"\n";
+	            $tmpCountries = listCountriesByLang(getLang());
+	            while($tmpCountry = mysql_fetch_array($tmpCountries, MYSQL_ASSOC))
+	            {
+	            	$selected = "";
+	            	$countryCode = $_SESSION['countryCode'];
+	            	if($tmpCountry['countryCode'] == $countryCode)
+	            	{
+	            		$selected = " selected";
+	            	}
+	            	echo "\t",'<option value="', $tmpCountry['countryCode'] ,'"', $selected ,'>', $tmpCountry['countryName'] ,'</option>',"\n";
+	            }	
+	            ?>
+            </select></td>
+        </tr>
+		  <tr>
+            <td><?php echo _("Localization");?> : </td>
+            <td><input name="txtSituationGeo" type="text" size="50" maxlength="50" value="<? echo($_SESSION['situationGeo']); ?>"></td>
+          </tr>
+          </table>
+          
+		  <h3><?php echo _("More about you");?></h3>
+		  <table border="0" width="100%">
+		   <tr>
+            <td width="180"><?php echo _("Elo CapaKaspa");?> : </td>
+            <td><? echo($_SESSION['elo']); ?></td>
+          </tr>
+		  <tr>
+            <td><?php echo _("About you");?> : </td>
+            <td><TEXTAREA NAME="txtProfil" COLS="50" ROWS="5"><? echo($_SESSION['profil']); ?></TEXTAREA></td>
+          </tr>
+          <tr>
+            <td><?php echo _("Picture");?> : </td>
+            <td>
+            	<img src="<?echo(getPicturePath($_SESSION['socialNetwork'], $_SESSION['socialID']));?>" width="50" height="50" style="float: left;margin-right: 30px;"/>
+            	<? echo _("Display picture of your profile on")?> :<br/>
+            	<input name="rdoSocialNetwork" type="radio" value="" <? if ($_SESSION['socialNetwork']=="") echo("checked");?>> <? echo _("No profile")?>
+            	<input name="rdoSocialNetwork" type="radio" value="FB" <? if ($_SESSION['socialNetwork']=="FB") echo("checked");?>> <? echo _("Facebook")?>
+            	<input name="rdoSocialNetwork" type="radio" value="GP" <? if ($_SESSION['socialNetwork']=="GP") echo("checked");?>> <? echo _("Google+")?>
+            	<input name="rdoSocialNetwork" type="radio" value="TW" <? if ($_SESSION['socialNetwork']=="TW") echo("checked");?>> <? echo _("Twitter")?>
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td><?php echo _("Social network ID");?> : <input name="txtSocialID" type="text" size="50" maxlength="100" value="<? echo($_SESSION['socialID']); ?>"> <a href="manuel-utilisateur-jouer-echecs-capakaspa.pdf#page=14" target="_blank"><img src="images/point-interrogation.gif" border="0"/></a></td>
+          </tr>
+        </table>
+      
+      <h3><?echo _("Preferences");?></h3>
+      
+        <table border="0" width="100%">
+          <tr>
+            <td width="180"><?echo _("Email notification");?> :</td>
             <td><?
 					if ($_SESSION['pref_emailnotification'] == 'oui')
 					{
 				?>
               <input name="txtEmailNotification" type="radio" value="oui" checked>
-              Oui 
+              <?echo _("Yes");?> 
               <input name="txtEmailNotification" type="radio" value="non">
-              Non (Evènements partie, commentaires et messages)
+              <?echo _("No");?> <?echo _("(Game events, private messages)");?>
               <?
 					}
 					else
 					{
 				?>
               <input name="txtEmailNotification" type="radio" value="oui">
-              Oui 
+              <?echo _("Yes");?> 
               <input name="txtEmailNotification" type="radio" value="non" checked>
-              Non (Evènements partie, commentaires et messages)
+              <?echo _("No");?> <?echo _("(Game events, private messages)");?>
               <?	}
 				?>
             </td>
           </tr>
           <tr>
-            <td>Thème :</td>
+            <td><?echo _("Chess set");?> :</td>
             <td><?
-					if ($_SESSION['pref_theme'] == 'beholder')
+					if ($_SESSION['pref_theme'] == 'merida')
 					{
 				?>
-              <input name="rdoTheme" type="radio" value="beholder" checked>
-              	<img src="images/beholder/white_king.gif" height="30" width="30"/>
-				<img src="images/beholder/white_queen.gif" height="30" width="30"/>
-				<img src="images/beholder/white_rook.gif" height="30" width="30"/>
-				<img src="images/beholder/white_bishop.gif" height="30" width="30"/>
-				<img src="images/beholder/white_knight.gif" height="30" width="30"/>
-				<img src="images/beholder/white_pawn.gif" height="30" width="30"/> <br>
-              <input name="rdoTheme" type="radio" value="plain">
-             	<img src="images/plain30x30/white_king.gif" />
-				<img src="images/plain30x30/white_queen.gif" />
-				<img src="images/plain30x30/white_rook.gif" />
-				<img src="images/plain30x30/white_bishop.gif" />
-				<img src="images/plain30x30/white_knight.gif" />
-				<img src="images/plain30x30/white_pawn.gif" />
+              <input name="rdoTheme" type="radio" value="merida" checked>
+              	<img src="pgn4web/merida/28/wk.png"/>
+				<img src="pgn4web/merida/28/wq.png"/>
+				<img src="pgn4web/merida/28/wr.png"/>
+				<img src="pgn4web/merida/28/wb.png"/>
+				<img src="pgn4web/merida/28/wk.png"/>
+				<img src="pgn4web/merida/28/wp.png"/>
+              <input name="rdoTheme" type="radio" value="alpha">
+             	<img src="pgn4web/alpha/28/wk.png"/>
+				<img src="pgn4web/alpha/28/wq.png"/>
+				<img src="pgn4web/alpha/28/wr.png"/>
+				<img src="pgn4web/alpha/28/wb.png"/>
+				<img src="pgn4web/alpha/28/wk.png"/>
+				<img src="pgn4web/alpha/28/wp.png"/>
               <?
 					}
 					else
 					{
 				?>
-              <input name="rdoTheme" type="radio" value="beholder">
-              	<img src="images/beholder/white_king.gif" height="30" width="30"/>
-				<img src="images/beholder/white_queen.gif" height="30" width="30"/>
-				<img src="images/beholder/white_rook.gif" height="30" width="30"/>
-				<img src="images/beholder/white_bishop.gif" height="30" width="30"/>
-				<img src="images/beholder/white_knight.gif" height="30" width="30"/>
-				<img src="images/beholder/white_pawn.gif" height="30" width="30"/> <br>
-              <input name="rdoTheme" type="radio" value="plain" checked>
-				<img src="images/plain30x30/white_king.gif" />
-				<img src="images/plain30x30/white_queen.gif" />
-				<img src="images/plain30x30/white_rook.gif" />
-				<img src="images/plain30x30/white_bishop.gif" />
-				<img src="images/plain30x30/white_knight.gif" />
-				<img src="images/plain30x30/white_pawn.gif" />
+              <input name="rdoTheme" type="radio" value="merida">
+              	<img src="pgn4web/merida/28/wk.png"/>
+				<img src="pgn4web/merida/28/wq.png"/>
+				<img src="pgn4web/merida/28/wr.png"/>
+				<img src="pgn4web/merida/28/wb.png"/>
+				<img src="pgn4web/merida/28/wk.png"/>
+				<img src="pgn4web/merida/28/wp.png"/> 
+              <input name="rdoTheme" type="radio" value="alpha" checked>
+				<img src="pgn4web/alpha/28/wk.png"/>
+				<img src="pgn4web/alpha/28/wq.png"/>
+				<img src="pgn4web/alpha/28/wr.png"/>
+				<img src="pgn4web/alpha/28/wb.png"/>
+				<img src="pgn4web/alpha/28/wk.png"/>
+				<img src="pgn4web/alpha/28/wp.png"/>
               <?	}
 				?>
             </td>
           </tr>
-          
           <tr>
-            <td colspan="2" align="center"><input name="Update" type="button" value="Valider" onClick="validatePersonalInfo()">
+            <td><?echo _("Displaying language")?> :</td>
+            <td>
+            	<select name="txtLanguage" id="txtLanguage">
+            		<option value="en_US" <?if ($_SESSION['pref_language'] == "en_US") echo("selected");?>><?echo _("English");?></option>
+            		<option value="fr_FR" <?if ($_SESSION['pref_language'] == "fr_FR") echo("selected");?>><?echo _("French");?></option>
+            	</select> 
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center"><input class="button" name="Update" type="button" value="<?echo _("Save");?>" onClick="validatePersonalInfo()">
             </td>
           </tr>
         </table>
@@ -297,22 +352,37 @@
       
       Tant qu'un des joueurs d'une partie est en congé la partie est gelée (il est impossible de jouer un coup)
        -->
+	<? 
+	if ($ToDo == 'CreateVacation')
+	{
+		if ($err == -100)
+			echo("<div class='error'>"._("The number of days of vacation that you requested is not valid")."</div>");
+		if ($err == 1)
+			echo("<div class='success'>"._("Your request of vacation has been saved successfully")."</div>");
+	}
+	?>
+      <div class="error" id="number_days_error" style="display: none"><?echo _("Number of days must be between 0 and 30")?></div>
       
-      <h3>Gestion des absences <a href="manuel-utilisateur-jouer-echecs-capakaspa.pdf#page=15" target="_blank"><img src="images/point-interrogation.gif" border="0"/></a></h3>
-      Vous disposez encore de <b><?echo(countAvailableVacation($_SESSION['playerID']));?> jours</b> d'absence pour l'année <?echo(date('Y'))?> (tous les jours d'une éventuelle absence à cheval sur l'année précédente sont décomptés en <?echo(date('Y'))?>).<br/>
+      <h3><? echo _("Game postponement");?> <a href="manuel-utilisateur-jouer-echecs-capakaspa.pdf#page=15" target="_blank"><img src="images/point-interrogation.gif" border="0"/></a></h3>
+      <? echo _("You have");?> <b><?echo(countAvailableVacation($_SESSION['playerID']));?></b> <? echo _("available days of vacation for year");?> <?echo(date('Y'))?> (<? echo _("days of vacation on 2 years are counted in the last year");?>).<br/>
       <br/>
       <?	
+      		$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE);
       		$tmpVacations = getCurrentVacation($_SESSION['playerID']);
 			$nbCurrentVacation = mysql_num_rows($tmpVacations);
 			if ($nbCurrentVacation == 0)
-				echo("Vous n'avez pas d'absences en cours.");
+				echo _("You don't have vacation in progress.");
 			else
 			{
 				$tmpVacation = mysql_fetch_array($tmpVacations, MYSQL_ASSOC);
-				echo("Votre avez un absence à prendre en compte du ");
-				echo("<b>".$tmpVacation['beginDateF']."</b> ");
-    			echo(" au " );
-				echo("<b>".$tmpVacation['endDateF']."</b>.");
+				$beginDate = new DateTime($tmpVacation['beginDate']);
+				$strBeginDate = $fmt->format($beginDate);
+				$endDate = new DateTime($tmpVacation['endDate']);
+				$strEndDate = $fmt->format($endDate);
+				echo _("You have vacation from");
+				echo(" <b>".$strBeginDate."</b> ");
+    			echo("to" );
+				echo(" <b>".$strEndDate."</b>.");
 			}
     	
       		if ($nbCurrentVacation == 0)
@@ -321,44 +391,12 @@
       	?>
       	<br/><br/>
 		<form name="Vacation" action="player_update.php" method="post">
-	  	<?	$tomorrow  = mktime(0, 0, 0, date("m")  , date("d")+1, date("Y")); 
-	  		$today = date("d/m/Y", $tomorrow);
+	  	<?	$tomorrow  = mktime(0, 0, 0, date("m")  , date("d")+1, date("Y"));
 	  	?> 
-	        Vous souhaitez vous absenter pour <input name="nbDays" size="2" maxlength="2" type="text" value=""> jour(s) <input name="Validate" type="button" value="Valider" onClick="validateVacation()"> à compter du <? echo($today)?> (vos parties seront ajournées immédiatement).
+	        <?echo _("You want to postpone your games for")?> <input name="nbDays" size="2" maxlength="2" type="text" value=""> <?echo _("day(s) from");?> <? echo($fmt->format($tomorrow));?> <input name="Validate" class="button" type="button" value="<?echo _("Postpone my games...");?>" onClick="validateVacation()"> <?echo _("(All your games will be postponed immediatly)");?>
 	      	<input type="hidden" name="ToDo" value="CreateVacation">
     	</form>
     	<? }?>
-    	<br/>
-    	
-    	<h3>Statistiques</h3>
-		<?
-		$dateDeb = date("Y-m-d", mktime(0,0,0, 1, 1, 1990));
-		$dateFin = date("Y-m-d", mktime(0,0,0, 12, 31, 2020));
-		$countLost = countLost($_SESSION['playerID'], $dateDeb, $dateFin);
-		$nbDefaites = $countLost['nbGames'];
-		$countDraw = countDraw($_SESSION['playerID'], $dateDeb, $dateFin);
-		$nbNulles = $countDraw['nbGames'];
-		$countWin = countWin($_SESSION['playerID'], $dateDeb, $dateFin);
-		$nbVictoires = $countWin['nbGames'];
-		$nbParties = $nbDefaites + $nbNulles + $nbVictoires;
-		?>
-		<table border="0" width="650">
-          <tr>
-            <td width="180"> Victoires : </td>
-            <td><a href="game_list_ended.php#victoires"><? echo($nbVictoires); ?></a></td>
-          </tr>
-		  <tr>
-            <td> Nulles : </td>
-            <td><a href="game_list_ended.php#nulles"><? echo($nbNulles); ?></a></td>
-          </tr>
-		  <tr>
-            <td> Défaites : </td>
-            <td><a href="game_list_ended.php#defaites"><? echo($nbDefaites); ?></a></td>
-          </tr>
-		 </table>	
-		 <br/>
-		 <img src="graph_elo_progress.php?playerID=<?php echo($_SESSION['playerID']);?>&elo=<?php echo($_SESSION['elo']);?>" width="650" height="250" />
-    	
     	
     </div>
   </div>
