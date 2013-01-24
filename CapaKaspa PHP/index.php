@@ -269,132 +269,115 @@
 ?>
 <script type="text/javascript">
 
-		function sendResponse(responseType, messageFrom, gameID)
-		{
-			document.responseToInvite.response.value = responseType;
-			document.responseToInvite.messageFrom.value = messageFrom;
-			document.responseToInvite.gameID.value = gameID;
-			document.responseToInvite.submit();
-		}
+	function sendResponse(responseType, messageFrom, gameID)
+	{
+		document.responseToInvite.response.value = responseType;
+		document.responseToInvite.messageFrom.value = messageFrom;
+		document.responseToInvite.gameID.value = gameID;
+		document.responseToInvite.submit();
+	}
 
-		function loadGame(gameID)
-		{
+	function loadGame(gameID)
+	{
 
-			document.existingGames.gameID.value = gameID;
-			document.existingGames.submit();
-		}
+		document.existingGames.gameID.value = gameID;
+		document.existingGames.submit();
+	}
 
-		function withdrawRequest(gameID)
+	function withdrawRequest(gameID)
 
-		{
-			document.withdrawRequestForm.gameID.value = gameID;
-			document.withdrawRequestForm.submit();
-		}
+	{
+		document.withdrawRequestForm.gameID.value = gameID;
+		document.withdrawRequestForm.submit();
+	}
 
 </script>
 <?
 require 'include/page_body.php';
 ?>
-  <div id="contentlarge">
+<div id="contentlarge">
     <div class="contentbody">
-    
-	  <?
-		if ($errMsg != "")
+	    <?
+	    if ($errMsg != "")
 			echo("<div class='error'>".$errMsg."</div>");
-		
+			
 		$res_current_vacation = getCurrentVacation($_SESSION['playerID']);
 		if (mysql_num_rows($res_current_vacation) > 0)
-				echo("<div class='success'>"._("You have a current absence! Your games are postponed").".</div>");
+			echo("<div class='success'>"._("You have a current vacation ! Your games are postponed").".</div>");
 		?>
+		
+		<h3><?php echo _("My pending requests");?></h3>
 		<form name="withdrawRequestForm" action="index.php" method="post">
-        <h3><?php echo _("My pending requests");?></h3>
-        <div class="tabliste">
-          <table border="0" width="650">
-            <tr>
-              <th width="150"><?php echo _("To");?></th>
-              <th width="50"><?php echo _("My color");?></th>
-              <th width="120"><?php echo _("Type");?></th>
-			  <th width="230"><?php echo _("Status");?></th>
-              <th width="100"><?php echo _("Action");?></th>
-            </tr>
-            <?
-	/* if game is marked playerInvited and the invite is from the current player */
-	$tmpQuery = "SELECT * FROM games WHERE (gameMessage = 'playerInvited' AND ((whitePlayer = ".$_SESSION['playerID']." AND messageFrom = 'white') OR (blackPlayer = ".$_SESSION['playerID']." AND messageFrom = 'black'))";
+		<?
+		$tmpGames = listInvitationFrom($_SESSION['playerID']);
 
-	/* OR game is marked inviteDeclined and the response is from the opponent */
-	$tmpQuery .= ") OR (gameMessage = 'inviteDeclined' AND ((whitePlayer = ".$_SESSION['playerID']." AND messageFrom = 'black') OR (blackPlayer = ".$_SESSION['playerID']." AND messageFrom = 'white')))  ORDER BY dateCreated";
-
-	$tmpGames = mysql_query($tmpQuery);
-
-	if (mysql_num_rows($tmpGames) == 0)
-		echo("<tr><td colspan='5'>"._("No pending requets to a player")."</td></tr>\n");
-	else
-		while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
-		{
-			/* Opponent */
-			echo("<tr><td>");
-			
-			/* Get opponent's nick */
-			if ($tmpGame['whitePlayer'] == $_SESSION['playerID'])
-				$tmpOpponent = mysql_query("SELECT nick FROM players WHERE playerID = ".$tmpGame['blackPlayer']);
-			else
-				$tmpOpponent = mysql_query("SELECT nick FROM players WHERE playerID = ".$tmpGame['whitePlayer']);
-			$opponent = mysql_result($tmpOpponent,0);
-			//echo($opponent);
-			if ($tmpGame['whitePlayer'] == $_SESSION['playerID'])
-				echo("<a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$opponent."</a>");
-			else
-				echo("<a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$opponent."</a>");
-				
-			/* Your Color */
-			echo ("</td><td align='center'>");
-			if ($tmpGame['whitePlayer'] == $_SESSION['playerID'])
-				echo ("<img src='images/white_pawn.gif'/>");
-			else
-				echo ("<img src='images/black_pawn.gif'/>");
-			
-			/* Type de partie */
-			echo ("</td><td>");
-			if ($tmpGame['type'] == 0)
-				echo _("Normal");
-			else
+		if (mysql_num_rows($tmpGames) == 0)
+			echo _("No pending requets to a player");
+		else
+			while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
 			{
-				$pieces="";
-				if ($tmpGame['flagBishop'] == 1)
-					$pieces .= _(", Bishops");
-				if ($tmpGame['flagKnight'] == 1)
-					$pieces .= _(", Knights"); 
-				if ($tmpGame['flagRook'] == 1)
-					$pieces .= _(", Rooks");
-				if ($tmpGame['flagQueen'] == 1)
-					$pieces .= _(", Queens");
-					
-				echo _("King and Pawns").$pieces;	 
+				/* Get opponent's nick and ID*/
+				if ($tmpGame['whitePlayer'] == $_SESSION['playerID']) {
+					$opponent = $tmpGame['blackNick'];
+					$opponentID = $tmpGame['blackPlayerID'];
+				}
+				else {
+					$opponent = $tmpGame['whiteNick'];
+					$opponentID = $tmpGame['whitePlayerID'];
+				}
+				
+				echo("
+				<div class='activity'>
+					<div class='leftbar'>
+						<img src='".getPicturePath("", "")."' width='40' height='40' border='0'/>
+					</div>
+					<div class='details'>
+						<div class='title'>
+							<span class='name'>"._("You")."</span> "._("invite a player to play a new game")." <a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponent."</span></a>
+						</div>
+						<div class='content'>
+							<div class='gameboard'>");
+								drawboardGame($tmpGame['gameID'], $tmpGame['whitePlayerID'], $tmpGame['blackPlayerID'], $tmpGame['position']);
+							echo("</div>
+							<div class='gamedetails'>");
+							if ($tmpGame['whitePlayer'] == $_SESSION['playerID'])
+								echo ("<img src='images/white_pawn.gif'/>");
+							else
+								echo ("<img src='images/black_pawn.gif'/>");
+							if ($tmpGame['type'] == 0)
+								echo _("Normal");
+							else
+							{
+								$pieces="";
+								if ($tmpGame['flagBishop'] == 1)
+									$pieces .= _(", Bishops");
+								if ($tmpGame['flagKnight'] == 1)
+									$pieces .= _(", Knights"); 
+								if ($tmpGame['flagRook'] == 1)
+									$pieces .= _(", Rooks");
+								if ($tmpGame['flagQueen'] == 1)
+									$pieces .= _(", Queens");
+									
+								echo _("King and Pawns").$pieces;	 
+							}
+							if ($tmpGame['gameMessage'] == 'playerInvited')
+								echo _("Response waiting");
+							else if ($tmpGame['gameMessage'] == 'inviteDeclined')
+								echo _("Request declined");
+							echo ("<input type='button' value='"._("Cancel")."' class='button' onclick=\"withdrawRequest(".$tmpGame['gameID'].")\">");
+							echo("</div>
+						</div>
+					</div>
+				</div>");
 			}
-				
-				
-			/* Status */
-			echo ("</td><td>");
-			if ($tmpGame['gameMessage'] == 'playerInvited')
-				echo _("Response waiting");
-			else if ($tmpGame['gameMessage'] == 'inviteDeclined')
-				echo _("Request declined");
-
-			/* Withdraw Request */
-			echo ("</td><td align='center'>");
-			echo ("<input type='button' value='"._("Cancel")."' class='button' onclick=\"withdrawRequest(".$tmpGame['gameID'].")\">");
-
-			echo("</td></tr>\n");
-		}
-?>
-          </table>
-        </div>
+		?>
+			
         <input type="hidden" name="gameID" value="">
         <input type="hidden" name="ToDo" value="WithdrawRequest">
       </form>
       </br>
+      
       <form name="responseToInvite" action="index.php" method="post">
-        
         <div class="tabliste">
           <table border="0" width="650">
             <tr>
@@ -405,8 +388,7 @@ require 'include/page_body.php';
               <th width="100"><?php echo _("Action");?></th>
             </tr>
             <?
-	$tmpQuery = "SELECT * FROM games WHERE gameMessage = 'playerInvited' AND ((whitePlayer = ".$_SESSION['playerID']." AND messageFrom = 'black') OR (blackPlayer = ".$_SESSION['playerID']." AND messageFrom = 'white')) ORDER BY dateCreated";
-	$tmpGames = mysql_query($tmpQuery);
+	$tmpGames = listInvitationFor($_SESSION['playerID']);
 
 	if (mysql_num_rows($tmpGames) == 0)
 		echo("<tr><td colspan='5'>"._("No pending requets from a player")."</td></tr>\n");
@@ -417,11 +399,10 @@ require 'include/page_body.php';
 			echo("<tr><td>");
 			/* get opponent's nick */
 			if ($tmpGame['whitePlayer'] == $_SESSION['playerID'])
-				$tmpOpponent = mysql_query("SELECT nick FROM players WHERE playerID = ".$tmpGame['blackPlayer']);
+				$opponent = $tmpGame['blackNick'];
 			else
-				$tmpOpponent = mysql_query("SELECT nick FROM players WHERE playerID = ".$tmpGame['whitePlayer']);
-			$opponent = mysql_result($tmpOpponent,0);
-			//echo($opponent);
+				$opponent = $tmpGame['whiteNick'];
+			
 			if ($tmpGame['whitePlayer'] == $_SESSION['playerID'])
 				echo("<a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$opponent."</a>");
 			else
@@ -483,20 +464,12 @@ require 'include/page_body.php';
         <h3><?php echo _("My games in progress")?> <a href="index.php"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a></h3>
         
 		<div id="mosaique">
-        <?
-        	
-			$tmpGames = mysql_query("SELECT G.gameID gameID, G.eco eco, DATE_FORMAT(G.lastMove, '%d/%m/%Y %T') dateCreatedF, DATE_FORMAT(lastMove, '%Y-%m-%d') lastMove, G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, G.position position, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick
-                                        FROM games G, players W, players B
-                                        WHERE gameMessage is NULL
-                                        AND (whitePlayer = ".$_SESSION['playerID']." OR blackPlayer = ".$_SESSION['playerID'].")
-                                        AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
-                                        ORDER BY dateCreated");
-
+        <?       	
+			$tmpGames = listInProgressGames($_SESSION['playerID']);
             $nbGame = mysql_num_rows($tmpGames);
 
             if ($nbGame > 0)
-        	{
-                
+        	{               
                 $numGame = 1;
                 $nbGameLigne = 1;
                 echo("<table width='100%' border='0'>");

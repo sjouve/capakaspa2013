@@ -139,4 +139,56 @@ function searchGames($debut, $limit)
                 
                 ORDER BY G.dateCreated DESC";
 }
+
+function listInProgressGames($playerID)
+{
+	$tmpGames = mysql_query("SELECT G.gameID gameID, G.eco eco, DATE_FORMAT(G.lastMove, '%d/%m/%Y %T') dateCreatedF, DATE_FORMAT(lastMove, '%Y-%m-%d') lastMove, G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, G.position position, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick
+			FROM games G, players W, players B
+			WHERE gameMessage is NULL
+			AND (whitePlayer = ".$playerID." OR blackPlayer = ".$playerID.")
+			AND W.playerID = G.whitePlayer 
+			AND B.playerID = G.blackPlayer
+			ORDER BY dateCreated");
+	
+	return $tmpGames;
+}
+
+function listInvitationFor($playerID)
+{
+	$tmpQuery = "SELECT G.gameID, G.whitePlayer, G.blackPlayer, G.type, G.gameMessage, G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.position,
+					W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick
+				FROM games G, players W, players B 
+				WHERE (gameMessage = 'playerInvited' 
+				AND ((whitePlayer = ".$_SESSION['playerID']." AND messageFrom = 'black') 
+					OR (blackPlayer = ".$_SESSION['playerID']." AND messageFrom = 'white')))
+				AND W.playerID = G.whitePlayer 
+				AND B.playerID = G.blackPlayer 
+				ORDER BY dateCreated";
+	$tmpGames = mysql_query($tmpQuery);
+	
+	return $tmpGames;
+}
+
+function listInvitationFrom($playerID)
+{
+	/* if game is marked playerInvited and the invite is from the current player */
+	$tmpQuery = "SELECT G.gameID, G.whitePlayer, G.blackPlayer, G.type, G.gameMessage, G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.position,
+					W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick
+					FROM games G, players W, players B 
+					WHERE ((gameMessage = 'playerInvited' 
+						AND ((whitePlayer = ".$_SESSION['playerID']." AND messageFrom = 'white') 
+							OR (blackPlayer = ".$_SESSION['playerID']." AND messageFrom = 'black'))";
+	
+	/* OR game is marked inviteDeclined and the response is from the opponent */
+	$tmpQuery .= ") OR (gameMessage = 'inviteDeclined' 
+						AND ((whitePlayer = ".$_SESSION['playerID']." AND messageFrom = 'black') 
+							OR (blackPlayer = ".$_SESSION['playerID']." AND messageFrom = 'white'))))
+					AND W.playerID = G.whitePlayer 
+					AND B.playerID = G.blackPlayer  
+					ORDER BY dateCreated";
+	
+	$tmpGames = mysql_query($tmpQuery);
+	
+	return $tmpGames;
+}
 ?>
