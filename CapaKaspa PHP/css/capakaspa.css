@@ -126,7 +126,7 @@
 	#topbar h3 {
 		font-family: Verdana, Arial, Helvetica, sans-serif;
 		color: #FFFFFF;
-		font-size: 10px;/*small;*/
+		font-size: 10px;
 		font-weight: bold;
 		font-style: italic;
 		text-align: center;
@@ -469,7 +469,8 @@
 	}
 	.contentbody h2 {
 		font-family: Verdana, Arial, Helvetica, sans-serif;
-		font-size: 20px;
+		color: #000000;
+		font-size: 16px;
 		font-weight: normal;
 		font-style: normal;
 		text-transform: none;
@@ -478,8 +479,8 @@
 		border-right-style: none;
 		border-bottom-style: none;
 		border-left-style: none;
-		margin-top: 10px;
-		margin-bottom: 1px;
+		margin-top: 5px;
+		margin-bottom: 3px;
 		padding: 0px;
 	}
 	.contentbody h3 {
@@ -779,7 +780,7 @@
 	}
 	.activity .details .content .gameboard{
 		float: left;
-		width: 202px;
+		width: 162px;
 		border-top-style: none;
 		border-right-style: none;
 		border-bottom-style: none;
@@ -788,8 +789,8 @@
 	}
 	.activity .details .content .gamedetails{
 		float: left;
-		width: 295px;
-		height: 182px;
+		width: 335px;
+		height: 142px;
 		padding: 10px;
 		font-size: 10px;
 		text-align: center;

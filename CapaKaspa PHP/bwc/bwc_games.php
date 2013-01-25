@@ -596,6 +596,7 @@ function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
 	$numMoves = $thisMove['nbMove'] - 1;
 
 	// Remplir l'échiquier
+	// TODO Prévoir le cas du type de partie dans la position initiale
 	if (!isset($position)) $position = "tcfdrfctpppppppp00000000000000000000000000000000PPPPPPPPTCFDRFCT";
 	$strPos = 0;
 	for ($i = 0; $i < 8; $i++)
@@ -667,7 +668,7 @@ function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
 			else
 				echo ("#F2A521'>");
 	
-			echo ("<img name='pos$i-$j' src='pgn4web/".$_SESSION['pref_theme']."/25/");
+			echo ("<img name='pos$i-$j' src='pgn4web/".$_SESSION['pref_theme']."/20/");
 	
 			/* if position is empty... */
 			if ($board[$i][$j] == 0)
@@ -1110,5 +1111,69 @@ function writeDrawRequest($isMobile)
 	</table>
 	
 <?
+}
+
+function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $oppColor)
+{
+	/* prevent multiple pending requests between two players with the same originator */
+	$tmpQuery = "SELECT gameID FROM games WHERE gameMessage = 'playerInvited'";
+	$tmpQuery .= " AND ((messageFrom = 'white' AND whitePlayer = ".$playerID." AND blackPlayer = ".$opponentID.")";
+	$tmpQuery .= " OR (messageFrom = 'black' AND whitePlayer = ".$opponentID." AND blackPlayer = ".$playerID."))";
+	
+	$tmpExistingRequests = mysql_query($tmpQuery);
+	
+	if (mysql_num_rows($tmpExistingRequests) == 0)
+	{
+	
+		if ($color == 'random')
+			$tmpColor = (mt_rand(0,1) == 1) ? "white" : "black";
+		else
+			$tmpColor = $color;
+	
+		if ( $flagBishop == "1") {$flagBishop = 1;} else {$flagBishop = 0;};
+		if ( $flagKnight == "1") {$flagKnight = 1;} else {$flagKnight = 0;};
+		if ( $flagRook == "1") {$flagRook = 1;} else {$flagRook = 0;};
+		if ( $flagQueen == "1") {$flagQueen = 1;} else {$flagQueen = 0;};
+	
+		$tmpQuery = "INSERT INTO games (whitePlayer, blackPlayer, gameMessage, messageFrom, dateCreated, lastMove, type, flagBishop, flagKnight, flagRook, flagQueen) VALUES (";
+		if ($tmpColor == 'white')
+		{
+			$tmpQuery .= $playerID.", ".$opponentID;
+			$oppColor = 'black';
+		}
+		else
+		{
+			$tmpQuery .= $opponentID.", ".$playerID;
+			$oppColor = 'white';
+		}
+	
+		$tmpQuery .= ", 'playerInvited', '".$tmpColor."', NOW(), NOW(), ".$type.", ".$flagBishop.", ".$flagKnight.", ".$flagRook.", ".$flagQueen.")";
+	
+		mysql_query($tmpQuery);
+		$newGameID = mysql_insert_id();
+		return $newGameID;
+	}
+	else return false;
+	
+}
+
+function getStrGameType($type, $flagBishop, $flagKnight, $flagRook, $flagQueen)
+{
+	if ($type == 0)
+		return _("Classic");
+	else
+	{
+		$pieces="";
+		if ($flagBishop == 1)
+			$pieces .= _(", Bishops");
+		if ($flagKnight == 1)
+			$pieces .= _(", Knights");
+		if ($flagRook == 1)
+			$pieces .= _(", Rooks");
+		if ($flagQueen == 1)
+			$pieces .= _(", Queens");
+			
+		return _("King and Pawns").$pieces;
+	}
 }
 ?>
