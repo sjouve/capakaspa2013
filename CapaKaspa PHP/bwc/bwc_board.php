@@ -84,7 +84,11 @@ function doMove()
 
 	/* delete piece from old position */
 	$board[$_POST['fromRow']][$_POST['fromCol']] = 0;
-
+	
+	/* promoting */
+	if ($isPromoting)
+		$board[$_POST['toRow']][$_POST['toCol']] = $_POST['promotion'] | ($board[$_POST['toRow']][$_POST['toCol']] & BLACK);
+	
 	/* if not Undoing, but castling */
 	if (($doUndo != "yes") && (($board[$_POST['toRow']][$_POST['toCol']] & COLOR_MASK) == KING) && (($_POST['toCol'] - $_POST['fromCol']) == 2))
 	{

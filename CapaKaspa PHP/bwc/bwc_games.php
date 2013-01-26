@@ -119,8 +119,9 @@ function loadHistory()
 */
 function savePromotion()
 {
+	// TODO Ne plus utiliser
 	global $history, $numMoves, $isInCheck;
-
+	
 	if ($isInCheck)
 	{
 		$tmpIsInCheck = 1;
@@ -193,7 +194,10 @@ function saveHistory()
 	$history[$numMoves]['fromCol'] = $_POST['fromCol'];
 	$history[$numMoves]['toRow'] = $_POST['toRow'];
 	$history[$numMoves]['toCol'] = $_POST['toCol'];
-	$history[$numMoves]['promotedTo'] = null;
+	if ($isPromoting)
+		$history[$numMoves]['promotedTo'] = getPieceName($_POST['promotion']);
+	else 
+		$history[$numMoves]['promotedTo'] = null;
 
 	if ($isInCheck)
 		$history[$numMoves]['isInCheck'] = 1;
@@ -226,8 +230,11 @@ function saveHistory()
 	}
 	else
 	{
-		$tmpQuery = "INSERT INTO history (timeOfMove, gameID, curPiece, curColor, fromRow, fromCol, toRow, toCol, replaced, promotedTo, isInCheck) VALUES (Now(), ".$_POST['gameID'].", '".getPieceName($board[$_POST['fromRow']][$_POST['fromCol']])."', '$curColor', ".$_POST['fromRow'].", ".$_POST['fromCol'].", ".$_POST['toRow'].", ".$_POST['toCol'].", '".getPieceName($board[$_POST['toRow']][$_POST['toCol']])."', null, ".$history[$numMoves]['isInCheck'].")"; 
-
+		if ($isPromoting)
+			$tmpQuery = "INSERT INTO history (timeOfMove, gameID, curPiece, curColor, fromRow, fromCol, toRow, toCol, replaced, promotedTo, isInCheck) VALUES (Now(), ".$_POST['gameID'].", '".getPieceName($board[$_POST['fromRow']][$_POST['fromCol']])."', '$curColor', ".$_POST['fromRow'].", ".$_POST['fromCol'].", ".$_POST['toRow'].", ".$_POST['toCol'].", '".getPieceName($board[$_POST['toRow']][$_POST['toCol']])."', '".getPieceName($_POST['promotion'])."', ".$history[$numMoves]['isInCheck'].")"; 
+		else
+			$tmpQuery = "INSERT INTO history (timeOfMove, gameID, curPiece, curColor, fromRow, fromCol, toRow, toCol, replaced, promotedTo, isInCheck) VALUES (Now(), ".$_POST['gameID'].", '".getPieceName($board[$_POST['fromRow']][$_POST['fromCol']])."', '$curColor', ".$_POST['fromRow'].", ".$_POST['fromCol'].", ".$_POST['toRow'].", ".$_POST['toCol'].", '".getPieceName($board[$_POST['toRow']][$_POST['toCol']])."', null, ".$history[$numMoves]['isInCheck'].")"; 
+		
 		$history[$numMoves]['replaced'] = getPieceName($board[$_POST['toRow']][$_POST['toCol']]);
 		$tmpReplaced = $history[$numMoves]['replaced'];
 	}
@@ -246,7 +253,7 @@ function sendEmailNotification($history, $isPromoting, $numMoves, $isInCheck)
 	/* NOTE: moves resulting in pawn promotion are handled by savePromotion() above */
 	
 	$oppColor = getTurnColor($numMoves);
-	$strMove = moveToPGNString($history[$numMoves]['curColor'], $history[$numMoves]['curPiece'], $history[$numMoves]['fromRow'], $history[$numMoves]['fromCol'], $history[$numMoves]['toRow'], $history[$numMoves]['toCol'], $history[$numMoves]['replaced'], '', $isInCheck);
+	$strMove = moveToPGNString($history[$numMoves]['curColor'], $history[$numMoves]['curPiece'], $history[$numMoves]['fromRow'], $history[$numMoves]['fromCol'], $history[$numMoves]['toRow'], $history[$numMoves]['toCol'], $history[$numMoves]['replaced'], $history[$numMoves]['promotedTo'], $isInCheck);
 	
 	// Notification
 	chessNotification('move', $oppColor, $strMove, $_SESSION['nick'], $_POST['gameID']);
@@ -786,7 +793,7 @@ function drawboard($withCoord)
 		/* NOTE: end condition is ($rightCol + $colStep) since we want to output $rightCol */
 		for ($j = $leftCol; $j != ($rightCol + $colStep); $j += $colStep)
 		{
-			echo ("   <td bgcolor='");
+			echo ("   <td id='".$i.$j."' bgcolor='");
 
 			/* if board is disabled, show board in grayscale */
 			if ($isDisabled)
@@ -1160,7 +1167,7 @@ function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $f
 function getStrGameType($type, $flagBishop, $flagKnight, $flagRook, $flagQueen)
 {
 	if ($type == 0)
-		return _("Classic");
+		return _("Classic chess game");
 	else
 	{
 		$pieces="";
@@ -1173,7 +1180,7 @@ function getStrGameType($type, $flagBishop, $flagKnight, $flagRook, $flagQueen)
 		if ($flagQueen == 1)
 			$pieces .= _(", Queens");
 			
-		return _("King and Pawns").$pieces;
+		return _("Beginner chess game<br>King and Pawns").$pieces;
 	}
 }
 ?>

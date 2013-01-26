@@ -142,8 +142,12 @@ function searchGames($debut, $limit)
 
 function listInProgressGames($playerID)
 {
-	$tmpGames = mysql_query("SELECT G.gameID gameID, G.eco eco, DATE_FORMAT(G.lastMove, '%d/%m/%Y %T') dateCreatedF, DATE_FORMAT(lastMove, '%Y-%m-%d') lastMove, G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, G.position position, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick
-						FROM games G, players W, players B
+	$tmpGames = mysql_query("SELECT G.gameID gameID, G.eco eco, G.dateCreated, G.lastMove, G.whitePlayer whitePlayer, 
+									G.blackPlayer blackPlayer, G.position position, G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.type,
+									E.name ecoName,
+									W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, 
+									B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo
+						FROM games G left join eco E on E.eco = G.eco, players W, players B
 						WHERE gameMessage is NULL
 						AND (whitePlayer = ".$playerID." OR blackPlayer = ".$playerID.")
 						AND W.playerID = G.whitePlayer 

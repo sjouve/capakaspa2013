@@ -360,6 +360,18 @@
     	font-weight: bold;
     	font-size: 12px;
 	}
+	.link {
+    	background: #FFFFFF;
+    	color: #000000;
+    	padding-left: 5px;
+    	padding-right: 5px;
+    	padding-top: 3px;
+    	padding-bottom: 3px;
+    	border-width: 1px;
+    	border-color: #AAAAAA;
+    	font-weight: bold;
+    	font-size: 12px;
+	}
     .form {
 		font-family: Verdana, Arial, Helvetica, sans-serif;
 		color: #404040;

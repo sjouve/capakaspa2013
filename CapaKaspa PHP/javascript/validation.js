@@ -377,7 +377,9 @@ function GamePiece()
 			if (DEBUG)
 				alert("king -> destination not safe!");
 
-			errMsg = "Cannot move into check.";
+			//errMsg = "Cannot move into check.";
+			errMsg = document.getElementById('#alert_err_move_check_id').innerHTML;
+			
 			return false;
 		}
 
@@ -414,13 +416,16 @@ function GamePiece()
 				/* if king has already moved */
 				if ((chessHistory[i][FROMROW] == fromRow) && (chessHistory[i][CURPIECE] == "king"))
 				{
-					errMsg = "Can only castle if king has not moved yet.";
+					//errMsg = "Can only castle if king has not moved yet.";
+					errMsg = document.getElementById('#alert_err_castle_king_id').innerHTML;
+					
 					return false;
 				}
 				/* if rook has already moved */
 				else if ((chessHistory[i][FROMROW] == fromRow) && (chessHistory[i][FROMCOL] == rookCol))
 				{
-					errMsg = "Can only castle if rook has not moved yet.";
+					//errMsg = "Can only castle if rook has not moved yet.";
+					errMsg = document.getElementById('#alert_err_castle_rook_id').innerHTML;
 					return false;
 				}
 			}
@@ -435,7 +440,9 @@ function GamePiece()
 					if (DEBUG)
 						alert("king -> castling -> square not empty");
 
-					errMsg = "Can only castle if there are no pieces between the rook and the king";
+					//errMsg = "Can only castle if there are no pieces between the rook and the king";
+					errMsg = document.getElementById('#alert_err_castle_pieces_id').innerHTML;
+					
 					return false;
 				}
 
@@ -459,7 +466,9 @@ function GamePiece()
 				if (DEBUG)
 					alert("king -> castling -> moving over attacked square");
 
-				errMsg = "When castling, the king cannot move over a square that is attacked by an ennemy piece";
+				//errMsg = "When castling, the king cannot move over a square that is attacked by an ennemy piece";
+				errMsg = document.getElementById('#alert_err_castle_attack_id').innerHTML;
+				
 				return false;
 			}
 		}
@@ -468,7 +477,9 @@ function GamePiece()
 		{
 			if (DEBUG)
 				alert("king -> completely invalid move\nfrom " + fromRow + ", " + fromCol + "\nto " + toRow + ", " + toCol);
-			errMsg = "Kings cannot move like that.";
+			//errMsg = "Kings cannot move like that.";
+			errMsg = document.getElementById('#alert_err_move_king_id').innerHTML;
+			
 			return false;
 		}
 
@@ -481,7 +492,9 @@ function GamePiece()
 	{
 		if (((toRow - fromRow)/Math.abs(toRow - fromRow)) != tmpDir)
 		{
-			errMsg = "Pawns cannot move backwards, only forward.";
+			//errMsg = "Pawns cannot move backwards, only forward.";
+			errMsg = document.getElementById('#alert_err_move_pawn_id').innerHTML;
+			
 			return false;
 		}
 
@@ -505,7 +518,9 @@ function GamePiece()
 				return true;
 			else
 			{
-				errMsg = "Pawns can only move en passant immediately after an opponent played his pawn.";
+				//errMsg = "Pawns can only move en passant immediately after an opponent played his pawn.";
+				errMsg = document.getElementById('#alert_err_move_passant_id').innerHTML;
+				
 				return false;
 			}
 		}
@@ -517,13 +532,17 @@ function GamePiece()
 				return true;
 			else
 			{
-				errMsg = "Pawns can only move en passant immediately after an opponent played his pawn.";
+				//errMsg = "Pawns can only move en passant immediately after an opponent played his pawn.";
+				errMsg = document.getElementById('#alert_err_move_passant_id').innerHTML;
+				
 				return false;
 			}
 		}
 		else
 		{
-			errMsg = "Pawns cannot move like that.";
+			//errMsg = "Pawns cannot move like that.";
+			errMsg = document.getElementById('#alert_err_move_pawn_id').innerHTML;
+			
 			return false;
 		}
 	}
@@ -531,7 +550,9 @@ function GamePiece()
 	/* checks wether a knight is making a valid move */
 	function isValidMoveKnight(fromRow, fromCol, toRow, toCol)
 	{
-		errMsg = "Knights cannot move like that.";
+		//errMsg = "Knights cannot move like that.";
+		errMsg = document.getElementById('#alert_err_move_knight_id').innerHTML;
+		
 		if (Math.abs(toRow - fromRow) == 2)
 		{
 			if (Math.abs(toCol - fromCol) == 1)
@@ -564,7 +585,9 @@ function GamePiece()
 					for (i = 1; i < (toRow - fromRow); i++)
 						if (board[fromRow + i][fromCol + i] != 0)
 						{
-							errMsg = "Bishops cannot jump over other pieces.";
+							//errMsg = "Bishops cannot jump over other pieces.";
+							errMsg = document.getElementById('#alert_err_move_bishop_jump_id').innerHTML;
+							
 							return false;
 						}
 				}
@@ -573,7 +596,8 @@ function GamePiece()
 					for (i = 1; i < (toRow - fromRow); i++)
 						if (board[fromRow + i][fromCol - i] != 0)
 						{
-							errMsg = "Bishops cannot jump over other pieces.";
+							//errMsg = "Bishops cannot jump over other pieces.";
+							errMsg = document.getElementById('#alert_err_move_bishop_jump_id').innerHTML;
 							return false;
 						}
 				}
@@ -587,7 +611,9 @@ function GamePiece()
 					for (i = 1; i < (fromRow - toRow); i++)
 						if (board[fromRow - i][fromCol + i] != 0)
 						{
-							errMsg = "Bishops cannot jump over other pieces.";
+							//errMsg = "Bishops cannot jump over other pieces.";
+							errMsg = document.getElementById('#alert_err_move_bishop_jump_id').innerHTML;
+							
 							return false;
 						}
 				}
@@ -596,7 +622,9 @@ function GamePiece()
 					for (i = 1; i < (fromRow - toRow); i++)
 						if (board[fromRow - i][fromCol - i] != 0)
 						{
-							errMsg = "Bishops cannot jump over other pieces.";
+							//errMsg = "Bishops cannot jump over other pieces.";
+							errMsg = document.getElementById('#alert_err_move_bishop_jump_id').innerHTML;
+							
 							return false;
 						}
 				}
@@ -606,7 +634,9 @@ function GamePiece()
 		}
 		else
 		{
-			errMsg = "Bishops cannot move like that.";
+			//errMsg = "Bishops cannot move like that.";
+			errMsg = document.getElementById('#alert_err_move_bishop_id').innerHTML;
+			
 			return false;
 		}
 	}
@@ -621,7 +651,9 @@ function GamePiece()
 				for (i = (fromCol + 1); i < toCol; i++)
 					if (board[fromRow][i] != 0)
 					{
-						errMsg = "Rooks cannot jump over other pieces.";
+						//errMsg = "Rooks cannot jump over other pieces.";
+						errMsg = document.getElementById('#alert_err_move_rook_jump_id').innerHTML;
+						
 						return false;
 					}
 			}
@@ -630,7 +662,8 @@ function GamePiece()
 				for (i = (toCol + 1); i < fromCol; i++)
 					if (board[fromRow][i] != 0)
 					{
-						errMsg = "Rooks cannot jump over other pieces.";
+						//errMsg = "Rooks cannot jump over other pieces.";
+						errMsg = document.getElementById('#alert_err_move_rook_jump_id').innerHTML;
 						return false;
 					}
 
@@ -645,7 +678,8 @@ function GamePiece()
 				for (i = (fromRow + 1); i < toRow; i++)
 					if (board[i][fromCol] != 0)
 					{
-						errMsg = "Rooks cannot jump over other pieces.";
+						//errMsg = "Rooks cannot jump over other pieces.";
+						errMsg = document.getElementById('#alert_err_move_rook_jump_id').innerHTML;
 						return false;
 					}
 			}
@@ -654,7 +688,8 @@ function GamePiece()
 				for (i = (toRow + 1); i < fromRow; i++)
 					if (board[i][fromCol] != 0)
 					{
-						errMsg = "Rooks cannot jump over other pieces.";
+						//errMsg = "Rooks cannot jump over other pieces.";
+						errMsg = document.getElementById('#alert_err_move_rook_jump_id').innerHTML;
 						return false;
 					}
 
@@ -664,7 +699,8 @@ function GamePiece()
 		}
 		else
 		{
-			errMsg = "Rooks cannot move like that.";
+			//errMsg = "Rooks cannot move like that.";
+			errMsg = document.getElementById('#alert_err_move_rook_id').innerHTML;
 			return false;
 		}
 	}
@@ -676,9 +712,11 @@ function GamePiece()
 			return true;
 
 		if (errMsg.search("jump") == -1)
-			errMsg = "Queens cannot move like that.";
+			//errMsg = "Queens cannot move like that.";
+			errMsg = document.getElementById('#alert_err_move_queen_id').innerHTML;
 		else
-			errMsg = "Queens cannot jump over other pieces.";
+			//errMsg = "Queens cannot jump over other pieces.";
+			errMsg = document.getElementById('#alert_err_move_queen_jump_id').innerHTML;
 
 		return false;
 	}
@@ -779,7 +817,8 @@ function GamePiece()
 					alert("isValidMove -> moving into check -> CHECK!");
 
 				/* if so, invalid move */
-				errMsg = "Cannot move into check.";
+				errMsg = document.getElementById('#alert_err_check_id').innerHTML;
+				//errMsg = "Cannot move into check.";
 				isValid = false;
 			}
 

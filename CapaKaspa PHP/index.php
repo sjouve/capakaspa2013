@@ -1,172 +1,173 @@
-<?	require 'include/mobilecheck.php';
+<?	
+require 'include/mobilecheck.php';
 	
-	session_start();
-			
-	/* load settings */
-	if (!isset($_CONFIG))
-		require 'include/config.php';
-	
-	/* load external functions for setting up new game */
-	require 'include/constants.php';
-	require 'dac/dac_players.php';
-	require 'dac/dac_games.php';
-	require 'dac/dac_activity.php';
-	require 'bwc/bwc_common.php';
-	require 'bwc/bwc_chessutils.php';
-	require 'bwc/bwc_board.php';
-	require 'bwc/bwc_players.php';
-	require 'bwc/bwc_games.php';
-	
-	/* connect to database */
-	require 'include/connectdb.php';
-	
-	$tmpNewUser = false;
-	$errMsg = "";
-	$Test = isset($_POST['ToDo']) ? $_POST['ToDo']:Null;
-	$flagBishop = isset($_POST['flagBishop'])?$_POST['flagBishop']:"";
-	$flagKnight = isset($_POST['flagKnight'])?$_POST['flagKnight']:"";
-	$flagRook = isset($_POST['flagRook'])?$_POST['flagRook']:"";
-	$flagQueen = isset($_POST['flagQueen'])?$_POST['flagQueen']:"";
-	$type = isset($_POST['type']) ? $_POST['type']:0;
-	
-	switch($Test)
-	{
-		case 'Login':
-			
-			$res = loginPlayer($_POST['txtNick'], $_POST['pwdPassword'], isset($_POST['chkAutoConn']) ? $_POST['chkAutoConn']:"");
-			if ($res == -1)
-			{
-				// TODO Passer le nick et password
-				header("Location: activation.php");
-				exit;
-			}
-			if ($res == 0)
-			{
-				header("Location: sign-up.php?err=login");
-				exit;
-			}
-			break;
-
-		case 'Logout':
+session_start();
 		
-			if (isset($_COOKIE["capakaspacn"])) {
-			   foreach ($_COOKIE["capakaspacn"] as $nom => $valeur) {
-			     setcookie("capakaspacn[$nom]", 0, time()-3600*24);    
-			  }
-			}
-			$_SESSION['playerID'] = -1;
-			header("Location: sign-up.php");
-			exit;
-			break;
+/* load settings */
+if (!isset($_CONFIG))
+	require 'include/config.php';
+
+/* load external functions for setting up new game */
+require 'include/constants.php';
+require 'dac/dac_players.php';
+require 'dac/dac_games.php';
+require 'dac/dac_activity.php';
+require 'bwc/bwc_common.php';
+require 'bwc/bwc_chessutils.php';
+require 'bwc/bwc_board.php';
+require 'bwc/bwc_players.php';
+require 'bwc/bwc_games.php';
 	
+/* connect to database */
+require 'include/connectdb.php';
+	
+$tmpNewUser = false;
+$errMsg = "";
 
-		case 'InvitePlayer':
-			
-			$oppColor="";
-			$newGameID = createInvitation($_SESSION['playerID'], $_POST['opponent'], $_POST['color'], $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $oppColor);
-			
-			if ($newGameID) {
-				/* Notification */
-				chessNotification('invitation', $oppColor, '', $_SESSION['nick'], $newGameID);
-				insertActivity($_SESSION['playerID'], GAME, $newGameID, "", 'invitation');
-			}
-			break;
+$flagBishop = isset($_POST['flagBishop'])?$_POST['flagBishop']:"";
+$flagKnight = isset($_POST['flagKnight'])?$_POST['flagKnight']:"";
+$flagRook = isset($_POST['flagRook'])?$_POST['flagRook']:"";
+$flagQueen = isset($_POST['flagQueen'])?$_POST['flagQueen']:"";
+$type = isset($_POST['type']) ? $_POST['type']:0;
+$ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:Null;
+	
+switch($ToDo)
+{
+	case 'Login':
+		
+		$res = loginPlayer($_POST['txtNick'], $_POST['pwdPassword'], isset($_POST['chkAutoConn']) ? $_POST['chkAutoConn']:"");
+		if ($res == -1)
+		{
+			// TODO Passer le nick et password
+			header("Location: activation.php");
+			exit;
+		}
+		if ($res == 0)
+		{
+			header("Location: sign-up.php?err=login");
+			exit;
+		}
+		break;
 
-		case 'InvitePlayerByNick':
-			
-			// Récupérer l'id du player dans le cas de l'invitation par saisie surnom
-			if (isset($_POST['txtNick']) && $_POST['txtNick'] != $_SESSION['nick'])
+	case 'Logout':
+	
+		if (isset($_COOKIE["capakaspacn"])) {
+		   foreach ($_COOKIE["capakaspacn"] as $nom => $valeur) {
+		     setcookie("capakaspacn[$nom]", 0, time()-3600*24);    
+		  }
+		}
+		$_SESSION['playerID'] = -1;
+		header("Location: sign-up.php");
+		exit;
+		break;
+
+
+	case 'InvitePlayer':
+		
+		$oppColor="";
+		$newGameID = createInvitation($_SESSION['playerID'], $_POST['opponent'], $_POST['color'], $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $oppColor);
+		
+		if ($newGameID) {
+			/* Notification */
+			chessNotification('invitation', $oppColor, '', $_SESSION['nick'], $newGameID);
+			insertActivity($_SESSION['playerID'], GAME, $newGameID, "", 'invitation');
+		}
+		break;
+
+	case 'InvitePlayerByNick':
+		
+		// Récupérer l'id du player dans le cas de l'invitation par saisie surnom
+		if (isset($_POST['txtNick']) && $_POST['txtNick'] != $_SESSION['nick'])
+		{
+			$tmpQueryId = "SELECT playerID FROM players WHERE nick = '".$_POST['txtNick']."' AND activate=1";
+			$tmpPlayers = mysql_query($tmpQueryId);
+			if (mysql_num_rows($tmpPlayers) > 0)
 			{
-				$tmpQueryId = "SELECT playerID FROM players WHERE nick = '".$_POST['txtNick']."' AND activate=1";
-				$tmpPlayers = mysql_query($tmpQueryId);
-				if (mysql_num_rows($tmpPlayers) > 0)
-				{
-					$tmpPlayer = mysql_fetch_array($tmpPlayers, MYSQL_ASSOC);
+				$tmpPlayer = mysql_fetch_array($tmpPlayers, MYSQL_ASSOC);
 
-					if ($tmpPlayer)
-					{
-						$oppColor="";
-						$newGameID = createInvitation($_SESSION['playerID'], $tmpPlayer['playerID'], $_POST['color'], $_POST['type'], $_POST['flagBishop'], $_POST['flagKnight'], $_POST['flagRook'], $_POST['flagQueen'], $oppColor);
-			
-						if ($newGameID) {
-							
-							/* Notification */
-							chessNotification('invitation', $oppColor, '', $_SESSION['nick'], $newGameID);
-							insertActivity($_SESSION['playerID'], GAME, $newGameID, "", 'invitation');
-						}
+				if ($tmpPlayer)
+				{
+					$oppColor="";
+					$newGameID = createInvitation($_SESSION['playerID'], $tmpPlayer['playerID'], $_POST['color'], $_POST['type'], $_POST['flagBishop'], $_POST['flagKnight'], $_POST['flagRook'], $_POST['flagQueen'], $oppColor);
+		
+					if ($newGameID) {
+						
+						/* Notification */
+						chessNotification('invitation', $oppColor, '', $_SESSION['nick'], $newGameID);
+						insertActivity($_SESSION['playerID'], GAME, $newGameID, "", 'invitation');
 					}
 				}
 			}
-			break;
+		}
+		break;
 
-		case 'ResponseToInvite':
+	case 'ResponseToInvite':
 
-			if ($_POST['response'] == 'accepted')
-			{			
-				/* update game data */
-				$tmpQuery = "UPDATE games SET gameMessage = DEFAULT, messageFrom = DEFAULT WHERE gameID = ".$_POST['gameID'];
-				mysql_query($tmpQuery) or die (mysql_error());
+		if ($_POST['response'] == 'accepted')
+		{			
+			/* update game data */
+			$tmpQuery = "UPDATE games SET gameMessage = DEFAULT, messageFrom = DEFAULT WHERE gameID = ".$_POST['gameID'];
+			mysql_query($tmpQuery) or die (mysql_error());
 
-				/* setup new board */
-				createNewGame($_POST['gameID']);
-				saveGame();
-				
-				if ($_POST['whitePlayerID'] != $_SESSION['playerID'])
-					$oppColor = "white";
-				else 
-				  	$oppColor = "black";
-				
-				/* Notification */
-				chessNotification('accepted', $oppColor, $_POST['respMessage'], $_SESSION['nick'], $_POST['gameID']);
-				insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'accepted');					
-			}
-			else
-			{
-				$tmpQuery = "UPDATE games SET gameMessage = 'inviteDeclined', messageFrom = '".$_POST['messageFrom']."' WHERE gameID = ".$_POST['gameID'];
-				mysql_query($tmpQuery);
-				
-				if ($_POST['whitePlayerID'] != $_SESSION['playerID'])
-					$oppColor = "white";
-				else
-				  	$oppColor = "black";
-				
-				/* Notification */
-				chessNotification('declined', $oppColor, $_POST['respMessage'], $_SESSION['nick'], $_POST['gameID']);
-				insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'declined');
-			}
-
-			break;
-
-		case 'WithdrawRequest':
-
-			if ($_POST['whitePlayerID'] == $_SESSION['playerID'])
-				$oppColor = "black";
-			else
+			/* setup new board */
+			createNewGame($_POST['gameID']);
+			saveGame();
+			
+			if ($_POST['whitePlayerID'] != $_SESSION['playerID'])
 				$oppColor = "white";
-
-			/* notify opponent of invitation via email */
-			chessNotification('withdrawal', $oppColor, '', $_SESSION['nick'], $_POST['gameID']);
-			insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'withdrawal');
-			// TODO Prévoir le cas où une activité n'a plus de partie associée
-			$tmpQuery = "DELETE FROM games WHERE gameID = ".$_POST['gameID'];
+			else 
+			  	$oppColor = "black";
+			
+			/* Notification */
+			chessNotification('accepted', $oppColor, $_POST['respMessage'], $_SESSION['nick'], $_POST['gameID']);
+			insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'accepted');					
+		}
+		else
+		{
+			$tmpQuery = "UPDATE games SET gameMessage = 'inviteDeclined', messageFrom = '".$_POST['messageFrom']."' WHERE gameID = ".$_POST['gameID'];
 			mysql_query($tmpQuery);
 			
-			break;
+			if ($_POST['whitePlayerID'] != $_SESSION['playerID'])
+				$oppColor = "white";
+			else
+			  	$oppColor = "black";
+			
+			/* Notification */
+			chessNotification('declined', $oppColor, $_POST['respMessage'], $_SESSION['nick'], $_POST['gameID']);
+			insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'declined');
+		}
 
-	}
+		break;
 
-	/* check session status */
-	require 'include/sessioncheck.php';
+	case 'WithdrawRequest':
 
-	/* set default playing mode to different PCs (as opposed to both players sharing a PC) */
-	$_SESSION['isSharedPC'] = false;
+		if ($_POST['whitePlayerID'] == $_SESSION['playerID'])
+			$oppColor = "black";
+		else
+			$oppColor = "white";
+
+		/* notify opponent of invitation via email */
+		chessNotification('withdrawal', $oppColor, '', $_SESSION['nick'], $_POST['gameID']);
+		insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'withdrawal');
+		// TODO Prévoir le cas où une activité n'a plus de partie associée
+		$tmpQuery = "DELETE FROM games WHERE gameID = ".$_POST['gameID'];
+		mysql_query($tmpQuery);
+		
+		break;
+}
+
+/* check session status */
+require 'include/sessioncheck.php';
+
+/* set default playing mode to different PCs (as opposed to both players sharing a PC) */
+$_SESSION['isSharedPC'] = false;
 	
-	// Localization after login
-	require 'include/localization.php';
+// Localization after login
+require 'include/localization.php';
 	
-    $titre_page = _("My games in progress");
-    $desc_page = _("Play chess and share your games. My games in progress.");
-    require 'include/page_header.php';
+$titre_page = _("My games in progress");
+$desc_page = _("Play chess and share your games. My games in progress.");
+require 'include/page_header.php';
 ?>
 <script type="text/javascript">
 	function sendResponse(responseType, messageFrom, gameID, whitePlayerID)
@@ -349,22 +350,28 @@ require 'include/page_body.php';
 					</div>
 					<div class='details'>
 						<div class='title'>						
-							<a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponent."</span></a> "._("invite you to play a new game")."
+							<a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponent."</span></a> "._("is your opponent in this game.")."
 						</div>
 						<div class='content'>
 							<div class='gameboard'>");
 								drawboardGame($tmpGame['gameID'],$tmpGame['whitePlayer'],$tmpGame['blackPlayer'], $tmpGame['position']);
 							echo("</div>
-							<div class='gamedetails'>");
-								echo("<a href='player_view.php?playerID=".$tmpGame['whitePlayerID']."'>".$tmpGame['whiteNick']."</a>-<a href='player_view.php?playerID=".$tmpGame['blackPlayerID']."'>".$tmpGame['blackNick']."</a> [".$tmpGame['eco']."] ");
+							<div class='gamedetails'>".
+								getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
+								if ($tmpGame['type'] == 0)
+									echo("<br>[".$tmpGame['eco']."] ".$tmpGame['ecoName']);
+								echo("<br>
+								<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']."</span>
+								<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpGame['blackNick']."<br>".$tmpGame['blackElo']."</span><br>");
+										
 								if ($isPlayersTurn)
-									echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'><img src='images/hand.gif' border=0 alt='Jouer'/></a>");
+									echo ("<br><br><span style='float: right'><input type='button' value='"._("Play")."' class='link' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></span>");
 								else
-									echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'><img src='images/eye.gif' border=0 alt='Voir'/></a>");
-		    				 	
-								list($year, $month, $day) = explode("-", $tmpGame['lastMove']);
+									echo ("<br><br><span style='float: right'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></span>");
+									
+								/*list($year, $month, $day) = explode("-", $tmpGame['lastMove']);
 								$expireDate = date("d/m/Y", mktime(0,0,0, $month, $day + $CFG_EXPIREGAME, $year));
-								echo("<br/>Expire le : ".$expireDate);
+								echo("<br/>Expire le : ".$expireDate);*/
 							echo("</div>
 						</div>
 					</div>

@@ -1,11 +1,17 @@
 ﻿// these functions interact with the server
-
+	
+	// TODO Send à supprimer
 	function send()
 	{
 		document.gamedata.addMessage.value = "yes";
 		if (DEBUG)
 			alert("gamedata.addMessage = " + document.gamedata.addMessage.value);
 
+		document.gamedata.submit();
+	}
+	
+	function play()
+	{		
 		document.gamedata.submit();
 	}
 	
@@ -82,13 +88,19 @@
 			if (document.gamedata.promotion[j].checked)
 				promotedTo = parseInt(document.gamedata.promotion[j].value);
 		}
-
+		
+		if (promotedTo == QUEEN) pieceLetter = 'q';
+		if (promotedTo == ROOK) pieceLetter = 'r';
+		if (promotedTo == KNIGHT) pieceLetter = 'k';
+		if (promotedTo == BISHOP) pieceLetter = 'b';
+		
 		/* change pawn to promoted piece */
 		var ennemyColor = "black";
 		if (blackPawnFound)
 		{
 			ennemyColor = "white";
 			board[0][i] = (BLACK | promotedTo);
+			eval("document.images['pos" + 0 + "-" + i +"'].src = 'pgn4web/" + CURRENTTHEME + "/35/b" + pieceLetter + ".png'");
 			
 			if (DEBUG)
 				alert("Promoting to: (black) " + board[0][i]);
@@ -97,6 +109,7 @@
 		else if (whitePawnFound)
 		{
 			board[7][i] = (WHITE | promotedTo);
+			eval("document.images['pos" + 7 + "-" + i +"'].src = 'pgn4web/" + CURRENTTHEME + "/35/w" + pieceLetter + ".png'");
 			
 			if (DEBUG)
 				alert("Promoting to: (white) " + board[7][i]);
@@ -116,6 +129,10 @@
 		else
 			document.gamedata.isInCheck.value = "false";
 
+		// TODO Put the piece on the board client-side
+		
+		eval("document.images['pos" + row + "-" + rookCol+"'].src = 'pgn4web/" + CURRENTTHEME + "/35/clear.png'");
+		
 		/* update board and database */
-		document.gamedata.submit();
+		//document.gamedata.submit();
 	}

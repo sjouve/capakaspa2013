@@ -104,13 +104,17 @@ while($tmpActivity = mysql_fetch_array($tmpActivities, MYSQL_ASSOC))
 					</div>
 					<div class='content'>
 						<div class='gameboard'>");
-					drawboardGame($tmpActivity['gameID'], $tmpActivity['wPlayerID'], $tmpActivity['bPlayerID'], $tmpActivity['position']);
-				echo("</div>
-						<div class='gamedetails'>
+							drawboardGame($tmpActivity['gameID'], $tmpActivity['wPlayerID'], $tmpActivity['bPlayerID'], $tmpActivity['position']);
+						echo("</div>
+						<div class='gamedetails'>".
+							getStrGameType($tmpActivity['type'], $tmpActivity['flagBishop'], $tmpActivity['flagKnight'], $tmpActivity['flagRook'], $tmpActivity['flagQueen']));
+							if ($tmpActivity['type'] == 0)
+								echo("<br>[".$tmpActivity['eco']."] ".$tmpActivity['ecoName']);
+							echo("<br>
 							<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpActivity['wFirstName']." ".$tmpActivity['wLastName']."<br>".$tmpActivity['wElo']."</span>
 							<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpActivity['bFirstName']." ".$tmpActivity['bLastName']."<br>".$tmpActivity['bElo']."</span>
-							<br><br><br>
-							[".$tmpActivity['eco']."] ".$tmpActivity['ecoName']."
+							<br><br><br><span style='float: right'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGame(".$tmpActivity['gameID'].")'></span>
+									
 						</div>
 					</div>
 					<div class='footer'>");?>

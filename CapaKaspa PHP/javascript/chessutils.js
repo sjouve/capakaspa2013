@@ -54,9 +54,10 @@
 
 	function highlight(row, col)
 	{
+		
 		if (board[parseInt(row)][parseInt(col)] != "")
 		{
-			eval("document.images['pos" + row + "-" + col + "'].src = 'images/' + CURRENTTHEME + '/' + getPieceColor(board[row][col]) + '_' + getPieceName(board[row][col]) + '_highlighted.gif'");
+			document.getElementById(""+row+col).style.background='#eeeeee';
 		}
 
 		return true;
@@ -69,7 +70,15 @@
 
 		if (board[parseInt(row)][parseInt(col)] != "")
 		{
-			eval("document.images['pos" + row + "-" + col + "'].src = 'images/' + CURRENTTHEME + '/' + getPieceColor(board[row][col]) + '_' + getPieceName(board[row][col]) + '.gif'");
+			// row paire et col paire => black
+			if (row%2 == 0 && col%2 == 0)
+				document.getElementById(""+row+col).style.background='#9B6A15';
+			if (row%2 == 0 && col%2 != 0)
+				document.getElementById(""+row+col).style.background='#F2A521';
+			if (row%2 != 0 && col%2 == 0)
+				document.getElementById(""+row+col).style.background='#F2A521';
+			if (row%2 != 0 && col%2 != 0)
+				document.getElementById(""+row+col).style.background='#9B6A15';
 		}
 
 		return true;
