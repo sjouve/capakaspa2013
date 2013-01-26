@@ -98,8 +98,13 @@
                 if ((getPieceName(board[row][col]) == 'pawn') && (row == 0 || row == 7))
 				{
                 	document.getElementById('promoting').style.display = 'block';
-                	document.getElementById('promotingActive').value = 'yes';
 				}
+                else
+                {
+                	document.getElementById('btnPlay').style.visibility = 'visible';
+                	document.getElementById('btnUndo').style.visibility = 'visible';
+                	
+                }
 				//document.gamedata.submit();
 			}
 			else

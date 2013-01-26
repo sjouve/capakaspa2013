@@ -1040,7 +1040,7 @@ function writeStatus($tmpGame)
 	          	<tr bgcolor="#EEEEEE">
 	          		<th colspan="4">
 	          			<div class="econame"><?echo("[".$ecoCode."] ".$ecoName);?></div>
-          				<div class="econame"><a href="javascript:document.gamedata.submit();"><img src="images/icone_rafraichir.png" border="0" title="<?echo _("Refresh game")?>" alt="<?echo _("Refresh game")?>"/></a>
+          				<div class="econame"><a href="javascript:loadgame(<?echo($_POST['gameID']);?>);"><img src="images/icone_rafraichir.png" border="0" title="<?echo _("Refresh game")?>" alt="<?echo _("Refresh game")?>"/></a>
           	               <?echo _("Game started")?> : <? echo($strStartDate);?> - <?echo _("Last move")?> : <? echo($strLastMove);?></div>
           			</th>
           		</tr>
@@ -1061,43 +1061,6 @@ function writeStatus($tmpGame)
           		</tr>
           	</table>
 	<?
-}
-
-function writePromotion($isMobile)
-{
-?>
-	
-	<table <?if (!$isMobile) {?>width="100%"<?};?> border="0" cellspacing="0" cellpadding="0">
-	<tr><td align="center" bgcolor="#F2A521">
-		<?echo _("Promote the pawn in")?> :
-		<br>
-		<input type="radio" name="promotion" value="<? echo (QUEEN); ?>" checked="checked"> <?echo _("Queen")?>
-		<input type="radio" name="promotion" value="<? echo (ROOK); ?>"> <?echo _("Rook")?>
-		<input type="radio" name="promotion" value="<? echo (KNIGHT); ?>"> <?echo _("Knight")?>
-		<input type="radio" name="promotion" value="<? echo (BISHOP); ?>"> <?echo _("Bishop")?>
-		<input type="button" name="btnPromote" value="<? echo _("OK")?>" class="button" onClick="promotepawn()" />
-	</td></tr>
-	</table>
-	
-<?
-}
-
-function writeUndoRequest($isMobile)
-{
-?>
-	
-	<table <?if (!$isMobile) {?>width="100%"<?};?> border="0" cellspacing="0" cellpadding="0">
-	<tr><td align="center" bgcolor="#F2A521">
-		<?echo _("Your opponent wants to cancel last move. Are you agree ?")?>
-		<br>
-		<input type="radio" name="undoResponse" value="yes"> <?echo _("Yes")?>
-		<input type="radio" name="undoResponse" value="no" checked="checked"> <?echo _("No")?>
-		<input type="hidden" name="isUndoResponseDone" value="no">
-		<input type="button" value="<? echo _("OK")?>" class="button" onClick="this.form.isUndoResponseDone.value = 'yes'; this.form.submit()">
-	</td></tr>
-	</table>
-	
-<?
 }
 
 function writeDrawRequest($isMobile)

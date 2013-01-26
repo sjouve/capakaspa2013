@@ -65,23 +65,7 @@ if ($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] ==
 // TODO Mettre cette requete dans dac/dac_games
 $f=mysql_query("select curPiece,curColor,replaced from history where replaced > '' and gameID =  '".$_POST['gameID']."' order by curColor desc , replaced desc");
 	
-			
-if ($isUndoing)
-{
-	@mysql_query("BEGIN");
-	doUndo();
-	saveGame();
-	@mysql_query("COMMIT");
-}
-/*elseif (($TestPromotion != "") && ($_POST['toRow'] != "") && ($_POST['toCol'] != ""))
-{
-	@mysql_query("BEGIN");
-	savePromotion();
-	$board[$_POST['toRow']][$_POST['toCol']] = $_POST['promotion'] | ($board[$_POST['toRow']][$_POST['toCol']] & BLACK);
-	saveGame();
-	@mysql_query("COMMIT");
-}*/
-elseif (($TestFromRow != "") && ($_POST['fromCol'] != "") && ($_POST['toRow'] != "") && ($_POST['toCol'] != ""))
+if (($TestFromRow != "") && ($_POST['fromCol'] != "") && ($_POST['toRow'] != "") && ($_POST['toCol'] != ""))
 {
 	/* ensure it's the current player moving				 */
 	/* NOTE: if not, this will currently ignore the command...               */
@@ -253,13 +237,10 @@ require 'include/page_body.php';
 					<div id="player" style="display:block;">
 						<? drawboard(false); ?>
 						<nobr>
-						<input type="button" name="btnUndo" class="button" value="<?php echo _("Cancel move")?>" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='undo()'"); ?>>
-						<input type="button" name="btnDraw" class="button" value="<?php echo _("Draw proposal")?>" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='draw()'"); ?>>
-						<input type="button" name="btnResign" class="button" value="<?php echo _("Resign")?>" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='resigngame()'"); ?>>
-						<input type="button" name="btnPlay" class="button" value="<?php echo _("Play")?>" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='play()'"); ?>>
+						<input type="button" id="btnUndo" name="btnUndo" class="button" style="visibility: hidden" value="<?php echo _("Cancel move")?>" onClick="javascript:undo();">
+						<input type="button" id="btnPlay" name="btnPlay" class="button" style="visibility: hidden" value="<?php echo _("Valid move")?>" onClick="javascript:play();">
 						</nobr>
 						<input type="hidden" name="gameID" value="<? echo ($_POST['gameID']); ?>">
-						<input type="hidden" name="requestUndo" value="no">
 						<input type="hidden" name="requestDraw" value="no">
 						<input type="hidden" name="resign" value="no">
 						<input type="hidden" name="fromRow" value="<? if ($isPromoting) echo ($TestFromRow); ?>">
@@ -285,8 +266,6 @@ require 'include/page_body.php';
 		          	<?
 					$listeCoups = writeHistoryPGN($history, $numMoves);
 					$pgnstring = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $listeCoups);
-					
-					//if ($isPromoting) writePromotion(false);
 					?>
 					<div id="promoting" style="display: none;">
 					<table border="0" cellspacing="0" cellpadding="0">
@@ -298,7 +277,6 @@ require 'include/page_body.php';
 							<input type="radio" name="promotion" value="<? echo (KNIGHT); ?>"> <?echo _("Knight")?>
 							<input type="radio" name="promotion" value="<? echo (BISHOP); ?>"> <?echo _("Bishop")?>
 							<input type="button" name="btnPromote" value="<? echo _("OK")?>" class="button" onClick="promotepawn()" />
-							<input type="hidden" id="promotingActive" name="promotingActive" value=""/>
 						</td></tr>
 						</table>
 					</div>
@@ -306,8 +284,11 @@ require 'include/page_body.php';
 					if ($isUndoRequested) writeUndoRequest(false);
 					if ($isDrawRequested) writeDrawRequest(false);
 					?>
-					<a href="javascript:afficheviewer();" id="hide" style="display:inline;"><?echo _("Show viewer");?></a>
-					<a href="javascript:afficheplayer();" id="show" style="display:none;"><?echo _("Show player");?></a>
+					<input type="button" name="hide" id="hide" class="link" style="display:inline;" value="<?echo _("Show viewer");?>" onclick="javascript:afficheviewer();">
+					<input type="button" name="show" id="show" class="link" style="display:none;" value="<?echo _("Show player");?>" onclick="javascript:afficheplayer();">
+					<input type="button" name="btnDraw" class="button" value="<?php echo _("Draw proposal")?>" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='draw()'"); ?>>
+					<input type="button" name="btnResign" class="button" value="<?php echo _("Resign")?>" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='resigngame()'"); ?>>
+						
 					<form style="display: none;">
 						<textarea style="display: none;" id="pgnText">
 						<? echo($pgnstring); ?>
@@ -328,11 +309,11 @@ require 'include/page_body.php';
 					while($row=mysql_fetch_array($f, MYSQL_ASSOC)){
 					
 						if(preg_match("/white/", $row['curColor'])){
-							$color="black_";
+							$color="b";
 							$c++;
 						}
 						else {
-							$color="white_";
+							$color="w";
 						}
 					
 						if($c==1){
@@ -340,7 +321,7 @@ require 'include/page_body.php';
 						}
 						$d++;
 						// TODO Changer les images
-						echo "\n<img src=\"images/mosaique/".$color.$row['replaced'].".gif\">";
+						echo "\n<img src=\"pgn4web/".$_SESSION['pref_theme']."/25/".$color.getPieceCharForImage(getPieceCode($color, $row['replaced'])).".png\">";
 					
 					} // End while
 					?>

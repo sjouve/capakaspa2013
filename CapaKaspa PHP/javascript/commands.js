@@ -17,16 +17,14 @@
 	
 	function undo()
 	{
-		var vok=false;
-		vok = confirm(document.getElementById('#confirm_cancel_move_id').innerHTML);
-		if (vok)
-		{
-			document.gamedata.requestUndo.value = "yes";
-			if (DEBUG)
-				alert("gamedata.requestUndo = " + document.gamedata.requestUndo.value);
-
-			document.gamedata.submit();
-		}
+		
+		document.gamedata.fromRow.value = "";
+		document.gamedata.fromCol.value = "";
+		document.gamedata.toRow.value = "";
+		document.gamedata.toCol.value = "";
+		
+		document.gamedata.submit();
+		
 	}
 
 	function draw()
@@ -133,6 +131,9 @@
 		
 		eval("document.images['pos" + row + "-" + rookCol+"'].src = 'pgn4web/" + CURRENTTHEME + "/35/clear.png'");
 		
+		document.getElementById('btnPlay').style.visibility = 'visible';
+    	document.getElementById('btnUndo').style.visibility = 'visible';
+    	
 		/* update board and database */
 		//document.gamedata.submit();
 	}

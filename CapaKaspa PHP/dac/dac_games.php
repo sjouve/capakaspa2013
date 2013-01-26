@@ -152,7 +152,7 @@ function listInProgressGames($playerID)
 						AND (whitePlayer = ".$playerID." OR blackPlayer = ".$playerID.")
 						AND W.playerID = G.whitePlayer 
 						AND B.playerID = G.blackPlayer
-						ORDER BY dateCreated");
+						ORDER BY lastMove desc");
 	
 	return $tmpGames;
 }

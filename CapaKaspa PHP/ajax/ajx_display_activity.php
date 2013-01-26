@@ -24,10 +24,9 @@ require '../include/localization.php';
 
 // Load activities from 
 $start=$_GET["start"];
-$numPerPage = 4;
+$limit = 5;
 
 $fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
-$limit = $start + $numPerPage;
 $tmpActivities = listActivityFollowing($start, $limit, $_SESSION['playerID']);
 $numActivities = mysql_num_rows($tmpActivities);
 
@@ -134,12 +133,12 @@ while($tmpActivity = mysql_fetch_array($tmpActivities, MYSQL_ASSOC))
 	");
 }
 
-if ($numActivities == $numPerPage)
+if ($numActivities == $limit)
 {
 ?>
-	<div id="activities<?echo($limit);?>" style="display: none;">
+	<div id="activities<?echo($start + $limit);?>" style="display: none;">
 		<img src='images/ajaxloader.gif'/>
-		<input type="hidden" id="startPage" value="<?echo($limit);?>"/>
+		<input type="hidden" id="startPage" value="<?echo($start + $limit);?>"/>
 	</div>
 <?
 }
