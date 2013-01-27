@@ -60,11 +60,7 @@ if ($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] ==
 	global $nb_game_vacation;
 	$nb_game_vacation = mysql_num_rows($res_adv_vacation) + mysql_num_rows($res_vacation);
 }
-	
-// Pièces capturées
-// TODO Mettre cette requete dans dac/dac_games
-$f=mysql_query("select curPiece,curColor,replaced from history where replaced > '' and gameID =  '".$_POST['gameID']."' order by curColor desc , replaced desc");
-	
+		
 if (($TestFromRow != "") && ($_POST['fromCol'] != "") && ($_POST['toRow'] != "") && ($_POST['toCol'] != ""))
 {
 	/* ensure it's the current player moving				 */
@@ -234,7 +230,11 @@ require 'include/page_body.php';
 		<table border="0">
 	    	<tr valign="top">
 				<td width="200">
+				<? if (isBoardDisabled()) {?>
+					<div id="player" style="display:none;">
+				<? } else {?>
 					<div id="player" style="display:block;">
+				<? } ?>
 						<? drawboard(false); ?>
 						<nobr>
 						<input type="button" id="btnUndo" name="btnUndo" class="button" style="visibility: hidden" value="<?php echo _("Cancel move")?>" onClick="javascript:undo();">
@@ -243,14 +243,18 @@ require 'include/page_body.php';
 						<input type="hidden" name="gameID" value="<? echo ($_POST['gameID']); ?>">
 						<input type="hidden" name="requestDraw" value="no">
 						<input type="hidden" name="resign" value="no">
-						<input type="hidden" name="fromRow" value="<? if ($isPromoting) echo ($TestFromRow); ?>">
-						<input type="hidden" name="fromCol" value="<? if ($isPromoting) echo ($_POST['fromCol']); ?>">
-						<input type="hidden" name="toRow" value="<? if ($isPromoting) echo ($_POST['toRow']); ?>">
-						<input type="hidden" name="toCol" value="<? if ($isPromoting) echo ($_POST['toCol']); ?>">
+						<input type="hidden" name="fromRow" value="">
+						<input type="hidden" name="fromCol" value="">
+						<input type="hidden" name="toRow" value="">
+						<input type="hidden" name="toCol" value="">
 						<input type="hidden" name="isInCheck" value="false">
 						<input type="hidden" name="isCheckMate" value="false">
 					</div>
+				<? if (isBoardDisabled()) {?>
+					<div id="viewer" style="display:block;">
+				<? } else {?>
 					<div id="viewer" style="display:none;">
+				<? } ?>
 						<div id="GameBoard"></div>
 						<div id="GameButtons"></div>
 					</div>
@@ -283,12 +287,17 @@ require 'include/page_body.php';
 					<?
 					if ($isUndoRequested) writeUndoRequest(false);
 					if ($isDrawRequested) writeDrawRequest(false);
+					if (!isBoardDisabled()) {
 					?>
 					<input type="button" name="hide" id="hide" class="link" style="display:inline;" value="<?echo _("Show viewer");?>" onclick="javascript:afficheviewer();">
 					<input type="button" name="show" id="show" class="link" style="display:none;" value="<?echo _("Show player");?>" onclick="javascript:afficheplayer();">
+					<? } ?>
+					<input type="button" name="pgn" id="pgn" class="link" value="<?echo _("Download PGN");?>">
+					<? if (!isBoardDisabled()) {
+					?>
 					<input type="button" name="btnDraw" class="button" value="<?php echo _("Draw proposal")?>" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='draw()'"); ?>>
 					<input type="button" name="btnResign" class="button" value="<?php echo _("Resign")?>" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='resigngame()'"); ?>>
-						
+					<? } ?>
 					<form style="display: none;">
 						<textarea style="display: none;" id="pgnText">
 						<? echo($pgnstring); ?>
@@ -301,30 +310,31 @@ require 'include/page_body.php';
 	        
 	        <tr>
 	        	<td colspan="3">
-					<?
-					// Liste des pièces capturées
-					$c=0;
-					$d=0;
-					
-					while($row=mysql_fetch_array($f, MYSQL_ASSOC)){
-					
-						if(preg_match("/white/", $row['curColor'])){
-							$color="b";
-							$c++;
-						}
-						else {
-							$color="w";
-						}
-					
-						if($c==1){
-							$d=0;
-						}
-						$d++;
-						// TODO Changer les images
-						echo "\n<img src=\"pgn4web/".$_SESSION['pref_theme']."/25/".$color.getPieceCharForImage(getPieceCode($color, $row['replaced'])).".png\">";
-					
-					} // End while
-					?>
+				<?
+				// List of captured pieces
+				$listPieces = listCapturedPieces($_POST['gameID']);
+				
+				$c=0;
+				$d=0;
+				
+				while($row=mysql_fetch_array($listPieces, MYSQL_ASSOC)){
+				
+					if(preg_match("/white/", $row['curColor'])){
+						$color="b";
+						$c++;
+					}
+					else {
+						$color="w";
+					}
+				
+					if($c==1){
+						$d=0;
+					}
+					$d++;
+
+					echo "\n<img src=\"pgn4web/".$_SESSION['pref_theme']."/25/".$color.getPieceCharForImage(getPieceCode($color, $row['replaced'])).".png\">";				
+				} // End while
+				?>
 	            </td>
 	        </tr>
 	      </table>

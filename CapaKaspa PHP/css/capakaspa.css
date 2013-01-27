@@ -360,8 +360,8 @@
     	font-weight: bold;
     	font-size: 12px;
 	}
-	.button_disable {
-    	background: #666666;
+	.link_highlight {
+    	background: #F2A521;
     	color: #FFFFFF;
     	padding-left: 5px;
     	padding-right: 5px;
@@ -884,4 +884,9 @@
 	.name {
 		font-weight: bold;
 	}
+	TEXTAREA {
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		font-size: 10px;
+		font-weight: normal;
+		font-style: normal;
 }

@@ -23,7 +23,7 @@ require '../include/connectdb.php';
 require '../include/localization.php';
 
 // Load activities from 
-$start=$_GET["start"];
+$start = $_GET["start"];
 $limit = 5;
 
 $fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
@@ -111,10 +111,11 @@ while($tmpActivity = mysql_fetch_array($tmpActivities, MYSQL_ASSOC))
 								echo("<br>[".$tmpActivity['eco']."] ".$tmpActivity['ecoName']);
 							echo("<br>
 							<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpActivity['wFirstName']." ".$tmpActivity['wLastName']."<br>".$tmpActivity['wElo']."</span>
-							<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpActivity['bFirstName']." ".$tmpActivity['bLastName']."<br>".$tmpActivity['bElo']."</span>
-							<br><br><br><span style='float: right'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGame(".$tmpActivity['gameID'].")'></span>
+							<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpActivity['bFirstName']." ".$tmpActivity['bLastName']."<br>".$tmpActivity['bElo']."</span>");
+							if ($tmpActivity['gameMessage'] == "")
+								echo("<br><br><br><span style='float: right'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGame(".$tmpActivity['gameID'].")'></span>");
 									
-						</div>
+						echo("</div>
 					</div>
 					<div class='footer'>");?>
 					<?if (isset($tmpActivity['likeID'])){?> 

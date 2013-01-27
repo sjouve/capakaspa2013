@@ -257,23 +257,10 @@ function getPGNCode($piecename)
 
 function isBoardDisabled()
 {
-	global $board, $isPromoting, $isUndoRequested, $isDrawRequested, $isGameOver, $playersColor, $nb_game_vacation;
+	global $board, $isDrawRequested, $isGameOver, $playersColor, $nb_game_vacation;
 
 	/* if current player is promoting, a message needs to be replied to (Undo or Draw) or the game is over, then board is Disabled */
-	$tmpIsBoardDisabled = (($isPromoting || $isUndoRequested || $isDrawRequested || $isGameOver) == true || $playersColor == "" || $nb_game_vacation > 0);
-	
-	/* if opponent is in the process of promoting, then board is diabled */
-	if (!$tmpIsBoardDisabled)
-	{
-		if ($playersColor == "white")
-			$promotionRow = 7;
-		else
-			$promotionRow = 0;
-
-		for ($i = 0; $i < 8; $i++)
-			if (($board[$promotionRow][$i] & COLOR_MASK) == PAWN)
-				$tmpIsBoardDisabled = true;
-	}
+	$tmpIsBoardDisabled = (($isDrawRequested || $isGameOver) == true || $playersColor == "" || $nb_game_vacation > 0);
 
 	return $tmpIsBoardDisabled;
 }

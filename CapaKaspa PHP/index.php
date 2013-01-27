@@ -164,11 +164,13 @@ $_SESSION['isSharedPC'] = false;
 	
 // Localization after login
 require 'include/localization.php';
-	
+$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
+
 $titre_page = _("My games in progress");
 $desc_page = _("Play chess and share your games. My games in progress.");
 require 'include/page_header.php';
 ?>
+<script src="javascript/comment.js" type="text/javascript"></script>
 <script type="text/javascript">
 	function sendResponse(responseType, messageFrom, gameID, whitePlayerID)
 	{
@@ -227,6 +229,9 @@ require 'include/page_body.php';
 					$opponentID = $tmpGame['whitePlayerID'];
 				}
 				
+				$postDate = new DateTime($tmpGame['dateCreated']);
+				$strPostDate = $fmt->format($postDate);
+				
 				echo("
 				<div class='activity'>
 					<div class='leftbar'>
@@ -241,19 +246,22 @@ require 'include/page_body.php';
 								drawboardGame($tmpGame['gameID'], $tmpGame['whitePlayerID'], $tmpGame['blackPlayerID'], $tmpGame['position']);
 							echo("</div>
 							<div class='gamedetails'>");
-							if ($tmpGame['whitePlayer'] == $_SESSION['playerID'])
-								echo ("<img src='images/white_pawn.gif'/>");
-							else
-								echo ("<img src='images/black_pawn.gif'/>");
-							
 							echo(getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
-							
+							if ($tmpGame['type'] == 0)
+								echo("<br>[".$tmpGame['eco']."] ".$tmpGame['ecoName']);
+							echo("<br>
+									<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']."</span>
+									<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpGame['blackNick']."<br>".$tmpGame['blackElo']."</span><br><br><br>");
+							echo ("<span style='float: right'>");
 							if ($tmpGame['gameMessage'] == 'playerInvited')
 								echo _("Response waiting");
 							else if ($tmpGame['gameMessage'] == 'inviteDeclined')
 								echo _("Request declined");
-							echo ("<input type='button' value='"._("Cancel")."' class='button' onclick=\"withdrawRequest(".$tmpGame['gameID'].",".$tmpGame['whitePlayerID'].")\">");
+							echo (" <input type='button' value='"._("Cancel")."' class='button' onclick=\"withdrawRequest(".$tmpGame['gameID'].",".$tmpGame['whitePlayerID'].")\"></span>");
 							echo("</div>
+						</div>
+						<div class='footer'>
+							<span class='date'>".$strPostDate."</span>
 						</div>
 					</div>
 				</div>");
@@ -279,6 +287,9 @@ require 'include/page_body.php';
 					$opponentID = $tmpGame['whitePlayerID'];
 				}
 				
+				$postDate = new DateTime($tmpGame['dateCreated']);
+				$strPostDate = $fmt->format($postDate);
+				
 				echo("
 				<div class='activity'>
 					<div class='leftbar'>
@@ -294,23 +305,28 @@ require 'include/page_body.php';
 							echo("</div>
 							<div class='gamedetails'>");
 							if ($tmpGame['whitePlayer'] == $_SESSION['playerID']) {
-								echo ("<img src='images/white_pawn.gif'/>");
 								$tmpFrom = "white";
 							}
 							else {
-								echo ("<img src='images/black_pawn.gif'/>");
 								$tmpFrom = "black";
 							}
-							
 							echo(getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
+							if ($tmpGame['type'] == 0)
+								echo("<br>[".$tmpGame['eco']."] ".$tmpGame['ecoName']);
+							echo("<br>
+									<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']."</span>
+									<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpGame['blackNick']."<br>".$tmpGame['blackElo']."</span><br><br><br>");
 							
 							/* Response */
-							echo ("<TEXTAREA NAME='respMessage' COLS='33' ROWS='3' style='background-color:white;border-color:#CCCCCC;'></TEXTAREA>");
+							echo ("<span style='float: left'><TEXTAREA name='respMessage' rows='3' placeholder='Join a message to response' style='background-color: white;border-color: #CCCCCC;width: 260px;'></TEXTAREA></span>");
 							
 							/* Action */
-							echo ("<input type='button' value='"._("Accept")."' class='button' onclick=\"sendResponse('accepted', '".$tmpFrom."', ".$tmpGame['gameID'].", ".$tmpGame['whitePlayerID'].")\">");
-							echo ("<input type='button' value='"._("Decline")."' class='button' onclick=\"sendResponse('declined', '".$tmpFrom."', ".$tmpGame['gameID'].", ".$tmpGame['whitePlayerID'].")\">");
+							echo ("<span style='float: right'><input type='button' value='"._("Accept")."' class='button' onclick=\"sendResponse('accepted', '".$tmpFrom."', ".$tmpGame['gameID'].", ".$tmpGame['whitePlayerID'].")\"><br>");
+							echo ("<input type='button' value='"._("Decline")."' class='button' onclick=\"sendResponse('declined', '".$tmpFrom."', ".$tmpGame['gameID'].", ".$tmpGame['whitePlayerID'].")\"></span>");
 							echo("</div>
+						</div>
+						<div class='footer'>
+							<span class='date'>".$strPostDate."</span>
 						</div>
 					</div>
 				</div>");
@@ -323,9 +339,8 @@ require 'include/page_body.php';
 			<input type="hidden" name="whitePlayerID" value="">
 			<input type="hidden" name="ToDo" value="ResponseToInvite">
 		</form>
-		<br>
 	<? }?>
-	
+		&nbsp;<br>	
 		<h2><?php echo _("My games in progress")?> <a href="index.php"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a></h2>
 		<form name="existingGames" action="game_board.php" method="post">
 		<?
@@ -342,6 +357,9 @@ require 'include/page_body.php';
 					$opponent = $tmpGame['whiteNick'];
 					$opponentID = $tmpGame['whitePlayer'];
 				}
+				
+				$postDate = new DateTime($tmpGame['lastMove']);
+				$strPostDate = $fmt->format($postDate);
 				
 				echo("
 				<div class='activity'>
@@ -365,7 +383,7 @@ require 'include/page_body.php';
 								<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpGame['blackNick']."<br>".$tmpGame['blackElo']."</span><br>");
 										
 								if ($isPlayersTurn)
-									echo ("<br><br><span style='float: right'><input type='button' value='"._("Play")."' class='link' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></span>");
+									echo ("<br><br><span style='float: right'><input type='button' value='"._("Play")."' class='link_highlight' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></span>");
 								else
 									echo ("<br><br><span style='float: right'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></span>");
 									
@@ -373,6 +391,13 @@ require 'include/page_body.php';
 								$expireDate = date("d/m/Y", mktime(0,0,0, $month, $day + $CFG_EXPIREGAME, $year));
 								echo("<br/>Expire le : ".$expireDate);*/
 							echo("</div>
+						</div>
+						<div class='footer'>");?>
+							<a href="javascript:displayComment('<?echo(GAME);?>', <?echo($tmpGame['gameID']);?>);"><?echo _("Comment");?></a> - 
+							<?echo("<span class='date'>"._("Last move")." ".$strPostDate."</span>
+						</div>
+						<div class='comment' id='comment".$tmpGame['gameID']."'>
+							<img src='images/ajaxloader.gif'/>
 						</div>
 					</div>
 				</div>");

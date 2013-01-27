@@ -1008,7 +1008,6 @@ function writeStatus($tmpGame)
           			<?
           				if ($isPlayersTurn)
           				{
-          					
           					echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackFirstName']." ".$tmpGame['blackLastName']."</a><br/>");
           					if ($tmpGame['blackNick'] == $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
           					if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif'/>");
@@ -1018,7 +1017,6 @@ function writeStatus($tmpGame)
           				{
           					if ($tmpGame['whiteNick'] == $_SESSION['nick'] || $tmpGame['blackNick'] == $_SESSION['nick'])
           					{
-          						
           						echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackFirstName']." ".$tmpGame['blackLastName']."</a><br/>");
           						if ($tmpGame['blackNick'] != $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
           						if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif'/>");
@@ -1026,9 +1024,9 @@ function writeStatus($tmpGame)
           					}
           					else
           					{
-          					  	echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackFirstName']." ".$tmpGame['blackLastName']."</a><br/>");
-          					  	if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif'/>");
-          					  	echo($tmpGame['blackElo']."</div>");
+          						echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackFirstName']." ".$tmpGame['blackLastName']."</a><br/>");
+          						if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif'/>");
+          						echo($tmpGame['blackElo']."</div>");
           					}
           				}
           			?>
@@ -1039,7 +1037,12 @@ function writeStatus($tmpGame)
 	          	</tr>
 	          	<tr bgcolor="#EEEEEE">
 	          		<th colspan="4">
-	          			<div class="econame"><?echo("[".$ecoCode."] ".$ecoName);?></div>
+	          			<div class="econame">
+	          			<?	echo(getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
+							if ($tmpGame['type'] == 0)
+								echo("<br>[".$tmpGame['eco']."] ".$tmpGame['ecoName']);
+						?>
+	          			</div>
           				<div class="econame"><a href="javascript:loadgame(<?echo($_POST['gameID']);?>);"><img src="images/icone_rafraichir.png" border="0" title="<?echo _("Refresh game")?>" alt="<?echo _("Refresh game")?>"/></a>
           	               <?echo _("Game started")?> : <? echo($strStartDate);?> - <?echo _("Last move")?> : <? echo($strLastMove);?></div>
           			</th>

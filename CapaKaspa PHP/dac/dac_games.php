@@ -159,8 +159,9 @@ function listInProgressGames($playerID)
 
 function listInvitationFor($playerID)
 {
-	$tmpQuery = "SELECT G.gameID, G.whitePlayer, G.blackPlayer, G.type, G.gameMessage, G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.position,
-					W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick
+	$tmpQuery = "SELECT G.gameID, G.whitePlayer, G.blackPlayer, G.dateCreated, G.type, G.gameMessage, G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.position,
+						W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo,
+						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo
 				FROM games G, players W, players B 
 				WHERE (gameMessage = 'playerInvited' 
 				AND ((whitePlayer = ".$playerID." AND messageFrom = 'black') 
@@ -176,8 +177,9 @@ function listInvitationFor($playerID)
 function listInvitationFrom($playerID)
 {
 	/* if game is marked playerInvited and the invite is from the current player */
-	$tmpQuery = "SELECT G.gameID, G.whitePlayer, G.blackPlayer, G.type, G.gameMessage, G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.position,
-					W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick
+	$tmpQuery = "SELECT G.gameID, G.whitePlayer, G.blackPlayer,  G.dateCreated, G.type, G.gameMessage, G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.position,
+						W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo,
+						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo
 					FROM games G, players W, players B 
 					WHERE ((gameMessage = 'playerInvited' 
 						AND ((whitePlayer = ".$playerID." AND messageFrom = 'white') 
@@ -195,4 +197,14 @@ function listInvitationFrom($playerID)
 	
 	return $tmpGames;
 }
+
+function listCapturedPieces($gameID)
+{
+	$tmpListPieces = mysql_query("SELECT curPiece, curColor, replaced
+								FROM history 
+								WHERE replaced > '' 
+								AND gameID =  '".$gameID."' 
+								ORDER BY curColor DESC , replaced DESC");
+	return $tmpListPieces;
+}	
 ?>

@@ -28,6 +28,13 @@ require 'include/page_header.php';
 <script src="javascript/comment.js" type="text/javascript"></script>
 <script src="javascript/like.js" type="text/javascript"></script>
 <script type="text/javascript">
+function loadGame(gameID)
+{
+
+	document.existingGames.gameID.value = gameID;
+	document.existingGames.submit();
+}
+
 function displayActivity(start)
 {
 	document.getElementById("activities"+start).style.display = "block";
@@ -87,9 +94,11 @@ require 'include/page_body.php';
 		if ($errMsg != "")
 			echo("<div class='error'>".$errMsg."</div>");
 		?>
-			
-			<div id="activities0" style="display: none;"><img src='images/ajaxloader.gif'/></div>
-		
+			<form name="existingGames" action="game_board.php" method="post">
+				<div id="activities0" style="display: none;"><img src='images/ajaxloader.gif'/></div>
+				<input type="hidden" name="gameID" value="">
+				<input type="hidden" name="from" value="encours">
+			</form>
     	</div>
     </div>
 <?
