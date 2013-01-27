@@ -12,7 +12,7 @@ function getGame($gameID)
 	E.name ecoName, 
 	W.nick whiteNick, W.elo whiteElo, W.socialNetwork whiteSocialNet, W.socialID whiteSocialID, W.firstName whiteFirstName, W.lastName whiteLastName, 
 	B.nick blackNick, B.elo blackElo, B.socialNetwork blackSocialNet, B.socialID blackSocialID, B.firstName blackFirstName, B.lastName blackLastName
-	FROM games G left join eco E on E.eco = G.eco, players W, players B
+	FROM games G left join eco E on E.eco = G.eco AND E.ecoLang = '".getLang()."', players W, players B
 	WHERE gameID = ".$gameID."
 	AND G.whitePlayer = W.playerID
 	AND G.blackPlayer = B.playerID";
@@ -147,7 +147,7 @@ function listInProgressGames($playerID)
 									E.name ecoName,
 									W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, 
 									B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo
-						FROM games G left join eco E on E.eco = G.eco, players W, players B
+						FROM games G left join eco E on E.eco = G.eco AND E.ecoLang = '".getLang()."', players W, players B
 						WHERE gameMessage is NULL
 						AND (whitePlayer = ".$playerID." OR blackPlayer = ".$playerID.")
 						AND W.playerID = G.whitePlayer 

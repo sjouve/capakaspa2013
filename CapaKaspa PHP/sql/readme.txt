@@ -41,3 +41,7 @@ Reprise des préférences
 => Ajout préférence language pour tous les anciens user
 => modification préférence theme pour tous les ancien user (passer la valeur à "merida")
 => Supprimer préférence history
+
+Modification table eco
+=> Ajout colonne ID et countryLang
+=> Ajout des données anglaises

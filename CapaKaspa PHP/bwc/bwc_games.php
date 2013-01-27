@@ -446,8 +446,7 @@ function processMessages()
 			{
 				$tmpStatus = "approved";
 				$tmpQuery = "UPDATE games SET gameMessage = 'draw', messageFrom = '".$playersColor."' WHERE gameID = ".$_POST['gameID'];
-				mysql_query($tmpQuery);
-				
+				mysql_query($tmpQuery);				
 			}
 			else
 				$tmpStatus = "denied";

@@ -3,6 +3,9 @@
 function getLang()
 {
 	$lang = getenv("LC_ALL");
+	if ($lang == "")
+		$lang = $_SESSION['pref_language'];
+	
 	return substr($lang, 0, 2);
 }
 
