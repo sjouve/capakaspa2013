@@ -357,6 +357,8 @@ require 'include/page_body.php';
 				
 				$postDate = new DateTime($tmpGame['lastMove']);
 				$strPostDate = $fmt->format($postDate);
+				$startedDate = new DateTime($tmpGame['dateCreated']);
+				$strStartedDate = $fmt->format($startedDate);
 				$expirationDate = new DateTime($tmpGame['expirationDate']);
 				$strExpirationDate = $fmt->format($expirationDate);
 				
@@ -386,12 +388,12 @@ require 'include/page_body.php';
 								else
 									echo ("<br><br><span style='float: right'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></span>");
 								
-								echo("<br><br>"._("Expiration")." : ".$strExpirationDate);
+								echo("<br>"._("Expiration")." : ".$strExpirationDate);
 							echo("</div>
 						</div>
 						<div class='footer'>");?>
 							<a href="javascript:displayComment('<?echo(GAME);?>', <?echo($tmpGame['gameID']);?>);"><?echo _("Comment");?></a> - 
-							<?echo("<span class='date'>"._("Last move")." ".$strPostDate."</span>
+							<?echo("<span class='date'>"._("Started")." : ".$strStartedDate."</span> - <span class='date'>"._("Last move")." : ".$strPostDate."</span>
 						</div>
 						<div class='comment' id='comment".$tmpGame['gameID']."'>
 							<img src='images/ajaxloader.gif'/>

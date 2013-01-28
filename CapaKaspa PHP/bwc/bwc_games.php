@@ -766,7 +766,7 @@ function drawboard($withCoord)
 			if ($isDisabled)
 			{
 				if (($j + ($i % 2)) % 2 == 0)
-					echo ("#444444'>");
+					echo ("#666666'>");
 				else
 					echo ("#BBBBBB'>");
 			}
@@ -933,18 +933,16 @@ function writeStatus($tmpGame)
 	
 	$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::SHORT, IntlDateFormatter::SHORT);
 	
-	$startDate = new DateTime($tmpGame['dateCreated']);
-	$lastMove = new DateTime($tmpGame['lastMove']);
-	$strStartDate = $fmt->format($startDate);
-	$strLastMove = $fmt->format($lastMove);
+	$expirationDate = new DateTime($tmpGame['expirationDate']);
+	$strExpirationDate = $fmt->format($expirationDate);
 	
 	?>
-	<table border="0" width="100%" align="center" cellspacing="0" cellpadding="0">
+	<table border="0" align="center" cellspacing="0" cellpadding="0">
 	<tr bgcolor="#EEEEEE" valign="top">
-		<th width="12%" align="left">
+		<th width="10%" align="left">
 			<img src="<?echo(getPicturePath($tmpGame['whiteSocialNet'], $tmpGame['whiteSocialID']));?>" width="40" height="40" style="margin:3px;"/>
 		</th>
-		<th width="38%" align="left">
+		<th width="40%" align="left">
 	    <?
           	if ($isPlayersTurn)
           	{
@@ -970,86 +968,86 @@ function writeStatus($tmpGame)
           		}
           	}
           	?>
-          			</th>
-          			<th width="38%" align="right">
-          			<?
-          				if ($isPlayersTurn)
-          				{
-          					echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackFirstName']." ".$tmpGame['blackLastName']."</a><br/>");
-          					if ($tmpGame['blackNick'] == $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
-          					if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif'/>");
-          					echo($tmpGame['blackElo']."</div>");	
-          				}
-          				else
-          				{
-          					if ($tmpGame['whiteNick'] == $_SESSION['nick'] || $tmpGame['blackNick'] == $_SESSION['nick'])
-          					{
-          						echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackFirstName']." ".$tmpGame['blackLastName']."</a><br/>");
-          						if ($tmpGame['blackNick'] != $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
-          						if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif'/>");
-          						echo($tmpGame['blackElo']."</div>");	
-          					}
-          					else
-          					{
-          						echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackFirstName']." ".$tmpGame['blackLastName']."</a><br/>");
-          						if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif'/>");
-          						echo($tmpGame['blackElo']."</div>");
-          					}
-          				}
-          			?>
-          			</th>
-          			<th width="12%" align="right">
-          				<img src="<?echo(getPicturePath($tmpGame['blackSocialNet'], $tmpGame['blackSocialID']));?>" width="40" height="40" style="margin:3px;"/><br/>
-          			</th>
-	          	</tr>
-	          	<tr bgcolor="#EEEEEE">
-	          		<th colspan="4">
-	          			<div class="econame">
-	          			<?	echo(getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
-							if ($tmpGame['type'] == 0)
-								echo("<br>[".$tmpGame['eco']."] ".$tmpGame['ecoName']);
-						?>
-	          			</div>
-          				<div class="econame"><a href="javascript:loadgame(<?echo($_POST['gameID']);?>);"><img src="images/icone_rafraichir.png" border="0" title="<?echo _("Refresh game")?>" alt="<?echo _("Refresh game")?>"/></a>
-          	               <?echo _("Game started")?> : <? echo($strStartDate);?> - <?echo _("Last move")?> : <? echo($strLastMove);?></div>
-          			</th>
-          		</tr>
-          		
-          		<tr>
+          	</th>
+          	<th width="40%" align="right">
+          	<?
+          	if ($isPlayersTurn)
+          	{
+          		echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackFirstName']." ".$tmpGame['blackLastName']."</a><br/>");
+          		if ($tmpGame['blackNick'] == $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
+          		if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif'/>");
+          		echo($tmpGame['blackElo']."</div>");	
+          	}
+          	else
+          	{
+          		if ($tmpGame['whiteNick'] == $_SESSION['nick'] || $tmpGame['blackNick'] == $_SESSION['nick'])
+          		{
+          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackFirstName']." ".$tmpGame['blackLastName']."</a><br/>");
+          			if ($tmpGame['blackNick'] != $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
+          			if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif'/>");
+          			echo($tmpGame['blackElo']."</div>");	
+          		}
+          		else
+          		{
+          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackFirstName']." ".$tmpGame['blackLastName']."</a><br/>");
+          			if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif'/>");
+          			echo($tmpGame['blackElo']."</div>");
+          		}
+          	}
+			?>
+          	</th>
+          	<th width="10%" align="right">
+          		<img src="<?echo(getPicturePath($tmpGame['blackSocialNet'], $tmpGame['blackSocialID']));?>" width="40" height="40" style="margin:3px;"/><br/>
+          	</th>
+		</tr>
+		<tr bgcolor="#EEEEEE">
+			<th colspan="4">
+	          	<div class="econame">
+	          	<?	echo(getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
+					if ($tmpGame['type'] == 0)
+						echo(" - [".$tmpGame['eco']."] ".$tmpGame['ecoName']);
+				?>
+	          	</div>
+          		<div class="econame"><a href="javascript:loadgame(<?echo($_POST['gameID']);?>);"><img src="images/icone_rafraichir.png" border="0" title="<?echo _("Refresh game")?>" alt="<?echo _("Refresh game")?>"/></a>
+					<?echo _("Expiration")?> : <? echo($strExpirationDate);?></div>
+			</th>
+		</tr>        		
+		<tr>
           		<?
           		if (($numMoves == -1) || ($numMoves % 2 == 1))
           			$curColor = _("Whites");
           		else
           			$curColor = _("Blacks");
-          	
-          		if (!$isCheckMate && ($history[$numMoves]['isInCheck'] == 1))
-          			echo("<td align='center' bgcolor='red' colspan='4'>\n<b>".$curColor." "._("are in check")." !</b><br/>\n".$statusMessage."</td>\n");
+          		
+          		if ((!$isCheckMate && ($history[$numMoves]['isInCheck'] == 1)) || isset($statusMessage))
+          			$bgcolor = "F2A521";
           		else
-          			echo("<td align='center' bgcolor='#F2A521' colspan='4'><b>".$statusMessage."</b></td>\n");
-          			
+          			$bgcolor = "EEEEEE";
+          		
+          		echo("<td align='center' bgcolor='".$bgcolor."' colspan='4'>");
+          		if (!$isCheckMate && ($history[$numMoves]['isInCheck'] == 1))
+          			echo("<b>".$curColor." "._("are in check")." !</b>");
+          		echo($statusMessage."&nbsp;</td>");
           		?>
-          		</tr>
-          	</table>
+		</tr>
+	</table>
 	<?
 }
 
 function writeDrawRequest($isMobile)
 {
-?>
-	
+?>	
 	<table <?if (!$isMobile) {?>width="100%"<?};?> border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td align="center" bgcolor="#F2A521">
 		<?echo _("Your opponent do a draw proposal. Are you agree ?")?>
-		<br>
 		<input type="radio" name="drawResponse" value="yes"> <?echo _("Yes")?>
 		<input type="radio" name="drawResponse" value="no" checked="checked"> <?echo _("No")?>
 		<input type="hidden" name="isDrawResponseDone" value="no">
 		<input type="button" value="<? echo _("OK")?>" class="button" onClick="this.form.isDrawResponseDone.value = 'yes'; this.form.submit()">
 		</td>
 	</tr>
-	</table>
-	
+	</table>	
 <?
 }
 
@@ -1100,7 +1098,7 @@ function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $f
 function getStrGameType($type, $flagBishop, $flagKnight, $flagRook, $flagQueen)
 {
 	if ($type == 0)
-		return _("Classic chess game");
+		return _("Classic game");
 	else
 	{
 		$pieces="";
@@ -1113,7 +1111,7 @@ function getStrGameType($type, $flagBishop, $flagKnight, $flagRook, $flagQueen)
 		if ($flagQueen == 1)
 			$pieces .= _(", Queens");
 			
-		return _("Beginner chess game<br>King and Pawns").$pieces;
+		return _("Beginner game<br>King and Pawns").$pieces;
 	}
 }
 ?>
