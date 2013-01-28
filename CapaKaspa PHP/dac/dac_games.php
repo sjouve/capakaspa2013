@@ -7,9 +7,10 @@
 function getGame($gameID)
 {
 	// Informations sur la partie : voir le type de partie (position normale ou pas) et le problème du code ECO
-	$tmpQuery = "SELECT G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, G.dialogue dialogue, G.position position, G.eco eco, 
-	G.lastMove, G.dateCreated, G.type type, G.flagBishop flagBishop, G.flagKnight flagKnight, G.flagRook flagRook, G.flagQueen flagQueen,
-	E.name ecoName, 
+	$tmpQuery = "SELECT G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, G.dialogue dialogue, G.position position,  
+	G.lastMove, G.dateCreated, DATE_ADD(G.lastMove, INTERVAL G.timeMove DAY) expirationDate, G.timeMove, 
+	G.type type, G.flagBishop flagBishop, G.flagKnight flagKnight, G.flagRook flagRook, G.flagQueen flagQueen,
+	G.eco eco, E.name ecoName, 
 	W.nick whiteNick, W.elo whiteElo, W.socialNetwork whiteSocialNet, W.socialID whiteSocialID, W.firstName whiteFirstName, W.lastName whiteLastName, 
 	B.nick blackNick, B.elo blackElo, B.socialNetwork blackSocialNet, B.socialID blackSocialID, B.firstName blackFirstName, B.lastName blackLastName
 	FROM games G left join eco E on E.eco = G.eco AND E.ecoLang = '".getLang()."', players W, players B
@@ -142,8 +143,8 @@ function searchGames($debut, $limit)
 
 function listInProgressGames($playerID)
 {
-	$tmpGames = mysql_query("SELECT G.gameID gameID, G.eco eco, G.dateCreated, G.lastMove, G.whitePlayer whitePlayer, 
-									G.blackPlayer blackPlayer, G.position position, G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.type,
+	$tmpGames = mysql_query("SELECT G.gameID gameID, G.eco eco, G.dateCreated, G.lastMove, DATE_ADD(G.lastMove, INTERVAL G.timeMove DAY) expirationDate, G.whitePlayer whitePlayer, G.timeMove, 
+									G.blackPlayer blackPlayer, G.position position, G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.type,  
 									E.name ecoName,
 									W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, 
 									B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo

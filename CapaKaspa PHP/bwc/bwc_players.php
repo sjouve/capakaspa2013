@@ -329,7 +329,7 @@ function getNbPassivePlayers()
 }
 
 /* Creation des jours d'absence */
-function createVacation($playerID, $nbDays, $delai_expiration)
+function createVacation($playerID, $nbDays)
 {
 	
 	// Contrôler le nombre de jours disponibles
@@ -350,18 +350,18 @@ function createVacation($playerID, $nbDays, $delai_expiration)
 	
 	$nbDays = $nbDays + 1;
 	
-	/*Lors de la saisie du congé il faut modifier la date du dernier des parties du joueur :
+	/*Lors de la saisie du congé il faut modifier la date du dernier coup des parties du joueur :
       Pour chaque partie (non expirée)
       	Si pas de congé en cours pour l'adversaire on ajoute la durée du congé saisi +1 à la date du dernier coup
       	Sinon on ajoute la durée du congé saisi - (date de fin du congé en cours de l'adversaire - date de début du congé saisi)
       		si l'ajout reste positif      
 	*/
-	// TODO gameMessage = '' OR gameMessage is NULL  
+	// TODO gameMessage = '' OR gameMessage is NULL
 	$tmpGames = mysql_query("SELECT * 
                              FROM games
                              WHERE gameMessage = ''
                              AND (whitePlayer = ".$playerID." OR blackPlayer = ".$playerID.")
-                             AND lastMove >= DATE_SUB(CURDATE(), INTERVAL ".$delai_expiration." DAY)  
+                             AND lastMove >= DATE_SUB(CURDATE(), INTERVAL timeMove DAY)  
                              ORDER BY dateCreated");
 
 	// Ne pas modifier les parties expirées pas encore terminées

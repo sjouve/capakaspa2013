@@ -50,15 +50,15 @@
       <ul>
         <li><img src="images/puce.gif"/> <a href="index.php"><?php echo _("My games in progress");?></a></li>
 		<li><img src="images/puce.gif"/> <a href="game_list_ended.php"><?php echo _("My games ended");?></a></li>
+        <li><img src="images/puce.gif"/> <a href="game_new.php"><?php echo _("New game");?></a></li>
         <li><img src="images/puce.gif"/> <a href="game_list_all.php"><?php echo _("Other games");?></a></li>
-		<li><img src="images/puce.gif"/> <a href="player_search.php"><?php echo _("Proposal");?></a></li>
-        <!-- <li><img src="images/icone-mobile.png"/> <a href="http://mobile.capakaspa.info">Version mobile</a></li> -->
+		<!-- <li><img src="images/icone-mobile.png"/> <a href="http://mobile.capakaspa.info">Version mobile</a></li> -->
       </ul>  
 	</div>
 	<div class="navlinks">
 	<div class="title"><?php echo _("Players");?></div>		
       <ul>
-        <li><img src="images/puce.gif"/> <a href="activity.php"><?php echo _("Activity");?></a></li>
+        <li><img src="images/puce.gif"/> <a href="activity.php"><?php echo _("News feed");?></a></li>
 		<li><img src="images/puce.gif"/> <a href="message.php"><?php echo _("Messages");?></a></li>
         <li><img src="images/puce.gif"/> <a href="player_search.php"><?php echo _("Search");?></a></li>
       </ul>  

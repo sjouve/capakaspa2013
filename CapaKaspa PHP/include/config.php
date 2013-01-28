@@ -24,9 +24,6 @@
 	// session times out if user doesn't interact after 600 secs (10 mins)
 	$CFG_SESSIONTIMEOUT = 6000;
 	
-	// number of days before untouched games expire		
-	$CFG_EXPIREGAME = 14;			
-	
 	/* email notification requires PHP to be properly configured for */
 	/* SMTP operations.  This flag allows you to easily activate
 						   or deactivate this feature.  It is highly recommended you test

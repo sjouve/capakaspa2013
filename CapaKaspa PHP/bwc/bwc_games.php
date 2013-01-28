@@ -114,44 +114,6 @@ function loadHistory()
 	}
 }
 
-/* I: $history, $numMoves, $isInCheck
- * O: $history
-*/
-function savePromotion()
-{
-	// TODO Ne plus utiliser
-	global $history, $numMoves, $isInCheck;
-	
-	if ($isInCheck)
-	{
-		$tmpIsInCheck = 1;
-		$history[$numMoves]['isInCheck'] = 1;
-	}
-	else
-		$tmpIsInCheck = 0;
-
-	$history[$numMoves]['promotedTo'] = getPieceName($_POST['promotion']);
-
-	$tmpQuery = "UPDATE history SET promotedTo = '".getPieceName($_POST['promotion'])."', isInCheck = ".$tmpIsInCheck." WHERE gameID = ".$_POST['gameID']." AND timeOfMove = '".$history[$numMoves]['timeOfMove']."'";
-	mysql_query($tmpQuery);
-
-	updateTimestamp();
-	
-	if ($history[$numMoves]['replaced'] == null)
-		$tmpReplaced = '';
-	else
-		$tmpReplaced = $history[$numMoves]['replaced'];
-	
-	$oppColor = getTurnColor($numMoves);
-	$strMove = moveToPGNString($history[$numMoves]['curColor'], $history[$numMoves]['curPiece'], $history[$numMoves]['fromRow'], $history[$numMoves]['fromCol'], $history[$numMoves]['toRow'], $history[$numMoves]['toCol'], $tmpReplaced, $history[$numMoves]['promotedTo'], $isInCheck);
-	
-	// Notification
-	chessNotification('move', $oppColor, $strMove, $_SESSION['nick'], $_POST['gameID']);
-	
-	// Activity
-	insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], $strMove, 'move');
-}
-
 /* I: $history, $board, $isPromoting, $numMoves, $isInCheck
  * O: $history, $isPromoting, $numMoves
 */
@@ -262,10 +224,10 @@ function sendEmailNotification($history, $isPromoting, $numMoves, $isInCheck)
 	insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], $strMove, 'move');
 }
 
-/* I: $gameID, $CFG_EXPIREGAME, $numMoves
+/* I: $gameID, $numMoves
  * O: $board, $playersColor, $tmpGame
 */
-function loadGame($gameID, $numMoves, $CFG_EXPIREGAME)
+function loadGame($gameID, $numMoves)
 {
 	global $board, $playersColor, $ecoCode, $ecoName;
 	
@@ -300,10 +262,16 @@ function loadGame($gameID, $numMoves, $CFG_EXPIREGAME)
 		
 	// Dépassement délai entre 2 coups
 	// Ajouter ici le nombre de jours d'absence à prendre en compte
-	$targetDate = calculateTargetDate($tmpGame['lastMove'], $tmpGame['whitePlayer'], $tmpGame['blackPlayer'], $CFG_EXPIREGAME);
+	$targetDate = calculateTargetDate($tmpGame['lastMove'], $tmpGame['whitePlayer'], $tmpGame['blackPlayer'], $tmpGame['timeMove']);
 	
 	// Terminer la partie si dépassement de temps
-	$res = mysql_query("UPDATE games SET gameMessage = 'playerResigned', messageFrom = '".$turnColor."' WHERE lastMove < '".$targetDate."' AND (gameMessage <> 'draw' AND gameMessage <> 'checkMate' AND gameMessage <> 'playerResigned') AND gameID = ".$_POST['gameID']);
+	$res = mysql_query("UPDATE games 
+						SET gameMessage = 'playerResigned', messageFrom = '".$turnColor."' 
+						WHERE lastMove < '".$targetDate."' 
+						AND (gameMessage <> 'draw' 
+						AND gameMessage <> 'checkMate' 
+						AND gameMessage <> 'playerResigned') 
+						AND gameID = ".$_POST['gameID']);
 	
 	return $tmpGame;
 	
@@ -590,7 +558,7 @@ function processMessages()
 
 /* functions for outputting to html and javascript */
 
-/* Utilisé pour la mosaique */
+/* Miniature */
 function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
 {
 
@@ -1085,7 +1053,7 @@ function writeDrawRequest($isMobile)
 <?
 }
 
-function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $oppColor)
+function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $oppColor, $timeMove)
 {
 	/* prevent multiple pending requests between two players with the same originator */
 	$tmpQuery = "SELECT gameID FROM games WHERE gameMessage = 'playerInvited'";
@@ -1106,8 +1074,8 @@ function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $f
 		if ( $flagKnight == "1") {$flagKnight = 1;} else {$flagKnight = 0;};
 		if ( $flagRook == "1") {$flagRook = 1;} else {$flagRook = 0;};
 		if ( $flagQueen == "1") {$flagQueen = 1;} else {$flagQueen = 0;};
-	
-		$tmpQuery = "INSERT INTO games (whitePlayer, blackPlayer, gameMessage, messageFrom, dateCreated, lastMove, type, flagBishop, flagKnight, flagRook, flagQueen) VALUES (";
+		
+		$tmpQuery = "INSERT INTO games (whitePlayer, blackPlayer, gameMessage, messageFrom, dateCreated, lastMove, type, flagBishop, flagKnight, flagRook, flagQueen, timeMove) VALUES (";
 		if ($tmpColor == 'white')
 		{
 			$tmpQuery .= $playerID.", ".$opponentID;
@@ -1119,7 +1087,7 @@ function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $f
 			$oppColor = 'white';
 		}
 	
-		$tmpQuery .= ", 'playerInvited', '".$tmpColor."', NOW(), NOW(), ".$type.", ".$flagBishop.", ".$flagKnight.", ".$flagRook.", ".$flagQueen.")";
+		$tmpQuery .= ", 'playerInvited', '".$tmpColor."', NOW(), NOW(), ".$type.", ".$flagBishop.", ".$flagKnight.", ".$flagRook.", ".$flagQueen.", ".$timeMove.")";
 	
 		mysql_query($tmpQuery);
 		$newGameID = mysql_insert_id();

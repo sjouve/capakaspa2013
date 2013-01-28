@@ -36,7 +36,7 @@ $isPromoting = false;
 $isUndoing = false;
 	
 loadHistory();
-$tmpGame = loadGame($_POST['gameID'], $numMoves, $CFG_EXPIREGAME);
+$tmpGame = loadGame($_POST['gameID'], $numMoves);
 processMessages();
 $pgnstring ="";
 $TestPromotion = isset($_POST['promotion']) ? $_POST['promotion']:Null;

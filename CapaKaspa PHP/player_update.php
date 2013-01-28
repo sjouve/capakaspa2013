@@ -136,7 +136,7 @@ require 'include/page_body.php';
 	<div class="error" id="confirm_password_error" style="display: none"><?echo _("Password confirmation error")?></div>
 	<div class="error" id="old_password_error" style="display: none"><?echo _("Old password is required")?></div>
 	<!-- For translation in javascript -->
-    <span id="#confirm_add_vacation_id" style="display: none"><?echo _("The addition of this absence can not be canceled and all your games will be immediately adjourned. Please confirm its inclusion ?")?></span>
+    <span id="#confirm_add_vacation_id" style="display: none"><?echo _("This postponement can not be canceled and all your games will be immediately postponed. Please confirm your absence ?")?></span>
     
 	<form name="userdata" action="player_update.php" method="post">
 	  <h3><?php echo _("Basic info");?></h3>

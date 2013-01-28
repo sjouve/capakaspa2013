@@ -88,7 +88,7 @@ switch($ToDo)
 				if ($tmpPlayer)
 				{
 					$oppColor="";
-					$newGameID = createInvitation($_SESSION['playerID'], $tmpPlayer['playerID'], $_POST['color'], $_POST['type'], $_POST['flagBishop'], $_POST['flagKnight'], $_POST['flagRook'], $_POST['flagQueen'], $oppColor);
+					$newGameID = createInvitation($_SESSION['playerID'], $tmpPlayer['playerID'], $_POST['color'], $_POST['type'], $flagBishop, $flagKnight, $flagRook, $flagQueen, $oppColor, $_POST['timeMove']);
 		
 					if ($newGameID) {
 						
@@ -247,8 +247,6 @@ require 'include/page_body.php';
 							echo("</div>
 							<div class='gamedetails'>");
 							echo(getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
-							if ($tmpGame['type'] == 0)
-								echo("<br>[".$tmpGame['eco']."] ".$tmpGame['ecoName']);
 							echo("<br>
 									<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']."</span>
 									<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpGame['blackNick']."<br>".$tmpGame['blackElo']."</span><br><br><br>");
@@ -311,14 +309,13 @@ require 'include/page_body.php';
 								$tmpFrom = "black";
 							}
 							echo(getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
-							if ($tmpGame['type'] == 0)
-								echo("<br>[".$tmpGame['eco']."] ".$tmpGame['ecoName']);
+							
 							echo("<br>
 									<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']."</span>
 									<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpGame['blackNick']."<br>".$tmpGame['blackElo']."</span><br><br><br>");
 							
 							/* Response */
-							echo ("<span style='float: left'><TEXTAREA name='respMessage' rows='3' placeholder='Join a message to response' style='background-color: white;border-color: #CCCCCC;width: 260px;'></TEXTAREA></span>");
+							echo ("<span style='float: left'><TEXTAREA name='respMessage' rows='3' placeholder="._("Join a message to response")." style='background-color: white;border-color: #CCCCCC;width: 260px;'></TEXTAREA></span>");
 							
 							/* Action */
 							echo ("<span style='float: right'><input type='button' value='"._("Accept")."' class='button' onclick=\"sendResponse('accepted', '".$tmpFrom."', ".$tmpGame['gameID'].", ".$tmpGame['whitePlayerID'].")\"><br>");
@@ -360,6 +357,8 @@ require 'include/page_body.php';
 				
 				$postDate = new DateTime($tmpGame['lastMove']);
 				$strPostDate = $fmt->format($postDate);
+				$expirationDate = new DateTime($tmpGame['expirationDate']);
+				$strExpirationDate = $fmt->format($expirationDate);
 				
 				echo("
 				<div class='activity'>
@@ -386,10 +385,8 @@ require 'include/page_body.php';
 									echo ("<br><br><span style='float: right'><input type='button' value='"._("Play")."' class='link_highlight' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></span>");
 								else
 									echo ("<br><br><span style='float: right'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></span>");
-									
-								/*list($year, $month, $day) = explode("-", $tmpGame['lastMove']);
-								$expireDate = date("d/m/Y", mktime(0,0,0, $month, $day + $CFG_EXPIREGAME, $year));
-								echo("<br/>Expire le : ".$expireDate);*/
+								
+								echo("<br><br>"._("Expiration")." : ".$strExpirationDate);
 							echo("</div>
 						</div>
 						<div class='footer'>");?>

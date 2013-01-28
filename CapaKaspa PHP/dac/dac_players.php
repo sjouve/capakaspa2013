@@ -2,7 +2,7 @@
 /* Accès aux données concernant les tables Players et Preferences */
 
 /* Constantes du module */
-define ("MAX_NB_JOUR_ABSENCE", 35);
+define ("MAX_NB_JOUR_ABSENCE", 30);
 
 /* Charger un utilisateur par son ID */
 function getPlayer($playerID)
