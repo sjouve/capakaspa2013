@@ -65,39 +65,12 @@ switch($ToDo)
 	case 'InvitePlayer':
 		
 		$oppColor="";
-		$newGameID = createInvitation($_SESSION['playerID'], $_POST['opponent'], $_POST['color'], $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $oppColor);
+		$newGameID = createInvitation($_SESSION['playerID'], $_POST['opponent'], $_POST['color'], $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $oppColor, $_POST['timeMove']);
 		
 		if ($newGameID) {
-			/* Notification */
+			// Notification
 			chessNotification('invitation', $oppColor, '', $_SESSION['nick'], $newGameID);
 			insertActivity($_SESSION['playerID'], GAME, $newGameID, "", 'invitation');
-		}
-		break;
-
-	case 'InvitePlayerByNick':
-		
-		// Récupérer l'id du player dans le cas de l'invitation par saisie surnom
-		if (isset($_POST['txtNick']) && $_POST['txtNick'] != $_SESSION['nick'])
-		{
-			$tmpQueryId = "SELECT playerID FROM players WHERE nick = '".$_POST['txtNick']."' AND activate=1";
-			$tmpPlayers = mysql_query($tmpQueryId);
-			if (mysql_num_rows($tmpPlayers) > 0)
-			{
-				$tmpPlayer = mysql_fetch_array($tmpPlayers, MYSQL_ASSOC);
-
-				if ($tmpPlayer)
-				{
-					$oppColor="";
-					$newGameID = createInvitation($_SESSION['playerID'], $tmpPlayer['playerID'], $_POST['color'], $_POST['type'], $flagBishop, $flagKnight, $flagRook, $flagQueen, $oppColor, $_POST['timeMove']);
-		
-					if ($newGameID) {
-						
-						/* Notification */
-						chessNotification('invitation', $oppColor, '', $_SESSION['nick'], $newGameID);
-						insertActivity($_SESSION['playerID'], GAME, $newGameID, "", 'invitation');
-					}
-				}
-			}
 		}
 		break;
 

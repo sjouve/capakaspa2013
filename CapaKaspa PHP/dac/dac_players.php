@@ -115,6 +115,19 @@ function listPlayersPassifs()
   	return mysql_query($tmpQuery);  
 }
 
+/* Liste tous les joueurs */
+function listPlayersByNickName($str)
+{
+	$tmpQuery = "SELECT playerID, nick, firstName, lastName 
+					FROM players 
+					WHERE (nick like '%".$str."%' OR firstName like '%".$str."%' OR lastName like '%".$str."%')
+					AND activate = 1 
+					AND playerID != '".$_SESSION['playerID']."' 
+					ORDER BY nick";
+
+	return mysql_query($tmpQuery);
+}
+
 function disablePlayer()
 {
 	// TODO désactivation joueur
