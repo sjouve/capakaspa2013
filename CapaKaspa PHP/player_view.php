@@ -46,22 +46,56 @@ $titre_page = _("View player profile");
 $desc_page = _("View player profile");
 require 'include/page_header.php';
 ?>
+<script src="javascript/activity.js" type="text/javascript"></script>
+<script src="javascript/comment.js" type="text/javascript"></script>
+<script src="javascript/like.js" type="text/javascript"></script>
 <script type="text/javascript">
+function loadEndedGame(gameID)
+{
+	document.endedGames.gameID.value = gameID;
+	document.endedGames.submit();
+}
+function loadGame(gameID)
+{
 
-	function loadEndedGame(gameID)
-	{
-		document.endedGames.gameID.value = gameID;
-		document.endedGames.submit();
+	document.existingGames.gameID.value = gameID;
+	document.existingGames.submit();
+}
+function loadGameActivity(gameID)
+{
+
+	document.activityGames.gameID.value = gameID;
+	document.activityGames.submit();
+}
+
+function getheight() {
+	var myWidth = 0,
+		myHeight = 0;
+	if (typeof(window.innerWidth) == 'number') {
+		//Non-IE
+		myWidth = window.innerWidth;
+		myHeight = window.innerHeight;
+	} else if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+		//IE 6+ in 'standards compliant mode'
+		myWidth = document.documentElement.clientWidth;
+		myHeight = document.documentElement.clientHeight;
+	} else if (document.body && (document.body.clientWidth || document.body.clientHeight)) {
+		//IE 4 compatible
+		myWidth = document.body.clientWidth;
+		myHeight = document.body.clientHeight;
 	}
-	
-	function loadGame(gameID)
-	{
-		document.existingGames.gameID.value = gameID;
-		document.existingGames.submit();
+		var scrolledtonum = window.pageYOffset + myHeight + 2;
+		var heightofbody = document.body.offsetHeight;
+		if (scrolledtonum >= heightofbody && document.getElementById("startPage")) {
+			displayActivity(document.getElementById("startPage").value, 1);
 	}
+}
+
+window.onscroll = getheight;
 
 </script>
-<?    
+<?
+$attribut_body = "onload='displayActivity(0,1)'";
 require 'include/page_body_no_menu.php';
 ?>
   <div id="contentlarge">
@@ -344,6 +378,12 @@ require 'include/page_body_no_menu.php';
 		 <br/>
 		 <img src="graph_elo_progress.php?playerID=<?php echo($playerID);?>&elo=<?php echo($player['elo']);?>" width="650" height="250" />
 		 
+		 <form name="activityGames" action="game_board.php" method="post">
+				<div id="activities0" style="display: none;"><img src='images/ajaxloader.gif'/></div>
+				<input type="hidden" name="gameID" value="">
+				<input type="hidden" name="from" value="encours">
+		</form>
+			
     </div>
   </div>
 <?

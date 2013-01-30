@@ -121,6 +121,7 @@ function promotepawn()
 	
 	document.getElementById('btnPlay').style.visibility = 'visible';
 	document.getElementById('btnUndo').style.visibility = 'visible';
+	document.getElementById('shareMove').style.display = 'inline';
 	
 	/* update board and database */
 	//document.gamedata.submit();

@@ -254,6 +254,7 @@ require 'include/page_body.php';
 					<nobr>
 					<input type="button" id="btnUndo" name="btnUndo" class="button" style="visibility: hidden" value="<?php echo _("Cancel move")?>" onClick="javascript:undo();">
 					<input type="button" id="btnPlay" name="btnPlay" class="button" style="visibility: hidden" value="<?php echo _("Valid move")?>" onClick="javascript:play();">
+					<div id="shareMove" style="display: none"><input type="checkbox" name="chkShareMove" value="share"> <?echo _("Share")?></div>
 					</nobr>
 					<input type="hidden" name="gameID" value="<? echo ($_POST['gameID']); ?>">
 					<input type="hidden" name="requestDraw" value="no">

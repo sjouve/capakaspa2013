@@ -7,16 +7,23 @@ function insertActivity($playerID, $type, $entityID, $message, $msgType)
 	return $res_activity;
 }
 
-function listActivityFollowing($start, $limit, $playerID)
+function listActivity($start, $limit, $type, $playerID)
 {
 	$tmpQuery = "SELECT A.activityID, A.playerID, A.type, A.entityID, A.msgType, A.message, A.postDate, L.likeID,
 				G.gameID, G.eco, G.position, G.gameMessage, G.lastMove, G.dateCreated, G.type, G.flagBishop, G.flagKnight, G.flagRook, G.flagQueen, E.name ecoName,
 				WP.playerID wPlayerID, WP.firstName wFirstName, WP.lastName wLastName, WP.elo wElo, WP.socialNetwork wSocialNetwork, WP.socialID wSocialID,
 				BP.playerID bPlayerID, BP.firstName bFirstName, BP.lastName bLastName, BP.elo bElo, BP.socialNetwork bSocialNetwork, BP.socialID bSocialID
-		FROM activity A left join like_entity L on L.type = '".ACTIVITY."' AND L.entityID = A.activityID AND L.playerID = ".$_SESSION['playerID'].", fav_players F, games G left join eco E on E.eco = G.eco AND E.ecoLang = '".getLang()."', players WP, players BP
-		WHERE A.playerID = F.favPlayerID
-		AND F.playerID = ".$playerID."
-		AND A.entityID = G.gameID
+		FROM activity A left join like_entity L on L.type = '".ACTIVITY."' AND L.entityID = A.activityID AND L.playerID = ".$_SESSION['playerID'].", games G left join eco E on E.eco = G.eco AND E.ecoLang = '".getLang()."', players WP, players BP";
+		
+		if ($type == 0) // Following
+			$tmpQuery .= ", fav_players F 
+			WHERE A.playerID = F.favPlayerID
+			AND F.playerID = ".$playerID;
+		else // For a player
+			$tmpQuery .= "
+			WHERE A.playerID = ".$playerID;
+			
+		$tmpQuery .= " AND A.entityID = G.gameID
 		AND G.whitePlayer = WP.playerID
 		AND G.blackPlayer = BP.playerID
 		ORDER BY postDate desc
@@ -29,7 +36,7 @@ function listActivityFollowing($start, $limit, $playerID)
 function insertComment($playerID, $type, $entityID, $message)
 {
 	$res_comment = mysql_query("INSERT INTO comment (playerID, type, entityID, postDate, message)
-			VALUES (".$playerID.", '".$type."', ".$entityID.", now(), '".$message."')");
+			VALUES (".$playerID.", '".$type."', ".$entityID.", now(), '".addslashes(strip_tags($message))."')");
 	return $res_comment;
 }
 

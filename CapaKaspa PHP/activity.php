@@ -25,37 +25,15 @@ $titre_page = _("Activity");
 $desc_page = _("Activity");
 require 'include/page_header.php';
 ?>
+<script src="javascript/activity.js" type="text/javascript"></script>
 <script src="javascript/comment.js" type="text/javascript"></script>
 <script src="javascript/like.js" type="text/javascript"></script>
 <script type="text/javascript">
-function loadGame(gameID)
+function loadGameActivity(gameID)
 {
 
 	document.existingGames.gameID.value = gameID;
 	document.existingGames.submit();
-}
-
-function displayActivity(start)
-{
-	document.getElementById("activities"+start).style.display = "block";
-
-	if (window.XMLHttpRequest)
-	{// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp=new XMLHttpRequest();
-	}
-	else
-	{// code for IE6, IE5
-		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange=function()
-	{
-		if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{
-			document.getElementById("activities"+start).innerHTML=xmlhttp.responseText;
-		}
-	};
-	xmlhttp.open("GET","ajax/ajx_display_activity.php?start="+start,true);
-	xmlhttp.send();
 }
 
 function getheight() {
@@ -77,7 +55,7 @@ function getheight() {
 		var scrolledtonum = window.pageYOffset + myHeight + 2;
 		var heightofbody = document.body.offsetHeight;
 		if (scrolledtonum >= heightofbody && document.getElementById("startPage")) {
-			displayActivity(document.getElementById("startPage").value);
+			displayActivity(document.getElementById("startPage").value, 0);
 	}
 }
 
@@ -85,7 +63,7 @@ window.onscroll = getheight;
 
 </script>
 <?
-$attribut_body = "onload='displayActivity(0)'";
+$attribut_body = "onload='displayActivity(0,0)'";
 require 'include/page_body.php';
 ?>
 	<div id="content">

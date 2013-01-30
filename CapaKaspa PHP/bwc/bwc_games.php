@@ -221,7 +221,8 @@ function sendEmailNotification($history, $isPromoting, $numMoves, $isInCheck)
 	chessNotification('move', $oppColor, $strMove, $_SESSION['nick'], $_POST['gameID']);
 	
 	// Activity
-	insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], $strMove, 'move');
+	if (isset($_POST['chkShareMove']))
+		insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], $strMove, 'move');
 }
 
 /* I: $gameID, $numMoves

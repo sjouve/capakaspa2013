@@ -103,7 +103,7 @@
                 {
                 	document.getElementById('btnPlay').style.visibility = 'visible';
                 	document.getElementById('btnUndo').style.visibility = 'visible';
-                	
+                	document.getElementById('shareMove').style.display = 'inline';              	
                 }
 				//document.gamedata.submit();
 			}

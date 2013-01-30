@@ -24,10 +24,11 @@ require '../include/localization.php';
 
 // Load activities from 
 $start = $_GET["start"];
+$type = $_GET["type"];
 $limit = 5;
 
 $fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
-$tmpActivities = listActivityFollowing($start, $limit, $_SESSION['playerID']);
+$tmpActivities = listActivity($start, $limit, $type, $_SESSION['playerID']);
 $numActivities = mysql_num_rows($tmpActivities);
 
 while($tmpActivity = mysql_fetch_array($tmpActivities, MYSQL_ASSOC))
@@ -113,7 +114,7 @@ while($tmpActivity = mysql_fetch_array($tmpActivities, MYSQL_ASSOC))
 							<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpActivity['wFirstName']." ".$tmpActivity['wLastName']."<br>".$tmpActivity['wElo']."</span>
 							<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpActivity['bFirstName']." ".$tmpActivity['bLastName']."<br>".$tmpActivity['bElo']."</span>");
 							if ($tmpActivity['gameMessage'] == "")
-								echo("<br><br><br><span style='float: right'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGame(".$tmpActivity['gameID'].")'></span>");
+								echo("<br><br><br><span style='float: right'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGameActivity(".$tmpActivity['gameID'].")'></span>");
 									
 						echo("</div>
 					</div>
