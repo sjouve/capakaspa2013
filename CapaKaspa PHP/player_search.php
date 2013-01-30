@@ -6,6 +6,7 @@ if (!isset($_CONFIG))
 	require 'include/config.php';
 
 require 'dac/dac_players.php';
+require 'dac/dac_common.php';
 require 'bwc/bwc_common.php';
 require 'bwc/bwc_chessutils.php';
 require 'bwc/bwc_players.php';
@@ -15,157 +16,166 @@ require 'include/connectdb.php';
 		
 /* check session status */
 require 'include/sessioncheck.php';
-	
+
+// Traitement des critères
+$critCountry = isset($_POST['critCountry']) ? $_POST['critCountry'] : $_SESSION['countryCode'];
+$critName = isset($_POST['critName']) ? $_POST['critName'] : "";
+$critEloStart = isset($_POST['critEloStart']) ? $_POST['critEloStart'] : "";
+$critEloEnd = isset($_POST['critEloEnd']) ? $_POST['critEloEnd'] : "";
+$critStatus = isset($_POST['critStatus']) ? $_POST['critStatus']:"actif";
+$critFavorite = isset($_POST['critFavorite']) ? $_POST['critFavorite']:"na";
+
 $titre_page = _("Search for players");
 $desc_page = _("");
 require 'include/page_header.php';
 ?>
 <script type="text/javascript">
 
-	function loadPage(page)
-	{
-		document.searchPlayers.page.value = page;
-		document.searchPlayers.submit();
+function displayPlayers(start, critFav, critStat, critEloS, critEloE, critCtry, critName)
+{
+	document.getElementById("players"+start).style.display = "block";
+
+	if (window.XMLHttpRequest)
+	{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
 	}
+	else
+	{// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			document.getElementById("players"+start).innerHTML=xmlhttp.responseText;
+		}
+	};
+	xmlhttp.open("GET","ajax/ajx_display_player.php?start="+start+"&cf="+critFav+"&cs="+critStat+"&ces="+critEloS+"&cee="+critEloE+"&cc="+critCtry+"&cn="+critName,true);
+	xmlhttp.send();
+}
+
+function getheight() {
+	var myWidth = 0,
+		myHeight = 0;
+	if (typeof(window.innerWidth) == 'number') {
+		//Non-IE
+		myWidth = window.innerWidth;
+		myHeight = window.innerHeight;
+	} else if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+		//IE 6+ in 'standards compliant mode'
+		myWidth = document.documentElement.clientWidth;
+		myHeight = document.documentElement.clientHeight;
+	} else if (document.body && (document.body.clientWidth || document.body.clientHeight)) {
+		//IE 4 compatible
+		myWidth = document.body.clientWidth;
+		myHeight = document.body.clientHeight;
+	}
+		var scrolledtonum = window.pageYOffset + myHeight + 2;
+		var heightofbody = document.body.offsetHeight;
+		if (scrolledtonum >= heightofbody && document.getElementById("startPage")) {
+			displayPlayers(document.getElementById("startPage").value,'<? echo($critFavorite);?>','<? echo($critStatus);?>','<? echo($critEloStart);?>','<? echo($critEloEnd);?>','<? echo($critCountry);?>','<? echo($critName);?>');
+	}
+}
+
+window.onscroll = getheight;
 	
 </script>
 <?
+$attribut_body = "onload=\"displayPlayers(0,'".$critFavorite."','".$critStatus."','".$critEloStart."','".$critEloEnd."','".$critCountry."','".$critName."')\"";
 require 'include/page_body.php';
 ?>
-	<div id="contentlarge">
-		<div class="contentbody">
+<div id="content">
+	<div class="contentbody">
   
 		<?
-            $critEloStart = isset($_POST['critEloStart']) ? $_POST['critEloStart'] : "";
-            $critEloEnd = isset($_POST['critEloEnd']) ? $_POST['critEloEnd'] : "";
-            $critStatus = isset($_POST['critStatus']) ? $_POST['critStatus']:"actif";
-            $critFavorite = isset($_POST['critFavorite']) ? $_POST['critFavorite']:"na";
-            
-			$pge = isset($_POST['page']) ? $_POST['page']:0;
-            $limit = 25;
-			$debut = $pge*$limit;
-			$nb_tot = 0;
-			$res_count = searchPlayers("count", 0, 0, $critFavorite, $critStatus, $critEloStart, $critEloEnd); 
+            $nb_tot=0;
+			$res_count = searchPlayers("count", 0, 0, $critFavorite, $critStatus, $critEloStart, $critEloEnd, $critCountry, $critName); 
 			if ($res_count)
 			{
 				$count = mysql_fetch_array($res_count, MYSQL_ASSOC);
 				$nb_tot = $count['nbPlayers'];
 			}
 			
-			$nbpages = ceil($nb_tot/$limit); // ceil = plafond : pour arrondir à la valeur supérieure
-			$resultats = searchPlayers("", $debut, $limit, $critFavorite, $critStatus, $critEloStart, $critEloEnd); 
-			
 		?>
 		<h3><? echo _("Players advanced search");?></h3>
-		<div>
+		<div id="searchForm">
 			<form name="searchPlayers" action="player_search.php" method="post">
-				<table border="0" width="650">
-		          <tr>
-		            <td width="180"><? echo _("Followings");?> :</td>
-		            <td>
-		              <input name="critFavorite" type="radio" value="na" <?if ($critFavorite=='na') echo('checked');?>>
-		              <? echo _("Anyone");?>
-		            </td>
-		            <td colspan="2">
-		              <input name="critFavorite" type="radio" value="oui" <?if ($critFavorite=='oui') echo('checked');?>>
-		              <img src='images/favori-etoile-icone.png' /> <? echo _("Yes");?>  
-		              
-		            </td>
-		            
-		          </tr>
-		          <tr>
-		            <td width="180"><? echo _("Activity");?> :</td>
-		            <td>
-		              <input name="critStatus" type="radio" value="tous" <?if ($critStatus=='tous') echo('checked');?>>
-		              <? echo _("All");?>
-		            </td>
-		            <td> 
-		              <input name="critStatus" type="radio" value="actif" <?if ($critStatus=='actif') echo('checked');?>>
-		              <img src='images/joueur_actif.gif' /> <? echo _("Active");?>
-		            </td>
-		            <td>
-		              <input name="critStatus" type="radio" value="passif" <?if ($critStatus=='passif') echo('checked');?>>
-		              <img src='images/joueur_passif.gif' /> <? echo _("Passive");?>
-		            </td>
-		          </tr>
-		          <tr>
-		            <td width="180"><? echo _("Elo ranking");?> :</td>
-		            <td>
-		              <? echo _("Between");?> <input name="critEloStart" type="text" size="4" maxlength="4" value="<? echo($critEloStart);?>">
-		            </td>
-		            <td>
-		              <? echo _("and");?> <input name="critEloEnd" type="text" size="4" maxlength="4" value="<? echo($critEloEnd);?>">
-		            </td>
-		            <td>
-		            	<input name="Filter" type="submit" value="Filtrer">
-		
-		            </td>
-		          </tr>
-		          
+				<table border="0" width="100%">
+		        	<tr>
+			            <td><?echo _("Country");?> :</td>
+			            <td colspan="3"><select name="critCountryCode" id="critCountryCode">
+				            <?
+				            echo "\t",'<option value="">', _("All countries") ,'</option>',"\n";
+				            $tmpCountries = listCountriesByLang(getLang());
+				            while($tmpCountry = mysql_fetch_array($tmpCountries, MYSQL_ASSOC))
+				            {
+				            	$selected = "";
+				            	if($tmpCountry['countryCode'] == $critCountry)
+				            	{
+				            		$selected = " selected";
+				            	}
+				            	echo "\t",'<option value="', $tmpCountry['countryCode'] ,'"', $selected ,'>', $tmpCountry['countryName'] ,'</option>',"\n";
+				            }	
+				            ?>
+			            </select></td>
+		        	</tr>
+		        	<tr>
+			            <td><?echo _("Name");?> :</td>
+			            <td colspan="3">
+			            	<input name="critName" type="text" size="15" maxlength="20" value="<? echo($critName);?>">
+			            </td>
+		        	</tr>
+		        	<tr>
+		            	<td width="140"><? echo _("Network");?> :</td>
+			            <td>
+			              <input name="critFavorite" name="critFavorite" type="radio" value="na" <?if ($critFavorite=='na') echo('checked');?>>
+			              <? echo _("All");?>
+			            </td>
+			            <td>
+			              <input name="critFavorite" type="radio" value="wing" <?if ($critFavorite=='wing') echo('checked');?>>
+			              <? echo _("Following");?>	              
+			            </td>
+			            <td>
+			              <input name="critFavorite" type="radio" value="wers" <?if ($critFavorite=='wers') echo('checked');?>>
+			              <? echo _("Followers");?>	              
+			            </td>
+		          	</tr>
+		          	<tr>
+			            <td><? echo _("Activity");?> :</td>
+			            <td>
+			              <input name="critStatus" type="radio" value="tous" <?if ($critStatus=='tous') echo('checked');?>>
+			              <? echo _("All");?>
+			            </td>
+			            <td> 
+			              <input name="critStatus" type="radio" value="actif" <?if ($critStatus=='actif') echo('checked');?>>
+			              <img src='images/joueur_actif.gif' /> <? echo _("Active");?>
+			            </td>
+			            <td>
+			              <input name="critStatus" type="radio" value="passif" <?if ($critStatus=='passif') echo('checked');?>>
+			              <img src='images/joueur_passif.gif' /> <? echo _("Passive");?>
+			            </td>
+		          	</tr>
+		          	<tr>
+			            <td ><? echo _("Elo ranking");?> :</td>
+			            <td>
+			              <? echo _("Between");?> <input name="critEloStart" type="text" size="4" maxlength="4" value="<? echo($critEloStart);?>">
+			            </td>
+			            <td>
+			              <? echo _("and");?> <input name="critEloEnd" type="text" size="4" maxlength="4" value="<? echo($critEloEnd);?>">
+			            </td>
+			            <td align="right">
+			            	<input type="submit" name="Filter" value="<? echo _("Filter");?>" class="button">	
+			            </td>
+		          	</tr>	          
 		        </table>
-		        
-	        	<?
-	         	displayPageNav($pge, $limit, $nb_tot, $nbpages);
-	        	?>
-	        	
-	        	<input type="hidden" name="page" value="">
-	        </form>
+			</form>
+	        	<? echo($nb_tot." "._("player(s) found"));?>	        	
         </div>
         
-		<div class="tabliste">  	
-		<table border="0" width="100%">
-		  	<tr>
-			<th width="20%">Surnom</th>
-			<th width="5%">Elo</th>
-			<th width="5%">Age</th>
-			<th width="15%">Localisation</th>
-			<th width="35%">Profil</th>
-			<th width="20%">Invitation</th>
-		  	</tr>
-			<?
-				if ($nb_tot == 0)
-					echo("<tr><td colspan='6'>Il n'y a pas de joueurs</td></tr>\n");
-				else
-				{
-					while($tmpPlayer = mysql_fetch_array($resultats, MYSQL_ASSOC))
-					{
-						echo ("<tr valign='top'>");
-						echo ("<form action='game_new.php' method='post'>");
-						echo ("<input type='hidden' name='ToDo' value='InvitePlayer'>");
-						echo ("<td>");
-						echo ("<input type='hidden' name='opponent' value='".$tmpPlayer['nick']."'><a href='player_view.php?playerID=".$tmpPlayer['playerID']."'>".$tmpPlayer['nick']."</a><br/>");
-						if ($tmpPlayer['lastActionTime'])
-							echo("<img src='images/user_online.gif'/>");
-						if (isNewPlayer($tmpPlayer['creationDate']))
-							echo("<img src='images/user_new.gif'/>");
-						echo ("</td>");
-						echo ("<td>");
-						echo ($tmpPlayer['elo']);
-						echo ("</td>");
-						echo ("<td align='right'>");
-						echo (date("Y")-$tmpPlayer['anneeNaissance']);
-						echo ("</td>");
-						echo ("<td>");
-						//echo ("<TEXTAREA NAME='txtProfil' COLS='13' ROWS='3' readonly='readonly'>".stripslashes($tmpPlayer['situationGeo'])."</TEXTAREA>");
-						echo ("<div style='word-wrap: break-word;width: 90px;'>".stripslashes($tmpPlayer['situationGeo'])."</div>");
-						echo ("</td>");
-						echo ("<td>");
-						//echo ("<TEXTAREA NAME='txtProfil' COLS='40' ROWS='3' readonly='readonly'>".stripslashes($tmpPlayer['profil'])."</TEXTAREA>");
-						echo ("<div style='word-wrap: break-word;width: 220px;'>".stripslashes($tmpPlayer['profil'])."</div>");
-						echo ("</td>");
-						echo ("<td>
-								<input type='submit' class='link' value='"._("New game")."'>");
-						echo ("</td>");
-						echo ("</form>"); 
-						echo ("</tr>");
-					}
-				}
-			?>
-					
-		</table>
-		</div>
-		</div>
+        <div id="players0" style="display: none;"><img src='images/ajaxloader.gif'/></div>
+        
 	</div>
+</div>
 <?
 require 'include/page_footer.php';
 mysql_close();

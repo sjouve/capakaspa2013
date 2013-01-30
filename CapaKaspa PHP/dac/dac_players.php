@@ -116,12 +116,16 @@ function listPlayersPassifs()
 }
 
 /* Liste tous les joueurs */
-function listPlayersByNickName($str)
+function listPlayersByNickName($str, $type)
 {
 	$tmpQuery = "SELECT playerID, nick, firstName, lastName 
-					FROM players 
-					WHERE (nick like '%".$str."%' OR firstName like '%".$str."%' OR lastName like '%".$str."%')
-					AND activate = 1 
+					FROM players ";
+	if ($type != 0)
+		$tmpQuery .= "WHERE nick = '".$str."'";
+	else
+		$tmpQuery .= "WHERE (nick like '%".$str."%' OR firstName like '%".$str."%' OR lastName like '%".$str."%')";
+	
+	$tmpQuery .= "	AND activate = 1 
 					AND playerID != '".$_SESSION['playerID']."' 
 					ORDER BY nick";
 
@@ -287,21 +291,30 @@ function listEloProgress($playerID)
  * $limit : nb résultat par page 
  * 
  */
-function searchPlayers($mode, $debut, $limit, $critFavorite, $critStatus, $critEloStart, $critEloEnd)
+function searchPlayers($mode, $debut, $limit, $critFavorite, $critStatus, $critEloStart, $critEloEnd, $critCountry, $critName)
 {
 	
 	if ($mode=="count")
 		$tmpQuery = "SELECT count(*) nbPlayers 
 				FROM players P left join online_players O on O.playerID = P.playerID";
 	else
-		$tmpQuery = "SELECT P.playerID, P.nick, P.anneeNaissance, P.profil, P.situationGeo, P.elo, O.lastActionTime, P.creationDate 
-				FROM players P left join online_players O on O.playerID = P.playerID";
+		$tmpQuery = "SELECT P.playerID, P.nick, P.firstName, P.lastName, P.socialNetwork, P.socialID, P.profil, 
+							P.situationGeo, P.elo, P.lastConnection, P.creationDate,
+							O.lastActionTime,
+							C.countryName
+					FROM players P left join online_players O on O.playerID = P.playerID, country C ";
 	
-	if ($critFavorite == "oui")
+	if ($critFavorite == "wing" || $critFavorite == "wers")
 		$tmpQuery .= ", fav_players F";
 	
-	$tmpQuery .= " WHERE activate=1 
-				AND P.playerID <> ".$_SESSION['playerID'];
+	if ($mode=="count")
+		$tmpQuery .= " WHERE P.activate=1
+					AND P.playerID <> ".$_SESSION['playerID'];
+	else
+		$tmpQuery .= " WHERE P.activate=1 
+					AND P.playerID <> ".$_SESSION['playerID']." 
+					AND P.countryCode = C.countryCode
+					AND C.countryLang = '".getLang()."'";
 	
 	if ($critStatus == "actif")			 
 		$tmpQuery .= " AND DATE_ADD(P.lastConnection, INTERVAL 14 DAY) >= NOW()"; 
@@ -315,10 +328,20 @@ function searchPlayers($mode, $debut, $limit, $critFavorite, $critStatus, $critE
 		$tmpQuery .= " AND P.elo >= ".$critEloStart;
 	if ($critEloStart == '' and $critEloEnd != '')	
 		$tmpQuery .= " AND P.elo <= ".$critEloEnd;		
-				
-	if ($critFavorite == "oui")			
+
+	if ($critCountry != '')
+		$tmpQuery .= " AND P.countryCode = '".$critCountry."'";
+	
+	if ($critName != '')
+		$tmpQuery .= " AND (P.nick like '%".$critName."%' OR P.firstName like '%".$critName."%' OR P.lastName like '%".$critName."%') ";
+	
+	if ($critFavorite == "wing")			
 				$tmpQuery .= " AND P.playerID = F.favPlayerID 
 				AND F.playerID = ".$_SESSION['playerID'];
+	
+	if ($critFavorite == "wers")
+		$tmpQuery .= " AND P.playerID = F.playerID
+		AND F.favPlayerID = ".$_SESSION['playerID'];
 				 
 		$tmpQuery .= " ORDER BY O.lastActionTime DESC, P.nick ASC";
 				

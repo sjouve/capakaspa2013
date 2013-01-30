@@ -82,7 +82,7 @@ function getheight() {
 }
 
 window.onscroll = getheight;
-    	
+
 </script>
 <?
 $attribut_body = "onload='displayActivity(0)'";

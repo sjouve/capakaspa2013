@@ -26,7 +26,7 @@ $username = isset($_POST['opponent'])? $_POST['opponent'] :"";
 ?>
 <script src="javascript/formValidation.js" type="text/javascript"></script>
 <script type="text/javascript">
-function showHint(str)
+function showHint(str, type)
 {
 	var xmlhttp;
 	if (str.length < 3)
@@ -51,7 +51,7 @@ function showHint(str)
 	    }
 	}
 	document.getElementById("ajaxprogressname").style.display = 'inline';
-	xmlhttp.open("GET","ajax/ajx_list_player_nick.php?str="+str, true);
+	xmlhttp.open("GET","ajax/ajx_list_player_nick.php?str="+str+"&type="+type, true);
 	xmlhttp.send();
 }
 
@@ -79,7 +79,7 @@ function sendInvitation(email)
 				document.getElementById("ajaxprogressemail").style.display = 'none';
 	    		document.getElementById("account_exist_error").style.display = 'inline';
 	    		document.getElementById("txtHint").value = xmlhttp.responseText;
-	    		showHint(xmlhttp.responseText);    		
+	    		showHint(xmlhttp.responseText, 1);    		
 			}
 			else
 			{
@@ -107,7 +107,7 @@ function startGame()
 }
 </script>
 <?
-$attribut_body = "onload=\"showHint('".$username."')\"";
+$attribut_body = "onload=\"showHint('".$username."', 1)\"";
 require 'include/page_body.php';
 ?>
 <div id="contentlarge">
@@ -170,7 +170,7 @@ require 'include/page_body.php';
 						<select id="opponent" name="opponent" style="width:380px;">
 							<option value="" selected><?echo _("Type a part of user name, first name or last name in the box")?></option>
 						</select>
-						<input id="txtHint" name="txtHint" type="text" size="15" maxlength="20" value="<? echo($username);?>" onkeyup="javascript:showHint(this.value);">
+						<input id="txtHint" name="txtHint" type="text" size="15" maxlength="20" value="<? echo($username);?>" onkeyup="javascript:showHint(this.value, 0);">
 						<div id="ajaxprogressname" style="display: none;"><img src="images/ajaxprogress.gif"></div>				
 					</td>
 				</tr>

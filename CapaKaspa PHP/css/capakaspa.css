@@ -777,6 +777,58 @@
 		
 	}
 	
+	.player {
+		float: left;
+		width: 100%;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		border-top-style: solid;
+		border-right-style: none;
+		border-bottom-style: none;
+		border-left-style: none;
+		border-width: 1px;
+		border-color: #CCCCCC;
+		overflow: hidden;
+	}
+	.player .leftbar{
+		float: left;
+		width: 10%;
+		border-top-style: none;
+		border-right-style: none;
+		border-bottom-style: none;
+		border-left-style: none;
+		overflow: hidden;
+	}
+	.player .details{
+		float: left;
+		width: 90%;
+		border-top-style: none;
+		border-right-style: none;
+		border-bottom-style: none;
+		border-left-style: none;
+		overflow: hidden;
+	}
+	.player .details .title{
+		float: left;
+		width: 100%;
+		margin-bottom:3px;
+		border-top-style: none;
+		border-right-style: none;
+		border-bottom-style: none;
+		border-left-style: none;
+		overflow: hidden;
+	}
+	.player .details .content{
+		float: left;
+		width: 100%;
+		border-top-style: none;
+		border-right-style: none;
+		border-bottom-style: none;
+		border-left-style: none;
+		line-height: normal;
+		font-size: 10px;
+		overflow: hidden;
+	}
 	.activity {
 		float: left;
 		width: 100%;

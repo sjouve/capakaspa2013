@@ -17,8 +17,9 @@ require '../include/localization.php';
 
 // List players
 $str=$_GET["str"];
+$type=$_GET["type"];
 
-$tmpPlayers = listPlayersByNickName($str);
+$tmpPlayers = listPlayersByNickName($str, $type);
 
 if (mysql_num_rows($tmpPlayers) > 0)
 {

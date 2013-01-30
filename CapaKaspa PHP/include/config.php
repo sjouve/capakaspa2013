@@ -28,7 +28,7 @@
 	/* SMTP operations.  This flag allows you to easily activate
 						   or deactivate this feature.  It is highly recommended you test
 						   it before putting it into production */
-	$CFG_USEEMAILNOTIFICATION = false;	
+	$CFG_USEEMAILNOTIFICATION = true;	
 	
 	// email address people see when receiving CapaKaspa generated mail
 	$CFG_MAILADDRESS = "capakaspa@capakaspa.info";		
