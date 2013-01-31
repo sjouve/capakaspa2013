@@ -1,5 +1,16 @@
 ﻿// these functions are used to test the validity of moves
 DEBUG = false;
+
+var knightMove = [[-1, -2], [+1, -2], [-2, -1], [-2, +1], [-1, +2], [+1, +2], [+2, -1], [+2, +1]];
+var diagonalMove = [[-1, -1], [-1, +1], [+1, +1], [+1, -1]];
+var horzVertMove = [[-1, 0], [0, +1], [+1, 0], [0, -1]];
+
+// The array 'direction' is a combination of diagonalMove and horzVertMove 
+// It could also be created using 'var direction = horzVertMove.concat(diagonalMove)'
+// although the order of the elements would be different
+var direction = [[-1, -1], [-1, 0], [-1, +1], [0, +1], [+1, +1], [+1, 0], [+1, -1], [0, -1]];
+var pawnMove = [[+1, -1], [+1, 0], [+2, 0], [+1, +1]];
+
 // object definition (used by isSafe)
 function GamePiece()
 {
@@ -29,81 +40,18 @@ function GamePiece()
 			alert("in isSafe(" + testRow + ", " + testCol + ", " + testColor + ")");
 
 		var ennemyColor = 0;
+		
 		if (testColor == 'white')
 			ennemyColor = 128; /* 1000 0000 */
 
 		/* check for knights first */
-		if (((testRow - 1) >= 0) && ((testCol - 2) >= 0))
-			if (board[testRow - 1][testCol - 2] == (KNIGHT | ennemyColor))
-			{
-				if (DEBUG)
-					alert("isSafe -> knight at (" + (testRow - 1) + ", " + (testCol - 2) + ")");
-
-				return false;
-			}
-
-		if (((testRow + 1) < 8) && ((testCol - 2) >= 0))
-			if (board[testRow + 1][testCol - 2] == (KNIGHT | ennemyColor))
-			{
-				if (DEBUG)
-					alert("isSafe -> knight");
-
-				return false;
-			}
-
-		if (((testRow - 2) >= 0) && ((testCol - 1) >= 0))
-			if (board[testRow - 2][testCol - 1] == (KNIGHT | ennemyColor))
-			{
-				if (DEBUG)
-					alert("isSafe -> knight");
-
-				return false;
-			}
-
-		if (((testRow - 2) >= 0) && ((testCol + 1) < 8))
-			if (board[testRow - 2][testCol + 1] == (KNIGHT | ennemyColor))
-			{
-				if (DEBUG)
-					alert("isSafe -> knight");
-
-				return false;
-			}
-
-		if (((testRow - 1) >= 0) && ((testCol + 2) < 8))
-			if (board[testRow - 1][testCol + 2] == (KNIGHT | ennemyColor))
-			{
-				if (DEBUG)
-					alert("isSafe -> knight");
-
-				return false;
-			}
-
-		if (((testRow + 1) < 8) && ((testCol + 2) < 8))
-			if (board[testRow + 1][testCol + 2] == (KNIGHT | ennemyColor))
-			{
-				if (DEBUG)
-					alert("isSafe -> knight");
-
-				return false;
-			}
-
-		if (((testRow + 2) < 8) && ((testCol - 1) >= 0))
-			if (board[testRow + 2][testCol - 1] == (KNIGHT | ennemyColor))
-			{
-				if (DEBUG)
-					alert("isSafe -> knight");
-
-				return false;
-			}
-
-		if (((testRow + 2) < 8) && ((testCol + 1) < 8))
-			if (board[testRow + 2][testCol + 1] == (KNIGHT | ennemyColor))
-			{
-				if (DEBUG)
-					alert("isSafe -> knight");
-
-				return false;
-			}
+		for (var i = 0; i < 8; i++) {	// Check all eight possible knight moves
+			var fromRow = testRow + knightMove[i][0];
+			var fromCol = testCol + knightMove[i][1];
+			if (isInBoard(fromRow, fromCol))
+				if (board[fromRow][fromCol] == (KNIGHT | ennemyColor))	// Enemy knight found
+						return false;
+		}
 
 		/* tactic: start at test pos and check all 8 directions for an attacking piece */
 		/* directions:
@@ -244,7 +192,7 @@ function GamePiece()
 							board[testRow][testCol] = pieceFound[i].piece;
 
 							var kingRow = 0;
-							var KingCol = 0;
+							var kingCol = 0;
 							switch(i)
 							{
 								case 0: kingRow = testRow - 1; kingCol = testCol - 1;
@@ -368,6 +316,11 @@ function GamePiece()
 		board[fromRow][fromCol] = 0;
 
 		/* The king does not move to a square that is attacked by an enemy piece */
+		if(tmpColor == 'white')
+			var atkColor = BLACK;
+		else
+			var atkColor = WHITE;
+		
 		if (isInCheck(tmpColor))
 		{
 			/* return king to original position */
@@ -738,54 +691,68 @@ function GamePiece()
 		return false;
 	}
 
-	function isValidMove()
-	{
-		var fromRow = parseInt(document.gamedata.fromRow.value);
-		var fromCol = parseInt(document.gamedata.fromCol.value);
-		var toRow = parseInt(document.gamedata.toRow.value);
-		var toCol = parseInt(document.gamedata.toCol.value);
+	/* Ignoring pins, could the piece on the from-square move to the to-square? */
 
+	function isValidNoPinMove(fromRow, fromCol, toRow, toCol, epCol)
+	{
 		var tmpDir = 1;
 		var curColor = "white";
+
 		if (board[fromRow][fromCol] & BLACK)
 		{
 			tmpDir = -1;
 			curColor = "black";
 		}
 
-		var isValid = true;
+		var isValid = false;
+
 		switch(board[fromRow][fromCol] & COLOR_MASK)
 		{
 			case PAWN:
-				isValid = isValidMovePawn(fromRow, fromCol, toRow, toCol, tmpDir);
+				isValid = isValidMovePawn(fromRow, fromCol, toRow, toCol, tmpDir, epCol);
 				break;
+
 			case KNIGHT:
 				isValid = isValidMoveKnight(fromRow, fromCol, toRow, toCol);
 				break;
+
 			case BISHOP:
 				isValid = isValidMoveBishop(fromRow, fromCol, toRow, toCol);
 				break;
+
 			case ROOK:
 				isValid = isValidMoveRook(fromRow, fromCol, toRow, toCol);
 				break;
+
 			case QUEEN:
 				isValid = isValidMoveQueen(fromRow, fromCol, toRow, toCol);
 				break;
+
 			case KING:
-				if (DEBUG)
-					alert("isValidMove -> King");
-
 				isValid = isValidMoveKing(fromRow, fromCol, toRow, toCol, curColor);
-
-				if (DEBUG)
-					alert("isValidMove -> King -> isValid = " + isValid);
 				break;
+
 			default:	/* ie: not implemented yet */
 				if (DEBUG)
 					alert("unknown game piece");
-
-				isValid = true;
 		}
+
+		return isValid;
+
+	}
+	
+	function isValidMove(fromRow, fromCol, toRow, toCol, epCol)
+	{
+		if(!isValidNoPinMove(fromRow, fromCol, toRow, toCol, epCol))
+			return false;	// The piece on the from-square doesn't even move in this way
+
+		/* now that we know the move itself is valid, let's make sure we're not moving into check */
+		/* NOTE: we don't need to check for the king since it's covered by isValidMoveKing() */
+		var curColor = "white";
+
+		if (board[fromRow][fromCol] & BLACK)
+			curColor = "black";
+		var isValid = true;
 
 		/* now that we know the move itself is valid, let's make sure we're not moving into check */
 		/* NOTE: we don't need to check for the king since it's covered by isValidMoveKing() */
@@ -817,7 +784,7 @@ function GamePiece()
 					alert("isValidMove -> moving into check -> CHECK!");
 
 				/* if so, invalid move */
-				errMsg = document.getElementById('#alert_err_check_id').innerHTML;
+				errMsg = document.getElementById('#alert_err_move_check_id').innerHTML;
 				//errMsg = "Cannot move into check.";
 				isValid = false;
 			}
@@ -856,298 +823,951 @@ function canSquareBeBlocked(testRow, testCol, testColor)
 		alert("in canSquareBeBlocked(" + testRow + ", " + testCol + ", " + testColor + ")");
 		//alert("Test Color: " + testColor);
 	}
-	var ennemyColor = 0; // Attacking
-	var myColor = 128; // Blocking
+	
+	var ennemyColor = WHITE;	// Attacking
+	var myColor = BLACK;		// Blocking
+
 	if (testColor == 'black')
 	{
-		ennemyColor = 128; /* 1000 0000 */
-		myColor = 0;
+		ennemyColor = BLACK; /* 1000 0000 */
+		myColor = WHITE;
 	}
 
 	/* check for knights first */
-	if (((testRow - 1) >= 0) && ((testCol - 2) >= 0))
-		if (board[testRow - 1][testCol - 2] == (KNIGHT | myColor))
-		{
-			if (DEBUG)
-				alert("canSquareBeBlocked -> knight at (" + (testRow - 1) + ", " + (testCol - 2) + ")");
+	for (var i = 0; i < 8; i++) {	// Check all eight possible knight moves
+		var fromRow = testRow + knightMove[i][0];
+		var fromCol = testCol + knightMove[i][1];
 
-			return true;
-		}
-
-	if (((testRow + 1) < 8) && ((testCol - 2) >= 0))
-		if (board[testRow + 1][testCol - 2] == (KNIGHT | myColor))
-		{
-			if (DEBUG)
-				alert("canSquareBeBlocked -> knight");
-
-			return true;
-		}
-
-	if (((testRow - 2) >= 0) && ((testCol - 1) >= 0))
-		if (board[testRow - 2][testCol - 1] == (KNIGHT | myColor))
-		{
-			if (DEBUG)
-				alert("canSquareBeBlocked -> knight");
-
-			return true;
-		}
-
-	if (((testRow - 2) >= 0) && ((testCol + 1) < 8))
-		if (board[testRow - 2][testCol + 1] == (KNIGHT | myColor))
-		{
-			if (DEBUG)
-				alert("canSquareBeBlocked -> knight");
-
-			return true;
-		}
-
-	if (((testRow - 1) >= 0) && ((testCol + 2) < 8))
-		if (board[testRow - 1][testCol + 2] == (KNIGHT | myColor))
-		{
-			if (DEBUG)
-				alert("canSquareBeBlocked -> knight");
-
-			return true;
-		}
-
-	if (((testRow + 1) < 8) && ((testCol + 2) < 8))
-		if (board[testRow + 1][testCol + 2] == (KNIGHT | myColor))
-		{
-			if (DEBUG)
-				alert("canSquareBeBlocked -> knight");
-
-			return true;
-		}
-
-	if (((testRow + 2) < 8) && ((testCol - 1) >= 0))
-		if (board[testRow + 2][testCol - 1] == (KNIGHT | myColor))
-		{
-			if (DEBUG)
-				alert("canSquareBeBlocked -> knight");
-
-			return true;
-		}
-
-	if (((testRow + 2) < 8) && ((testCol + 1) < 8))
-		if (board[testRow + 2][testCol + 1] == (KNIGHT | myColor))
-		{
-			if (DEBUG)
-				alert("canSquareBeBlocked -> knight");
-
-			return true;
-		}
+		if (isInBoard(fromRow, fromCol))
+			if (board[fromRow][fromCol] == (KNIGHT | myColor))	// Knight found
+				if(isValidMove(fromRow, fromCol, testRow, testCol))
+					return true;	// It can move and block the attack
+	}
 
 	/* tactic: start at test pos and check all 8 directions for an attacking piece */
+
 	/* directions:    BLACK:    WHITE:
+
 		0 1 2         2 1 0     6 5 4
+
 		7 * 3         3 * 7     7 * 3
+
 		6 5 4         4 5 6     0 1 2
+
 	*/
-	var pieceFound = new Array();
-	for (i = 0; i < 8; i++)
-		pieceFound[i] = new GamePiece();
 
-	// Check for the next piece in every direction
-	for (i = 1; i < 8; i++)
+	for (var j = 0; j < 8; j++)		// Look for pieces in all directions
+
 	{
-		if (((testRow - i) >= 0) && ((testCol - i) >= 0))
-		{ // if square is in board..
-			if ((pieceFound[0].piece == 0) && (board[testRow - i][testCol - i] != 0))
-			{ // If we haven't found a piece in this direction and we just found one..
-				if (DEBUG)
-					alert("canSquareBeBlocked -> pieceFound[0] = " + board[testRow - i][testCol - i] + "\ndist = " + i);
 
-				pieceFound[0].piece = board[testRow - i][testCol - i];
-				pieceFound[0].dist = i;
-			}
-		}
+		var fromRow = testRow;
 
-		if ((testRow - i) >= 0)
+		var fromCol = testCol;
+
+		for (var i = 1; i < 8; i++)	// Distance from the test square
+
 		{
-			if ((pieceFound[1].piece == 0) && (board[testRow - i][testCol] != 0))
-			{
-				if (DEBUG)
-					alert("canSquareBeBlocked -> pieceFound[1] = " + board[testRow - i][testCol] + "\ndist = " + i);
 
-				pieceFound[1].piece = board[testRow - i][testCol];
-				pieceFound[1].dist = i;
-			}
-		}
+			fromRow += direction[j][0];
 
-		if (((testRow - i) >= 0) && ((testCol + i) < 8))
-		{
-			if ((pieceFound[2].piece == 0) && (board[testRow - i][testCol + i] != 0))
-			{
-				if (DEBUG)
-					alert("canSquareBeBlocked -> pieceFound[2] = " + board[testRow - i][testCol + i] + "\ndist = " + i);
+			fromCol += direction[j][1];
 
-				pieceFound[2].piece = board[testRow - i][testCol + i];
-				pieceFound[2].dist = i;
-			}
-		}
+			if (isInBoard(fromRow, fromCol))
 
-		if ((testCol + i) < 8)
-		{
-			if ((pieceFound[3].piece == 0) && (board[testRow][testCol + i] != 0))
-			{
-				if (DEBUG)
-					alert("canSquareBeBlocked -> pieceFound[3] = " + board[testRow][testCol + i] + "\ndist = " + i);
+			{ // if square is in board..
 
-				pieceFound[3].piece = board[testRow][testCol + i];
-				pieceFound[3].dist = i;
-			}
-		}
+				if (board[fromRow][fromCol] != 0)
 
-		if (((testRow + i) < 8) && ((testCol + i) < 8))
-		{
-			if ((pieceFound[4].piece == 0) && (board[testRow + i][testCol + i] != 0))
-			{
-				if (DEBUG)
-					alert("canSquareBeBlocked -> pieceFound[4] = " + board[testRow + i][testCol + i] + "\ndist = " + i);
+				{ // We found the first piece in this direction
 
-				pieceFound[4].piece = board[testRow + i][testCol + i];
-				pieceFound[4].dist = i;
-			}
-		}
+					if((board[fromRow][fromCol] & BLACK) == myColor)
 
-		if ((testRow + i) < 8)
-		{
-			if ((pieceFound[5].piece == 0) && (board[testRow + i][testCol] != 0))
-			{
-				if (DEBUG)
-					alert("canSquareBeBlocked -> pieceFound[5] = " + board[testRow + i][testCol] + "\ndist = " + i);
+					{ // It is my piece
 
-				pieceFound[5].piece = board[testRow + i][testCol];
-				pieceFound[5].dist = i;
-			}
-		}
+						if(isValidMove(fromRow, fromCol, testRow, testCol))
 
-		if (((testRow + i) < 8) && ((testCol - i) >= 0))
-		{
-			if ((pieceFound[6].piece == 0) && (board[testRow + i][testCol - i] != 0))
-			{
-				if (DEBUG)
-					alert("canSquareBeBlocked -> pieceFound[6] = " + board[testRow + i][testCol - i] + "\ndist = " + i);
+							return true;	// It can move and block the attack
 
-				pieceFound[6].piece = board[testRow + i][testCol - i];
-				pieceFound[6].dist = i;
-			}
-		}
-
-		if ((testCol - i) >= 0)
-		{
-			if ((pieceFound[7].piece == 0) && (board[testRow][testCol - i] != 0))
-			{
-				if (DEBUG)
-					alert("canSquareBeBlocked -> pieceFound[7] = " + board[testRow][testCol - i] + "\ndist = " + i);
-
-				pieceFound[7].piece = board[testRow][testCol - i];
-				pieceFound[7].dist = i;
-			}
-		}
-	} // done checking in all directions
-
-	/* check pieces found for possible threats */
-	for (var i = 0; i < 8; i++)
-	{
-		if ((pieceFound[i].piece != 0) && ((pieceFound[i].piece & BLACK) == myColor))
-		{ // I found one of my pieces!
-			if(DEBUG)
-			{
-				alert("Color: " + (pieceFound[i].piece & BLACK) + " (" + getPieceColor(pieceFound[i].piece) + ") color: " + myColor + "\nPiece: " + pieceFound[i].piece + " (" + getPieceName(pieceFound[i].piece) + ")" + " Dir: " + i);
-			} // End DEBUG
-
-			switch(i)
-			{
-				/* diagonally: queen, bishop */
-				case 0:
-				case 2:
-				case 4:
-				case 6:
-					//alert("Diagonally...");
-					if (((pieceFound[i].piece & COLOR_MASK) == QUEEN)
-							|| ((pieceFound[i].piece & COLOR_MASK) == BISHOP))
-					{ // Found Queen or Bishop
-						if (DEBUG)
-							alert("canSquareBeBlocked -> notKnight -> diagonal -> Q or B -> " + getPieceColor(pieceFound[i].piece) + " " + getPieceName(pieceFound[i].piece) + "\ndist = " + pieceFound[i].dist + " dir = " + i);
-						return true;
 					}
 
-					// REMOVED pawn validation!!!
-					// REMOVED king validation..
+					break;		// No need to look further in this direction
 
-					break;
-
-				/* horizontally/vertically: queen, rook, pawn */
-				case 1:
-				case 3:
-				case 5:
-				case 7:
-				{
-					//alert("Horiz/Vert...");
-					if (((pieceFound[i].piece & COLOR_MASK) == QUEEN)
-							|| ((pieceFound[i].piece & COLOR_MASK) == ROOK))
-					{ // Found Queen or Rook
-						if (DEBUG)
-							alert("canSquareBeBlocked -> notKnight -> horiz/vert -> Q or R -> " + getPieceColor(pieceFound[i].piece) + " " + getPieceName(pieceFound[i].piece) + "\ndist = " + pieceFound[i].dist + "dir = " + i);
-
-						return true;
-					}
-
-					// ADDED!!
-					if ((pieceFound[i].dist == 1)
-							&& ((pieceFound[i].piece & COLOR_MASK) == PAWN)
-							&& ((1==i) || (5==i)))
-					{ // Found a pawn vertically at one square distance..
-						if ((myColor == WHITE) && (i == 1) )
-						{
-							if (DEBUG)
-							{
-								alert("canSquareBeBlocked -> notKnight -> vertical -> Pawn -> " + getPieceColor(pieceFound[i].piece) + " " + getPieceName(pieceFound[i].piece) + "\ndist = " + pieceFound[i].dist + "\ndir = " + i);
-							}
-							return true;
-						}
-						else if ((myColor == BLACK) && (i == 5) )
-						{
-							if (DEBUG)
-							{
-								alert("canSquareBeBlocked -> notKnight -> vertical -> Pawn -> " + getPieceColor(pieceFound[i].piece) + " " + getPieceName(pieceFound[i].piece) + "\ndist = " + pieceFound[i].dist + "\ndir = " + i);
-							}
-							return true;
-						}
-					}
-
-					if ((pieceFound[i].dist == 2)
-							&& ((pieceFound[i].piece & COLOR_MASK) == PAWN))
-					{ // Pawn detection moving 2 squares forward
-						if ((myColor == WHITE) && (i == 1) && (3 == testRow))
-						{
-							if(DEBUG)
-							{
-								//alert("TestRow: " + testRow);
-								alert("canSquareBeBlocked -> notKnight -> vertical -> Pawn -> " + getPieceColor(pieceFound[i].piece) + " " + getPieceName(pieceFound[i].piece) + "\ndist = " + pieceFound[i].dist + "\ndir = " + i);
-							}
-							return true;
-						}
-						if ((myColor == BLACK) && (i == 5) && (4 == testRow))
-						{
-							if(DEBUG)
-							{
-								//alert("TestRow: " + testRow);
-								alert("canSquareBeBlocked -> notKnight -> vertical -> Pawn -> " + getPieceColor(pieceFound[i].piece) + " " + getPieceName(pieceFound[i].piece) + "\ndist = " + pieceFound[i].dist + "\ndir = " + i);
-							}
-							return true;
-						}
-					} // End pawn detection moving 2 squares forward
-
-					break;
 				}
+
 			}
-		} // End if enemy piece found
-	} // end for each direction..
 
-	if (DEBUG)
-		alert("canSquareBeBlocked is false");
+			else
 
-	return false;
+				break;	// We fell off the edge of the board
+
+		}
+
+	}
+
+	return false;	// The attack cannot be blocked
+
+}
+
+
+
+/* canBeCaptured returns true if the piece at testRow, testCol can be captured */
+
+function canBeCaptured(testRow, testCol, epCol)
+
+{
+
+	/* DESIGN NOTE: this function is designed only with CAPTURE checking in mind and should 
+
+		not be used for other purposes, e.g. if there is no piece (or a king) on the give square */
+
+	/* Both normal captures and en passant captures are checked. The epCol parameter
+
+	   should contain the column number of the en passant square or -1 if there is none.
+
+	   If epCol >= 0 it indicates that we are replying to a pawn double advance move */
+
+
+
+	var	tmpDir = -1;
+
+	var	ennemyColor = BLACK;
+
+	if (board[testRow][testCol] & BLACK)
+
+	{
+
+		tmpDir = 1;
+
+		ennemyColor = WHITE;
+
+	}
+
+	var thePiece = getPieceName(board[testRow][testCol]);
+
+
+
+	var atkSquare = new Array();
+
+	atkSquare = getAttackers(testRow, testCol, ennemyColor);	// Find all attackers
+
+	
+
+	for (var i = 0; i < atkSquare.length; i++)	// Are the attackers pinned or can they capture?
+
+		if(isValidMove(atkSquare[i][0], atkSquare[i][1], testRow, testCol))
+
+			return true;	// The piece can be captured
+
+
+
+	// If thePiece is a pawn can it by captured en passant?
+
+	if(thePiece == 'pawn' && ((testRow == 3 && ennemyColor == BLACK) || (testRow == 4 && ennemyColor == WHITE)))
+
+	{	// The pawn is on the correct row for a possible e.p. capture
+
+		if(testCol > 0 && board[testRow][testCol-1] == (PAWN | ennemyColor))
+
+			if(board[testRow + tmpDir][testCol] == 0)	// It's not a regular capture
+
+					if(isValidMove(testRow, testCol-1, testRow + tmpDir, testCol, epCol))
+
+						return true;	// En passant capture
+
+		if(testCol < 7 && board[testRow][testCol+1] == (PAWN | ennemyColor))
+
+			if(board[testRow + tmpDir][testCol] == 0)	// It's not a regular capture
+
+					if(isValidMove(testRow, testCol+1, testRow + tmpDir, testCol. epCol))
+
+						return true;	// En passant capture
+
+	}
+
+	return false;	// The piece cannot be captured
+
+}
+
+
+
+/* Find all pieces of color atkColor that attack the given square */
+
+/* Note: Even if a piece attacks a square it may not be able to move there */
+
+/* Note: En passant captures are not considered by this function */
+
+function getAttackers(toRow, toCol, atkColor)
+
+{
+
+	var atkSquare = new Array();
+
+
+
+	/* check for knights first */
+
+	for (var i = 0; i < 8; i++) {	// Check all eight possible knight moves
+
+		var fromRow = toRow + knightMove[i][0];
+
+		var fromCol = toCol + knightMove[i][1];
+
+		if (isInBoard(fromRow, fromCol))
+
+			if (board[fromRow][fromCol] == (KNIGHT | atkColor))	// Enemy knight found
+
+					atkSquare[atkSquare.length] = [fromRow, fromCol];
+
+	}
+
+	/* tactic: start at test square and check all 8 directions for an attacking piece */
+
+	/* directions:
+
+		0 1 2
+
+		7 * 3
+
+		6 5 4
+
+	*/
+
+
+
+	for (var j = 0; j < 8; j++)		// Look in all directions
+
+	{
+
+		var fromRow = toRow;
+
+		var fromCol = toCol;
+
+		for (var i = 1; i < 8; i++)	// Distance from thePiece
+
+		{
+
+			fromRow += direction[j][0];
+
+			fromCol += direction[j][1];
+
+			if (isInBoard(fromRow, fromCol))
+
+			{
+
+				if (board[fromRow][fromCol] != 0)
+
+				{	// We found the first piece in this direction
+
+					if((board[fromRow][fromCol] & BLACK) == atkColor)	// It is an enemy piece
+
+					{
+
+						if(isAttacking(board[fromRow][fromCol], fromRow, fromCol, getPieceColor(board[fromRow][fromCol]), toRow, toCol))
+
+							atkSquare[atkSquare.length] = [fromRow, fromCol];	// An attacker found
+
+					}
+
+					break;		// No need to look further in this direction
+
+				}
+
+			}
+
+			else
+
+				break;
+
+		}
+
+	}
+
+	return atkSquare;
+
+}
+
+
+
+/* Is the given square attacked by a piece of color atkColor? */
+
+function isAttacked(toRow, toCol, atkColor)
+
+{
+
+	return getAttackers(toRow, toCol, atkColor).length > 0;
+
+}
+
+
+
+/* Count how many different moves are possible in the current position for myColor */
+
+function countMoves(myColor)
+
+{
+
+	var moves = genAllMoves(myColor);
+
+	var count = 0;
+
+	for (var i in moves)			// For all board rows
+
+	{
+
+		for (var j in moves[i])		// Check all columns
+
+		{
+
+			count += moves[i][j].length;
+
+		}
+
+	}
+
+	return count;
+
+}
+
+
+
+/* Generate all possible moves for the side indicated by the myColor parameter */
+
+function genAllMoves(myColor)
+
+{
+
+	var moves = new Array();
+
+	for (var i = 0; i < 8; i++)			// For all board rows
+
+	{
+
+		for (var j = 0; j < 8; j++)		// Check all columns
+
+		{
+
+			if(board[i][j] != 0 && ((board[i][j] & BLACK) == myColor))
+
+			{
+
+				if(!(i in moves))
+
+					moves[i] = new Array();
+
+				moves[i][j] = genPieceMoves(i, j);
+
+			}
+
+		}
+
+	}
+
+	return moves;
+
+}
+
+
+
+/* Generate moves for a rook, bishop or queen placed at the from-square */
+
+function genSlideMoves(fromRow, fromCol, moveDir)
+
+{
+
+	var toSquare = new Array();	// Store the generated moves
+
+	var	ennemyColor = BLACK;
+
+	if (board[fromRow][fromCol] & BLACK)
+
+	{
+
+		ennemyColor = WHITE;
+
+	}
+
+	for (var j = 0; j < moveDir.length; j++)	// Check all (valid) directions
+
+	{
+
+		var toRow = fromRow;
+
+		var toCol = fromCol;
+
+		for (var i = 1; i < 8; i++)	// Distance from the piece
+
+		{
+
+			toRow += moveDir[j][0];
+
+			toCol += moveDir[j][1];
+
+			if (isInBoard(toRow, toCol))
+
+			{
+
+				if (board[toRow][toCol] != 0)
+
+				{	// We found the first piece in this direction
+
+					if((board[toRow][toCol] & BLACK) == ennemyColor)	// It's an enemy piece
+
+					{
+
+						if(isValidMove(fromRow, fromCol, toRow, toCol))
+
+							toSquare[toSquare.length] = [toRow, toCol];	// A capture
+
+					}
+
+					break;		// No need to look further in this direction
+
+				}
+
+				else	// an empty square
+
+				{
+
+					if(isValidMove(fromRow, fromCol, toRow, toCol))
+
+						toSquare[toSquare.length] = [toRow, toCol];	// Move to an empty square
+
+				}
+
+			}
+
+			else
+
+				break;
+
+		}
+
+	}
+
+	return toSquare;
+
+}
+
+
+
+/* Generate all moves for the piece at the given square */
+
+/* Currently this function is only used to test for stalemate.
+
+   Therefore castling moves are not checked as they are not relevant 
+
+   for that purpose */
+
+function genPieceMoves(fromRow, fromCol)
+
+{
+
+	var	ennemyColor = BLACK;
+
+	if (board[fromRow][fromCol] & BLACK)
+
+	{
+
+		ennemyColor = WHITE;
+
+	}
+
+	var thePiece = board[fromRow][fromCol];
+
+
+
+	var toSquare = new Array();
+
+	
+
+	switch(thePiece & COLOR_MASK)
+
+	{
+
+		case PAWN:
+
+			var forwardDir = 1;
+
+			if (ennemyColor == WHITE)
+
+				forwardDir = -1;
+
+
+
+			for (var i = 0; i < 4; i++) {
+
+				var toRow = fromRow + pawnMove[i][0] * forwardDir;
+
+				var toCol = fromCol + pawnMove[i][1];
+
+				if (isInBoard(toRow, toCol))
+
+					if (board[toRow][toCol] == 0 || (board[toRow][toCol] & BLACK) == ennemyColor)
+
+						if(isValidMove(fromRow, fromCol, toRow, toCol))
+
+							toSquare[toSquare.length] = [toRow, toCol];
+
+			}
+
+			break;
+
+
+
+		case ROOK:
+
+			toSquare = genSlideMoves(fromRow, fromCol, horzVertMove);
+
+			break;
+
+			
+
+		case KNIGHT:
+
+			for (var i = 0; i < 8; i++) {	// Check all eight possible knight moves
+
+				var toRow = fromRow + knightMove[i][0];
+
+				var toCol = fromCol + knightMove[i][1];
+
+				if (isInBoard(toRow, toCol))
+
+					if (board[toRow][toCol] == 0 || (board[toRow][toCol] & BLACK) == ennemyColor)
+
+						if(isValidMove(fromRow, fromCol, toRow, toCol))
+
+							toSquare[toSquare.length] = [toRow, toCol];
+
+			}
+
+			break;
+
+			
+
+		case BISHOP:
+
+			toSquare = genSlideMoves(fromRow, fromCol, diagonalMove);
+
+			break;
+
+			
+
+		case QUEEN:
+
+			toSquare = genSlideMoves(fromRow, fromCol, direction);
+
+			break;
+
+			
+
+		case KING:
+
+			for (var i = 0; i < 8; i++) {	// Check all eight possible king moves
+
+				var toRow = fromRow + direction[i][0];
+
+				var toCol = fromCol + direction[i][1];
+
+				if (isInBoard(toRow, toCol))
+
+					if (board[toRow][toCol] == 0 || (board[toRow][toCol] & BLACK) == ennemyColor)
+
+						if(isValidMove(fromRow, fromCol, toRow, toCol))
+
+							toSquare[toSquare.length] = [toRow, toCol];
+
+			}
+
+			break;
+
+	}
+
+
+
+	return toSquare;
+
+}
+
+
+
+//
+
+// FEN functions
+
+//
+
+
+
+Files = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+
+
+
+function ExpandFEN(FEN) {
+
+  var theFEN = FEN.replace(/[2-8]/g,                    // Expand contiguous empty squares
+
+    function strRepeat(count) {                         //   e.g. change '4' to '1111'
+
+      var strOut = '';
+
+      for(var i=0; i < count; i++) {
+
+       strOut += '1';
+
+      }
+
+     return strOut;
+
+    }
+
+  );
+
+  return theFEN.replace(/\//g, "");                     // Leave only pieces and empty squares
+
+}
+
+
+
+function PackFEN(piecePlacement, activeColor, castlingAvail, epSquare, halfmoveClock, fullmoveNumber)
+
+{ // Pack all the FEN fields into one string
+
+	var FEN = '';
+
+	var idx = 0;
+
+	var empty = 0;
+
+	var c = '';
+
+	for(var i=0; i < 64; i++)
+
+	{ // Generate the correct piece placement string
+
+		if(i > 0 && (i % 8 == 0))
+
+		{ // New row
+
+			if(empty > 0)
+
+			{ // Count of empty squares does not continue across rows
+
+				FEN += empty + "";
+
+				empty = 0;
+
+				idx++;
+
+			}
+
+			FEN += '/';	// New row
+
+		}
+
+		c = piecePlacement.charAt(i);
+
+		if(c == '1')
+
+		{ // Count consecutive empty squares
+
+			empty++;
+
+		}
+
+		else
+
+		{ // Non-empty square
+
+			if(empty > 0)
+
+			{ // Add the number of consecutive empty squares to the output string
+
+				FEN += empty + "";
+
+				empty = 0;
+
+				idx++;
+
+			}
+
+			FEN += c + "";
+
+			idx++;
+
+		}
+
+	}
+
+	if(empty > 0)
+
+	{
+
+		FEN += empty + "";
+
+	}
+
+	return FEN + ' ' + activeColor + ' ' + castlingAvail + ' ' + epSquare + ' ' + halfmoveClock + ' ' + fullmoveNumber;
+
+}
+
+
+
+function getFENStartPos()
+
+{
+
+	return 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
+
+}
+
+
+
+// Returns an array of FEN strings for the current game
+
+// Note that this function assumes that the game started from the normal initial position
+
+function historyToFEN()
+
+{
+
+	var FEN = new Array();
+
+	FEN[0] = getFENStartPos();	// The start position
+
+	var activeColor = 'w';
+
+	var wKS = 'K';	// Castling availability
+
+	var wQS = 'Q';
+
+	var bKS = 'k';
+
+	var bQS = 'q';
+
+	var castlingAvail = 'KQkq';
+
+	var epSquare = '-';	// The en passant square
+
+	var halfmoveClock = 0;	// Number of half moves since last capture or pawn move
+
+	var fullmoveNumber = 1;	// The move number
+
+	for (var i = 0; i <= numMoves; i++)
+
+	{
+
+		FEN[i+1] = ExpandFEN(FEN[i]).slice(0, 64);	// Get the piece placement from the FEN string
+
+		if(chessHistory[i][CURCOLOR] == 'white')
+
+			activeColor = 'b';
+
+		else
+
+		{
+
+			activeColor = 'w';
+
+			fullmoveNumber++;
+
+		}
+
+		var fromCol = chessHistory[i][FROMCOL];
+
+		var fromRow = chessHistory[i][FROMROW];
+
+		var row = chessHistory[i][TOROW];
+
+		var col = chessHistory[i][TOCOL];
+
+		if(FEN[i+1].charAt(col + (7 - row) * 8) != '1' || chessHistory[i][CURPIECE] == 'pawn')
+
+			halfmoveClock = 0;	// Restart the count after pawn move or capture
+
+		else
+
+			halfmoveClock++;
+
+		var piece = FEN[i+1].charAt((7 - fromRow) * 8 + fromCol);
+
+		FEN[i+1] = FEN[i+1].slice(0, (7 - fromRow) * 8 + fromCol) + '1' + FEN[i+1].slice((7 - fromRow) * 8 + fromCol + 1);
+
+		FEN[i+1] = FEN[i+1].slice(0, (7 - row) * 8 + col) + piece + FEN[i+1].slice((7 - row) * 8 + col + 1);
+
+
+
+		if (chessHistory[i][CURPIECE] == 'king')
+
+		{ // Can't castle after the king has been moved
+
+			if(chessHistory[i][CURCOLOR] == 'white')
+
+			{
+
+				wKS = '';
+
+				wQS = '';
+
+			}
+
+			else
+
+			{
+
+				bKS = '';
+
+				bQS = '';
+
+			}
+
+			/* if this is a castling move the rook must also be moved */
+
+			if (Math.abs(col - fromCol) == 2)
+
+			{	// The king only moves two squares when castling
+
+				var rookCol = 0;
+
+				var rookToCol = 3
+
+				if (col - fromCol == 2)
+
+				{	// Kingside castling (would be == -2 if queenside)
+
+					rookCol = 7;
+
+					rookToCol = 5;
+
+				}
+
+				FEN[i+1] = FEN[i+1].slice(0, (7 - row) * 8 + rookToCol) + FEN[i+1].charAt((7 - row) * 8 + rookCol) + FEN[i+1].slice((7 - row) * 8 + rookToCol + 1);
+
+				FEN[i+1] = FEN[i+1].slice(0, (7 - row) * 8 + rookCol) + '1' + FEN[i+1].slice((7 - row) * 8 + rookCol + 1);
+
+			} 
+
+		}
+
+		else if (chessHistory[i][CURPIECE] == 'rook')
+
+		{
+
+			if(chessHistory[i][CURCOLOR] == 'white')
+
+			{
+
+				if(fromRow == 0)
+
+				{
+
+					if(fromCol == 0)
+
+						wQS = '';
+
+					else
+
+						wKS = '';
+
+				}
+
+			}
+
+			else
+
+			{
+
+				if(fromRow == 7)
+
+				{
+
+					if(fromCol == 0)
+
+						bQS = '';
+
+					else
+
+						bKS = '';
+
+				}
+
+			}
+
+		}
+
+		else if(chessHistory[i][CURPIECE] == 'pawn' && Math.abs(chessHistory[i][TOROW] - chessHistory[i][FROMROW]) == 2)
+
+		{ // Pawn double advance, so en passant capture may be possible on the next move
+
+			if(chessHistory[i][CURCOLOR] == 'white')
+
+			{
+
+				epSquare = Files[fromCol] + '3';
+
+			}
+
+			else
+
+			{
+
+				epSquare = Files[fromCol] + '6';
+
+			}
+
+		}
+
+		castlingAvail = wKS + wQS + bKS + bQS;
+
+		if(castlingAvail == '')
+
+			castlingAvail = '-';
+
+		FEN[i+1] = PackFEN(FEN[i+1], activeColor, castlingAvail, epSquare, halfmoveClock, fullmoveNumber);
+
+		epSquare = '-';
+
+	}
+
+	return FEN;
+
+}
+
+
+
+function isFiftyMoveDraw(FEN)
+
+{ // Returns true if the game is drawn due to the fifty move draw rule (no captures or pawn moves)
+
+	return FEN.split(' ')[4] >= 100;
+
+	
+
+}
+
+
+
+function isThirdTimePosDraw(FEN)
+
+{ // Returns true if this is the third time that the exact same position arises with the same side to move
+
+	var currentPos = FEN[FEN.length - 1].split(' ', 4).join(' ');
+
+	var count = 0;
+
+	for (var i = 0; i < FEN.length - 1; i++)
+
+	{
+
+		if(currentPos == FEN[i].split(' ', 4).join(' '))
+
+		{
+
+			count++;
+
+		}
+
+	}
+
+	return count >= 2;
+
 }

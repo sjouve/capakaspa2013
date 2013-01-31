@@ -196,14 +196,6 @@ function getNextAttacker(targetRow, targetCol, targetColor, attackerCoords)
 	return false;
 }
 
-function isInBoard(row, col)
-{
-	if ((row >= 0) && (row <= 7) && (col >= 0) && (col <= 7))
-		return true;
-	else
-		return false;
-}
-
 /* NOTE: isAttacking() assumes no piece exists between attacker and target, such is the case in getNextAttacker() */
 function isAttacking(attackerPiece, attackerRow, attackerCol, attackerColor, targetRow, targetCol)
 {
@@ -302,7 +294,7 @@ function canBlockAttacker(attackerPiece, attackerRow, attackerCol, attackerColor
 	return false;
 }
 
-function isCheckMate(curColor)
+function isCheckMate(curColor, epCol)
 {
 	var kingRow = 0;
 	var kingCol = 0;
@@ -357,8 +349,8 @@ function isCheckMate(curColor)
 		}
 
 		/* can attacker be captured */
-		var canBeCaptured = !isSafe(attackerRow, attackerCol, attackerColor);
-
+		var isEnPrise = canBeCaptured(attackerRow, attackerCol, epCol);
+		
 
 		/* can attacker be blocked */
 		var canBeBlocked = false;
@@ -377,7 +369,7 @@ function isCheckMate(curColor)
 				alert("Can't be captured");
 		}
 
-		if (!canBeCaptured && !canBeBlocked)
+		if (!isEnPrise && !canBeBlocked)
 			return true;
 	}
 
