@@ -1,5 +1,5 @@
 // Manage activity
-function displayActivity(start, type)
+function displayActivity(start, type, playerID)
 {
 	document.getElementById("activities"+start).style.display = "block";
 
@@ -18,6 +18,6 @@ function displayActivity(start, type)
 			document.getElementById("activities"+start).innerHTML=xmlhttp.responseText;
 		}
 	};
-	xmlhttp.open("GET","ajax/ajx_display_activity.php?start="+start+"&type="+type,true);
+	xmlhttp.open("GET","ajax/ajx_display_activity.php?start="+start+"&type="+type+"&player="+playerID,true);
 	xmlhttp.send();
 }

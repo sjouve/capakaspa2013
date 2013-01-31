@@ -23,29 +23,15 @@ require 'include/localization.php';
 /* Charger le profil */
 $playerID = isset($_POST['playerID']) ? $_POST['playerID']:$_GET['playerID'];
 $player = getPlayer($playerID);
-
-/* Action */
-$ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:(isset($_GET['ToDo'])?$_GET['ToDo']:"");
-
-switch($ToDo)
-{
-	case 'AddFavorite':
-		insertFavPlayer($_SESSION['playerID'], $player['playerID']);
-		break;
 	
-	case 'DelFavorite':
-		$favorite = getPlayerFavorite($_SESSION['playerID'], $player['playerID']);
-		deleteFavPlayer($favorite['favoriteID']);
-		break;
-}
-	
-/* Charger le favori */
+/* Load following */
 $favorite = getPlayerFavorite($_SESSION['playerID'], $player['playerID']);
     
 $titre_page = _("View player profile");
 $desc_page = _("View player profile");
 require 'include/page_header.php';
 ?>
+<script src="javascript/follow.js" type="text/javascript"></script>
 <script src="javascript/activity.js" type="text/javascript"></script>
 <script src="javascript/comment.js" type="text/javascript"></script>
 <script src="javascript/like.js" type="text/javascript"></script>
@@ -87,7 +73,7 @@ function getheight() {
 		var scrolledtonum = window.pageYOffset + myHeight + 2;
 		var heightofbody = document.body.offsetHeight;
 		if (scrolledtonum >= heightofbody && document.getElementById("startPage")) {
-			displayActivity(document.getElementById("startPage").value, 1);
+			displayActivity(document.getElementById("startPage").value, 1, <? echo($playerID);?>);
 	}
 }
 
@@ -95,39 +81,28 @@ window.onscroll = getheight;
 
 </script>
 <?
-$attribut_body = "onload='displayActivity(0,1)'";
+$attribut_body = "onload='displayActivity(0, 1, ".$playerID.")'";
 require 'include/page_body_no_menu.php';
 ?>
   <div id="contentlarge">
     <div class="contentbody">
       
 	  <h3>
-	  <form action="player_view.php" method="post">
 	  <img src="<?echo(getPicturePath($player['socialNetwork'], $player['socialID']));?>" width="50" height="50"/>
 	  <? 
 	  	echo($player['firstName']." ".$player['lastName']); 
-	  	if ($favorite) echo(" <img src='images/favori-etoile-icone.png'/>"); 
 	  	if (getOnlinePlayer($player['playerID'])) echo (" <img src='images/user_online.gif'/>");
 	  	if (isNewPlayer($player['creationDate'])) echo (" <img src='images/user_new.gif'/>");
 	  ?>
-	  <? if ($_SESSION['playerID']!=$player['playerID'] && !$favorite) {?>
-			
-				<input type="hidden" name="ToDo" value="AddFavorite">
-				<input type="hidden" name="playerID" value="<? echo($player['playerID']);?>">
-				<input type="submit" value="<? echo _("Follow");?>" class="button">
-			
+	  <? if ($_SESSION['playerID']!=$player['playerID'] && !$favorite) {?>	
+				<div id="follow<?echo($player['playerID']);?>" style="display: inline;"><input id="btnFollow" value="<? echo _("Follow")?>" type="button" class="button" onclick="javascript:insertFav(<?echo($player['playerID']);?>);"></div>
 			<? }?>
-			<? if ($_SESSION['playerID']!=$player['playerID'] && $favorite) {?>
-			
-				<input type="hidden" name="ToDo" value="DelFavorite">
-				<input type="hidden" name="playerID" value="<? echo($player['playerID']);?>">
-				<input type="submit" value="<? echo _("Unfollow");?>" class="button">
-			
+		<? if ($_SESSION['playerID']!=$player['playerID'] && $favorite) {?>			
+				<div id="follow<?echo($player['playerID']);?>" style="display: inline;"><input id="btnFollow" value="<? echo _("Unfollow")?>" type="button" class="button" onclick="javascript:deleteFav(<?echo($favorite['favoriteID']);?>, <?echo($player['playerID']);?>);"></div>
 		<? }?>
 		<? if ($_SESSION['playerID']==$player['playerID']) {?>
 		<a href="player_update.php"><?php echo _("Update my information")?></a>
 		<? }?>
-	  	</form>
 	  	</h3>
 		
         <table border="0" width="530">
@@ -164,35 +139,9 @@ require 'include/page_body_no_menu.php';
         </table>
 		<br/>
 		<? if ($_SESSION['playerID']!=$player['playerID']) {?>
-		<form action="index.php" method="post">
-			<h3>Proposez une nouvelle partie à <? echo($player['nick']); ?></h3>
-			<input type="hidden" name="ToDo" value="InvitePlayer">
-			<input type="hidden" name="opponent" value="<? echo($player['playerID']);?>">
-			<table width="100%">
-				<tr>
-					<td width="35%">
-						Position : <input type="radio" name="type" value="0" checked> Normale
-					</td>
-					<td width="65%">
-						<input type="radio" name="type" value="1"> Roi, Pions et
-						<input type="checkbox" name="flagBishop" value="1"> Fous
-						<input type="checkbox" name="flagKnight" value="1"> Cavaliers
-						<input type="checkbox" name="flagRook" value="1"> Tours
-						<input type="checkbox" name="flagQueen" value="1"> Dames
-					</td>
-				</tr>
-			</table>
-			<table>
-				<tr>
-					<td>Votre couleur :
-						<input type="radio" name="color" value="white" checked> Blancs
-						<input type="radio" name="color" value="black"> Noirs
-					</td>
-					<td align="right">
-						<input type="submit" value="<? echo _("Invite");?>" class="button">
-					</td>
-				</tr>
-			</table>
+		<form action="game_new.php" method="post">
+			<input type="submit" class="link" value="<? echo _("New game");?>">
+			<input type="hidden" name="opponent" value="<? echo _($player['nick']);?>">
 		</form>
 		<br/>
 		<?}?>

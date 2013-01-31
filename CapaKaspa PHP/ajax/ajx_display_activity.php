@@ -25,10 +25,11 @@ require '../include/localization.php';
 // Load activities from 
 $start = $_GET["start"];
 $type = $_GET["type"];
+$playerID = $_GET["player"];
 $limit = 5;
 
 $fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
-$tmpActivities = listActivity($start, $limit, $type, $_SESSION['playerID']);
+$tmpActivities = listActivity($start, $limit, $type, $playerID);
 $numActivities = mysql_num_rows($tmpActivities);
 
 while($tmpActivity = mysql_fetch_array($tmpActivities, MYSQL_ASSOC))
@@ -63,7 +64,7 @@ while($tmpActivity = mysql_fetch_array($tmpActivities, MYSQL_ASSOC))
 	
 	switch($tmpActivity['msgType'])
 	{
-			
+		// Invitation	
 		case 'invitation':
 			$message = _("invites someone to play a new game :");
 			break;
@@ -72,25 +73,37 @@ while($tmpActivity = mysql_fetch_array($tmpActivities, MYSQL_ASSOC))
 			$message = _("canceled its invitation to play a new game with");
 			break;
 				
-		case 'resignation':
-			$message = _("resigned in the game against");
-			break;
-				
-		case 'move':
-			$message = _("play the move")." ".$tmpActivity['message']._(" in the game against");
-			break;
-				
 		case 'accepted':
 			$message = _("has accepted invitation. A new game began against");
 			break;
-				
+			
 		case 'declined':
 			$message = _("refused invitation to play a new game against");
+			break;
+
+		// Result
+		// won by resignation against
+		// lose by resignation against
+		// drew (mutual consent) against
+		// drew (stalemate) against
+		// drew (50 moves) against
+		// drew (insufficient material) against
+		// drew (3 times position) against
+		// won by checkmate against
+		// lose by checkmate against
+		case 'resignation':
+			$message = _("resigned in the game against");
 			break;
 				
 		case 'draw':
 			$message = _("accepted draw proposal against");
 			break;
+		
+		// Move
+		case 'move':
+			$message = _("play the move")." ".$tmpActivity['message']._(" in the game against");
+			break;
+						
 	}
 	
 	echo("

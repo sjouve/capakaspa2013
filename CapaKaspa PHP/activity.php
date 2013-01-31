@@ -55,7 +55,7 @@ function getheight() {
 		var scrolledtonum = window.pageYOffset + myHeight + 2;
 		var heightofbody = document.body.offsetHeight;
 		if (scrolledtonum >= heightofbody && document.getElementById("startPage")) {
-			displayActivity(document.getElementById("startPage").value, 0);
+			displayActivity(document.getElementById("startPage").value, 0, <? echo($_SESSION['playerID']);?>);
 	}
 }
 
@@ -63,7 +63,7 @@ window.onscroll = getheight;
 
 </script>
 <?
-$attribut_body = "onload='displayActivity(0,0)'";
+$attribut_body = "onload='displayActivity(0, 0, ".$_SESSION['playerID'].")'";
 require 'include/page_body.php';
 ?>
 	<div id="content">

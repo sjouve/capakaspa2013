@@ -97,6 +97,8 @@ function sendMail($msgTo, $mailSubject, $mailMsg)
 	
 	if ($CFG_USEEMAILNOTIFICATION)
 	{
+		// TODO Warning: mail(): SMTP server response: 452 4.3.1 Insufficient system storage in D:\eclipse\wokspace\capakaspa\CapaKaspa PHP\bwc\bwc_common.php on line 100
+		// Catcher le warning
 		$res = mail($msgTo, $mailSubject, $mailMsg, $headers);
 	}
 	

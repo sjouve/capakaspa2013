@@ -524,7 +524,8 @@ function processMessages()
 	$Test = isset($_POST['isCheckMate']) ? $_POST['isCheckMate']:Null;
 	if ($Test == 'true')
 		mysql_query("UPDATE games SET gameMessage = 'checkMate', messageFrom = '".$playersColor."' WHERE gameID = ".$_POST['gameID']);
-
+	// TODO Insert activity pour checkmate
+	
 	$tmpQuery = "SELECT gameMessage, messageFrom FROM games WHERE gameID = ".$_POST['gameID'];
 	$tmpMessages = mysql_query($tmpQuery);
 	$tmpMessage = mysql_fetch_array($tmpMessages, MYSQL_ASSOC);
@@ -551,7 +552,7 @@ function processMessages()
 
 	if ($tmpMessage['gameMessage'] == "checkMate")
 	{
-		$statusMessage .= _("Check and Mat!")." ".$tmpColor." "._("win the game")."<br>\n";
+		$statusMessage .= _("Check and Mat!")." ".$tmpColor." "._("win the game")."\n";
 		$isGameOver = true;
 		$isCheckMate = true;
 	}
