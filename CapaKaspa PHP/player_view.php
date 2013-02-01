@@ -19,14 +19,15 @@ require 'include/connectdb.php';
 require 'include/sessioncheck.php';
 
 require 'include/localization.php';
-	
+$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
+
 /* Charger le profil */
 $playerID = isset($_POST['playerID']) ? $_POST['playerID']:$_GET['playerID'];
 $player = getPlayer($playerID);
 	
 /* Load following */
 $favorite = getPlayerFavorite($_SESSION['playerID'], $player['playerID']);
-    
+
 $titre_page = _("View player profile");
 $desc_page = _("View player profile");
 require 'include/page_header.php';
@@ -83,70 +84,124 @@ window.onscroll = getheight;
 <?
 $attribut_body = "onload='displayActivity(0, 1, ".$playerID.")'";
 require 'include/page_body_no_menu.php';
+/*
+ * Parties en cours
+ * Parties contre 
+ * Statistiques parties
+ * Abonnés
+ * Abonnements
+ * 
+ */
 ?>
-  <div id="contentlarge">
-    <div class="contentbody">
-      
-	  <h3>
-	  <img src="<?echo(getPicturePath($player['socialNetwork'], $player['socialID']));?>" width="50" height="50"/>
-	  <? 
-	  	echo($player['firstName']." ".$player['lastName']); 
-	  	if (getOnlinePlayer($player['playerID'])) echo (" <img src='images/user_online.gif'/>");
-	  	if (isNewPlayer($player['creationDate'])) echo (" <img src='images/user_new.gif'/>");
-	  ?>
-	  <? if ($_SESSION['playerID']!=$player['playerID'] && !$favorite) {?>	
-				<div id="follow<?echo($player['playerID']);?>" style="display: inline;"><input id="btnFollow" value="<? echo _("Follow")?>" type="button" class="button" onclick="javascript:insertFav(<?echo($player['playerID']);?>);"></div>
-			<? }?>
-		<? if ($_SESSION['playerID']!=$player['playerID'] && $favorite) {?>			
-				<div id="follow<?echo($player['playerID']);?>" style="display: inline;"><input id="btnFollow" value="<? echo _("Unfollow")?>" type="button" class="button" onclick="javascript:deleteFav(<?echo($favorite['favoriteID']);?>, <?echo($player['playerID']);?>);"></div>
+<div id="player_header">
+	<div id="player_name" style="float:left; display: block;padding: 5px;">
+		<img src="<?echo(getPicturePath($player['socialNetwork'], $player['socialID']));?>" width="50" height="50" style="vertical-align: middle"/>
+		<? 
+		echo("<span class='player_name'>".$player['firstName']." ".$player['lastName']." (".$player['nick'].")</span>"); 
+  		if (getOnlinePlayer($player['playerID'])) echo (" <img src='images/user_online.gif'/>");
+  		if (isNewPlayer($player['creationDate'])) echo (" <img src='images/user_new.gif'/>");
+  		?>
+  	</div>
+  	<div id="player_action" style="float: right;display: block;padding-top: 15px;padding-right: 5px;">
+	  	<form action="game_new.php" method="post">
+		<? if ($_SESSION['playerID'] != $player['playerID'] && !$favorite) {?>	
+			<div id="follow<?echo($player['playerID']);?>" style="display: inline;"><input id="btnFollow" value="<? echo _("Follow")?>" type="button" class="button" onclick="javascript:insertFav(<?echo($player['playerID']);?>);"></div>
 		<? }?>
-		<? if ($_SESSION['playerID']==$player['playerID']) {?>
-		<a href="player_update.php"><?php echo _("Update my information")?></a>
-		<? }?>
-	  	</h3>
-		
-        <table border="0" width="530">
-          <tr>
-            <td width="180"> Elo : </td>
-            <td widht="350"><? 	echo($player['elo']); 
-					if ($player['eloProgress'] == 0)
-					{echo (" (=)");}
-					else if ($player['eloProgress'] == 1)
-					{echo (" (-)");}
-					else echo (" (+)");
-				?>
-			</td>
-          </tr>
-		  <tr>
-            <td> Situation géographique : </td>
-            <td><? echo(stripslashes($player['situationGeo'])); ?></td>
-          </tr>
-		  <tr>
-            <td> Année de naissance : </td>
-            <td><? echo($player['anneeNaissance']); ?></td>
-          </tr>
-		  <tr>
-            <td> Profil : </td>
-            <td><TEXTAREA NAME="txtProfil" COLS="40" ROWS="5" readonly="readonly"><? echo(stripslashes($player['profil'])); ?></TEXTAREA></td>
-          </tr>
-          <tr>
-            <td> Dernière connexion le : </td>
-            <td><? 	list($annee, $mois, $jour) = explode("-", substr($player['lastConnection'], 0,10)); 
-					echo($jour.'/'.$mois.'/'.$annee);
-				?>
-			</td>
-          </tr>
-        </table>
-		<br/>
-		<? if ($_SESSION['playerID']!=$player['playerID']) {?>
-		<form action="game_new.php" method="post">
-			<input type="submit" class="link" value="<? echo _("New game");?>">
-			<input type="hidden" name="opponent" value="<? echo _($player['nick']);?>">
-		</form>
-		<br/>
+		<? if ($_SESSION['playerID'] != $player['playerID'] && $favorite) {?>			
+			<div id="follow<?echo($player['playerID']);?>" style="display: inline;"><input id="btnFollow" value="<? echo _("Unfollow")?>" type="button" class="button" onclick="javascript:deleteFav(<?echo($favorite['favoriteID']);?>, <?echo($player['playerID']);?>);"></div>
+		<? }?>		
+		<? if ($_SESSION['playerID'] != $player['playerID']) {?>
+			<div id="newgame" style="display: inline;">					
+				<input type="submit" class="link" value="<? echo _("New game");?>">
+				<input type="hidden" name="opponent" value="<? echo _($player['nick']);?>">						
+			</div>
 		<?}?>
-		
-		
+		<? if ($_SESSION['playerID'] != $player['playerID']) {?>
+			<input type="button" class="link" value="<? echo _("Ended games"); ?>" onclick="location.href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>'">
+		<?}?>
+		<? if ($_SESSION['playerID'] == $player['playerID']) {?>
+			<input id="btnUpdate" type="button" class="link" value="<?php echo _("Update my information")?>" onclick="location.href='player_update.php'">
+		<? }?>
+		</form>
+	</div>
+</div>
+<div id="player_info">
+        <br><? echo _("Elo")?> : <? echo($player['elo']); 
+			if ($player['eloProgress'] == 0)
+				echo (" (=)");
+			else if ($player['eloProgress'] == 1)
+				echo (" (-)");
+			else echo (" (+)");
+			?>
+	<br><? echo _("Localization")?> : <? echo(stripslashes($player['situationGeo'])); ?>, <? echo($player['countryName']); ?>
+	<br><? echo _("Birth date")?> : <? echo($player['anneeNaissance']); ?>
+	<br><? echo _("About")?> : <? echo(stripslashes($player['profil'])); ?>
+	<br><? echo _("Sign-up")?> : <?	$creationDate = new DateTime($player['creationDate']);
+							$strCreationDate = $fmt->format($creationDate);
+							echo($strCreationDate);?>
+	<br><? echo _("Last connection")?> : <?	$lastConnection = new DateTime($player['lastConnection']);
+									$strlastConnection = $fmt->format($lastConnection);
+									echo($strlastConnection);?>
+	<?
+	$dateDeb = date("Y-m-d", mktime(0,0,0, 1, 1, 1990));
+	$dateFin = date("Y-m-d", mktime(0,0,0, 12, 31, 2020));
+	$countLost = countLost($player['playerID'], $dateDeb, $dateFin);
+	$nbDefaites = $countLost['nbGames'];
+	$countDraw = countDraw($player['playerID'], $dateDeb, $dateFin);
+	$nbNulles = $countDraw['nbGames'];
+	$countWin = countWin($player['playerID'], $dateDeb, $dateFin);
+	$nbVictoires = $countWin['nbGames'];
+	$nbParties = $nbDefaites + $nbNulles + $nbVictoires;
+	$nbFollowers = 0;
+	$nbFollowing = 0;
+	$res_count = searchPlayers("count", 0, 0, $player['playerID'], "wers", "", "", "", "", "");
+	if ($res_count)
+	{
+		$count = mysql_fetch_array($res_count, MYSQL_ASSOC);
+		$nbFollowers = $count['nbPlayers'];
+	}
+	$res_count = searchPlayers("count", 0, 0, $player['playerID'], "wing", "", "", "", "", "");
+	if ($res_count)
+	{
+		$count = mysql_fetch_array($res_count, MYSQL_ASSOC);
+		$nbFollowing = $count['nbPlayers'];
+	}
+	?>
+	<br><? echo _("Won")?> : <? echo($nbVictoires); ?>
+	<br><? echo _("Draw")?> : <? echo($nbNulles); ?>
+	<br><? echo _("Lost")?> : <? echo($nbDefaites); ?>
+	<br><? echo _("Followers")?> : <? echo($nbFollowers); ?>
+	<br><? echo _("Following")?> : <? echo($nbFollowing); ?>
+	
+</div>
+<div id="graphelo" style="float: left;display: block;">
+	<img src="graph_elo_progress.php?playerID=<?php echo($playerID);?>&elo=<?php echo($player['elo']);?>" width="650" height="250" />
+</div>
+
+<div id="content">
+	<div class="contentbody">
+		<form name="activityGames" action="game_board.php" method="post">
+			<div id="activities0" style="display: none;"><img src='images/ajaxloader.gif'/></div>
+			<input type="hidden" name="gameID" value="">
+			<input type="hidden" name="from" value="encours">
+		</form>		
+		<center>
+			<script type="text/javascript"><!--
+			google_ad_client = "pub-8069368543432674";
+			/* 468x60, Profil consultation bandeau */
+			google_ad_slot = "3062307582";
+			google_ad_width = 468;
+			google_ad_height = 60;
+			//-->
+			</script>
+			<script type="text/javascript"
+			src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			</script>
+		</center>		
+	</div>
+</div>
+<div id="rightbarlarge">
+	<div class="contentbody">
 		<h3>Parties en cours de <? echo($player['nick']); ?></h3>
 		
 		<form name="existingGames" action="game_board.php" method="post">
@@ -195,8 +250,7 @@ require 'include/page_body_no_menu.php';
 							/* Last Move */
 							echo ("</td><td align='center'>".$tmpGame['lastMove']."</td></tr>\n");
 						}
-						
-						
+											
 					}
 				?>
           </table>
@@ -205,9 +259,8 @@ require 'include/page_body_no_menu.php';
         <input type="hidden" name="sharePC" value="no">
         <input type="hidden" name="from" value="toutes">
       </form>
-		<br/>
-		
-		<? if ($_SESSION['playerID']!=$player['playerID']) {?>
+      
+      <? if ($_SESSION['playerID'] != $player['playerID']) {?>
 		<h3>Mes parties contre <? echo($player['nick']); ?></h3>
 		
 		<form name="endedGames" action="game_board.php" method="post">
@@ -275,67 +328,9 @@ require 'include/page_body_no_menu.php';
       	</form>
 		<br/>
 		<?}?>
-		
-		
-		<center>
-			<script type="text/javascript"><!--
-			google_ad_client = "pub-8069368543432674";
-			/* 468x60, Profil consultation bandeau */
-			google_ad_slot = "3062307582";
-			google_ad_width = 468;
-			google_ad_height = 60;
-			//-->
-			</script>
-			<script type="text/javascript"
-			src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-			</script>
-		</center>
-		
-		<br/>
-		<h3>Statistiques de <? echo($player['nick']); ?></h3>
-		<?
-		$dateDeb = date("Y-m-d", mktime(0,0,0, 1, 1, 1990));
-		$dateFin = date("Y-m-d", mktime(0,0,0, 12, 31, 2020));
-		$countLost = countLost($player['playerID'], $dateDeb, $dateFin);
-		$nbDefaites = $countLost['nbGames'];
-		$countDraw = countDraw($player['playerID'], $dateDeb, $dateFin);
-		$nbNulles = $countDraw['nbGames'];
-		$countWin = countWin($player['playerID'], $dateDeb, $dateFin);
-		$nbVictoires = $countWin['nbGames'];
-		$nbParties = $nbDefaites + $nbNulles + $nbVictoires;
-		?>
-		<table border="0" width="650">
-          <tr>
-            <td width="180"> Victoires : </td>
-            <td><? echo($nbVictoires); ?></td>
-          </tr>
-		  <tr>
-            <td> Nulles : </td>
-            <td><? echo($nbNulles); ?></td>
-          </tr>
-		  <tr>
-            <td> Défaites : </td>
-            <td><? echo($nbDefaites); ?></td>
-          </tr>
-		 </table>
-		 
-		<? if ($_SESSION['playerID']!=$player['playerID']) {?>
-			<img src="images/puce.gif"/> <a href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>'>Voir les parties terminées de <?php echo($player['nick']);?></a>
-			<br/>
-		<?}?>	
-		
-		 <br/>
-		 <img src="graph_elo_progress.php?playerID=<?php echo($playerID);?>&elo=<?php echo($player['elo']);?>" width="650" height="250" />
-		 
-		 <form name="activityGames" action="game_board.php" method="post">
-				<div id="activities0" style="display: none;"><img src='images/ajaxloader.gif'/></div>
-				<input type="hidden" name="gameID" value="">
-				<input type="hidden" name="from" value="encours">
-		</form>
-			
-    </div>
-  </div>
+	</div>
+</div>
 <?
-    require 'include/page_footer.php';
-    mysql_close();
+require 'include/page_footer.php';
+mysql_close();
 ?>

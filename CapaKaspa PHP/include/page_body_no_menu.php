@@ -19,7 +19,7 @@
 	</div>
 </div>
 
-<div id="container">
+<div id="container_no_menu">
 <div id="contentxlarge">
 	<script type="text/javascript"><!--
       google_ad_client = "ca-pub-8069368543432674";

@@ -89,7 +89,7 @@ require 'include/page_body.php';
   
 		<?
             $nb_tot=0;
-			$res_count = searchPlayers("count", 0, 0, $critFavorite, $critStatus, $critEloStart, $critEloEnd, $critCountry, $critName); 
+			$res_count = searchPlayers("count", 0, 0, $_SESSION['playerID'], $critFavorite, $critStatus, $critEloStart, $critEloEnd, $critCountry, $critName); 
 			if ($res_count)
 			{
 				$count = mysql_fetch_array($res_count, MYSQL_ASSOC);

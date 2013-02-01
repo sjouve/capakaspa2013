@@ -1,7 +1,7 @@
 <?php // content="text/plain; charset=utf-8"
 require_once ("jpgraph/jpgraph.php");
 require_once ("jpgraph/jpgraph_line.php");
-
+session_start();
 // Paramètres
 if (!isset($_CONFIG))
 	require 'include/config.php';
@@ -10,7 +10,9 @@ if (!isset($_CONFIG))
 require 'include/connectdb.php';
 
 require 'dac/dac_players.php';
-	
+
+require 'include/localization.php';
+
 // Data
 $eloProgress = listEloProgress($_GET['playerID']);
 $tableauEloPprogress = array();
@@ -40,11 +42,12 @@ else
 }
 
 // Create the graph. These two calls are always required
-$graph = new Graph(650,250);
+$graph = new Graph(600,250);
 $graph->SetScale('textlin');
-$graph->title->Set('Progression classement Elo');
+$graph->title->SetFont(FF_ARIAL);
+$graph->title->Set(_("Elo ranking history"));
 $graph->SetMarginColor('#EEEEEE');
-$graph->SetFrame(true,'#CCCCCC',1);
+$graph->SetFrame(true,'#CCCCCC',0);
  
 // Create the linear plot
 $lineplot=new LinePlot($tableauEloPprogress);

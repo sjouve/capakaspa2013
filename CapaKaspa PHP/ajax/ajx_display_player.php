@@ -29,7 +29,7 @@ $limit = 20;
 
 $fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
 
-$result = searchPlayers("", $start, $limit, $critFavorite, $critStatus, $critEloStart, $critEloEnd, $critCountry, $critName);
+$result = searchPlayers("", $start, $limit, $_SESSION['playerID'], $critFavorite, $critStatus, $critEloStart, $critEloEnd, $critCountry, $critName);
 $numPlayers = mysql_num_rows($result);
 	
 while($tmpPlayer = mysql_fetch_array($result, MYSQL_ASSOC))
@@ -63,33 +63,6 @@ while($tmpPlayer = mysql_fetch_array($result, MYSQL_ASSOC))
 		<input type='hidden' name='opponent' value='".$tmpPlayer['nick']."'>
 		</form>
 		");
-		/*echo ("<tr valign='top'>");
-		echo ("<form action='game_new.php' method='post'>");
-		echo ("<input type='hidden' name='ToDo' value='InvitePlayer'>");
-		echo ("<td>");
-		echo ("<input type='hidden' name='opponent' value='".$tmpPlayer['nick']."'><a href='player_view.php?playerID=".$tmpPlayer['playerID']."'>".$tmpPlayer['nick']."</a><br/>");
-		if ($tmpPlayer['lastActionTime'])
-			echo("<img src='images/user_online.gif'/>");
-		if (isNewPlayer($tmpPlayer['creationDate']))
-			echo("<img src='images/user_new.gif'/>");
-		echo ("</td>");
-		echo ("<td>");
-		echo ($tmpPlayer['elo']);
-		echo ("</td>");
-		echo ("<td align='right'>");
-		echo (date("Y")-$tmpPlayer['anneeNaissance']);
-		echo ("</td>");
-		echo ("<td>");
-		echo ("<div style='word-wrap: break-word;width: 90px;'>".stripslashes($tmpPlayer['situationGeo'])."</div>");
-		echo ("</td>");
-		echo ("<td>");
-		echo ("<div style='word-wrap: break-word;width: 220px;'>".stripslashes($tmpPlayer['profil'])."</div>");
-		echo ("</td>");
-		echo ("<td>
-				<input type='submit' class='link' value='"._("New game")."'>");
-		echo ("</td>");
-		echo ("</form>");
-		echo ("</tr>");*/
 }
 
 if ($numPlayers == $limit)

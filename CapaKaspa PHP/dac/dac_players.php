@@ -7,7 +7,12 @@ define ("MAX_NB_JOUR_ABSENCE", 30);
 /* Charger un utilisateur par son ID */
 function getPlayer($playerID)
 {
-	$res_player = mysql_query("SELECT * FROM players WHERE playerID = ".$playerID);
+	$res_player = mysql_query("SELECT P.*, C.countryName 
+								FROM players P, country C 
+								WHERE playerID = ".$playerID." 
+								AND P.countryCode = C.countryCode
+								AND C.countryLang = '".getLang()."'");
+	
     $player = mysql_fetch_array($res_player, MYSQL_ASSOC);
     return $player;
 }
@@ -291,7 +296,7 @@ function listEloProgress($playerID)
  * $limit : nb résultat par page 
  * 
  */
-function searchPlayers($mode, $debut, $limit, $critFavorite, $critStatus, $critEloStart, $critEloEnd, $critCountry, $critName)
+function searchPlayers($mode, $debut, $limit, $playerID, $critFavorite, $critStatus, $critEloStart, $critEloEnd, $critCountry, $critName)
 {
 	
 	if ($mode=="count")
@@ -309,10 +314,10 @@ function searchPlayers($mode, $debut, $limit, $critFavorite, $critStatus, $critE
 	
 	if ($mode=="count")
 		$tmpQuery .= " WHERE P.activate=1
-					AND P.playerID <> ".$_SESSION['playerID'];
+					AND P.playerID <> ".$playerID;
 	else
 		$tmpQuery .= " WHERE P.activate=1 
-					AND P.playerID <> ".$_SESSION['playerID']." 
+					AND P.playerID <> ".$playerID." 
 					AND P.countryCode = C.countryCode
 					AND C.countryLang = '".getLang()."'";
 	
@@ -337,11 +342,11 @@ function searchPlayers($mode, $debut, $limit, $critFavorite, $critStatus, $critE
 	
 	if ($critFavorite == "wing")			
 				$tmpQuery .= " AND P.playerID = F.favPlayerID 
-				AND F.playerID = ".$_SESSION['playerID'];
+				AND F.playerID = ".$playerID;
 	
 	if ($critFavorite == "wers")
 		$tmpQuery .= " AND P.playerID = F.playerID
-		AND F.favPlayerID = ".$_SESSION['playerID'];
+		AND F.favPlayerID = ".$playerID;
 				 
 		$tmpQuery .= " ORDER BY O.lastActionTime DESC, P.nick ASC";
 				
