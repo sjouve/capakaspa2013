@@ -8,6 +8,7 @@ if (!isset($_CONFIG))
 
 require 'dac/dac_players.php';
 require 'dac/dac_games.php';
+require 'dac/dac_activity.php';
 require 'bwc/bwc_chessutils.php';
 require 'bwc/bwc_common.php';
 require 'bwc/bwc_players.php';
@@ -19,7 +20,7 @@ require 'include/connectdb.php';
 require 'include/sessioncheck.php';
 
 require 'include/localization.php';
-$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
+$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::SHORT, IntlDateFormatter::SHORT);
 
 /* Charger le profil */
 $playerID = isset($_POST['playerID']) ? $_POST['playerID']:$_GET['playerID'];
@@ -32,6 +33,7 @@ $titre_page = _("View player profile");
 $desc_page = _("View player profile");
 require 'include/page_header.php';
 ?>
+<script src="javascript/player.js" type="text/javascript"></script>
 <script src="javascript/follow.js" type="text/javascript"></script>
 <script src="javascript/activity.js" type="text/javascript"></script>
 <script src="javascript/comment.js" type="text/javascript"></script>
@@ -54,8 +56,38 @@ function loadGameActivity(gameID)
 	document.activityGames.gameID.value = gameID;
 	document.activityGames.submit();
 }
-
-function getheight() {
+function displayFeed (type, start)
+{
+	if (type == 'activity')
+	{
+		document.getElementById("players0").style.display = "none";
+		document.getElementById("stat_news").style.backgroundColor = "#F2A521";
+		document.getElementById("stat_wing").style.backgroundColor = "#FFFFFF";
+		document.getElementById("stat_wers").style.backgroundColor = "#FFFFFF";
+		document.getElementById("feedType").value = 'activity';
+		displayActivity(start, 1, <? echo($playerID);?>);
+	}
+	if (type == 'wers')
+	{
+		document.getElementById("activities0").style.display = "none";
+		document.getElementById("stat_news").style.backgroundColor = "#FFFFFF";
+		document.getElementById("stat_wing").style.backgroundColor = "#FFFFFF";
+		document.getElementById("stat_wers").style.backgroundColor = "#F2A521";
+		document.getElementById("feedType").value = 'wers';
+		displayPlayers(start, <? echo($playerID);?>, 'wers', '', '', '', '', '');
+	}
+	if (type == 'wing')
+	{
+		document.getElementById("activities0").style.display = "none";
+		document.getElementById("stat_news").style.backgroundColor = "#FFFFFF";
+		document.getElementById("stat_wing").style.backgroundColor = "#F2A521";
+		document.getElementById("stat_wers").style.backgroundColor = "#FFFFFF";
+		document.getElementById("feedType").value = 'wing';
+		displayPlayers(start, <? echo($playerID);?>, 'wing', '', '', '', '', '');
+	}
+}
+function getheight() 
+{
 	var myWidth = 0,
 		myHeight = 0;
 	if (typeof(window.innerWidth) == 'number') {
@@ -74,7 +106,7 @@ function getheight() {
 		var scrolledtonum = window.pageYOffset + myHeight + 2;
 		var heightofbody = document.body.offsetHeight;
 		if (scrolledtonum >= heightofbody && document.getElementById("startPage")) {
-			displayActivity(document.getElementById("startPage").value, 1, <? echo($playerID);?>);
+			displayFeed(document.getElementById("feedType").value, document.getElementById("startPage").value);
 	}
 }
 
@@ -82,7 +114,7 @@ window.onscroll = getheight;
 
 </script>
 <?
-$attribut_body = "onload='displayActivity(0, 1, ".$playerID.")'";
+$attribut_body = "onload=\"displayFeed('activity', 0)\"";
 require 'include/page_body_no_menu.php';
 /*
  * Parties en cours
@@ -126,23 +158,22 @@ require 'include/page_body_no_menu.php';
 	</div>
 </div>
 <div id="player_info">
-        <br><? echo _("Elo")?> : <? echo($player['elo']); 
-			if ($player['eloProgress'] == 0)
-				echo (" (=)");
-			else if ($player['eloProgress'] == 1)
-				echo (" (-)");
-			else echo (" (+)");
-			?>
-	<br><? echo _("Localization")?> : <? echo(stripslashes($player['situationGeo'])); ?>, <? echo($player['countryName']); ?>
-	<br><? echo _("Birth date")?> : <? echo($player['anneeNaissance']); ?>
-	<br><? echo _("About")?> : <? echo(stripslashes($player['profil'])); ?>
-	<br><? echo _("Sign-up")?> : <?	$creationDate = new DateTime($player['creationDate']);
-							$strCreationDate = $fmt->format($creationDate);
-							echo($strCreationDate);?>
-	<br><? echo _("Last connection")?> : <?	$lastConnection = new DateTime($player['lastConnection']);
-									$strlastConnection = $fmt->format($lastConnection);
-									echo($strlastConnection);?>
-	<?
+	<? echo _("Was born in ")?> <? echo($player['anneeNaissance']); ?><br>
+	<? echo _("Lives in ")?> <? echo(stripslashes($player['situationGeo'])); ?>, <? echo($player['countryName']); ?>	
+	<br><br><? echo _("About")?>
+		<div style="background-color: #FFFFFF;padding: 3px;height: 60px;">
+			<? echo(stripslashes($player['profil'])); ?>
+		</div>
+		<? 
+			/*echo _("Sign-up")." : ";
+			$creationDate = new DateTime($player['creationDate']);
+			$strCreationDate = $fmt->format($creationDate);
+			echo($strCreationDate);
+			echo _("Last connection")." : ";
+			$lastConnection = new DateTime($player['lastConnection']);
+			$strlastConnection = $fmt->format($lastConnection);
+			echo($strlastConnection);*/
+	
 	$dateDeb = date("Y-m-d", mktime(0,0,0, 1, 1, 1990));
 	$dateFin = date("Y-m-d", mktime(0,0,0, 12, 31, 2020));
 	$countLost = countLost($player['playerID'], $dateDeb, $dateFin);
@@ -152,8 +183,10 @@ require 'include/page_body_no_menu.php';
 	$countWin = countWin($player['playerID'], $dateDeb, $dateFin);
 	$nbVictoires = $countWin['nbGames'];
 	$nbParties = $nbDefaites + $nbNulles + $nbVictoires;
+	$nbNews = 0;
 	$nbFollowers = 0;
 	$nbFollowing = 0;
+	$nbNews = countActivityForPlayer($player['playerID']);	
 	$res_count = searchPlayers("count", 0, 0, $player['playerID'], "wers", "", "", "", "", "");
 	if ($res_count)
 	{
@@ -167,11 +200,13 @@ require 'include/page_body_no_menu.php';
 		$nbFollowing = $count['nbPlayers'];
 	}
 	?>
-	<br><? echo _("Won")?> : <? echo($nbVictoires); ?>
-	<br><? echo _("Draw")?> : <? echo($nbNulles); ?>
-	<br><? echo _("Lost")?> : <? echo($nbDefaites); ?>
-	<br><? echo _("Followers")?> : <? echo($nbFollowers); ?>
-	<br><? echo _("Following")?> : <? echo($nbFollowing); ?>
+	<br>
+	<div id="stat_won" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="location.href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>#victoires'"><span class="label"><? echo _("Won");?></span><br><span class="number"><? echo($nbVictoires); ?></span></div> 
+	<div id="stat_draw" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="location.href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>#nulles'"><span class="label"><? echo _("Draw");?></span><br><span class="number"><? echo($nbNulles); ?></span></div> 
+	<div id="stat_lost" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="location.href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>#defaites'"><span class="label"><? echo _("Lost");?></span><br><span class="number"><? echo($nbDefaites); ?></span></div>
+	<div id="stat_news" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="displayFeed('activity', 0)"><span class="label"><? echo _("News");?></span><br><span class="number"><? echo($nbNews);?></span></div>
+	<div id="stat_wers" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="displayFeed('wers', 0)"><span class="label"><? echo _("Followers");?></span><br><span class="number"><? echo($nbFollowers);?></span></div>
+	<div id="stat_wing" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="displayFeed('wing', 0)"><span class="label"><? echo _("Following");?></span><br><span class="number"><? echo($nbFollowing);?></span></div>
 	
 </div>
 <div id="graphelo" style="float: left;display: block;">
@@ -180,11 +215,15 @@ require 'include/page_body_no_menu.php';
 
 <div id="content">
 	<div class="contentbody">
+		<input id="feedType" type="hidden" name="feedType" value="activity">
 		<form name="activityGames" action="game_board.php" method="post">
 			<div id="activities0" style="display: none;"><img src='images/ajaxloader.gif'/></div>
 			<input type="hidden" name="gameID" value="">
 			<input type="hidden" name="from" value="encours">
-		</form>		
+		</form>
+		
+		<div id="players0" style="display: none;"><img src='images/ajaxloader.gif'/></div>
+		
 		<center>
 			<script type="text/javascript"><!--
 			google_ad_client = "pub-8069368543432674";
@@ -207,17 +246,15 @@ require 'include/page_body_no_menu.php';
 		<form name="existingGames" action="game_board.php" method="post">
 
         <div class="tabliste">
-          <table border="0" width="650">
+          <table border="0" width="100%">
             <tr>
-              <th width="17%">Blancs</th>
-              <th width="17%">Noirs</th>
-              <th width="8%">Résultat</th>
-              <th width="8%">ECO</th>
-              <th width="25%">Début</th>
-              <th width="25%">Dernier coup</th>
+              <th width="35%">Blancs</th>
+              <th width="35%">Noirs</th>
+              <th width="15%">Résultat</th>
+              <th width="15%">ECO</th>
             </tr>
             <?
-					$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom, DATE_FORMAT(G.dateCreated, '%d/%m/%Y %T') dateCreatedF, DATE_FORMAT(G.lastMove, '%d/%m/%Y %T') lastMove
+					$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom
 				                            FROM games G, players W, players B
 				                            WHERE G.gameMessage = ''
 				                            AND (G.whitePlayer = ".$player['playerID']." OR G.blackPlayer = ".$player['playerID'].")
@@ -225,7 +262,7 @@ require 'include/page_body_no_menu.php';
 				                            ORDER BY G.dateCreated");
 					
 					if (mysql_num_rows($tmpGames) == 0)
-						echo("<tr><td colspan='6'>Aucune partie en cours</td></tr>\n");
+						echo("<tr><td colspan='4'>Aucune partie en cours</td></tr>\n");
 					else
 					{
 						while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
@@ -244,11 +281,7 @@ require 'include/page_body_no_menu.php';
 				
 							/* ECO Code */
 							echo ("</td><td align='center'>".$tmpGame['eco']);
-							/* Start Date */
-							echo ("</td><td align='center'>".$tmpGame['dateCreatedF']);
-				
-							/* Last Move */
-							echo ("</td><td align='center'>".$tmpGame['lastMove']."</td></tr>\n");
+							
 						}
 											
 					}
@@ -266,17 +299,15 @@ require 'include/page_body_no_menu.php';
 		<form name="endedGames" action="game_board.php" method="post">
 
         <div class="tabliste">
-          <table border="0" width="650">
+          <table border="0" width="100%">
             <tr>
-              <th width="17%">Blancs</th>
-              <th width="17%">Noirs</th>
-              <th width="8%">Résultat</th>
-              <th width="8%">ECO</th>
-              <th width="25%">Début</th>
-              <th width="25%">Dernier coup</th>
+              <th width="35%">Blancs</th>
+              <th width="35%">Noirs</th>
+              <th width="15%">Résultat</th>
+              <th width="15%">ECO</th>
             </tr>
             <?
-					$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom, DATE_FORMAT(G.dateCreated, '%d/%m/%Y %T') dateCreatedF, DATE_FORMAT(G.lastMove, '%d/%m/%Y %T') lastMove
+					$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom
 				                            FROM games G, players W, players B
 				                            WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
 				                            AND ((G.whitePlayer = ".$player['playerID']." AND G.blackPlayer = ".$_SESSION['playerID'].") OR (G.blackPlayer = ".$player['playerID']." AND G.whitePlayer = ".$_SESSION['playerID']."))
@@ -284,7 +315,7 @@ require 'include/page_body_no_menu.php';
 				                            ORDER BY G.dateCreated");
 					
 					if (mysql_num_rows($tmpGames) == 0)
-						echo("<tr><td colspan='6'>Vous n'avez joué aucune partie contre ce joueur</td></tr>\n");
+						echo("<tr><td colspan='4'>Vous n'avez joué aucune partie contre ce joueur</td></tr>\n");
 					else
 					{
 						while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
@@ -312,11 +343,6 @@ require 'include/page_body_no_menu.php';
 				
 							/* ECO Code */
 							echo ("</td><td align='center'>".$tmpGame['eco']);
-							/* Start Date */
-							echo ("</td><td align='center'>".$tmpGame['dateCreatedF']);
-				
-							/* Last Move */
-							echo ("</td><td align='center'>".$tmpGame['lastMove']."</td></tr>\n");
 						}					
 					}
 				?>

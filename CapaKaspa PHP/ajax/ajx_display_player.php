@@ -19,6 +19,7 @@ require '../include/localization.php';
 
 // Load activities from 
 $start = $_GET["start"];
+$playerID = $_GET["player"];
 $critFavorite = $_GET["cf"];
 $critStatus = $_GET["cs"];
 $critEloStart = $_GET["ces"];
@@ -29,7 +30,7 @@ $limit = 20;
 
 $fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
 
-$result = searchPlayers("", $start, $limit, $_SESSION['playerID'], $critFavorite, $critStatus, $critEloStart, $critEloEnd, $critCountry, $critName);
+$result = searchPlayers("", $start, $limit, $playerID, $critFavorite, $critStatus, $critEloStart, $critEloEnd, $critCountry, $critName);
 $numPlayers = mysql_num_rows($result);
 	
 while($tmpPlayer = mysql_fetch_array($result, MYSQL_ASSOC))
@@ -51,8 +52,11 @@ while($tmpPlayer = mysql_fetch_array($result, MYSQL_ASSOC))
 					if (isNewPlayer($tmpPlayer['creationDate']))
 						echo("<img src='images/user_new.gif' style='vertical-align:bottom;'/>");
 				echo("</div>
-				<div class='content'><span style='float: right'><input type='submit' class='link' value='"._("New game")."'></span>".
-					stripslashes($tmpPlayer['situationGeo']).", ".$tmpPlayer['countryName']."
+				<div class='content'>");
+					
+					if ($tmpPlayer['playerID'] != $_SESSION['playerID'])
+						echo("<span style='float: right'><input type='submit' class='link' value='"._("New game")."'></span>");
+					echo(stripslashes($tmpPlayer['situationGeo']).", ".$tmpPlayer['countryName']."
 					<br>"._("Elo")." : ".$tmpPlayer['elo']."
 					<br><span class='date'>".stripslashes($tmpPlayer['profil'])."</span>
 				</div>
@@ -70,7 +74,7 @@ if ($numPlayers == $limit)
 ?>
 	<div id="players<?echo($start + $limit);?>" style="display: none;">
 		<img src='images/ajaxloader.gif'/>
-		<input type="hidden" id="startPage" value="<?echo($start + $limit);?>"/>
+		<input type="hidden" id="playerStartPage" value="<?echo($start + $limit);?>"/>
 	</div>
 <?
 }

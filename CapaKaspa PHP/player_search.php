@@ -29,31 +29,8 @@ $titre_page = _("Search for players");
 $desc_page = _("");
 require 'include/page_header.php';
 ?>
+<script src="javascript/player.js" type="text/javascript"></script>
 <script type="text/javascript">
-
-function displayPlayers(start, critFav, critStat, critEloS, critEloE, critCtry, critName)
-{
-	document.getElementById("players"+start).style.display = "block";
-
-	if (window.XMLHttpRequest)
-	{// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp=new XMLHttpRequest();
-	}
-	else
-	{// code for IE6, IE5
-		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange=function()
-	{
-		if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{
-			document.getElementById("players"+start).innerHTML=xmlhttp.responseText;
-		}
-	};
-	xmlhttp.open("GET","ajax/ajx_display_player.php?start="+start+"&cf="+critFav+"&cs="+critStat+"&ces="+critEloS+"&cee="+critEloE+"&cc="+critCtry+"&cn="+critName,true);
-	xmlhttp.send();
-}
-
 function getheight() {
 	var myWidth = 0,
 		myHeight = 0;
@@ -72,8 +49,8 @@ function getheight() {
 	}
 		var scrolledtonum = window.pageYOffset + myHeight + 2;
 		var heightofbody = document.body.offsetHeight;
-		if (scrolledtonum >= heightofbody && document.getElementById("startPage")) {
-			displayPlayers(document.getElementById("startPage").value,'<? echo($critFavorite);?>','<? echo($critStatus);?>','<? echo($critEloStart);?>','<? echo($critEloEnd);?>','<? echo($critCountry);?>','<? echo($critName);?>');
+		if (scrolledtonum >= heightofbody && document.getElementById("playerStartPage")) {
+			displayPlayers(document.getElementById("playerStartPage").value,<? echo($_SESSION['playerID']);?>,'<? echo($critFavorite);?>','<? echo($critStatus);?>','<? echo($critEloStart);?>','<? echo($critEloEnd);?>','<? echo($critCountry);?>','<? echo($critName);?>');
 	}
 }
 
@@ -81,7 +58,7 @@ window.onscroll = getheight;
 	
 </script>
 <?
-$attribut_body = "onload=\"displayPlayers(0,'".$critFavorite."','".$critStatus."','".$critEloStart."','".$critEloEnd."','".$critCountry."','".$critName."')\"";
+$attribut_body = "onload=\"displayPlayers(0,".$_SESSION['playerID'].",'".$critFavorite."','".$critStatus."','".$critEloStart."','".$critEloEnd."','".$critCountry."','".$critName."')\"";
 require 'include/page_body.php';
 ?>
 <div id="content">

@@ -32,6 +32,15 @@ function listActivity($start, $limit, $type, $playerID)
 	return mysql_query($tmpQuery);
 }
 
+function countActivityForPlayer($playerID)
+{
+	$tmpQuery = "SELECT count(activityID) nbActivity FROM activity WHERE playerID = ".$playerID;
+	$res_count = $res_count = mysql_query($tmpQuery);
+	$res = mysql_fetch_array($res_count, MYSQL_ASSOC);
+	
+	return $res['nbActivity'];
+}
+
 // Comment
 function insertComment($playerID, $type, $entityID, $message)
 {

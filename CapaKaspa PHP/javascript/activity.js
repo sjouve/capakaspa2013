@@ -1,6 +1,8 @@
 // Manage activity
 function displayActivity(start, type, playerID)
 {
+	if (start == 0)
+		document.getElementById("activities"+start).innerHTML="<img src='images/ajaxloader.gif'/>";
 	document.getElementById("activities"+start).style.display = "block";
 
 	if (window.XMLHttpRequest)
