@@ -224,6 +224,10 @@ require 'include/page_body.php';
 	    <span id="#alert_err_castle_rook_id" style="display: none"><?echo _("Can only castle if rook has not moved yet.")?></span>
 	    <span id="#alert_err_castle_pieces_id" style="display: none"><?echo _("Can only castle if there are no pieces between the rook and the king.")?></span>
 	    <span id="#alert_err_castle_attack_id" style="display: none"><?echo _("When castling, the king cannot move over a square that is attacked by an ennemy piece.")?></span>
+	    <span id="#alert_draw_stalemate_id" style="display: none"><?echo _("Stalemate - The game ends with a draw.")?></span>
+	    <span id="#alert_draw_material_id" style="display: none"><?echo _("Insufficient material to checkmate - The game ends with a draw.")?></span>
+	    <span id="#alert_draw_3_times_id" style="display: none"><?echo _("Draw (this position has occurred three times) - The game ends with a draw.")?></span>
+	    <span id="#alert_draw_50_moves_id" style="display: none"><?echo _("Draw (50 moves rule) - The game ends with a draw.")?></span>
 	    
 	    
 		<div id="gamedata">
@@ -252,12 +256,13 @@ require 'include/page_body.php';
 				<div id="player" <? if (isBoardDisabled()) {?>style="display:none;"<? } else {?>style="display:block;"<? } ?>>				
 					<? drawboard(false); ?>
 					<nobr>
-					<input type="button" id="btnUndo" name="btnUndo" class="button" style="visibility: hidden" value="<?php echo _("Cancel move")?>" onClick="javascript:undo();">
-					<input type="button" id="btnPlay" name="btnPlay" class="button" style="visibility: hidden" value="<?php echo _("Valid move")?>" onClick="javascript:play();">
+					<input type="button" id="btnUndo" name="btnUndo" class="button" style="visibility: hidden" value="<?php echo _("Cancel")?>" onClick="javascript:undo();">
+					<input type="button" id="btnPlay" name="btnPlay" class="button" style="visibility: hidden" value="<?php echo _("Valid")?>" onClick="javascript:play();">
 					<div id="shareMove" style="display: none"><input type="checkbox" name="chkShareMove" value="share"> <?echo _("Share")?></div>
+					<div id="requestDraw" style="display: none"><input type="checkbox" name="requestDraw" value="yes"> <?echo _("Draw")?></div>
 					</nobr>
 					<input type="hidden" name="gameID" value="<? echo ($_POST['gameID']); ?>">
-					<input type="hidden" name="requestDraw" value="no">
+					<!-- <input type="hidden" name="requestDraw" value="no"> -->
 					<input type="hidden" name="resign" value="no">
 					<input type="hidden" name="fromRow" value="">
 					<input type="hidden" name="fromCol" value="">
@@ -314,9 +319,9 @@ require 'include/page_body.php';
 				<input type="button" name="show" id="show" class="link" style="display:none;" value="<?echo _("Show player");?>" onclick="javascript:afficheplayer();">
 				<? } ?>
 				<input type="button" name="pgn" id="pgn" class="link" value="<?echo _("Download PGN");?>">
+				<input type="button" name="message" id="message" class="link" value="<?echo _("Send message");?>">
 				<? if (!isBoardDisabled()) {
 				?>
-				<input type="button" name="btnDraw" class="button" value="<?php echo _("Draw proposal")?>" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='draw()'"); ?>>
 				<input type="button" name="btnResign" class="button" value="<?php echo _("Resign")?>" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='resigngame()'"); ?>>
 				<? } ?>
 				<input type="hidden" name="from" value="<? echo($_POST['from']) ?>" />

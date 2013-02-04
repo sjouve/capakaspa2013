@@ -409,6 +409,7 @@ function processMessages()
 	/* response to a request for a draw */
 	if (isset($_POST['drawResponse']))
 	{
+		// TODO Ajouter cas isDrawResponseDone No
 		if ($_POST['isDrawResponseDone'] == 'yes')
 		{
 			if ($_POST['drawResponse'] == "yes")
@@ -470,13 +471,13 @@ function processMessages()
 					case 'approved':
 						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$_POST['gameID']." AND msgType = 'undo' AND msgStatus = 'approved' AND destination = '".$playersColor."'";
 						mysql_query($tmpQuery);
-						$statusMessage .= _("Move cancellation accepted")."<br>\n";
+						$statusMessage .= _("Move cancellation accepted")."\n";
 						break;
 					case 'denied':
 						$isUndoing = false;
 						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$_POST['gameID']." AND msgType = 'undo' AND msgStatus = 'denied' AND destination = '".$playersColor."'";
 						mysql_query($tmpQuery);
-						$statusMessage .= _("Move cancellation refused")."<br>\n";
+						$statusMessage .= _("Move cancellation refused")."\n";
 						break;
 				}
 				break;
@@ -490,12 +491,12 @@ function processMessages()
 					case 'approved':
 						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$_POST['gameID']." AND msgType = 'draw' AND msgStatus = 'approved' AND destination = '".$playersColor."'";
 						mysql_query($tmpQuery);
-						$statusMessage .= _("Draw proposal accepted")."<br>\n";
+						$statusMessage .= _("Draw proposal accepted")."\n";
 						break;
 					case 'denied':
 						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$_POST['gameID']." AND msgType = 'draw' AND msgStatus = 'denied' AND destination = '".$playersColor."'";
 						mysql_query($tmpQuery);
-						$statusMessage .= _("Draw proposal refused")."<br>\n";
+						$statusMessage .= _("Draw proposal refused")."\n";
 						break;
 				}
 				break;
@@ -511,10 +512,10 @@ function processMessages()
 		switch($tmpMessage['msgType'])
 		{
 			case 'undo':
-				$statusMessage .= _("Move cancellation pending")."<br>\n";
+				$statusMessage .= _("Move cancellation pending")."\n";
 				break;
 			case 'draw':
-				$statusMessage .= _("Draw proposal pending")."<br>\n";
+				$statusMessage .= _("Draw proposal pending...")."\n";
 				break;
 		}
 	}	
@@ -532,7 +533,7 @@ function processMessages()
 	
 	if ($tmpMessage['gameMessage'] == "draw")
 	{
-		$statusMessage .= _("Draw game")."<br>\n";
+		$statusMessage .= _("Draw game")."\n";
 		$isGameOver = true;
 	}
 	
@@ -546,7 +547,7 @@ function processMessages()
 	
 	if ($tmpMessage['gameMessage'] == "playerResigned")
 	{
-		$statusMessage .= $tmpColor." "._("resign game")."<br>\n";
+		$statusMessage .= $tmpColor." "._("resign game")."\n";
 		$isGameOver = true;
 	}
 
@@ -1028,7 +1029,7 @@ function writeStatus($tmpGame)
           		
           		echo("<td align='center' bgcolor='".$bgcolor."' colspan='4'>");
           		if (!$isCheckMate && ($history[$numMoves]['isInCheck'] == 1))
-          			echo("<b>".$curColor." "._("are in check")." !</b>");
+          			echo("<b>".$curColor." "._("are in check")." !</b> ");
           		echo($statusMessage."&nbsp;</td>");
           		?>
 		</tr>

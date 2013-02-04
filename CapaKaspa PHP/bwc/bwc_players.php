@@ -303,7 +303,6 @@ function sendPassword($email)
 	$mailMsg = _("Data about your account")." :\n";
 	$mailMsg .= _("User name")." : ".$player['nick']."\n";
 	$mailMsg .= _("Password")." : ".$player['PASSWORD']."\n";
-	$mailMsg .= "\n\n"._("This message was sent automatically from the site CapaKaspa")." (http://www.capakaspa.info).\n";
 	$res = sendMail($email, $mailSubject, $mailMsg);
 	
 	if (!$res)

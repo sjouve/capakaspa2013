@@ -130,7 +130,8 @@
 
 					if(countMoves(myColor) == 0)
 					{
-						alert('Stalemate - You should offer your opponent a draw');
+						alert(document.getElementById('#alert_draw_stalemate_id').innerHTML);
+						// TODO Mettre à jour les champs isDrawResponseDone et drawResponse
 					}
 
 					numMoves--;		// Reset chessHistory to it's initial size
@@ -154,7 +155,8 @@
 
 				if(count < 2 && !canCheckmate)
 				{
-					alert('Insufficient material to checkmate - You should offer your opponent a draw');
+					alert(document.getElementById('#alert_draw_material_id').innerHTML);
+					// TODO Mettre à jour les champs isDrawResponseDone et drawResponse
 				}
 
 				// Is the game drawn because this is the third time that the exact same position arises?
@@ -162,13 +164,15 @@
 				var FEN = historyToFEN();	// The chessHistory in FEN format
 				if(isThirdTimePosDraw(FEN))
 				{
-					alert('Draw (this position has occurred three times) - You should offer your opponent a draw')
+					alert(document.getElementById('#alert_draw_3_times_id').innerHTML);
+					// TODO Mettre à jour les champs isDrawResponseDone et drawResponse
 				}
 
 				// Draw because of no capture of pawn move for the last 50 moves?
 				if(!isCapture && (thePiece != 'pawn') && isFiftyMoveDraw(FEN[FEN.length-1]))
 				{
-					alert('Draw (50 move rule) - You should offer your opponent a draw');
+					alert(document.getElementById('#alert_draw_50_moves_id').innerHTML);
+					// TODO Mettre à jour les champs isDrawResponseDone et drawResponse
 				}
 
 				numMoves--;		// Reset chessHistory to it's initial size
@@ -182,7 +186,8 @@
                 {
                 	document.getElementById('btnPlay').style.visibility = 'visible';
                 	document.getElementById('btnUndo').style.visibility = 'visible';
-                	document.getElementById('shareMove').style.display = 'inline';              	
+                	document.getElementById('shareMove').style.display = 'inline';
+                	document.getElementById('requestDraw').style.display = 'inline';
                 }
                 
 				//document.gamedata.submit();
