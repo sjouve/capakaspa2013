@@ -223,7 +223,7 @@ require 'include/page_body_no_menu.php';
 		</form>
 		
 		<div id="players0" style="display: none;"><img src='images/ajaxloader.gif'/></div>
-		
+		<br>
 		<center>
 			<script type="text/javascript"><!--
 			google_ad_client = "pub-8069368543432674";
@@ -241,17 +241,17 @@ require 'include/page_body_no_menu.php';
 </div>
 <div id="rightbarlarge">
 	<div class="contentbody">
-		<h3>Parties en cours de <? echo($player['nick']); ?></h3>
+		<h3><? echo _("Games in progress")?></h3>
 		
 		<form name="existingGames" action="game_board.php" method="post">
 
         <div class="tabliste">
           <table border="0" width="100%">
             <tr>
-              <th width="35%">Blancs</th>
-              <th width="35%">Noirs</th>
-              <th width="15%">Résultat</th>
-              <th width="15%">ECO</th>
+              <th width="35%"><? echo _("Whites")?></th>
+              <th width="35%"><? echo _("Blacks")?></th>
+              <th width="15%"><? echo _("Result")?></th>
+              <th width="15%"><? echo _("ECO")?></th>
             </tr>
             <?
 					$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom
@@ -262,7 +262,7 @@ require 'include/page_body_no_menu.php';
 				                            ORDER BY G.dateCreated");
 					
 					if (mysql_num_rows($tmpGames) == 0)
-						echo("<tr><td colspan='4'>Aucune partie en cours</td></tr>\n");
+						echo("<tr><td colspan='4'>"._("No games in progress")."</td></tr>\n");
 					else
 					{
 						while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
@@ -277,7 +277,7 @@ require 'include/page_body_no_menu.php';
 							
 							/* Current Turn */
 							echo ("</td><td align=center>");
-							echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'><img src='images/eye.gif' border=0 alt='Voir'/></a>");
+							echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'><img src='images/eye.gif' border=0 alt='"._("View")."/></a>");
 				
 							/* ECO Code */
 							echo ("</td><td align='center'>".$tmpGame['eco']);
@@ -294,17 +294,17 @@ require 'include/page_body_no_menu.php';
       </form>
       
       <? if ($_SESSION['playerID'] != $player['playerID']) {?>
-		<h3>Mes parties contre <? echo($player['nick']); ?></h3>
+		<h3><? echo _("My games against"); ?> <? echo($player['nick']); ?></h3>
 		
 		<form name="endedGames" action="game_board.php" method="post">
 
         <div class="tabliste">
           <table border="0" width="100%">
             <tr>
-              <th width="35%">Blancs</th>
-              <th width="35%">Noirs</th>
-              <th width="15%">Résultat</th>
-              <th width="15%">ECO</th>
+              <th width="35%"><? echo _("Whites")?></th>
+              <th width="35%"><? echo _("Blacks")?></th>
+              <th width="15%"><? echo _("Result")?></th>
+              <th width="15%"><? echo _("ECO")?></th>
             </tr>
             <?
 					$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom
@@ -315,7 +315,7 @@ require 'include/page_body_no_menu.php';
 				                            ORDER BY G.dateCreated");
 					
 					if (mysql_num_rows($tmpGames) == 0)
-						echo("<tr><td colspan='4'>Vous n'avez joué aucune partie contre ce joueur</td></tr>\n");
+						echo("<tr><td colspan='4'>"._("You've never played against this player")."</td></tr>\n");
 					else
 					{
 						while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
