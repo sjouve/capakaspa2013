@@ -46,7 +46,7 @@
 	$isPromoting = false;
 	$isUndoing = false;
 	
-	loadHistory();
+	loadHistory($_POST['gameID']);
 	$tmpGame = loadGame();
 	processMessages();
 	$pgnstring ="";

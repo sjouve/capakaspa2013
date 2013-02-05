@@ -29,6 +29,7 @@ $titre_page = _("Search for players");
 $desc_page = _("");
 require 'include/page_header.php';
 ?>
+<script src="javascript/menu.js" type="text/javascript"></script>
 <script src="javascript/player.js" type="text/javascript"></script>
 <script type="text/javascript">
 function getheight() {
@@ -58,7 +59,7 @@ window.onscroll = getheight;
 	
 </script>
 <?
-$attribut_body = "onload=\"displayPlayers(0,".$_SESSION['playerID'].",'".$critFavorite."','".$critStatus."','".$critEloStart."','".$critEloEnd."','".$critCountry."','".$critName."')\"";
+$attribut_body = "onload=\"highlightMenu(5);displayPlayers(0,".$_SESSION['playerID'].",'".$critFavorite."','".$critStatus."','".$critEloStart."','".$critEloEnd."','".$critCountry."','".$critName."')\"";
 require 'include/page_body.php';
 ?>
 <div id="content">

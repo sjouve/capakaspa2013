@@ -131,7 +131,7 @@
 					if(countMoves(myColor) == 0)
 					{
 						alert(document.getElementById('#alert_draw_stalemate_id').innerHTML);
-						// TODO Mettre à jour les champs isDrawResponseDone et drawResponse
+						document.getElementById('drawResult').value= 'true';
 					}
 
 					numMoves--;		// Reset chessHistory to it's initial size
@@ -156,7 +156,7 @@
 				if(count < 2 && !canCheckmate)
 				{
 					alert(document.getElementById('#alert_draw_material_id').innerHTML);
-					// TODO Mettre à jour les champs isDrawResponseDone et drawResponse
+					document.getElementById('drawResult').value= 'true';
 				}
 
 				// Is the game drawn because this is the third time that the exact same position arises?
@@ -165,14 +165,14 @@
 				if(isThirdTimePosDraw(FEN))
 				{
 					alert(document.getElementById('#alert_draw_3_times_id').innerHTML);
-					// TODO Mettre à jour les champs isDrawResponseDone et drawResponse
+					document.getElementById('drawResult').value= 'true';
 				}
 
 				// Draw because of no capture of pawn move for the last 50 moves?
 				if(!isCapture && (thePiece != 'pawn') && isFiftyMoveDraw(FEN[FEN.length-1]))
 				{
 					alert(document.getElementById('#alert_draw_50_moves_id').innerHTML);
-					// TODO Mettre à jour les champs isDrawResponseDone et drawResponse
+					document.getElementById('drawResult').value= 'true';
 				}
 
 				numMoves--;		// Reset chessHistory to it's initial size

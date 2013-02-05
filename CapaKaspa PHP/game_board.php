@@ -35,7 +35,7 @@ $isCheckMate = false;
 $isPromoting = false;
 $isUndoing = false;
 	
-loadHistory();
+loadHistory($_POST['gameID']);
 $tmpGame = loadGame($_POST['gameID'], $numMoves);
 processMessages();
 $pgnstring ="";
@@ -258,8 +258,8 @@ require 'include/page_body.php';
 					<nobr>
 					<input type="button" id="btnUndo" name="btnUndo" class="button" style="visibility: hidden" value="<?php echo _("Cancel")?>" onClick="javascript:undo();">
 					<input type="button" id="btnPlay" name="btnPlay" class="button" style="visibility: hidden" value="<?php echo _("Valid")?>" onClick="javascript:play();">
-					<div id="shareMove" style="display: none"><input type="checkbox" name="chkShareMove" value="share"> <?echo _("Share")?></div>
 					<div id="requestDraw" style="display: none"><input type="checkbox" name="requestDraw" value="yes"> <?echo _("Draw")?></div>
+					<div id="shareMove" style="display: none"><input type="checkbox" name="chkShareMove" value="share"> <?echo _("Share")?></div>
 					</nobr>
 					<input type="hidden" name="gameID" value="<? echo ($_POST['gameID']); ?>">
 					<!-- <input type="hidden" name="requestDraw" value="no"> -->
@@ -270,6 +270,7 @@ require 'include/page_body.php';
 					<input type="hidden" name="toCol" value="">
 					<input type="hidden" name="isInCheck" value="false">
 					<input type="hidden" name="isCheckMate" value="false">
+					<input type="hidden" id="drawResult" name="drawResult" value="false">
 				</div>
 				
 				<div id="viewer" <? if (isBoardDisabled()) {?>style="display:block;"<? } else {?>style="display:none;"<? } ?>>				
@@ -318,7 +319,7 @@ require 'include/page_body.php';
 				<input type="button" name="hide" id="hide" class="link" style="display:inline;" value="<?echo _("Show viewer");?>" onclick="javascript:afficheviewer();">
 				<input type="button" name="show" id="show" class="link" style="display:none;" value="<?echo _("Show player");?>" onclick="javascript:afficheplayer();">
 				<? } ?>
-				<input type="button" name="pgn" id="pgn" class="link" value="<?echo _("Download PGN");?>">
+				<input type="button" name="pgn" id="pgn" class="link" value="<?echo _("Download PGN");?>" onclick="location.href='game_pgn.php?id=<? echo($_POST['gameID'])?>'">
 				<input type="button" name="message" id="message" class="link" value="<?echo _("Send message");?>">
 				<? if (!isBoardDisabled()) {
 				?>

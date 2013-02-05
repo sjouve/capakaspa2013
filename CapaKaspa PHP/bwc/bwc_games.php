@@ -100,11 +100,11 @@ function calculateTargetDate($lastMove, $whitePlayerID, $blackPlayerID, $cadence
 /* I: $gameID
  * O: $history, $numMoves
  */
-function loadHistory()
+function loadHistory($gameID)
 {
 	global $history, $numMoves;
 	
-	$allMoves = mysql_query("SELECT * FROM history WHERE gameID = ".$_POST['gameID']." ORDER BY timeOfMove");
+	$allMoves = mysql_query("SELECT * FROM history WHERE gameID = ".$gameID." ORDER BY timeOfMove");
 
 	$numMoves = -1;
 	while ($thisMove = mysql_fetch_array($allMoves, MYSQL_ASSOC))
@@ -436,6 +436,15 @@ function processMessages()
 		}
 	}
 	
+	/* draw by rules */
+	$Test = isset($_POST['drawResult']) ? $_POST['drawResult']:Null;
+	if ($Test == 'true')
+	{
+		$tmpQuery = "UPDATE games SET gameMessage = 'draw', messageFrom = '".$playersColor."' WHERE gameID = ".$_POST['gameID'];
+		mysql_query($tmpQuery);
+		
+	}
+		
 	/* resign the game */
 	$Test = isset($_POST['resign']) ? $_POST['resign']:Null;
 	if ($Test == "yes")
