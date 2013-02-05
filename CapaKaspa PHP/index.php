@@ -143,6 +143,7 @@ $titre_page = _("My games in progress");
 $desc_page = _("Play chess and share your games. My games in progress.");
 require 'include/page_header.php';
 ?>
+<script src="javascript/menu.js" type="text/javascript"></script>
 <script src="javascript/comment.js" type="text/javascript"></script>
 <script type="text/javascript">
 	function sendResponse(responseType, messageFrom, gameID, whitePlayerID)
@@ -169,6 +170,7 @@ require 'include/page_header.php';
 	}
 </script>
 <?
+$attribut_body = "onload='highlightMenu(2)'";
 require 'include/page_body.php';
 ?>
 <div id="content">
