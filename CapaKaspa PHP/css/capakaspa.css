@@ -713,7 +713,9 @@
 	
 	.navlinks {
 		left: auto;
-		padding: 5px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		padding-left: 5px;
 		background-color: #EEEEEE;
 		border-top-style: solid;
 		border-right-style: solid;

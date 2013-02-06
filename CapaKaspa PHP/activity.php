@@ -25,6 +25,7 @@ $titre_page = _("Activity");
 $desc_page = _("Activity");
 require 'include/page_header.php';
 ?>
+<script src="javascript/menu.js" type="text/javascript"></script>
 <script src="javascript/activity.js" type="text/javascript"></script>
 <script src="javascript/comment.js" type="text/javascript"></script>
 <script src="javascript/like.js" type="text/javascript"></script>
@@ -63,7 +64,7 @@ window.onscroll = getheight;
 
 </script>
 <?
-$attribut_body = "onload='displayActivity(0, 0, ".$_SESSION['playerID'].")'";
+$attribut_body = "onload='highlightMenu(4); displayActivity(0, 0, ".$_SESSION['playerID'].")'";
 require 'include/page_body.php';
 ?>
 	<div id="content">

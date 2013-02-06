@@ -9,34 +9,21 @@ require 'bwc/bwc_common.php';
 require 'bwc/bwc_chessutils.php';
 require 'bwc/bwc_players.php';
 
-$titre_page = 'Jouer aux échecs contre flashChess';
+require 'include/localization.php';
+
+$titre_page = _("Play a chess game against flashChess");
 require 'include/page_header.php';
 ?>
-
+<script src="javascript/menu.js" type="text/javascript"></script>
 <?
+$attribut_body = "onload='highlightMenu(8)'";
 require 'include/page_body.php';
 ?>
-  <div id="contentlarge">
+<div id="contentlarge">
     <div class="contentbody">
-    <h3>Jouez une partie d'échecs en Flash contre un adversaire toujours disponible !</h3>
-    
-        
-      <!-- AddThis Button BEGIN -->
-      <div class="addthis_toolbox addthis_default_style ">
-      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-      <a class="addthis_button_tweet"></a>
-      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-      <a class="addthis_counter addthis_pill_style"></a>
-      </div>
-      <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4e7cb2a45be34669"></script>
-      <!-- AddThis Button END -->
-		<br/>
-		<center>
 		
-    	<embed width="650" height="500" name="plugin" src="bin/FLChess.swf" type="application/x-shockwave-flash">
-
-		</center>
-		<br/>
+    	<embed width="700" height="550" name="plugin" src="bin/FLChess.swf" type="application/x-shockwave-flash">
+		<br>
 		
 		<center>
 			<script type="text/javascript"><!--
@@ -58,7 +45,6 @@ require 'include/page_body.php';
 	</div>
 </div>
 
-
 <?
-    require 'include/page_footer.php';
+require 'include/page_footer.php';
 ?>

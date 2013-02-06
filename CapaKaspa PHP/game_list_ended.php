@@ -1,50 +1,52 @@
-<?	require 'include/mobilecheck.php';
-    /*commentaire*/
-    session_start();
-
-	/* load settings */
-	if (!isset($_CONFIG))
-		require 'include/config.php';
-
-	/* load external functions for setting up new game */
-	require 'dac/dac_players.php';
-	require 'bwc/bwc_common.php';
-	require 'bwc/bwc_chessutils.php';
-	require 'bwc/bwc_games.php';
-	require 'bwc/bwc_players.php';
-	
-	/* connect to database */
-	require 'include/connectdb.php';
-
-	$errMsg = "";
-
-	/* check session status */
-	require 'include/sessioncheck.php';
-	
-	/* Id du joueur */
-	$playerID = isset($_GET['playerID']) ? $_GET['playerID']:$_SESSION['playerID'];
-	// Si le joueur n'est pas celui connecté on récupère ces infos
-    if (isset($_GET['playerID']))
-    	$player = getPlayer($playerID);
-    	
-	/* set default playing mode to different PCs (as opposed to both players sharing a PC) */
-	$_SESSION['isSharedPC'] = false;
-	
-	$titre_page = "Echecs en différé - Les parties terminées";
-	$desc_page = "Jouer aux échecs en différé. Retrouvez la liste de vos parties d'échecs en différé terminées.";
-    require 'include/page_header.php';
-?>
-    <script type="text/javascript">
-
-		function loadEndedGame(gameID)
-		{
-			document.endedGames.gameID.value = gameID;
-			document.endedGames.submit();
-		}
-
-	</script>
 <?
-    require 'include/page_body.php';
+require 'include/mobilecheck.php';
+
+session_start();
+
+/* load settings */
+if (!isset($_CONFIG))
+	require 'include/config.php';
+
+/* load external functions for setting up new game */
+require 'dac/dac_players.php';
+require 'bwc/bwc_common.php';
+require 'bwc/bwc_chessutils.php';
+require 'bwc/bwc_games.php';
+require 'bwc/bwc_players.php';
+	
+/* connect to database */
+require 'include/connectdb.php';
+
+$errMsg = "";
+
+/* check session status */
+require 'include/sessioncheck.php';
+
+require 'include/localization.php';
+
+$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::SHORT, IntlDateFormatter::SHORT);
+
+/* Id du joueur */
+$playerID = isset($_GET['playerID']) ? $_GET['playerID']:$_SESSION['playerID'];
+// Si le joueur n'est pas celui connecté on récupère ces infos
+if (isset($_GET['playerID']))
+    $player = getPlayer($playerID);
+	
+$titre_page = _("Ended games");
+$desc_page = -("");
+require 'include/page_header.php';
+?>
+<script src="javascript/menu.js" type="text/javascript"></script>
+<script type="text/javascript">
+function loadEndedGame(gameID)
+{
+	document.endedGames.gameID.value = gameID;
+	document.endedGames.submit();
+}
+</script>
+<?
+$attribut_body = "onload='highlightMenu(3)'";
+require 'include/page_body.php';
 ?>
   <div id="contentlarge">
     <div class="contentbody">
@@ -52,18 +54,10 @@
 		if ($errMsg != "")
 			echo("<div class='error'>".$errMsg."</div>");
 		?>
-
-		<table>
-		<tr>
-		<td valign="middle"><img src="images/ampoule.jpg"></td> 
-		<td valign="middle">Analysez rapidement vos défaites pour éviter de faire les mêmes erreurs !</td>
-		
-        </tr>
-        </table>
     
       <form name="endedGames" action="game_board.php" method="post">
         <?
-    	$tmpGames = mysql_query("SELECT G.gameID gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage gameMessage, G.messageFrom messageFrom, DATE_FORMAT(G.dateCreated, '%d/%m/%Y %T') dateCreated, DATE_FORMAT(G.lastMove, '%d/%m/%Y %T') lastMoveF
+    	$tmpGames = mysql_query("SELECT G.gameID gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage gameMessage, G.messageFrom messageFrom, G.dateCreated, G.lastMove
                                 FROM games G, players W, players B, eco E 
 								WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
                                 AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
@@ -76,21 +70,21 @@
                                 ORDER BY G.eco ASC, G.lastMove DESC");
 		?>
         <A NAME="defaites"></A>
-		<h3>Défaites (<?echo(mysql_num_rows($tmpGames));?>) <?if (isset($_GET['playerID'])) echo('de '.$player['nick']);?></h3>
+		<h3><?echo _("Lost games");?> (<?echo(mysql_num_rows($tmpGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
         <div class="tabliste">
           <table border="0" width="650">
             <tr>
-              <th width="17%">Blancs</th>
-              <th width="17%">Noirs</th>
-              <th width="8%">Résultat</th>
-              <th width="8%">ECO</th>
-              <th width="25%">Début</th>
-              <th width="25%">Dernier coup</th>
+              <th width="17%"><?echo _("Whites");?></th>
+              <th width="17%"><?echo _("Blacks");?></th>
+              <th width="8%"><?echo _("Result");?></th>
+              <th width="8%"><?echo _("ECO");?></th>
+              <th width="25%"><?echo _("Started");?></th>
+              <th width="25%"><?echo _("Lost move");?></th>
             </tr>
             
 	<?
 	if (mysql_num_rows($tmpGames) == 0)
-		echo("<tr><td colspan='6'>Vous n'avez aucune défaite</td></tr>\n");
+		echo("<tr><td colspan='6'>"._("No lost games")."</td></tr>\n");
 	else
 	{
 		while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
@@ -123,11 +117,16 @@
 			/* ECO Code */
 			echo ("</td><td align='center'><span title='".$tmpGame['ecoName']."'>".$tmpGame['eco']);
 			
+			$started = new DateTime($tmpGame['dateCreated']);
+			$strStarted = $fmt->format($started);
+			$lastMove = new DateTime($tmpGame['lastMove']);
+			$strLastMove = $fmt->format($lastMove);
+			
 			/* Start Date */
-			echo ("</span></td><td align='center'>".$tmpGame['dateCreated']);
+			echo ("</span></td><td align='center'>".$strStarted);
 
 			/* Last Move */
-			echo ("</td><td align='center'>".$tmpGame['lastMoveF']."</td></tr>\n");
+			echo ("</td><td align='center'>".$strLastMove."</td></tr>\n");
 		}
 	}
 ?>
@@ -135,7 +134,7 @@
         </div>
         
         <?
-	$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, DATE_FORMAT(G.dateCreated, '%d/%m/%Y %T') dateCreated, DATE_FORMAT(G.lastMove, '%d/%m/%Y %T') lastMoveF
+	$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove
                                 FROM games G, players W, players B, eco E
                                 WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
                                 AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
@@ -147,21 +146,21 @@
 		<br/>
 		
 		<A NAME="nulles"></A>
-		<h3>Nulles (<?echo(mysql_num_rows($tmpGames));?>) <?if (isset($_GET['playerID'])) echo('de '.$player['nick']);?></h3>
+		<h3><?echo _("Draw games");?> (<?echo(mysql_num_rows($tmpGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
         <div class="tabliste">
           <table border="0" width="650">
             <tr>
-              <th width="17%">Blancs</th>
-              <th width="17%">Noirs</th>
-              <th width="8%">Résultat</th>
-              <th width="8%">ECO</th>
-              <th width="25%">Début</th>
-              <th width="25%">Dernier coup</th>
+              <th width="17%"><?echo _("Whites");?></th>
+              <th width="17%"><?echo _("Blacks");?></th>
+              <th width="8%"><?echo _("Result");?></th>
+              <th width="8%"><?echo _("ECO");?></th>
+              <th width="25%"><?echo _("Started");?></th>
+              <th width="25%"><?echo _("Lost move");?></th>
             </tr>
             
 	<?
 	if (mysql_num_rows($tmpGames) == 0)
-		echo("<tr><td colspan='6'>Vous n'avez aucune partie nulle</td></tr>\n");
+		echo("<tr><td colspan='6'>"._("No draw games")."</td></tr>\n");
 	else
 	{
 		while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
@@ -184,11 +183,17 @@
 			}
 			/* ECO Code */
 			echo ("</td><td align='center'><span title='".$tmpGame['ecoName']."'>".$tmpGame['eco']);
+			
+			$started = new DateTime($tmpGame['dateCreated']);
+			$strStarted = $fmt->format($started);
+			$lastMove = new DateTime($tmpGame['lastMove']);
+			$strLastMove = $fmt->format($lastMove);
+			
 			/* Start Date */
-			echo ("</td><td align='center'>".$tmpGame['dateCreated']);
+			echo ("</td><td align='center'>".$strStarted);
 
 			/* Last Move */
-			echo ("</td><td align='center'>".$tmpGame['lastMoveF']."</td></tr>\n");
+			echo ("</td><td align='center'>".$strLastMove."</td></tr>\n");
 		}
 	}
 ?>
@@ -196,7 +201,7 @@
         </div>
          
           <?
-	$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, DATE_FORMAT(G.dateCreated, '%d/%m/%Y %T') dateCreated, DATE_FORMAT(G.lastMove, '%d/%m/%Y %T') lastMoveF
+	$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove
                                 FROM games G, players W, players B, eco E WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
                                 AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
                                 AND ((G.gameMessage = 'playerResigned' AND G.messageFrom = 'white' AND G.blackPlayer = ".$playerID.")
@@ -211,22 +216,22 @@
 	<br/>
 	
 	<A NAME="victoires"></A>
-	<h3>Victoires (<?echo(mysql_num_rows($tmpGames));?>) <?if (isset($_GET['playerID'])) echo('de '.$player['nick']);?></h3>
+	<h3><?echo _("Won games");?> (<?echo(mysql_num_rows($tmpGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
 	
         <div class="tabliste">
           <table border="0" width="650">
             <tr>
-              <th width="17%">Blancs</th>
-              <th width="17%">Noirs</th>
-              <th width="8%">Résultat</th>
-              <th width="8%">ECO</th>
-              <th width="25%">Début</th>
-              <th width="25%">Dernier coup</th>
+              <th width="17%"><?echo _("Whites");?></th>
+              <th width="17%"><?echo _("Blacks");?></th>
+              <th width="8%"><?echo _("Result");?></th>
+              <th width="8%"><?echo _("ECO");?></th>
+              <th width="25%"><?echo _("Started");?></th>
+              <th width="25%"><?echo _("Lost move");?></th>
             </tr>
            
 	<?
 	if (mysql_num_rows($tmpGames) == 0)
-		echo("<tr><td colspan='6'>Vous n'avez aucune victoire</td></tr>\n");
+		echo("<tr><td colspan='6'>"._("No won games")."</td></tr>\n");
 	else
 	{
 		while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
@@ -258,11 +263,17 @@
 			}
 			/* ECO Code */
 			echo ("</td><td align='center'><span title='".$tmpGame['ecoName']."'>".$tmpGame['eco']);
+			
+			$started = new DateTime($tmpGame['dateCreated']);
+			$strStarted = $fmt->format($started);
+			$lastMove = new DateTime($tmpGame['lastMove']);
+			$strLastMove = $fmt->format($lastMove);
+			
 			/* Start Date */
-			echo ("</td><td align='center'>".$tmpGame['dateCreated']);
+			echo ("</td><td align='center'>".$strStarted);
 
 			/* Last Move */
-			echo ("</td><td align='center'>".$tmpGame['lastMoveF']."</td></tr>\n");
+			echo ("</td><td align='center'>".$strLastMove."</td></tr>\n");
 		}
 	}
 ?>
@@ -277,6 +288,6 @@
     </div>
   </div>
 <?
-    require 'include/page_footer.php';
-    mysql_close();
+require 'include/page_footer.php';
+mysql_close();
 ?>

@@ -24,6 +24,7 @@ require 'include/page_header.php';
 $username = isset($_POST['opponent'])? $_POST['opponent'] :"";
 
 ?>
+<script src="javascript/menu.js" type="text/javascript"></script>
 <script src="javascript/formValidation.js" type="text/javascript"></script>
 <script type="text/javascript">
 function showHint(str, type)
@@ -107,7 +108,7 @@ function startGame()
 }
 </script>
 <?
-$attribut_body = "onload=\"showHint('".$username."', 1)\"";
+$attribut_body = "onload=\"highlightMenu(1); showHint('".$username."', 1)\"";
 require 'include/page_body.php';
 ?>
 <div id="contentlarge">

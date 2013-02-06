@@ -63,7 +63,7 @@
 		<li id="menu6"><img src="images/puce.gif"/> <a href="message.php"><?php echo _("Messages");?></a></li>      
       </ul>  
 	</div>
-	 <? } ?>
+	<? } ?>
 	 
 	<? if (!isset($_SESSION['playerID'])||$_SESSION['playerID']==-1) {?>
 	<div class="navlinks">
@@ -76,15 +76,15 @@
 	  		</ul>
 	</div>
 	<? } ?>
-	
+	<? if (isset($_SESSION['playerID'])&&$_SESSION['playerID']!=-1) {?>
 	<div class="navlinks">
 		<div class="title"><?php echo _("Applications");?></div>
 			<ul>
 		        <li id="menu7"><img src="images/puce.gif"/> <a href="app_jchess.php"><?php echo _("Play JChess");?></a></li>
 		        <li id="menu8"><img src="images/puce.gif"/> <a href="app_flashchess.php"><?php echo _("Play flashChess");?></a></li>
-		        <li id="menu9"><img src="images/puce.gif"/> <a href="app_epd2diag.php"><?php echo _("EPD/FEN to diagram");?></a></li>
       		</ul>
-	</div>   
+	</div>
+	<? } ?>
 </div>
 
 <div id="advertisement">
