@@ -154,6 +154,12 @@ require 'include/page_body.php';
         
 	</div>
 </div>
+<div id="rightbar">
+	<div id="suggestions">
+		<? displaySuggestion();?>
+	</div>
+	<?require 'include/page_footer_right.php';?>
+</div>
 <?
 require 'include/page_footer.php';
 mysql_close();

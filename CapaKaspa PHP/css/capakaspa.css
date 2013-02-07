@@ -10,10 +10,11 @@
 		width: 1000px;
 		padding: 0px;
 		border-top-style: none;
-		border-right-style: none;
+		border-right-style: solid;
 		border-bottom-style: none;
 		border-left-style: none;
-		border-width: 0px;
+		border-width: 1px;
+		border-color: #CCCCCC;
 		margin-right: auto;
 		margin-left: auto;
 	}
@@ -168,6 +169,23 @@
 		border-width: 1px;
 		border-color: #CCCCCC;
 	}
+	
+	#footerright {
+		clear: both;
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		padding: 4px;
+		color: #404040;
+		font-size: x-small;
+		font-weight: normal;
+		font-style: normal;
+		border-top-style: solid;
+		border-right-style: none;
+		border-bottom-style: none;
+		border-left-style: none;
+		border-width: 1px;
+		border-color: #CCCCCC;
+		text-align: left;
+	}
 	#navliste {
 		border-top-style: none;
 		border-right-style: none;
@@ -314,8 +332,8 @@
 	}
 	.skyscraper {
 		position: absolute;
-		top:100px;
-		left:1005px;
+		top:95px;
+		left:1001px;
 		width:160px;
 		height:600px;
 	}
@@ -1050,3 +1068,20 @@
 		font-weight: bold;
 		text-shadow: 0.1em 0.1em 0.2em black;
 	}
+	.suggestion {
+		float: left;
+		width: 100%;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		border-top-style: none;
+		border-right-style: none;
+		border-bottom-style: solid;
+		border-left-style: none;
+		border-width: 1px;
+		border-color: #CCCCCC;
+		overflow: hidden;
+		line-height: normal;
+		font-size: 12px;
+		text-align: left;
+	}
+}

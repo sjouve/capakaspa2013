@@ -64,22 +64,28 @@ window.onscroll = getheight;
 
 </script>
 <?
-$attribut_body = "onload='highlightMenu(4); displayActivity(0, 0, ".$_SESSION['playerID'].")'";
+$attribut_body = "onload=\"highlightMenu(4); displayActivity(0, 0, ".$_SESSION['playerID']."); \"";
 require 'include/page_body.php';
 ?>
-	<div id="content">
-    	<div class="contentbody">
-	  	<?
-		if ($errMsg != "")
-			echo("<div class='error'>".$errMsg."</div>");
-		?>
-			<form name="existingGames" action="game_board.php" method="post">
-				<div id="activities0" style="display: none;"><img src='images/ajaxloader.gif'/></div>
-				<input type="hidden" name="gameID" value="">
-				<input type="hidden" name="from" value="encours">
-			</form>
-    	</div>
-    </div>
+<div id="content">
+	<div class="contentbody">
+  	<?
+	if ($errMsg != "")
+		echo("<div class='error'>".$errMsg."</div>");
+	?>
+		<form name="existingGames" action="game_board.php" method="post">
+			<div id="activities0" style="display: none;"><img src='images/ajaxloader.gif'/></div>
+			<input type="hidden" name="gameID" value="">
+			<input type="hidden" name="from" value="encours">
+		</form>
+	</div>
+</div>
+<div id="rightbar">
+	<div id="suggestions">
+		<? displaySuggestion();?>
+	</div>
+	<?require 'include/page_footer_right.php';?>
+</div>
 <?
 require 'include/page_footer.php';
 mysql_close();

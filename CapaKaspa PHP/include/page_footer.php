@@ -1,6 +1,5 @@
 <div id="footer">
-		CapaKaspa v4.5.3 - 12/2011 - Conception et réalisation : <a href="http://www.netassistant.fr">Sébastien JOUVE</a> - 
-		Signaler un problème, faire une suggestion : capakaspa@capakaspa.info<br/><br/>
+		CapaKaspa (c) 2013 - <a href="site_about.php"><? echo _("About and contact");?></a> - <a href="site_terms"><? echo _("Terms");?></a>
 	</div>  
 </div>
 

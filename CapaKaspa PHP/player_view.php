@@ -241,7 +241,12 @@ require 'include/page_body_no_menu.php';
 </div>
 <div id="rightbarlarge">
 	<div class="contentbody">
-		<h3><? echo _("Games in progress")?></h3>
+		<br>
+		<div class="navlinks">
+			<div class="title">
+			<? echo _("Games in progress")?>
+			</div>
+		</div>
 		
 		<form name="existingGames" action="game_board.php" method="post">
 
@@ -294,8 +299,12 @@ require 'include/page_body_no_menu.php';
       </form>
       
       <? if ($_SESSION['playerID'] != $player['playerID']) {?>
-		<h3><? echo _("My games against"); ?> <? echo($player['nick']); ?></h3>
-		
+      	<br>
+		<div class="navlinks">
+			<div class="title">
+			<? echo _("My games against"); ?> <? echo($player['nick']); ?>
+			</div>
+		</div>
 		<form name="endedGames" action="game_board.php" method="post">
 
         <div class="tabliste">

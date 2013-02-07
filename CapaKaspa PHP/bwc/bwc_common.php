@@ -104,4 +104,52 @@ function sendMail($msgTo, $mailSubject, $mailMsg)
 	
 	return $res;
 }
+
+function displaySuggestion()
+{
+	$limit = 15;
+	$type = mt_rand(0,1);
+	switch($type)
+	{
+		case 0:
+			$title = _("New player");
+			$result = searchPlayers("", 0, $limit, $_SESSION['playerID'], "", "", "", "", "", "");			
+			break;
+			
+		case 1:
+			$title = _("Your level");
+			$result = searchPlayers("", 0, $limit, $_SESSION['playerID'], "", "", $_SESSION['elo']-50, $_SESSION['elo']+50, $_SESSION['countryCode'], "");
+			break;
+	}
+	
+	$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
+	
+	echo("<div class='navlinks'>
+		<div class='title'>
+			".$title."
+		</div>
+	</div>");
+	
+	while($tmpPlayer = mysql_fetch_array($result, MYSQL_ASSOC))
+	{
+		$lastConnection = new DateTime($tmpPlayer['lastConnection']);
+		$strLastConnection = $fmt->format($lastConnection);
+			
+		echo("		
+		<div class='suggestion'>		
+				<div id='picture' style='float: left; margin-right: 5px;'>
+					<img src='".getPicturePath($tmpPlayer['socialNetwork'], $tmpPlayer['socialID'])."' width='32' height='32' border='0'/>
+				</div>
+				<a href='player_view.php?playerID=".$tmpPlayer['playerID']."'><span class='name'>".$tmpPlayer['firstName']." ".$tmpPlayer['lastName']." (".$tmpPlayer['nick'].")</span></a>");
+				if ($tmpPlayer['lastActionTime'])
+					echo("<img src='images/user_online.gif' style='vertical-align:bottom;' alt='"._("Player online")."'/>");
+				if (isNewPlayer($tmpPlayer['creationDate']))
+					echo("<img src='images/user_new.gif' style='vertical-align:bottom;'/>");
+				echo("
+		</div>
+		
+		");
+	}
+	
+}
 ?>

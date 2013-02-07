@@ -287,7 +287,7 @@ function getPrefNotification($gameID, $playerColor)
 function getPrefValue($playerID, $prefName)
 {
 	$res_pref = mysql_query("SELECT value FROM preferences WHERE preference = '".$prefName."' AND playerID =".$playerID);
-	$player = mysql_fetch_array($res_player, MYSQL_ASSOC);
+	$player = mysql_fetch_array($res_pref, MYSQL_ASSOC);
 	return $player['value'];
 }
 
