@@ -79,7 +79,7 @@ switch($ToDo)
 
 require 'include/localization.php';
 
-$titre_page = _("CapaKaspa");
+$titre_page = _("Sign-up");
 $desc_page = _("Sign up for CapaKaspa, play chess and share your games.");
 require 'include/page_header.php';
     
@@ -88,52 +88,52 @@ require 'include/page_header.php';
  /* fonctions de validation des champs d'un formulaire */
 </script>
 <script type="text/javascript">
-	function validateForm()
-	{
-		var dayDate = new Date();
-		var annee = dayDate.getFullYear();
+function validateForm()
+{
+	var dayDate = new Date();
+	var annee = dayDate.getFullYear();
 
-		document.getElementById("fields_required_error").style.display = "none";
-		document.getElementById("login_format_error").style.display = "none";
-		document.getElementById("password_format_error").style.display = "none";
-		document.getElementById("email_format_error").style.display = "none";
-		document.getElementById("confirm_password_error").style.display = "none";
-		
-		if (isEmpty(document.userdata.txtFirstName.value)
-			|| isEmpty(document.userdata.txtLastName.value)
-			|| isEmpty(document.userdata.txtNick.value)
-			|| isEmpty(document.userdata.pwdPassword.value)
-			|| isEmpty(document.userdata.txtEmail.value)
-			|| isEmpty(document.userdata.txtAnneeNaissance.value)
-			|| isEmpty(document.userdata.txtCountryCode.value))
-		{
-			document.getElementById("fields_required_error").style.display = "block";
-			return;
-		}
-		
-		if (!isAlphaNumeric(document.userdata.txtNick.value))
-		{
-			document.getElementById("login_format_error").style.display = "block";
-			return;
-		}
-		
-		if (!isAlphaNumeric(document.userdata.pwdPassword.value))
-		{
-			document.getElementById("password_format_error").style.display = "block";
-			return;
-		}
-		
-		if (!isEmailAddress(document.userdata.txtEmail.value))
-		{
-			document.getElementById("email_format_error").style.display = "block";
-			return;
-		}
-		
-		if (document.userdata.pwdPassword.value == document.userdata.pwdPassword2.value)
-			document.userdata.submit();
-		else
-			document.getElementById("confirm_password_error").style.display = "block";
+	document.getElementById("fields_required_error").style.display = "none";
+	document.getElementById("login_format_error").style.display = "none";
+	document.getElementById("password_format_error").style.display = "none";
+	document.getElementById("email_format_error").style.display = "none";
+	document.getElementById("confirm_password_error").style.display = "none";
+	
+	if (isEmpty(document.userdata.txtFirstName.value)
+		|| isEmpty(document.userdata.txtLastName.value)
+		|| isEmpty(document.userdata.txtNick.value)
+		|| isEmpty(document.userdata.pwdPassword.value)
+		|| isEmpty(document.userdata.txtEmail.value)
+		|| isEmpty(document.userdata.txtAnneeNaissance.value)
+		|| isEmpty(document.userdata.txtCountryCode.value))
+	{
+		document.getElementById("fields_required_error").style.display = "block";
+		return;
 	}
+	
+	if (!isAlphaNumeric(document.userdata.txtNick.value))
+	{
+		document.getElementById("login_format_error").style.display = "block";
+		return;
+	}
+	
+	if (!isAlphaNumeric(document.userdata.pwdPassword.value))
+	{
+		document.getElementById("password_format_error").style.display = "block";
+		return;
+	}
+	
+	if (!isEmailAddress(document.userdata.txtEmail.value))
+	{
+		document.getElementById("email_format_error").style.display = "block";
+		return;
+	}
+	
+	if (document.userdata.pwdPassword.value == document.userdata.pwdPassword2.value)
+		document.userdata.submit();
+	else
+		document.getElementById("confirm_password_error").style.display = "block";
+}
 </script>
 <?
 require 'include/page_body.php';
@@ -282,6 +282,6 @@ require 'include/page_body.php';
 	</div>
 </div>
 <?
-    require 'include/page_footer.php';
-    mysql_close();
+require 'include/page_footer.php';
+mysql_close();
 ?>

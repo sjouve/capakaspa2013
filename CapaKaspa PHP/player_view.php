@@ -136,13 +136,13 @@ require 'include/page_body_no_menu.php';
   	</div>
   	<div id="player_action" style="float: right;display: block;padding-top: 15px;padding-right: 5px;">
 	  	<form action="game_new.php" method="post">
-		<? if ($_SESSION['playerID'] != $player['playerID'] && !$favorite) {?>	
+		<? if ($_SESSION['playerID'] != $player['playerID'] && !$favorite && $player['activate'] == 1) {?>	
 			<div id="follow<?echo($player['playerID']);?>" style="display: inline;"><input id="btnFollow" value="<? echo _("Follow")?>" type="button" class="button" onclick="javascript:insertFav(<?echo($player['playerID']);?>,'<?echo($player['email']);?>');"></div>
 		<? }?>
-		<? if ($_SESSION['playerID'] != $player['playerID'] && $favorite) {?>			
+		<? if ($_SESSION['playerID'] != $player['playerID'] && $favorite && $player['activate'] == 1) {?>			
 			<div id="follow<?echo($player['playerID']);?>" style="display: inline;"><input id="btnFollow" value="<? echo _("Unfollow")?>" type="button" class="button" onclick="javascript:deleteFav(<?echo($favorite['favoriteID']);?>, <?echo($player['playerID']);?>);"></div>
 		<? }?>		
-		<? if ($_SESSION['playerID'] != $player['playerID']) {?>
+		<? if ($_SESSION['playerID'] != $player['playerID'] && $player['activate'] == 1) {?>
 			<div id="newgame" style="display: inline;">					
 				<input type="submit" class="link" value="<? echo _("New game");?>">
 				<input type="hidden" name="opponent" value="<? echo _($player['nick']);?>">						

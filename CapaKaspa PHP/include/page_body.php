@@ -42,7 +42,7 @@
 	        	<a href="player_view.php?playerID=<?echo($_SESSION['playerID'])?>"><img src="<?echo(getPicturePath($_SESSION['socialNetwork'], $_SESSION['socialID']));?>" width="40" height="40" border="0" style="float: left;margin-right: 10px;"/></a> 
 	        	<b><a href="player_view.php?playerID=<?echo($_SESSION['playerID'])?>"><? echo($_SESSION['nick'])?></a></b>  	
 	        </div>
-	        <div class="item"><a href="player_update"><? echo _("Update info");?></a></div>
+	        <div class="item"><a href="player_update.php"><? echo _("Update info");?></a></div>
 	      <? } ?>
 		</div>
 	</div>

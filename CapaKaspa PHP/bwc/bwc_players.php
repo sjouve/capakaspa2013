@@ -99,6 +99,17 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 	if ($player['PASSWORD'] != $pwdOldPassword && $pwdOldPassword != "")
 		return -1;
 	
+	// Désactivation
+	if ($email == "")
+	{
+		$res = updatePlayer($playerID, $player['PASSWORD'], $player['firstName'], $player['lastName'], $player['nick'], $player['email'], $player['profil'], $player['situationGeo'], $player['anneeNaissance'], 0);
+		if (!$res)
+		{
+			return 0;
+		}
+		return 1;
+	}
+	
 	@mysql_query("BEGIN");
 		
 	// Changement de mot de passe
@@ -497,15 +508,4 @@ function isNewPlayer($creationDate)
 		return false; 
 }
 
-/* Désactiver un joueur */
-function disablePlayer($playerID, $password, $firstName, $lastName, $nick, $email, $profil, $situationGeo, $anneeNaissance)
-{
-	// Mise à jour
-	$res = updatePlayer($playerID, $password, $firstName, $lastName, $nick, $email, $profil, $situationGeo, $anneeNaissance, 0);
-	
-	if ($res)
-		return TRUE;
-	else 
-		return FALSE;
-}
 ?>

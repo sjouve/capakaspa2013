@@ -36,6 +36,12 @@ switch($ToDo)
 		$err = createVacation($_SESSION['playerID'], $_POST['nbDays'], $CFG_EXPIREGAME);	
 		break;
 		
+	case 'DisableAccount':
+		$err = updateProfil($_SESSION['playerID'], "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+		if ($err == 1)
+			header("Location: index.php?ToDo=Logout");
+		break;
+		
 }
 		
 $titre_page = _("Update your profile");
@@ -107,7 +113,17 @@ function validateVacation()
 	vok = confirm(document.getElementById('#confirm_add_vacation_id').innerHTML);
 	if (vok)
 	{
-		document.Vacation.submit();
+		document.vacation.submit();
+	}
+}
+
+function disableAccount()
+{	
+	var vok=false;
+	vok = confirm(document.getElementById('#confirm_disable_account_id').innerHTML);
+	if (vok)
+	{
+		document.disable.submit();
 	}
 }
 </script>
@@ -136,6 +152,7 @@ require 'include/page_body.php';
 	<div class="error" id="old_password_error" style="display: none"><?echo _("Old password is required")?></div>
 	<!-- For translation in javascript -->
     <span id="#confirm_add_vacation_id" style="display: none"><?echo _("This postponement can not be canceled and all your games will be immediately postponed. Please confirm your absence ?")?></span>
+    <span id="#confirm_disable_account_id" style="display: none"><?echo _("You want to disable your account. Please confirm ?")?></span>
     
 	<form name="userdata" action="player_update.php" method="post">
 	  <h3><?php echo _("Basic info");?></h3>
@@ -376,7 +393,9 @@ require 'include/page_body.php';
             </td>
           </tr>
           <tr>
-            <td colspan="2" align="center"><input class="button" name="Update" type="button" value="<?echo _("Save");?>" onClick="validatePersonalInfo()">
+            <td colspan="2" align="center">
+            	<input class="button" name="Update" type="button" value="<?echo _("Save");?>" onClick="validatePersonalInfo()"> 
+            	
             </td>
           </tr>
         </table>
@@ -438,14 +457,24 @@ require 'include/page_body.php';
       		
       	?>
       	<br/><br/>
-		<form name="Vacation" action="player_update.php" method="post">
+		<form name="vacation" action="player_update.php" method="post">
 	  	<?	$tomorrow  = mktime(0, 0, 0, date("m")  , date("d")+1, date("Y"));
 	  	?> 
-	        <?echo _("You want to postpone your games for")?> <input name="nbDays" size="2" maxlength="2" type="text" value=""> <?echo _("day(s) from");?> <? echo($fmt->format($tomorrow));?> <input name="Validate" class="button" type="button" value="<?echo _("Postpone my games...");?>" onClick="validateVacation()"> <?echo _("(All your games will be postponed immediatly)");?>
+	        <?echo _("You want to postpone your games for")?> 
+	        <input name="nbDays" size="2" maxlength="2" type="text" value=""> <?echo _("day(s) from");?> <? echo($fmt->format($tomorrow));?> 
+	        <input name="Validate" class="button" type="button" value="<?echo _("Postpone my games...");?>" onClick="validateVacation()"> <?echo _("(All your games will be postponed immediatly)");?>
 	      	<input type="hidden" name="ToDo" value="CreateVacation">
     	</form>
     	<? }?>
-    	
+    	<br>
+    	<h3><?echo _("Disable my account")?></h3>
+    	<?echo _("You can disable your account on CapaKaspa. Other players will no longer have interactions with your account. But it will viewable from games or news. You can reactivate it later if you want.")?>
+    	<form name="disable" action="player_update.php" method="post">
+    		<center>
+    			<input class="button" name="Disable" type="button" value="<?echo _("Disable my account");?>" onClick="disableAccount()">
+    		</center>
+    		<input type="hidden" name="ToDo" value="DisableAccount">
+    	</form>
     </div>
   </div>
 <?

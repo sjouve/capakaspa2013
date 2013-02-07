@@ -29,7 +29,7 @@ $flagKnight = isset($_POST['flagKnight'])?$_POST['flagKnight']:"";
 $flagRook = isset($_POST['flagRook'])?$_POST['flagRook']:"";
 $flagQueen = isset($_POST['flagQueen'])?$_POST['flagQueen']:"";
 $type = isset($_POST['type']) ? $_POST['type']:0;
-$ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:Null;
+$ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:(isset($_GET['ToDo']) ? $_GET['ToDo']:Null);
 	
 switch($ToDo)
 {
