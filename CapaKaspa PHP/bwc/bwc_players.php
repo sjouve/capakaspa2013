@@ -69,7 +69,7 @@ function createPlayer()
 		return FALSE;
 	}
 	
-	// Envoi du message de confirmation
+	// Envoi du message de confirmation avec langue d'affichage
 	$mailSubject = _("[CapaKaspa] Sign up confirmation");
 	$mailMsg = _("To complete your sign up please click the following link (in case of problems copy the link into the address bar of your browser)")." :\n";
 	$mailMsg .= "http://www.capakaspa.info/sign-up.php?ToDo=activer&playerID=".$playerID."&nick=".$_POST['txtNick'];
@@ -221,7 +221,7 @@ function activationRequest($nick, $password, $email)
 		return 0;
 	}
 	
-	// Envoi du message de confirmation
+	// Envoi du message de confirmation avec langue affichage site
 	$mailSubject = _("[CapaKaspa] Confirm activation");
 	$mailMsg = _("To activate your account please click the following link (in case of problems copy the link into the address bar of your browser)")." :\n";
 	$mailMsg .= "http://www.capakaspa.info/sign-up.php?ToDo=activer&playerID=".$player['playerID']."&nick=".$player['nick'];
@@ -495,5 +495,17 @@ function isNewPlayer($creationDate)
 		return true;
 	else
 		return false; 
+}
+
+/* Désactiver un joueur */
+function disablePlayer($playerID, $password, $firstName, $lastName, $nick, $email, $profil, $situationGeo, $anneeNaissance)
+{
+	// Mise à jour
+	$res = updatePlayer($playerID, $password, $firstName, $lastName, $nick, $email, $profil, $situationGeo, $anneeNaissance, 0);
+	
+	if ($res)
+		return TRUE;
+	else 
+		return FALSE;
 }
 ?>

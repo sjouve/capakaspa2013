@@ -4,6 +4,10 @@
 /* Constantes du module */
 define ("MAX_NB_JOUR_ABSENCE", 30);
 
+/*
+ * PLAYER READ
+ */
+
 /* Charger un utilisateur par son ID */
 function getPlayer($playerID)
 {
@@ -40,6 +44,145 @@ function getPlayerByNickEmail($nick, $email)
     $player = mysql_fetch_array($res_player, MYSQL_ASSOC);
     return $player;
 }
+
+/* Liste tous les joueurs */
+function listPlayers()
+{
+	$tmpQuery = "SELECT * FROM players ORDER BY email";
+
+	return mysql_query($tmpQuery);
+}
+
+/* Liste les joueurs pour calcul Elo */
+function listPlayersForElo()
+{
+	$tmpQuery = "SELECT P.playerID playerID, E.elo elo, P.nick nick 
+				FROM players P, elo_history E 
+				WHERE P.playerID = E.playerID 
+				AND P.activate=1 
+				AND E.eloDate > '2012-09-30' 
+				ORDER BY playerID";
+
+	return mysql_query($tmpQuery);
+}
+
+/* Liste tous les joueurs */
+function listPlayersByNickName($str, $type)
+{
+	$tmpQuery = "SELECT playerID, nick, firstName, lastName
+	FROM players ";
+	if ($type != 0)
+		$tmpQuery .= "WHERE nick = '".$str."'";
+	else
+		$tmpQuery .= "WHERE (nick like '%".$str."%' OR firstName like '%".$str."%' OR lastName like '%".$str."%')";
+
+	$tmpQuery .= "	AND activate = 1
+	AND playerID != '".$_SESSION['playerID']."'
+	ORDER BY nick";
+
+	return mysql_query($tmpQuery);
+}
+
+/* Historique Elo d'un joueur */
+function listEloProgress($playerID)
+{
+	$tmpQuery = "SELECT elo, DATE_FORMAT(eloDate, '%c/%y') eloDateF
+	FROM elo_history
+	WHERE playerID = ".$playerID."
+	ORDER BY eloDate ASC";
+
+	return mysql_query($tmpQuery);
+}
+
+function countActivePlayers()
+{
+	$res_player = mysql_query("SELECT count(playerID) nbPlayers 
+								FROM players 
+								WHERE DATE_ADD(lastConnection, INTERVAL 14 DAY) >= NOW() 
+								AND activate = 1 
+								ORDER BY lastConnection DESC");
+	return mysql_fetch_array($res_player, MYSQL_ASSOC);
+}
+
+function countPassivePlayers()
+{
+	$res_player = mysql_query("SELECT count(playerID) nbPlayers 
+								FROM players 
+								WHERE DATE_ADD(lastConnection, INTERVAL 14 DAY) < NOW() 
+								AND activate = 1 
+								ORDER BY lastConnection DESC");
+	return mysql_fetch_array($res_player, MYSQL_ASSOC);
+}
+
+/*
+ * Recherche des utilisateurs
+* $mode : count = renvoi le nb de résultat de la recherche sinon le résultat
+* $debut :
+* $limit : nb résultat par page
+*/
+function searchPlayers($mode, $debut, $limit, $playerID, $critFavorite, $critStatus, $critEloStart, $critEloEnd, $critCountry, $critName)
+{
+
+	if ($mode=="count")
+		$tmpQuery = "SELECT count(*) nbPlayers
+		FROM players P left join online_players O on O.playerID = P.playerID";
+	else
+		$tmpQuery = "SELECT P.playerID, P.nick, P.firstName, P.lastName, P.socialNetwork, P.socialID, P.profil,
+		P.situationGeo, P.elo, P.lastConnection, P.creationDate,
+		O.lastActionTime,
+		C.countryName
+		FROM players P left join online_players O on O.playerID = P.playerID, country C ";
+
+	if ($critFavorite == "wing" || $critFavorite == "wers")
+		$tmpQuery .= ", fav_players F";
+
+	if ($mode=="count")
+		$tmpQuery .= " WHERE P.activate=1
+		AND P.playerID <> ".$playerID;
+	else
+		$tmpQuery .= " WHERE P.activate=1
+		AND P.playerID <> ".$playerID."
+		AND P.countryCode = C.countryCode
+		AND C.countryLang = '".getLang()."'";
+
+	if ($critStatus == "actif")
+		$tmpQuery .= " AND DATE_ADD(P.lastConnection, INTERVAL 14 DAY) >= NOW()";
+
+	if ($critStatus == "passif")
+		$tmpQuery .= " AND DATE_ADD(P.lastConnection, INTERVAL 14 DAY) < NOW()";
+
+	if ($critEloStart != '' and $critEloEnd != '')
+		$tmpQuery .= " AND P.elo >= ".$critEloStart." AND P.elo <= ".$critEloEnd;
+	if ($critEloStart != '' and $critEloEnd == '')
+		$tmpQuery .= " AND P.elo >= ".$critEloStart;
+	if ($critEloStart == '' and $critEloEnd != '')
+		$tmpQuery .= " AND P.elo <= ".$critEloEnd;
+
+	if ($critCountry != '')
+		$tmpQuery .= " AND P.countryCode = '".$critCountry."'";
+
+	if ($critName != '')
+		$tmpQuery .= " AND (P.nick like '%".$critName."%' OR P.firstName like '%".$critName."%' OR P.lastName like '%".$critName."%') ";
+
+	if ($critFavorite == "wing")
+		$tmpQuery .= " AND P.playerID = F.favPlayerID
+		AND F.playerID = ".$playerID;
+
+	if ($critFavorite == "wers")
+		$tmpQuery .= " AND P.playerID = F.playerID
+		AND F.favPlayerID = ".$playerID;
+
+	$tmpQuery .= " ORDER BY O.lastActionTime DESC, P.nick ASC";
+
+	if ($mode != "count")
+		$tmpQuery .= " limit ".$debut.",".$limit;
+
+	return mysql_query($tmpQuery);
+}
+
+/*
+ * PLAYER WRITE
+*/
 
 /* Insérer un joueur */	
 function insertPlayer($password, $firstName, $lastName, $nick, $email, $countryCode, $anneeNaissance, $playerSex)
@@ -88,78 +231,16 @@ function updatePlayerWithSocial($playerID, $password, $firstName, $lastName, $ni
 		return FALSE;
 }
 
-/* Liste tous les joueurs */
-function listPlayers()
-{
-	$tmpQuery = "SELECT * FROM players ORDER BY email";
-	
-	return mysql_query($tmpQuery);  
-}
+/* 
+ * PREFERENCES
+ */
 
-/* Liste tous les joueurs */
-function listPlayersForElo()
-{
-	$tmpQuery = "SELECT P.playerID playerID, E.elo elo, P.nick nick FROM players P, elo_history E WHERE P.playerID = E.playerID AND P.activate=1 AND E.eloDate > '2012-09-30' ORDER BY playerID";
-	
-	return mysql_query($tmpQuery);  
-}
-
-/* Liste les joueurs actifs */
-function listPlayersActifs()
-{
-	$tmpQuery = "SELECT playerID, nick, anneeNaissance, profil, situationGeo, elo FROM players WHERE DATE_ADD(lastConnection, INTERVAL 14 DAY) >= NOW() AND playerID <> ".$_SESSION['playerID']." AND activate=1 ORDER BY lastConnection DESC";
-	
-	return mysql_query($tmpQuery);  
-}
-
-/* Liste les joueurs passifs */
-function listPlayersPassifs()
-{
-	$tmpQuery = "SELECT playerID, nick, anneeNaissance, profil, situationGeo, elo FROM players WHERE DATE_ADD(lastConnection, INTERVAL 14 DAY) < NOW() AND playerID <> ".$_SESSION['playerID']." AND activate=1 ORDER BY lastConnection DESC";
-	
-  	return mysql_query($tmpQuery);  
-}
-
-/* Liste tous les joueurs */
-function listPlayersByNickName($str, $type)
-{
-	$tmpQuery = "SELECT playerID, nick, firstName, lastName 
-					FROM players ";
-	if ($type != 0)
-		$tmpQuery .= "WHERE nick = '".$str."'";
-	else
-		$tmpQuery .= "WHERE (nick like '%".$str."%' OR firstName like '%".$str."%' OR lastName like '%".$str."%')";
-	
-	$tmpQuery .= "	AND activate = 1 
-					AND playerID != '".$_SESSION['playerID']."' 
-					ORDER BY nick";
-
-	return mysql_query($tmpQuery);
-}
-
-function disablePlayer()
-{
-	// TODO désactivation joueur
-}
-
-function countActivePlayers()
-{
-	$res_player = mysql_query("SELECT count(playerID) nbPlayers FROM players WHERE DATE_ADD(lastConnection, INTERVAL 14 DAY) >= NOW() AND activate = 1 ORDER BY lastConnection DESC");
-	return mysql_fetch_array($res_player, MYSQL_ASSOC);
-}
-
-function countPassivePlayers()
-{
-	$res_player = mysql_query("SELECT count(playerID) nbPlayers FROM players WHERE DATE_ADD(lastConnection, INTERVAL 14 DAY) < NOW() AND activate = 1 ORDER BY lastConnection DESC");
-	return mysql_fetch_array($res_player, MYSQL_ASSOC);
-}
-	
-/* Préférences */
 /* Insérer une préférence d'un joueur */
 function insertPreference($playerID, $preference, $value)
 {
 	
-	$res_preference = mysql_query("INSERT INTO preferences (playerID, preference, value) VALUES (".$playerID.", '".$preference."', '".$value."')");
+	$res_preference = mysql_query("INSERT INTO preferences (playerID, preference, value) 
+									VALUES (".$playerID.", '".$preference."', '".$value."')");
 	return $res_preference;
 }
 
@@ -167,7 +248,8 @@ function insertPreference($playerID, $preference, $value)
 function updatePreference($playerID, $preference, $value)
 {
 	
-	$res_pref = mysql_query("UPDATE preferences SET value = '".$value."' WHERE playerID = ".$playerID." AND preference = '".$preference."'");
+	$res_pref = mysql_query("UPDATE preferences SET value = '".$value."' 
+								WHERE playerID = ".$playerID." AND preference = '".$preference."'");
 	
 	if ($res_pref)	
 		return TRUE;
@@ -175,7 +257,44 @@ function updatePreference($playerID, $preference, $value)
 		return FALSE;
 }
 
-/* Insérer un congé */
+function getPrefNotification($gameID, $playerColor)
+{
+	// Check player notification preferences
+	if ($playerColor == 'white')
+	{
+		$tmpReceiver = mysql_query("SELECT P.email email, PR.value value, PR2.value language
+				FROM games G, players P left join preferences PR2 on PR2.playerID = P.playerID AND PR2.preference='language', preferences PR
+				WHERE G.gameID =".$gameID."
+				AND G.whitePlayer = P.playerID
+				AND PR.playerID = P.playerID
+				AND PR.preference='emailnotification'");
+	}
+	else
+	{
+		$tmpReceiver = mysql_query("SELECT P.email email, PR.value value, PR2.value language
+				FROM games G, players P left join preferences PR2 on PR2.playerID = P.playerID AND PR2.preference='language', preferences PR
+				WHERE G.gameID =".$gameID."
+				AND G.blackPlayer = P.playerID
+				AND PR.playerID = P.playerID
+				AND PR.preference='emailnotification'");
+	}
+
+	$receiver = mysql_fetch_array($tmpReceiver, MYSQL_ASSOC);
+
+	return $receiver;
+}
+
+function getPrefValue($playerID, $prefName)
+{
+	$res_pref = mysql_query("SELECT value FROM preferences WHERE preference = '".$prefName."' AND playerID =".$playerID);
+	$player = mysql_fetch_array($res_player, MYSQL_ASSOC);
+	return $player['value'];
+}
+
+/* 
+ * VACATION
+ */
+
 /* Format date YYYY-MM-DD */
 function insertVacation($playerID, $duration)
 {
@@ -192,7 +311,9 @@ function insertVacation($playerID, $duration)
 function countVacation($playerID, $year)
 {
 	// Nombre de jours pour congés complètement sur l'année
-	$res = mysql_query("SELECT SUM(duration) nbVacation FROM vacation WHERE playerID=".$playerID." AND YEAR(endDate)=".$year)  or die(mysql_error()."\n".$requete);
+	$res = mysql_query("SELECT SUM(duration) nbVacation 
+						FROM vacation WHERE playerID=".$playerID." 
+						AND YEAR(endDate)=".$year)  or die(mysql_error()."\n".$requete);
 	$res_vacation = mysql_fetch_array($res, MYSQL_ASSOC);   
 	
 	return $res_vacation['nbVacation'];
@@ -207,6 +328,10 @@ function getCurrentVacation($playerID)
 								AND endDate >= NOW()");
 	return $res_vacation;
 }
+
+/*
+ * FOLLOW
+ */
 
 /* Créer un favori joueur */
 function insertFavPlayer($playerID, $favPlayerID)
@@ -247,116 +372,11 @@ function getPlayerFavorite($playerID, $favPlayerID)
     return $favorite;
 }
 
-/* Liste joueurs par tranche de Elo */
-function listPlayersByLevel($level)
-{
-	switch ($level)
-	{
-		case "DEB":
-			$levelCondition = "elo < 1300";
-			break;
-		
-		case "MOY":
-			$levelCondition = "elo = 1300";
-			break;
-			
-		case "COF":
-			$levelCondition = "elo > 1300 AND elo <= 1400";
-			break;
-			
-		case "MAI":
-			$levelCondition = "elo > 1400";
-			break;
-		
-	}
-	
-	$tmpQuery = "SELECT playerID, nick, anneeNaissance, profil, situationGeo, elo 
-				FROM players 
-				WHERE playerID <> ".$_SESSION['playerID']." 
-				AND ".$levelCondition." 
-				AND activate=1 ORDER BY lastConnection DESC";
-	
-	return mysql_query($tmpQuery); 
-}
-
-function listEloProgress($playerID)
-{
-	$tmpQuery = "SELECT elo, DATE_FORMAT(eloDate, '%c/%y') eloDateF
-				FROM elo_history 
-				WHERE playerID = ".$playerID." 
-				ORDER BY eloDate ASC";
-	
-	return mysql_query($tmpQuery);
-}
-
 /*
- * Recherche des utilisateurs
- * $mode : count = renvoi le nb de résultat de la recherche sinon le résultat
- * $debut :
- * $limit : nb résultat par page 
- * 
+ * ONLINE PLAYERS
  */
-function searchPlayers($mode, $debut, $limit, $playerID, $critFavorite, $critStatus, $critEloStart, $critEloEnd, $critCountry, $critName)
-{
-	
-	if ($mode=="count")
-		$tmpQuery = "SELECT count(*) nbPlayers 
-				FROM players P left join online_players O on O.playerID = P.playerID";
-	else
-		$tmpQuery = "SELECT P.playerID, P.nick, P.firstName, P.lastName, P.socialNetwork, P.socialID, P.profil, 
-							P.situationGeo, P.elo, P.lastConnection, P.creationDate,
-							O.lastActionTime,
-							C.countryName
-					FROM players P left join online_players O on O.playerID = P.playerID, country C ";
-	
-	if ($critFavorite == "wing" || $critFavorite == "wers")
-		$tmpQuery .= ", fav_players F";
-	
-	if ($mode=="count")
-		$tmpQuery .= " WHERE P.activate=1
-					AND P.playerID <> ".$playerID;
-	else
-		$tmpQuery .= " WHERE P.activate=1 
-					AND P.playerID <> ".$playerID." 
-					AND P.countryCode = C.countryCode
-					AND C.countryLang = '".getLang()."'";
-	
-	if ($critStatus == "actif")			 
-		$tmpQuery .= " AND DATE_ADD(P.lastConnection, INTERVAL 14 DAY) >= NOW()"; 
-	
-	if ($critStatus == "passif")			
-		$tmpQuery .= " AND DATE_ADD(P.lastConnection, INTERVAL 14 DAY) < NOW()";
-	
-	if ($critEloStart != '' and $critEloEnd != '')
-		$tmpQuery .= " AND P.elo >= ".$critEloStart." AND P.elo <= ".$critEloEnd;
-	if ($critEloStart != '' and $critEloEnd == '')		
-		$tmpQuery .= " AND P.elo >= ".$critEloStart;
-	if ($critEloStart == '' and $critEloEnd != '')	
-		$tmpQuery .= " AND P.elo <= ".$critEloEnd;		
 
-	if ($critCountry != '')
-		$tmpQuery .= " AND P.countryCode = '".$critCountry."'";
-	
-	if ($critName != '')
-		$tmpQuery .= " AND (P.nick like '%".$critName."%' OR P.firstName like '%".$critName."%' OR P.lastName like '%".$critName."%') ";
-	
-	if ($critFavorite == "wing")			
-				$tmpQuery .= " AND P.playerID = F.favPlayerID 
-				AND F.playerID = ".$playerID;
-	
-	if ($critFavorite == "wers")
-		$tmpQuery .= " AND P.playerID = F.playerID
-		AND F.favPlayerID = ".$playerID;
-				 
-		$tmpQuery .= " ORDER BY O.lastActionTime DESC, P.nick ASC";
-				
-	if ($mode != "count")
-		$tmpQuery .= " limit ".$debut.",".$limit;
-
-	return mysql_query($tmpQuery);
-}
-
-/* Charger un utilisateur par son ID */
+/* Charger un utilisateur en ligne par son ID */
 function getOnlinePlayer($playerID)
 {
 	$res_olplayer = mysql_query("SELECT * FROM online_players WHERE playerID = ".$playerID);
@@ -404,36 +424,5 @@ function countOnlinePlayers()
 	return mysql_fetch_array($res_olplayer, MYSQL_ASSOC);
 }
 
-function getPrefNotification($gameID, $playerColor)
-{
-	// Check player notification preferences
-	if ($playerColor == 'white')
-	{
-		$tmpReceiver = mysql_query("SELECT P.email email, PR.value value, PR2.value language 
-									FROM games G, players P left join preferences PR2 on PR2.playerID = P.playerID AND PR2.preference='language', preferences PR
-									WHERE G.gameID =".$gameID."
-									AND G.whitePlayer = P.playerID 
-									AND PR.playerID = P.playerID 
-									AND PR.preference='emailnotification'");
-	}
-	else
-	{
-		$tmpReceiver = mysql_query("SELECT P.email email, PR.value value, PR2.value language 
-									FROM games G, players P left join preferences PR2 on PR2.playerID = P.playerID AND PR2.preference='language', preferences PR
-									WHERE G.gameID =".$gameID."
-									AND G.blackPlayer = P.playerID 
-									AND PR.playerID = P.playerID 
-									AND PR.preference='emailnotification'");
-	}
-	
-	$receiver = mysql_fetch_array($tmpReceiver, MYSQL_ASSOC);
-	
-	return $receiver;
-}
-function getPrefValue($playerID, $prefName)
-{
-	$res_pref = mysql_query("SELECT value FROM preferences WHERE preference = '".$prefName."' AND playerID =".$playerID);
-	$player = mysql_fetch_array($res_player, MYSQL_ASSOC);
-	return $player['value'];
-}
+
 ?>

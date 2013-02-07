@@ -1,7 +1,6 @@
 <?
 /*
  * Insert a follow
- * 
  */
 session_start();
 // Parameters
@@ -15,27 +14,30 @@ require '../bwc/bwc_common.php';
 require '../include/connectdb.php';
 
 // Insert a comment for an entity
-$playerID=$_GET["player"];
+$playerID = $_GET["player"];
+$playerEmail = $_GET["email"];
 
 $res = insertFavPlayer($_SESSION['playerID'], $playerID);
 $favoriteID = mysql_insert_id();
 if ($res) {
-	// TODO Send notification
 	// Email with receiver language
-	// getPlayerPreference($playerID, $preference);
-	$locale = isset($receiver['language'])?$receiver['language']:"en_EN";
-	putenv("LC_ALL=$locale");
-	setlocale(LC_ALL, $locale);
-	bindtextdomain("messages", "./locale");
-	textdomain("messages");
-	
-	$msgTo = "";
-	$mailSubject = "[CapaKaspa] "._("You have a new follower");
-	sendMail($msgTo, $mailSubject, $mailMsg);
+	$emailNotif = getPrefValue($playerID, "emailnotification");
+	if ($emailNotif == "oui")
+	{
+		$locale = getPrefValue($playerID, "language");
+		putenv("LC_ALL=$locale");
+		setlocale(LC_ALL, $locale);
+		bindtextdomain("messages", "./locale");
+		textdomain("messages");
+		
+		$msgTo = $playerEmail;
+		$mailSubject = "[CapaKaspa] "._("You have a new follower");
+		$mailMsg = $_SESSION['firstName']." ".$_SESSION['lastName']." (".$_SESSION['nick'].") "._("follow you on CapaKaspa.");
+		sendMail($msgTo, $mailSubject, $mailMsg);
+	}
 ?>
 <input id="btnUnfollow" value="<? echo _("Unfollow")?>" type="button" class="button" onclick="javascript:deleteFav(<?echo($favoriteID);?>, <?echo($playerID);?>);">
 <?
-
 }
 mysql_close();
 ?>

@@ -137,7 +137,7 @@ require 'include/page_body_no_menu.php';
   	<div id="player_action" style="float: right;display: block;padding-top: 15px;padding-right: 5px;">
 	  	<form action="game_new.php" method="post">
 		<? if ($_SESSION['playerID'] != $player['playerID'] && !$favorite) {?>	
-			<div id="follow<?echo($player['playerID']);?>" style="display: inline;"><input id="btnFollow" value="<? echo _("Follow")?>" type="button" class="button" onclick="javascript:insertFav(<?echo($player['playerID']);?>);"></div>
+			<div id="follow<?echo($player['playerID']);?>" style="display: inline;"><input id="btnFollow" value="<? echo _("Follow")?>" type="button" class="button" onclick="javascript:insertFav(<?echo($player['playerID']);?>,'<?echo($player['email']);?>');"></div>
 		<? }?>
 		<? if ($_SESSION['playerID'] != $player['playerID'] && $favorite) {?>			
 			<div id="follow<?echo($player['playerID']);?>" style="display: inline;"><input id="btnFollow" value="<? echo _("Unfollow")?>" type="button" class="button" onclick="javascript:deleteFav(<?echo($favorite['favoriteID']);?>, <?echo($player['playerID']);?>);"></div>

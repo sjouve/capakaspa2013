@@ -20,7 +20,7 @@ function deleteFav(favID, playerID)
 	xmlhttp.send();
 }
 
-function insertFav(playerID)
+function insertFav(playerID, playerEmail)
 {
 
 	if (window.XMLHttpRequest)
@@ -38,6 +38,6 @@ function insertFav(playerID)
 			document.getElementById("follow"+playerID).innerHTML=xmlhttp.responseText;
 		}
 	};
-	xmlhttp.open("GET","ajax/ajx_insert_follow.php?player="+playerID,true);
+	xmlhttp.open("GET","ajax/ajx_insert_follow.php?player="+playerID+"&email="+playerEmail,true);
 	xmlhttp.send();
 }
