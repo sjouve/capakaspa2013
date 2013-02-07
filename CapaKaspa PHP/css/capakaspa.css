@@ -1044,3 +1044,9 @@
 		font-size: 12px;
 		font-weight: bold;
 	}
+	
+	.activity_type {
+		color: #FFFFFF;
+		font-weight: bold;
+		text-shadow: 0.1em 0.1em 0.2em black;
+	}

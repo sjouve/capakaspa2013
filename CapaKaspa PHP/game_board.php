@@ -37,7 +37,7 @@ $isUndoing = false;
 	
 loadHistory($_POST['gameID']);
 $tmpGame = loadGame($_POST['gameID'], $numMoves);
-processMessages();
+processMessages($tmpGame);
 $pgnstring ="";
 $TestPromotion = isset($_POST['promotion']) ? $_POST['promotion']:Null;
 $TestFromRow = isset($_POST['fromRow']) ? $_POST['fromRow']:Null;
@@ -253,7 +253,7 @@ require 'include/page_body.php';
 			</div>
 			<div id="gameplayer">
 				
-				<div id="player" <? if (isBoardDisabled()) {?>style="display:none;"<? } else {?>style="display:block;"<? } ?>>				
+				<div id="player" style="display:block;">				
 					<? drawboard(false); ?>
 					<nobr>
 					<input type="button" id="btnUndo" name="btnUndo" class="button" style="visibility: hidden" value="<?php echo _("Cancel")?>" onClick="javascript:undo();">
@@ -273,7 +273,7 @@ require 'include/page_body.php';
 					<input type="hidden" id="drawResult" name="drawResult" value="false">
 				</div>
 				
-				<div id="viewer" <? if (isBoardDisabled()) {?>style="display:block;"<? } else {?>style="display:none;"<? } ?>>				
+				<div id="viewer" style="display:none;">				
 					<div id="GameBoard"></div>
 					<div id="GameButtons"></div>
 				</div>
@@ -313,12 +313,8 @@ require 'include/page_body.php';
 				?>
 			</div>
 			<div id="gameaction">
-				<?
-				if (!isBoardDisabled()) {
-				?>
 				<input type="button" name="hide" id="hide" class="link" style="display:inline;" value="<?echo _("Show viewer");?>" onclick="javascript:afficheviewer();">
 				<input type="button" name="show" id="show" class="link" style="display:none;" value="<?echo _("Show player");?>" onclick="javascript:afficheplayer();">
-				<? } ?>
 				<input type="button" name="pgn" id="pgn" class="link" value="<?echo _("Download PGN");?>" onclick="location.href='game_pgn.php?id=<? echo($_POST['gameID'])?>'">
 				<input type="button" name="message" id="message" class="link" value="<?echo _("Send message");?>">
 				<? if (!isBoardDisabled()) {

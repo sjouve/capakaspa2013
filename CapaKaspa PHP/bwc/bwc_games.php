@@ -328,7 +328,7 @@ function saveGame()
 	return $res;
 }
 
-function processMessages()
+function processMessages($tmpGame)
 {
 	global $isUndoRequested, $isDrawRequested, $isUndoing, $isGameOver, $isCheckMate, $playersColor, $statusMessage;
 	
@@ -338,11 +338,17 @@ function processMessages()
 	$isUndoRequested = false;
 	$isGameOver = false;
 	
-	if ($playersColor == "white")
+	if ($playersColor == "white") {
 		$opponentColor = "black";
-	else
+		$opponentID = $tmpGame['blackPlayer']; 
+	}
+	else {
 		$opponentColor = "white";
-
+		$opponentID = $tmpGame['whitePlayer'];
+	}
+	
+	$oppPrefResult = getPrefValue($opponentID, "shareresult");
+	
 	/* *********************************************** */
 	/* queue user generated (ie: using forms) messages */
 	/* *********************************************** */
@@ -409,7 +415,6 @@ function processMessages()
 	/* response to a request for a draw */
 	if (isset($_POST['drawResponse']))
 	{
-		// TODO Ajouter cas isDrawResponseDone No
 		if ($_POST['isDrawResponseDone'] == 'yes')
 		{
 			if ($_POST['drawResponse'] == "yes")
@@ -431,18 +436,12 @@ function processMessages()
 			{
 				/* Notification */
 				chessNotification('draw', $opponentColor, '', $_SESSION['nick'], $_POST['gameID']);
-				insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'draw');
+				if ($_SESSION['pref_shareresult'] == 'oui')	
+					insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'draw');
+				if ($oppPrefResult == 'oui')
+					insertActivity($opponentID, GAME, $_POST['gameID'], "", 'draw');
 			}
 		}
-	}
-	
-	/* draw by rules */
-	$Test = isset($_POST['drawResult']) ? $_POST['drawResult']:Null;
-	if ($Test == 'true')
-	{
-		$tmpQuery = "UPDATE games SET gameMessage = 'draw', messageFrom = '".$playersColor."' WHERE gameID = ".$_POST['gameID'];
-		mysql_query($tmpQuery);
-		
 	}
 		
 	/* resign the game */
@@ -456,7 +455,10 @@ function processMessages()
 
 		/* Notification */
 		chessNotification('resignation', $opponentColor, '', $_SESSION['nick'], $_POST['gameID']);
-		insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'resignation');
+		if ($_SESSION['pref_shareresult'] == 'oui')
+			insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "lost", 'resignation');
+		if ($oppPrefResult == 'oui')
+			insertActivity($opponentID, GAME, $_POST['gameID'], "won", 'resignation');
 			
 	}
 	
@@ -533,8 +535,29 @@ function processMessages()
 	/* if checkmate, update games table */
 	$Test = isset($_POST['isCheckMate']) ? $_POST['isCheckMate']:Null;
 	if ($Test == 'true')
+	{
 		mysql_query("UPDATE games SET gameMessage = 'checkMate', messageFrom = '".$playersColor."' WHERE gameID = ".$_POST['gameID']);
-	// TODO Insert activity pour checkmate
+		/* Notification */
+		chessNotification('checkmate', $opponentColor, '', $_SESSION['nick'], $_POST['gameID']);
+		if ($_SESSION['pref_shareresult'] == 'oui')
+			insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "won", 'checkmate');
+		if ($oppPrefResult == 'oui')
+			insertActivity($opponentID, GAME, $_POST['gameID'], "lost", 'checkmate');
+	}
+	
+	/* draw by rules */
+	$Test = isset($_POST['drawResult']) ? $_POST['drawResult']:Null;
+	if ($Test == 'true')
+	{
+		$tmpQuery = "UPDATE games SET gameMessage = 'draw', messageFrom = '".$playersColor."' WHERE gameID = ".$_POST['gameID'];
+		mysql_query($tmpQuery);
+		/* Notification */
+		chessNotification('drawrule', $opponentColor, '', $_SESSION['nick'], $_POST['gameID']);
+		if ($_SESSION['pref_shareresult'] == 'oui')
+			insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'drawrule');
+		if ($oppPrefResult == 'oui')
+			insertActivity($opponentID, GAME, $_POST['gameID'], "", 'drawrule');
+	}
 	
 	$tmpQuery = "SELECT gameMessage, messageFrom FROM games WHERE gameID = ".$_POST['gameID'];
 	$tmpMessages = mysql_query($tmpQuery);

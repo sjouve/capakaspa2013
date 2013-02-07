@@ -9,6 +9,8 @@ Table games
 - Modifier type de gameID smallint à int
 => modifier les colonnes gameID qui font référence dans les autres tables : history, messages
 
+Vérifier partie avec message 'undo' au moment de la migration
+
 NOTE : Problème avec la clef composée pour history
 
 Ajout table activity

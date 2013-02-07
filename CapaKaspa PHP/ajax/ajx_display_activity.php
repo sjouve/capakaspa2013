@@ -62,46 +62,69 @@ while($tmpActivity = mysql_fetch_array($tmpActivities, MYSQL_ASSOC))
 		$playerColor = 'black';
 	}
 	
+	$activityType = "";
 	switch($tmpActivity['msgType'])
 	{
 		// Invitation	
 		case 'invitation':
 			$message = _("invites someone to play a new game :");
+			$activityType = "INVITATION";
 			break;
 				
 		case 'withdrawal':
-			$message = _("canceled its invitation to play a new game with");
+			$message = _("canceled its invitation to play a new game with");		
+			$activityType = "INVITATION";
 			break;
 				
 		case 'accepted':
 			$message = _("has accepted invitation. A new game began against");
+			$activityType = "INVITATION";
 			break;
 			
 		case 'declined':
 			$message = _("refused invitation to play a new game against");
+			$activityType = "INVITATION";
 			break;
 
 		// Result
 		// won by resignation against
-		// lose by resignation against
+		// lost by resignation against
 		// drew (mutual consent) against
-		// drew (stalemate) against
-		// drew (50 moves) against
-		// drew (insufficient material) against
-		// drew (3 times position) against
+		// drew (rules) against
 		// won by checkmate against
-		// lose by checkmate against
+		// lost by checkmate against
 		case 'resignation':
-			$message = _("resigned in the game against");
+			if ($tmpActivity['message'] == "lost")
+				$message = _("lost")." ";
+			else
+				$message = _("won")." ";
+			$message .= _("by resignation against");
+			$activityType = "RESULT";
 			break;
 				
 		case 'draw':
-			$message = _("accepted draw proposal against");
+			$message = _("do a draw game by mutual consent");
+			$activityType = "RESULT";
 			break;
 		
+		case 'drawrule':
+			$message = _("do a draw game (stalemate, 3 times same position, 50 moves rule) against");
+			$activityType = "RESULT";
+			break;
+		
+		case 'checkmate':
+			if ($tmpActivity['message'] == "lost")
+				$message = _("lost")." ";
+			else
+				$message = _("won")." ";
+			$message .= _("by checkmate against");
+			$activityType = "RESULT";
+			break;
+				
 		// Move
 		case 'move':
 			$message = _("play the move")." ".$tmpActivity['message']._(" in the game against");
+			$activityType = "MOVE";
 			break;
 						
 	}
@@ -119,15 +142,17 @@ while($tmpActivity = mysql_fetch_array($tmpActivities, MYSQL_ASSOC))
 						<div class='gameboard'>");
 							drawboardGame($tmpActivity['gameID'], $tmpActivity['wPlayerID'], $tmpActivity['bPlayerID'], $tmpActivity['position']);
 						echo("</div>
-						<div class='gamedetails'>".
-							getStrGameType($tmpActivity['type'], $tmpActivity['flagBishop'], $tmpActivity['flagKnight'], $tmpActivity['flagRook'], $tmpActivity['flagQueen']));
+						<div class='gamedetails'>
+							<span class='activity_type'>".$activityType."</span>");
+							echo("<br>
+								<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpActivity['wFirstName']." ".$tmpActivity['wLastName']."<br>".$tmpActivity['wElo']."</span>
+								<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpActivity['bFirstName']." ".$tmpActivity['bLastName']."<br>".$tmpActivity['bElo']."</span>");
+							echo("<br><br>".getStrGameType($tmpActivity['type'], $tmpActivity['flagBishop'], $tmpActivity['flagKnight'], $tmpActivity['flagRook'], $tmpActivity['flagQueen']));
 							if ($tmpActivity['type'] == 0)
 								echo("<br>[".$tmpActivity['eco']."] ".$tmpActivity['ecoName']);
-							echo("<br>
-							<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpActivity['wFirstName']." ".$tmpActivity['wLastName']."<br>".$tmpActivity['wElo']."</span>
-							<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpActivity['bFirstName']." ".$tmpActivity['bLastName']."<br>".$tmpActivity['bElo']."</span>");
-							if ($tmpActivity['gameMessage'] == "")
-								echo("<br><br><br><span style='float: right'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGameActivity(".$tmpActivity['gameID'].")'></span>");
+							
+							if ($tmpActivity['gameMessage'] != "playerInvited")
+								echo("<br><br><span style='float: right'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGameActivity(".$tmpActivity['gameID'].")'></span>");
 									
 						echo("</div>
 					</div>

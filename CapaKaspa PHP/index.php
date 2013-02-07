@@ -70,7 +70,8 @@ switch($ToDo)
 		if ($newGameID) {
 			// Notification
 			chessNotification('invitation', $oppColor, '', $_SESSION['nick'], $newGameID);
-			insertActivity($_SESSION['playerID'], GAME, $newGameID, "", 'invitation');
+			if ($_SESSION['pref_shareinvitation'] == 'oui')
+				insertActivity($_SESSION['playerID'], GAME, $newGameID, "", 'invitation');
 		}
 		break;
 
@@ -93,7 +94,8 @@ switch($ToDo)
 			
 			/* Notification */
 			chessNotification('accepted', $oppColor, $_POST['respMessage'], $_SESSION['nick'], $_POST['gameID']);
-			insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'accepted');					
+			if ($_SESSION['pref_shareinvitation'] == 'oui')
+				insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'accepted');					
 		}
 		else
 		{
@@ -107,7 +109,8 @@ switch($ToDo)
 			
 			/* Notification */
 			chessNotification('declined', $oppColor, $_POST['respMessage'], $_SESSION['nick'], $_POST['gameID']);
-			insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'declined');
+			if ($_SESSION['pref_shareinvitation'] == 'oui')
+				insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'declined');
 		}
 
 		break;
@@ -121,8 +124,9 @@ switch($ToDo)
 
 		/* notify opponent of invitation via email */
 		chessNotification('withdrawal', $oppColor, '', $_SESSION['nick'], $_POST['gameID']);
-		insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'withdrawal');
-		// TODO Prévoir le cas où une activité n'a plus de partie associée
+		if ($_SESSION['pref_shareinvitation'] == 'oui')
+			insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'withdrawal');
+		
 		$tmpQuery = "DELETE FROM games WHERE gameID = ".$_POST['gameID'];
 		mysql_query($tmpQuery);
 		

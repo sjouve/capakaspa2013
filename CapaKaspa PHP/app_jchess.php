@@ -33,11 +33,11 @@ require 'include/page_body.php';
 ?>
 <div id="contentlarge">
 	<div class="contentbody">
-
+		<center>
 		<applet
 			code=jchess.class archive="bin/jchess.zip"
 			name=jchess width=700 height=400>
-		  <PARAM NAME="bgcolor" VALUE="#FFFFFF">
+		  <PARAM NAME="bgcolor" VALUE="EEEEEE">
 		  <PARAM NAME="color" VALUE="#000080">
 		  <PARAM NAME="whtfld" VALUE="#F2A521">
 		  <PARAM NAME="blkfld" VALUE="#9B6A15">
@@ -48,6 +48,7 @@ require 'include/page_body.php';
 		</applet>
 		<input type="button" class="button" value="<? echo _("Play with blacks")?>" onclick="nouveau();jouer()" />
 		<input type="button" class="button" value="<? echo _("Flip the board")?>" onclick="retourner()" />
+		</center>
 		<br>
 		<br>
 		<br>

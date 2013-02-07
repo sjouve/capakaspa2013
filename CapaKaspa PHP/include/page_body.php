@@ -29,17 +29,20 @@
 	        <div class="item"><input name="txtNick" type="text" size="13" maxlength="20" placeholder="User name"/> <?php echo _("User name");?></div>
 	        <div class="item"><input name="pwdPassword" type="password" size="13" maxlength="16"/> <?php echo _("Password");?></div>
 	        <?if (isset($_GET['err'])&&$_GET['err']=='login') {?>
-	        <div class='error'><?php echo _("Invalid login or password !");?></div>
+	        <div class='error'><? echo _("Invalid login or password !");?></div>
 	        <?}?>
-	        <div class="item"><input name="chkAutoConn" type="checkbox"/> <?php echo _("Remember me");?></div>
-	        <input name="ToDo" value="Login" type="hidden" /><input name="login" value="<?php echo _("Sign in");?>" type="submit" class="button"/>
+	        <div class="item"><input name="chkAutoConn" type="checkbox"/> <? echo _("Remember me");?></div>
+	        <input name="ToDo" value="Login" type="hidden" /><input name="login" value="<? echo _("Sign in");?>" type="submit" class="button"/>
 	      </form>
 	      <ul>
-	      	<li><img src="images/puce.gif"/> <a href="password.php"><?php echo _("Forgot password ?");?></a></li>
+	      	<li><img src="images/puce.gif"/> <a href="password.php"><? echo _("Forgot password ?");?></a></li>
 	      </ul>
 	      <? } else {?>
-	        <div class="item"><a href="player_view.php?playerID=<?echo($_SESSION['playerID'])?>"><img src="<?echo(getPicturePath($_SESSION['socialNetwork'], $_SESSION['socialID']));?>" width="40" height="40" border="0" style="float: left;margin-right: 10px;"/></a> <b><a href="player_view.php?playerID=<?echo($_SESSION['playerID'])?>"><? echo($_SESSION['firstName']." ".$_SESSION['lastName'])?></a></b></div>
-	        <div class="item">...</div>
+	        <div class="item">
+	        	<a href="player_view.php?playerID=<?echo($_SESSION['playerID'])?>"><img src="<?echo(getPicturePath($_SESSION['socialNetwork'], $_SESSION['socialID']));?>" width="40" height="40" border="0" style="float: left;margin-right: 10px;"/></a> 
+	        	<b><a href="player_view.php?playerID=<?echo($_SESSION['playerID'])?>"><? echo($_SESSION['nick'])?></a></b>  	
+	        </div>
+	        <div class="item"><a href="player_update"><? echo _("Update info");?></a></div>
 	      <? } ?>
 		</div>
 	</div>

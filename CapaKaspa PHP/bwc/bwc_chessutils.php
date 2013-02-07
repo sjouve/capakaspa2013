@@ -341,17 +341,6 @@ function chessNotification($msgType, $receiverColor, $move, $senderName, $gameID
 			$mailmsg = $strPlayer." ".$senderName._(" canceled its invitation to play a new game.");
 			break;
 			
-		case 'resignation':
-			$mailsubject .= _("Resignation");
-			$mailmsg = $strOpponent." ".$senderName._(" resigned.");
-			break;
-			
-		case 'move':
-			$mailsubject .= _("New move");
-			$mailmsg = $strOpponent." ".$senderName._(" play the move :");
-			$mailmsg .= "\n".$move;
-			break;
-			
 		case 'accepted':
 			$mailsubject .= _("Invitation accepted");
 			$mailmsg = $strPlayer." ".$senderName._(" has accepted your invitation. A new game began.");
@@ -360,7 +349,7 @@ function chessNotification($msgType, $receiverColor, $move, $senderName, $gameID
 				$mailmsg .= "\n".stripslashes(strip_tags($move));
 			}
 			break;
-			
+				
 		case 'declined':
 			$mailsubject .= _("Invitation refused");
 			$mailmsg = $strPlayer." ".$senderName._(" refused your invitation.");
@@ -370,9 +359,30 @@ function chessNotification($msgType, $receiverColor, $move, $senderName, $gameID
 			}
 			break;
 			
+		case 'move':
+			$mailsubject .= _("New move");
+			$mailmsg = $strOpponent." ".$senderName._(" play the move :");
+			$mailmsg .= "\n".$move;
+			break;
+			
+		case 'resignation':
+			$mailsubject .= _("Resignation");
+			$mailmsg = $strOpponent." ".$senderName._(" resigned.");
+			break;
+			
 		case 'draw':
 			$mailsubject .= _("Draw proposal accepted");
-			$mailmsg = $strPlayer." ".$senderName._(" accepted your draw proposal.\nThe game ended : 1/2-1/2.");
+			$mailmsg = $strPlayer." ".$senderName._(" accepted your draw proposal.\nThe game ended.");
+			break;
+			
+		case 'drawrule':
+			$mailsubject .= _("Draw game");
+			$mailmsg = _("Your game against")." ".$senderName._(" ended by a draw.");
+			break;
+		
+		case 'checkmate':
+			$mailsubject .= _("Checkmate");
+			$mailmsg = _("Your game against")." ".$senderName._(" ended by a checkmate.");
 			break;
 	}
 		

@@ -28,7 +28,7 @@ switch($ToDo)
 	
 	case 'UpdateProfil':
 		
-		$err = updateProfil($_SESSION['playerID'], $_POST['pwdPassword'], $_POST['pwdOldPassword'], strip_tags($_POST['txtFirstName']), strip_tags($_POST['txtLastName']), $_POST['txtEmail'], strip_tags($_POST['txtProfil']), strip_tags($_POST['txtSituationGeo']), $_POST['txtAnneeNaissance'], $_POST['rdoTheme'], $_POST['txtEmailNotification'], $_POST['txtLanguage'],$_POST['rdoSocialNetwork'], $_POST['txtSocialID'], $_POST['txtCountryCode'], $_POST['txtSex']);
+		$err = updateProfil($_SESSION['playerID'], $_POST['pwdPassword'], $_POST['pwdOldPassword'], strip_tags($_POST['txtFirstName']), strip_tags($_POST['txtLastName']), $_POST['txtEmail'], strip_tags($_POST['txtProfil']), strip_tags($_POST['txtSituationGeo']), $_POST['txtAnneeNaissance'], $_POST['rdoTheme'], $_POST['txtEmailNotification'], $_POST['txtLanguage'],$_POST['txtShareInvitation'],$_POST['txtShareResult'],$_POST['rdoSocialNetwork'], $_POST['txtSocialID'], $_POST['txtCountryCode'], $_POST['txtSex']);
 		break;
 		
 	case 'CreateVacation':
@@ -45,72 +45,71 @@ require 'include/page_header.php';
 <script type="text/javascript" src="javascript/formValidation.js">
  /* fonctions de validation des champs d'un formulaire */
 </script>
-<script type="text/javascript">
+<script type="text/javascript">	
+function validatePersonalInfo()
+{
+	var dayDate = new Date();
+	var annee = dayDate.getFullYear();
+
+	document.getElementById("fields_required_error").style.display = "none";
+	document.getElementById("login_format_error").style.display = "none";
+	document.getElementById("password_format_error").style.display = "none";
+	document.getElementById("email_format_error").style.display = "none";
+	document.getElementById("confirm_password_error").style.display = "none";
+	document.getElementById("old_password_error").style.display = "none";
 	
-	function validatePersonalInfo()
+	if (isEmpty(document.userdata.txtFirstName.value)
+		|| isEmpty(document.userdata.txtLastName.value)
+		//|| isEmpty(document.userdata.txtNick.value)
+		|| isEmpty(document.userdata.txtEmail.value)
+		|| isEmpty(document.userdata.txtAnneeNaissance.value)
+		|| isEmpty(document.userdata.txtCountryCode.value))
 	{
-		var dayDate = new Date();
-		var annee = dayDate.getFullYear();
-
-		document.getElementById("fields_required_error").style.display = "none";
-		document.getElementById("login_format_error").style.display = "none";
-		document.getElementById("password_format_error").style.display = "none";
-		document.getElementById("email_format_error").style.display = "none";
-		document.getElementById("confirm_password_error").style.display = "none";
-		document.getElementById("old_password_error").style.display = "none";
-		
-		if (isEmpty(document.userdata.txtFirstName.value)
-			|| isEmpty(document.userdata.txtLastName.value)
-			//|| isEmpty(document.userdata.txtNick.value)
-			|| isEmpty(document.userdata.txtEmail.value)
-			|| isEmpty(document.userdata.txtAnneeNaissance.value)
-			|| isEmpty(document.userdata.txtCountryCode.value))
-		{
-			document.getElementById("fields_required_error").style.display = "block";
-			return;
-		}
-		
-		if (!isEmpty(document.userdata.pwdPassword.value) && !isAlphaNumeric(document.userdata.pwdPassword.value))
-		{
-			document.getElementById("password_format_error").style.display = "block";
-			return;
-		}
-
-		if (!isEmpty(document.userdata.pwdPassword.value)
-				&& isEmpty(document.userdata.pwdOldPassword.value))
-		{
-			document.getElementById("old_password_error").style.display = "block";
-			return;
-		}
-		
-		if (!isEmailAddress(document.userdata.txtEmail.value))
-		{
-			document.getElementById("email_format_error").style.display = "block";
-			return;
-		}
-		
-		if (document.userdata.pwdPassword.value == document.userdata.pwdPassword2.value)
-			document.userdata.submit();
-		else
-			document.getElementById("confirm_password_error").style.display = "block";
+		document.getElementById("fields_required_error").style.display = "block";
+		return;
 	}
 	
-	function validateVacation()
+	if (!isEmpty(document.userdata.pwdPassword.value) && !isAlphaNumeric(document.userdata.pwdPassword.value))
 	{
-		document.getElementById("number_days_error").style.display = "none";
-		
-		if (!isWithinRange(document.Vacation.nbDays.value, 1, 30))
-		{
-			document.getElementById("number_days_error").style.display = "block";
-			return;
-		}
-		var vok=false;
-		vok = confirm(document.getElementById('#confirm_add_vacation_id').innerHTML);
-		if (vok)
-		{
-			document.Vacation.submit();
-		}
+		document.getElementById("password_format_error").style.display = "block";
+		return;
 	}
+
+	if (!isEmpty(document.userdata.pwdPassword.value)
+			&& isEmpty(document.userdata.pwdOldPassword.value))
+	{
+		document.getElementById("old_password_error").style.display = "block";
+		return;
+	}
+	
+	if (!isEmailAddress(document.userdata.txtEmail.value))
+	{
+		document.getElementById("email_format_error").style.display = "block";
+		return;
+	}
+	
+	if (document.userdata.pwdPassword.value == document.userdata.pwdPassword2.value)
+		document.userdata.submit();
+	else
+		document.getElementById("confirm_password_error").style.display = "block";
+}
+
+function validateVacation()
+{
+	document.getElementById("number_days_error").style.display = "none";
+	
+	if (!isWithinRange(document.Vacation.nbDays.value, 1, 30))
+	{
+		document.getElementById("number_days_error").style.display = "block";
+		return;
+	}
+	var vok=false;
+	vok = confirm(document.getElementById('#confirm_add_vacation_id').innerHTML);
+	if (vok)
+	{
+		document.Vacation.submit();
+	}
+}
 </script>
 <?
 require 'include/page_body.php';
@@ -263,7 +262,7 @@ require 'include/page_body.php';
               <input name="txtEmailNotification" type="radio" value="oui" checked>
               <?echo _("Yes");?> 
               <input name="txtEmailNotification" type="radio" value="non">
-              <?echo _("No");?> <?echo _("(Game events, private messages)");?>
+              <?echo _("No");?> 
               <?
 					}
 					else
@@ -272,7 +271,54 @@ require 'include/page_body.php';
               <input name="txtEmailNotification" type="radio" value="oui">
               <?echo _("Yes");?> 
               <input name="txtEmailNotification" type="radio" value="non" checked>
-              <?echo _("No");?> <?echo _("(Game events, private messages)");?>
+              <?echo _("No");?> 
+              <?	}
+				?>
+				<?echo _("(Invitations, moves, results and private messages)");?>
+            </td>
+          </tr>
+          <tr>
+            <td width="180"><?echo _("Share invitations");?> :</td>
+            <td><?
+					if ($_SESSION['pref_shareinvitation'] == 'oui')
+					{
+				?>
+              <input name="txtShareInvitation" type="radio" value="oui" checked>
+              <?echo _("Yes");?> 
+              <input name="txtShareInvitation" type="radio" value="non">
+              <?echo _("No");?> 
+              <?
+					}
+					else
+					{
+				?>
+              <input name="txtShareInvitation" type="radio" value="oui">
+              <?echo _("Yes");?> 
+              <input name="txtShareInvitation" type="radio" value="non" checked>
+              <?echo _("No");?> 
+              <?	}
+				?>
+            </td>
+          </tr>
+          <tr>
+            <td width="180"><?echo _("Share results");?> :</td>
+            <td><?
+					if ($_SESSION['pref_shareresult'] == 'oui')
+					{
+				?>
+              <input name="txtShareResult" type="radio" value="oui" checked>
+              <?echo _("Yes");?> 
+              <input name="txtShareResult" type="radio" value="non">
+              <?echo _("No");?> 
+              <?
+					}
+					else
+					{
+				?>
+              <input name="txtShareResult" type="radio" value="oui">
+              <?echo _("Yes");?> 
+              <input name="txtShareResult" type="radio" value="non" checked>
+              <?echo _("No");?> 
               <?	}
 				?>
             </td>
@@ -352,18 +398,20 @@ require 'include/page_body.php';
       
       Tant qu'un des joueurs d'une partie est en congé la partie est gelée (il est impossible de jouer un coup)
        -->
-	<? 
-	if ($ToDo == 'CreateVacation')
-	{
-		if ($err == -100)
-			echo("<div class='error'>"._("The number of days of vacation that you requested is not valid")."</div>");
-		if ($err == 1)
-			echo("<div class='success'>"._("Your request of vacation has been saved successfully")."</div>");
-	}
-	?>
-      <div class="error" id="number_days_error" style="display: none"><?echo _("Number of days must be between 0 and 30")?></div>
+	
       
       <h3><? echo _("Game postponement");?> <a href="manuel-utilisateur-jouer-echecs-capakaspa.pdf#page=15" target="_blank"><img src="images/point-interrogation.gif" border="0"/></a></h3>
+      	<? 
+		if ($ToDo == 'CreateVacation')
+		{
+			if ($err == -100)
+				echo("<div class='error'>"._("The number of days of vacation that you requested is not valid")."</div>");
+			if ($err == 1)
+				echo("<div class='success'>"._("Your request of vacation has been saved successfully")."</div>");
+		}
+		?>
+      <div class="error" id="number_days_error" style="display: none"><?echo _("Number of days must be between 0 and 30")?></div>
+      
       <? echo _("You have");?> <b><?echo(countAvailableVacation($_SESSION['playerID']));?></b> <? echo _("available days of vacation for year");?> <?echo(date('Y'))?> (<? echo _("days of vacation on 2 years are counted in the last year");?>).<br/>
       <br/>
       <?	

@@ -46,11 +46,27 @@ function createPlayer()
 	}
 	
 	// set Email notification preference
-	$res = insertPreference($playerID, 'emailnotification', "oui");
+	$res = insertPreference($playerID, "emailnotification", "oui");
 	if (!$res)
 	{
 		@mysql_query("ROLLBACK");
 		return FALSE;  
+	}
+	
+	// set Share invitation
+	$res = insertPreference($playerID, "shareinvitation", "oui");
+	if (!$res)
+	{
+		@mysql_query("ROLLBACK");
+		return FALSE;
+	}
+	
+	// set Share result
+	$res = insertPreference($playerID, "shareresult", "oui");
+	if (!$res)
+	{
+		@mysql_query("ROLLBACK");
+		return FALSE;
 	}
 	
 	// Envoi du message de confirmation
@@ -71,7 +87,7 @@ function createPlayer()
 }
 
 /* Mettre à jour le profil utilisateur */
-function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $lastName, $email, $profil, $situationGeo, $anneeNaissance, $prefTheme, $prefEmailNotification, $prefLanguage, $socialNetwork, $socialID, $countryCode, $playerSex)
+function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $lastName, $email, $profil, $situationGeo, $anneeNaissance, $prefTheme, $prefEmailNotification, $prefLanguage, $prefInvitation, $prefResult, $socialNetwork, $socialID, $countryCode, $playerSex)
 {
 	$player = getPlayer($playerID);
 	if (!$player)
@@ -130,6 +146,22 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 		return 0;
 	}
 	
+	// Share invitation
+	$res = updatePreference($playerID, 'shareinvitation', $prefInvitation);
+	if (!$res)
+	{
+		@mysql_query("ROLLBACK");
+		return 0;
+	}
+	
+	// Share result
+	$res = updatePreference($playerID, 'shareresult', $prefResult);
+	if (!$res)
+	{
+		@mysql_query("ROLLBACK");
+		return 0;
+	}
+	
 	// Update current session
 	$_SESSION['playerName'] = stripslashes(strip_tags($_POST['txtFirstName']))." ".stripslashes(strip_tags($_POST['txtLastName']));
 	$_SESSION['firstName'] = stripslashes(strip_tags($_POST['txtFirstName']));
@@ -147,6 +179,8 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 	$_SESSION['pref_emailNotification'] = $_POST['txtEmailNotification'];
 	$_SESSION['pref_theme'] = $_POST['rdoTheme'];
 	$_SESSION['pref_language'] = $_POST['txtLanguage'];
+	$_SESSION['pref_shareinvitation'] = $_POST['txtShareInvitation'];
+	$_SESSION['pref_shareresult'] = $_POST['txtShareResult'];
 	
 	@mysql_query("COMMIT");
 	return 1;
