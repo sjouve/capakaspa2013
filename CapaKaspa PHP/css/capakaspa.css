@@ -442,8 +442,10 @@
     	padding-bottom: 3px;
     	border-width: 1px;
     	border-color: #AAAAAA;
+    	border-radius: 3px;
     	font-weight: bold;
     	font-size: 12px;
+    	
 	}
 	.link_highlight {
     	background: #F2A521;
@@ -454,6 +456,7 @@
     	padding-bottom: 3px;
     	border-width: 1px;
     	border-color: #AAAAAA;
+    	border-radius: 3px;
     	font-weight: bold;
     	font-size: 12px;
 	}
@@ -466,6 +469,7 @@
     	padding-bottom: 3px;
     	border-width: 1px;
     	border-color: #AAAAAA;
+    	border-radius: 3px;
     	font-weight: bold;
     	font-size: 12px;
 	}
@@ -1081,7 +1085,16 @@
 		border-color: #CCCCCC;
 		overflow: hidden;
 		line-height: normal;
-		font-size: 12px;
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		font-size: 10px;
 		text-align: left;
+	}
+	.newplayer {
+		color: #FFFFFF;
+		background-color: #F2A521;
+		font-weight: bold;
+		padding-left: 4px;
+		padding-right: 4px;
+		border-radius: 2px;
 	}
 }

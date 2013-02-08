@@ -66,7 +66,7 @@ function listPlayersForElo()
 	return mysql_query($tmpQuery);
 }
 
-/* Liste tous les joueurs */
+/* Liste les joueurs par nom */
 function listPlayersByNickName($str, $type)
 {
 	$tmpQuery = "SELECT playerID, nick, firstName, lastName
@@ -145,6 +145,9 @@ function searchPlayers($mode, $debut, $limit, $playerID, $critFavorite, $critSta
 		AND P.countryCode = C.countryCode
 		AND C.countryLang = '".getLang()."'";
 
+	if ($critStatus == "nouveau")
+		$tmpQuery .= " AND DATE_ADD(P.creationDate, INTERVAL 14 DAY) >= NOW()";
+	
 	if ($critStatus == "actif")
 		$tmpQuery .= " AND DATE_ADD(P.lastConnection, INTERVAL 14 DAY) >= NOW()";
 

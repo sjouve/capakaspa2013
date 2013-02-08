@@ -498,7 +498,7 @@ function getNbOnlinePlayers()
 /* Est un nouveau joueur en fonction date de création */
 function isNewPlayer($creationDate)
 {
-	$maxDate = date('Y/m/d', strtotime('-7 day'));
+	$maxDate = date('Y/m/d', strtotime('-14 day'));
 	list($year, $month, $day) = explode("-", $creationDate);
 	$creationDate = date("Y/m/d", mktime(0,0,0, $month, substr($day, 0, 2), $year));
 	
