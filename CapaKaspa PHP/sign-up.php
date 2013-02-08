@@ -287,8 +287,8 @@ require 'include/page_body_no_menu.php';
 	<div class="contentbody">
 		<h3><?php echo _("Sign in");?></h3>
 		<form method="post" action="index.php">	        
-	        <?php echo _("User name");?> : <input name="txtNick" type="text" size="13" maxlength="20" placeholder="User name"/> <br>
-	        <?php echo _("Password");?> : <input name="pwdPassword" type="password" size="13" maxlength="16"/> <br>
+	        <?php echo _("User name");?> : <input name="txtNick" type="text" size="13" maxlength="20"> <br>
+	        <?php echo _("Password");?> : <input name="pwdPassword" type="password" size="13" maxlength="16"> <br>
 	        <?if (isset($_GET['err'])&&$_GET['err']=='login') {?>
 	        <div class='error'><? echo _("Invalid login or password !");?></div>
 	        <?}?>
