@@ -26,7 +26,7 @@ $critStatus = isset($_POST['critStatus']) ? $_POST['critStatus']:"actif";
 $critFavorite = isset($_POST['critFavorite']) ? $_POST['critFavorite']:"na";
 
 $titre_page = _("Search for players");
-$desc_page = _("");
+$desc_page = _("Search for players, play and share chess");
 require 'include/page_header.php';
 ?>
 <script src="javascript/menu.js" type="text/javascript"></script>

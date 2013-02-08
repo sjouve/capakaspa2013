@@ -21,8 +21,8 @@ require 'include/sessioncheck.php';
 	
 require 'include/localization.php';
 	
-$titre_page = _("Activity");
-$desc_page = _("Activity");
+$titre_page = _("News feed");
+$desc_page = _("News feed of your following");
 require 'include/page_header.php';
 ?>
 <script src="javascript/menu.js" type="text/javascript"></script>

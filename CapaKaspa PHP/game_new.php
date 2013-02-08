@@ -16,8 +16,8 @@ require 'include/connectdb.php';
 /* check session status */
 require 'include/sessioncheck.php';
 	
-$titre_page = "New game";
-$desc_page = "";
+$titre_page = _("New game");
+$desc_page = _("Invite someone to play a new chess game");
 require 'include/page_header.php';
 
 /* invite from players search */

@@ -33,7 +33,7 @@ if (isset($_GET['playerID']))
     $player = getPlayer($playerID);
 	
 $titre_page = _("Ended games");
-$desc_page = -("");
+$desc_page = _("All ended chess games of a player");
 require 'include/page_header.php';
 ?>
 <script src="javascript/menu.js" type="text/javascript"></script>

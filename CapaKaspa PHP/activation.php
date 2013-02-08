@@ -27,7 +27,7 @@ switch($ToDo)
 }	
 
 $titre_page = _("Activate your account");
-$desc_page = _("");
+$desc_page = _("Activate your account and play chess on CapaKaspa");
 require 'include/page_header.php';
 require 'include/page_body.php';
 ?>

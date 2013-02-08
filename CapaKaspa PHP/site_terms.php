@@ -1,6 +1,6 @@
 <?	
 $titre_page = _("Terms and policies");
-$desc_page = _("Terms and policies");
+$desc_page = _("All details about Terms and policies");
 require 'include/page_header.php';
 ?>
 <script type="text/javascript">

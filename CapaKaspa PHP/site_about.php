@@ -1,6 +1,6 @@
 <?	
 $titre_page = _("About and contact");
-$desc_page = _("About and contact");
+$desc_page = _("All details about us");
 require 'include/page_header.php';
 ?>
 <script type="text/javascript">
