@@ -15,6 +15,8 @@ require 'include/connectdb.php';
 	
 /* check session status */
 require 'include/sessioncheck.php';
+
+require 'include/localization.php';
 	
 $titre_page = _("New game");
 $desc_page = _("Invite someone to play a new chess game");

@@ -79,7 +79,7 @@ require 'include/page_body.php';
               <th width="8%"><?echo _("Result");?></th>
               <th width="8%"><?echo _("ECO");?></th>
               <th width="25%"><?echo _("Started");?></th>
-              <th width="25%"><?echo _("Lost move");?></th>
+              <th width="25%"><?echo _("Last move");?></th>
             </tr>
             
 	<?
@@ -155,7 +155,7 @@ require 'include/page_body.php';
               <th width="8%"><?echo _("Result");?></th>
               <th width="8%"><?echo _("ECO");?></th>
               <th width="25%"><?echo _("Started");?></th>
-              <th width="25%"><?echo _("Lost move");?></th>
+              <th width="25%"><?echo _("Last move");?></th>
             </tr>
             
 	<?
@@ -226,7 +226,7 @@ require 'include/page_body.php';
               <th width="8%"><?echo _("Result");?></th>
               <th width="8%"><?echo _("ECO");?></th>
               <th width="25%"><?echo _("Started");?></th>
-              <th width="25%"><?echo _("Lost move");?></th>
+              <th width="25%"><?echo _("Last move");?></th>
             </tr>
            
 	<?

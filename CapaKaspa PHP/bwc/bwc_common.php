@@ -90,8 +90,8 @@ function sendMail($msgTo, $mailSubject, $mailMsg)
 	$mailMsg .= _("\n\nThis email was sent automatically from site CapaKaspa (http://www.capakaspa.info).\n\n");
 	$mailMsg .= _("Follow us on Facebook (http://www.facebook.com/capakaspa)\n");
 	$mailMsg .= _("Follow us on Google+ (http://plus.google.com/114694270583726807082)\n");
-	$mailMsg .= _("Follow us on Twitter (http://)\n");
-	$mailMsg .= _("Follow us on YouTube (http://)\n");
+	$mailMsg .= _("Follow us on Twitter (http://http://www.twitter.com/CapaKaspa)\n");
+	$mailMsg .= _("Follow us on YouTube (http://http://www.youtube.com/user/CapaKaspaEchecs)\n");
 	
 	$res = false;
 	

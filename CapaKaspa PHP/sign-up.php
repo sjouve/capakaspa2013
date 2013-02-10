@@ -166,18 +166,18 @@ require 'include/page_body_no_menu.php';
 		<?} else  {?>
 		
 		<div class="error" id="fields_required_error" style="display: none"><?echo _("All fields are required")?></div>
-		<div class="error" id="login_format_error" style="display: none"><?echo _("Bad format for login")?></div>
+		<div class="error" id="login_format_error" style="display: none"><?echo _("Bad format for user name")?></div>
 		<div class="error" id="password_format_error" style="display: none"><?echo _("Bad format for password")?></div>
 		<div class="error" id="email_format_error" style="display: none"><?echo _("Bad format for email")?></div>
 		<div class="error" id="confirm_password_error" style="display: none"><?echo _("Password confirmation error")?></div>
 		<?
 			/* Traiter les erreurs */
 			if ($err == 'existNick')
-				echo("<div class='error'>"._("Login")." (".$_POST['txtNick'].") "._("you have choosen already exists. Try another login.")."</div>");
+				echo("<div class='error'>"._("User name")." (".$_POST['txtNick'].") "._("you have choosen already exists. Try another user name.")."</div>");
 			if ($err == 'existEmail')
 				echo("<div class='error'>"._("Email")." (".$_POST['txtEmail'].") "._("you have choosen aleady exists. Try another email.")."</div>");
 			if ($err == 'emptyNick')
-				echo("<div class='error'>"._("Empty login")."</div>");
+				echo("<div class='error'>"._("Empty user name")."</div>");
 			if ($err == 'db')
 				echo("<div class='error'>"._("A technical error has occured")."</div>");
 			if ($err == 'captcha')
@@ -290,7 +290,7 @@ require 'include/page_body_no_menu.php';
 	        <?php echo _("User name");?> : <input name="txtNick" type="text" size="13" maxlength="20"> <br>
 	        <?php echo _("Password");?> : <input name="pwdPassword" type="password" size="13" maxlength="16"> <br>
 	        <?if (isset($_GET['err'])&&$_GET['err']=='login') {?>
-	        <div class='error'><? echo _("Invalid login or password !");?></div>
+	        <div class='error'><? echo _("Invalid user name or password !");?></div>
 	        <?}?>
 	        <input name="chkAutoConn" type="checkbox"/> <? echo _("Remember me");?><br><br>
 	        <center><input name="login" value="<? echo _("Sign in");?>" type="submit" class="button"> <img src="images/puce.gif"/> <a href="password.php"><? echo _("Forgot password ?");?></a></center>

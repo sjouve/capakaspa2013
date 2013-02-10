@@ -29,7 +29,7 @@
 	        <div class="item"><input name="txtNick" type="text" size="13" maxlength="20" placeholder="User name"/> <?php echo _("User name");?></div>
 	        <div class="item"><input name="pwdPassword" type="password" size="13" maxlength="16"/> <?php echo _("Password");?></div>
 	        <?if (isset($_GET['err'])&&$_GET['err']=='login') {?>
-	        <div class='error'><? echo _("Invalid login or password !");?></div>
+	        <div class='error'><? echo _("Invalid user name or password !");?></div>
 	        <?}?>
 	        <div class="item"><input name="chkAutoConn" type="checkbox"/> <? echo _("Remember me");?></div>
 	        <input name="ToDo" value="Login" type="hidden" /><input name="login" value="<? echo _("Sign in");?>" type="submit" class="button"/>

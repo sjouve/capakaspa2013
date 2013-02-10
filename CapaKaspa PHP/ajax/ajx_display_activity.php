@@ -68,22 +68,22 @@ while($tmpActivity = mysql_fetch_array($tmpActivities, MYSQL_ASSOC))
 		// Invitation	
 		case 'invitation':
 			$message = _("invites someone to play a new game :");
-			$activityType = "INVITATION";
+			$activityType = _("INVITATION");
 			break;
 				
 		case 'withdrawal':
 			$message = _("canceled its invitation to play a new game with");		
-			$activityType = "INVITATION";
+			$activityType = _("INVITATION");
 			break;
 				
 		case 'accepted':
 			$message = _("has accepted invitation. A new game began against");
-			$activityType = "INVITATION";
+			$activityType = _("INVITATION");
 			break;
 			
 		case 'declined':
 			$message = _("refused invitation to play a new game against");
-			$activityType = "INVITATION";
+			$activityType = _("INVITATION");
 			break;
 
 		// Result
@@ -99,17 +99,17 @@ while($tmpActivity = mysql_fetch_array($tmpActivities, MYSQL_ASSOC))
 			else
 				$message = _("won")." ";
 			$message .= _("by resignation against");
-			$activityType = "RESULT";
+			$activityType = _("RESULT");
 			break;
 				
 		case 'draw':
 			$message = _("do a draw game by mutual consent");
-			$activityType = "RESULT";
+			$activityType = _("RESULT");
 			break;
 		
 		case 'drawrule':
 			$message = _("do a draw game (stalemate, 3 times same position, 50 moves rule) against");
-			$activityType = "RESULT";
+			$activityType = _("RESULT");
 			break;
 		
 		case 'checkmate':
@@ -118,13 +118,13 @@ while($tmpActivity = mysql_fetch_array($tmpActivities, MYSQL_ASSOC))
 			else
 				$message = _("won")." ";
 			$message .= _("by checkmate against");
-			$activityType = "RESULT";
+			$activityType = _("RESULT");
 			break;
 				
 		// Move
 		case 'move':
-			$message = _("play the move")." ".$tmpActivity['message']._(" in the game against");
-			$activityType = "MOVE";
+			$message = _("played the move")." ".$tmpActivity['message']._(" in the game against");
+			$activityType = _("MOVE");
 			break;
 						
 	}
