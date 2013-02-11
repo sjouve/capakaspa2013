@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
 "POT-Creation-Date: 2013-02-10 19:29+0100\n"
-"PO-Revision-Date: 2013-02-10 19:41+0100\n"
+"PO-Revision-Date: 2013-02-11 11:32+0100\n"
 "Last-Translator: S. JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: French\n"
@@ -1260,14 +1260,16 @@ msgid ""
 "Informations about people we receive on our website will be handled in "
 "accordance with:"
 msgstr ""
+"Les données des personnes que nous recevons sur notre site seront traitées "
+"conformément :"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:18
 msgid "- The laws,"
-msgstr ""
+msgstr "- aux lois en vigueur,"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:19
 msgid "- The recommendations of the CNIL,"
-msgstr ""
+msgstr "- aux recommandations de la CNIL,"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:20
 msgid ""
@@ -1275,10 +1277,13 @@ msgid ""
 "initiated by Nathalie Kosciusko-Morizet, Secretary of State for the "
 "prospective development and the digital economy)."
 msgstr ""
+"- à la Charte pour le droit à l'oubli signée le 13 octobre 2010 (charte "
+"initiée par Nathalie Kosciusko-Morizet, secrétaire d'Etat à la prospective "
+"et au développement l'économie numérique)."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:23
 msgid "1. Protection of your data"
-msgstr ""
+msgstr "1. Protection de vos données"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:25
 msgid ""
@@ -1287,16 +1292,23 @@ msgid ""
 "on your details to any third person except by judicial duty or in the case "
 "of non-payment."
 msgstr ""
+"Vos données personnelles sont entièrement protégées. Vous recevrez les "
+"messages que d'autres inscrits vous ont adressés par notre messagerie "
+"interne. Nous ne transmettons en aucun cas vos coordonnées à une tierce "
+"personne, sauf par obligation judiciaire."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:28
 msgid ""
 "Once you become a member CapaKaspa, data and other information about you is "
 "deliberately transmitted to other users, as follows:"
 msgstr ""
+"Dès que vous devenez membre de CapaKaspa, vos données et toute autre "
+"information vous concernant sont délibérément transmises à d'autres "
+"utilisateurs, de la manière suivante :"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:30
 msgid "a) Options visibility"
-msgstr ""
+msgstr "a) Options de visibilité"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:32
 msgid ""
@@ -1304,10 +1316,14 @@ msgid ""
 "All other information about you that you provide on CapaKaspa are visible "
 "only by members of CapaKaspa. You can edit your profile at any time."
 msgstr ""
+"Par défaut, vos nom, prénom, année de naissance, lieu de vie, pays sont "
+"visibles. Toutes les autres informations vous concernant que vous indiquez "
+"sur CapaKaspa ne sont visibles que par les membres de CapaKaspa. Vous pouvez "
+"modifier votre profil à tout moment."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:34
 msgid "b) Protection of your e-mail address"
-msgstr ""
+msgstr "b) Protection de votre adresse e-mail"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:36
 msgid ""
@@ -1316,26 +1332,35 @@ msgid ""
 "message in your CapaKaspa and address you provided to register if you have "
 "opted to receive notifications."
 msgstr ""
+"Votre adresse e-mail n'est jamais visible sur notre site. Si d'autres "
+"membres veulent vous envoyer un message, ils doivent passer par notre "
+"intermédiaire et vous recevrez leur message dans votre messagerie CapaKaspa "
+"et à l'adresse que vous avez donnée pour vous inscrire si vous avez choisi "
+"de recevoir les notifications."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:38
 msgid "c) Data on parts"
-msgstr ""
+msgstr "c) Données concernant les parties"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:40
 msgid ""
 "All data concerning the parts of chess are visible to all other members of "
 "CapaKaspa. It also includes comments."
 msgstr ""
+"Toutes les données concernant les parties de jeu d'échecs sont visibles de "
+"tous les autres membres de CapaKaspa. Cela inclut aussi les commentaires."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:41
 msgid ""
 "You can choose to share news about a shot of a part, such as event "
 "invitations and game results."
 msgstr ""
+"Vous pouvez choisir de partager des actualités concernant un coup d'une "
+"partie, les évènements tels que les invitations ou les résultats des parties."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:44
 msgid "2. Duration of storage of your data"
-msgstr ""
+msgstr "2. Durée de stockage de vos données"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:46
 msgid ""
@@ -1344,6 +1369,10 @@ msgid ""
 "1978 amended by the Act of 6 August 2004 relating to files, computers and "
 "freedoms."
 msgstr ""
+"CapaKaspa ne stocke les données vous concernant que pour la période "
+"correspondant à un usage raisonnable de chacune de ces données et dans les "
+"limites fixées par la loi du 6 janvier 1978 modifiée par la loi du 6 août "
+"2004 relative aux fichiers, à l'informatique et aux libertés."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:49
 msgid ""
@@ -1355,10 +1384,19 @@ msgid ""
 "other Web sites, we automatically inform as soon as these times of your "
 "request for amendment, correction or deletion of your profile."
 msgstr ""
+"À tout moment, vous pouvez modifier vos données, les corriger ou nous "
+"demander de les modifier ou les supprimer. Les demandes de suppression, "
+"modification ou blocage de compte sont traitées dans les 5 jours ouvrés "
+"suivant la réception de votre demande. Dans le cas où les informations ou "
+"les données relatives à votre profil aient été, selon les paramètres "
+"personnels que vous aurez choisis ou pour des raisons juridiques, transmises "
+"à nos partenaires ou à d'autres sites internet, nous informerons "
+"automatiquement et dans les plus brefs délais ces derniers de votre demande "
+"de modification, de correction ou de suppression de votre profil."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:52
 msgid "When we can not remove your data:"
-msgstr ""
+msgstr "as où nous ne pouvons pas supprimer vos données :"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:54
 msgid ""
@@ -1366,12 +1404,18 @@ msgid ""
 "Site and the information collected passively and actively in the process of "
 "registering on CapaKaspa will be immediately deleted:"
 msgstr ""
+"Dès que votre profil est supprimé, les données relatives à vos connexions, à "
+"votre usage du site ainsi que les informations collectées passivement et "
+"activement dans le cadre de votre inscription sur CapaKaspa seront également "
+"immédiatement supprimées :"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:56
 msgid ""
 "a) unless we suspect not registered to use the site for illegal purposes or "
 "contrary to the terms and conditions (GTC)"
 msgstr ""
+"a) tant que nous ne suspectons pas l'inscrit d'utiliser le site à des fins "
+"illégales ou contraires aux conditions générales d'utilisation (CGU),"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:58
 msgid ""
@@ -1379,6 +1423,9 @@ msgid ""
 "wishes of the registrant (for example in the case of a complaint of "
 "harassment)."
 msgstr ""
+"b) tant qu'une loi ou une décision de justice nous oblige à conserver les "
+"données malgré le souhait de l'inscrit (par exemple dans le cas d'une "
+"plainte pour harcèlement)."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:60
 msgid ""
@@ -1388,16 +1435,25 @@ msgid ""
 "data, but they will always be visible and it will be mentioned CapaKaspa the "
 "user name of the profile."
 msgstr ""
+"c) Sauf dans les cas mentionnés ci-dessus, lors de la suppression ou le "
+"blocage définitif d'un inscrit, toutes les informations personnelles "
+"(prénom, nom, année de naissance, localisation) le concernant seront "
+"définitivement supprimées. Les commentaires et les parties d'échecs ne plus "
+"mention de ces données personnelles mais ils seront toujours visibles sur "
+"CapaKaspa et il sera mentionné le nom d'utilisateur du profil. "
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:63
 msgid ""
 "You can always ask our customer service email (see About page) list of "
 "information we have stored about you."
 msgstr ""
+"Vous pouvez à tout moment demander à notre service client message "
+"électronique (voir page A propos) la liste des informations que nous avons "
+"enregistrées à votre sujet."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:66
 msgid "3. Update this text"
-msgstr ""
+msgstr "3. Mise à jour de ce texte"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:68
 msgid ""
@@ -1411,16 +1467,29 @@ msgid ""
 "this service, you accept the text content on the protection of personal data "
 "in the updated version."
 msgstr ""
+"CapaKaspa se réserve le droit de mettre à jour le texte sur la protection "
+"des données personnelles afin de pouvoir s'adapter à toute nouvelle "
+"législation ou amélioration du site. La date de mise à jour du texte sur la "
+"protection des données personnelles sera actualisée en conséquence. Si des "
+"changements significatifs sont effectués sur ce texte, Trombi.com vous en "
+"avertira de façon visible sur le site ou par une information qui vous sera "
+"adressée. Veuillez lire le texte sur la protection des données personnelles "
+"régulièrement afin d'être toujours informé sur la protection des données "
+"personnelles que nous avons enregistrées. En utilisant ce service, vous "
+"acceptez le contenu du texte sur la protection des données personnelles dans "
+"sa version actualisée."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:70
 msgid "4. Termination of your registration"
-msgstr ""
+msgstr "4. Résiliation de votre inscription"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:72
 msgid ""
 "At any time, you can deactivate your account. To do this, go to the edit "
 "page of your profile."
 msgstr ""
+"À tout moment, vous pouvez désactiver votre compte.Pour cela, rendez-vous "
+"sur la page de modification de votre profil."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:75
 msgid ""
@@ -1429,34 +1498,44 @@ msgid ""
 "In case of a disagreement with one or more paragraphs, we can not accept "
 "your registration on the site."
 msgstr ""
+"Afin de garantir le bon usage de notre base de données, vous ne pouvez "
+"devenir membre de CapaKaspa que si vous avez lu et approuvé chaque "
+"paragraphe sur la protection des données. Dans le cas d'un désaccord avec un "
+"ou plusieurs paragraphes, nous ne pourrons pas accepter votre inscription "
+"sur le site."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:78
 msgid ""
 "You may at any time object to the conditions of personal data or information "
 "about it. For this you can send us e-mail: capakaspa@capakaspa.info"
 msgstr ""
+"Vous pouvez à tout moment vous opposer aux conditions sur les données "
+"personnelles ou vous renseigner à ce sujet. Pour cela vous pouvez nous "
+"écrire adresse e-mail : capakaspa@capakaspa.info"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:3
 msgid "Terms and policies"
-msgstr ""
+msgstr "Conditions Générales d'Utilisation"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:4
 msgid "All details about Terms and policies"
-msgstr ""
+msgstr "Tous les détails sur les Conditions Générales d'Utilisation"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:15
 msgid "Terms and Policies"
-msgstr ""
+msgstr "Conditions Générales d'Utilisation"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:16
 msgid "1. Scope of terms and conditions"
-msgstr ""
+msgstr "1. Champ d'application et modifications des conditions d'utilisation"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:18
 msgid ""
 "CapaKaspa is a service edited by Sébastien Jouve (see page <a "
 "href='site_about.php'>About and contact</a>)"
 msgstr ""
+"CapaKaspa est un service édité par Sébastien JOUVE (voir page <a "
+"href='site_about.php'>A propos et contact</a>)."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:19
 msgid ""
@@ -1464,12 +1543,17 @@ msgid ""
 "http://www.capakaspa.info (hereinafter referred to as \"the website\") to "
 "access an area of ​​chess game deferred."
 msgstr ""
+"CapaKaspa offre à ses visiteurs, en accès gratuit sur son site internet "
+"accessible à l'adresse http://www.capakaspa.info (ci-après dénommé « le site "
+"internet ») l'accès à une zone de jeu d'échecs en différé."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:20
 msgid ""
 "By visiting the website or by registering on the website, visitors must "
 "comply with the terms and conditions of service."
 msgstr ""
+"En visitant le site internet ou en s'inscrivant sur le site internet, le "
+"visiteur doit se conformer aux conditions d'utilisation du service."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:23
 msgid ""
@@ -1478,28 +1562,38 @@ msgid ""
 "site. The modified terms are then applicable to the expiration of a period "
 "of one month from the date of their publication on the site."
 msgstr ""
+"Modification des conditions d'utilisation du service : Si ces conditions "
+"sont modifiées, les utilisateurs en sont informés sur la page « CGU » "
+"accessible en bas de toutes les pages du site. Les conditions modifiées sont "
+"ensuite applicables à l'expiration d'un délai d'un mois courant à partir du "
+"jour de leur publication sur le site."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:25
 msgid "2. Services free to all registered"
-msgstr ""
+msgstr "2. Services gratuits pour tous les inscrits"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:27
 msgid "All services provided by the website are free for all registered users."
 msgstr ""
+"ous les services fournis par le site internet sont gratuits pour tous les "
+"inscrits."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:30
 msgid "3. Intellectual property and responsibility of the user"
-msgstr ""
+msgstr "3. Propriété intellectuelle et responsabilité de l'utilisateur"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:31
 msgid "3.1 Intellectual property"
-msgstr ""
+msgstr "3.1 Propriété intellectuelle"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:33
 msgid ""
 "All content published on the website may not be copied, used without the "
 "express prior written holders of rights related to these contents."
 msgstr ""
+"Tout contenu publié sur le site internet ne peut être copié, exploité sans "
+"le consentement exprès, préalable et écrit des titulaires des droits liés à "
+"ces contenus."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:34
 msgid ""
@@ -1507,10 +1601,13 @@ msgid ""
 "website: http://www.capakaspa.info after prior written approval of the "
 "management CapaKaspa."
 msgstr ""
+"La marque CapaKaspa et tous les contenus de ce site internet ne peuvent être "
+"utilisés à l'extérieur du site internet : http://www.capakaspa.info qu'après "
+"un accord écrit préalable de la direction de CapaKaspa."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:36
 msgid "3.2 Responsibility of the user"
-msgstr ""
+msgstr "3.2 Responsabilité de l'utilisateur"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:38
 msgid ""
@@ -1520,12 +1617,19 @@ msgid ""
 "from the link <a href='site_privacy.php'>Privacy</a> at the bottom of this "
 "all pages of the website."
 msgstr ""
+"Tout membre qui s'inscrit sur CapaKaspa s'engage à vérifier l'exactitude des "
+"données qu'il saisit. Les conditions, l'ampleur et le traitement des "
+"informations concernant les membres sont détaillés sur la page protection "
+"des données personnelles accessible à partir du lien « Vie privée » présent "
+"en bas de toutes les pages du site internet."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:39
 msgid ""
 "Any incorrect or abusive registration, which is voluntary or not, parasite "
 "research results of people on the website."
 msgstr ""
+"Toute inscription incorrecte ou abusive, quelle soit volontaire ou non, "
+"parasite les résultats des recherches de personnes sur le site internet."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:40
 msgid ""
@@ -1533,16 +1637,22 @@ msgid ""
 "to his profile on CapaKaspa and updating, for example when changing e-mail "
 "through the web interface it to update their details."
 msgstr ""
+"Chaque membre de CapaKaspa s'engage à vérifier l'exactitude des données "
+"qu'il a indiqué pour son profil sur CapaKaspa et à les actualiser, par "
+"exemple lorsqu'il change d'adresse e-mail, grâce à l'interface en ligne lui "
+"permettant de mettre à jour ses coordonnées."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:41
 msgid ""
 "Every registrant is invited to report to the customer service CapaKaspa all "
 "data it seemed wrong."
 msgstr ""
+"Tout inscrit est invité à signaler au service clients de CapaKaspa toutes "
+"données lui semblant erronées."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:44
 msgid "5. Responsibility of the site CapaKaspa"
-msgstr ""
+msgstr "5. Responsabilité de CapaKaspa"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:46
 msgid ""
@@ -1550,12 +1660,18 @@ msgid ""
 "on the quality of published data and warn when it has considered these "
 "requests."
 msgstr ""
+"CapaKaspa s'engage à prendre en compte dans un délai raisonnable les "
+"remarques des utilisateurs concernant la qualité des données publiées et à "
+"les avertir quand il a pris en compte ces demandes."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:47
 msgid ""
 "CapaKaspa undertakes to delete any incorrect registration and the "
 "registration of a member who abuses the services provided by CapaKaspa."
 msgstr ""
+"CapaKaspa s'engage à supprimer toute inscription incorrecte ainsi que "
+"l'inscription de tout membre qui abuserait des services fournis par "
+"CapaKaspa."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:48
 msgid ""
@@ -1564,6 +1680,10 @@ msgid ""
 "while you consider improper behavior, without responsibility this involves "
 "CapaKaspa."
 msgstr ""
+"CapaKaspa n'est pas responsable des messages échangés entre les utilisateurs "
+"inscrits sur son site. Malgré tout, vous pouvez signaler au service client "
+"tout comportement que vous jugerez abusif, sans que cela engage la "
+"responsabilité de CapaKaspa."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:49
 msgid ""
@@ -1571,44 +1691,59 @@ msgid ""
 "entered by users and do not guarantee that the data registered members are "
 "up to date and usable."
 msgstr ""
+"CapaKaspa n'est pas responsable de l'exactitude et de la véracité des "
+"données saisies par les utilisateurs et ne garantit pas non plus que les "
+"données des membres inscrits soient à jour et utilisables."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:50
 msgid ""
 "CapaKaspa can not be held responsible for any problems encountered by "
 "computer users."
 msgstr ""
+"CapaKaspa ne peut être tenu responsable des problèmes informatiques "
+"rencontrés par les utilisateurs."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:51
 msgid ""
 "CapaKaspa is not responsible for the accuracy or completeness of the data "
 "provided on the site."
 msgstr ""
+"CapaKaspa n'est pas responsable du degré d'exactitude ou d'exhaustivité des "
+"données mises à disposition sur le site."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:52
 msgid "CapaKaspa is not responsible for statements made to him by others."
 msgstr ""
+"CapaKaspa n'est pas responsable des propos tenus à son égard par des tiers."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:53
 msgid ""
 "CapaKaspa is only responsible for the provision of information posted by "
 "users and can not be held responsible for the quality."
 msgstr ""
+"CapaKaspa n'est responsable que de la mise à disposition des informations "
+"publiées par ses utilisateurs sans pouvoir être tenu responsable de la "
+"qualité."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:54
 msgid ""
 "CapaKaspa is not responsible for content on the pages of partner sites "
 "making a link to the site CapaKaspa."
 msgstr ""
+"CapaKaspa n'est pas responsable des contenus présents sur les pages de sites "
+"partenaires faisant un lien vers le site CapaKaspa."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:55
 msgid ""
 "CapaKaspa can not be held responsible for the consequences of using indirect "
 "CapaKaspa."
 msgstr ""
+"CapaKaspa ne peut être tenu responsable que des conséquences indirectes de "
+"l'utilisation de CapaKaspa."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:58
 msgid "6. System integrity"
-msgstr ""
+msgstr "6. Intégrité du système"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:60
 msgid ""
@@ -1618,26 +1753,36 @@ msgid ""
 "the services provided by CapaKaspa as part of an individual personal "
 "activity and unsystematic."
 msgstr ""
+"CapaKaspa n'autorise pas, de quelque façon que se soit (logiciel, "
+"automatisme, routine) l'utilisation automatisée des services proposés sur "
+"son site internet. L'utilisateur de CapaKaspa n'est autorisé à surcharger "
+"les serveurs de CapaKaspa. L'utilisateur n'est pas autorisé à utiliser les "
+"services fournis par CapaKaspa que dans le cadre d'une activité personnelle "
+"individuelle et non systématique."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:63
 msgid "7. Competent court in case of dispute"
-msgstr ""
+msgstr "7. Tribunal compétent en cas de litige"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:65
 msgid ""
 "French law applies to any contractual relationship with Trombi.com, "
 "regardless of the country of residence of the user."
 msgstr ""
+"Le droit français s'applique à tout rapport contractuel avec Trombi.com, "
+"quel que soit le pays de résidence de l'utilisateur."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:66
 msgid ""
 "Complaints and obligations can be sent by email (address available on the "
 "page <a href='site_about.php'>About and contact</a>)."
 msgstr ""
+"Les plaintes et obligations peuvent être adressées par email (adresse "
+"disponible sur la page <a href='site_about.php'>A propos et contact</a>)."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:69
 msgid "8. If a point of these conditions was considered obsolete"
-msgstr ""
+msgstr "8. Si un point des présentes conditions était considéré comme caduc"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:71
 msgid ""
@@ -1645,6 +1790,10 @@ msgid ""
 "points would not be affected. Any item declared obsolete will be replaced by "
 "a provision as closely as possible to the foregoing provision."
 msgstr ""
+"Si un point de ces conditions d'utilisation du service devenait caduc, les "
+"autres points n'en seraient pas affectés. Tout point déclaré caduc sera "
+"remplacé par une disposition se rapprochant le plus possible de la "
+"précédente disposition."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_delete_like.php:23
 #: PHP/ajax/ajx_display_activity.php:163 PHP/ajax/ajx_display_comment.php:43
