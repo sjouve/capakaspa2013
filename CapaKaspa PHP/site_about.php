@@ -1,4 +1,5 @@
 <?
+session_start();
 require 'include/localization.php';
 $titre_page = _("About and contact");
 $desc_page = _("All details about us");

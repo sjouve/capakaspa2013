@@ -17,6 +17,8 @@ require 'include/connectdb.php';
 /* check session status */
 require 'include/sessioncheck.php';
 
+require 'include/localization.php';
+
 // Traitement des critères
 $critCountry = isset($_POST['critCountry']) ? $_POST['critCountry'] : $_SESSION['countryCode'];
 $critName = isset($_POST['critName']) ? $_POST['critName'] : "";

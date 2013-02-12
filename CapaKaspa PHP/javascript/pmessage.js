@@ -1,8 +1,14 @@
-// Manage comment on activity and game
-function displayComment(entityType, entityId)
+// Manage private message
+function displayPrivateMessage(playerID, withPlayerID, withEmail)
 {
-	document.getElementById("comment"+entityId).style.display = "block";
-
+	document.getElementById("messages").innerHTML = "<img src='images/ajaxloader.gif'/>";
+	document.getElementById("messageForm").style.display = "block";
+	if (document.getElementById("toPlayerID").value != "")
+		document.getElementById("contact"+document.getElementById("toPlayerID").value).style.backgroundColor = "#FFFFFF";
+	document.getElementById("toPlayerID").value = withPlayerID;
+	document.getElementById("toEmail").value = withEmail;
+	document.getElementById("contact"+withPlayerID).style.backgroundColor = "#EEEEEE";
+	
 	if (window.XMLHttpRequest)
 	{// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();
@@ -15,13 +21,13 @@ function displayComment(entityType, entityId)
 	{
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
-			document.getElementById("comment"+entityId).innerHTML=xmlhttp.responseText;
+			document.getElementById("messages").innerHTML=xmlhttp.responseText;
 		}
 	};
-	xmlhttp.open("GET","ajax/ajx_display_comment.php?type="+entityType+"&id="+entityId,true);
+	xmlhttp.open("GET","ajax/ajx_display_pmessage.php?pID="+playerID+"&wID="+withPlayerID, true);
 	xmlhttp.send();
 }
-
+/*
 function deleteComment(entityType, entityId, commentId)
 {
 	if (window.XMLHttpRequest)
@@ -41,11 +47,11 @@ function deleteComment(entityType, entityId, commentId)
 	};
 	xmlhttp.open("GET","ajax/ajx_delete_comment.php?id="+commentId,true);
 	xmlhttp.send();
-}
+}*/
 
-function insertComment(entityType, entityId)
+function insertPrivateMessage(fromPlayerID, toPlayerID, toEmail)
 {
-	message = encodeURI(document.getElementById("commenttext"+entityId).value);
+	message = encodeURI(document.getElementById("privateMessage").value);
 	if (window.XMLHttpRequest)
 	{// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();
@@ -58,9 +64,9 @@ function insertComment(entityType, entityId)
 	{
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
-			displayComment(entityType, entityId);
+			popup('popUpDiv');
 		}
 	};
-	xmlhttp.open("GET","ajax/ajx_insert_comment.php?type="+entityType+"&id="+entityId+"&mes="+message,true);
+	xmlhttp.open("GET","ajax/ajx_insert_pmessage.php?fromID="+fromPlayerID+"&toID="+toPlayerID+"&mes="+message,true);
 	xmlhttp.send();
 }

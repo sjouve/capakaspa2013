@@ -1,4 +1,5 @@
 <?
+session_start();
 require 'include/localization.php';
 $titre_page = _("Privacy");
 $desc_page = _("All details about privacy protection on CapaKaspa");

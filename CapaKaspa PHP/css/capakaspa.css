@@ -37,8 +37,9 @@
 		border-top-style: none;
 		border-right-style: none;
 		border-bottom-style: none;
-		border-left-style: none;
-		border-width: 0px;
+		border-left-style: solid;
+		border-width: 1px;
+		border-color: #CCCCCC;
 		overflow: hidden;
 	}
 	#contentlarge {
@@ -47,8 +48,9 @@
 		border-top-style: none;
 		border-right-style: none;
 		border-bottom-style: none;
-		border-left-style: none;
-		border-width: 0px;
+		border-left-style: solid;
+		border-width: 1px;
+		border-color: #CCCCCC;
 		overflow: hidden;
 	}
 	#contentxlarge {
@@ -57,8 +59,9 @@
 		border-top-style: none;
 		border-right-style: none;
 		border-bottom-style: none;
-		border-left-style: none;
-		border-width: 0px;
+		border-left-style: solid;
+		border-width: 1px;
+		border-color: #CCCCCC;
 		overflow: hidden;
 	}
 	#advertisement {
@@ -67,8 +70,9 @@
 		border-top-style: none;
 		border-right-style: none;
 		border-bottom-style: none;
-		border-left-style: none;
+		border-left-style: solid;
 		border-width: 1px;
+		border-color: #CCCCCC;
 		overflow: hidden;
 	}
 	#rightbar {
@@ -95,7 +99,7 @@
 		float: left;
 		width: 200px;
 		border-top-style: none;
-		border-right-style: solid;
+		border-right-style: none;
 		border-bottom-style: none;
 		border-left-style: none;
 		border-width: 1px;
@@ -324,6 +328,29 @@
 		display: block;
 		float: left;
 	}
+	#blanket {
+		background-color:#111;
+		opacity: 0.65;
+		*background:none;
+		position:absolute;
+		z-index: 9001;
+		top:0px;
+		left:0px;
+		width:100%;
+	}
+	#popUpDiv {
+		position:absolute;
+		background-color: #FFFFFF;
+		width:400px;
+		height:200px;
+		border:4px solid #CCCCCC;
+		z-index: 9002;
+	}
+	#messageForm {
+		background-color: #EEEEEE;
+		padding: 10px;
+		text-align: center;
+	}
 	.leaderboard {
 		float: left;
 		overflow: hidden;
@@ -379,6 +406,7 @@
 		font-size: 10px;
 		font-weight: normal;
 		font-style: normal;
+		resize:none;
 	}
 	.tabliste {
 		border-top-style: none;
@@ -412,6 +440,7 @@
 		font-weight: normal;
 		font-style: normal;
 		background-color:beige;
+		resize:none;
 	}
 	.tabliste td a {
 		text-decoration: none;
@@ -1017,6 +1046,7 @@
 		font-weight: normal;
 		font-style: normal;
 		width: 450px;
+		resize:none;
 	}
 	.comment .item .date {
 		font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -1089,6 +1119,23 @@
 		font-size: 10px;
 		text-align: left;
 	}
+	.contact {
+		float: left;
+		width: 100%;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		border-top-style: none;
+		border-right-style: none;
+		border-bottom-style: solid;
+		border-left-style: none;
+		border-width: 1px;
+		border-color: #CCCCCC;
+		overflow: hidden;
+		line-height: normal;
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		font-size: 10px;
+		text-align: left;
+	}
 	.newplayer {
 		color: #FFFFFF;
 		background-color: #F2A521;
@@ -1096,5 +1143,7 @@
 		padding-left: 4px;
 		padding-right: 4px;
 		border-radius: 2px;
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		font-size: 10px;
 	}
 }

@@ -1,4 +1,5 @@
 <?
+session_start();
 require 'include/localization.php';
 $titre_page = _("Terms and policies");
 $desc_page = _("All details about Terms and policies");

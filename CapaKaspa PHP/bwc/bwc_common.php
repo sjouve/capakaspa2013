@@ -105,6 +105,27 @@ function sendMail($msgTo, $mailSubject, $mailMsg)
 	return $res;
 }
 
+function displayPrivateMessage($toPlayerID, $toFirstName, $toLastName, $toNick, $toEmail)
+{?>
+	<div id="blanket" style="display:none"></div>
+	<div id="popUpDiv" style="display:none">
+		<div class="contentbody">
+			<? 
+			$toPlayerID = isset($toPlayerID)?$toPlayerID:"";
+			$toFirstName = isset($toFirstName)?$toFirstName:"";
+			$toLastName = isset($toLastName)?$toLastName:"";
+			$toNick = isset($toNick)?$toNick:"";
+			$toEmail = isset($toEmail)?$toEmail:"";		
+			?>
+			<h3><? echo _("New message")?></h3>
+			<? echo _("To")?> : <? echo($toFirstName." ".$toLastName." (".$toNick.")");?><br>
+			<textarea style="width: 370px" id="privateMessage" rows="4" placeholder="<? echo _("Your message...")?>"></textarea><br>
+			<input type="button" class="button" value="<? echo _("Send")?>" onclick="insertPrivateMessage(<? echo($_SESSION['playerID'])?>,<? echo($toPlayerID)?>,'<? echo($toEmail)?>')">
+			<input type="button" class="link" value="<? echo _("Cancel")?>" onclick="popup('popUpDiv')">
+		</div>
+	</div>
+<?}
+
 function displaySuggestion()
 {
 	

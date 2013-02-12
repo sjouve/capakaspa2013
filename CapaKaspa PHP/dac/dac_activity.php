@@ -41,6 +41,13 @@ function countActivityForPlayer($playerID)
 	return $res['nbActivity'];
 }
 
+function deleteActivity($activityID)
+{
+	$res_activity = mysql_query("DELETE FROM activity WHERE activityID = ".$activityID);
+	
+	return $res_activity;
+}
+
 // Comment
 function insertComment($playerID, $type, $entityID, $message)
 {
@@ -59,11 +66,11 @@ function deleteComment($commentID)
 function listEntityComments($type, $entityID)
 {
 	$tmpQuery = "SELECT C.commentID, C.message, C.postDate, L.likeID, P.playerID, P.firstName, P.lastName
-	FROM comment C left join like_entity L on L.type = '".COMMENT."' AND L.entityID = C.commentID AND L.playerID = ".$_SESSION['playerID'].", players P 
-	WHERE C.type = '".$type."' 
-	AND C.entityID = ".$entityID." 
-	AND C.playerID = P.playerID 
-	ORDER BY postDate asc";
+				FROM comment C left join like_entity L on L.type = '".COMMENT."' AND L.entityID = C.commentID AND L.playerID = ".$_SESSION['playerID'].", players P 
+				WHERE C.type = '".$type."' 
+				AND C.entityID = ".$entityID." 
+				AND C.playerID = P.playerID 
+				ORDER BY postDate asc";
 	//LIMIT ".$debut.", ".$limit;
 	
 	return mysql_query($tmpQuery);
@@ -86,13 +93,58 @@ function deleteLike($likeID)
 
 function countLike($type, $entityID)
 {
-	$res_count = mysql_query("SELECT count(likeID) nbLike FROM like_entity WHERE type = '".$type."' AND entityID = ".$entityID);
+	$res_count = mysql_query("SELECT count(likeID) nbLike 
+								FROM like_entity 
+								WHERE type = '".$type."' 
+								AND entityID = ".$entityID);
 	$res = mysql_fetch_array($res_count, MYSQL_ASSOC);
 	
 	return $res['nbLike'];
 }
 
 function searchLike($playerID, $type, $entityID)
+{
+	
+}
+
+// Private Messages addslashes(strip_tags(
+function insertPrivateMessage($fromPlayerID, $toPlayerID, $message)
+{
+	$res_pMessage = mysql_query("INSERT INTO private_message (fromPlayerID, toPlayerID, sendDate, message, status)
+			VALUES (".$fromPlayerID.",".$toPlayerID.", now(), '".addslashes(strip_tags($message))."', 0)");
+	return $res_pMessage;
+}
+
+function deletePrivateMessage($pMessageID)
+{
+	$res_pMessage = mysql_query("DELETE FROM private_message WHERE pMessageID = ".$pMessageID);
+	
+	return $res_pMessage;
+}
+
+function listPrivateMessageWith($playerID, $withPlayerID)
+{
+	$tmpQuery = "SELECT M.pMessageID, M.sendDate, M.status, M.message,
+						FP.playerID, FP.nick, FP.firstName, FP.lastName, FP.socialNetwork, FP.socialID
+					FROM private_message M, players FP
+					WHERE (fromPlayerID = ".$playerID." OR toPlayerID = ".$playerID.") 
+					AND (fromPlayerID = ".$withPlayerID." OR toPlayerID = ".$withPlayerID.")
+					AND M.fromPlayerID = FP.playerID";
+	
+	return mysql_query($tmpQuery);
+}
+
+function listPMContact($playerID)
+{
+	$tmpQuery = "SELECT DISTINCT(P.playerID), P.nick, P.firstName, P.lastName, P.email, P.socialNetwork, P.socialID, P.creationDate, O.lastActionTime
+					FROM private_message M, players P left join online_players O on O.playerID = P.playerID
+					WHERE (M.fromPlayerID = ".$playerID." OR M.toPlayerID = ".$playerID.")
+					AND  (M.fromPlayerID = P.playerID OR M.toPlayerID = P.playerID)";
+	
+	return mysql_query($tmpQuery);
+}
+
+function updatePMStatus($playerID, $withPlayerID)
 {
 	
 }

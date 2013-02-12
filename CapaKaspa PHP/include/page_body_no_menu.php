@@ -1,6 +1,11 @@
 </head>
 <body <?echo(isset($attribut_body) ? $attribut_body:"")?>>
 
+<? 
+if (isset($toPlayerID))
+	displayPrivateMessage($toPlayerID, $toFirstName, $toLastName, $toNick, $toEmail);
+?>
+
 <div id="topbar">
 	<div id="container">
 		<span class="title"><a href="index.php" title="<?php echo _("CapaKaspa : Play chess and share your games");?>"><?php echo _("CapaKaspa");?></a></span>

@@ -38,6 +38,8 @@ require 'include/page_header.php';
 <script src="javascript/activity.js" type="text/javascript"></script>
 <script src="javascript/comment.js" type="text/javascript"></script>
 <script src="javascript/like.js" type="text/javascript"></script>
+<script src="javascript/pmessage.js" type="text/javascript"></script>
+<script src="javascript/css-pop.js" type="text/javascript"></script>
 <script type="text/javascript">
 function loadEndedGame(gameID)
 {
@@ -115,6 +117,11 @@ window.onscroll = getheight;
 </script>
 <?
 $attribut_body = "onload=\"displayFeed('activity', 0)\"";
+$toPlayerID = $player['playerID'];
+$toFirstName = $player['firstName'];
+$toLastName = $player['lastName'];
+$toNick = $player['nick'];
+$toEmail = $player['email'];
 require 'include/page_body_no_menu.php';
 /*
  * Parties en cours
@@ -131,7 +138,7 @@ require 'include/page_body_no_menu.php';
 		<? 
 		echo("<span class='player_name'>".$player['firstName']." ".$player['lastName']." (".$player['nick'].")</span>"); 
   		if (getOnlinePlayer($player['playerID'])) echo (" <img src='images/user_online.gif'/>");
-  		if (isNewPlayer($player['creationDate'])) echo (" <img src='images/user_new.gif'/>");
+  		if (isNewPlayer($player['creationDate'])) echo (" <span class='newplayer'>"._("New player")."</span>");
   		?>
   	</div>
   	<div id="player_action" style="float: right;display: block;padding-top: 15px;padding-right: 5px;">
@@ -147,6 +154,8 @@ require 'include/page_body_no_menu.php';
 				<input type="submit" class="link" value="<? echo _("New game");?>">
 				<input type="hidden" name="opponent" value="<? echo _($player['nick']);?>">						
 			</div>
+			<input type="button" name="message" id="message" class="link" value="<?echo _("Send message");?>" onclick="popup('popUpDiv')">
+				
 		<?}?>
 		<? if ($_SESSION['playerID'] != $player['playerID']) {?>
 			<input type="button" class="link" value="<? echo _("Ended games"); ?>" onclick="location.href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>'">
@@ -161,8 +170,8 @@ require 'include/page_body_no_menu.php';
 	<? echo _("Was born in ")?> <? echo($player['anneeNaissance']); ?><br>
 	<? echo _("Lives in ")?> <? echo(stripslashes($player['situationGeo'])); ?>, <? echo($player['countryName']); ?>	
 	<br><br><? echo _("About")?>
-		<div style="background-color: #FFFFFF;padding: 3px;height: 60px;">
-			<? echo(stripslashes($player['profil'])); ?>
+		<div style="background-color: #FFFFFF;padding: 3px;height: 60px;overflow-y: auto;">
+			<? echo(nl2br(stripslashes($player['profil']))); ?>
 		</div>
 		<? 
 			/*echo _("Sign-up")." : ";

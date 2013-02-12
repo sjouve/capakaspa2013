@@ -34,6 +34,13 @@ if ($res) {
 		$mailSubject = "[CapaKaspa] "._("You have a new follower");
 		$mailMsg = $_SESSION['firstName']." ".$_SESSION['lastName']." (".$_SESSION['nick'].") "._("follow you on CapaKaspa.");
 		sendMail($msgTo, $mailSubject, $mailMsg);
+		
+		$locale = $_SESSION['pref_language'];
+		putenv("LC_ALL=$locale");
+		setlocale(LC_ALL, $locale);
+		bindtextdomain("messages", "./locale");
+		textdomain("messages");
+		
 	}
 ?>
 <input id="btnUnfollow" value="<? echo _("Unfollow")?>" type="button" class="button" onclick="javascript:deleteFav(<?echo($favoriteID);?>, <?echo($playerID);?>);">

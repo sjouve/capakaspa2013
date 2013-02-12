@@ -38,6 +38,7 @@ Ajout table privateMessage
 - toPlayerId
 - sendDate
 - text
+- status
 
 Reprise des préférences
 => Ajout préférence language pour tous les anciens user

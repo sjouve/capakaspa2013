@@ -50,7 +50,7 @@ while($tmpPlayer = mysql_fetch_array($result, MYSQL_ASSOC))
 					if ($tmpPlayer['lastActionTime'])
 						echo("<img src='images/user_online.gif' style='vertical-align:bottom;' alt='"._("Player online")."'/>");
 					if (isNewPlayer($tmpPlayer['creationDate']))
-						echo("<img src='images/user_new.gif' style='vertical-align:bottom;'/>");
+						echo(" <span class='newplayer'>"._("New player")."</span>");
 				echo("</div>
 				<div class='content'>");
 					
@@ -58,7 +58,7 @@ while($tmpPlayer = mysql_fetch_array($result, MYSQL_ASSOC))
 						echo("<span style='float: right'><input type='submit' class='link' value='"._("New game")."'></span>");
 					echo(stripslashes($tmpPlayer['situationGeo']).", ".$tmpPlayer['countryName']."
 					<br>"._("Elo")." : ".$tmpPlayer['elo']."
-					<br><span class='date'>".stripslashes($tmpPlayer['profil'])."</span>
+					<br><span class='date'>".nl2br(stripslashes($tmpPlayer['profil']))."</span>
 				</div>
 				<div class='footer'>
 				</div>

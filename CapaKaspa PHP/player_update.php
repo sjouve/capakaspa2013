@@ -248,7 +248,7 @@ require 'include/page_body.php';
           </tr>
 		  <tr>
             <td><?php echo _("About you");?> : </td>
-            <td><TEXTAREA NAME="txtProfil" COLS="50" ROWS="5"><? echo($_SESSION['profil']); ?></TEXTAREA></td>
+            <td><textarea name="txtProfil" cols="50" rows="5"><? echo($_SESSION['profil']); ?></textarea></td>
           </tr>
           <tr>
             <td><?php echo _("Picture");?> : </td>

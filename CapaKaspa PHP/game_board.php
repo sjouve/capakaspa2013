@@ -42,7 +42,7 @@ $pgnstring ="";
 $TestPromotion = isset($_POST['promotion']) ? $_POST['promotion']:Null;
 $TestFromRow = isset($_POST['fromRow']) ? $_POST['fromRow']:Null;
 	
-if ($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['whitePlayer'])
+if ($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['blackPlayer'])
 {
     // Les absences de l'adversaires
 	if ($_SESSION['playerID'] == $tmpGame['whitePlayer'])
@@ -138,10 +138,11 @@ require 'include/page_header.php';
 ?>
 <link href="css/pgn4web.css" type="text/css" rel="stylesheet" />
 <link href="pgn4web/fonts/pgn4web-font-ChessSansPiratf.css" type="text/css" rel="stylesheet" />
-
+<script src="javascript/css-pop.js" type="text/javascript"></script>
 <script src="pgn4web/pgn4web.js" type="text/javascript"></script>
 <script src="javascript/comment.js" type="text/javascript"></script>
 <script src="javascript/like.js" type="text/javascript"></script>
+<script src="javascript/pmessage.js" type="text/javascript"></script>
 <script type="text/javascript">
 	// pgn4web parameter
    	SetImagePath ("pgn4web/<?echo($_SESSION['pref_theme']);?>/37");
@@ -187,8 +188,25 @@ require 'include/page_header.php';
 </script>
 <?
 $attribut_body = "onload=\"displayComment('".GAME."',".$_POST['gameID'].")\"";
+if ($_SESSION['playerID'] == $tmpGame['whitePlayer'])
+{
+	$toPlayerID = $tmpGame['blackPlayer'];
+	$toFirstName = $tmpGame['blackFirstName'];
+	$toLastName = $tmpGame['blackLastName'];
+	$toNick = $tmpGame['blackNick'];
+	$toEmail = $tmpGame['blackEmail'];
+}
+else
+{
+	$toPlayerID = $tmpGame['whitePlayer'];
+	$toFirstName = $tmpGame['whiteFirstName'];
+	$toLastName = $tmpGame['whiteLastName'];
+	$toNick = $tmpGame['whiteNick'];
+	$toEmail = $tmpGame['whiteEmail'];;
+}
 require 'include/page_body.php';
 ?>
+
 <div id="contentlarge">
 	<div class="contentbody">
       
@@ -316,12 +334,13 @@ require 'include/page_body.php';
 				<input type="button" name="hide" id="hide" class="link" style="display:inline;" value="<?echo _("Show viewer");?>" onclick="javascript:afficheviewer();">
 				<input type="button" name="show" id="show" class="link" style="display:none;" value="<?echo _("Show player");?>" onclick="javascript:afficheplayer();">
 				<input type="button" name="pgn" id="pgn" class="link" value="<?echo _("Download PGN");?>" onclick="location.href='game_pgn.php?id=<? echo($_POST['gameID'])?>'">
-				<input type="button" name="message" id="message" class="link" value="<?echo _("Send message");?>">
+				<input type="button" name="message" id="message" class="link" value="<?echo _("Send message");?>" onclick="popup('popUpDiv')">
 				<? if (!isBoardDisabled()) {
 				?>
 				<input type="button" name="btnResign" class="button" value="<?php echo _("Resign")?>" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='resigngame()'"); ?>>
 				<? } ?>
 				<input type="hidden" name="from" value="<? echo($_POST['from']) ?>" />
+				
 			</div>
 			</form>
 		</div>
