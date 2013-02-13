@@ -264,13 +264,13 @@ require 'include/page_body_no_menu.php';
             <tr>
               <th width="35%"><? echo _("Whites")?></th>
               <th width="35%"><? echo _("Blacks")?></th>
-              <th width="15%"><? echo _("Result")?></th>
+              <th width="15%"><? echo _("View")?></th>
               <th width="15%"><? echo _("ECO")?></th>
             </tr>
             <?
 					$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom
 				                            FROM games G, players W, players B
-				                            WHERE G.gameMessage = ''
+				                            WHERE G.gameMessage IS NULL
 				                            AND (G.whitePlayer = ".$player['playerID']." OR G.blackPlayer = ".$player['playerID'].")
 				                            AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
 				                            ORDER BY G.dateCreated");
@@ -291,13 +291,11 @@ require 'include/page_body_no_menu.php';
 							
 							/* Current Turn */
 							echo ("</td><td align=center>");
-							echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'><img src='images/eye.gif' border=0 alt='"._("View")."/></a>");
+							echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'><img src='images/eye.gif' border=0 alt=\""._("View")."\"/></a>");
 				
 							/* ECO Code */
-							echo ("</td><td align='center'>".$tmpGame['eco']);
-							
-						}
-											
+							echo ("</td><td align='center'>".$tmpGame['eco']."</td></tr>");
+						}									
 					}
 				?>
           </table>
@@ -360,7 +358,7 @@ require 'include/page_body_no_menu.php';
 								echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1/2-1/2</a>");
 				
 							/* ECO Code */
-							echo ("</td><td align='center'>".$tmpGame['eco']);
+							echo ("</td><td align='center'>".$tmpGame['eco']."</td></tr>");
 						}					
 					}
 				?>
