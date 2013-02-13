@@ -67,25 +67,28 @@ require 'include/page_body.php';
 		<? 
 		$result = listPMContact($_SESSION['playerID']);
 		$nb_contacts = mysql_num_rows($result);
-		while($tmpPlayer = mysql_fetch_array($result, MYSQL_ASSOC))
-		{
-			if ($tmpPlayer['playerID'] != $_SESSION['playerID'])
-			{	
-				echo("
-						<div id='contact".$tmpPlayer['playerID']."' class='contact' onmouseover=\"this.style.cursor='pointer';\" onclick='javascript:displayPrivateMessage(".$_SESSION['playerID'].", ".$tmpPlayer['playerID'].", \"".$tmpPlayer['email']."\")'>
-						<div id='picture' style='float: left; margin-right: 5px;'>
-						<img src='".getPicturePath($tmpPlayer['socialNetwork'], $tmpPlayer['socialID'])."' width='32' height='32' border='0'/>
-						</div>
-						<span class='name'>".$tmpPlayer['firstName']." ".$tmpPlayer['lastName']." (".$tmpPlayer['nick'].")</span>");
-				if ($tmpPlayer['lastActionTime'])
-					echo("<img src='images/user_online.gif' style='vertical-align:bottom;' alt='"._("Player online")."'/>");
-				if (isNewPlayer($tmpPlayer['creationDate']))
-					echo("<br><span class='newplayer'>"._("New player")."</span>");
-				echo("</div>
-						");
+		if ($nb_contacts > 0)
+			while($tmpPlayer = mysql_fetch_array($result, MYSQL_ASSOC))
+			{
+				if ($tmpPlayer['playerID'] != $_SESSION['playerID'])
+				{	
+					echo("
+							<div id='contact".$tmpPlayer['playerID']."' class='contact' onmouseover=\"this.style.cursor='pointer';\" onclick='javascript:displayPrivateMessage(".$_SESSION['playerID'].", ".$tmpPlayer['playerID'].", \"".$tmpPlayer['email']."\")'>
+							<div id='picture' style='float: left; margin-right: 5px;'>
+							<img src='".getPicturePath($tmpPlayer['socialNetwork'], $tmpPlayer['socialID'])."' width='32' height='32' border='0'/>
+							</div>
+							<span class='name'>".$tmpPlayer['firstName']." ".$tmpPlayer['lastName']." (".$tmpPlayer['nick'].")</span>");
+					if ($tmpPlayer['lastActionTime'])
+						echo("<img src='images/user_online.gif' style='vertical-align:bottom;' alt='"._("Player online")."'/>");
+					if (isNewPlayer($tmpPlayer['creationDate']))
+						echo("<br><span class='newplayer'>"._("New player")."</span>");
+					echo("</div>
+							");
+				}
 			}
+		else {
+			echo ("<div class='contentbody'>"._("No contact")."</div>");
 		}
-		
 		?>
 	</div>
 	<?require 'include/page_footer_right.php';?>

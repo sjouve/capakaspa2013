@@ -269,9 +269,7 @@ function loadGame($gameID, $numMoves)
 	$res = mysql_query("UPDATE games 
 						SET gameMessage = 'playerResigned', messageFrom = '".$turnColor."' 
 						WHERE lastMove < '".$targetDate."' 
-						AND (gameMessage <> 'draw' 
-						AND gameMessage <> 'checkMate' 
-						AND gameMessage <> 'playerResigned') 
+						AND gameMessage IS NULL 
 						AND gameID = ".$_POST['gameID']);
 	
 	return $tmpGame;
@@ -579,7 +577,7 @@ function processMessages($tmpGame)
 	
 	if ($tmpMessage['gameMessage'] == "playerResigned")
 	{
-		$statusMessage .= $tmpColor." "._("resign game")."\n";
+		$statusMessage .= $tmpColor." "._("resigned")."\n";
 		$isGameOver = true;
 	}
 

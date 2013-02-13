@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2013-02-13 12:56+0100\n"
-"PO-Revision-Date: 2013-02-13 12:57+0100\n"
+"POT-Creation-Date: 2013-02-13 14:32+0100\n"
+"PO-Revision-Date: 2013-02-13 14:32+0100\n"
 "Last-Translator: S. JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: French\n"
@@ -300,7 +300,7 @@ msgid "Bishop"
 msgstr "Fou"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:263
-#: PHP/bwc/bwc_games.php:1082
+#: PHP/bwc/bwc_games.php:1080
 msgid "OK"
 msgstr "OK"
 
@@ -383,17 +383,17 @@ msgstr "de"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:77
 #: PHP/game_list_ended.php:153 PHP/game_list_ended.php:224
-#: PHP/player_view.php:265 PHP/player_view.php:322 PHP/bwc/bwc_games.php:574
-#: PHP/bwc/bwc_games.php:1053
+#: PHP/player_view.php:265 PHP/player_view.php:322 PHP/bwc/bwc_games.php:572
+#: PHP/bwc/bwc_games.php:1051
 msgid "Whites"
-msgstr "Blancs"
+msgstr "Les blancs"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:78
 #: PHP/game_list_ended.php:154 PHP/game_list_ended.php:225
-#: PHP/player_view.php:266 PHP/player_view.php:323 PHP/bwc/bwc_games.php:577
-#: PHP/bwc/bwc_games.php:1055
+#: PHP/player_view.php:266 PHP/player_view.php:323 PHP/bwc/bwc_games.php:575
+#: PHP/bwc/bwc_games.php:1053
 msgid "Blacks"
-msgstr "Noirs"
+msgstr "Les noirs"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:79
 #: PHP/game_list_ended.php:155 PHP/game_list_ended.php:226
@@ -440,7 +440,7 @@ msgid "Game type"
 msgstr "Type de partie"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:127
-#: PHP/bwc/bwc_games.php:1136
+#: PHP/bwc/bwc_games.php:1134
 msgid "Classic game"
 msgstr "Partie classique"
 
@@ -634,7 +634,7 @@ msgid "View"
 msgstr "Voir"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:370
-#: PHP/bwc/bwc_games.php:1047
+#: PHP/bwc/bwc_games.php:1045
 msgid "Expiration"
 msgstr "Expiration"
 
@@ -969,14 +969,14 @@ msgstr "Notification par email"
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:280
 #: PHP/player_update.php:289 PHP/player_update.php:304
 #: PHP/player_update.php:313 PHP/player_update.php:327
-#: PHP/player_update.php:336 PHP/bwc/bwc_games.php:1079
+#: PHP/player_update.php:336 PHP/bwc/bwc_games.php:1077
 msgid "Yes"
 msgstr "Oui"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:282
 #: PHP/player_update.php:291 PHP/player_update.php:306
 #: PHP/player_update.php:315 PHP/player_update.php:329
-#: PHP/player_update.php:338 PHP/bwc/bwc_games.php:1080
+#: PHP/player_update.php:338 PHP/bwc/bwc_games.php:1078
 msgid "No"
 msgstr "Non"
 
@@ -2047,7 +2047,7 @@ msgid " resigned."
 msgstr " a abadondonné."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:374
-#: PHP/bwc/bwc_games.php:505
+#: PHP/bwc/bwc_games.php:503
 msgid "Draw proposal accepted"
 msgstr "Proposition de nulle acceptée"
 
@@ -2060,7 +2060,7 @@ msgstr ""
 "La partie est terminée."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:379
-#: PHP/bwc/bwc_games.php:568
+#: PHP/bwc/bwc_games.php:566
 msgid "Draw game"
 msgstr "Partie nulle"
 
@@ -2131,67 +2131,67 @@ msgstr "Suggestion"
 msgid "is the same level that you !"
 msgstr "a le même niveau que vous !"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:485
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:483
 msgid "Move cancellation accepted"
 msgstr "Annulation du coup accepté"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:491
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:489
 msgid "Move cancellation refused"
 msgstr "Annulation du coup refusé"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:510
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:508
 msgid "Draw proposal refused"
 msgstr "Proposition de nulle refusée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:526
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:524
 msgid "Move cancellation pending"
 msgstr "Annulation de coup en attente"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:529
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:527
 msgid "Draw proposal pending..."
 msgstr "Proposition de nulle en attente..."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:582
-msgid "resign game"
-msgstr "abandonne la partie"
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:580
+msgid "resigned"
+msgstr "ont abandonné"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:588
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:586
 msgid "Check and Mat!"
 msgstr "Echec et Mat !"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:588
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:586
 msgid "win the game"
 msgstr "gagne la partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1046
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1044
 msgid "Refresh game"
 msgstr "Rafraîchir la partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1064
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1062
 msgid "are in check"
 msgstr "sont en échecs"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1078
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1076
 msgid "Your opponent do a draw proposal. Are you agree ?"
 msgstr "Votre adversaire vous propose une nulle. Etes vous d'accord ?"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1141
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1139
 msgid ", Bishops"
 msgstr ", Fous"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1143
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1141
 msgid ", Knights"
 msgstr ", Cavaliers"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1145
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1143
 msgid ", Rooks"
 msgstr ", Tours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1147
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1145
 msgid ", Queens"
 msgstr ", Dames"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1149
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1147
 msgid "Beginner game<br>King and Pawns"
 msgstr "Partie débutant<br>Roi et Pions"
 
@@ -2324,6 +2324,9 @@ msgstr "Jouer à flashChess"
 #: PHP/include/page_footer_right.php:2
 msgid "Terms"
 msgstr "CGU"
+
+#~ msgid "resign game"
+#~ msgstr "abandonne la partie"
 
 #~ msgid "Message"
 #~ msgstr "Message"

@@ -10,10 +10,11 @@ function getGame($gameID)
 	$tmpQuery = "SELECT G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, G.dialogue dialogue, G.position position,  
 	G.lastMove, G.dateCreated, DATE_ADD(G.lastMove, INTERVAL G.timeMove DAY) expirationDate, G.timeMove, 
 	G.type type, G.flagBishop flagBishop, G.flagKnight flagKnight, G.flagRook flagRook, G.flagQueen flagQueen,
-	G.eco eco, E.name ecoName, 
+	G.eco eco, E.name ecoName, L.likeID, 
 	W.nick whiteNick, W.elo whiteElo, W.socialNetwork whiteSocialNet, W.socialID whiteSocialID, W.firstName whiteFirstName, W.lastName whiteLastName, W.email whiteEmail,
 	B.nick blackNick, B.elo blackElo, B.socialNetwork blackSocialNet, B.socialID blackSocialID, B.firstName blackFirstName, B.lastName blackLastName, B.email blackEmail
-	FROM games G left join eco E on E.eco = G.eco AND E.ecoLang = '".getLang()."', players W, players B
+	FROM ((games G left join eco E on E.eco = G.eco AND E.ecoLang = '".getLang()."') 
+				left join like_entity L on L.type = '".GAME."' AND L.entityID = G.gameID AND L.playerID = ".$_SESSION['playerID']."), players W, players B
 	WHERE gameID = ".$gameID."
 	AND G.whitePlayer = W.playerID
 	AND G.blackPlayer = B.playerID";

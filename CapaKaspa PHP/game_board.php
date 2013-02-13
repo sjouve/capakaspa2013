@@ -345,7 +345,12 @@ require 'include/page_body.php';
 			</form>
 		</div>
 		<div id="gamefooter">
-			<a href=""><? echo _("It's a good game");?></a> - <span class="date"><?
+			<?if (isset($tmpGame['likeID'])){?>
+				<span id="like<?echo(GAME.$_POST['gameID']);?>"><a href="javascript:deleteLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>, <?echo($tmpGame['likeID']);?>);"><?echo _("! I no longer think it's good");?></a></span>
+			<?} else {?>
+				<span id="like<?echo(GAME.$_POST['gameID']);?>"><a href="javascript:insertLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>);"><?echo _("! I think it's good");?></a></span>
+			<?}?>
+			- <span class="date"><?
 			$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::SHORT, IntlDateFormatter::SHORT);
 	
 			$startDate = new DateTime($tmpGame['dateCreated']);
