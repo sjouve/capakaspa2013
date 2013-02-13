@@ -143,12 +143,24 @@ require 'include/page_body_no_menu.php';
 	    <p>
 		<h1><?php echo _("Play Chess and share your Games !");?></h1>
 		</p>
-		<p>
-		<h2>Play chess and share your games</h2>
-		</p>
-		<p><img src="images/icone_video.png"/> <a href="http://youtu.be/J6pMC2Ceaxw" target="_blank"><?php echo _("Demo video");?></a> 
-		<img src="images/icone_pdf.gif"/> <a href="doc/manuel-utilisateur-jouer-echecs-capakaspa.pdf" target="_blank"><?php echo _("User manual");?></a>
-		</p>
+		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; background-image: url('images/home_capakaspa_board.jpg');">
+			<span style="position: relative; top: 110px; font-size: 16px; text-shadow: 0.1em 0.1em 0.2em black; color: #FFFFFF;">
+				<?php echo _("Play chess games, choose your cadence and type.");?><br>
+				<?php echo _("Improve your Elo ranking.");?>
+			</span>
+		</div>
+		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; margin-left: 30px; background-image: url('images/home_capakaspa_news.jpg');">
+			<span style="position: relative; top: 110px; font-size: 16px; text-shadow: 0.1em 0.1em 0.2em black; color: #FFFFFF;">
+				<?php echo _("Share your moves, results and invitations with your followers.");?><br>
+				<?php echo _("Follow players, comment news...");?>
+			</span>
+		</div>
+		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; margin-left: 30px; background-image: url('images/home_capakaspa_profil.jpg');">
+			<span style="position: relative; top: 110px; font-size: 16px; text-shadow: 0.1em 0.1em 0.2em black; color: #FFFFFF;">
+				<?php echo _("View detailed profile of players.");?><br>
+				<?php echo _("Discuss with them in private and comment their public news.");?>
+			</span>
+		</div>
 	</div>
 </div>
 <div id="content">
@@ -286,10 +298,18 @@ require 'include/page_body_no_menu.php';
 <div id="rightbarlarge">
 	<div class="contentbody">
 		<h3><?php echo _("Sign in");?></h3>
-		<form method="post" action="index.php">	        
-	        <?php echo _("User name");?> : <input name="txtNick" type="text" size="13" maxlength="20"> <br>
-	        <?php echo _("Password");?> : <input name="pwdPassword" type="password" size="13" maxlength="16"> <br>
-	        <?if (isset($_GET['err'])&&$_GET['err']=='login') {?>
+		<form method="post" action="index.php">
+			<table>
+				<tr>
+					<td width="50%"><?php echo _("User name");?> :</td>	        	
+		        	<td width="50%"><input name="txtNick" type="text" size="20" maxlength="20"></td>
+		        </tr>
+		        <tr>
+		        	<td><?php echo _("Password");?> :</td>
+		        	<td><input name="pwdPassword" type="password" size="20" maxlength="16"></td>
+		        </tr>
+	        </table>
+	        <?if (isset($_GET['err']) && $_GET['err'] == "login") {?>
 	        <div class='error'><? echo _("Invalid user name or password !");?></div>
 	        <?}?>
 	        <input name="chkAutoConn" type="checkbox"/> <? echo _("Remember me");?><br><br>

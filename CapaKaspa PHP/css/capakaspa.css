@@ -25,7 +25,7 @@
 		border-top-style: none;
 		border-right-style: solid;
 		border-bottom-style: none;
-		border-left-style: solid;
+		border-left-style: none;
 		border-width: 1px;
 		border-color: #CCCCCC;
 		margin-right: auto;
@@ -597,11 +597,12 @@
 	.contentbody h1 {
 		font-family: Verdana, Arial, Helvetica, sans-serif;
 		color:#000000;
-		font-size: 36px;
+		font-size: 40px;
 		font-weight: normal;
 		font-style: normal;
 		text-transform: none;
 		text-align: left;
+		text-shadow: 0.1em 0.1em 0.2em #AAAAAA;
 		border-top-style: none;
 		border-right-style: none;
 		border-bottom-style: none;

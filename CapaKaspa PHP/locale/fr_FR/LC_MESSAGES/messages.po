@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2013-02-13 09:08+0100\n"
-"PO-Revision-Date: 2013-02-13 09:10+0100\n"
+"POT-Creation-Date: 2013-02-13 12:56+0100\n"
+"PO-Revision-Date: 2013-02-13 12:57+0100\n"
 "Last-Translator: S. JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: French\n"
@@ -77,20 +77,20 @@ msgstr ""
 "mettre à jour votre adresse email et commencer le processus d'activation"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:62
-#: PHP/player_update.php:171 PHP/sign-up.php:176 PHP/sign-up.php:198
-#: PHP/sign-up.php:290 PHP/bwc/bwc_players.php:349
+#: PHP/player_update.php:171 PHP/sign-up.php:188 PHP/sign-up.php:210
+#: PHP/sign-up.php:304 PHP/bwc/bwc_players.php:349
 #: PHP/include/page_body.php:35
 msgid "User name"
 msgstr "Nom d'utilisateur"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:67
-#: PHP/sign-up.php:291 PHP/bwc/bwc_players.php:350
+#: PHP/sign-up.php:308 PHP/bwc/bwc_players.php:350
 #: PHP/include/page_body.php:36
 msgid "Password"
 msgstr "Mot de passe"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:72
-#: PHP/player_update.php:215 PHP/sign-up.php:178 PHP/sign-up.php:218
+#: PHP/player_update.php:215 PHP/sign-up.php:190 PHP/sign-up.php:230
 msgid "Email"
 msgstr "Email"
 
@@ -729,7 +729,7 @@ msgid "Players advanced search"
 msgstr "Recherche avancée de joueurs"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_search.php:85
-#: PHP/player_update.php:219 PHP/sign-up.php:222
+#: PHP/player_update.php:219 PHP/sign-up.php:234
 msgid "Country"
 msgstr "Pays"
 
@@ -798,7 +798,7 @@ msgid "Update your profile"
 msgstr "Mettre à jour votre profil"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:138
-#: PHP/sign-up.php:182
+#: PHP/sign-up.php:194
 msgid "A technical error has occured"
 msgstr "Une erreur technique s'est produite"
 
@@ -811,7 +811,7 @@ msgid "Profile changes have been saved successfully"
 msgstr "Les changements ont bien été enregistrés"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:147
-#: PHP/sign-up.php:168
+#: PHP/sign-up.php:180
 msgid "All fields are required"
 msgstr "Tous les champs sont obligatoires"
 
@@ -820,17 +820,17 @@ msgid "Bad format for login"
 msgstr "Mauvais format pour le nom d'utilisateur"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:149
-#: PHP/sign-up.php:170
+#: PHP/sign-up.php:182
 msgid "Bad format for password"
 msgstr "Mauvais format pour le mot de passe"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:150
-#: PHP/sign-up.php:171
+#: PHP/sign-up.php:183
 msgid "Bad format for email"
 msgstr "Mauvais format pour l'email"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:151
-#: PHP/sign-up.php:172
+#: PHP/sign-up.php:184
 msgid "Password confirmation error"
 msgstr "Erreur de confirmation de mot de passe"
 
@@ -855,17 +855,17 @@ msgid "Basic info"
 msgstr "Informations de base"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:161
-#: PHP/sign-up.php:189
+#: PHP/sign-up.php:201
 msgid "I am"
 msgstr "Je suis"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:164
-#: PHP/sign-up.php:192
+#: PHP/sign-up.php:204
 msgid "Male"
 msgstr "Homme"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:165
-#: PHP/sign-up.php:193
+#: PHP/sign-up.php:205
 msgid "Female"
 msgstr "Femme"
 
@@ -874,7 +874,7 @@ msgid "Enter data here to change password"
 msgstr "Entrer les données ici pour changer de mot de passe"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:176
-#: PHP/sign-up.php:210
+#: PHP/sign-up.php:222
 msgid "First name"
 msgstr "Prénom"
 
@@ -883,7 +883,7 @@ msgid "Actual password"
 msgstr "Mot de passe actuel"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:182
-#: PHP/sign-up.php:214
+#: PHP/sign-up.php:226
 msgid "Last name"
 msgstr "Nom"
 
@@ -896,12 +896,12 @@ msgid "Birth date (year)"
 msgstr "Date naissance (année)"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:191
-#: PHP/sign-up.php:244
+#: PHP/sign-up.php:256
 msgid "Select a year"
 msgstr "Choisir une année"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:207
-#: PHP/sign-up.php:206
+#: PHP/sign-up.php:218
 msgid "Confirm password"
 msgstr "Confirmer mot de passe"
 
@@ -910,7 +910,7 @@ msgid "Contact info"
 msgstr "Informations de contact"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:222
-#: PHP/sign-up.php:225
+#: PHP/sign-up.php:237
 msgid "Select your country"
 msgstr "Choisir votre pays"
 
@@ -1149,96 +1149,112 @@ msgstr "Inscription sur CapaKaspa, jouer aux échecs et partager vos parties."
 msgid "Play Chess and share your Games !"
 msgstr "Jouer aux échecs et partager ses parties !"
 
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:148
+msgid "Play chess games, choose your cadence and type."
+msgstr "Jouer des parties d'échecs, choisir votre cadence et le type."
+
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:149
-msgid "Demo video"
-msgstr ""
+msgid "Improve your Elo ranking."
+msgstr "Améliorer votre classement Elo."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:150
-msgid "User manual"
-msgstr ""
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:154
+msgid "Share your moves, results and invitations with your followers."
+msgstr "Partager vos coups, résultats et invitations avec vos abonnés."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:156
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:155
+msgid "Follow players, comment news..."
+msgstr "Suivre les joueurs, commenter les actualités..."
+
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:160
+msgid "View detailed profile of players."
+msgstr "Voir le profil détaillé des joueurs."
+
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:161
+msgid "Discuss with them in private and comment their public news."
+msgstr "Discuter avec eux en privé et commenter leurs actualités publics."
+
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:168
 msgid "New on CapaKaspa ? Sign up"
 msgstr "Nouveau sur CapaKaspa ? Inscription"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:158
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:170
 msgid "Your account is actived."
 msgstr "Votre compte est activé."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:160
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:172
 msgid "You can now sign in, play chess and share your games."
 msgstr ""
 "You pouvez maintenant vous connecter, jouer aux échecs et partager vos "
 "parties."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:163
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:175
 msgid "An error has occured during activation !"
 msgstr "Une erreur s'est produite pendant l'activation !"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:165
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:177
 msgid "A confirmation message has been sent at this email address"
 msgstr "Un message de confirmation a été envoyé cette adresse email"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:169
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:181
 msgid "Bad format for user name"
 msgstr "Mauvais format pour le nom d'utilisateur"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:176
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:188
 msgid "you have choosen already exists. Try another user name."
 msgstr "que vous avez choisi existe déjà. Essayez un autre nom d'utilisateur."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:178
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:190
 msgid "you have choosen aleady exists. Try another email."
 msgstr "que vous avez choisi existe déjà. Essayez un autre email."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:180
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:192
 msgid "Empty user name"
 msgstr "Nom d'utilisateur vide"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:184
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:196
 msgid "Security code error. Try again."
 msgstr "Erreur de code de sécurité. Essayez encore."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:202
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:214
 msgid "Choose password"
 msgstr "Choisir un mot de passe"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:241
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:253
 msgid "Birth date"
 msgstr "Date naissance"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:265
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:277
 msgid "Type the security code"
 msgstr "Entrer le code de sécurité"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:267
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:279
 msgid "Try other security code"
 msgstr "Essayez un autre code de sécurité"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:271
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:283
 msgid "Captcha Image"
 msgstr "Image Captcha"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:276
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:288
 msgid "Sign up for free"
 msgstr "Inscrivez-vous gratuitement"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:288
-#: PHP/sign-up.php:296 PHP/include/page_body.php:41
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:300
+#: PHP/sign-up.php:316 PHP/include/page_body.php:41
 msgid "Sign in"
 msgstr "Se connecter"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:293
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:313
 #: PHP/include/page_body.php:38
 msgid "Invalid user name or password !"
 msgstr "Nom d'utilisateur ou mot de passe invalide !"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:295
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:315
 #: PHP/include/page_body.php:40
 msgid "Remember me"
 msgstr "Se souvenir de moi"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:296
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/sign-up.php:316
 #: PHP/include/page_body.php:44
 msgid "Forgot password ?"
 msgstr "Mot de passe oublié ?"

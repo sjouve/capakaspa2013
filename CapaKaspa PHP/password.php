@@ -30,7 +30,7 @@ $desc_page = _("Play chess and share your games. Retrieve your password");
 require 'include/page_header.php';
 require 'include/page_body.php';
 ?>
-  <div id="contentlarge">
+<div id="contentlarge">
     <div class="contentbody">
     <?/* Traiter les erreurs */
 		if ($err == 0)
@@ -58,7 +58,7 @@ require 'include/page_body.php';
       <?}?>
 		   
     </div>
-  </div>
+</div>
 <?
 require 'include/page_footer.php';
 mysql_close();
