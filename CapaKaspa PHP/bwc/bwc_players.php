@@ -399,10 +399,9 @@ function createVacation($playerID, $nbDays)
       	Sinon on ajoute la durée du congé saisi - (date de fin du congé en cours de l'adversaire - date de début du congé saisi)
       		si l'ajout reste positif      
 	*/
-	// TODO gameMessage = '' OR gameMessage is NULL
 	$tmpGames = mysql_query("SELECT * 
                              FROM games
-                             WHERE gameMessage = ''
+                             WHERE gameMessage = '' OR gameMessage is NULL
                              AND (whitePlayer = ".$playerID." OR blackPlayer = ".$playerID.")
                              AND lastMove >= DATE_SUB(CURDATE(), INTERVAL timeMove DAY)  
                              ORDER BY dateCreated");

@@ -10,7 +10,7 @@ function getGame($gameID)
 	$tmpQuery = "SELECT G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, G.dialogue dialogue, G.position position,  
 	G.lastMove, G.dateCreated, DATE_ADD(G.lastMove, INTERVAL G.timeMove DAY) expirationDate, G.timeMove, 
 	G.type type, G.flagBishop flagBishop, G.flagKnight flagKnight, G.flagRook flagRook, G.flagQueen flagQueen,
-	G.eco eco, E.name ecoName, L.likeID, 
+	G.eco eco, G.gameMessage, E.name ecoName, L.likeID, 
 	W.nick whiteNick, W.elo whiteElo, W.socialNetwork whiteSocialNet, W.socialID whiteSocialID, W.firstName whiteFirstName, W.lastName whiteLastName, W.email whiteEmail,
 	B.nick blackNick, B.elo blackElo, B.socialNetwork blackSocialNet, B.socialID blackSocialID, B.firstName blackFirstName, B.lastName blackLastName, B.email blackEmail
 	FROM ((games G left join eco E on E.eco = G.eco AND E.ecoLang = '".getLang()."') 

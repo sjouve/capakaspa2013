@@ -603,7 +603,6 @@ function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
 	$numMoves = $thisMove['nbMove'] - 1;
 
 	// Remplir l'échiquier
-	// TODO Prévoir le cas du type de partie dans la position initiale
 	if (!isset($position) || $position == "") $position = "tcfdrfctpppppppp00000000000000000000000000000000PPPPPPPPTCFDRFCT";
 	$strPos = 0;
 	for ($i = 0; $i < 8; $i++)

@@ -33,7 +33,7 @@ switch($ToDo)
 		
 	case 'CreateVacation':
 	
-		$err = createVacation($_SESSION['playerID'], $_POST['nbDays'], $CFG_EXPIREGAME);	
+		$err = createVacation($_SESSION['playerID'], $_POST['nbDays']);	
 		break;
 		
 	case 'DisableAccount':
@@ -113,7 +113,7 @@ function validateVacation()
 	vok = confirm(document.getElementById('#confirm_add_vacation_id').innerHTML);
 	if (vok)
 	{
-		document.vacation.submit();
+		document.Vacation.submit();
 	}
 }
 
@@ -472,7 +472,7 @@ require 'include/page_body.php';
       		
       	?>
       	<br/><br/>
-		<form name="vacation" action="player_update.php" method="post">
+		<form name="Vacation" action="player_update.php" method="post">
 	  	<?	$tomorrow  = mktime(0, 0, 0, date("m")  , date("d")+1, date("Y"));
 	  	?> 
 	        <?echo _("You want to postpone your games for")?> 

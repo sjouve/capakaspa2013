@@ -151,8 +151,11 @@ require 'include/page_header.php';
   	SetAutoplayDelay(2500); // milliseconds
    	SetAutostartAutoplay(false);
    	SetAutoplayNextGame(true);
-   	SetShortcutKeysEnabled(false);
-
+   	SetShortcutKeysEnabled(true);
+   	clearShortcutSquares("ABCDEFGH", "12345678");
+	<? if ($playersColor == "black") { ?>
+		FlipBoard();
+	<? }?>	  	
 	/* transfer board data to javacripts */
 	<? writeJSboard($board, $numMoves); ?>
 	<? writeJSHistory($history, $numMoves); ?>
@@ -217,7 +220,8 @@ require 'include/page_body.php';
 	<div class="contentbody">
       
         <?
-        if ($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['whitePlayer'])
+        if (($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['blackPlayer']) 
+        		&& $tmpGame['gameMessage'] == "")
 		{
         	if (mysql_num_rows($res_adv_vacation) > 0)
 				echo("<div class='success'>"._("Your opponent is absent at the moment. The game is postponed").".</div>");
