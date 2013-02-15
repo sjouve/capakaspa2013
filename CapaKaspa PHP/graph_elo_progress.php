@@ -44,7 +44,7 @@ else
 // Create the graph. These two calls are always required
 $graph = new Graph(600,250);
 $graph->SetScale('textlin');
-$graph->title->SetFont(FF_ARIAL);
+//$graph->title->SetFont(FF_ARIAL);
 $graph->title->Set(_("Elo ranking history"));
 $graph->SetMarginColor('#EEEEEE');
 $graph->SetFrame(true,'#CCCCCC',0);

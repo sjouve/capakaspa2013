@@ -12,6 +12,8 @@ if (!isset($_CONFIG))
 require '../include/connectdb.php';
 require '../dac/dac_activity.php';
 
+require '../include/localization.php';
+
 // Get like Id
 $likeID = $_GET["id"];
 $type = $_GET["type"];

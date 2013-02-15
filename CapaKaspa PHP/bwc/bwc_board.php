@@ -52,6 +52,23 @@ function initBoard($flagRook, $flagQueen, $flagKnight, $flagBishop)
 	}
 }
 
+function getPositionFromBoard($board)
+{
+	$position = "";
+	
+	// Construire la chaîne de la position courante à partir de l'échiquier
+	// Pour chaque ligne
+	for ($i = 0; $i < 8; $i++)
+	{
+		// Pour chaque colonne
+		for ($j = 0; $j < 8; $j++)
+		{
+			$position .= getPieceChar($board[$i][$j]);			
+		}
+	}
+	return $position;	
+}
+
 function createNewGame($gameID)
 {
 	/* clear history */

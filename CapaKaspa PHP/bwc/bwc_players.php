@@ -38,7 +38,7 @@ function createPlayer()
 	}
 	
 	// set Theme preference
-	$res = insertPreference($playerID, "theme", "beholder");
+	$res = insertPreference($playerID, "theme", "merida");
 	if (!$res)
 	{
 		@mysql_query("ROLLBACK");
@@ -73,7 +73,6 @@ function createPlayer()
 	$mailSubject = _("[CapaKaspa] Sign up confirmation");
 	$mailMsg = _("To complete your sign up please click the following link (in case of problems copy the link into the address bar of your browser)")." :\n";
 	$mailMsg .= "http://www.capakaspa.info/sign-up.php?ToDo=activer&playerID=".$playerID."&nick=".$_POST['txtNick'];
-	$mailMsg .= "\n\n"._("This message was sent automatically from the site CapaKaspa")." (http://www.capakaspa.info).\n";
 	$res = sendMail($_POST['txtEmail'], $mailSubject, $mailMsg);
 	
 	if (!$res)

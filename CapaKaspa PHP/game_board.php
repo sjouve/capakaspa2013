@@ -170,6 +170,12 @@ require 'include/page_header.php';
 		document.getElementById("hide").style.display = "none";
 		document.getElementById("show").style.display = "inline";
 	}
+	function loadgame(gameID)
+	{
+
+		document.gamedata.gameID.value = gameID;
+		document.gamedata.submit();
+	}
 </script>
 <script type="text/javascript" src="javascript/chessutils.js">
  /* these are utility functions used by other functions */
@@ -225,8 +231,8 @@ require 'include/page_body.php';
 	    <span id="#confirm_resign_game_id" style="display: none"><?echo _("Are you sure you want to resign ?")?></span>
 	    <span id="#alert_invalid_move_id" style="display: none"><?echo _("Invalid move")?></span>
 	    <span id="#alert_color_play_id" style="display: none"><?echo _("You are playing with")?></span>
-	    <span id="#alert_color_white_id" style="display: none"><?echo _("white")?></span>
-	    <span id="#alert_color_black_id" style="display: none"><?echo _("black")?></span>
+	    <span id="#alert_color_white_id" style="display: none"><?echo _("whites")?></span>
+	    <span id="#alert_color_black_id" style="display: none"><?echo _("blacks")?></span>
 	    <span id="#alert_err_move_check_id" style="display: none"><?echo _("Cannot move into check.")?></span>
 	    <span id="#alert_err_move_king_id" style="display: none"><?echo _("Kings cannot move like that.")?></span>
 	    <span id="#alert_err_move_pawn_id" style="display: none"><?echo _("Pawns cannot move backwards, only forward.")?></span>
@@ -301,7 +307,7 @@ require 'include/page_body.php';
           	</div>
           	
 			
-			<div id="gamemoves">
+			<div id="gamemoves" overflow-y="auto">
 				<?
 				$listeCoups = writeHistoryPGN($history, $numMoves);
 				$pgnstring = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $listeCoups);

@@ -1,4 +1,4 @@
-﻿#Deny from all
+#Deny from all
 #Allow from 78.226.13.16
 AddDefaultCharset UTF-8
 AddCharset UTF-8 .html

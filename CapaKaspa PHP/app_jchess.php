@@ -1,5 +1,4 @@
-﻿<?
-session_start();
+<?session_start();
 
 if (!isset($_CONFIG))
 	require 'include/config.php';

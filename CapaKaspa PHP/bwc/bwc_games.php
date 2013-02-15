@@ -604,7 +604,7 @@ function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
 
 	// Remplir l'échiquier
 	// TODO Prévoir le cas du type de partie dans la position initiale
-	if (!isset($position)) $position = "tcfdrfctpppppppp00000000000000000000000000000000PPPPPPPPTCFDRFCT";
+	if (!isset($position) || $position == "") $position = "tcfdrfctpppppppp00000000000000000000000000000000PPPPPPPPTCFDRFCT";
 	$strPos = 0;
 	for ($i = 0; $i < 8; $i++)
 		for ($j = 0; $j < 8; $j++)
@@ -1086,6 +1086,8 @@ function writeDrawRequest($isMobile)
 
 function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $oppColor, $timeMove)
 {
+	global $board;
+	
 	/* prevent multiple pending requests between two players with the same originator */
 	$tmpQuery = "SELECT gameID FROM games WHERE gameMessage = 'playerInvited'";
 	$tmpQuery .= " AND ((messageFrom = 'white' AND whitePlayer = ".$playerID." AND blackPlayer = ".$opponentID.")";
@@ -1106,7 +1108,14 @@ function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $f
 		if ( $flagRook == "1") {$flagRook = 1;} else {$flagRook = 0;};
 		if ( $flagQueen == "1") {$flagQueen = 1;} else {$flagQueen = 0;};
 		
-		$tmpQuery = "INSERT INTO games (whitePlayer, blackPlayer, gameMessage, messageFrom, dateCreated, lastMove, type, flagBishop, flagKnight, flagRook, flagQueen, timeMove) VALUES (";
+		$position = "";
+		if ($type == 1)
+		{
+			initBoard($flagRook, $flagQueen, $flagKnight, $flagBishop);
+			$position = getPositionFromBoard($board);
+		}
+		
+		$tmpQuery = "INSERT INTO games (whitePlayer, blackPlayer, gameMessage, messageFrom, dateCreated, lastMove, type, flagBishop, flagKnight, flagRook, flagQueen, timeMove, position) VALUES (";
 		if ($tmpColor == 'white')
 		{
 			$tmpQuery .= $playerID.", ".$opponentID;
@@ -1118,7 +1127,7 @@ function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $f
 			$oppColor = 'white';
 		}
 	
-		$tmpQuery .= ", 'playerInvited', '".$tmpColor."', NOW(), NOW(), ".$type.", ".$flagBishop.", ".$flagKnight.", ".$flagRook.", ".$flagQueen.", ".$timeMove.")";
+		$tmpQuery .= ", 'playerInvited', '".$tmpColor."', NOW(), NOW(), ".$type.", ".$flagBishop.", ".$flagKnight.", ".$flagRook.", ".$flagQueen.", ".$timeMove.", '".$position."')";
 	
 		mysql_query($tmpQuery);
 		$newGameID = mysql_insert_id();
@@ -1144,7 +1153,7 @@ function getStrGameType($type, $flagBishop, $flagKnight, $flagRook, $flagQueen)
 		if ($flagQueen == 1)
 			$pieces .= _(", Queens");
 			
-		return _("Beginner game<br>King and Pawns").$pieces;
+		return _("Beginner game - King and Pawns").$pieces;
 	}
 }
 ?>

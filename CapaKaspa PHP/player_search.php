@@ -20,7 +20,7 @@ require 'include/sessioncheck.php';
 require 'include/localization.php';
 
 // Traitement des critères
-$critCountry = isset($_POST['critCountry']) ? $_POST['critCountry'] : $_SESSION['countryCode'];
+$critCountry = isset($_POST['critCountryCode']) ? $_POST['critCountryCode'] : $_SESSION['countryCode'];
 $critName = isset($_POST['critName']) ? $_POST['critName'] : "";
 $critEloStart = isset($_POST['critEloStart']) ? $_POST['critEloStart'] : "";
 $critEloEnd = isset($_POST['critEloEnd']) ? $_POST['critEloEnd'] : "";

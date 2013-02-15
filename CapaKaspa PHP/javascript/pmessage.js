@@ -67,6 +67,6 @@ function insertPrivateMessage(fromPlayerID, toPlayerID, toEmail)
 			popup('popUpDiv');
 		}
 	};
-	xmlhttp.open("GET","ajax/ajx_insert_pmessage.php?fromID="+fromPlayerID+"&toID="+toPlayerID+"&mes="+message,true);
+	xmlhttp.open("GET","ajax/ajx_insert_pmessage.php?fromID="+fromPlayerID+"&toID="+toPlayerID+"&toEmail="+toEmail+"&mes="+message,true);
 	xmlhttp.send();
 }

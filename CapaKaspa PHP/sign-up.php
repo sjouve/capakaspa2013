@@ -1,5 +1,5 @@
-﻿<?
-session_start();
+<?session_start();
+
 /* load settings */
 if (!isset($_CONFIG))
 	require 'include/config.php';
@@ -13,10 +13,12 @@ require 'bwc/bwc_players.php';
 require 'bwc/bwc_games.php';
 
 // Captcha
-include_once  '/securimage/securimage.php';
+include_once  'securimage/securimage.php';
 $securimage = new Securimage();
 
 require 'include/connectdb.php';
+
+require 'include/localization.php';
 
 /* Traitement des actions */
 $err = false;
@@ -76,8 +78,6 @@ switch($ToDo)
 		break;
 		
 }
-
-require 'include/localization.php';
 
 $titre_page = _("Sign-up");
 $desc_page = _("Sign up for CapaKaspa, play chess and share your games.");

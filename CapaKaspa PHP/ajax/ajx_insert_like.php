@@ -12,6 +12,8 @@ if (!isset($_CONFIG))
 require '../include/connectdb.php';
 require '../dac/dac_activity.php';
 
+require '../include/localization.php';
+
 // Insert a comment for an entity
 $entityType=$_GET["type"];
 $entityID=$_GET["id"];

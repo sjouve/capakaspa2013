@@ -11,7 +11,6 @@ Table games
 
 Vérifier partie avec message 'undo' au moment de la migration
 
-NOTE : Problème avec la clef composée pour history
 
 Ajout table activity
 - activityId
@@ -42,6 +41,8 @@ Ajout table privateMessage
 
 Reprise des préférences
 => Ajout préférence language pour tous les anciens user
+=> Ajout préférence shareresult
+=> Ajout préférence shareinvitation
 => modification préférence theme pour tous les ancien user (passer la valeur à "merida")
 => Supprimer préférence history
 

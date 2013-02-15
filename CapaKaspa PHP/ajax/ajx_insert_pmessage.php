@@ -16,8 +16,33 @@ require '../dac/dac_activity.php';
 $fromPlayerID=$_GET["fromID"];
 $toPlayerID=$_GET["toID"];
 $message=urldecode($_GET["mes"]);
+$toEmail=$_GET["toEmail"];
 
-insertPrivateMessage($fromPlayerID, $toPlayerID, $message);
-//TODO Email notification
+$res = insertPrivateMessage($fromPlayerID, $toPlayerID, $message);
+
+if ($res) {
+	// Email with receiver language
+	$emailNotif = getPrefValue($toPlayerID, "emailnotification");
+	if ($emailNotif == "oui")
+	{
+		$locale = getPrefValue($toPlayerID, "language");
+		putenv("LC_ALL=$locale");
+		setlocale(LC_ALL, $locale);
+		bindtextdomain("messages", "./locale");
+		textdomain("messages");
+		
+		$msgTo = $toEmail;
+		$mailSubject = "[CapaKaspa] "._("You have a new private message");
+		$mailMsg = $_SESSION['firstName']." ".$_SESSION['lastName']." (".$_SESSION['nick'].") "._("send you a new private message.\n");
+		$mailMsg .= "[".$message."]";
+		sendMail($msgTo, $mailSubject, $mailMsg);
+		
+		$locale = $_SESSION['pref_language'];
+		putenv("LC_ALL=$locale");
+		setlocale(LC_ALL, $locale);
+		bindtextdomain("messages", "./locale");
+		textdomain("messages");		
+	}
+}
 mysql_close();
 ?>

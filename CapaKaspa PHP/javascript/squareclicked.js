@@ -15,8 +15,13 @@
 			is1stClick = false;
 		}
 		else
-			alert(document.getElementById('#alert_color_play_id').innerHTML + curColorFR + ".");
-
+		{
+			if (curColor == "white")
+				colorAlert = document.getElementById('#alert_color_white_id').innerHTML;
+			else
+				colorAlert = document.getElementById('#alert_color_black_id').innerHTML;
+			alert(document.getElementById('#alert_color_play_id').innerHTML + " " + colorAlert + ".");
+		}
 	}
 	
 	function squareClickedSecond(row, col, isEmpty, curColor)
@@ -207,9 +212,9 @@
 		if (DEBUG)
 			alert('squareClicked -> row = ' + row + ', col = ' + col + ', isEmpty = ' + isEmpty);
 
-		var curColor = document.getElementById('#alert_color_black_id').innerHTML;
+		var curColor = "black";
 		if ((numMoves == -1) || (numMoves % 2 == 1))
-			curColor = document.getElementById('#alert_color_white_id').innerHTML;;
+			curColor = "white";
 		
 		if (is1stClick && !isEmpty)
 			squareClickedFirst(row, col, isEmpty, curColor);

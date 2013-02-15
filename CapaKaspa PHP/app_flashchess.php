@@ -1,5 +1,4 @@
-﻿<?
-session_start();
+<?session_start();
 
 if (!isset($_CONFIG))
 	require 'include/config.php';
@@ -22,7 +21,7 @@ require 'include/page_body.php';
 <div id="contentlarge">
     <div class="contentbody">
 		
-    	<embed width="700" height="550" name="plugin" src="bin/FLChess.swf" type="application/x-shockwave-flash">
+    	<embed width="760" height="550" name="plugin" src="bin/FLChess.swf" type="application/x-shockwave-flash">
 		<br>
 		
 		<center>

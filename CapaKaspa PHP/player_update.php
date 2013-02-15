@@ -255,7 +255,7 @@ require 'include/page_body.php';
             <td>
             	<img src="<?echo(getPicturePath($_SESSION['socialNetwork'], $_SESSION['socialID']));?>" width="50" height="50" style="float: left;margin-right: 30px;"/>
             	<? echo _("Display picture of your profile on")?> :<br/>
-            	<input name="rdoSocialNetwork" type="radio" value="" <? if ($_SESSION['socialNetwork']=="") echo("checked");?>> <? echo _("No profile")?>
+            	<input name="rdoSocialNetwork" type="radio" value="" <? if ($_SESSION['socialNetwork']=="") echo("checked");?>> <? echo _("CapaKaspa")?>
             	<input name="rdoSocialNetwork" type="radio" value="FB" <? if ($_SESSION['socialNetwork']=="FB") echo("checked");?>> <? echo _("Facebook")?>
             	<input name="rdoSocialNetwork" type="radio" value="GP" <? if ($_SESSION['socialNetwork']=="GP") echo("checked");?>> <? echo _("Google+")?>
             	<input name="rdoSocialNetwork" type="radio" value="TW" <? if ($_SESSION['socialNetwork']=="TW") echo("checked");?>> <? echo _("Twitter")?>
@@ -263,10 +263,25 @@ require 'include/page_body.php';
           </tr>
           <tr>
             <td>&nbsp;</td>
-            <td><?php echo _("Social network ID");?> : <input name="txtSocialID" type="text" size="50" maxlength="100" value="<? echo($_SESSION['socialID']); ?>"> <a href="manuel-utilisateur-jouer-echecs-capakaspa.pdf#page=14" target="_blank"><img src="images/point-interrogation.gif" border="0"/></a></td>
+            <td>
+	            <?php echo _("Social network ID");?> : <input name="txtSocialID" type="text" size="50" maxlength="100" value="<? echo($_SESSION['socialID']); ?>"> 
+	            <span onmouseout="document.getElementById('helpSocial').style.display = 'none';" onmouseover="document.getElementById('helpSocial').style.display = 'block';"><img src="images/point-interrogation.gif" border="0"/></span>
+            	<div id="helpSocial" style="display: none;font-size: 10px">
+		      		1) <? echo _("Facebook");?><br>
+					<? echo _("In Facebook, at the bottom of the Infos section of your account:");?><br>
+					<? echo _("Facebook http://www.facebook.com/[ ID ]");?><br>
+					<? echo _("Or");?><br>
+					<? echo _("Facebook http://www.facebook.com/profile.php?id= [ ID ]");?><br>
+					2) <? echo _("Twitter");?><br>
+					<? echo _("It's the name of your account.");?><br>
+					3) <? echo _("Google+");?><br>
+					<? echo _("Display your profile page, the URL in the browser is something like that:");?><br>
+					<? echo _("https://plus.google.com/u/0/[ ID ]/posts (it's a long number).");?><br>
+				</div>
+            </td>
           </tr>
         </table>
-      
+      	
       <h3><?echo _("Preferences");?></h3>
       
         <table border="0" width="100%">
@@ -419,7 +434,7 @@ require 'include/page_body.php';
        -->
 	
       
-      <h3><? echo _("Game postponement");?> <a href="manuel-utilisateur-jouer-echecs-capakaspa.pdf#page=15" target="_blank"><img src="images/point-interrogation.gif" border="0"/></a></h3>
+      <h3><? echo _("Game postponement");?> </h3>
       	<? 
 		if ($ToDo == 'CreateVacation')
 		{

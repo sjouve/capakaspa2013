@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>CapaKaspa - <? echo($titre_page)?></title>
+<meta charset="UTF-8"/>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta http-equiv="content-language" content="fr" />
 <meta name="description" content="<? echo($desc_page)?>" />

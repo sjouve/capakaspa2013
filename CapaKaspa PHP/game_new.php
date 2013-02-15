@@ -106,7 +106,9 @@ function sendInvitation(email)
 function startGame()
 {
 	if (document.getElementById('opponent').value.length > 0)
-		document.startGame.submit();
+	{
+		document.startGameForm.submit();
+	}
 }
 </script>
 <?
@@ -116,8 +118,8 @@ require 'include/page_body.php';
 <div id="contentlarge">
 	<div class="contentbody">
   
-		<h3><? echo _("Start new game")?> <a href="manuel-utilisateur-jouer-echecs-capakaspa.pdf#page=10" target="_blank"><img src="images/point-interrogation.gif" border="0"/></a></h3>
-		<form name="startGame" action="index.php" method="post">
+		<h3><? echo _("Start new game")?></h3>
+		<form name="startGameForm" action="index.php" method="post">
 			<table width="100%">
 				<tr>
 					<td width="20%">
@@ -178,7 +180,7 @@ require 'include/page_body.php';
 					</td>
 				</tr>
 			</table>
-			<input type="button" value="<?echo _("Start game")?>" class="button" onClick="javascript:startGame()">
+			<input type="button" value="<?echo _("Start game")?>" class="button" onclick="javascript:startGame();">
 			<input type="hidden" name="ToDo" value="InvitePlayer">
 		</form>
 		<br>
