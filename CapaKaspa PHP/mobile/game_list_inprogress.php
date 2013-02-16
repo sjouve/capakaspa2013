@@ -342,8 +342,7 @@
 	<table width="100%" cellpadding="0" cellspacing="0">
 	<tr>
 		<td><div class="ongletenable">Parties</div></td>
-		<td><div class="ongletdisable"><a href="player_search.php">Invitation</a></div></td>
-		<td><div class="ongletdisable"><a href="player_update.php">Mon profil</a></div></td>	
+		
 	</tr>
 	</table>
 	</div>
@@ -543,7 +542,7 @@
         	
 			$tmpGames = mysql_query("SELECT G.gameID gameID, G.eco eco, DATE_FORMAT(G.lastMove, '%d/%m/%Y %T') dateCreatedF, DATE_FORMAT(lastMove, '%Y-%m-%d') lastMove, G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, G.position position, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick
                                         FROM games G, players W, players B
-                                        WHERE gameMessage = ''
+                                        WHERE gameMessage = '' OR gameMessage IS NULL
                                         AND (whitePlayer = ".$_SESSION['playerID']." OR blackPlayer = ".$_SESSION['playerID'].")
                                         AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
                                         ORDER BY dateCreated");

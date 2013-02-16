@@ -49,3 +49,25 @@ Reprise des préférences
 Modification table eco
 => Ajout colonne ID et countryLang
 => Ajout des données anglaises
+
+DELETE FROM preferences
+WHERE preference = 'history';
+
+DELETE FROM preferences
+WHERE preference = 'autoreload';
+
+UPDATE preferences
+SET value = 'merida'
+WHERE preference = 'theme';
+
+INSERT INTO preferences (playerID, preference, value)
+SELECT playerID, 'language', 'fr_FR'
+FROM players;
+
+INSERT INTO preferences (playerID, preference, value)
+SELECT playerID, 'shareresult', 'oui'
+FROM players;
+
+INSERT INTO preferences (playerID, preference, value)
+SELECT playerID, 'shareinvitation', 'oui'
+FROM players;

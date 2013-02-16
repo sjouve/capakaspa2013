@@ -12,7 +12,7 @@
 
 </script>
 </head>
-<body <?echo($attribut_body)?>>
+<body <?echo(isset($attribut_body)?$attribut_body:"")?>>
 
 <div id="top">
 	<a href="index.php"><img src="images/icon_home.gif"> CapaKaspa Echecs</a>

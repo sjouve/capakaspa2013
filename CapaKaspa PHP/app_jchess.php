@@ -10,6 +10,9 @@ require 'bwc/bwc_players.php';
 
 require 'include/localization.php';
 
+/* check session status */
+require 'include/sessioncheck.php';
+
 $titre_page = _("Play against JChess");
 $desc_page = _("Play a chess game against JChess");
 require 'include/page_header.php';
