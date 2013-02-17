@@ -16,18 +16,22 @@ require 'include/sessioncheck.php';
 
 require 'include/localization.php';
 
-$titre_page = _("Play a chess game against flashChess");
+$titre_page = _("Puzzle of the day");
 require 'include/page_header.php';
 ?>
 <script src="javascript/menu.js" type="text/javascript"></script>
 <?
-$attribut_body = "onload='highlightMenu(8)'";
+$attribut_body = "onload='highlightMenu(9)'";
 require 'include/page_body.php';
 ?>
 <div id="contentlarge">
     <div class="contentbody">
+		<center>
+    	<iframe id="blockrandom" name="iframe" src="http://www.shredderchess.com/online/playshredder/dailytactics.php?lang=<? getLang();?>" width="410" height="440" scrolling="no" align="top" frameborder="0" class="wrapper">
+		This option will not work correctly.  Unfortunately, your browser does not support Inline Frames
+		</iframe>
 		
-    	<embed width="760" height="550" name="plugin" src="bin/FLChess.swf" type="application/x-shockwave-flash">
+		</center>
 		<br>
 		
 		<center>

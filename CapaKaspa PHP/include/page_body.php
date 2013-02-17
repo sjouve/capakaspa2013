@@ -92,6 +92,7 @@ if (isset($toPlayerID))
 			<ul>
 		        <li id="menu7"><img src="images/puce.gif"/> <a href="app_jchess.php"><?php echo _("Play JChess");?></a></li>
 		        <li id="menu8"><img src="images/puce.gif"/> <a href="app_flashchess.php"><?php echo _("Play flashChess");?></a></li>
+		        <li id="menu9"><img src="images/puce.gif"/> <a href="app_puzzle.php"><?php echo _("Puzzle of the day");?></a></li>
       		</ul>
 	</div>
 	<? } ?>

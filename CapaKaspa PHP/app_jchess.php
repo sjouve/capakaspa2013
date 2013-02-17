@@ -8,10 +8,13 @@ require 'bwc/bwc_common.php';
 require 'bwc/bwc_chessutils.php';
 require 'bwc/bwc_players.php';
 
-require 'include/localization.php';
+/* connect to database */
+require 'include/connectdb.php';
 
 /* check session status */
 require 'include/sessioncheck.php';
+
+require 'include/localization.php';
 
 $titre_page = _("Play against JChess");
 $desc_page = _("Play a chess game against JChess");
