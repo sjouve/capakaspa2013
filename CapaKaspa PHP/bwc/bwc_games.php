@@ -1083,7 +1083,7 @@ function writeDrawRequest($isMobile)
 <?
 }
 
-function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $oppColor, $timeMove)
+function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, &$oppColor, $timeMove)
 {
 	global $board;
 	

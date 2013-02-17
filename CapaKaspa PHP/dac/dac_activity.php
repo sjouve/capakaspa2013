@@ -13,7 +13,8 @@ function listActivity($start, $limit, $type, $playerID)
 				G.gameID, G.eco, G.position, G.gameMessage, G.lastMove, G.dateCreated, G.type, G.flagBishop, G.flagKnight, G.flagRook, G.flagQueen, E.name ecoName,
 				WP.playerID wPlayerID, WP.firstName wFirstName, WP.lastName wLastName, WP.nick wNick, WP.elo wElo, WP.socialNetwork wSocialNetwork, WP.socialID wSocialID,
 				BP.playerID bPlayerID, BP.firstName bFirstName, BP.lastName bLastName, BP.nick bNick, BP.elo bElo, BP.socialNetwork bSocialNetwork, BP.socialID bSocialID
-		FROM activity A left join like_entity L on L.type = '".ACTIVITY."' AND L.entityID = A.activityID AND L.playerID = ".$_SESSION['playerID'].", games G left join eco E on E.eco = G.eco AND E.ecoLang = '".getLang()."', players WP, players BP";
+		FROM activity A left join like_entity L on L.type = '".ACTIVITY."' AND L.entityID = A.activityID AND L.playerID = ".$_SESSION['playerID'].", 
+			games G left join eco E on E.eco = G.eco AND E.ecoLang = '".getLang()."', players WP, players BP";
 		
 		if ($type == 0) // Following
 			$tmpQuery .= ", fav_players F 
@@ -34,7 +35,10 @@ function listActivity($start, $limit, $type, $playerID)
 
 function countActivityForPlayer($playerID)
 {
-	$tmpQuery = "SELECT count(activityID) nbActivity FROM activity WHERE playerID = ".$playerID;
+	$tmpQuery = "SELECT count(A.activityID) nbActivity 
+					FROM activity A, games G
+					WHERE A.playerID = ".$playerID." 
+					AND A.entityID = G.gameID";
 	$res_count = $res_count = mysql_query($tmpQuery);
 	$res = mysql_fetch_array($res_count, MYSQL_ASSOC);
 	

@@ -64,12 +64,12 @@ switch($ToDo)
 
 	case 'InvitePlayer':
 		
-		$oppColor="";
-		$newGameID = createInvitation($_SESSION['playerID'], $_POST['opponent'], $_POST['color'], $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $oppColor, $_POST['timeMove']);
+		$opponentColor="";
+		$newGameID = createInvitation($_SESSION['playerID'], $_POST['opponent'], $_POST['color'], $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $opponentColor, $_POST['timeMove']);
 		
 		if ($newGameID) {
 			// Notification
-			chessNotification('invitation', $oppColor, '', $_SESSION['nick'], $newGameID);
+			chessNotification('invitation', $opponentColor, '', $_SESSION['nick'], $newGameID);
 			if ($_SESSION['pref_shareinvitation'] == 'oui')
 				insertActivity($_SESSION['playerID'], GAME, $newGameID, "", 'invitation');
 		}

@@ -30,6 +30,15 @@ require 'include/page_body_no_menu.php';
 		<p>
 		<?echo _("To contact us send an email at capakaspa@capakaspa.info");?>
 		</p>
+		
+		<h4><?echo _("Credits");?><h4>
+		<p>
+		<?echo _("CapaKaspa works with some PHP libraries")." : 
+				<br>- "._("an old version of")." WebChess (http://webchess.sourceforge.net), 
+				<br>- JpGraph (http://jpgraph.net/), 
+				<br>- Securimage (http://www.phpcaptcha.org/), 
+				<br>- pgn4web (http://pgn4web.casaschi.net)";?>
+		</p>
 	</div>
 </div>
 <?

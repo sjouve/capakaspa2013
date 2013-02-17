@@ -79,7 +79,7 @@ switch($ToDo)
 		
 }
 
-$titre_page = _("Sign-up");
+$titre_page = _("Play chess and share your games");
 $desc_page = _("Sign up for CapaKaspa, play chess and share your games.");
 require 'include/page_header.php';
     

@@ -67,6 +67,7 @@ require 'include/page_body.php';
                                     OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'white' AND G.blackPlayer = ".$playerID.")) 
 								AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
 								AND G.eco = E.eco
+    							AND E.ecoLang = '".getLang()."'
                                 ORDER BY G.eco ASC, G.lastMove DESC");
 		?>
         <A NAME="defaites"></A>
@@ -141,6 +142,7 @@ require 'include/page_body.php';
                                 AND G.gameMessage = 'draw'
                                 AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
                                 AND G.eco = E.eco
+								AND E.ecoLang = '".getLang()."'
                                 ORDER BY E.eco ASC, G.lastMove DESC");?>
 		
 		<br/>
@@ -210,6 +212,7 @@ require 'include/page_body.php';
                                     OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'white' AND G.whitePlayer = ".$playerID."))
                                 AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
                                 AND G.eco = E.eco
+								AND E.ecoLang = '".getLang()."'
                                 ORDER BY E.eco ASC, G.lastMove DESC");?>
                                 
 

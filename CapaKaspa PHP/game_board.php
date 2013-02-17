@@ -151,7 +151,7 @@ require 'include/page_header.php';
   	SetAutoplayDelay(2500); // milliseconds
    	SetAutostartAutoplay(false);
    	SetAutoplayNextGame(true);
-   	SetShortcutKeysEnabled(true);
+   	SetShortcutKeysEnabled(false);
    	clearShortcutSquares("ABCDEFGH", "12345678");
 	  	
 	/* transfer board data to javacripts */
@@ -308,18 +308,18 @@ require 'include/page_body.php';
 				<?writeStatus($tmpGame);?>
           	</div>
           	
-			
-			<div id="gamemoves" overflow-y="auto">
-				<?
+          	<?
 				$listeCoups = writeHistoryPGN($history, $numMoves);
 				$pgnstring = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $listeCoups);
-				?>
-				<form style="display: none;">
-					<textarea style="display: none;" id="pgnText">
-					<? echo($pgnstring); ?>
-					</textarea>
-				</form>
-				<div id="GameText"></div>
+			?>
+			<form style="display: none;">
+				<textarea style="display: none;" id="pgnText">
+				<? echo($pgnstring); ?>
+				</textarea>
+			</form>
+			<div id="gamemoves" overflow-y="auto">
+		
+				<div id="GameText"></div>		
 			</div>			
 			
 	        <div id="gamecaptured">
