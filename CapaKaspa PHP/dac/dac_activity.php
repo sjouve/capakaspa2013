@@ -11,8 +11,8 @@ function listActivity($start, $limit, $type, $playerID)
 {
 	$tmpQuery = "SELECT A.activityID, A.playerID, A.type, A.entityID, A.msgType, A.message, A.postDate, L.likeID,
 				G.gameID, G.eco, G.position, G.gameMessage, G.lastMove, G.dateCreated, G.type, G.flagBishop, G.flagKnight, G.flagRook, G.flagQueen, E.name ecoName,
-				WP.playerID wPlayerID, WP.firstName wFirstName, WP.lastName wLastName, WP.elo wElo, WP.socialNetwork wSocialNetwork, WP.socialID wSocialID,
-				BP.playerID bPlayerID, BP.firstName bFirstName, BP.lastName bLastName, BP.elo bElo, BP.socialNetwork bSocialNetwork, BP.socialID bSocialID
+				WP.playerID wPlayerID, WP.firstName wFirstName, WP.lastName wLastName, WP.nick wNick, WP.elo wElo, WP.socialNetwork wSocialNetwork, WP.socialID wSocialID,
+				BP.playerID bPlayerID, BP.firstName bFirstName, BP.lastName bLastName, BP.nick bNick, BP.elo bElo, BP.socialNetwork bSocialNetwork, BP.socialID bSocialID
 		FROM activity A left join like_entity L on L.type = '".ACTIVITY."' AND L.entityID = A.activityID AND L.playerID = ".$_SESSION['playerID'].", games G left join eco E on E.eco = G.eco AND E.ecoLang = '".getLang()."', players WP, players BP";
 		
 		if ($type == 0) // Following

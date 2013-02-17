@@ -270,7 +270,7 @@ require 'include/page_body_no_menu.php';
             <?
 					$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom
 				                            FROM games G, players W, players B
-				                            WHERE G.gameMessage IS NULL
+				                            WHERE (G.gameMessage IS NULL OR gameMessage = '')
 				                            AND (G.whitePlayer = ".$player['playerID']." OR G.blackPlayer = ".$player['playerID'].")
 				                            AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
 				                            ORDER BY G.dateCreated");

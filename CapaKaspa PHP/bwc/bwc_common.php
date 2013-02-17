@@ -172,7 +172,7 @@ function displaySuggestion()
 				");
 	}
 	
-	$limit = 10;
+	$limit = 5;
 	$result = searchPlayers("", 0, $limit, $_SESSION['playerID'], "", "actif", $_SESSION['elo']-50, $_SESSION['elo']+50, $_SESSION['countryCode'], "");	
 	while($tmpPlayer = mysql_fetch_array($result, MYSQL_ASSOC))
 	{

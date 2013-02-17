@@ -401,7 +401,7 @@ function createVacation($playerID, $nbDays)
 	*/
 	$tmpGames = mysql_query("SELECT * 
                              FROM games
-                             WHERE gameMessage = '' OR gameMessage is NULL
+                             WHERE (gameMessage = '' OR gameMessage is NULL)
                              AND (whitePlayer = ".$playerID." OR blackPlayer = ".$playerID.")
                              AND lastMove >= DATE_SUB(CURDATE(), INTERVAL timeMove DAY)  
                              ORDER BY dateCreated");

@@ -20,6 +20,12 @@
 	$CFG_PASSWORD = "NMFTAtrX";
 	$CFG_DATABASE = "db151183899";*/
 	
+	/* remote server 1and1 capakaspa2013 */
+	/*$CFG_SERVER = "db455196105.db.1and1.com";
+	$CFG_USER = "dbo455196105";
+	$CFG_PASSWORD = "sj230570";
+	$CFG_DATABASE = "db455196105";*/
+	
 	/* server settings */
 	// session times out if user doesn't interact after 600 secs (10 mins)
 	$CFG_SESSIONTIMEOUT = 6000;

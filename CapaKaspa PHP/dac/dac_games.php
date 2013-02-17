@@ -150,7 +150,7 @@ function listInProgressGames($playerID)
 									W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, 
 									B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo
 						FROM games G left join eco E on E.eco = G.eco AND E.ecoLang = '".getLang()."', players W, players B
-						WHERE gameMessage is NULL
+						WHERE (gameMessage is NULL OR gameMessage = '')
 						AND (whitePlayer = ".$playerID." OR blackPlayer = ".$playerID.")
 						AND W.playerID = G.whitePlayer 
 						AND B.playerID = G.blackPlayer
@@ -161,7 +161,8 @@ function listInProgressGames($playerID)
 
 function listInvitationFor($playerID)
 {
-	$tmpQuery = "SELECT G.gameID, G.whitePlayer, G.blackPlayer, G.dateCreated, G.type, G.gameMessage, G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.position,
+	$tmpQuery = "SELECT G.gameID, G.whitePlayer, G.blackPlayer, G.dateCreated, G.type, G.gameMessage, 
+						G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.position, G.timeMove,
 						W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo,
 						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo
 				FROM games G, players W, players B 
@@ -179,7 +180,8 @@ function listInvitationFor($playerID)
 function listInvitationFrom($playerID)
 {
 	/* if game is marked playerInvited and the invite is from the current player */
-	$tmpQuery = "SELECT G.gameID, G.whitePlayer, G.blackPlayer,  G.dateCreated, G.type, G.gameMessage, G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.position,
+	$tmpQuery = "SELECT G.gameID, G.whitePlayer, G.blackPlayer,  G.dateCreated, G.type, G.gameMessage, 
+						G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.position, G.timeMove,
 						W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo,
 						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo
 					FROM games G, players W, players B 

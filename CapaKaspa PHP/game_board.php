@@ -153,9 +153,7 @@ require 'include/page_header.php';
    	SetAutoplayNextGame(true);
    	SetShortcutKeysEnabled(true);
    	clearShortcutSquares("ABCDEFGH", "12345678");
-	<? if ($playersColor == "black") { ?>
-		FlipBoard();
-	<? }?>	  	
+	  	
 	/* transfer board data to javacripts */
 	<? writeJSboard($board, $numMoves); ?>
 	<? writeJSHistory($history, $numMoves); ?>
@@ -373,7 +371,7 @@ require 'include/page_body.php';
 			<img src="images/ajaxloader.gif"/>
 		</div>
 		
-		<div id="adsbottom" style="width: 700px;">
+		<div id="adsbottom" style="width: 700px;text-align: center;">
 			<script type="text/javascript"><!--
 		      google_ad_client = "ca-pub-8069368543432674";
 		      /* CapaKaspa Partie Bandeau Discussion */
@@ -386,7 +384,7 @@ require 'include/page_body.php';
 		      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 			</script>
 	    </div>
-	    
+	    <br>
 		<?if (strlen($tmpGame['dialogue']) > 0) {?>
 		<div id="oldComment" style="display: solid;text-align: center;">
 			<?echo _("Here are old existing comments on this game");?> :

@@ -8,6 +8,7 @@ Table players
 Table games
 - Modifier type de gameID smallint à int
 => modifier les colonnes gameID qui font référence dans les autres tables : history, messages
+- Ajout colonne timeMove
 
 Vérifier partie avec message 'undo' au moment de la migration
 

@@ -226,9 +226,11 @@ require 'include/page_body.php';
 							echo("</div>
 							<div class='gamedetails'>");
 							echo(getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
+							echo("<br>"._("Time per move").": ".$tmpGame['timeMove']." "._("days"));
 							echo("<br>
 									<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']."</span>
 									<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpGame['blackNick']."<br>".$tmpGame['blackElo']."</span><br><br><br>");
+							
 							echo ("<span style='float: right'>");
 							if ($tmpGame['gameMessage'] == 'playerInvited')
 								echo _("Response waiting");
@@ -288,7 +290,7 @@ require 'include/page_body.php';
 								$tmpFrom = "black";
 							}
 							echo(getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
-							
+							echo("<br>"._("Time per move").": ".$tmpGame['timeMove']." "._("days"));
 							echo("<br>
 									<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']."</span>
 									<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpGame['blackNick']."<br>".$tmpGame['blackElo']."</span><br><br><br>");
@@ -315,8 +317,9 @@ require 'include/page_body.php';
 			<input type="hidden" name="whitePlayerID" value="">
 			<input type="hidden" name="ToDo" value="ResponseToInvite">
 		</form>
+		&nbsp;<br>
 	<? }?>
-		&nbsp;<br>	
+			
 		<h2><?php echo _("My games in progress")?> <a href="index.php"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a></h2>
 		<form name="existingGames" action="game_board.php" method="post">
 		<?
@@ -361,12 +364,12 @@ require 'include/page_body.php';
 								echo("<br>
 								<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']."</span>
 								<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpGame['blackNick']."<br>".$tmpGame['blackElo']."</span><br>");
-										
+								
 								if ($isPlayersTurn)
 									echo ("<br><br><span style='float: right'><input type='button' value='"._("Play")."' class='link_highlight' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></span>");
 								else
 									echo ("<br><br><span style='float: right'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></span>");
-								
+								echo(_("Time per move").": ".$tmpGame['timeMove']." "._("days"));
 								echo("<br>"._("Expiration")." : ".$strExpirationDate);
 							echo("</div>
 						</div>

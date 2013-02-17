@@ -1,5 +1,6 @@
 <div id="footer">
-		CapaKaspa (c) 2013 - <a href="site_about.php"><? echo _("About");?></a> - <a href="site_privacy.php"><? echo _("Privacy");?></a> - <a href="site_terms.php"><? echo _("Terms");?></a>
+		CapaKaspa (c) 2013 - <a href="site_about.php"><? echo _("About");?></a> - <a href="site_privacy.php"><? echo _("Privacy");?></a> - <a href="site_terms.php"><? echo _("Terms");?></a> 
+		- <a href="?locale=en_US">English</a> - <a href="?locale=fr_FR">Français</a>
 	</div>  
 </div>
 

@@ -34,7 +34,7 @@ $numActivities = mysql_num_rows($tmpActivities);
 
 if ($start == 0 && $numActivities == 0)
 {
-	echo ("<div style='text-align: center; height:400px;'>"._("No News to display. Follow players !")."</div>");
+	echo ("<div style='text-align: center; height:400px;'><br>"._("No News to display. Share your activity and follow players !")."</div>");
 }
 else
 	while($tmpActivity = mysql_fetch_array($tmpActivities, MYSQL_ASSOC))
@@ -47,11 +47,13 @@ else
 			$playerID = $tmpActivity['wPlayerID'];
 			$playerFirstName = $tmpActivity['wFirstName'];
 			$playerLastName = $tmpActivity['wLastName'];
+			$playerNick = $tmpActivity['wNick'];
 			$playerSocialNW = $tmpActivity['wSocialNetwork'];
 			$playerSocialID = $tmpActivity['wSocialID'];
 			$opponentID = $tmpActivity['bPlayerID'];
 			$opponentFirstName = $tmpActivity['bFirstName'];
 			$opponentLastName = $tmpActivity['bLastName'];
+			$opponentNick = $tmpActivity['bNick'];
 			$playerColor = 'white';
 		}
 		else
@@ -59,11 +61,13 @@ else
 			$playerID = $tmpActivity['bPlayerID'];
 			$playerFirstName = $tmpActivity['bFirstName'];
 			$playerLastName = $tmpActivity['bLastName'];
+			$playerNick = $tmpActivity['bNick'];
 			$playerSocialNW = $tmpActivity['bSocialNetwork'];
 			$playerSocialID = $tmpActivity['bSocialID'];
 			$opponentID = $tmpActivity['wPlayerID'];
 			$opponentFirstName = $tmpActivity['wFirstName'];
 			$opponentLastName = $tmpActivity['wLastName'];
+			$opponentNick = $tmpActivity['wNick'];
 			$playerColor = 'black';
 		}
 		
@@ -141,7 +145,8 @@ else
 					</div>
 					<div class='details'>
 						<div class='title'>
-							<a href='player_view.php?playerID=".$playerID."'><span class='name'>".$playerFirstName." ".$playerLastName."</span></a> ".$message." <a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponentFirstName." ".$opponentLastName."</span></a>
+							<a href='player_view.php?playerID=".$playerID."'><span class='name'>".$playerFirstName." ".$playerLastName." (".$playerNick.")</span></a> ".$message." 
+							<a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponentFirstName." ".$opponentLastName." (".$opponentNick.")</span></a>
 						</div>
 						<div class='content'>
 							<div class='gameboard'>");

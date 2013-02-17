@@ -187,7 +187,7 @@ require 'include/page_body.php';
 		
 		<h3><? echo _("Advanced search")?></h3>
 		<p><? echo _("Find a player with advanced search and invite him to play a new game.");?></p>
-		<input type="button" class="link" value="Search players" onclick="location.href='player_search.php'">
+		<input type="button" class="link" value="<? echo _("Search players")?>" onclick="location.href='player_search.php'">
 		<br><br>
 		
 		<h3><? echo _("Invite friends to join you")?></h3>
