@@ -72,3 +72,4 @@ FROM players;
 INSERT INTO preferences (playerID, preference, value)
 SELECT playerID, 'shareinvitation', 'oui'
 FROM players;
+

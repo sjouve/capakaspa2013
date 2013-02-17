@@ -188,10 +188,11 @@ function searchPlayers($mode, $debut, $limit, $playerID, $critFavorite, $critSta
 */
 
 /* Insérer un joueur */	
-function insertPlayer($password, $firstName, $lastName, $nick, $email, $countryCode, $anneeNaissance, $playerSex)
+function insertPlayer($password, $firstName, $lastName, $nick, $email, $countryCode, $anneeNaissance, $playerSex, $socialID, $socialNetwork)
 {
-	$res_player = mysql_query("INSERT INTO players (password, firstName, lastName, nick, email, countryCode, anneeNaissance, creationDate, playerSex) 
-	VALUES ('".$password."', '".addslashes(strip_tags($firstName))."', '".addslashes(strip_tags($lastName))."', '".$nick."', '".$email."', '".$countryCode."', '".$anneeNaissance."', now(), '".$playerSex."')");
+	$strQuery = "INSERT INTO players (password, firstName, lastName, nick, email, countryCode, anneeNaissance, creationDate, playerSex, socialID, socialNetwork) 
+	VALUES ('".$password."', '".addslashes(strip_tags($firstName))."', '".addslashes(strip_tags($lastName))."', '".$nick."', '".$email."', '".$countryCode."', '".$anneeNaissance."', now(), '".$playerSex."','".$socialID."','".$socialNetwork."')";
+	$res_player = mysql_query($strQuery);
 
 	if ($res_player)	
 		return mysql_insert_id();

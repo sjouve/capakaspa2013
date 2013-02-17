@@ -20,8 +20,13 @@ function createPlayer()
 	if ($_POST['pwdPassword']=='') return FALSE;
 	if ($_POST['pwdPassword']!=$_POST['pwdPassword2']) return FALSE;
 	
+	if ($_POST['txtSex'] == "M")
+		$socialID = "avatar_homme.jpg";
+	else
+		$socialID = "avatar_femme.jpg";
+	
 	// Crée l'utilisateur
-	$playerID = insertPlayer($_POST['pwdPassword'], $_POST['txtFirstName'], $_POST['txtLastName'], $_POST['txtNick'], $_POST['txtEmail'], $_POST['txtCountryCode'], $_POST['txtAnneeNaissance'], $_POST['txtSex']);	
+	$playerID = insertPlayer($_POST['pwdPassword'], $_POST['txtFirstName'], $_POST['txtLastName'], $_POST['txtNick'], $_POST['txtEmail'], $_POST['txtCountryCode'], $_POST['txtAnneeNaissance'], $_POST['txtSex'], $socialID, "CK");	
 	if (!$playerID)
 	{
 		@mysql_query("ROLLBACK");
@@ -108,7 +113,7 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 		}
 		return 1;
 	}
-	
+		
 	@mysql_query("BEGIN");
 		
 	// Changement de mot de passe
@@ -182,7 +187,7 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 	$_SESSION['anneeNaissance'] = $_POST['txtAnneeNaissance'];
 	$_SESSION['pref_theme'] =  $_POST['rdoTheme'];
 	$_SESSION['pref_emailnotification'] = $_POST['txtEmailNotification'];
-	$_SESSION['socialID'] = $_POST['txtSocialID'];
+	$_SESSION['socialID'] = $socialID;
 	$_SESSION['socialNetwork'] = $_POST['rdoSocialNetwork'];
 	$_SESSION['countryCode'] = $_POST['txtCountryCode'];
 	$_SESSION['playerSex'] = $_POST['txtSex'];
@@ -467,18 +472,22 @@ function getPicturePath($socialNetwork, $socialID)
 	$picturePath = "images/avatar_homme.jpg";
 	switch($socialNetwork)
 	{	
-		case 'GP':
+		case "CK":
+			$picturePath = "images/".$socialID;
+			break;
+			
+		case "GP":
 			$picturePath = "https://plus.google.com/s2/photos/profile/".$socialID."?sz=32";
 			/*$profil_googleplus_json = file_get_contents("https://www.googleapis.com/plus/v1/people/".$socialID."?key=AIzaSyDbsmnLMbP6QxydxzhqZlCwxOVG1ewIX0o");
 			$profil_googleplus = json_decode($profil_googleplus_json);
 			$picturePath = $profil_googleplus->image->url;*/
 			break;
 		
-		case 'FB':
+		case "FB":
 			$picturePath = "https://graph.facebook.com/".$socialID."/picture";
 			break;
 			
-		case 'TW':
+		case "TW":
 			$picturePath = "http://api.twitter.com/1/users/profile_image/".$socialID.".xml";
 			break;
 	}

@@ -126,8 +126,50 @@ function disableAccount()
 		document.disable.submit();
 	}
 }
+
+function setCKPicture()
+{
+	if(document.getElementById("rdoCK").checked)
+		if (document.getElementById("txtSex").value == "M")
+		{
+			document.getElementById("pictureProfile").src = "images/avatar_homme.jpg";
+			document.getElementById("socialID").style.display = "none";
+			document.getElementById("socialID").value = "avatar_homme.jpg";
+			
+		}
+		else
+		{
+			document.getElementById("pictureProfile").src = "images/avatar_femme.jpg";
+			document.getElementById("socialID").style.display = "none";
+			document.getElementById("txtSocialID").value = "avatar_femme.jpg";		
+		}
+}
+
+function setNWPicture()
+{
+	if(document.getElementById("rdoFB").checked)
+	{
+		document.getElementById("pictureProfile").src = "https://graph.facebook.com/"+document.getElementById("txtSocialID").value+"/picture";
+	}
+	if(document.getElementById("rdoGP").checked)
+	{
+		document.getElementById("pictureProfile").src = "https://plus.google.com/s2/photos/profile/"+document.getElementById("txtSocialID").value+"?sz=32";
+	}
+	if(document.getElementById("rdoTW").checked)
+	{
+		document.getElementById("pictureProfile").src = "http://api.twitter.com/1/users/profile_image/"+document.getElementById("txtSocialID").value+".xml";
+	}
+}
+
+function initNWPicture()
+{
+	document.getElementById("socialID").style.display = "block";
+	document.getElementById("txtSocialID").value = "";
+}
+
 </script>
 <?
+$attribut_body = "onload='setCKPicture();'";
 require 'include/page_body.php';
 ?>
 <div id="contentlarge">
@@ -160,7 +202,7 @@ require 'include/page_body.php';
           <tr>
             <td width="180"><?php echo _("I am");?> :</td>
             <td>
-            	<select name="txtSex" id="txtSex">
+            	<select onChange="setCKPicture();" name="txtSex" id="txtSex">
             		<option value="M" <?if ($_SESSION['playerSex'] == "M") echo("selected");?>><?echo _("Male");?></option>
             		<option value="F" <?if ($_SESSION['playerSex'] == "F") echo("selected");?>><?echo _("Female");?></option>
             	</select>
@@ -253,19 +295,21 @@ require 'include/page_body.php';
           <tr>
             <td><?php echo _("Picture");?> : </td>
             <td>
-            	<img src="<?echo(getPicturePath($_SESSION['socialNetwork'], $_SESSION['socialID']));?>" width="50" height="50" style="float: left;margin-right: 30px;"/>
+            	<img id="pictureProfile" src="<?echo(getPicturePath($_SESSION['socialNetwork'], $_SESSION['socialID']));?>" width="50" height="50" style="float: left;margin-right: 30px;"/>
             	<? echo _("Display picture of your profile on")?> :<br/>
-            	<input name="rdoSocialNetwork" type="radio" value="" <? if ($_SESSION['socialNetwork']=="") echo("checked");?>> <? echo _("CapaKaspa")?>
-            	<input name="rdoSocialNetwork" type="radio" value="FB" <? if ($_SESSION['socialNetwork']=="FB") echo("checked");?>> <? echo _("Facebook")?>
-            	<input name="rdoSocialNetwork" type="radio" value="GP" <? if ($_SESSION['socialNetwork']=="GP") echo("checked");?>> <? echo _("Google+")?>
-            	<input name="rdoSocialNetwork" type="radio" value="TW" <? if ($_SESSION['socialNetwork']=="TW") echo("checked");?>> <? echo _("Twitter")?>
+            	<input onclick="setCKPicture();" id="rdoCK" name="rdoSocialNetwork" type="radio" value="CK" <? if ($_SESSION['socialNetwork']=="CK") echo("checked");?>> <? echo _("CapaKaspa")?>
+            	<input onclick="initNWPicture();" id="rdoFB" name="rdoSocialNetwork" type="radio" value="FB" <? if ($_SESSION['socialNetwork']=="FB") echo("checked");?>> <? echo _("Facebook")?>
+            	<input onclick="initNWPicture();" id="rdoGP" name="rdoSocialNetwork" type="radio" value="GP" <? if ($_SESSION['socialNetwork']=="GP") echo("checked");?>> <? echo _("Google+")?>
+            	<input onclick="initNWPicture();" id="rdoTW" name="rdoSocialNetwork" type="radio" value="TW" <? if ($_SESSION['socialNetwork']=="TW") echo("checked");?>> <? echo _("Twitter")?>
             </td>
           </tr>
           <tr>
             <td>&nbsp;</td>
             <td>
-	            <?php echo _("Social network ID");?> : <input name="txtSocialID" type="text" size="50" maxlength="100" value="<? echo($_SESSION['socialID']); ?>"> 
+            	<div id="socialID">
+	            <?php echo _("Social network ID");?> : <input onchange="setNWPicture();"id="txtSocialID" name="txtSocialID" type="text" size="50" maxlength="100" value="<? echo($_SESSION['socialID']); ?>"> 
 	            <span onmouseout="document.getElementById('helpSocial').style.display = 'none';" onmouseover="document.getElementById('helpSocial').style.display = 'block';"><img src="images/point-interrogation.gif" border="0"/></span>
+            	</div>
             	<div id="helpSocial" style="display: none;font-size: 10px">
 		      		1) <? echo _("Facebook");?><br>
 					<? echo _("In Facebook, at the bottom of the Infos section of your account:");?><br>
