@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2013-02-17 15:49+0100\n"
-"PO-Revision-Date: 2013-02-17 15:50+0100\n"
+"POT-Creation-Date: 2013-02-17 17:05+0100\n"
+"PO-Revision-Date: 2013-02-17 17:13+0100\n"
 "Last-Translator: S. JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: French\n"
@@ -356,8 +356,8 @@ msgstr "Télécharger PGN"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:345
 #: PHP/player_view.php:157
-msgid "Send message"
-msgstr "Envoyer un message"
+msgid "Private message"
+msgstr "Message privé"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:348
 msgid "Resign"
@@ -681,7 +681,7 @@ msgstr "Expiration"
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:377
 #: PHP/ajax/ajx_display_activity.php:175
 msgid "Comment"
-msgstr "Commentaire"
+msgstr "Commenter"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:387
 msgid "No games in progress..."
@@ -1165,7 +1165,7 @@ msgid "Follow"
 msgstr "S'abonner"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:150
-#: PHP/ajax/ajx_insert_follow.php:46
+#: PHP/ajax/ajx_insert_follow.php:48
 msgid "Unfollow"
 msgstr "Se désabonner"
 
@@ -2021,19 +2021,19 @@ msgstr "Ajouter"
 msgid "Elo"
 msgstr "Elo"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_insert_follow.php:34
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_insert_follow.php:35
 msgid "You have a new follower"
 msgstr "Vous avez un nouvel abonné"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_insert_follow.php:35
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_insert_follow.php:36
 msgid "follow you on CapaKaspa."
 msgstr "vous suit sur CapaKaspa."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_insert_pmessage.php:35
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_insert_pmessage.php:36
 msgid "You have a new private message"
 msgstr "Vous avez un nouveau message privé"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_insert_pmessage.php:36
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_insert_pmessage.php:37
 msgid "send you a new private message.\n"
 msgstr "vous a envoyé un nouveauu message privé.\n"
 
@@ -2063,73 +2063,73 @@ msgstr ""
 "info \n"
 "\n"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:327
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:328
 msgid "The player"
 msgstr "Le joueur"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:328
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:329
 msgid "Your opponent"
 msgstr "Votre adversaire"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:335
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:336
 msgid "You are invited to play a new game"
 msgstr "Vous êtes invité à jouer une nouvelle partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:336
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:337
 msgid " invites you to play a new game."
 msgstr " vous invite à jouer une nouvelle partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:340
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:341
 msgid "Invitation canceled"
 msgstr "Invitation annulée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:341
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:342
 msgid " canceled its invitation to play a new game."
 msgstr " a annulé son invitation à jouer une nouvelle partie."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:345
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:346
 msgid "Invitation accepted"
 msgstr "Invitation acceptée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:346
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:347
 msgid " has accepted your invitation. A new game began."
 msgstr "a accepté votre invitation. Une nouvelle partie a commencé."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:348
-#: PHP/bwc/bwc_chessutils.php:357
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:349
+#: PHP/bwc/bwc_chessutils.php:358
 msgid " joined a message :"
 msgstr "a joint un message :"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:354
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:355
 msgid "Invitation refused"
 msgstr "Invitation refusée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:355
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:356
 msgid " refused your invitation."
 msgstr "a refusé son invitation."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:363
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:364
 msgid "New move"
 msgstr "Nouveau coup"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:364
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:365
 msgid " play the move :"
 msgstr " a joué le coup :"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:369
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:370
 msgid "Resignation"
 msgstr "Abandon"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:370
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:371
 msgid " resigned."
 msgstr " a abadondonné."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:374
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:375
 #: PHP/bwc/bwc_games.php:503
 msgid "Draw proposal accepted"
 msgstr "Proposition de nulle acceptée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:375
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:376
 msgid ""
 " accepted your draw proposal.\n"
 "The game ended."
@@ -2137,25 +2137,25 @@ msgstr ""
 " a accepté votre proposition de nulle.\n"
 "La partie est terminée."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:379
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:380
 #: PHP/bwc/bwc_games.php:566
 msgid "Draw game"
 msgstr "Partie nulle"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:380
-#: PHP/bwc/bwc_chessutils.php:385
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:381
+#: PHP/bwc/bwc_chessutils.php:386
 msgid "Your game against"
 msgstr "Votre partie contre"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:380
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:381
 msgid " ended by a draw."
 msgstr " s'est terminée par une nulle."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:384
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:385
 msgid "Checkmate"
 msgstr "Echec et Mat"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:385
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:386
 msgid " ended by a checkmate."
 msgstr " s'est terminée par Echec et Mat."
 
@@ -2417,6 +2417,9 @@ msgstr "Cliquer en bas pour accéder à la version pour ordinateur."
 #: PHP/mobile/include/page_footer.php:2
 msgid "Access to computer version"
 msgstr "Accéder à la version pour ordinateur"
+
+#~ msgid "Send message"
+#~ msgstr "Envoyer un message"
 
 #~ msgid "Sign-up"
 #~ msgstr "Inscription"

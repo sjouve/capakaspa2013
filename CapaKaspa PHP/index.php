@@ -149,6 +149,7 @@ require 'include/page_header.php';
 ?>
 <script src="javascript/menu.js" type="text/javascript"></script>
 <script src="javascript/comment.js" type="text/javascript"></script>
+<script src="javascript/like.js" type="text/javascript"></script>
 <script type="text/javascript">
 	function sendResponse(responseType, messageFrom, gameID, whitePlayerID)
 	{

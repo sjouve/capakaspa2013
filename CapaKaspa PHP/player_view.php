@@ -154,7 +154,7 @@ require 'include/page_body_no_menu.php';
 				<input type="submit" class="link" value="<? echo _("New game");?>">
 				<input type="hidden" name="opponent" value="<? echo _($player['nick']);?>">						
 			</div>
-			<input type="button" name="message" id="message" class="link" value="<?echo _("Send message");?>" onclick="popup('popUpDiv')">
+			<input type="button" name="message" id="message" class="link" value="<?echo _("Private message");?>" onclick="popup('popUpDiv')">
 				
 		<?}?>
 		<? if ($_SESSION['playerID'] != $player['playerID']) {?>
