@@ -14,6 +14,8 @@ require 'bwc/bwc_games.php';
 
 require 'include/connectdb.php';
 
+require 'include/localization.php';
+
 /* Traitement des actions */
 $err=1;
 $ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:"";

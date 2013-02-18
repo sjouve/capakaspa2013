@@ -978,7 +978,7 @@ function writeStatus($tmpGame)
 	    <?
           	if ($isPlayersTurn)
           	{
-          		echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteFirstName']." ".$tmpGame['whiteLastName']."</a><br/>".$tmpGame['whiteElo']);
+          		echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteNick']."</a><br/>".$tmpGame['whiteElo']);
           		if (getOnlinePlayer($tmpGame['whitePlayer'])) echo (" <img src='images/user_online.gif'/>");
           		if ($tmpGame['whiteNick'] == $_SESSION['nick']) echo (" <img src='images/hand.gif'/>");
           		echo("</div>");
@@ -987,14 +987,14 @@ function writeStatus($tmpGame)
           	{
           		if ($tmpGame['whiteNick'] == $_SESSION['nick'] || $tmpGame['blackNick'] == $_SESSION['nick'])
           		{
-          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteFirstName']." ".$tmpGame['whiteLastName']."</a><br/>".$tmpGame['whiteElo']);
+          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteNick']."</a><br/>".$tmpGame['whiteElo']);
           			if (getOnlinePlayer($tmpGame['whitePlayer'])) echo (" <img src='images/user_online.gif'/>");
           			if ($tmpGame['whiteNick'] != $_SESSION['nick']) echo (" <img src='images/hand.gif'/>");
           			echo("</div>");
           		}
           		else
           		{
-          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteFirstName']." ".$tmpGame['whiteLastName']."</a><br/>".$tmpGame['whiteElo']);
+          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteNick']."</a><br/>".$tmpGame['whiteElo']);
           			if (getOnlinePlayer($tmpGame['whitePlayer'])) echo (" <img src='images/user_online.gif'/>");
           			echo("</div>");
           		}
@@ -1005,7 +1005,7 @@ function writeStatus($tmpGame)
           	<?
           	if ($isPlayersTurn)
           	{
-          		echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackFirstName']." ".$tmpGame['blackLastName']."</a><br/>");
+          		echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackNick']."</a><br/>");
           		if ($tmpGame['blackNick'] == $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
           		if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif'/>");
           		echo($tmpGame['blackElo']."</div>");	
@@ -1014,14 +1014,14 @@ function writeStatus($tmpGame)
           	{
           		if ($tmpGame['whiteNick'] == $_SESSION['nick'] || $tmpGame['blackNick'] == $_SESSION['nick'])
           		{
-          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackFirstName']." ".$tmpGame['blackLastName']."</a><br/>");
+          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackNick']."</a><br/>");
           			if ($tmpGame['blackNick'] != $_SESSION['nick']) echo ("<img src='images/hand.gif'/> ");
           			if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif'/>");
           			echo($tmpGame['blackElo']."</div>");	
           		}
           		else
           		{
-          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackFirstName']." ".$tmpGame['blackLastName']."</a><br/>");
+          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackNick']."</a><br/>");
           			if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif'/>");
           			echo($tmpGame['blackElo']."</div>");
           		}

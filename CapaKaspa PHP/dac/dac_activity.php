@@ -69,7 +69,7 @@ function deleteComment($commentID)
 
 function listEntityComments($type, $entityID)
 {
-	$tmpQuery = "SELECT C.commentID, C.message, C.postDate, L.likeID, P.playerID, P.firstName, P.lastName
+	$tmpQuery = "SELECT C.commentID, C.message, C.postDate, L.likeID, P.playerID, P.firstName, P.lastName, P.nick
 				FROM comment C left join like_entity L on L.type = '".COMMENT."' AND L.entityID = C.commentID AND L.playerID = ".$_SESSION['playerID'].", players P 
 				WHERE C.type = '".$type."' 
 				AND C.entityID = ".$entityID." 

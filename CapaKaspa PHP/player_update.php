@@ -255,7 +255,15 @@ require 'include/page_body.php';
         <table border="0" width="650">
 		  <tr>
             <td width="180"><?php echo _("Email");?> : </td>
-            <td><? echo($_SESSION['email']); ?><input type="hidden" name="txtEmail" value="<? echo($_SESSION['email']); ?>"></td>
+            <td>
+            	<? echo($_SESSION['email']); ?><input type="hidden" name="txtEmail" value="<? echo($_SESSION['email']); ?>"> 
+            	<span onmouseout="document.getElementById('helpEmail').style.display = 'none';" onmouseover="document.getElementById('helpEmail').style.display = 'block';"><img src="images/point-interrogation.gif" border="0"/></span>
+            	<div id="helpEmail" style="display: none;font-size: 10px">
+		      		<? echo _("You can update your email address.");?><br>
+					<? echo _("First disable your account (see bottom of this page).");?><br>
+					<? echo _("Sign in and follow the activation process.");?><br>
+				</div>
+            </td>
           </tr>
           <tr>
             <td><?echo _("Country");?> :</td>

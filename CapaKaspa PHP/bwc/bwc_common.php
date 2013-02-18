@@ -84,7 +84,6 @@ function sendMail($msgTo, $mailSubject, $mailMsg)
 	global $CFG_MAILADDRESS, $CFG_USEEMAILNOTIFICATION;
 
 	$headers = "From: CapaKaspa <".$CFG_MAILADDRESS.">\r\n";
-	$headers .= "To: ".$msgTo."\r\n";
 	$headers .= "Reply-To: CapaKaspa <".$CFG_MAILADDRESS.">\r\n";
 	
 	$mailMsg .= _("\n\nThis email was sent automatically from site CapaKaspa (http://www.capakaspa.info).\n\n");

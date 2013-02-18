@@ -34,7 +34,7 @@ while($tmpComment = mysql_fetch_array($tmpComments, MYSQL_ASSOC))
 	$strPostDate = $fmt->format($postDate);
 	echo("
 	<div class='item'>
-		<a href='player_view.php?playerID=".$tmpComment['playerID']."'><span class='name'>".$tmpComment['firstName']." ".$tmpComment['lastName']."</span></a> ".nl2br(stripslashes($tmpComment['message']))." 
+		<a href='player_view.php?playerID=".$tmpComment['playerID']."'><span class='name'>".$tmpComment['firstName']." ".$tmpComment['lastName']." (".$tmpComment['nick'].")</span></a> ".nl2br(stripslashes($tmpComment['message']))." 
 		</br>
 		<span class='date'>".$strPostDate."</span> - ");
 		if (isset($tmpComment['likeID'])){?>
