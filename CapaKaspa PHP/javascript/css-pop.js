@@ -21,7 +21,7 @@ function blanket_size(popUpDivVar) {
 	var blanket = document.getElementById('blanket');
 	blanket.style.height = blanket_height + 'px';
 	var popUpDiv = document.getElementById(popUpDivVar);
-	popUpDiv_height=blanket_height/2-200;//200 is half popup's height
+	popUpDiv_height=200;//SJE Poistion fixe en hauteur
 	popUpDiv.style.top = popUpDiv_height + 'px';
 }
 function window_pos(popUpDivVar) {

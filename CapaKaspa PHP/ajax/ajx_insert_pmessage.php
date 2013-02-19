@@ -11,6 +11,8 @@ if (!isset($_CONFIG))
 // Connect DB
 require '../include/connectdb.php';
 require '../dac/dac_activity.php';
+require '../dac/dac_players.php';
+require '../bwc/bwc_common.php';
 
 // Insert a private message
 $fromPlayerID=$_GET["fromID"];

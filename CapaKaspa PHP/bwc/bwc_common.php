@@ -108,7 +108,7 @@ function displayPrivateMessage($toPlayerID, $toFirstName, $toLastName, $toNick, 
 {?>
 	<div id="blanket" style="display:none"></div>
 	<div id="popUpDiv" style="display:none">
-		<div class="contentbody">
+		<div id="popupMessageForm" class="contentbody">
 			<? 
 			$toPlayerID = isset($toPlayerID)?$toPlayerID:"";
 			$toFirstName = isset($toFirstName)?$toFirstName:"";
@@ -118,9 +118,15 @@ function displayPrivateMessage($toPlayerID, $toFirstName, $toLastName, $toNick, 
 			?>
 			<h3><? echo _("New message")?></h3>
 			<? echo _("To")?> : <? echo($toFirstName." ".$toLastName." (".$toNick.")");?><br>
-			<textarea style="width: 370px" id="privateMessage" rows="4" placeholder="<? echo _("Your message...")?>"></textarea><br>
-			<input type="button" class="button" value="<? echo _("Send")?>" onclick="insertPrivateMessage(<? echo($_SESSION['playerID'])?>,<? echo($toPlayerID)?>,'<? echo($toEmail)?>')">
+			<textarea style="width: 370px; font-size: 12px;" id="privateMessage" rows="6" placeholder="<? echo _("Your message...")?>"></textarea><br>
+			<br><input type="button" class="button" value="<? echo _("Send")?>" onclick="insertPrivateMessage(<? echo($_SESSION['playerID'])?>,<? echo($toPlayerID)?>,'<? echo($toEmail)?>')">
 			<input type="button" class="link" value="<? echo _("Cancel")?>" onclick="popup('popUpDiv')">
+		</div>
+		<div id="popupMessageProgress" class="contentbody" style="display: none;">
+			<img src='images/ajaxloader.gif'/>
+		</div>
+		<div id="popupMessageSuccess" class="contentbody" style="display: none;">
+			<div class="success"><? echo _("Message sent successfully")?></div>
 		</div>
 	</div>
 <?}

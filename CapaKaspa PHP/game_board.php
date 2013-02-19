@@ -156,11 +156,15 @@ require 'include/page_header.php';
    	SetAutoplayNextGame(true);
    	SetShortcutKeysEnabled(false);
    	clearShortcutSquares("ABCDEFGH", "12345678");
-	  	
+	
+	
+	
 	/* transfer board data to javacripts */
 	<? writeJSboard($board, $numMoves); ?>
 	<? writeJSHistory($history, $numMoves); ?>
 
+	<? if ($playersColor == "black") echo("FlipBoard()"); ?>
+	
 	function afficheplayer(){
       document.getElementById("player").style.display = "block";
       document.getElementById("viewer").style.display = "none";
@@ -345,9 +349,9 @@ require 'include/page_body.php';
 				<input type="button" name="hide" id="hide" class="link" style="display:inline;" value="<?echo _("Show viewer");?>" onclick="javascript:afficheviewer();">
 				<input type="button" name="show" id="show" class="link" style="display:none;" value="<?echo _("Show player");?>" onclick="javascript:afficheplayer();">
 				<input type="button" name="pgn" id="pgn" class="link" value="<?echo _("Download PGN");?>" onclick="location.href='game_pgn.php?id=<? echo($_POST['gameID'])?>'">
-				<input type="button" name="message" id="message" class="link" value="<?echo _("Private message");?>" onclick="popup('popUpDiv')">
 				<? if (!isBoardDisabled()) {
 				?>
+				<input type="button" name="message" id="message" class="link" value="<?echo _("Private message");?>" onclick="popup('popUpDiv')">			
 				<input type="button" name="btnResign" class="button" value="<?php echo _("Resign")?>" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='resigngame()'"); ?>>
 				<? } ?>
 				<input type="hidden" name="from" value="<? echo($_POST['from']) ?>" />
