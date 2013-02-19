@@ -46,7 +46,7 @@ require 'include/page_body.php';
 	<h3><?php echo _("Forgotten password");?></h3>
     	<p><?php echo _("Already have an account to access the play area but <b>you forgot your password</b>.");?></p>
     	<p><?php echo _("Enter the email address that you assigned to this account. A message will be sent to this address. It will contain the information for sign in.");?></p>
-		<form name="userdata" method="post" action="jouer-echecs-differe-passe-oublie.php">
+		<form name="userdata" method="post" action="password.php">
 			<table align="center">
 				<tr>
 		            <td> Email : </td>
@@ -54,7 +54,7 @@ require 'include/page_body.php';
 		            </td>
 		        </tr>
 			</table>
-			<input type="hidden" name="ToDo" value="Send">
+			<input type="hidden" name="ToDo" value="Valider">
 			<center><input name="Send" value="<?php echo _("Send");?>" type="submit" class="button"></center>
 		</form>
       <?}?>

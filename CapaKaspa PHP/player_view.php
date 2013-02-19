@@ -33,6 +33,7 @@ $titre_page = _("View player profile");
 $desc_page = _("View player profile");
 require 'include/page_header.php';
 ?>
+<link href="pgn4web/fonts/pgn4web-font-ChessSansPiratf.css" type="text/css" rel="stylesheet" />
 <script src="javascript/player.js" type="text/javascript"></script>
 <script src="javascript/follow.js" type="text/javascript"></script>
 <script src="javascript/activity.js" type="text/javascript"></script>

@@ -409,45 +409,30 @@ require 'include/page_body.php';
           </tr>
           <tr>
             <td><?echo _("Chess set");?> :</td>
-            <td><?
-					if ($_SESSION['pref_theme'] == 'merida')
-					{
-				?>
-              <input name="rdoTheme" type="radio" value="merida" checked>
-              	<img src="pgn4web/merida/28/wk.png"/>
-				<img src="pgn4web/merida/28/wq.png"/>
-				<img src="pgn4web/merida/28/wr.png"/>
-				<img src="pgn4web/merida/28/wb.png"/>
-				<img src="pgn4web/merida/28/wk.png"/>
-				<img src="pgn4web/merida/28/wp.png"/>
-              <input name="rdoTheme" type="radio" value="alpha">
-             	<img src="pgn4web/alpha/28/wk.png"/>
-				<img src="pgn4web/alpha/28/wq.png"/>
-				<img src="pgn4web/alpha/28/wr.png"/>
-				<img src="pgn4web/alpha/28/wb.png"/>
-				<img src="pgn4web/alpha/28/wk.png"/>
-				<img src="pgn4web/alpha/28/wp.png"/>
-              <?
-					}
-					else
-					{
-				?>
-              <input name="rdoTheme" type="radio" value="merida">
-              	<img src="pgn4web/merida/28/wk.png"/>
-				<img src="pgn4web/merida/28/wq.png"/>
-				<img src="pgn4web/merida/28/wr.png"/>
-				<img src="pgn4web/merida/28/wb.png"/>
-				<img src="pgn4web/merida/28/wk.png"/>
-				<img src="pgn4web/merida/28/wp.png"/> 
-              <input name="rdoTheme" type="radio" value="alpha" checked>
-				<img src="pgn4web/alpha/28/wk.png"/>
-				<img src="pgn4web/alpha/28/wq.png"/>
-				<img src="pgn4web/alpha/28/wr.png"/>
-				<img src="pgn4web/alpha/28/wb.png"/>
-				<img src="pgn4web/alpha/28/wk.png"/>
-				<img src="pgn4web/alpha/28/wp.png"/>
-              <?	}
-				?>
+            <td>
+					
+              	<input name="rdoTheme" type="radio" value="merida" <? if ($_SESSION['pref_theme'] == 'merida') echo("checked");?>>
+	              	<img src="pgn4web/merida/28/bk.png"/>
+					<img src="pgn4web/merida/28/bq.png"/>
+					<img src="pgn4web/merida/28/br.png"/>
+					<img src="pgn4web/merida/28/bb.png"/>
+					<img src="pgn4web/merida/28/bk.png"/>
+					<img src="pgn4web/merida/28/bp.png"/> 
+              	<br><input name="rdoTheme" type="radio" value="alpha" <? if ($_SESSION['pref_theme'] == 'alpha') echo("checked");?>>
+					<img src="pgn4web/alpha/28/bk.png"/>
+					<img src="pgn4web/alpha/28/bq.png"/>
+					<img src="pgn4web/alpha/28/br.png"/>
+					<img src="pgn4web/alpha/28/bb.png"/>
+					<img src="pgn4web/alpha/28/bk.png"/>
+					<img src="pgn4web/alpha/28/bp.png"/>
+				<br><input name="rdoTheme" type="radio" value="uscf" <? if ($_SESSION['pref_theme'] == 'uscf') echo("checked");?>>
+					<img src="pgn4web/uscf/28/bk.png"/>
+					<img src="pgn4web/uscf/28/bq.png"/>
+					<img src="pgn4web/uscf/28/br.png"/>
+					<img src="pgn4web/uscf/28/bb.png"/>
+					<img src="pgn4web/uscf/28/bk.png"/>
+					<img src="pgn4web/uscf/28/bp.png"/>
+              
             </td>
           </tr>
           <tr>

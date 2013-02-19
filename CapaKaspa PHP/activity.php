@@ -25,6 +25,7 @@ $titre_page = _("News feed");
 $desc_page = _("News feed of your following");
 require 'include/page_header.php';
 ?>
+<link href="pgn4web/fonts/pgn4web-font-ChessSansPiratf.css" type="text/css" rel="stylesheet" />
 <script src="javascript/menu.js" type="text/javascript"></script>
 <script src="javascript/activity.js" type="text/javascript"></script>
 <script src="javascript/comment.js" type="text/javascript"></script>

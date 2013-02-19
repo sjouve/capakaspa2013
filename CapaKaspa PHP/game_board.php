@@ -138,6 +138,9 @@ require 'include/page_header.php';
 ?>
 <link href="css/pgn4web.css" type="text/css" rel="stylesheet" />
 <link href="pgn4web/fonts/pgn4web-font-ChessSansPiratf.css" type="text/css" rel="stylesheet" />
+<link href="pgn4web/fonts/pgn4web-font-ChessSansUscf.css" type="text/css" rel="stylesheet" />
+<link href="pgn4web/fonts/pgn4web-font-ChessSansMerida.css" type="text/css" rel="stylesheet" />
+<link href="pgn4web/fonts/pgn4web-font-ChessSansAlpha.css" type="text/css" rel="stylesheet" />
 <script src="javascript/css-pop.js" type="text/javascript"></script>
 <script src="pgn4web/pgn4web.js" type="text/javascript"></script>
 <script src="javascript/comment.js" type="text/javascript"></script>
@@ -317,7 +320,7 @@ require 'include/page_body.php';
 				<? echo($pgnstring); ?>
 				</textarea>
 			</form>
-			<div id="gamemoves" overflow-y="auto">
+			<div id="gamemoves" style="overflow-y: auto;">
 		
 				<div id="GameText"></div>		
 			</div>			

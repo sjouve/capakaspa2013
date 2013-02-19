@@ -76,7 +76,7 @@ else
 		{
 			// Invitation	
 			case 'invitation':
-				$message = _("invites someone to play a new game :");
+				$message = _("invites someone to play a new game");
 				$activityType = _("INVITATION");
 				break;
 					
@@ -132,7 +132,7 @@ else
 					
 			// Move
 			case 'move':
-				$message = _("played the move")." ".$tmpActivity['message']._(" in the game against");
+				$message = _("played the move")." <span style=\"font-family: 'pgn4web ChessSansPiratf', 'pgn4web Liberation Sans', sans-serif;\">".$tmpActivity['message']."</span>"._(" in the game against");
 				$activityType = _("MOVE");
 				break;
 							
