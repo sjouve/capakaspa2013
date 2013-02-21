@@ -1231,6 +1231,7 @@ function CleanMove(move) {
 
 function GoToMove(thisPly, thisVar) {
   SetAutoPlay(false);
+
   if (typeof(thisVar) == "undefined") { thisVar = CurrentVar; }
   else {
     if (thisVar < 0) { thisVar = 0; }

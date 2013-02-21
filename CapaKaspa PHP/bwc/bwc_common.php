@@ -119,7 +119,7 @@ function displayPrivateMessage($toPlayerID, $toFirstName, $toLastName, $toNick, 
 			<h3><? echo _("New message")?></h3>
 			<? echo _("To")?> : <? echo($toFirstName." ".$toLastName." (".$toNick.")");?><br>
 			<textarea style="width: 370px; font-size: 12px;" id="privateMessage" rows="6" placeholder="<? echo _("Your message...")?>"></textarea><br>
-			<br><input type="button" class="button" value="<? echo _("Send")?>" onclick="insertPrivateMessage(<? echo($_SESSION['playerID'])?>,<? echo($toPlayerID)?>,'<? echo($toEmail)?>')">
+			<br><input type="button" class="button" value="<? echo _("Send")?>" onclick="insertPrivateMessagePopup(<? echo($_SESSION['playerID'])?>,<? echo($toPlayerID)?>,'<? echo($toEmail)?>')">
 			<input type="button" class="link" value="<? echo _("Cancel")?>" onclick="popup('popUpDiv')">
 		</div>
 		<div id="popupMessageProgress" class="contentbody" style="display: none;">

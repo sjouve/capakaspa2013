@@ -12,6 +12,7 @@ require 'bwc/bwc_common.php';
 require 'bwc/bwc_games.php';
 require 'bwc/bwc_chessutils.php';
 require 'include/localization.php';
+require 'include/constants.php';
 
 
 /* connect to database */

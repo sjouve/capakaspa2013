@@ -170,7 +170,7 @@ require 'include/page_header.php';
 	function withdrawRequest(gameID, whitePlayerID)
 	{
 		document.withdrawRequestForm.gameID.value = gameID;
-		document.responseToInvite.whitePlayerID.value = whitePlayerID;
+		document.withdrawRequestForm.whitePlayerID.value = whitePlayerID;
 		document.withdrawRequestForm.submit();
 	}
 </script>

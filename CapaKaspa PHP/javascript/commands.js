@@ -117,11 +117,12 @@ function promotepawn()
 	else
 		document.gamedata.isInCheck.value = "false";
 
-	eval("document.images['pos" + row + "-" + rookCol+"'].src = 'pgn4web/" + CURRENTTHEME + "/35/clear.png'");
+	//eval("document.images['pos" + row + "-" + rookCol+"'].src = 'pgn4web/" + CURRENTTHEME + "/35/clear.png'");
 	
 	document.getElementById('btnPlay').style.visibility = 'visible';
 	document.getElementById('btnUndo').style.visibility = 'visible';
 	document.getElementById('shareMove').style.display = 'inline';
+	document.getElementById('requestDraw').style.display = 'inline';
 	
 	/* update board and database */
 	//document.gamedata.submit();

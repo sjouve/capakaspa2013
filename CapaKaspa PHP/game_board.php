@@ -223,7 +223,7 @@ require 'include/page_body.php';
 
 <div id="contentlarge">
 	<div class="contentbody">
-      
+      	<div class="error"><? echo _("If you have some troubles on this page please try to refresh by [CTRL] + [F5]");?></div>
         <?
         if (($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['blackPlayer']) 
         		&& $tmpGame['gameMessage'] == "")
@@ -267,10 +267,9 @@ require 'include/page_body.php';
 			<form name="gamedata" method="post" action="game_board.php">
 			<div id="gamerequest">
 				<div id="promoting" style="display: none;">
-					<table border="0" cellspacing="0" cellpadding="0">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr><td align="center" bgcolor="#F2A521">
-						<?echo _("Promote the pawn in")?> :
-						<br>
+						<?echo _("Promote the pawn in")?> :				
 						<input type="radio" name="promotion" value="<? echo (QUEEN); ?>"> <?echo _("Queen")?>
 						<input type="radio" name="promotion" value="<? echo (ROOK); ?>"> <?echo _("Rook")?>
 						<input type="radio" name="promotion" value="<? echo (KNIGHT); ?>"> <?echo _("Knight")?>
@@ -291,8 +290,8 @@ require 'include/page_body.php';
 					<nobr>
 					<input type="button" id="btnUndo" name="btnUndo" class="button" style="visibility: hidden" value="<?php echo _("Cancel")?>" onClick="javascript:undo();">
 					<input type="button" id="btnPlay" name="btnPlay" class="button" style="visibility: hidden" value="<?php echo _("Valid")?>" onClick="javascript:play();">
-					<div id="requestDraw" style="display: none"><input type="checkbox" name="requestDraw" value="yes"> <?echo _("Draw")?></div>
-					<div id="shareMove" style="display: none"><input type="checkbox" name="chkShareMove" value="share"> <?echo _("Share")?></div>
+					<div id="requestDraw" style="display: none; font-size: 10px;"><input type="checkbox" name="requestDraw" value="yes"> <?echo _("Draw")?></div>
+					<div id="shareMove" style="display: none; font-size: 10px;"><input type="checkbox" name="chkShareMove" value="share"> <?echo _("Share")?></div>
 					</nobr>
 					<input type="hidden" name="gameID" value="<? echo ($_POST['gameID']); ?>">
 					<!-- <input type="hidden" name="requestDraw" value="no"> -->
@@ -328,8 +327,20 @@ require 'include/page_body.php';
 		
 				<div id="GameText"></div>		
 			</div>			
-			
-	        <div id="gamecaptured">
+				        
+			<div id="gameaction">
+				<input type="button" name="hide" id="hide" class="link" style="display:inline;" value="<?echo _("Show viewer");?>" onclick="javascript:afficheviewer();">
+				<input type="button" name="show" id="show" class="link" style="display:none;" value="<?echo _("Show player");?>" onclick="javascript:afficheplayer();">
+				<input type="button" name="pgn" id="pgn" class="link" value="<?echo _("Download PGN");?>" onclick="location.href='game_pgn.php?id=<? echo($_POST['gameID'])?>'">
+				<? if (!isBoardDisabled()) {
+				?>
+				<input type="button" name="message" id="message" class="link" value="<?echo _("Private message");?>" onclick="popup('popUpDiv')">			
+				<input type="button" name="btnResign" class="button" value="<?php echo _("Resign")?>" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='resigngame()'"); ?>>
+				<? } ?>
+				<input type="hidden" name="from" value="<? echo($_POST['from']) ?>" />
+				
+			</div>
+			<div id="gamecaptured">
 				<?
 				// List of captured pieces
 				$listPieces = listCapturedPieces($_POST['gameID']);
@@ -344,18 +355,6 @@ require 'include/page_body.php';
 					echo "\n<img src=\"pgn4web/".$_SESSION['pref_theme']."/20/".$color.getPieceCharForImage(getPieceCode($color, $row['replaced'])).".png\">";				
 				} // End while
 				?>
-			</div>
-			<div id="gameaction">
-				<input type="button" name="hide" id="hide" class="link" style="display:inline;" value="<?echo _("Show viewer");?>" onclick="javascript:afficheviewer();">
-				<input type="button" name="show" id="show" class="link" style="display:none;" value="<?echo _("Show player");?>" onclick="javascript:afficheplayer();">
-				<input type="button" name="pgn" id="pgn" class="link" value="<?echo _("Download PGN");?>" onclick="location.href='game_pgn.php?id=<? echo($_POST['gameID'])?>'">
-				<? if (!isBoardDisabled()) {
-				?>
-				<input type="button" name="message" id="message" class="link" value="<?echo _("Private message");?>" onclick="popup('popUpDiv')">			
-				<input type="button" name="btnResign" class="button" value="<?php echo _("Resign")?>" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='resigngame()'"); ?>>
-				<? } ?>
-				<input type="hidden" name="from" value="<? echo($_POST['from']) ?>" />
-				
 			</div>
 			</form>
 		</div>
