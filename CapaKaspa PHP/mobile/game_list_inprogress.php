@@ -34,7 +34,7 @@
 			}
 			if ($res == 0)
 			{
-				header("Location: index.php?err=login");
+				header("Location: game_in_progress.php?err=login");
 				exit;
 			}
 			break;
@@ -47,7 +47,7 @@
 			  }
 			}
 			$_SESSION['playerID'] = -1;
-			header("Location: index.php");
+			header("Location: game_in_progress.php");
 			exit;
 			break;
 	
