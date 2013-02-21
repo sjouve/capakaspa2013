@@ -119,7 +119,7 @@ require 'include/page_body.php';
 	<div class="contentbody">
   
 		<h3><? echo _("Start new game")?></h3>
-		<form name="startGameForm" action="index.php" method="post">
+		<form name="startGameForm" action="game_in_progress.php" method="post">
 			<table width="100%">
 				<tr>
 					<td width="20%">

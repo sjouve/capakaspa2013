@@ -39,7 +39,7 @@ switch($ToDo)
 	case 'DisableAccount':
 		$err = updateProfil($_SESSION['playerID'], "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
 		if ($err == 1)
-			header("Location: index.php?ToDo=Logout");
+			header("Location: game_in_progress.php?ToDo=Logout");
 		break;
 		
 }
@@ -61,6 +61,8 @@ function validatePersonalInfo()
 	document.getElementById("login_format_error").style.display = "none";
 	document.getElementById("password_format_error").style.display = "none";
 	document.getElementById("email_format_error").style.display = "none";
+	document.getElementById("firstname_format_error").style.display = "none";
+	document.getElementById("lastname_format_error").style.display = "none";
 	document.getElementById("confirm_password_error").style.display = "none";
 	document.getElementById("old_password_error").style.display = "none";
 	
@@ -74,8 +76,20 @@ function validatePersonalInfo()
 		document.getElementById("fields_required_error").style.display = "block";
 		return;
 	}
+
+	if (!isAlphaNumeric(document.userdata.txtFirstName.value))
+	{
+		document.getElementById("firstname_format_error").style.display = "block";
+		return;
+	}
 	
-	if (!isEmpty(document.userdata.pwdPassword.value) && !isAlphaNumeric(document.userdata.pwdPassword.value))
+	if (!isAlphaNumeric(document.userdata.txtLastName.value))
+	{
+		document.getElementById("lastname_format_error").style.display = "block";
+		return;
+	}
+	
+	if (!isEmpty(document.userdata.pwdPassword.value) && (!isAlphaNumeric(document.userdata.pwdPassword.value) || document.userdata.pwdPassword.value.length < 6))
 	{
 		document.getElementById("password_format_error").style.display = "block";
 		return;
@@ -188,8 +202,10 @@ require 'include/page_body.php';
 	?>
 	<div class="error" id="fields_required_error" style="display: none"><?echo _("All fields are required")?></div>
 	<div class="error" id="login_format_error" style="display: none"><?echo _("Bad format for login")?></div>
-	<div class="error" id="password_format_error" style="display: none"><?echo _("Bad format for password")?></div>
+	<div class="error" id="password_format_error" style="display: none"><?echo _("Bad format for password : at least 6 caracters")?></div>
 	<div class="error" id="email_format_error" style="display: none"><?echo _("Bad format for email")?></div>
+	<div class="error" id="firstname_format_error" style="display: none"><?echo _("Bad format for first name")?></div>
+	<div class="error" id="lastname_format_error" style="display: none"><?echo _("Bad format for last name")?></div>
 	<div class="error" id="confirm_password_error" style="display: none"><?echo _("Password confirmation error")?></div>
 	<div class="error" id="old_password_error" style="display: none"><?echo _("Old password is required")?></div>
 	<!-- For translation in javascript -->

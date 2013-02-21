@@ -1,419 +1,345 @@
-<?	
-require 'include/mobilecheck.php';
+<?session_start();
 
-session_start();
-		
 /* load settings */
 if (!isset($_CONFIG))
 	require 'include/config.php';
 
-/* load external functions for setting up new game */
-require 'include/constants.php';
 require 'dac/dac_players.php';
+require 'dac/dac_common.php';
 require 'dac/dac_games.php';
-require 'dac/dac_activity.php';
-require 'bwc/bwc_common.php';
 require 'bwc/bwc_chessutils.php';
-require 'bwc/bwc_board.php';
+require 'bwc/bwc_common.php';
 require 'bwc/bwc_players.php';
 require 'bwc/bwc_games.php';
-	
-/* connect to database */
-require 'include/connectdb.php';
-	
-$tmpNewUser = false;
-$errMsg = "";
 
-$flagBishop = isset($_POST['flagBishop'])?$_POST['flagBishop']:"";
-$flagKnight = isset($_POST['flagKnight'])?$_POST['flagKnight']:"";
-$flagRook = isset($_POST['flagRook'])?$_POST['flagRook']:"";
-$flagQueen = isset($_POST['flagQueen'])?$_POST['flagQueen']:"";
-$type = isset($_POST['type']) ? $_POST['type']:0;
-$ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:(isset($_GET['ToDo']) ? $_GET['ToDo']:Null);
-	
+// Captcha
+include_once  'securimage/securimage.php';
+$securimage = new Securimage();
+
+require 'include/connectdb.php';
+
+require 'include/localization.php';
+
+/* Traitement des actions */
+$err = false;
+$ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:(isset($_GET['ToDo']) ? $_GET['ToDo']:"");
+
 switch($ToDo)
 {
-	case 'Login':
-		
-		$res = loginPlayer($_POST['txtNick'], $_POST['pwdPassword'], isset($_POST['chkAutoConn']) ? $_POST['chkAutoConn']:"");
-		if ($res == -1)
+	case 'NewUser':
+
+		// Contrôle serveur du nick vide
+		if ($_POST['txtNick'] == "")
 		{
-			// TODO Passer le nick et password
-			header("Location: activation.php");
+		  	$err = 'emptyNick';
+	    	break;
+		}
+		
+		// Contrôle existence joueur avec même surnom ou email
+		$player = getPlayerByNickEmail($_POST['txtNick'], $_POST['txtEmail']);
+		
+		if (strtolower($player['nick']) == strtolower($_POST['txtNick']))
+		{
+			$err = 'existNick';
+			break;
+		}
+				
+		if (strtolower($player['email']) == strtolower($_POST['txtEmail']))
+		{
+			$err = 'existEmail';
+			break;
+		}
+		
+		if ($securimage->check($_POST['captcha_code']) == false) {
+		  $err = 'captcha';
+		  break;
+		}
+		
+		// Création du joueur et envoi message confirmation
+		if (!createPlayer())
+		{
+		  	// Erreur technique
+			$err = 'db';
+			break;	
+		}
+		
+		break;
+		
+	case 'activer':
+		// On vérifie si le compte n'est pas déjà activé
+		$player = getPlayer($_GET['playerID']);
+		if ($player && $player['activate'] == 1)
+		{
+			header("Location: game_in_progress.php");
 			exit;
 		}
-		if ($res == 0)
-		{
-			header("Location: sign-up.php?err=login");
-			exit;
-		}
+		else if (!activatePlayer($_GET['playerID'], $_GET['nick']))
+			$err = 'db';
 		break;
-
-	case 'Logout':
-	
-		if (isset($_COOKIE["capakaspacn"])) {
-		   foreach ($_COOKIE["capakaspacn"] as $nom => $valeur) {
-		     setcookie("capakaspacn[$nom]", 0, time()-3600*24);    
-		  }
-		}
-		$_SESSION['playerID'] = -1;
-		header("Location: sign-up.php");
-		exit;
-		break;
-
-
-	case 'InvitePlayer':
 		
-		$opponentColor="";
-		$newGameID = createInvitation($_SESSION['playerID'], $_POST['opponent'], $_POST['color'], $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $opponentColor, $_POST['timeMove']);
-		
-		if ($newGameID) {
-			// Notification
-			chessNotification('invitation', $opponentColor, '', $_SESSION['nick'], $newGameID);
-			if ($_SESSION['pref_shareinvitation'] == 'oui')
-				insertActivity($_SESSION['playerID'], GAME, $newGameID, "", 'invitation');
-		}
-		break;
-
-	case 'ResponseToInvite':
-
-		if ($_POST['response'] == 'accepted')
-		{			
-			/* update game data */
-			$tmpQuery = "UPDATE games SET gameMessage = DEFAULT, messageFrom = DEFAULT WHERE gameID = ".$_POST['gameID'];
-			mysql_query($tmpQuery) or die (mysql_error());
-
-			/* setup new board */
-			createNewGame($_POST['gameID']);
-			saveGame();
-			
-			if ($_POST['whitePlayerID'] != $_SESSION['playerID'])
-				$oppColor = "white";
-			else 
-			  	$oppColor = "black";
-			
-			/* Notification */
-			chessNotification('accepted', $oppColor, $_POST['respMessage'], $_SESSION['nick'], $_POST['gameID']);
-			if ($_SESSION['pref_shareinvitation'] == 'oui')
-				insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'accepted');					
-		}
-		else
-		{
-			$tmpQuery = "UPDATE games SET gameMessage = 'inviteDeclined', messageFrom = '".$_POST['messageFrom']."' WHERE gameID = ".$_POST['gameID'];
-			mysql_query($tmpQuery);
-			
-			if ($_POST['whitePlayerID'] != $_SESSION['playerID'])
-				$oppColor = "white";
-			else
-			  	$oppColor = "black";
-			
-			/* Notification */
-			chessNotification('declined', $oppColor, $_POST['respMessage'], $_SESSION['nick'], $_POST['gameID']);
-			if ($_SESSION['pref_shareinvitation'] == 'oui')
-				insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'declined');
-		}
-
-		break;
-
-	case 'WithdrawRequest':
-
-		if ($_POST['whitePlayerID'] == $_SESSION['playerID'])
-			$oppColor = "black";
-		else
-			$oppColor = "white";
-
-		/* notify opponent of invitation via email */
-		chessNotification('withdrawal', $oppColor, '', $_SESSION['nick'], $_POST['gameID']);
-		if ($_SESSION['pref_shareinvitation'] == 'oui')
-			insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'withdrawal');
-		
-		$tmpQuery = "DELETE FROM games WHERE gameID = ".$_POST['gameID'];
-		mysql_query($tmpQuery);
-		
-		break;
 }
 
-/* check session status */
-require 'include/sessioncheck.php';
+if (isset($_SESSION['playerID']) && $_SESSION['playerID'] != -1)
+{
+	header('Location: game_in_progress.php');
+	exit;
+}
 
-/* set default playing mode to different PCs (as opposed to both players sharing a PC) */
-$_SESSION['isSharedPC'] = false;
-	
-// Localization after login
-require 'include/localization.php';
-$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
-
-$titre_page = _("My games in progress");
-$desc_page = _("Play chess and share your games. My games in progress.");
+$titre_page = _("Play chess and share your games");
+$desc_page = _("Sign up for CapaKaspa, play chess and share your games.");
 require 'include/page_header.php';
+    
 ?>
-<script src="javascript/menu.js" type="text/javascript"></script>
-<script src="javascript/comment.js" type="text/javascript"></script>
-<script src="javascript/like.js" type="text/javascript"></script>
+<script type="text/javascript" src="javascript/formValidation.js">
+ /* fonctions de validation des champs d'un formulaire */
+</script>
 <script type="text/javascript">
-	function sendResponse(responseType, messageFrom, gameID, whitePlayerID)
-	{
-		document.responseToInvite.response.value = responseType;
-		document.responseToInvite.messageFrom.value = messageFrom;
-		document.responseToInvite.gameID.value = gameID;
-		document.responseToInvite.whitePlayerID.value = whitePlayerID;
-		document.responseToInvite.submit();
-	}
+function validateForm()
+{
+	var dayDate = new Date();
+	var annee = dayDate.getFullYear();
 
-	function loadGame(gameID)
+	document.getElementById("fields_required_error").style.display = "none";
+	document.getElementById("login_format_error").style.display = "none";
+	document.getElementById("password_format_error").style.display = "none";
+	document.getElementById("email_format_error").style.display = "none";
+	document.getElementById("firstname_format_error").style.display = "none";
+	document.getElementById("lastname_format_error").style.display = "none";
+	document.getElementById("confirm_password_error").style.display = "none";
+	
+	if (isEmpty(document.userdata.txtFirstName.value)
+		|| isEmpty(document.userdata.txtLastName.value)
+		|| isEmpty(document.userdata.txtNick.value)
+		|| isEmpty(document.userdata.pwdPassword.value)
+		|| isEmpty(document.userdata.txtEmail.value)
+		|| isEmpty(document.userdata.txtAnneeNaissance.value)
+		|| isEmpty(document.userdata.txtCountryCode.value))
 	{
-
-		document.existingGames.gameID.value = gameID;
-		document.existingGames.submit();
+		document.getElementById("fields_required_error").style.display = "block";
+		return;
 	}
-
-	function withdrawRequest(gameID, whitePlayerID)
+	
+	if (!isAlphaNumeric(document.userdata.txtFirstName.value))
 	{
-		document.withdrawRequestForm.gameID.value = gameID;
-		document.withdrawRequestForm.whitePlayerID.value = whitePlayerID;
-		document.withdrawRequestForm.submit();
+		document.getElementById("firstname_format_error").style.display = "block";
+		return;
 	}
+	
+	if (!isAlphaNumeric(document.userdata.txtLastName.value))
+	{
+		document.getElementById("lastname_format_error").style.display = "block";
+		return;
+	}
+	
+	if (!isAlphaNumeric(document.userdata.txtNick.value)||document.userdata.txtNick.value.length < 2)
+	{
+		document.getElementById("login_format_error").style.display = "block";
+		return;
+	}
+	
+	if (!isAlphaNumeric(document.userdata.pwdPassword.value)||document.userdata.pwdPassword.value.length < 6)
+	{
+		document.getElementById("password_format_error").style.display = "block";
+		return;
+	}
+	
+	if (!isEmailAddress(document.userdata.txtEmail.value))
+	{
+		document.getElementById("email_format_error").style.display = "block";
+		return;
+	}
+	
+	if (document.userdata.pwdPassword.value == document.userdata.pwdPassword2.value)
+		document.userdata.submit();
+	else
+		document.getElementById("confirm_password_error").style.display = "block";
+}
 </script>
 <?
-$attribut_body = "onload='highlightMenu(2)'";
-require 'include/page_body.php';
+require 'include/page_body_no_menu.php';
 ?>
-<div id="content">
+<div id="contentxlarge">
     <div class="contentbody">
-    <?
-    if ($errMsg != "")
-		echo("<div class='error'>".$errMsg."</div>");
-		
-	$res_current_vacation = getCurrentVacation($_SESSION['playerID']);
-	if (mysql_num_rows($res_current_vacation) > 0)
-		echo("<div class='success'>"._("You have a current vacation ! Your games are postponed").".</div>");
-	
-	$tmpGamesFrom = listInvitationFrom($_SESSION['playerID']);
-	$tmpGamesFor = listInvitationFor($_SESSION['playerID']);
-	if (mysql_num_rows($tmpGamesFrom) > 0 || mysql_num_rows($tmpGamesFor) > 0)
-	{
-	?>		
-		<h2><?php echo _("My pending requests");?></h2>
-		<form name="withdrawRequestForm" action="index.php" method="post">
-		<?
-		if (mysql_num_rows($tmpGamesFrom) > 0)
-			while($tmpGame = mysql_fetch_array($tmpGamesFrom, MYSQL_ASSOC))
-			{
-				/* Get opponent's nick and ID*/
-				if ($tmpGame['whitePlayer'] == $_SESSION['playerID']) {
-					$opponent = $tmpGame['blackNick'];
-					$opponentID = $tmpGame['blackPlayerID'];
-				}
-				else {
-					$opponent = $tmpGame['whiteNick'];
-					$opponentID = $tmpGame['whitePlayerID'];
-				}
-				
-				$postDate = new DateTime($tmpGame['dateCreated']);
-				$strPostDate = $fmt->format($postDate);
-				
-				echo("
-				<div class='activity'>
-					<div class='leftbar'>
-						<img src='".getPicturePath("", "")."' width='40' height='40' border='0'/>
-					</div>
-					<div class='details'>
-						<div class='title'>
-							<span class='name'>"._("You")."</span> "._("invite a player to play a new game")." <a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponent."</span></a>
-						</div>
-						<div class='content'>
-							<div class='gameboard'>");
-								drawboardGame($tmpGame['gameID'], $tmpGame['whitePlayerID'], $tmpGame['blackPlayerID'], $tmpGame['position']);
-							echo("</div>
-							<div class='gamedetails'>");
-							echo(getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
-							echo("<br>"._("Time per move").": ".$tmpGame['timeMove']." "._("days"));
-							echo("<br>
-									<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']."</span>
-									<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpGame['blackNick']."<br>".$tmpGame['blackElo']."</span><br><br><br>");
-							
-							echo ("<span style='float: right'>");
-							if ($tmpGame['gameMessage'] == 'playerInvited')
-								echo _("Response waiting");
-							else if ($tmpGame['gameMessage'] == 'inviteDeclined')
-								echo _("Request declined");
-							echo (" <input type='button' value='"._("Cancel")."' class='button' onclick=\"withdrawRequest(".$tmpGame['gameID'].",".$tmpGame['whitePlayerID'].")\"></span>");
-							echo("</div>
-						</div>
-						<div class='footer'>
-							<span class='date'>".$strPostDate."</span>
-						</div>
-					</div>
-				</div>");
-			}
-		?>			
-			<input type="hidden" name="gameID" value="">
-			<input type="hidden" name="whitePlayerID" value="">
-			<input type="hidden" name="ToDo" value="WithdrawRequest">
-		</form>
-      
-		<form name="responseToInvite" action="index.php" method="post">
-		<?
-		if (mysql_num_rows($tmpGamesFor) > 0)
-			while($tmpGame = mysql_fetch_array($tmpGamesFor, MYSQL_ASSOC))
-			{
-				/* Get opponent's nick and ID*/
-				if ($tmpGame['whitePlayer'] == $_SESSION['playerID']) {
-					$opponent = $tmpGame['blackNick'];
-					$opponentID = $tmpGame['blackPlayerID'];
-				}
-				else {
-					$opponent = $tmpGame['whiteNick'];
-					$opponentID = $tmpGame['whitePlayerID'];
-				}
-				
-				$postDate = new DateTime($tmpGame['dateCreated']);
-				$strPostDate = $fmt->format($postDate);
-				
-				echo("
-				<div class='activity'>
-					<div class='leftbar'>
-						<img src='".getPicturePath("", "")."' width='40' height='40' border='0'/>
-					</div>
-					<div class='details'>
-						<div class='title'>
-							<a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponent."</span></a> "._("invite you to play a new game")."
-						</div>
-						<div class='content'>
-							<div class='gameboard'>");
-								drawboardGame($tmpGame['gameID'], $tmpGame['whitePlayerID'], $tmpGame['blackPlayerID'], $tmpGame['position']);
-							echo("</div>
-							<div class='gamedetails'>");
-							if ($tmpGame['whitePlayer'] == $_SESSION['playerID']) {
-								$tmpFrom = "white";
-							}
-							else {
-								$tmpFrom = "black";
-							}
-							echo(getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
-							echo("<br>"._("Time per move").": ".$tmpGame['timeMove']." "._("days"));
-							echo("<br>
-									<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']."</span>
-									<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpGame['blackNick']."<br>".$tmpGame['blackElo']."</span><br><br><br>");
-							
-							/* Response */
-							echo ("<span style='float: left'><TEXTAREA name='respMessage' rows='3' placeholder='"._("Your message...")."' style='background-color: white;border-color: #CCCCCC;width: 260px;'></TEXTAREA></span>");
-							
-							/* Action */
-							echo ("<span style='float: right'><input type='button' value='"._("Accept")."' class='button' onclick=\"sendResponse('accepted', '".$tmpFrom."', ".$tmpGame['gameID'].", ".$tmpGame['whitePlayerID'].")\"><br>");
-							echo ("<input type='button' value='"._("Decline")."' class='button' onclick=\"sendResponse('declined', '".$tmpFrom."', ".$tmpGame['gameID'].", ".$tmpGame['whitePlayerID'].")\"></span>");
-							echo("</div>
-						</div>
-						<div class='footer'>
-							<span class='date'>".$strPostDate."</span>
-						</div>
-					</div>
-				</div>");
-			}
-		?>
-
-			<input type="hidden" name="response" value="">
-			<input type="hidden" name="messageFrom" value="">
-			<input type="hidden" name="gameID" value="">
-			<input type="hidden" name="whitePlayerID" value="">
-			<input type="hidden" name="ToDo" value="ResponseToInvite">
-		</form>
-		&nbsp;<br>
-	<? }?>
-			
-		<h2><?php echo _("My games in progress")?> <a href="index.php"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a></h2>
-		<form name="existingGames" action="game_board.php" method="post">
-		<?
-		$tmpGames = listInProgressGames($_SESSION['playerID']);
-		if (mysql_num_rows($tmpGames) > 0)
-			while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
-			{
-				/* Get opponent's nick and ID*/
-				if ($tmpGame['whitePlayer'] == $_SESSION['playerID']) {
-					$opponent = $tmpGame['blackNick'];
-					$opponentID = $tmpGame['blackPlayer'];
-				}
-				else {
-					$opponent = $tmpGame['whiteNick'];
-					$opponentID = $tmpGame['whitePlayer'];
-				}
-				
-				$postDate = new DateTime($tmpGame['lastMove']);
-				$strPostDate = $fmt->format($postDate);
-				$startedDate = new DateTime($tmpGame['dateCreated']);
-				$strStartedDate = $fmt->format($startedDate);
-				$expirationDate = new DateTime($tmpGame['expirationDate']);
-				$strExpirationDate = $fmt->format($expirationDate);
-				
-				echo("
-				<div class='activity'>
-					<div class='leftbar'>
-						<img src='".getPicturePath("", "")."' width='40' height='40' border='0'/>
-					</div>
-					<div class='details'>
-						<div class='title'>						
-							<a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponent."</span></a> "._("is your opponent in this game.")."
-						</div>
-						<div class='content'>
-							<div class='gameboard'>");
-								drawboardGame($tmpGame['gameID'],$tmpGame['whitePlayer'],$tmpGame['blackPlayer'], $tmpGame['position']);
-							echo("</div>
-							<div class='gamedetails'>".
-								getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
-								if ($tmpGame['type'] == 0)
-									echo("<br>[".$tmpGame['eco']."] ".$tmpGame['ecoName']);
-								echo("<br>
-								<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']."</span>
-								<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpGame['blackNick']."<br>".$tmpGame['blackElo']."</span><br>");
-								
-								if ($isPlayersTurn)
-									echo ("<br><br><span style='float: right'><input type='button' value='"._("Play")."' class='link_highlight' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></span>");
-								else
-									echo ("<br><br><span style='float: right'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></span>");
-								echo(_("Time per move").": ".$tmpGame['timeMove']." "._("days"));
-								echo("<br>"._("Expiration")." : ".$strExpirationDate);
-							echo("</div>
-						</div>
-						<div class='footer'>");?>
-							<a href="javascript:displayComment('<?echo(GAME);?>', <?echo($tmpGame['gameID']);?>);"><?echo _("Comment");?></a> - 
-							<?echo("<span class='date'>"._("Started")." : ".$strStartedDate."</span> - <span class='date'>"._("Last move")." : ".$strPostDate."</span>
-						</div>
-						<div class='comment' id='comment".$tmpGame['gameID']."'>
-							<img src='images/ajaxloader.gif'/>
-						</div>
-					</div>
-				</div>");
-			}
-			else {
-				echo _("No games in progress...");
-			}
-		?>
-        
-			<input type="hidden" name="gameID" value="">
-			<input type="hidden" name="sharePC" value="no">
-			<input type="hidden" name="from" value="encours">
-		</form>
-		<br>
-		<center><script type="text/javascript"><!--
-	        google_ad_client = "ca-pub-8069368543432674";
-	        /* CapaKaspa Tableau bord Bandeau Partie */
-	        google_ad_slot = "3190675956";
-	        google_ad_width = 468;
-	        google_ad_height = 60;
-	        //-->
-	        </script>
-	        <script type="text/javascript"
-	        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-	        </script>
-		</center>
-		<br>
+	    <p>
+		<h1><?php echo _("Play Chess and share your Games !");?></h1>
+		</p>
+		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; background-image: url('images/home_capakaspa_board.jpg');">
+			<span style="position: relative; top: 110px; font-size: 16px; text-shadow: 0.1em 0.1em 0.2em black; color: #FFFFFF;">
+				<?php echo _("Play chess games, choose your cadence and type.");?><br>
+				<?php echo _("Improve your Elo ranking.");?>
+			</span>
+		</div>
+		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; margin-left: 30px; background-image: url('images/home_capakaspa_news.jpg');">
+			<span style="position: relative; top: 110px; font-size: 16px; text-shadow: 0.1em 0.1em 0.2em black; color: #FFFFFF;">
+				<?php echo _("Share your moves, results and invitations with your followers.");?><br>
+				<?php echo _("Follow players, comment news...");?>
+			</span>
+		</div>
+		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; margin-left: 30px; background-image: url('images/home_capakaspa_profil.jpg');">
+			<span style="position: relative; top: 110px; font-size: 16px; text-shadow: 0.1em 0.1em 0.2em black; color: #FFFFFF;">
+				<?php echo _("View detailed profile of players.");?><br>
+				<?php echo _("Discuss with them in private and comment their public news.");?>
+			</span>
+		</div>
 	</div>
 </div>
-<div id="rightbar">
-	<div id="suggestions">
-		<? displaySuggestion();?>
+<div id="content">
+	<div class="contentbody">
+		<h3><?php echo _("New on CapaKaspa ? Sign up");?></h3>
+		<?if ($ToDo == 'activer' && !$err) {?>
+		<div class="success"><? echo _("Your account is actived.")?></div>
+		<p>
+		<? echo _("You can now sign in, play chess and share your games.")?>
+		</p>
+		<?} else if ($ToDo == 'activer' && $err == 'db') {?>
+		<div class="error"><? echo _("An error has occured during activation !")?></div>
+		<?} else if (!$err && $ToDo == 'NewUser') {?>
+		<div class="success"><? echo _("A confirmation message has been sent at this email address")?> : <? echo($_POST['txtEmail']); ?> .</div>
+		<?} else  {?>
+		
+		<div class="error" id="fields_required_error" style="display: none"><?echo _("All fields are required")?></div>
+		<div class="error" id="login_format_error" style="display: none"><?echo _("Bad format for user name : at least 2 caracters")?></div>
+		<div class="error" id="password_format_error" style="display: none"><?echo _("Bad format for password : at least 6 caracters")?></div>
+		<div class="error" id="email_format_error" style="display: none"><?echo _("Bad format for email")?></div>
+		<div class="error" id="firstname_format_error" style="display: none"><?echo _("Bad format for first name")?></div>
+		<div class="error" id="lastname_format_error" style="display: none"><?echo _("Bad format for last name")?></div>
+		<div class="error" id="confirm_password_error" style="display: none"><?echo _("Password confirmation error")?></div>
+		<?
+			/* Traiter les erreurs */
+			if ($err == 'existNick')
+				echo("<div class='error'>"._("User name")." (".$_POST['txtNick'].") "._("you have choosen already exists. Try another user name.")."</div>");
+			if ($err == 'existEmail')
+				echo("<div class='error'>"._("Email")." (".$_POST['txtEmail'].") "._("you have choosen aleady exists. Try another email.")."</div>");
+			if ($err == 'emptyNick')
+				echo("<div class='error'>"._("Empty user name")."</div>");
+			if ($err == 'db')
+				echo("<div class='error'>"._("A technical error has occured")."</div>");
+			if ($err == 'captcha')
+				echo("<div class='error'>"._("Security code error. Try again.")."</div>");
+		?>
+		<form name="userdata" method="post" action="index.php?ToDo=NewUser">
+		<table>
+			<tr>
+				<td width="180"><?php echo _("I am");?> : </td>
+	            <td>
+					<select name="txtSex" id="txtSex">
+						<option value="M" selected><?echo _("Male");?></option>
+						<option value="F"><?echo _("Female");?></option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td ><?php echo _("User name");?> :</td>
+				<td width="450"><input name="txtNick" type="text" size="20" maxlength="20" value="<? echo(isset($_POST['txtNick'])?$_POST['txtNick']:""); ?>"></td>
+			</tr>
+			<tr>
+				<td><?php echo _("Choose password");?> :</td>
+				<td><input name="pwdPassword" type="password" size="16" maxlength="16"></td>
+			</tr>
+			<tr>
+				<td><?php echo _("Confirm password");?> :</td>
+				<td><input name="pwdPassword2" type="password" size="16" maxlength="16"></td>
+			</tr>
+			<tr>
+				<td><?php echo _("First name");?> :</td>
+				<td><input name="txtFirstName" type="text" size="20" maxlength="20" value="<? echo(isset($_POST['txtFirstName'])?$_POST['txtFirstName']:""); ?>"></td>
+			</tr>
+			<tr>
+				<td><?php echo _("Last name");?> :</td>
+				<td><input name="txtLastName" type="text" size="20" maxlength="20" value="<? echo(isset($_POST['txtLastName'])?$_POST['txtLastName']:""); ?>"></td>
+			</tr>
+			<tr>
+	            <td><?php echo _("Email");?> :</td>
+	            <td><input name="txtEmail" type="text" size="50" maxlength="50" value="<? echo(isset($_POST['txtEmail'])?$_POST['txtEmail']:""); ?>"></td>
+	        </tr>
+			<tr>
+	            <td><?php echo _("Country");?> :</td>
+	            <td><select name="txtCountryCode" id="txtCountryCode">
+		            <?
+		            echo "\t",'<option value="">', _("Select your country") ,'</option>',"\n";
+		            $tmpCountries = listCountriesByLang(getLang());
+		            while($tmpCountry = mysql_fetch_array($tmpCountries, MYSQL_ASSOC))
+		            {
+		            	$selected = "";
+		            	$countryCode = isset($_POST['txtCountryCode'])?$_POST['txtCountryCode']:"";
+		            	if($tmpCountry['countryCode'] == $countryCode)
+		            	{
+		            		$selected = " selected";
+		            	}
+		            	echo "\t",'<option value="', $tmpCountry['countryCode'] ,'"', $selected ,'>', $tmpCountry['countryName'] ,'</option>',"\n";
+		            }	
+		            ?>
+	            </select></td>
+	        </tr>
+	        <tr>
+	            <td><?php echo _("Birth date");?> :</td>
+	            <td><select name="txtAnneeNaissance" id="txtAnneeNaissance">
+	            	<?php
+	            	echo "\t",'<option value="">', _("Select a year") ,'</option>',"\n";
+	            	// Parcours du tableau
+					$annee = isset($_POST['txtAnneeNaissance'])?$_POST['txtAnneeNaissance']:"";
+					for($i=1900; $i<=date('Y'); $i++)
+					{
+						$selected = "";
+						// L'année est-elle celle postée ?
+						if($i == $annee)
+						{
+							$selected = " selected";
+						}
+						// Affichage de la ligne
+						echo "\t",'<option value="', $i ,'"', $selected ,'>', $i ,'</option>',"\n";
+					}
+					?>
+	            </select></td>
+	        </tr>
+	        </table>
+			<table>
+			<tr>
+				<td >
+					<?php echo _("Type the security code");?>
+					<input type="text" name="captcha_code" size="6" maxlength="6" />
+					<a href="#" onclick="document.getElementById('captcha').src = 'securimage/securimage_show.php?' + Math.random(); return false"><img src="images/icone_rafraichir.png" border="0" alt="<?php echo _("Try other security code");?>" title="<?php echo _("Try other security code");?>"/></a> 
+					
+				</td>
+				<td valign="middle">
+					<img id="captcha" src="securimage/securimage_show.php" alt="<?php echo _("Captcha Image");?>" title="<?php echo _("Captcha Image");?>"/>
+				</td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2">
+					<input name="btnCreate" type="button" value="<?php echo _("Sign up for free");?>" onClick="validateForm()" class="button">
+				</td>
+			</tr>
+		</table>
+	
+			<!-- <input name="ToDo" value="NewUser" type="hidden"> -->
+		</form>
+		<?}?>
 	</div>
-	<?require 'include/page_footer_right.php';?>
+</div>
+<div id="rightbarlarge">
+	<div class="contentbody">
+		<h3><?php echo _("Sign in");?></h3>
+		<form method="post" action="game_in_progress.php">
+			<table>
+				<tr>
+					<td width="50%"><?php echo _("User name");?> :</td>	        	
+		        	<td width="50%"><input name="txtNick" type="text" size="20" maxlength="20"></td>
+		        </tr>
+		        <tr>
+		        	<td><?php echo _("Password");?> :</td>
+		        	<td><input name="pwdPassword" type="password" size="20" maxlength="16"></td>
+		        </tr>
+	        </table>
+	        <?if (isset($_GET['err']) && $_GET['err'] == "login") {?>
+	        <div class='error'><? echo _("Invalid user name or password !");?></div>
+	        <?}?>
+	        <input name="chkAutoConn" type="checkbox"/> <? echo _("Remember me");?><br><br>
+	        <center><input name="login" value="<? echo _("Sign in");?>" type="submit" class="button"> <img src="images/puce.gif"/> <a href="password.php"><? echo _("Forgot password ?");?></a></center>
+	        <input name="ToDo" value="Login" type="hidden">
+	     </form>
+   
+	</div>
 </div>
 <?
 require 'include/page_footer.php';

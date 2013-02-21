@@ -32,7 +32,7 @@ if ($_SESSION['playerID'] != -1)
 
 if ($_SESSION['playerID'] == -1)
 {
-	header('Location: sign-up.php');
+	header('Location: index.php');
 	exit;
 }
 

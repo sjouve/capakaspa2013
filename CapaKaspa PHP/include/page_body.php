@@ -10,7 +10,7 @@ if (isset($toPlayerID))
 	<div id="container">
 		<span class="title"><a href="index.php" title="<?php echo _("CapaKaspa : Play chess and share your games");?>"><?php echo _("CapaKaspa");?></a></span>
 		<span class="social"><? if (isset($_SESSION['playerID'])&&$_SESSION['playerID']!=-1) {?>
-	      <form name="logout" action="index.php" method="post">
+	      <form name="logout" action="game_in_progress.php" method="post">
 		        <input type="hidden" name="ToDo" value="Logout">
 		        <input type="submit" value="<?php echo _("Sign out");?>" class="button">
 		  </form>
@@ -30,7 +30,7 @@ if (isset($toPlayerID))
     <div class="navlinks">
     	<div id="connexion">
 	      <? if (!isset($_SESSION['playerID'])||$_SESSION['playerID']==-1) {?>
-	      <form method="post" action="index.php">
+	      <form method="post" action="game_in_progress.php">
 	        
 	        <div class="item"><input name="txtNick" type="text" size="20" maxlength="20" placeholder="<?php echo _("User name");?>"/> </div>
 	        <div class="item"><input name="pwdPassword" type="password" size="20" maxlength="16" placeholder="<?php echo _("Password");?>"/> </div>
@@ -59,7 +59,7 @@ if (isset($toPlayerID))
 	<div class="title"><?php echo _("Chess games");?></div>		
       <ul>
         <li id="menu1"><img src="images/puce.gif"/> <a href="game_new.php"><?php echo _("New game");?></a></li>
-        <li id="menu2"><img src="images/puce.gif"/> <a href="index.php"><?php echo _("My games in progress");?></a></li>
+        <li id="menu2"><img src="images/puce.gif"/> <a href="game_in_progress.php"><?php echo _("My games in progress");?></a></li>
 		<li id="menu3"><img src="images/puce.gif"/> <a href="game_list_ended.php"><?php echo _("My games ended");?></a></li>
         <!-- <li><img src="images/puce.gif"/> <a href="game_list_all.php"></a></li> -->
 		<!-- <li><img src="images/icone-mobile.png"/> <a href="http://mobile.capakaspa.info">Version mobile</a></li> -->
