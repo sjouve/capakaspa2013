@@ -203,10 +203,14 @@ require 'include/page_body.php';
 				if ($tmpGame['whitePlayer'] == $_SESSION['playerID']) {
 					$opponent = $tmpGame['blackNick'];
 					$opponentID = $tmpGame['blackPlayerID'];
+					$opponentSocialID = $tmpGame['blackSocialID'];
+					$opponentSocialNW = $tmpGame['blackSocialNetwork'];
 				}
 				else {
 					$opponent = $tmpGame['whiteNick'];
 					$opponentID = $tmpGame['whitePlayerID'];
+					$opponentSocialID = $tmpGame['whiteSocialID'];
+					$opponentSocialNW = $tmpGame['whiteSocialNetwork'];
 				}
 				
 				$postDate = new DateTime($tmpGame['dateCreated']);
@@ -215,7 +219,7 @@ require 'include/page_body.php';
 				echo("
 				<div class='activity'>
 					<div class='leftbar'>
-						<img src='".getPicturePath("", "")."' width='40' height='40' border='0'/>
+						<img src='".getPicturePath($opponentSocialNW, $opponentSocialID)."' width='40' height='40' border='0'/>
 					</div>
 					<div class='details'>
 						<div class='title'>
@@ -261,10 +265,14 @@ require 'include/page_body.php';
 				if ($tmpGame['whitePlayer'] == $_SESSION['playerID']) {
 					$opponent = $tmpGame['blackNick'];
 					$opponentID = $tmpGame['blackPlayerID'];
+					$opponentSocialID = $tmpGame['blackSocialID'];
+					$opponentSocialNW = $tmpGame['blackSocialNetwork'];
 				}
 				else {
 					$opponent = $tmpGame['whiteNick'];
 					$opponentID = $tmpGame['whitePlayerID'];
+					$opponentSocialID = $tmpGame['whiteSocialID'];
+					$opponentSocialNW = $tmpGame['whiteSocialNetwork'];
 				}
 				
 				$postDate = new DateTime($tmpGame['dateCreated']);
@@ -273,7 +281,7 @@ require 'include/page_body.php';
 				echo("
 				<div class='activity'>
 					<div class='leftbar'>
-						<img src='".getPicturePath("", "")."' width='40' height='40' border='0'/>
+						<img src='".getPicturePath($opponentSocialNW, $opponentSocialID)."' width='40' height='40' border='0'/>
 					</div>
 					<div class='details'>
 						<div class='title'>
@@ -331,11 +339,15 @@ require 'include/page_body.php';
 				/* Get opponent's nick and ID*/
 				if ($tmpGame['whitePlayer'] == $_SESSION['playerID']) {
 					$opponent = $tmpGame['blackNick'];
-					$opponentID = $tmpGame['blackPlayer'];
+					$opponentID = $tmpGame['blackPlayerID'];
+					$opponentSocialID = $tmpGame['blackSocialID'];
+					$opponentSocialNW = $tmpGame['blackSocialNetwork'];
 				}
 				else {
 					$opponent = $tmpGame['whiteNick'];
-					$opponentID = $tmpGame['whitePlayer'];
+					$opponentID = $tmpGame['whitePlayerID'];
+					$opponentSocialID = $tmpGame['whiteSocialID'];
+					$opponentSocialNW = $tmpGame['whiteSocialNetwork'];
 				}
 				
 				$postDate = new DateTime($tmpGame['lastMove']);
@@ -348,7 +360,7 @@ require 'include/page_body.php';
 				echo("
 				<div class='activity'>
 					<div class='leftbar'>
-						<img src='".getPicturePath("", "")."' width='40' height='40' border='0'/>
+						<img src='".getPicturePath($opponentSocialNW, $opponentSocialID)."' width='40' height='40' border='0'/>
 					</div>
 					<div class='details'>
 						<div class='title'>						

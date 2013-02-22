@@ -147,8 +147,8 @@ function listInProgressGames($playerID)
 	$tmpGames = mysql_query("SELECT G.gameID gameID, G.eco eco, G.dateCreated, G.lastMove, DATE_ADD(G.lastMove, INTERVAL G.timeMove DAY) expirationDate, G.whitePlayer whitePlayer, G.timeMove, 
 									G.blackPlayer blackPlayer, G.position position, G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.type,  
 									E.name ecoName,
-									W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, 
-									B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo
+									W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, W.socialID whiteSocialID, W.socialNetwork whiteSocialNetwork,
+						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.socialID blackSocialID, B.socialNetwork blackSocialNetwork
 						FROM games G left join eco E on E.eco = G.eco AND E.ecoLang = '".getLang()."', players W, players B
 						WHERE (gameMessage is NULL OR gameMessage = '')
 						AND (whitePlayer = ".$playerID." OR blackPlayer = ".$playerID.")
@@ -163,8 +163,8 @@ function listInvitationFor($playerID)
 {
 	$tmpQuery = "SELECT G.gameID, G.whitePlayer, G.blackPlayer, G.dateCreated, G.type, G.gameMessage, 
 						G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.position, G.timeMove,
-						W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo,
-						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo
+						W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, W.socialID whiteSocialID, W.socialNetwork whiteSocialNetwork,
+						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.socialID blackSocialID, B.socialNetwork blackSocialNetwork
 				FROM games G, players W, players B 
 				WHERE (gameMessage = 'playerInvited' 
 				AND ((whitePlayer = ".$playerID." AND messageFrom = 'black') 
@@ -182,8 +182,8 @@ function listInvitationFrom($playerID)
 	/* if game is marked playerInvited and the invite is from the current player */
 	$tmpQuery = "SELECT G.gameID, G.whitePlayer, G.blackPlayer,  G.dateCreated, G.type, G.gameMessage, 
 						G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.position, G.timeMove,
-						W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo,
-						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo
+						W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, W.socialID whiteSocialID, W.socialNetwork whiteSocialNetwork,
+						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.socialID blackSocialID, B.socialNetwork blackSocialNetwork
 					FROM games G, players W, players B 
 					WHERE ((gameMessage = 'playerInvited' 
 						AND ((whitePlayer = ".$playerID." AND messageFrom = 'white') 
