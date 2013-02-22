@@ -469,11 +469,11 @@ function countAvailableVacation($playerID)
 /* Récupère le chemin de la photo du profil */
 function getPicturePath($socialNetwork, $socialID)
 {
-	$picturePath = "images/avatar_homme.jpg";
+	$picturePath = "images/uploads/avatar_homme.jpg";
 	switch($socialNetwork)
 	{	
 		case "CK":
-			$picturePath = "images/".$socialID;
+			$picturePath = "images/uploads/".$socialID;
 			break;
 			
 		case "GP":

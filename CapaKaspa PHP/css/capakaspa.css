@@ -506,6 +506,10 @@
     	font-weight: bold;
     	font-size: 10px;
 	}
+	input[type="file"] {		
+    	font-family: Verdana, Arial, Helvetica, sans-serif;
+    	font-size: 12px;
+	}
     .form {
 		font-family: Verdana, Arial, Helvetica, sans-serif;
 		color: #404040;

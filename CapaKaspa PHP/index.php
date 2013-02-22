@@ -107,8 +107,8 @@ function validateForm()
 	document.getElementById("lastname_format_error").style.display = "none";
 	document.getElementById("confirm_password_error").style.display = "none";
 	
-	if (isEmpty(document.userdata.txtFirstName.value)
-		|| isEmpty(document.userdata.txtLastName.value)
+	if (isEmpty(Trim(document.userdata.txtFirstName.value))
+		|| isEmpty(Trim(document.userdata.txtLastName.value))
 		|| isEmpty(document.userdata.txtNick.value)
 		|| isEmpty(document.userdata.pwdPassword.value)
 		|| isEmpty(document.userdata.txtEmail.value)
@@ -119,7 +119,7 @@ function validateForm()
 		return;
 	}
 	
-	if (!isAlphaNumeric(document.userdata.txtFirstName.value))
+	/*if (!isAlphaNumeric(document.userdata.txtFirstName.value))
 	{
 		document.getElementById("firstname_format_error").style.display = "block";
 		return;
@@ -129,7 +129,7 @@ function validateForm()
 	{
 		document.getElementById("lastname_format_error").style.display = "block";
 		return;
-	}
+	}*/
 	
 	if (!isAlphaNumeric(document.userdata.txtNick.value)||document.userdata.txtNick.value.length < 2)
 	{

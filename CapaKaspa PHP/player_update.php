@@ -27,8 +27,77 @@ switch($ToDo)
 {
 	
 	case 'UpdateProfil':
+		$socialID = $_POST['txtSocialID'];
 		
-		$err = updateProfil($_SESSION['playerID'], $_POST['pwdPassword'], $_POST['pwdOldPassword'], strip_tags($_POST['txtFirstName']), strip_tags($_POST['txtLastName']), $_POST['txtEmail'], strip_tags($_POST['txtProfil']), strip_tags($_POST['txtSituationGeo']), $_POST['txtAnneeNaissance'], $_POST['rdoTheme'], $_POST['txtEmailNotification'], $_POST['txtLanguage'],$_POST['txtShareInvitation'],$_POST['txtShareResult'],$_POST['rdoSocialNetwork'], $_POST['txtSocialID'], $_POST['txtCountryCode'], $_POST['txtSex']);
+		if (!empty ($_FILES['ifile']['tmp_name']))
+		{
+			/* Thumbnail class is required */
+			include_once('phpthumb/ThumbLib.inc.php');
+		
+			/* GetImageSize() function pulls out valid info about image such as image type, height etc. If it fails
+			 then it is not valid image. */
+		
+			if (!getimagesize($_FILES['ifile']['tmp_name']))
+			{
+				$err = 10;
+				break;	
+			}
+		
+			$imgtype = array('1' => '.gif', '2' => '.jpg' , '3' => '.png');
+		
+			// extract the width and height of image
+			list($width, $height, $type, $attr) = getimagesize($_FILES['ifile']['tmp_name']);
+		
+			// Extract the image extension
+			switch ($type)
+			{
+				case 1: $ext='.gif'; break;
+				case 2: $ext = '.jpg';break;
+				case 3: $ext='.png'; break;
+			}
+			// Dont allow gif files to upload as it may  contain harmful code
+			if ( $ext == '.gif') {
+				$err = 20;
+				break;			
+			}
+		
+			/* Specify maximum height and width of users uploading image */
+			if ($width > 1000 || $height > 1000)
+			{
+				$err = 30;
+				break;			 
+			}
+			/* Specify maximum file size here in bytes */
+			if ($_FILES['ifile']['size'] > 500000 )
+			{
+				$err = 40;
+				break;	
+			}
+			/******** IMAGE RESIZING *********************/
+			// Before we start resizing, we first have to move the image file to server
+			// save it there under a unique name and then do the final resizing and save the resized image.
+		
+			// Specify which directory you want to upload. It should be a subfolder where the script is present
+			// We also generate a unique name for picture FILE-USERID-XXX where xxx is random number
+			// The uploads folder must have writable permissions.
+			$uploaddir = 'images/uploads/';
+			$socialID = "img-".$_SESSION['nick']. $ext;
+			$uploadfile =  $uploaddir . $socialID;
+			
+		
+			if (!move_uploaded_file($_FILES['ifile']['tmp_name'], $uploadfile ))
+			{
+				$err = 50;
+				break;
+			}
+		
+			$thumb = PhpThumbFactory::create($uploadfile);
+			//specify the height and width of avatar image to resize
+			$thumb->resize(50, 50);
+			$thumb->save($uploadfile);
+		}
+		
+		$err = updateProfil($_SESSION['playerID'], $_POST['pwdPassword'], $_POST['pwdOldPassword'], strip_tags($_POST['txtFirstName']), strip_tags($_POST['txtLastName']), $_POST['txtEmail'], strip_tags($_POST['txtProfil']), strip_tags($_POST['txtSituationGeo']), $_POST['txtAnneeNaissance'], $_POST['rdoTheme'], $_POST['txtEmailNotification'], $_POST['txtLanguage'],$_POST['txtShareInvitation'],$_POST['txtShareResult'],$_POST['rdoSocialNetwork'], $socialID, $_POST['txtCountryCode'], $_POST['txtSex']);
 		break;
 		
 	case 'CreateVacation':
@@ -66,8 +135,8 @@ function validatePersonalInfo()
 	document.getElementById("confirm_password_error").style.display = "none";
 	document.getElementById("old_password_error").style.display = "none";
 	
-	if (isEmpty(document.userdata.txtFirstName.value)
-		|| isEmpty(document.userdata.txtLastName.value)
+	if (isEmpty(Trim(document.userdata.txtFirstName.value))
+		|| isEmpty(Trim(document.userdata.txtLastName.value))
 		//|| isEmpty(document.userdata.txtNick.value)
 		|| isEmpty(document.userdata.txtEmail.value)
 		|| isEmpty(document.userdata.txtAnneeNaissance.value)
@@ -77,7 +146,7 @@ function validatePersonalInfo()
 		return;
 	}
 
-	if (!isAlphaNumeric(document.userdata.txtFirstName.value))
+	/*if (!isAlphaNumeric(document.userdata.txtFirstName.value))
 	{
 		document.getElementById("firstname_format_error").style.display = "block";
 		return;
@@ -87,7 +156,7 @@ function validatePersonalInfo()
 	{
 		document.getElementById("lastname_format_error").style.display = "block";
 		return;
-	}
+	}*/
 	
 	if (!isEmpty(document.userdata.pwdPassword.value) && (!isAlphaNumeric(document.userdata.pwdPassword.value) || document.userdata.pwdPassword.value.length < 6))
 	{
@@ -141,22 +210,36 @@ function disableAccount()
 	}
 }
 
+function deleteCKPicture()
+{
+	document.getElementById("currentSocialID").value = "";
+	setCKPicture();
+}
+
 function setCKPicture()
 {
 	if(document.getElementById("rdoCK").checked)
+	{
+		document.getElementById("txtSocialID").value = "";
+		if (document.getElementById("currentSocialNW").value == "CK")
+			document.getElementById("txtSocialID").value = document.getElementById("currentSocialID").value;
 		if (document.getElementById("txtSex").value == "M")
 		{
-			document.getElementById("pictureProfile").src = "images/avatar_homme.jpg";
-			document.getElementById("socialID").style.display = "none";
-			document.getElementById("socialID").value = "avatar_homme.jpg";
+			if (document.getElementById("txtSocialID").value == "")
+				document.getElementById("txtSocialID").value = "avatar_homme.jpg";
 			
 		}
 		else
 		{
-			document.getElementById("pictureProfile").src = "images/avatar_femme.jpg";
-			document.getElementById("socialID").style.display = "none";
-			document.getElementById("txtSocialID").value = "avatar_femme.jpg";		
+			if (document.getElementById("txtSocialID").value == "")
+				document.getElementById("txtSocialID").value = "avatar_femme.jpg";
+					
 		}
+	
+		document.getElementById("pictureProfile").src = "images/uploads/"+document.getElementById("txtSocialID").value;		
+		document.getElementById("socialID").style.display = "none";
+		document.getElementById("uploadPicture").style.display = "block";
+	}
 }
 
 function setNWPicture()
@@ -178,7 +261,15 @@ function setNWPicture()
 function initNWPicture()
 {
 	document.getElementById("socialID").style.display = "block";
+	document.getElementById("uploadPicture").style.display = "none";
 	document.getElementById("txtSocialID").value = "";
+	if(document.getElementById("rdoFB").checked && document.getElementById("currentSocialNW").value == "FB")
+		document.getElementById("txtSocialID").value = document.getElementById("currentSocialID").value;
+	if(document.getElementById("rdoGP").checked && document.getElementById("currentSocialNW").value == "GP")
+		document.getElementById("txtSocialID").value = document.getElementById("currentSocialID").value;	
+	if(document.getElementById("rdoTW").checked && document.getElementById("currentSocialNW").value == "TW")
+		document.getElementById("txtSocialID").value = document.getElementById("currentSocialID").value;
+	setNWPicture();
 }
 
 </script>
@@ -192,6 +283,17 @@ require 'include/page_body.php';
 	<?
 	if ($err == 0)
 		echo("<div class='error'>"._("A technical error has occured")."</div>");
+	if ($err == 10)
+		echo("<div class='error'>"._("Invalid image file for picture")."</div>");
+	if ($err == 20)
+		echo("<div class='error'>"._("GIF not allowed. Please use only PNG or JPEG formats")."</div>");
+	if ($err == 30)
+		echo("<div class='error'>"._("Maximum width and height exceeded (max 1000x1000 pixels)")."</div>");
+	if ($err == 40)
+		echo("<div class='error'>"._("Large file size (max 500kb)")."</div>");
+	if ($err == 50)
+		echo("<div class='error'>"._("Error moving the uploaded file")."</div>");
+	
 	if ($ToDo == 'UpdateProfil')
 	{
 		if ($err == -1)
@@ -212,7 +314,7 @@ require 'include/page_body.php';
     <span id="#confirm_add_vacation_id" style="display: none"><?echo _("This postponement can not be canceled and all your games will be immediately postponed. Please confirm your absence ?")?></span>
     <span id="#confirm_disable_account_id" style="display: none"><?echo _("You want to disable your account. Please confirm ?")?></span>
     
-	<form name="userdata" action="player_update.php" method="post">
+	<form name="userdata" action="player_update.php" method="post" enctype="multipart/form-data">
 	  <h3><?php echo _("Basic info");?></h3>
         <table border="0" width="100%">
           <tr>
@@ -325,14 +427,23 @@ require 'include/page_body.php';
             	<input onclick="initNWPicture();" id="rdoFB" name="rdoSocialNetwork" type="radio" value="FB" <? if ($_SESSION['socialNetwork']=="FB") echo("checked");?>> <? echo _("Facebook")?>
             	<input onclick="initNWPicture();" id="rdoGP" name="rdoSocialNetwork" type="radio" value="GP" <? if ($_SESSION['socialNetwork']=="GP") echo("checked");?>> <? echo _("Google+")?>
             	<input onclick="initNWPicture();" id="rdoTW" name="rdoSocialNetwork" type="radio" value="TW" <? if ($_SESSION['socialNetwork']=="TW") echo("checked");?>> <? echo _("Twitter")?>
+            	<input type="hidden" id="currentSocialNW" name="currentSocialNW" value="<? echo($_SESSION['socialNetwork']); ?>">
+		            
             </td>
           </tr>
           <tr>
             <td>&nbsp;</td>
             <td>
             	<div id="socialID">
-	            <?php echo _("Social network ID");?> : <input onchange="setNWPicture();"id="txtSocialID" name="txtSocialID" type="text" size="50" maxlength="100" value="<? echo($_SESSION['socialID']); ?>"> 
-	            <span onmouseout="document.getElementById('helpSocial').style.display = 'none';" onmouseover="document.getElementById('helpSocial').style.display = 'block';"><img src="images/point-interrogation.gif" border="0"/></span>
+            		<input type="hidden" id="currentSocialID" name="currentSocialID" value="<? echo($_SESSION['socialID']); ?>">
+		            <?php echo _("Social network ID");?> : <input onkeyup="setNWPicture();" id="txtSocialID" name="txtSocialID" type="text" size="50" maxlength="100" value="<? echo($_SESSION['socialID']); ?>"> 
+		            <span onmouseout="document.getElementById('helpSocial').style.display = 'none';" onmouseover="document.getElementById('helpSocial').style.display = 'block';"><img src="images/point-interrogation.gif" border="0"/></span>
+            	</div>
+            	<div id="uploadPicture" style="display: none;">
+		            <? echo _("Choose your picture");?> 
+		            <input type="file" name="ifile">
+		            <input type="button" value="<? echo _("Delete");?>" onclick="deleteCKPicture()" class="link">
+		            <br><? echo _("Max 500 Kb, JPEG/PNG only (1000x1000 pixels maximum)");?>
             	</div>
             	<div id="helpSocial" style="display: none;font-size: 10px">
 		      		1) <? echo _("Facebook");?><br>
