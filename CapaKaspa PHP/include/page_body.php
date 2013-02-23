@@ -54,7 +54,9 @@ if (isset($toPlayerID))
 		</div>
 	</div>
 		
-	<? if (isset($_SESSION['playerID'])&&$_SESSION['playerID']!=-1) {?>
+	<? if (isset($_SESSION['playerID']) && $_SESSION['playerID']!=-1) {
+		$nbUnreadMessages = countUnreadPM($_SESSION['playerID']);
+	?>
 	<div class="navlinks">
 	<div class="title"><?php echo _("Chess games");?></div>		
       <ul>
@@ -70,7 +72,7 @@ if (isset($toPlayerID))
       <ul>
         <li id="menu4"><img src="images/puce.gif"/> <a href="activity.php"><?php echo _("News feed");?></a></li>
 		<li id="menu5"><img src="images/puce.gif"/> <a href="player_search.php"><?php echo _("Search");?></a></li>
-		<li id="menu6"><img src="images/puce.gif"/> <a href="message.php"><?php echo _("Messages");?></a></li>      
+		<li id="menu6"><img src="images/puce.gif"/> <a href="message.php"><?php echo _("Messages");?></a> <? if ($nbUnreadMessages > 0) echo("<span class='newplayer'>".$nbUnreadMessages."</span>");?></li>      
       </ul>  
 	</div>
 	<? } ?>

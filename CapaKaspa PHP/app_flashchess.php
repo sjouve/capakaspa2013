@@ -4,6 +4,7 @@ if (!isset($_CONFIG))
 	require 'include/config.php';
 
 require 'dac/dac_players.php';
+require 'dac/dac_activity.php';
 require 'bwc/bwc_common.php';
 require 'bwc/bwc_chessutils.php';
 require 'bwc/bwc_players.php';

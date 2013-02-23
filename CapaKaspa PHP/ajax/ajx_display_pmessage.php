@@ -23,6 +23,7 @@ $withPlayerID = $_GET["wID"];
 $fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
 $tmpMessages = listPrivateMessageWith($playerID, $withPlayerID);
 $numMessages = mysql_num_rows($tmpMessages);
+updateUnreadPrivateMessage($playerID, $withPlayerID);
 
 while($tmpMessage = mysql_fetch_array($tmpMessages, MYSQL_ASSOC))
 {

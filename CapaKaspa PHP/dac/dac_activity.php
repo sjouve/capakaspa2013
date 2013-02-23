@@ -111,7 +111,20 @@ function searchLike($playerID, $type, $entityID)
 	
 }
 
-// Private Messages addslashes(strip_tags(
+function updateUnreadPrivateMessage($playerID, $withPlayerID)
+{
+	$res_messages = mysql_query("UPDATE private_message 
+								SET status = 1 
+								WHERE status = 0 
+								AND fromPlayerID = ".$withPlayerID." 
+								AND toPlayerID = ".$playerID);
+	 
+	if ($res_messages)
+		return TRUE;
+	else
+		return FALSE;
+}
+
 function insertPrivateMessage($fromPlayerID, $toPlayerID, $message)
 {
 	$res_pMessage = mysql_query("INSERT INTO private_message (fromPlayerID, toPlayerID, sendDate, message, status)
@@ -140,16 +153,23 @@ function listPrivateMessageWith($playerID, $withPlayerID)
 
 function listPMContact($playerID)
 {
-	$tmpQuery = "SELECT DISTINCT(P.playerID), P.nick, P.firstName, P.lastName, P.email, P.socialNetwork, P.socialID, P.creationDate, O.lastActionTime
+	$tmpQuery = "SELECT P.playerID, P.nick, P.firstName, P.lastName, P.email, P.socialNetwork, P.socialID, P.creationDate, O.lastActionTime, (SELECT count(pMessageID) FROM private_message WHERE toPlayerID = ".$playerID." AND fromPlayerID=P.playerID AND status=0) nbUnread
 					FROM private_message M, players P left join online_players O on O.playerID = P.playerID
 					WHERE (M.fromPlayerID = ".$playerID." OR M.toPlayerID = ".$playerID.")
-					AND  (M.fromPlayerID = P.playerID OR M.toPlayerID = P.playerID)";
+					AND  (M.fromPlayerID = P.playerID OR M.toPlayerID = P.playerID)
+					GROUP BY P.playerID, P.nick, P.firstName, P.lastName, P.email, P.socialNetwork, P.socialID, P.creationDate, O.lastActionTime, nbUnread
+					ORDER BY nbUnread DESC";
 	
 	return mysql_query($tmpQuery);
 }
 
-function updatePMStatus($playerID, $withPlayerID)
+function countUnreadPM($playerID)
 {
-	
+	$res_count = mysql_query("SELECT count(pMessageID) nbUnreadPM 
+				FROM private_message 
+				WHERE toPlayerID = ".$playerID." 
+				AND status = 0");
+	$res = mysql_fetch_array($res_count, MYSQL_ASSOC);
+	return $res['nbUnreadPM'];
 }
 ?>

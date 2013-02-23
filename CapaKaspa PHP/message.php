@@ -82,6 +82,8 @@ require 'include/page_body.php';
 						echo("<img src='images/user_online.gif' style='vertical-align:bottom;' alt='"._("Player online")."'/>");
 					if (isNewPlayer($tmpPlayer['creationDate']))
 						echo("<br><span class='newplayer'>"._("New player")."</span>");
+					if ($tmpPlayer['nbUnread'] > 0)
+						echo("<br>".$tmpPlayer['nbUnread']." "._("Unread messages"));
 					echo("</div>
 							");
 				}
