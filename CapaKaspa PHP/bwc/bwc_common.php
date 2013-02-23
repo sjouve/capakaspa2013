@@ -118,9 +118,12 @@ function displayPrivateMessage($toPlayerID, $toFirstName, $toLastName, $toNick, 
 			?>
 			<h3><? echo _("New message")?></h3>
 			<? echo _("To")?> : <? echo($toFirstName." ".$toLastName." (".$toNick.")");?><br>
-			<textarea style="width: 370px; font-size: 12px;" id="privateMessage" rows="6" placeholder="<? echo _("Your message...")?>"></textarea><br>
-			<br><input type="button" class="button" value="<? echo _("Send")?>" onclick="insertPrivateMessagePopup(<? echo($_SESSION['playerID'])?>,<? echo($toPlayerID)?>,'<? echo($toEmail)?>')">
-			<input type="button" class="link" value="<? echo _("Cancel")?>" onclick="popup('popUpDiv')">
+			<textarea style="width: 370px; height: 100px; font-size: 12px;" id="privateMessage" rows="5" placeholder="<? echo _("Your message...")?>"></textarea><br>
+			<div style="margin-top: 10px;">
+				<input type="button" class="button" value="<? echo _("Send")?>" onclick="insertPrivateMessagePopup(<? echo($_SESSION['playerID'])?>,<? echo($toPlayerID)?>,'<? echo($toEmail)?>')">
+				<input type="button" class="link" value="<? echo _("Cancel")?>" onclick="popup('popUpDiv')">
+				<div style="float: right"><input type="button" class="link" onclick="location.href='message.php?pID=<? echo($toPlayerID)?>&pEmail=<?echo($toEmail)?>'" value="<? echo _("See full conversation")?>"></div>
+			</div>
 		</div>
 		<div id="popupMessageProgress" class="contentbody" style="display: none;">
 			<img src='images/ajaxloader.gif'/>

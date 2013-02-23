@@ -25,28 +25,33 @@ $tmpMessages = listPrivateMessageWith($playerID, $withPlayerID);
 $numMessages = mysql_num_rows($tmpMessages);
 updateUnreadPrivateMessage($playerID, $withPlayerID);
 
-while($tmpMessage = mysql_fetch_array($tmpMessages, MYSQL_ASSOC))
+if ($numMessages > 0)
 {
-	$sendDate = new DateTime($tmpMessage['sendDate']);
-	$strSendDate = $fmt->format($sendDate);
-	
-	echo("
-		<div class='activity'>
-				<div class='leftbar'>
-					<img src='".getPicturePath($tmpMessage['socialNetwork'], $tmpMessage['socialID'])."' width='40' height='40' border='0'/>
-				</div>
-				<div class='details'>
-					<div class='title'>
-						<a href='player_view.php?playerID=".$tmpMessage['playerID']."'><span class='name'>".$tmpMessage['firstName']." ".$tmpMessage['lastName']."</span></a>
-						<span style='float: right;' class='date'>".$strSendDate."</span>
+	while($tmpMessage = mysql_fetch_array($tmpMessages, MYSQL_ASSOC))
+	{
+		$sendDate = new DateTime($tmpMessage['sendDate']);
+		$strSendDate = $fmt->format($sendDate);
+		
+		echo("
+			<div class='activity'>
+					<div class='leftbar'>
+						<img src='".getPicturePath($tmpMessage['socialNetwork'], $tmpMessage['socialID'])."' width='40' height='40' border='0'/>
 					</div>
-					<div class='content'>
-						".nl2br(stripslashes($tmpMessage['message']))."				
+					<div class='details'>
+						<div class='title'>
+							<a href='player_view.php?playerID=".$tmpMessage['playerID']."'><span class='name'>".$tmpMessage['firstName']." ".$tmpMessage['lastName']."</span></a>
+							<span style='float: right;' class='date'>".$strSendDate."</span>
+						</div>
+						<div class='content'>
+							".nl2br(stripslashes($tmpMessage['message']))."				
+						</div>
 					</div>
 				</div>
-			</div>
-	");
+		");
+	}
 }
+else
+	echo("<center>"._("No Messages")."</center>");
 
 mysql_close();
 ?>

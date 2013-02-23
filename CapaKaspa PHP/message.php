@@ -19,6 +19,9 @@ require 'include/sessioncheck.php';
 
 require 'include/localization.php';
 
+$toPlayerIDInit = isset($_GET['pID'])?$_GET['pID']:0;
+$toEmailInit = isset($_GET['pEmail'])?$_GET['pEmail']:"";
+
 $titre_page = _("Private messages");
 $desc_page = _("Your private messages");
 require 'include/page_header.php';
@@ -37,7 +40,11 @@ function sendPrivateMessage(playerID)
 
 </script>
 <?
-$attribut_body = "onload=\"highlightMenu(6);\"";
+if ($toPlayerIDInit != 0)
+	$attribut_body = "onload=\"javascript:highlightMenu(6);displayPrivateMessage(".$_SESSION['playerID'].", ".$toPlayerIDInit.", '".$toEmailInit."');\"";
+else
+	$attribut_body = "onload=\"javascript:highlightMenu(6);\"";
+
 require 'include/page_body.php';
 ?>
 <div id="content">

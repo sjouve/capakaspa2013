@@ -7,7 +7,8 @@ function displayPrivateMessage(playerID, withPlayerID, withEmail)
 		document.getElementById("contact"+document.getElementById("toPlayerID").value).style.backgroundColor = "#FFFFFF";
 	document.getElementById("toPlayerID").value = withPlayerID;
 	document.getElementById("toEmail").value = withEmail;
-	document.getElementById("contact"+withPlayerID).style.backgroundColor = "#EEEEEE";
+	if (document.getElementById("contact"+withPlayerID))
+		document.getElementById("contact"+withPlayerID).style.backgroundColor = "#EEEEEE";
 	
 	if (window.XMLHttpRequest)
 	{// code for IE7+, Firefox, Chrome, Opera, Safari
