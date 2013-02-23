@@ -183,7 +183,9 @@ require 'include/page_body.php';
     <?
     if ($errMsg != "")
 		echo("<div class='error'>".$errMsg."</div>");
-		
+    
+    echo("<div class='success'>"._("Update your profile picture! Now you can upload your own picture...").".</div>");
+    
 	$res_current_vacation = getCurrentVacation($_SESSION['playerID']);
 	if (mysql_num_rows($res_current_vacation) > 0)
 		echo("<div class='success'>"._("You have a current vacation ! Your games are postponed").".</div>");

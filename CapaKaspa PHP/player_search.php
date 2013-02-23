@@ -20,7 +20,7 @@ require 'include/sessioncheck.php';
 require 'include/localization.php';
 
 // Traitement des critères
-$critCountry = isset($_POST['critCountryCode']) ? $_POST['critCountryCode'] : $_SESSION['countryCode'];
+$critCountry = isset($_POST['critCountryCode']) ? $_POST['critCountryCode'] : "";
 $critName = isset($_POST['critName']) ? $_POST['critName'] : "";
 $critEloStart = isset($_POST['critEloStart']) ? $_POST['critEloStart'] : "";
 $critEloEnd = isset($_POST['critEloEnd']) ? $_POST['critEloEnd'] : "";
@@ -102,7 +102,7 @@ require 'include/page_body.php';
 		        	<tr>
 			            <td><?echo _("Name");?> :</td>
 			            <td colspan="3">
-			            	<input name="critName" type="text" size="15" maxlength="20" value="<? echo($critName);?>">
+			            	<input name="critName" type="text" size="40" maxlength="20" value="<? echo($critName);?>" placeholder="<? echo _("Part of user name, first name or last name");?>">
 			            </td>
 		        	</tr>
 		        	<tr>

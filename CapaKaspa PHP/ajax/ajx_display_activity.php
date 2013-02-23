@@ -168,9 +168,9 @@ else
 						</div>
 						<div class='footer'>");?>
 						<?if (isset($tmpActivity['likeID'])){?> 
-						<span id="like<?echo(ACTIVITY.$tmpActivity['activityID']);?>"><a href="javascript:deleteLike('<?echo(ACTIVITY);?>', <?echo($tmpActivity['activityID']);?>, <?echo($tmpActivity['likeID']);?>);"><?echo _("! I no longer think it's good");?></a></span>
+						<span id="like<?echo(ACTIVITY.$tmpActivity['activityID']);?>" ><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(ACTIVITY);?>', <?echo($tmpActivity['activityID']);?>, <?echo($tmpActivity['likeID']);?>);"><?echo _("! Unlike");?></a></span>
 						<?} else {?>
-						<span id="like<?echo(ACTIVITY.$tmpActivity['activityID']);?>"><a href="javascript:insertLike('<?echo(ACTIVITY);?>', <?echo($tmpActivity['activityID']);?>);"><?echo _("! I think it's good");?></a></span>
+						<span id="like<?echo(ACTIVITY.$tmpActivity['activityID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(ACTIVITY);?>', <?echo($tmpActivity['activityID']);?>);"><?echo _("! Like");?></a></span>
 						<?}?>
 						- <a href="javascript:displayComment('<?echo(ACTIVITY);?>', <?echo($tmpActivity['activityID']);?>);"><?echo _("Comment");?></a> 
 						<? echo("- <span class='date'>".$strPostDate."</span>

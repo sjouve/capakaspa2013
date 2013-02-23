@@ -22,7 +22,7 @@ $res = insertLike($_SESSION['playerID'], $entityType, $entityID);
 $likeID = mysql_insert_id();
 if ($res) {
 ?>
-<a href="javascript:deleteLike('<?echo($entityType);?>', <?echo($entityID);?>, <?echo($likeID);?>);"><?echo _("! I no longer think it's good");?></a>
+<a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo($entityType);?>', <?echo($entityID);?>, <?echo($likeID);?>);"><?echo _("! Unlike");?></a>
 <?
 }
 mysql_close();

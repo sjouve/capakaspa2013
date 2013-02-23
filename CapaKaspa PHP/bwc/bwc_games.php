@@ -566,7 +566,7 @@ function processMessages($tmpGame)
 	
 	if ($tmpMessage['gameMessage'] == "draw")
 	{
-		$statusMessage .= _("Draw game")."\n";
+		$statusMessage .= _("Draw game")." (1/2-1/2)\n";
 		$isGameOver = true;
 	}
 	
@@ -580,13 +580,23 @@ function processMessages($tmpGame)
 	
 	if ($tmpMessage['gameMessage'] == "playerResigned")
 	{
-		$statusMessage .= $tmpColor." "._("resigned")."\n";
+		if ($tmpMessage['messageFrom'] == "white")
+			$strResult = " (0-1)";
+		else
+			$strResult = " (1-0)";
+		
+		$statusMessage .= $tmpColor." "._("resigned").$strResult."\n";
 		$isGameOver = true;
 	}
 
 	if ($tmpMessage['gameMessage'] == "checkMate")
 	{
-		$statusMessage .= _("Check and Mat!")." ".$tmpColor." "._("win the game")."\n";
+		if ($tmpMessage['messageFrom'] == "white")
+			$strResult = " (1-0)";
+		else
+			$strResult = " (0-1)";
+		
+		$statusMessage .= _("Check and Mat!")." ".$tmpColor." "._("win the game").$strResult."\n";
 		$isGameOver = true;
 		$isCheckMate = true;
 	}

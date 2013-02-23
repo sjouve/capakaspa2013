@@ -376,7 +376,7 @@ require 'include/page_body.php';
             <td>
             	<? echo($_SESSION['email']); ?><input type="hidden" name="txtEmail" value="<? echo($_SESSION['email']); ?>"> 
             	<span onmouseout="document.getElementById('helpEmail').style.display = 'none';" onmouseover="document.getElementById('helpEmail').style.display = 'block';"><img src="images/point-interrogation.gif" border="0"/></span>
-            	<div id="helpEmail" style="display: none;font-size: 10px">
+            	<div id="helpEmail" style="display: none;" class="help">
 		      		<? echo _("You can update your email address.");?><br>
 					<? echo _("First disable your account (see bottom of this page).");?><br>
 					<? echo _("Sign in and follow the activation process.");?><br>
@@ -412,7 +412,13 @@ require 'include/page_body.php';
 		  <table border="0" width="100%">
 		   <tr>
             <td width="180"><?php echo _("Elo CapaKaspa");?> : </td>
-            <td><? echo($_SESSION['elo']); ?></td>
+            <td>
+            <? echo($_SESSION['elo']); ?> 
+            <span onmouseout="document.getElementById('helpElo').style.display = 'none';" onmouseover="document.getElementById('helpElo').style.display = 'block';"><img src="images/point-interrogation.gif" border="0"/></span>
+            <div id="helpElo" style="display: none;" class="help">
+            <? echo _("Elo ranking is calculated quarterly and takes into account the classic games completed during the quarter past.");?>
+            </div>
+            </td>
           </tr>
 		  <tr>
             <td><?php echo _("About you");?> : </td>
@@ -442,10 +448,12 @@ require 'include/page_body.php';
             	<div id="uploadPicture" style="display: none;">
 		            <? echo _("Choose your picture");?> 
 		            <input type="file" name="ifile">
+		            <? if ($_SESSION['socialNetwork']=="CK" && substr($_SESSION['socialID'], 0, 3)=="img") {?>
 		            <input type="button" value="<? echo _("Delete");?>" onclick="deleteCKPicture()" class="link">
+		            <?  }?>
 		            <br><? echo _("Max 500 Kb, JPEG/PNG only (1000x1000 pixels maximum)");?>
             	</div>
-            	<div id="helpSocial" style="display: none;font-size: 10px">
+            	<div id="helpSocial" style="display: none;" class="help">
 		      		1) <? echo _("Facebook");?><br>
 					<? echo _("In Facebook, at the bottom of the Infos section of your account:");?><br>
 					<? echo _("Facebook http://www.facebook.com/[ ID ]");?><br>
@@ -457,6 +465,12 @@ require 'include/page_body.php';
 					<? echo _("Display your profile page, the URL in the browser is something like that:");?><br>
 					<? echo _("https://plus.google.com/u/0/[ ID ]/posts (it's a long number).");?><br>
 				</div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center">
+            	<input class="button" name="Update" type="button" value="<?echo _("Save");?>" onClick="validatePersonalInfo()"> 
+            	
             </td>
           </tr>
         </table>

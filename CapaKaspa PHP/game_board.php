@@ -25,6 +25,9 @@ require 'include/connectdb.php';
 /* check session status */
 require 'include/sessioncheck.php';
 
+// Localization
+require 'include/localization.php';
+
 /* debug flag */
 define ("DEBUG", 0);
 	
@@ -115,8 +118,7 @@ if (($TestFromRow != "") && ($_POST['fromCol'] != "") && ($_POST['toRow'] != "")
 	}
 }
 	
-// Localization
-require 'include/localization.php';
+
 	
 /* find out if it's the current player's turn */
 if (( (($numMoves == -1) || (($numMoves % 2) == 1)) && ($playersColor == "white"))
@@ -163,7 +165,7 @@ require 'include/page_header.php';
 	<? writeJSboard($board, $numMoves); ?>
 	<? writeJSHistory($history, $numMoves); ?>
 
-	<? if ($playersColor == "black") echo("FlipBoard()"); ?>
+	<? if ($playersColor == "black") echo("GameHasVariations=false;FlipBoard()"); ?>
 	
 	function afficheplayer(){
       document.getElementById("player").style.display = "block";
@@ -223,8 +225,7 @@ require 'include/page_body.php';
 
 <div id="contentlarge">
 	<div class="contentbody">
-      	<div class="error"><? echo _("If you have some troubles on this page please try to refresh by [CTRL] + [F5]");?></div>
-        <?
+      	<?
         if (($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['blackPlayer']) 
         		&& $tmpGame['gameMessage'] == "")
 		{
@@ -360,9 +361,9 @@ require 'include/page_body.php';
 		</div>
 		<div id="gamefooter">
 			<?if (isset($tmpGame['likeID'])){?>
-				<span id="like<?echo(GAME.$_POST['gameID']);?>"><a href="javascript:deleteLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>, <?echo($tmpGame['likeID']);?>);"><?echo _("! I no longer think it's good");?></a></span>
+				<span id="like<?echo(GAME.$_POST['gameID']);?>"><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>, <?echo($tmpGame['likeID']);?>);"><?echo _("! Unlike");?></a></span>
 			<?} else {?>
-				<span id="like<?echo(GAME.$_POST['gameID']);?>"><a href="javascript:insertLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>);"><?echo _("! I think it's good");?></a></span>
+				<span id="like<?echo(GAME.$_POST['gameID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>);"><?echo _("! Like");?></a></span>
 			<?}?>
 			- <span class="date"><?
 			$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::SHORT, IntlDateFormatter::SHORT);

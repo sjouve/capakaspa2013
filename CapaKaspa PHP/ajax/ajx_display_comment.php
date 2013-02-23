@@ -24,7 +24,7 @@ $fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDa
 
 $nbLike = countLike($entityType, $entityID);
 if ($nbLike > 0)
-	echo("<div class='item'>".$nbLike." "._("person(s) think it's good !")."</div>");
+	echo("<div class='item'>".$nbLike." "._("person(s) like this !")."</div>");
 
 $tmpComments = listEntityComments($entityType, $entityID);
 
@@ -38,13 +38,13 @@ while($tmpComment = mysql_fetch_array($tmpComments, MYSQL_ASSOC))
 		</br>
 		<span class='date'>".$strPostDate."</span> - ");
 		if (isset($tmpComment['likeID'])){?>
-		<span id="like<?echo(COMMENT.$tmpComment['commentID']);?>"><a href="javascript:deleteLike('<?echo(COMMENT);?>', <?echo($tmpComment['commentID']);?>, <?echo($tmpComment['likeID']);?>);"><?echo _("! I no longer think it's good");?></a></span>
+		<span id="like<?echo(COMMENT.$tmpComment['commentID']);?>"><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(COMMENT);?>', <?echo($tmpComment['commentID']);?>, <?echo($tmpComment['likeID']);?>);"><?echo _("! Unlike");?></a></span>
 		<?} else {?>
-		<span id="like<?echo(COMMENT.$tmpComment['commentID']);?>"><a href="javascript:insertLike('<?echo(COMMENT);?>', <?echo($tmpComment['commentID']);?>);"><?echo _("! I think it's good");?></a></span>
+		<span id="like<?echo(COMMENT.$tmpComment['commentID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(COMMENT);?>', <?echo($tmpComment['commentID']);?>);"><?echo _("! Like");?></a></span>
 		<?}
 						
 		if ($_SESSION['playerID'] == $tmpComment['playerID']) {?> 
-		- <a href="javascript:deleteComment('<?echo($entityType);?>',<?echo($entityID);?>,<?echo($tmpComment['commentID']);?>)"><?echo _("Delete")?></a>
+		- <a title="<? echo _("Delete this comment")?>" href="javascript:deleteComment('<?echo($entityType);?>',<?echo($entityID);?>,<?echo($tmpComment['commentID']);?>)"><?echo _("Delete")?></a>
 		<?}
 	
 	echo("</div>");
@@ -54,7 +54,8 @@ echo("
 	<div class='item'>
 		<textarea id='commenttext".$entityID."' rows='2' placeholder='"._("Write a comment...")."'></textarea>");
 ?>
-		<a href="javascript:insertComment('<?echo($entityType);?>',<?echo($entityID);?>)"><?php echo _("Add")?></a>
+		<br><input type="button" name="addComment" id="addComment" class="link" value="<?echo _("Publish");?>" onclick="javascript:insertComment('<?echo($entityType);?>',<?echo($entityID);?>)">
+		
 	</div>
 <?
 mysql_close();
