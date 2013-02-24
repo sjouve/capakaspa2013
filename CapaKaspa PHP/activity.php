@@ -11,6 +11,8 @@ require 'dac/dac_activity.php';
 require 'bwc/bwc_common.php';
 require 'bwc/bwc_chessutils.php';
 require 'bwc/bwc_players.php';
+require 'dac/dac_games.php';
+require 'bwc/bwc_games.php';
 	
 /* connect to database */
 require 'include/connectdb.php';

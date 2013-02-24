@@ -37,7 +37,8 @@ require 'include/page_body_no_menu.php';
 				<br>- "._("an old version of")." WebChess (http://webchess.sourceforge.net), 
 				<br>- JpGraph (http://jpgraph.net/), 
 				<br>- Securimage (http://www.phpcaptcha.org/), 
-				<br>- pgn4web (http://pgn4web.casaschi.net)";?>
+				<br>- pgn4web (http://pgn4web.casaschi.net),
+				<br>- phpthumb (http://phpthumb.gxdlabs.com)";?>
 		</p>
 	</div>
 </div>

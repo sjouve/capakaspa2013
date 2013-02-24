@@ -56,12 +56,13 @@ if (isset($toPlayerID))
 		
 	<? if (isset($_SESSION['playerID']) && $_SESSION['playerID']!=-1) {
 		$nbUnreadMessages = countUnreadPM($_SESSION['playerID']);
+		$nbTurns = getNbGameTurns($_SESSION['playerID']);
 	?>
 	<div class="navlinks">
 	<div class="title"><?php echo _("Chess games");?></div>		
       <ul>
         <li id="menu1"><img src="images/puce.gif"/> <a href="game_new.php"><?php echo _("New game");?></a></li>
-        <li id="menu2"><img src="images/puce.gif"/> <a href="game_in_progress.php"><?php echo _("My games in progress");?></a></li>
+        <li id="menu2"><img src="images/puce.gif"/> <a href="game_in_progress.php"><?php echo _("My games in progress");?></a> <? if ($nbTurns > 0) echo("<span class='newplayer' title='"._("Moves to play")."'>".$nbTurns."</span>");?></li>
 		<li id="menu3"><img src="images/puce.gif"/> <a href="game_list_ended.php"><?php echo _("My games ended");?></a></li>
         <!-- <li><img src="images/puce.gif"/> <a href="game_list_all.php"></a></li> -->
 		<!-- <li><img src="images/icone-mobile.png"/> <a href="http://mobile.capakaspa.info">Version mobile</a></li> -->
@@ -72,7 +73,7 @@ if (isset($toPlayerID))
       <ul>
         <li id="menu4"><img src="images/puce.gif"/> <a href="activity.php"><?php echo _("News feed");?></a></li>
 		<li id="menu5"><img src="images/puce.gif"/> <a href="player_search.php"><?php echo _("Search");?></a></li>
-		<li id="menu6"><img src="images/puce.gif"/> <a href="message.php"><?php echo _("Messages");?></a> <? if ($nbUnreadMessages > 0) echo("<span class='newplayer'>".$nbUnreadMessages."</span>");?></li>      
+		<li id="menu6"><img src="images/puce.gif"/> <a href="message.php"><?php echo _("Messages");?></a> <? if ($nbUnreadMessages > 0) echo("<span class='newplayer' title='"._("New private messages")."'>".$nbUnreadMessages."</span>");?></li>      
       </ul>  
 	</div>
 	<? } ?>

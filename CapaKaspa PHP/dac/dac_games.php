@@ -210,5 +210,16 @@ function listCapturedPieces($gameID)
 								AND gameID =  '".$gameID."' 
 								ORDER BY curColor DESC , replaced DESC");
 	return $tmpListPieces;
-}	
+}
+
+function listGamesProgressWithMoves($playerID)
+{
+	$tmpGames = mysql_query("SELECT count(H.gameID) nbMoves, G.whitePlayer, G.blackPlayer
+							FROM games G left join history H on H.gameID = G.gameID
+							WHERE (gameMessage is NULL OR gameMessage = '')
+							AND (whitePlayer = ".$playerID." OR blackPlayer = ".$playerID.")
+							GROUP BY G.whitePlayer, G.blackPlayer");
+	
+	return $tmpGames;
+}
 ?>

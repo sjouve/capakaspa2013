@@ -10,11 +10,12 @@ if (!isset($_CONFIG))
 /* load external functions for setting up new game */
 require 'dac/dac_players.php';
 require 'dac/dac_activity.php';
+require 'dac/dac_games.php';
 require 'bwc/bwc_common.php';
 require 'bwc/bwc_chessutils.php';
 require 'bwc/bwc_games.php';
 require 'bwc/bwc_players.php';
-	
+
 /* connect to database */
 require 'include/connectdb.php';
 

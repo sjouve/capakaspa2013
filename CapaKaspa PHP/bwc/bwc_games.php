@@ -1168,4 +1168,27 @@ function getStrGameType($type, $flagBishop, $flagKnight, $flagRook, $flagQueen)
 		return _("Beginner game - King and Pawns").$pieces;
 	}
 }
+
+function getNbGameTurns($playerID)
+{
+	$nbTurns = 0;
+	$tmpGames = listGamesProgressWithMoves($playerID);
+	
+	if (mysql_num_rows($tmpGames) > 0)
+		while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
+		{
+			$numMoves = $tmpGame['nbMoves'] - 1;
+			if ($tmpGame['whitePlayer'] == $playerID)
+				$playersColor = "white";
+			else
+				$playersColor = "black";
+			
+			/* find out if it's the current player's turn */
+			if (( (($numMoves == -1) || (($numMoves % 2) == 1)) && ($playersColor == "white")) || ((($numMoves % 2) == 0) && ($playersColor == "black")) )
+				$nbTurns++;
+			
+		}
+		
+	return $nbTurns;
+}
 ?>

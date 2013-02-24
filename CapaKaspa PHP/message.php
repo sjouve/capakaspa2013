@@ -8,7 +8,9 @@ if (!isset($_CONFIG))
 require 'dac/dac_activity.php';
 require 'dac/dac_players.php';
 require 'bwc/bwc_players.php';
-	
+require 'dac/dac_games.php';
+require 'bwc/bwc_games.php';
+
 /* connect to database */
 require 'include/connectdb.php';
 
