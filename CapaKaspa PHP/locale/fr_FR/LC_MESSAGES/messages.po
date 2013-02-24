@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2013-02-24 11:25+0100\n"
-"PO-Revision-Date: 2013-02-24 11:25+0100\n"
+"POT-Creation-Date: 2013-02-24 15:11+0100\n"
+"PO-Revision-Date: 2013-02-24 15:11+0100\n"
 "Last-Translator: S. JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: French\n"
@@ -324,7 +324,7 @@ msgid "OK"
 msgstr "OK"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:292
-#: PHP/game_in_progress.php:246 PHP/bwc/bwc_common.php:124
+#: PHP/game_in_progress.php:244 PHP/bwc/bwc_common.php:124
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -341,68 +341,68 @@ msgstr "Nulle"
 msgid "Share"
 msgstr "Partager"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:333
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:335
 msgid "Show viewer"
 msgstr "Visualiseur"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:334
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:336
 msgid "Show player"
 msgstr "Echiquier"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:335
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:337
 msgid "Download PGN"
 msgstr "Télécharger PGN"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:338
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:340
 #: PHP/player_view.php:158
 msgid "Private message"
 msgstr "Message privé"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:339
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:341
 msgid "Resign"
 msgstr "Abandonner"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:364
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:366
 #: PHP/ajax/ajx_display_activity.php:171 PHP/ajax/ajx_display_comment.php:51
 #: PHP/ajax/ajx_insert_like.php:25
 msgid "Stop liking this item"
 msgstr "Je n'aime plus ça"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:364
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:366
 #: PHP/ajax/ajx_display_activity.php:171 PHP/ajax/ajx_display_comment.php:51
 #: PHP/ajax/ajx_insert_like.php:25
 msgid "! Unlike"
 msgstr "! Je n'aime plus"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:366
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:368
 #: PHP/ajax/ajx_display_activity.php:173 PHP/ajax/ajx_display_comment.php:53
 msgid "I like this item"
 msgstr "J'aime ça"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:366
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:368
 #: PHP/ajax/ajx_delete_like.php:25 PHP/ajax/ajx_display_activity.php:173
 #: PHP/ajax/ajx_display_comment.php:53
 msgid "! Like"
 msgstr "! J'aime"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:375
-#: PHP/game_in_progress.php:393 PHP/game_list_ended.php:83
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:377
+#: PHP/game_in_progress.php:391 PHP/game_list_ended.php:83
 #: PHP/game_list_ended.php:160 PHP/game_list_ended.php:232
 msgid "Started"
 msgstr "Commencée le"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:375
-#: PHP/game_in_progress.php:393 PHP/game_list_ended.php:84
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:377
+#: PHP/game_in_progress.php:391 PHP/game_list_ended.php:84
 #: PHP/game_list_ended.php:161 PHP/game_list_ended.php:233
 msgid "Last move"
 msgstr "Dernier coup"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:397
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:399
 msgid "Here are old existing comments on this game"
 msgstr "Anciens commentaires sur la partie"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:146
-#: PHP/game_in_progress.php:334 PHP/include/page_body.php:64
+#: PHP/game_in_progress.php:332 PHP/include/page_body.php:64
 msgid "My games in progress"
 msgstr "Mes parties en cours"
 
@@ -410,92 +410,87 @@ msgstr "Mes parties en cours"
 msgid "Play chess and share your games. My games in progress."
 msgstr "Jouer aux échecs et partager vos parties. Mes parties en cours."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:187
-msgid "Update your profile picture! Now you can upload your own picture..."
-msgstr ""
-"Changez votre photo de profil ! Vous pouvez envoyer votre propre photo..."
-
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:191
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:189
 msgid "You have a current vacation ! Your games are postponed"
 msgstr "Vous avez des vacances en cours ! Vos parties sont suspendues"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:198
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:196
 msgid "My pending requests"
 msgstr "Mes demandes en attente"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:228
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:226
 msgid "You"
 msgstr "Vous"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:228
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:226
 msgid "invite a player to play a new game"
 msgstr "invitez un joueur à jouer une nouvelle partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:236
-#: PHP/game_in_progress.php:304 PHP/game_in_progress.php:387
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:234
+#: PHP/game_in_progress.php:302 PHP/game_in_progress.php:385
 #: PHP/game_new.php:147
 msgid "Time per move"
 msgstr "Temps par coup"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:236
-#: PHP/game_in_progress.php:304 PHP/game_in_progress.php:387
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:234
+#: PHP/game_in_progress.php:302 PHP/game_in_progress.php:385
 msgid "days"
 msgstr "jours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:243
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:241
 msgid "Response waiting"
 msgstr "Réponse en attente"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:245
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:243
 msgid "Request declined"
 msgstr "Demande refusée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:290
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:288
 msgid "invite you to play a new game"
 msgstr "vous invite à jouer une nouvelle partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:310
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:308
 #: PHP/message.php:62 PHP/bwc/bwc_common.php:121
 msgid "Your message..."
 msgstr "Votre message..."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:313
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:311
 msgid "Accept"
 msgstr "Accepter"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:314
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:312
 msgid "Decline"
 msgstr "Refuser"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:334
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:332
 msgid "Refresh list"
 msgstr "Rafraîchir la liste"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:369
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:367
 msgid "is your opponent in this game."
 msgstr "est votre adversaire dans cette partie."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:384
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:382
 msgid "Play"
 msgstr "Jouer"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:386
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:384
 #: PHP/player_view.php:270 PHP/player_view.php:297
 #: PHP/ajax/ajx_display_activity.php:165
 msgid "View"
 msgstr "Voir"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:388
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:386
 #: PHP/bwc/bwc_games.php:1057
 msgid "Expiration"
 msgstr "Expiration"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:392
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:390
 #: PHP/ajax/ajx_display_activity.php:175
 msgid "Comment"
 msgstr "Commenter"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:402
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:400
 msgid "No games in progress..."
 msgstr "Pas de parties en cours..."
 
@@ -923,7 +918,10 @@ msgstr "Contacts"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/message.php:89
 #: PHP/ajax/ajx_display_player.php:51 PHP/bwc/bwc_common.php:176
-#: PHP/bwc/bwc_common.php:197
+#: PHP/bwc/bwc_common.php:197 PHP/bwc/bwc_games.php:995
+#: PHP/bwc/bwc_games.php:1004 PHP/bwc/bwc_games.php:1011
+#: PHP/bwc/bwc_games.php:1023 PHP/bwc/bwc_games.php:1032
+#: PHP/bwc/bwc_games.php:1038
 msgid "Player online"
 msgstr "Joueur en ligne"
 
@@ -1202,7 +1200,7 @@ msgid "Choose your picture"
 msgstr "Choisir votre photo"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:453
-#: PHP/ajax/ajx_display_activity.php:177 PHP/ajax/ajx_display_comment.php:57
+#: PHP/ajax/ajx_display_activity.php:186 PHP/ajax/ajx_display_comment.php:57
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -2094,7 +2092,7 @@ msgid "MOVE"
 msgstr "COUP"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:177
+#: PHP/ajax/ajx_display_activity.php:186
 msgid "Delete this news"
 msgstr "Supprimer cette actualité"
 
@@ -2351,6 +2349,12 @@ msgstr "Echec et Mat !"
 msgid "win the game"
 msgstr "gagnent la partie"
 
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:996
+#: PHP/bwc/bwc_games.php:1005 PHP/bwc/bwc_games.php:1022
+#: PHP/bwc/bwc_games.php:1031
+msgid "Player turn"
+msgstr "A son tour"
+
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1056
 msgid "Refresh game"
 msgstr "Rafraîchir la partie"
@@ -2527,6 +2531,10 @@ msgstr "Cliquer en bas pour accéder à la version pour ordinateur."
 #: PHP/mobile/include/page_footer.php:2
 msgid "Access to computer version"
 msgstr "Accéder à la version pour ordinateur"
+
+#~ msgid "Update your profile picture! Now you can upload your own picture..."
+#~ msgstr ""
+#~ "Changez votre photo de profil ! Vous pouvez envoyer votre propre photo..."
 
 #~ msgid "Add"
 #~ msgstr "Ajouter"
