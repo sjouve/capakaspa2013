@@ -225,6 +225,8 @@ require 'include/page_body_no_menu.php';
 
 <div id="content">
 	<div class="contentbody">
+		<span id="#confirm_delete_activity" style="display: none"><?echo _("Are you sure you want to delete this news ?")?></span>
+	    
 		<input id="feedType" type="hidden" name="feedType" value="activity">
 		<form name="activityGames" action="game_board.php" method="post">
 			<div id="activities0" style="display: none;"><img src='images/ajaxloader.gif'/></div>

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2013-02-23 19:20+0100\n"
-"PO-Revision-Date: 2013-02-23 19:21+0100\n"
+"POT-Creation-Date: 2013-02-24 10:08+0100\n"
+"PO-Revision-Date: 2013-02-24 10:09+0100\n"
 "Last-Translator: S. JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: French\n"
@@ -94,7 +94,7 @@ msgid "Email"
 msgstr "Email"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:80
-#: PHP/message.php:63 PHP/password.php:58 PHP/bwc/bwc_common.php:122
+#: PHP/message.php:63 PHP/password.php:58 PHP/bwc/bwc_common.php:123
 msgid "Send"
 msgstr "Envoyer"
 
@@ -324,7 +324,7 @@ msgid "OK"
 msgstr "OK"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:292
-#: PHP/game_in_progress.php:246 PHP/bwc/bwc_common.php:123
+#: PHP/game_in_progress.php:246 PHP/bwc/bwc_common.php:124
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -480,7 +480,7 @@ msgid "Play"
 msgstr "Jouer"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:386
-#: PHP/player_view.php:268 PHP/player_view.php:295
+#: PHP/player_view.php:270 PHP/player_view.php:297
 #: PHP/ajax/ajx_display_activity.php:165
 msgid "View"
 msgstr "Voir"
@@ -519,27 +519,27 @@ msgstr "de"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:79
 #: PHP/game_list_ended.php:156 PHP/game_list_ended.php:228
-#: PHP/player_view.php:266 PHP/player_view.php:321 PHP/bwc/bwc_games.php:575
+#: PHP/player_view.php:268 PHP/player_view.php:323 PHP/bwc/bwc_games.php:575
 #: PHP/bwc/bwc_games.php:1063
 msgid "Whites"
 msgstr "Les blancs"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:80
 #: PHP/game_list_ended.php:157 PHP/game_list_ended.php:229
-#: PHP/player_view.php:267 PHP/player_view.php:322 PHP/bwc/bwc_games.php:578
+#: PHP/player_view.php:269 PHP/player_view.php:324 PHP/bwc/bwc_games.php:578
 #: PHP/bwc/bwc_games.php:1065
 msgid "Blacks"
 msgstr "Les noirs"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:81
 #: PHP/game_list_ended.php:158 PHP/game_list_ended.php:230
-#: PHP/player_view.php:323
+#: PHP/player_view.php:325
 msgid "Result"
 msgstr "Résultat"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:82
 #: PHP/game_list_ended.php:159 PHP/game_list_ended.php:231
-#: PHP/player_view.php:269 PHP/player_view.php:324
+#: PHP/player_view.php:271 PHP/player_view.php:326
 msgid "ECO"
 msgstr "ECO"
 
@@ -922,14 +922,14 @@ msgid "Contacts"
 msgstr "Contacts"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/message.php:89
-#: PHP/ajax/ajx_display_player.php:51 PHP/bwc/bwc_common.php:174
-#: PHP/bwc/bwc_common.php:195
+#: PHP/ajax/ajx_display_player.php:51 PHP/bwc/bwc_common.php:176
+#: PHP/bwc/bwc_common.php:197
 msgid "Player online"
 msgstr "Joueur en ligne"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/message.php:91
 #: PHP/player_view.php:142 PHP/ajax/ajx_display_player.php:53
-#: PHP/bwc/bwc_common.php:176 PHP/bwc/bwc_common.php:197
+#: PHP/bwc/bwc_common.php:178 PHP/bwc/bwc_common.php:199
 msgid "New player"
 msgstr "Nouveau joueur"
 
@@ -1202,7 +1202,7 @@ msgid "Choose your picture"
 msgstr "Choisir votre photo"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:453
-#: PHP/ajax/ajx_display_comment.php:47
+#: PHP/ajax/ajx_display_activity.php:177 PHP/ajax/ajx_display_comment.php:47
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -1403,20 +1403,24 @@ msgstr "Perdue"
 msgid "News"
 msgstr "Actualités"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:257
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:228
+msgid "Are you sure you want to delete this news ?"
+msgstr "Etes vous sûr de vouloir supprimer cette actualité ?"
+
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:259
 #: PHP/include/page_body.php:84
 msgid "Games in progress"
 msgstr "Parties en cours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:280
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:282
 msgid "No games in progress"
 msgstr "Pas de parties en cours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:313
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:315
 msgid "My games against"
 msgstr "Mes parties contre"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:335
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:337
 msgid "You've never played against this player"
 msgstr "Vous n'avez jamais joué contre ce joueur"
 
@@ -2089,6 +2093,11 @@ msgstr " dans la partie contre"
 msgid "MOVE"
 msgstr "COUP"
 
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: PHP/ajax/ajx_display_activity.php:177
+msgid "Delete this news"
+msgstr "Supprimer cette actualité"
+
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_display_comment.php:27
 msgid "person(s) like this !"
 msgstr "personne(s) aiment ça !"
@@ -2294,19 +2303,19 @@ msgstr "Nouveau message"
 msgid "To"
 msgstr "A"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_common.php:124
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_common.php:125
 msgid "See full conversation"
 msgstr "Voir la conversation complète"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_common.php:130
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_common.php:132
 msgid "Message sent successfully"
 msgstr "Message envoyé avec succès"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_common.php:156
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_common.php:158
 msgid "Suggestion"
 msgstr "Suggestion"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_common.php:198
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_common.php:200
 msgid "is the same level that you !"
 msgstr "a le même niveau que vous !"
 

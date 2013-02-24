@@ -139,7 +139,7 @@ else
 		}
 		
 		echo("
-			<div class='activity'>
+			<div class='activity' id='activity".$tmpActivity['activityID']."'>
 					<div class='leftbar'>
 						<img src='".getPicturePath($playerSocialNW, $playerSocialID)."' width='40' height='40' border='0'/>
 					</div>
@@ -173,8 +173,9 @@ else
 						<span id="like<?echo(ACTIVITY.$tmpActivity['activityID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(ACTIVITY);?>', <?echo($tmpActivity['activityID']);?>);"><?echo _("! Like");?></a></span>
 						<?}?>
 						- <a href="javascript:displayComment('<?echo(ACTIVITY);?>', <?echo($tmpActivity['activityID']);?>);"><?echo _("Comment");?></a> 
-						<? echo("- <span class='date'>".$strPostDate."</span>
-						</div>
+						<? echo("- <span class='date'>".$strPostDate."</span>");
+						if ($playerID == $_SESSION['playerID']) echo(" - <a title=\""._("Delete this news")."\" href=\"javascript:deleteActivity(".$tmpActivity['activityID'].")\">"._("Delete")."</a>");
+						echo("</div>
 						<div class='comment' id='comment".$tmpActivity['activityID']."'>
 							<img src='images/ajaxloader.gif'/>
 						</div>
