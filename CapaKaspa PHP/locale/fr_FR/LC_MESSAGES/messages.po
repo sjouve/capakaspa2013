@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2013-02-24 10:08+0100\n"
-"PO-Revision-Date: 2013-02-24 10:09+0100\n"
+"POT-Creation-Date: 2013-02-24 11:25+0100\n"
+"PO-Revision-Date: 2013-02-24 11:25+0100\n"
 "Last-Translator: S. JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: French\n"
@@ -363,25 +363,25 @@ msgid "Resign"
 msgstr "Abandonner"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:364
-#: PHP/ajax/ajx_display_activity.php:171 PHP/ajax/ajx_display_comment.php:41
+#: PHP/ajax/ajx_display_activity.php:171 PHP/ajax/ajx_display_comment.php:51
 #: PHP/ajax/ajx_insert_like.php:25
 msgid "Stop liking this item"
 msgstr "Je n'aime plus ça"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:364
-#: PHP/ajax/ajx_display_activity.php:171 PHP/ajax/ajx_display_comment.php:41
+#: PHP/ajax/ajx_display_activity.php:171 PHP/ajax/ajx_display_comment.php:51
 #: PHP/ajax/ajx_insert_like.php:25
 msgid "! Unlike"
 msgstr "! Je n'aime plus"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:366
-#: PHP/ajax/ajx_display_activity.php:173 PHP/ajax/ajx_display_comment.php:43
+#: PHP/ajax/ajx_display_activity.php:173 PHP/ajax/ajx_display_comment.php:53
 msgid "I like this item"
 msgstr "J'aime ça"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:366
 #: PHP/ajax/ajx_delete_like.php:25 PHP/ajax/ajx_display_activity.php:173
-#: PHP/ajax/ajx_display_comment.php:43
+#: PHP/ajax/ajx_display_comment.php:53
 msgid "! Like"
 msgstr "! J'aime"
 
@@ -1202,7 +1202,7 @@ msgid "Choose your picture"
 msgstr "Choisir votre photo"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:453
-#: PHP/ajax/ajx_display_activity.php:177 PHP/ajax/ajx_display_comment.php:47
+#: PHP/ajax/ajx_display_activity.php:177 PHP/ajax/ajx_display_comment.php:57
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -2098,19 +2098,19 @@ msgstr "COUP"
 msgid "Delete this news"
 msgstr "Supprimer cette actualité"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_display_comment.php:27
-msgid "person(s) like this !"
-msgstr "personne(s) aiment ça !"
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_display_comment.php:31
+msgid "person(s) like this"
+msgstr "personne(s) aiment ça"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_display_comment.php:47
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_display_comment.php:57
 msgid "Delete this comment"
 msgstr "Supprimer ce commentaire"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_display_comment.php:55
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_display_comment.php:65
 msgid "Write a comment..."
 msgstr "Ecrire un commentaire"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_display_comment.php:57
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_display_comment.php:67
 msgid "Publish"
 msgstr "Publier"
 

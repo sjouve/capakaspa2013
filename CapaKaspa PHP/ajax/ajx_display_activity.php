@@ -173,7 +173,16 @@ else
 						<span id="like<?echo(ACTIVITY.$tmpActivity['activityID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(ACTIVITY);?>', <?echo($tmpActivity['activityID']);?>);"><?echo _("! Like");?></a></span>
 						<?}?>
 						- <a href="javascript:displayComment('<?echo(ACTIVITY);?>', <?echo($tmpActivity['activityID']);?>);"><?echo _("Comment");?></a> 
-						<? echo("- <span class='date'>".$strPostDate."</span>");
+						<? 
+						if ($tmpActivity['nbLike'] > 0 || $tmpActivity['nbComment'] > 0 )
+							echo(" - <span onmouseover=\"this.style.cursor='pointer';\" onclick=\"javascript:displayComment('".ACTIVITY."', ".$tmpActivity['activityID'].");\">");
+						if ($tmpActivity['nbLike'] > 0) 
+							echo("<img src='images/like.gif'>".$tmpActivity['nbLike'])." ";
+						if ($tmpActivity['nbComment'] > 0)
+							echo("<img src='images/comment.jpg'>".$tmpActivity['nbComment']);
+						if ($tmpActivity['nbLike'] > 0 || $tmpActivity['nbComment'] > 0 )
+							echo("</span>");
+						echo(" - <span class='date'>".$strPostDate."</span>");
 						if ($playerID == $_SESSION['playerID']) echo(" - <a title=\""._("Delete this news")."\" href=\"javascript:deleteActivity(".$tmpActivity['activityID'].")\">"._("Delete")."</a>");
 						echo("</div>
 						<div class='comment' id='comment".$tmpActivity['activityID']."'>

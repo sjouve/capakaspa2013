@@ -22,9 +22,19 @@ $entityID=$_GET["id"];
 
 $fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
 
-$nbLike = countLike($entityType, $entityID);
-if ($nbLike > 0)
-	echo("<div class='item'>".$nbLike." "._("person(s) like this !")."</div>");
+//$nbLike = countLike($entityType, $entityID);
+$tmpLikes = listLike($entityType, $entityID);
+$nbLikes = mysql_num_rows($tmpLikes);
+
+if ($nbLikes > 0)
+{
+	echo("<div class='item'>".$nbLikes." "._("person(s) like this").": ");
+	while($tmpLike = mysql_fetch_array($tmpLikes, MYSQL_ASSOC))
+	{
+		echo("<a href='player_view.php?playerID=".$tmpLike['playerID']."'>".$tmpLike['nick']."</a> ");
+	}
+	echo("</div>");
+}
 
 $tmpComments = listEntityComments($entityType, $entityID);
 
