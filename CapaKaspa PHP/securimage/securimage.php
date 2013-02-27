@@ -172,7 +172,7 @@ class Securimage
      * The background color of the captcha
      * @var Securimage_Color
      */
-    public $image_bg_color = '#ffffff';
+    public $image_bg_color = '#eeeeee';
     /**
      * The color of the captcha text
      * @var Securimage_Color

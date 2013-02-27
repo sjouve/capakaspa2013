@@ -157,13 +157,22 @@ function validateForm()
 }
 </script>
 <?
-require 'include/page_body_no_menu.php';
+require 'include/page_body_home.php';
 ?>
-<div id="contentxlarge">
+<div id="contenthome">
     <div class="contentbody">
-	    <p>
-		<h1><img src="images/pawn_128.jpg" style="vertical-align: middle" height="64" width="64" alt="Logo CapaKaspa" title="Logo CapaKaspa"> <?php echo _("Play Chess and share your Games !");?></h1>
-		</p>
+	    
+	    <div style="float: left"><img src="images/pawn_128.jpg" style="vertical-align: middle" height="128" width="128" alt="CapaKaspa" title="CapaKaspa">
+		</div>
+		<div style="float: left;height: 128px;width: 800px;">
+			<h1> 
+			<?php echo _("Play Chess");?>
+			</h1>
+			<h1 style="text-align: right;"> 
+			<?php echo _("and Share your Games !");?>
+			</h1>
+		</div>
+		
 		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; background-image: url('images/home_capakaspa_board.jpg');">
 			<span style="position: relative; top: 110px; font-size: 16px; text-shadow: 0.1em 0.1em 0.2em black; color: #FFFFFF;">
 				<?php echo _("Play chess games, choose your cadence and type.");?><br>

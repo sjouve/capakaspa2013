@@ -180,10 +180,13 @@ require 'include/page_body.php';
 ?>
 <div id="content">
     <div class="contentbody">
+    <!--[if lt IE 9]> 
+    	<div class='error'><? echo _("Your browser is not compatible. Install a newer version of Internet Explorer (9 or more). You can also install Chrome or Firefox.");?></div>
+    <![endif]-->
     <?
     if ($errMsg != "")
 		echo("<div class='error'>".$errMsg."</div>");
-     
+    
 	$res_current_vacation = getCurrentVacation($_SESSION['playerID']);
 	if (mysql_num_rows($res_current_vacation) > 0)
 		echo("<div class='success'>"._("You have a current vacation ! Your games are postponed").".</div>");
