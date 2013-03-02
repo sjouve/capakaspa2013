@@ -9,5 +9,3 @@
 	<meta name="robots" content="index, follow" />
 	<meta name="generator" content="CapaKaspa - http://www.capakaspa.info" />
 	<link rel="shortcut icon" href="http://www.capakaspa.info/favicon.ico">
-
-

@@ -45,7 +45,7 @@ function insertPrivateMessage(fromPlayerID, toPlayerID, toEmail)
 	{
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{		
-			popup('popUpDiv');
+			displayPrivateMessage(fromPlayerID, toPlayerID, toEmail);
 		}
 	};
 	xmlhttp.open("GET","ajax/ajx_insert_pmessage.php?fromID="+fromPlayerID+"&toID="+toPlayerID+"&toEmail="+toEmail+"&mes="+message,true);

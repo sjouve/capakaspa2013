@@ -1,4 +1,6 @@
-<?session_start();
+<?
+require 'include/mobilecheck.php';
+session_start();
 
 /* load settings */
 if (!isset($_CONFIG))

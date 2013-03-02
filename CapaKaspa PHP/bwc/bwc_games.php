@@ -184,7 +184,7 @@ function saveHistory()
 		}
 		else
 		{
-			if (isset($_POST['promotion']))
+			if ($isPromoting)
 				$tmpQuery = "INSERT INTO history (timeOfMove, gameID, curPiece, curColor, fromRow, fromCol, toRow, toCol, replaced, promotedTo, isInCheck) VALUES (Now(), ".$_POST['gameID'].", '".getPieceName($board[$_POST['fromRow']][$_POST['fromCol']])."', '$curColor', ".$_POST['fromRow'].", ".$_POST['fromCol'].", ".$_POST['toRow'].", ".$_POST['toCol'].", null, '".getPieceName($_POST['promotion'])."', ".$history[$numMoves]['isInCheck'].")";
 			else
 				$tmpQuery = "INSERT INTO history (timeOfMove, gameID, curPiece, curColor, fromRow, fromCol, toRow, toCol, replaced, promotedTo, isInCheck) VALUES (Now(), ".$_POST['gameID'].", '".getPieceName($board[$_POST['fromRow']][$_POST['fromCol']])."', '$curColor', ".$_POST['fromRow'].", ".$_POST['fromCol'].", ".$_POST['toRow'].", ".$_POST['toCol'].", null, null, ".$history[$numMoves]['isInCheck'].")";
@@ -1070,6 +1070,107 @@ function writeStatus($tmpGame)
           			$bgcolor = "EEEEEE";
           		
           		echo("<td align='center' bgcolor='".$bgcolor."' colspan='4'>");
+          		if (!$isCheckMate && ($history[$numMoves]['isInCheck'] == 1))
+          			echo("<b>".$curColor." "._("are in check")." !</b> ");
+          		echo($statusMessage."&nbsp;</td>");
+          		?>
+		</tr>
+	</table>
+	<?
+}
+
+function writeStatusMobile($tmpGame)
+{
+	global $numMoves, $history, $isCheckMate, $statusMessage, $isPlayersTurn, $ecoCode, $ecoName;
+
+	$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::SHORT, IntlDateFormatter::SHORT);
+
+	$expirationDate = new DateTime($tmpGame['expirationDate']);
+	$strExpirationDate = $fmt->format($expirationDate);
+
+	?>
+	<table border="0" align="center" cellspacing="0" cellpadding="0" width="100%">
+	<tr bgcolor="#EEEEEE" valign="top">
+		<th width="50%" align="left">
+	    <?
+          	if ($isPlayersTurn)
+          	{
+          		echo("<div class='playername'>".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']);
+          		if (getOnlinePlayer($tmpGame['whitePlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
+          		if ($tmpGame['whiteNick'] == $_SESSION['nick']) echo (" <img src='images/hand.gif' title='"._("Player turn")."' alt='"._("Player turn")."'>");
+          		echo("</div>");
+          	}
+          	else
+          	{
+          		if ($tmpGame['whiteNick'] == $_SESSION['nick'] || $tmpGame['blackNick'] == $_SESSION['nick'])
+          		{
+          			echo("<div class='playername'>".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']);
+          			if (getOnlinePlayer($tmpGame['whitePlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
+          			if ($tmpGame['whiteNick'] != $_SESSION['nick']) echo (" <img src='images/hand.gif' title='"._("Player turn")."' alt='"._("Player turn")."'>");
+          			echo("</div>");
+          		}
+          		else
+          		{
+          			echo("<div class='playername'>".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']);
+          			if (getOnlinePlayer($tmpGame['whitePlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
+          			echo("</div>");
+          		}
+          	}
+          	?>
+          	</th>
+          	<th width="50%" align="right">
+          	<?
+          	if ($isPlayersTurn)
+          	{
+          		echo("<div class='playername'>".$tmpGame['blackNick']."<br>");
+          		if ($tmpGame['blackNick'] == $_SESSION['nick']) echo ("<img src='images/hand.gif' title='"._("Player turn")."' alt='"._("Player turn")."'> ");
+          		if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
+          		echo($tmpGame['blackElo']."</div>");	
+          	}
+          	else
+          	{
+          		if ($tmpGame['whiteNick'] == $_SESSION['nick'] || $tmpGame['blackNick'] == $_SESSION['nick'])
+          		{
+          			echo("<div class='playername'>".$tmpGame['blackNick']."<br>");
+          			if ($tmpGame['blackNick'] != $_SESSION['nick']) echo ("<img src='images/hand.gif' title='"._("Player turn")."' alt='"._("Player turn")."'> ");
+          			if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
+          			echo($tmpGame['blackElo']."</div>");	
+          		}
+          		else
+          		{
+          			echo("<div class='playername'>".$tmpGame['blackNick']."<br>");
+          			if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
+          			echo($tmpGame['blackElo']."</div>");
+          		}
+          	}
+			?>
+          	</th>
+		</tr>
+		<tr bgcolor="#EEEEEE">
+			<th colspan="2">
+	          	<div class="econame">
+	          	<?	echo(getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
+					if ($tmpGame['type'] == 0)
+						echo(" - [".$tmpGame['eco']."] ".$tmpGame['ecoName']);
+				?>
+	          	</div>
+          		<div class="econame"><a href="javascript:loadgame(<?echo($_POST['gameID']);?>);"><img src="images/icone_rafraichir.png" border="0" title="<?echo _("Refresh game")?>" alt="<?echo _("Refresh game")?>"/></a>
+					<?echo _("Expiration")?> : <? echo($strExpirationDate);?></div>
+			</th>
+		</tr>        		
+		<tr>
+          		<?
+          		if (($numMoves == -1) || ($numMoves % 2 == 1))
+          			$curColor = _("Whites");
+          		else
+          			$curColor = _("Blacks");
+          		
+          		if ((!$isCheckMate && ($history[$numMoves]['isInCheck'] == 1)) || isset($statusMessage))
+          			$bgcolor = "F2A521";
+          		else
+          			$bgcolor = "EEEEEE";
+          		
+          		echo("<td align='center' bgcolor='".$bgcolor."' colspan='2'>");
           		if (!$isCheckMate && ($history[$numMoves]['isInCheck'] == 1))
           			echo("<b>".$curColor." "._("are in check")." !</b> ");
           		echo($statusMessage."&nbsp;</td>");

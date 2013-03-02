@@ -1,6 +1,4 @@
-<?	
-require 'include/mobilecheck.php';
-
+<?
 session_start();
 		
 /* load settings */

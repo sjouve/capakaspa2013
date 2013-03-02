@@ -22,7 +22,7 @@ require 'include/page_body_no_menu.php';
 		<?echo _("Official data");?> :<br>
 		Lentilly, 69210<br>
 		FRANCE<br>
-		No SIRET : 53523014800020<br>
+		No SIRET : 53523014800038<br>
 		Code NAF/APE : 6201Z<br>
 		</p>
 		

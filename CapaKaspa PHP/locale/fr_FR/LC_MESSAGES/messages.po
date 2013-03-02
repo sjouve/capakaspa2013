@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
 "POT-Creation-Date: 2013-02-26 12:50+0100\n"
-"PO-Revision-Date: 2013-02-26 12:50+0100\n"
+"PO-Revision-Date: 2013-02-27 15:22+0100\n"
 "Last-Translator: S. JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: French\n"
@@ -766,7 +766,7 @@ msgstr "Une erreur s'est produite pendant l'activation !"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:207
 msgid "A confirmation message has been sent at this email address"
-msgstr "Un message de confirmation a été envoyé cette adresse email"
+msgstr "Un message de confirmation a été envoyé à cette adresse email"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:210
 #: PHP/player_update.php:308

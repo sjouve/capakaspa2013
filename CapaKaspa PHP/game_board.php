@@ -271,7 +271,7 @@ require 'include/page_body.php';
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr><td align="center" bgcolor="#F2A521">
 						<?echo _("Promote the pawn in")?> :				
-						<input type="radio" name="promotion" value="<? echo (QUEEN); ?>"> <?echo _("Queen")?>
+						<input type="radio" name="promotion" value="<? echo (QUEEN); ?>" <? echo('checked')?>> <?echo _("Queen")?>
 						<input type="radio" name="promotion" value="<? echo (ROOK); ?>"> <?echo _("Rook")?>
 						<input type="radio" name="promotion" value="<? echo (KNIGHT); ?>"> <?echo _("Knight")?>
 						<input type="radio" name="promotion" value="<? echo (BISHOP); ?>"> <?echo _("Bishop")?>

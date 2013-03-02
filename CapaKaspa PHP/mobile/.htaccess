@@ -1,4 +1,4 @@
 #Deny from all
-#Allow from 78.226.13.16
+#Allow from 87.90.53.4
 
-RedirectPermanent /jouer-echecs-differe-inscription.php http://mobile.capakaspa.info/index.php
+#RedirectPermanent /jouer-echecs-differe-inscription.php http://mobile.capakaspa.info/index.php

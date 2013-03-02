@@ -5,6 +5,9 @@
 	
 	function squareClickedFirst(row, col, isEmpty, curColor)
 	{
+		if (document.gamedata.toRow.value != "" && document.gamedata.toRow.value != "")
+			return null;
+		
 		if (getPieceColor(board[row][col]) == curColor)
 		{
 			document.gamedata.fromRow.value = row;
@@ -37,6 +40,7 @@
 		}
 		else
 		{
+			
 			/* if, on a player's second click, they click on one of their own piece */
 			/* act as if he was clicking for the first time (ie: select it) */
 			if (board[row][col] != 0 )

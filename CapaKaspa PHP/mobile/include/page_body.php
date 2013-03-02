@@ -15,7 +15,7 @@
 <body <?echo(isset($attribut_body)?$attribut_body:"")?>>
 
 <div id="top">
-	<a href="game_in_progress.php"><img src="images/icon_home.gif"> CapaKaspa Echecs</a>
+	<a href="index.php"><img src="images/icon_home.gif"> CapaKaspa</a>
 </div>
 <div id="advertisement">
 	<script type="text/javascript"><!--
