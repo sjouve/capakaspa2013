@@ -190,16 +190,16 @@ require 'include/page_header.php';
 <script type="text/javascript" src="javascript/chessutils.js">
  /* these are utility functions used by other functions */
 </script>
-<script type="text/javascript" src="javascript/commands.js">
+<script type="text/javascript" src="javascript/chesscommands.js">
 // these functions interact with the server
 </script>
-<script type="text/javascript" src="javascript/validation.js">
+<script type="text/javascript" src="javascript/chessvalidation.js">
 // these functions are used to test the validity of moves
 </script>
-<script type="text/javascript" src="javascript/isCheckMate.js">
+<script type="text/javascript" src="javascript/chessIsCheckMate.js">
 // these functions are used to test the validity of moves
 </script>
-<script type="text/javascript" src="javascript/squareclicked.js">
+<script type="text/javascript" src="javascript/chessSquareclicked.js">
 // this is the main function that interacts with the user everytime they click on a square
 </script>
 <?

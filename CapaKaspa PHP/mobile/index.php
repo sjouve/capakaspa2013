@@ -72,7 +72,7 @@ require 'include/page_body.php';
 		<div id="onglet">
 		<table width="100%" cellpadding="0" cellspacing="0">
 		<tr>
-			<td><div class="ongletdisable"><a href="game_in_progress.php"><? echo("Games")?></a></div></td>
+			<td><div class="ongletdisable"><a href="game_in_progress.php"><? echo _("Games")?></a></div></td>
 		</tr>
 		</table>
 		</div>

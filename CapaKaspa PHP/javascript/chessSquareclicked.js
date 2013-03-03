@@ -29,6 +29,8 @@
 	
 	function squareClickedSecond(row, col, isEmpty, curColor)
 	{
+		if (document.gamedata.toRow.value != "" && document.gamedata.toRow.value != "")
+			return null;
 		unhighlight(document.gamedata.fromRow.value, document.gamedata.fromCol.value);
 		is1stClick = true;
 

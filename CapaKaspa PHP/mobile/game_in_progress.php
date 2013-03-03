@@ -145,8 +145,8 @@ $titre_page = _("My games in progress");
 $desc_page = _("Play chess and share your games. My games in progress.");
 require 'include/page_header.php';
 ?>
-<script src="../javascript/comment.js" type="text/javascript"></script>
-<script src="../javascript/like.js" type="text/javascript"></script>
+<script src="http://www.capakaspa.info/javascript/comment.js" type="text/javascript"></script>
+<script src="http://www.capakaspa.info/javascript/like.js" type="text/javascript"></script>
 <script type="text/javascript">
 	function sendResponse(responseType, messageFrom, gameID, whitePlayerID)
 	{
@@ -174,10 +174,11 @@ require 'include/page_header.php';
 <?
 require 'include/page_body.php';
 ?>
+
     <div id="onglet">
 		<table width="100%" cellpadding="0" cellspacing="0">
 		<tr>
-			<td><div class="ongletenable"><? echo("Games");?></div></td>	
+			<td><div class="ongletenable"><? echo _("Games");?></div></td>	
 		</tr>
 		</table>
 	</div>
@@ -387,8 +388,7 @@ require 'include/page_body.php';
 			<input type="hidden" name="gameID" value="">
 			<input type="hidden" name="sharePC" value="no">
 			<input type="hidden" name="from" value="encours">
-		</form>
-		
+		</form>	
 <?
 require 'include/page_footer.php';
 mysql_close();

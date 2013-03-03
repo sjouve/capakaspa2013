@@ -18,6 +18,7 @@
 	<a href="index.php"><img src="images/icon_home.gif"> CapaKaspa</a>
 </div>
 <div id="advertisement">
+	<center>
 	<script type="text/javascript"><!--
 	google_ad_client = "ca-pub-8069368543432674";
 	/* CapaKaspa mobile */
@@ -29,4 +30,5 @@
 	<script type="text/javascript"
 	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 	</script>
+	</center>
 </div>
