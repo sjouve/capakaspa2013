@@ -200,6 +200,7 @@ require 'include/page_body.php';
 		</tr>
 		</table>
 	</div>
+	
       	<?
         if (($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['blackPlayer']) 
         		&& $tmpGame['gameMessage'] == "")

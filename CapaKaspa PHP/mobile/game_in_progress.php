@@ -182,6 +182,7 @@ require 'include/page_body.php';
 		</tr>
 		</table>
 	</div>
+	
     <?
     if ($errMsg != "")
 		echo("<div class='error'>".$errMsg."</div>");
@@ -195,7 +196,7 @@ require 'include/page_body.php';
 	if (mysql_num_rows($tmpGamesFrom) > 0 || mysql_num_rows($tmpGamesFor) > 0)
 	{
 	?>		
-		<h3><?php echo _("My pending requests");?></h2>
+		<h3><?php echo _("My pending requests");?></h3>
 		<form name="withdrawRequestForm" action="game_in_progress.php" method="post">
 		<?
 		if (mysql_num_rows($tmpGamesFrom) > 0)
@@ -319,7 +320,7 @@ require 'include/page_body.php';
 		&nbsp;<br>
 	<? }?>
 			
-		<h3><?php echo _("My games in progress")?> <a href="game_in_progress.php"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a></h2>
+		<h3><?php echo _("My games in progress")?> <a href="game_in_progress.php"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a></h3>
 		<form name="existingGames" action="game_board.php" method="post">
 		<?
 		$tmpGames = listInProgressGames($_SESSION['playerID']);
@@ -389,6 +390,7 @@ require 'include/page_body.php';
 			<input type="hidden" name="sharePC" value="no">
 			<input type="hidden" name="from" value="encours">
 		</form>	
+	
 <?
 require 'include/page_footer.php';
 mysql_close();
