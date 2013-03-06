@@ -509,7 +509,7 @@ function isNewPlayer($creationDate)
 	list($year, $month, $day) = explode("-", $creationDate);
 	$creationDate = date("Y/m/d", mktime(0,0,0, $month, substr($day, 0, 2), $year));
 	
-	if ($creationDate > $maxDate)
+	if ($creationDate >= $maxDate)
 		return true;
 	else
 		return false; 
