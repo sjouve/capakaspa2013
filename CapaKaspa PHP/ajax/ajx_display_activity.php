@@ -155,8 +155,8 @@ else
 							<div class='gamedetails'>
 								<span class='activity_type'>".$activityType."</span>");
 								echo("<br>
-									<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpActivity['wFirstName']." ".$tmpActivity['wLastName']."<br>".$tmpActivity['wElo']."</span>
-									<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpActivity['bFirstName']." ".$tmpActivity['bLastName']."<br>".$tmpActivity['bElo']."</span>");
+									<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpActivity['wNick']."<br>".$tmpActivity['wElo']."</span>
+									<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpActivity['bNick']."<br>".$tmpActivity['bElo']."</span>");
 								echo("<br><br>".getStrGameType($tmpActivity['type'], $tmpActivity['flagBishop'], $tmpActivity['flagKnight'], $tmpActivity['flagRook'], $tmpActivity['flagQueen']));
 								if ($tmpActivity['type'] == 0)
 									echo("<br>[".$tmpActivity['eco']."] ".$tmpActivity['ecoName']);
