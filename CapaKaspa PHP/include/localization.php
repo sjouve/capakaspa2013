@@ -1,6 +1,6 @@
 <?
 // 1- By default display in english
-$locale = "en_EN";
+$locale = "en_US";
 $lang = "en";
 // 2- If client language is french display french
 if (isSet($_SERVER['HTTP_ACCEPT_LANGUAGE']))
