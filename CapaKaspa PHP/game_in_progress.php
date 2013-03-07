@@ -384,7 +384,7 @@ require 'include/page_body.php';
 								else
 									echo ("<br><br><span style='float: right'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></span>");
 								echo(_("Time per move").": ".$tmpGame['timeMove']." "._("days"));
-								echo("<br>"._("Expiration")." : ".$strExpirationDate);
+								echo("<br>"._("Expiration")." : <b>".$strExpirationDate."</b>");
 							echo("</div>
 						</div>
 						<div class='footer'>");?>

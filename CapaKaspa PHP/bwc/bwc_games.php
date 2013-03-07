@@ -265,15 +265,18 @@ function loadGame($gameID, $numMoves)
 		$turnColor = "black";
 		
 	// Dépassement délai entre 2 coups
-	// Ajouter ici le nombre de jours d'absence à prendre en compte
-	$targetDate = calculateTargetDate($tmpGame['lastMove'], $tmpGame['whitePlayer'], $tmpGame['blackPlayer'], $tmpGame['timeMove']);
+	$dateLastMove = new DateTime($tmpGame['lastMove']);
+	$dateNow = new DateTime("now");
+	$dateLastMove->add(new DateInterval("P".$tmpGame['timeMove']."D"));
 	
-	// Terminer la partie si dépassement de temps
-	$res = mysql_query("UPDATE games 
-						SET gameMessage = 'playerResigned', messageFrom = '".$turnColor."' 
-						WHERE lastMove < '".$targetDate."' 
-						AND gameMessage IS NULL 
-						AND gameID = ".$_POST['gameID']);
+	if ($dateLastMove < $dateNow)
+	{
+		// Terminer la partie si dépassement de temps
+		$res = mysql_query("UPDATE games 
+							SET gameMessage = 'playerResigned', messageFrom = '".$turnColor."' 
+							WHERE gameMessage IS NULL 
+							AND gameID = ".$_POST['gameID']);
+	}
 	
 	return $tmpGame;
 	
