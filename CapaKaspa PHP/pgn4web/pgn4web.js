@@ -3432,7 +3432,7 @@ function PrintHTML() {
         squareTitle = squareCoord;
         if (boardTitle[jj][ii] !== '') { squareTitle += ': ' + boardTitle[jj][ii]; }
         text += '<IMG SRC="'+ ClearImg.src + '" ' +
-          'CLASS="pieceImage" STYLE="border-style: none; outline: none;" ' +
+          'CLASS="pieceImage" STYLE="border-style: none; outline: none; vertical-align: middle;" ' +
           'ONCLICK="boardOnClick[' + jj + '][' + ii + '](this, event);" ' +
           'ID="' + imageId + '" TITLE="' + squareTitle + '" ' + 'ONFOCUS="this.blur()" />' +
           '</TD>';
