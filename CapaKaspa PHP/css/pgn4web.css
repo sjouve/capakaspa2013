@@ -83,7 +83,13 @@
   	font-size: 14px;
 	font-family: 'pgn4web ChessSansPiratf', 'pgn4web Liberation Sans', sans-serif;
   }
-
+.nmove {
+	font-weight: normal;
+	text-decoration: none;
+  	font-size: 14px;
+	font-family: 'pgn4web ChessSansPiratf', 'pgn4web Liberation Sans', sans-serif;
+	color: #888888;
+}
 .move {
   color: black;
 }

@@ -3784,11 +3784,11 @@ function printMoveText(thisPly, thisVar, isVar, hasLeadingNum, hasId) {
 
   var moveCount = Math.floor(thisPly/2)+1;
   if (thisPly%2 === 0) {
-    text += '<SPAN CLASS="' + (isVar ? 'variation' : 'move') +
+    text += '<SPAN CLASS="' + (isVar ? 'variation' : 'nmove') +
       ' notranslate">' + moveCount + '.&nbsp;</SPAN>';
   } else {
     if (hasLeadingNum) {
-      text += '<SPAN CLASS="' + (isVar ? 'variation' : 'move') +
+      text += '<SPAN CLASS="' + (isVar ? 'variation' : 'nmove') +
         ' notranslate">' + moveCount + '...&nbsp;</SPAN>';
     }
   }
