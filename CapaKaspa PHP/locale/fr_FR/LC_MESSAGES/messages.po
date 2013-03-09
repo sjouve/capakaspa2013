@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
 "POT-Creation-Date: 2013-03-02 15:44+0100\n"
-"PO-Revision-Date: 2013-03-02 17:28+0100\n"
+"PO-Revision-Date: 2013-03-09 18:55+0100\n"
 "Last-Translator: S. JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: French\n"
@@ -2308,7 +2308,7 @@ msgstr "Abandon"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:371
 msgid " resigned."
-msgstr " a abadondonné."
+msgstr " a abandonné."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:375
 #: PHP/bwc/bwc_games.php:506
