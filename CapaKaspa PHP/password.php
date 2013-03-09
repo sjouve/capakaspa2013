@@ -22,7 +22,7 @@ $ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:"";
 
 switch($ToDo)
 {
-	case 'Send':
+	case "Send":
 		$err = sendPassword($_POST['txtEmail']);
 		break;
 }	
@@ -40,7 +40,7 @@ require 'include/page_body.php';
 		if ($err == -1)
 			echo("<div class='error'>"._("A technical problem prevented the sending of the message")."</div>");	
 	?>
-	<? if ($err == 1 && $ToDo == 'Valider') {?>
+	<? if ($err == 1 && $ToDo == "Send") {?>
 		<div class='success'><?php echo _("A message has been sent to the specified email address.");?></div>
 	<? } else {?>
 	<h3><?php echo _("Forgotten password");?></h3>
@@ -54,8 +54,8 @@ require 'include/page_body.php';
 		            </td>
 		        </tr>
 			</table>
-			<input type="hidden" name="ToDo" value="Valider">
-			<center><input name="Send" value="<?php echo _("Send");?>" type="submit" class="button"></center>
+			<input type="hidden" name="ToDo" value="Send">
+			<center><input name="buttonSend" value="<?php echo _("Send");?>" type="submit" class="button"></center>
 		</form>
       <?}?>
 		   
