@@ -7,7 +7,7 @@ require 'dac/dac_games.php';
 /* Accès aux données concernant la table Games, History, Messages */
 
 /* Return le PGN de la partie */
-function getPGN($whiteNick, $blackNick, $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $listeCoups)
+function getPGN($whiteNick, $blackNick, $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $listeCoups, $gameResult)
 {
 	$startFEN = "";
 	if ($type == 1)
@@ -37,14 +37,18 @@ function getPGN($whiteNick, $blackNick, $type, $flagBishop, $flagKnight, $flagRo
 		if ($flagQueen == 1)
 		{
 			$startFEN[3]="q";
-			$startFEN[34]="Q";
+			$startFEN[38]="Q";
 		}
 	}
 	
 	$pattern = "[\n\r]";
-	$pgnstring = "[FEN \"".$startFEN."\"][White \"".$whiteNick."\"][Black \"".$blackNick."\"] ".mb_eregi_replace($pattern," ",$listeCoups);
-	
-	return $pgnstring;
+	$pgnstring = "[FEN \"".$startFEN."\"][Site \"CapaKaspa\"][White \"".$whiteNick."\"][Black \"".$blackNick."\"] ";
+	if ($gameResult != "")
+	{
+		$pgnstring .= "[Result \"".$gameResult."\"] ";
+	}
+	$pgnstring .= mb_eregi_replace($pattern," ",$listeCoups);
+		return $pgnstring;
 	
 }
 
@@ -369,7 +373,7 @@ function processMessages($tmpGame)
 			$isUndoing = true;
 		else
 		{
-			$tmpQuery = "INSERT INTO messages (gameID, msgType, msgStatus, destination) VALUES (".$_POST['gameID'].", 'undo', 'request', '".$opponentColor."')";
+			$tmpQuery = "INSERT INTO messages (gameID, msgType, msgStatus, destination) VALUES (".$tmpGame['gameID'].", 'undo', 'request', '".$opponentColor."')";
 			mysql_query($tmpQuery);
 		}
 		
@@ -384,12 +388,12 @@ function processMessages($tmpGame)
 		/* NOTE: assumes the two players discussed it live before declaring the game a draw */
 		if ($_SESSION['isSharedPC'])
 		{
-			$tmpQuery = "UPDATE games SET gameMessage = 'draw', messageFrom = '".$playersColor."' WHERE gameID = ".$_POST['gameID'];
+			$tmpQuery = "UPDATE games SET gameMessage = 'draw', messageFrom = '".$playersColor."' WHERE gameID = ".$tmpGame['gameID'];
 			mysql_query($tmpQuery);
 		}
 		else
 		{
-			$tmpQuery = "INSERT INTO messages (gameID, msgType, msgStatus, destination) VALUES (".$_POST['gameID'].", 'draw', 'request', '".$opponentColor."')";
+			$tmpQuery = "INSERT INTO messages (gameID, msgType, msgStatus, destination) VALUES (".$tmpGame['gameID'].", 'draw', 'request', '".$opponentColor."')";
 			mysql_query($tmpQuery);
 		}
 
@@ -409,7 +413,7 @@ function processMessages($tmpGame)
 			else
 				$tmpStatus = "denied";
 		
-			$tmpQuery = "UPDATE messages SET msgStatus = '".$tmpStatus."', destination = '".$opponentColor."' WHERE gameID = ".$_POST['gameID']." AND msgType = 'undo' AND msgStatus = 'request' AND destination = '".$playersColor."'";
+			$tmpQuery = "UPDATE messages SET msgStatus = '".$tmpStatus."', destination = '".$opponentColor."' WHERE gameID = ".$tmpGame['gameID']." AND msgType = 'undo' AND msgStatus = 'request' AND destination = '".$playersColor."'";
 			mysql_query($tmpQuery);
 		
 			updateTimestamp();
@@ -424,13 +428,13 @@ function processMessages($tmpGame)
 			if ($_POST['drawResponse'] == "yes")
 			{
 				$tmpStatus = "approved";
-				$tmpQuery = "UPDATE games SET gameMessage = 'draw', messageFrom = '".$playersColor."' WHERE gameID = ".$_POST['gameID'];
+				$tmpQuery = "UPDATE games SET gameMessage = 'draw', messageFrom = '".$playersColor."' WHERE gameID = ".$tmpGame['gameID'];
 				mysql_query($tmpQuery);				
 			}
 			else
 				$tmpStatus = "denied";
 		
-			$tmpQuery = "UPDATE messages SET msgStatus = '".$tmpStatus."', destination = '".$opponentColor."' WHERE gameID = ".$_POST['gameID']." AND msgType = 'draw' AND msgStatus = 'request' AND destination = '".$playersColor."'";
+			$tmpQuery = "UPDATE messages SET msgStatus = '".$tmpStatus."', destination = '".$opponentColor."' WHERE gameID = ".$tmpGame['gameID']." AND msgType = 'draw' AND msgStatus = 'request' AND destination = '".$playersColor."'";
 			mysql_query($tmpQuery);
 
 			updateTimestamp();
@@ -439,11 +443,11 @@ function processMessages($tmpGame)
 			if ($tmpStatus == "approved")
 			{
 				/* Notification */
-				chessNotification('draw', $opponentColor, '', $_SESSION['nick'], $_POST['gameID']);
+				chessNotification('draw', $opponentColor, '', $_SESSION['nick'], $tmpGame['gameID']);
 				if ($_SESSION['pref_shareresult'] == 'oui')	
-					insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'draw');
+					insertActivity($_SESSION['playerID'], GAME, $tmpGame['gameID'], "", 'draw');
 				if ($oppPrefResult == 'oui')
-					insertActivity($opponentID, GAME, $_POST['gameID'], "", 'draw');
+					insertActivity($opponentID, GAME, $tmpGame['gameID'], "", 'draw');
 			}
 		}
 	}
@@ -452,17 +456,17 @@ function processMessages($tmpGame)
 	$Test = isset($_POST['resign']) ? $_POST['resign']:Null;
 	if ($Test == "yes")
 	{
-		$tmpQuery = "UPDATE games SET gameMessage = 'playerResigned', messageFrom = '".$playersColor."' WHERE gameID = ".$_POST['gameID'];
+		$tmpQuery = "UPDATE games SET gameMessage = 'playerResigned', messageFrom = '".$playersColor."' WHERE gameID = ".$tmpGame['gameID'];
 		mysql_query($tmpQuery);
 
 		updateTimestamp();
 
 		/* Notification */
-		chessNotification('resignation', $opponentColor, '', $_SESSION['nick'], $_POST['gameID']);
+		chessNotification('resignation', $opponentColor, '', $_SESSION['nick'], $tmpGame['gameID']);
 		if ($_SESSION['pref_shareresult'] == 'oui')
-			insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "lost", 'resignation');
+			insertActivity($_SESSION['playerID'], GAME, $tmpGame['gameID'], "lost", 'resignation');
 		if ($oppPrefResult == 'oui')
-			insertActivity($opponentID, GAME, $_POST['gameID'], "won", 'resignation');
+			insertActivity($opponentID, GAME, $tmpGame['gameID'], "won", 'resignation');
 			
 	}
 	
@@ -470,7 +474,7 @@ function processMessages($tmpGame)
 	/* ******************************************* */
 	/* process queued messages (ie: from database) */
 	/* ******************************************* */
-	$tmpQuery = "SELECT * FROM messages WHERE gameID = ".$_POST['gameID']." AND destination = '".$playersColor."'";
+	$tmpQuery = "SELECT * FROM messages WHERE gameID = ".$tmpGame['gameID']." AND destination = '".$playersColor."'";
 	$tmpMessages = mysql_query($tmpQuery);
 
 	while($tmpMessage = mysql_fetch_array($tmpMessages, MYSQL_ASSOC))
@@ -484,13 +488,13 @@ function processMessages($tmpGame)
 						$isUndoRequested = true;
 						break;
 					case 'approved':
-						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$_POST['gameID']." AND msgType = 'undo' AND msgStatus = 'approved' AND destination = '".$playersColor."'";
+						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$tmpGame['gameID']." AND msgType = 'undo' AND msgStatus = 'approved' AND destination = '".$playersColor."'";
 						mysql_query($tmpQuery);
 						$statusMessage .= _("Move cancellation accepted")."\n";
 						break;
 					case 'denied':
 						$isUndoing = false;
-						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$_POST['gameID']." AND msgType = 'undo' AND msgStatus = 'denied' AND destination = '".$playersColor."'";
+						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$tmpGame['gameID']." AND msgType = 'undo' AND msgStatus = 'denied' AND destination = '".$playersColor."'";
 						mysql_query($tmpQuery);
 						$statusMessage .= _("Move cancellation refused")."\n";
 						break;
@@ -504,12 +508,12 @@ function processMessages($tmpGame)
 						$isDrawRequested = true;
 						break;
 					case 'approved':
-						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$_POST['gameID']." AND msgType = 'draw' AND msgStatus = 'approved' AND destination = '".$playersColor."'";
+						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$tmpGame['gameID']." AND msgType = 'draw' AND msgStatus = 'approved' AND destination = '".$playersColor."'";
 						mysql_query($tmpQuery);
 						$statusMessage .= _("Draw proposal accepted")."\n";
 						break;
 					case 'denied':
-						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$_POST['gameID']." AND msgType = 'draw' AND msgStatus = 'denied' AND destination = '".$playersColor."'";
+						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$tmpGame['gameID']." AND msgType = 'draw' AND msgStatus = 'denied' AND destination = '".$playersColor."'";
 						mysql_query($tmpQuery);
 						$statusMessage .= _("Draw proposal refused")."\n";
 						break;
@@ -519,7 +523,7 @@ function processMessages($tmpGame)
 	}
 
 	/* requests pending */
-	$tmpQuery = "SELECT * FROM messages WHERE gameID = ".$_POST['gameID']." AND msgStatus = 'request' AND destination = '".$opponentColor."'";
+	$tmpQuery = "SELECT * FROM messages WHERE gameID = ".$tmpGame['gameID']." AND msgStatus = 'request' AND destination = '".$opponentColor."'";
 	$tmpMessages = mysql_query($tmpQuery);
 
 	while($tmpMessage = mysql_fetch_array($tmpMessages, MYSQL_ASSOC))
@@ -540,36 +544,39 @@ function processMessages($tmpGame)
 	$Test = isset($_POST['isCheckMate']) ? $_POST['isCheckMate']:Null;
 	if ($Test == 'true')
 	{
-		mysql_query("UPDATE games SET gameMessage = 'checkMate', messageFrom = '".$playersColor."' WHERE gameID = ".$_POST['gameID']);
+		mysql_query("UPDATE games SET gameMessage = 'checkMate', messageFrom = '".$playersColor."' WHERE gameID = ".$tmpGame['gameID']);
 		/* Notification */
-		chessNotification('checkmate', $opponentColor, '', $_SESSION['nick'], $_POST['gameID']);
+		chessNotification('checkmate', $opponentColor, '', $_SESSION['nick'], $tmpGame['gameID']);
 		if ($_SESSION['pref_shareresult'] == 'oui')
-			insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "won", 'checkmate');
+			insertActivity($_SESSION['playerID'], GAME, $tmpGame['gameID'], "won", 'checkmate');
 		if ($oppPrefResult == 'oui')
-			insertActivity($opponentID, GAME, $_POST['gameID'], "lost", 'checkmate');
+			insertActivity($opponentID, GAME, $tmpGame['gameID'], "lost", 'checkmate');
 	}
 	
 	/* draw by rules */
 	$Test = isset($_POST['drawResult']) ? $_POST['drawResult']:Null;
 	if ($Test == 'true')
 	{
-		$tmpQuery = "UPDATE games SET gameMessage = 'draw', messageFrom = '".$playersColor."' WHERE gameID = ".$_POST['gameID'];
+		$tmpQuery = "UPDATE games SET gameMessage = 'draw', messageFrom = '".$playersColor."' WHERE gameID = ".$tmpGame['gameID'];
 		mysql_query($tmpQuery);
 		/* Notification */
-		chessNotification('drawrule', $opponentColor, '', $_SESSION['nick'], $_POST['gameID']);
+		chessNotification('drawrule', $opponentColor, '', $_SESSION['nick'], $tmpGame['gameID']);
 		if ($_SESSION['pref_shareresult'] == 'oui')
-			insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'drawrule');
+			insertActivity($_SESSION['playerID'], GAME, $tmpGame['gameID'], "", 'drawrule');
 		if ($oppPrefResult == 'oui')
-			insertActivity($opponentID, GAME, $_POST['gameID'], "", 'drawrule');
+			insertActivity($opponentID, GAME, $tmpGame['gameID'], "", 'drawrule');
 	}
 	
-	$tmpQuery = "SELECT gameMessage, messageFrom FROM games WHERE gameID = ".$_POST['gameID'];
+	$gameResult = "";
+	
+	$tmpQuery = "SELECT gameMessage, messageFrom FROM games WHERE gameID = ".$tmpGame['gameID'];
 	$tmpMessages = mysql_query($tmpQuery);
 	$tmpMessage = mysql_fetch_array($tmpMessages, MYSQL_ASSOC);
 	
 	if ($tmpMessage['gameMessage'] == "draw")
 	{
 		$statusMessage .= _("Draw game")." (1/2-1/2)\n";
+		$gameResult = "1/2-1/2";
 		$isGameOver = true;
 	}
 	
@@ -583,10 +590,14 @@ function processMessages($tmpGame)
 	
 	if ($tmpMessage['gameMessage'] == "playerResigned")
 	{
-		if ($tmpMessage['messageFrom'] == "white")
+		if ($tmpMessage['messageFrom'] == "white") {
 			$strResult = " (0-1)";
-		else
+			$gameResult = "0-1";
+		}
+		else {
 			$strResult = " (1-0)";
+			$gameResult = "1-0";
+		}
 		
 		$statusMessage .= $tmpColor." "._("resigned").$strResult."\n";
 		$isGameOver = true;
@@ -594,15 +605,20 @@ function processMessages($tmpGame)
 
 	if ($tmpMessage['gameMessage'] == "checkMate")
 	{
-		if ($tmpMessage['messageFrom'] == "white")
+		if ($tmpMessage['messageFrom'] == "white") {
 			$strResult = " (1-0)";
-		else
+			$gameResult = "1-0";
+		}
+		else {
 			$strResult = " (0-1)";
+			$gameResult = "0-1";
+		}
 		
 		$statusMessage .= _("Check and Mat!")." ".$tmpColor." "._("win the game").$strResult."\n";
 		$isGameOver = true;
 		$isCheckMate = true;
 	}
+	return $gameResult;
 }
 
 /* functions for outputting to html and javascript */

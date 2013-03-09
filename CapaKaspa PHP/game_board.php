@@ -40,7 +40,7 @@ $isUndoing = false;
 	
 loadHistory($_POST['gameID']);
 $tmpGame = loadGame($_POST['gameID'], $numMoves);
-processMessages($tmpGame);
+$gameResult = processMessages($tmpGame);
 $pgnstring ="";
 $TestPromotion = isset($_POST['promotion']) ? $_POST['promotion']:Null;
 $TestFromRow = isset($_POST['fromRow']) ? $_POST['fromRow']:Null;
@@ -319,7 +319,7 @@ require 'include/page_body.php';
           	
           	<?
 				$listeCoups = writeHistoryPGN($history, $numMoves);
-				$pgnstring = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $listeCoups);
+				$pgnstring = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $listeCoups, $gameResult);
 			?>
 			<form style="display: none;">
 				<textarea style="display: none;" id="pgnText">
