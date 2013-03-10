@@ -355,25 +355,21 @@ require 'include/page_body.php';
 							<div class='gameboard'>");
 								drawboardGame($tmpGame['gameID'],$tmpGame['whitePlayer'],$tmpGame['blackPlayer'], $tmpGame['position']);
 							echo("</div>
-							<div class='gamedetails'>".
-								getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
-								if ($tmpGame['type'] == 0)
-									echo("<br>[".$tmpGame['eco']."] ".$tmpGame['ecoName']);
-								echo("<br>
-								<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']."</span>
-								<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpGame['blackNick']."<br>".$tmpGame['blackElo']."</span><br>");
+							<div class='gamedetails'>
+								<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> <b>".$tmpGame['whiteNick']."</b></span>
+								<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> <b>".$tmpGame['blackNick']."</b></span>");
 								
 								if ($isPlayersTurn)
 									echo ("<br><br><span style='float: right'><input type='button' value='"._("Play")."' class='link_highlight' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></span>");
 								else
 									echo ("<br><br><span style='float: right'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></span>");
 								echo(_("Time per move").": ".$tmpGame['timeMove']." "._("days"));
-								echo("<br>"._("Expiration")." : ".$strExpirationDate);
+								echo("<br>"._("Expiration")." : <b>".$strExpirationDate."</b>");
 							echo("</div>
 						</div>
 						<div class='footer'>");?>
 							<a href="javascript:displayComment('<?echo(GAME);?>', <?echo($tmpGame['gameID']);?>);"><?echo _("Comment");?></a> - 
-							<?echo("<span class='date'>"._("Started")." : ".$strStartedDate."</span> - <span class='date'>"._("Last move")." : ".$strPostDate."</span>
+							<?echo("<span class='date'>"._("Last move")." : ".$strPostDate."</span>
 						</div>
 						<div class='comment' id='comment".$tmpGame['gameID']."'>
 							<img src='images/ajaxloader.gif'/>
