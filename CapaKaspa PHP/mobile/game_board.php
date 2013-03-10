@@ -138,6 +138,7 @@ require 'include/page_header.php';
 //echo("<meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>\n");
 ?>
 <link href="http://www.capakaspa.info/css/pgn4web.css" type="text/css" rel="stylesheet" />
+<link href="css/pgn4web.css" type="text/css" rel="stylesheet" />
 <link href="http://www.capakaspa.info/pgn4web/fonts/pgn4web-font-ChessSansPiratf.css" type="text/css" rel="stylesheet" />
 <link href="http://www.capakaspa.info/pgn4web/fonts/pgn4web-font-ChessSansUscf.css" type="text/css" rel="stylesheet" />
 <link href="http://www.capakaspa.info/pgn4web/fonts/pgn4web-font-ChessSansMerida.css" type="text/css" rel="stylesheet" />
@@ -146,14 +147,40 @@ require 'include/page_header.php';
 <script src="http://www.capakaspa.info/javascript/comment.js" type="text/javascript"></script>
 <script src="http://www.capakaspa.info/javascript/like.js" type="text/javascript"></script>
 <script type="text/javascript">
-	
+//pgn4web parameter
+	SetImagePath ("pgn4web/<?echo($_SESSION['pref_theme']);?>/37");
+	SetImageType("png");
+	SetCommentsOnSeparateLines(true);
+	SetAutoplayDelay(2500); // milliseconds
+	SetAutostartAutoplay(false);
+	SetAutoplayNextGame(true);
+	SetShortcutKeysEnabled(false);
+	clearShortcutSquares("ABCDEFGH", "12345678");
+
+
+
 	/* transfer board data to javacripts */
 	<? writeJSboard($board, $numMoves); ?>
 	<? writeJSHistory($history, $numMoves); ?>
 	
+	<? if ($playersColor == "black") echo("GameHasVariations=false;FlipBoard()"); ?>
+	
+	function afficheplayer(){
+	  document.getElementById("player").style.display = "block";
+	  document.getElementById("viewer").style.display = "none";
+	  document.getElementById("hide").style.display = "inline";
+	  document.getElementById("show").style.display = "none";
+	}
+	
+	function afficheviewer(){
+		document.getElementById("player").style.display = "none";
+		document.getElementById("viewer").style.display = "block";
+		document.getElementById("hide").style.display = "none";
+		document.getElementById("show").style.display = "inline";
+	}
 	function loadgame(gameID)
 	{
-
+	
 		document.gamedata.gameID.value = gameID;
 		document.gamedata.submit();
 	}
@@ -284,7 +311,12 @@ require 'include/page_body.php';
 					<input type="hidden" name="isCheckMate" value="false">
 					<input type="hidden" id="drawResult" name="drawResult" value="false">
 				</div>
-				
+				<div id="viewer" style="display:none;">				
+					<div id="GameBoard"></div>
+					<div class="gamemoveaction">
+						<div id="GameButtons"></div>
+					</div>
+				</div>
 			</div>
 			
           	<?
@@ -296,12 +328,11 @@ require 'include/page_body.php';
 				<? echo($pgnstring); ?>
 				</textarea>
 			</form>
-			<div id="gamemoves" style="overflow-y: auto;">
-		
-				<div id="GameText"></div>		
-			</div>			
+						
 				        
 			<div id="gameaction">
+				<input type="button" name="hide" id="hide" class="link" style="display:inline;" value="<?echo _("Show viewer");?>" onclick="javascript:afficheviewer();">
+				<input type="button" name="show" id="show" class="link" style="display:none;" value="<?echo _("Show player");?>" onclick="javascript:afficheplayer();">
 				<? if (!isBoardDisabled()) {?>
 				<input type="button" name="btnResign" class="button" value="<?php echo _("Resign")?>" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='resigngame()'"); ?>>
 				<? } ?>
@@ -338,7 +369,7 @@ require 'include/page_body.php';
 			$lastMove = new DateTime($tmpGame['lastMove']);
 			$strStartDate = $fmt->format($startDate);
 			$strLastMove = $fmt->format($lastMove);
-			echo _("Started")?> : <? echo($strStartDate);?> - <?echo _("Last move")?> : <? echo($strLastMove);?></span>
+			echo _("Last move")?> : <? echo($strLastMove);?></span>
 		</div>
 	 	<div id="comment<?echo($_POST['gameID']);?>" class="comment">
 			<img src="images/ajaxloader.gif"/>

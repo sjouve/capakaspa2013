@@ -243,14 +243,14 @@
 	}
 	#gamedata {
 		background-color: #EEEEEE;
-		height: 500px;
+		height: auto;
 		
 	}
 	#gameplayer {
 		display: block;
 		float: none;
 		padding: 0px;
-		width: 290px;
+		width: 300px;
 		background-color: #EEEEEE;
 		margin-right: auto;
 		margin-left: auto;

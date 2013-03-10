@@ -1,0 +1,107 @@
+/*
+ *  pgn4web javascript chessboard
+ *  copyright (C) 2009-2012 Paolo Casaschi
+ *  see README file and http://pgn4web.casaschi.net
+ *  for credits, license and more details
+ */
+
+.boardTable {
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  box-shadow: 0px 0px 0px #AAAAAA;
+}
+
+.pieceImage {
+  width: 35;
+  height: 35;
+}
+
+.whiteSquare,
+.blackSquare,
+.highlightWhiteSquare,
+.highlightBlackSquare {
+  width: 35;
+  height: 35;
+}
+
+.whiteSquare,
+.highlightWhiteSquare {
+  background: #BBBBBB;
+}
+
+.blackSquare,
+.highlightBlackSquare {
+  background: #666666;
+}
+
+.highlightWhiteSquare,
+.highlightBlackSquare {
+  background: #DAF4D7;
+}
+
+.selectControl {
+/* a "width" attribute here must use the !important flag to override default settings */
+}
+
+.optionSelectControl {
+}
+
+.buttonControlPlay,
+.buttonControlStop,
+.buttonControl {
+/* a "width" attribute here must use the !important flag to override default settings */
+	background: #9B6A15;
+    	color: #FFFFFF;
+    	padding-left: 5px;
+    	padding-right: 5px;
+    	padding-top: 3px;
+    	padding-bottom: 3px;
+    	border-width: 1px;
+    	border-color: #AAAAAA;
+    	border-radius: 3px;
+    	font-family: Verdana, Arial, Helvetica, sans-serif;
+    	font-weight: bold;
+    	font-size: 12px;
+}
+
+.buttonControlSpace {
+/* a "width" attribute here must use the !important flag to override default settings */
+}
+
+.searchPgnButton {
+/* a "width" attribute here must use the !important flag to override default settings */
+}
+
+.searchPgnExpression {
+/* a "width" attribute here must use the !important flag to override default settings */
+}
+
+.move, .variation, .commentMove {
+    font-weight: normal;
+  	text-decoration: none;
+  	font-size: 14px;
+	font-family: 'pgn4web ChessSansPiratf', 'pgn4web Liberation Sans', sans-serif;
+  }
+.nmove {
+	font-weight: normal;
+	text-decoration: none;
+  	font-size: 14px;
+	font-family: 'pgn4web ChessSansPiratf', 'pgn4web Liberation Sans', sans-serif;
+	color: #888888;
+}
+.move {
+  color: black;
+}
+
+.comment,
+.variation {
+  color: gray;
+}
+
+.moveOn,
+.variation {
+  background: #EEEEEE;
+  font-weight: bold;
+}
+
