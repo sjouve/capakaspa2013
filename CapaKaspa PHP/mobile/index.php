@@ -53,17 +53,17 @@ require 'include/page_body.php';
 		<center>
 		<p><? echo _("Play your chess games on your mobile.")?></p>
 		<form method="post" action="game_in_progress.php">
-        <br/>
-        <? echo _("User name");?> : <input name="txtNick" type="text" size="13" maxlength="20"/><br/>
-        <? echo _("Password");?> : <input name="pwdPassword" type="password" size="13" maxlength="16"/><br/>
-        <input name="chkAutoConn" type="checkbox"/> <? echo _("Remember me")?><br/>
-        <input name="ToDo" value="Login" type="hidden" /><input name="login" value="<? echo _("Sign in")?>" type="submit" />
+        <br>
+        <? echo _("User name");?> : <input name="txtNick" type="text" size="13" maxlength="20"/><br>
+        <? echo _("Password");?> : <input name="pwdPassword" type="password" size="13" maxlength="16"/><br>
+        <input name="chkAutoConn" type="checkbox"> <? echo _("Remember me")?><br/>
+        <input name="ToDo" value="Login" type="hidden"><input name="login" value="<? echo _("Sign in")?>" type="submit" class="button">
         
         <?if (isset($_GET['err'])&&$_GET['err']=='login') {?>
         <div class='error'><? echo _("Invalid user name or password")?></div>
         <?}?>
 		</form>
-      	<br/>
+      	<br>
       	<!-- <img src="/images/puce.gif"/> <a href="sign-up.php">S'inscrire</a>-->
 	  	<p><? echo _("To sign-up on CapaKaspa access to the computer version by clicking on the link below.")?></p>
 	  	
