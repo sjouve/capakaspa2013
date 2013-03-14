@@ -275,7 +275,7 @@ require 'include/page_body_home.php';
 			</tr>
 			<tr>
 	            <td><?php echo _("Email");?> :</td>
-	            <td><input name="txtEmail" type="text" size="50" maxlength="50" value="<? echo(isset($_POST['txtEmail'])?$_POST['txtEmail']:""); ?>"></td>
+	            <td><input name="txtEmail" placeholder="<?php echo _("A valid email is required for confirmation");?>" type="text" size="50" maxlength="50" value="<? echo(isset($_POST['txtEmail'])?$_POST['txtEmail']:""); ?>"></td>
 	        </tr>
 			<tr>
 	            <td><?php echo _("Country");?> :</td>
