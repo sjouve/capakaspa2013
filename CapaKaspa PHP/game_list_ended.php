@@ -1,6 +1,4 @@
 <?
-require 'include/mobilecheck.php';
-
 session_start();
 
 /* load settings */
@@ -286,12 +284,11 @@ require 'include/page_body.php';
         </div>
         
         <input type="hidden" name="gameID" value="">
-        <input type="hidden" name="sharePC" value="no">
         <input type="hidden" name="from" value="archive">
       </form>
 
     </div>
-  </div>
+</div>
 <?
 require 'include/page_footer.php';
 mysql_close();

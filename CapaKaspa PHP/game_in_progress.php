@@ -134,9 +134,6 @@ switch($ToDo)
 /* check session status */
 require 'include/sessioncheck.php';
 
-/* set default playing mode to different PCs (as opposed to both players sharing a PC) */
-$_SESSION['isSharedPC'] = false;
-	
 // Localization after login
 require 'include/localization.php';
 $fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);

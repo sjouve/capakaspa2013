@@ -126,9 +126,7 @@ if (( (($numMoves == -1) || (($numMoves % 2) == 1)) && ($playersColor == "white"
 else
 	$isPlayersTurn = false;
 
-if ($_SESSION['isSharedPC'])
-	$titre_page = '';
-else if ($isPlayersTurn)
+if ($isPlayersTurn)
 	$titre_page = _("Play chess - Your move");
 else
 	$titre_page = _("Play chess - Opponent move");

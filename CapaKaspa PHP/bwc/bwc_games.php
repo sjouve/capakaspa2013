@@ -367,15 +367,8 @@ function processMessages($tmpGame)
 	$Test = isset($_POST['requestUndo']) ? $_POST['requestUndo']:Null;
 	if ($Test == "yes")
 	{
-		/* if the two players are on the same system, execute undo immediately */
-		/* NOTE: assumes the two players discussed it live before undoing */
-		if ($_SESSION['isSharedPC'])
-			$isUndoing = true;
-		else
-		{
-			$tmpQuery = "INSERT INTO messages (gameID, msgType, msgStatus, destination) VALUES (".$tmpGame['gameID'].", 'undo', 'request', '".$opponentColor."')";
-			mysql_query($tmpQuery);
-		}
+		$tmpQuery = "INSERT INTO messages (gameID, msgType, msgStatus, destination) VALUES (".$tmpGame['gameID'].", 'undo', 'request', '".$opponentColor."')";
+		mysql_query($tmpQuery);
 		
 		updateTimestamp();
 	}
@@ -384,19 +377,9 @@ function processMessages($tmpGame)
 	$Test = isset($_POST['requestDraw']) ? $_POST['requestDraw']:Null;
 	if ($Test == "yes")
 	{
-		/* if the two players are on the same system, execute Draw immediately */
-		/* NOTE: assumes the two players discussed it live before declaring the game a draw */
-		if ($_SESSION['isSharedPC'])
-		{
-			$tmpQuery = "UPDATE games SET gameMessage = 'draw', messageFrom = '".$playersColor."' WHERE gameID = ".$tmpGame['gameID'];
-			mysql_query($tmpQuery);
-		}
-		else
-		{
-			$tmpQuery = "INSERT INTO messages (gameID, msgType, msgStatus, destination) VALUES (".$tmpGame['gameID'].", 'draw', 'request', '".$opponentColor."')";
-			mysql_query($tmpQuery);
-		}
-
+		$tmpQuery = "INSERT INTO messages (gameID, msgType, msgStatus, destination) VALUES (".$tmpGame['gameID'].", 'draw', 'request', '".$opponentColor."')";
+		mysql_query($tmpQuery);
+		
 		updateTimestamp();
 	}
 
@@ -747,23 +730,16 @@ function drawboard($withCoord)
 		$isPlayersTurn = false;
 	
 	/* determine who's perspective of the board to show */
-	if ($_SESSION['isSharedPC'] && !$isPlayersTurn)
-	{
-		if ($playersColor == "white")
-			$perspective = "black";
-		else
-			$perspective = "white";
-	}
-	else
+	if ($playersColor != "")
 	{
 		$perspective = $playersColor;
 	}
-	
-	/* NOTE: if both players are using the same PC, in a sense it's always the players turn */
-	if ($_SESSION['isSharedPC'])
-		$isPlayersTurn = true;
-
-	/* determine if board is disabled */
+	else
+	{
+		$perspective = "white";
+	}
+			
+		/* determine if board is disabled */
 	$isDisabled = isBoardDisabled();
 
 	/* setup vars to show player's perspective of the board */

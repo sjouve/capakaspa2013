@@ -22,9 +22,6 @@
 	/* check session status */
 	require 'include/sessioncheck.php';
 
-	/* set default playing mode to different PCs (as opposed to both players sharing a PC) */
-	$_SESSION['isSharedPC'] = false;
-	
 	$titre_page = "Echecs en différé - Les autres parties en cours";
 	$desc_page = "Jouer aux échecs en différé. Retrouvez la liste de toutes les parties en cours dans la zone de jeu en différé.";
     require 'include/page_header.php';
