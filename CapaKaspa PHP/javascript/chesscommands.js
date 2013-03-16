@@ -123,6 +123,7 @@ function promotepawn()
 	document.getElementById('btnUndo').style.visibility = 'visible';
 	document.getElementById('shareMove').style.display = 'inline';
 	document.getElementById('requestDraw').style.display = 'inline';
+	document.getElementById('promoting').style.display = 'none';
 	
 	/* update board and database */
 	//document.gamedata.submit();
