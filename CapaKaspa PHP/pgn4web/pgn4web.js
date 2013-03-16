@@ -1231,7 +1231,7 @@ function CleanMove(move) {
 
 function GoToMove(thisPly, thisVar) {
   SetAutoPlay(false);
-
+  
   if (typeof(thisVar) == "undefined") { thisVar = CurrentVar; }
   else {
     if (thisVar < 0) { thisVar = 0; }
@@ -3454,7 +3454,7 @@ function PrintHTML() {
   // control buttons
 
   if (theObj = document.getElementById("GameButtons")) {
-    numberOfButtons = 5;
+    numberOfButtons = 7;
     spaceSize = 3;
     buttonSize = (tableSize - spaceSize*(numberOfButtons - 1)) / numberOfButtons;
     text = '<FORM NAME="GameButtonsForm" STYLE="display:inline;">' +
@@ -3495,6 +3495,20 @@ function PrintHTML() {
     if (buttonSize > 0) { text += 'width: ' + buttonSize + 'px;'; }
     text += '"; CLASS="buttonControl" TITLE="go to game end" ' +
       ' ID="btnGoToEnd" onClick="clickedBbtn(this,event);" ONFOCUS="this.blur();">' +
+      '</TD>' +
+      '<TD CLASS="buttonControlSpace" WIDTH="' + spaceSize + '">' +
+      '</TD><TD>' +
+      '<INPUT ID="flipBoard" TYPE="BUTTON" VALUE="&sect;" STYLE="';
+    if (buttonSize > 0) { text += 'width: ' + buttonSize + 'px;'; }
+    text += '"; CLASS="buttonControl" TITLE="flip board" ' +
+      ' ID="btnFlipBoard" onClick="clickedBbtn(this,event);" ONFOCUS="this.blur();">' +
+      '</TD>' +
+      '<TD CLASS="buttonControlSpace" WIDTH="' + spaceSize + '">' +
+      '</TD><TD>' +
+      '<INPUT ID="fen" TYPE="BUTTON" VALUE="FEN" STYLE="';
+    if (buttonSize > 0) { text += 'width: ' + buttonSize + 'px;'; }
+    text += '"; CLASS="buttonControl" TITLE="flip board" ' +
+      ' ID="btnFen" onClick="clickedBbtn(this,event);" ONFOCUS="this.blur();">' +
       '</TD></TR></TABLE></FORM>';
 
     theObj.innerHTML = text;
@@ -3695,6 +3709,12 @@ function clickedBbtn(t,e) {
     case "endButton":
       endButton(e);
       break;
+    case "flipBoard":
+	  FlipBoard();
+	  break;
+    case "fen":
+    	displayFenData();
+  	  break;
     default:
       break;
   }
@@ -3793,7 +3813,7 @@ function printMoveText(thisPly, thisVar, isVar, hasLeadingNum, hasId) {
     }
   }
   var jj = thisPly+1;
-  text += '<A HREF="javascript:void(0);" ONCLICK="GoToMove(' + jj + ', ' + thisVar + ');" ' +
+  text += '<A HREF="javascript:void(0);" ONCLICK="afficheviewer();GoToMove(' + jj + ', ' + thisVar + ');" ' +
     'CLASS="' + (isVar ? 'variation' : 'move') + ' notranslate" ' +
     (hasId ? ('ID="Var' + thisVar + 'Mv' + jj + '" ') : '') +
     'ONFOCUS="this.blur();">' + MovesVar[thisVar][thisPly];
