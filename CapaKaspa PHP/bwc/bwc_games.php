@@ -739,7 +739,7 @@ function drawboard($withCoord)
 		$perspective = "white";
 	}
 			
-		/* determine if board is disabled */
+	/* determine if board is disabled */
 	$isDisabled = isBoardDisabled();
 
 	/* setup vars to show player's perspective of the board */

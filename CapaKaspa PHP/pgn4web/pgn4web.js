@@ -3462,14 +3462,14 @@ function PrintHTML() {
       '<TR><TD>' +
       '<INPUT ID="startButton" TYPE="BUTTON" VALUE="&lt;&lt;" STYLE="';
     //if (buttonSize > 0) { text += 'width: ' + buttonSize + 'px;'; }
-    text += '"; CLASS="buttonControl" TITLE="go to game start" ' +
+    text += '"; CLASS="buttonControl" TITLE="Go to game start" ' +
       ' ID="btnGoToStart" onClick="clickedBbtn(this,event);" ONFOCUS="this.blur();">' +
       '</TD>' +
       '<TD CLASS="buttonControlSpace" WIDTH="' + spaceSize + '">' +
       '</TD><TD>' +
       '<INPUT ID="backButton" TYPE="BUTTON" VALUE="&lt;" STYLE="';
     //if (buttonSize > 0) { text += 'width: ' + buttonSize + 'px;'; }
-    text += '"; CLASS="buttonControl" TITLE="move backward" ' +
+    text += '"; CLASS="buttonControl" TITLE="Move backward" ' +
       ' ID="btnMoveBackward1" onClick="clickedBbtn(this,event);" ONFOCUS="this.blur();">' +
       '</TD>' +
       '<TD CLASS="buttonControlSpace" WIDTH="' + spaceSize + '">' +
@@ -3486,28 +3486,28 @@ function PrintHTML() {
       '</TD><TD>' +
       '<INPUT ID="forwardButton" TYPE="BUTTON" VALUE="&gt;" STYLE="';
     //if (buttonSize > 0) { text += 'width: ' + buttonSize + 'px;'; }
-    text += '"; CLASS="buttonControl" TITLE="move forward" ' +
+    text += '"; CLASS="buttonControl" TITLE="Move forward" ' +
       ' ID="btnMoveForward1" onClick="clickedBbtn(this,event);" ONFOCUS="this.blur();">' +
       '</TD>' +
       '<TD CLASS="buttonControlSpace" WIDTH="' + spaceSize + '">' +
       '</TD><TD>' +
       '<INPUT ID="endButton" TYPE="BUTTON" VALUE="&gt;&gt;" STYLE="';
     //if (buttonSize > 0) { text += 'width: ' + buttonSize + 'px;'; }
-    text += '"; CLASS="buttonControl" TITLE="go to game end" ' +
+    text += '"; CLASS="buttonControl" TITLE="Go to game end" ' +
       ' ID="btnGoToEnd" onClick="clickedBbtn(this,event);" ONFOCUS="this.blur();">' +
       '</TD>' +
       '<TD CLASS="buttonControlSpace" WIDTH="' + spaceSize + '">' +
       '</TD><TD>' +
       '<INPUT ID="flipBoard" TYPE="BUTTON" VALUE="&sect;" STYLE="';
     //if (buttonSize > 0) { text += 'width: ' + buttonSize + 'px;'; }
-    text += '"; CLASS="buttonControl" TITLE="flip board" ' +
+    text += '"; CLASS="buttonControl" TITLE="Flip board" ' +
       ' ID="btnFlipBoard" onClick="clickedBbtn(this,event);" ONFOCUS="this.blur();">' +
       '</TD>' +
       '<TD CLASS="buttonControlSpace" WIDTH="' + spaceSize + '">' +
       '</TD><TD>' +
       '<INPUT ID="fen" TYPE="BUTTON" VALUE="FEN" STYLE="';
     //if (buttonSize > 0) { text += 'width: ' + buttonSize + 'px;'; }
-    text += '"; CLASS="buttonControl" TITLE="flip board" ' +
+    text += '"; CLASS="buttonControl" TITLE="Display FEN" ' +
       ' ID="btnFen" onClick="clickedBbtn(this,event);" ONFOCUS="this.blur();">' +
       '</TD></TR></TABLE></FORM>';
 

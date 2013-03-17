@@ -120,6 +120,7 @@ if (($TestFromRow != "") && ($_POST['fromCol'] != "") && ($_POST['toRow'] != "")
 
 	
 /* find out if it's the current player's turn */
+global $isPlayersTurn;
 if (( (($numMoves == -1) || (($numMoves % 2) == 1)) && ($playersColor == "white"))
 		|| ((($numMoves % 2) == 0) && ($playersColor == "black")))
 	$isPlayersTurn = true;
@@ -154,7 +155,7 @@ require 'include/page_header.php';
 	SetAutoplayNextGame(true);
 	SetShortcutKeysEnabled(false);
 	clearShortcutSquares("ABCDEFGH", "12345678");
-
+	SetInitialHalfmove(<? echo($numMoves+1);?>, false);
 
 
 	/* transfer board data to javacripts */
@@ -290,7 +291,12 @@ require 'include/page_body.php';
           	
 			<div id="gameplayer">
 				
-				<div id="player" style="display:block;">				
+				<? if (!isBoardDisabled()) {
+				?>
+				<div id="player" style="display:block;">
+				<? } else {?>
+				<div id="player" style="display:none;">
+				<? } ?>				
 					<? drawboard(false); ?>
 					<div class="gamemoveaction">
 						<input type="button" id="btnUndo" name="btnUndo" class="button" style="visibility: hidden" value="<?php echo _("Cancel")?>" onClick="javascript:undo();">
@@ -309,7 +315,12 @@ require 'include/page_body.php';
 					<input type="hidden" name="isCheckMate" value="false">
 					<input type="hidden" id="drawResult" name="drawResult" value="false">
 				</div>
-				<div id="viewer" style="display:none;">				
+				<? if (!isBoardDisabled()) {
+				?>
+				<div id="viewer" style="display:none;">
+				<? } else { ?>
+				<div id="viewer" style="display:block;">
+				<? }?>				
 					<div id="GameBoard"></div>
 					<div class="gamemoveaction">
 						<div id="GameButtons"></div>
@@ -329,10 +340,14 @@ require 'include/page_body.php';
 						
 				        
 			<div id="gameaction">
-				<input type="button" name="hide" id="hide" class="link" style="display:inline;" value="<?echo _("Show viewer");?>" onclick="javascript:afficheviewer();">
-				<input type="button" name="show" id="show" class="link" style="display:none;" value="<?echo _("Show player");?>" onclick="javascript:afficheplayer();">
-				<? if (!isBoardDisabled()) {?>
-				<input type="button" name="btnResign" class="button" value="<?php echo _("Resign")?>" <? if (isBoardDisabled()) echo("disabled='yes'"); else echo ("onClick='resigngame()'"); ?>>
+				<? if (!isBoardDisabled()) {
+				?>
+				<input type="button" name="hide" id="hide" class="link" style="display:inline;" value="<?echo _("Viewer");?>" onclick="javascript:afficheviewer();">
+				<input type="button" name="show" id="show" class="link" style="display:none;" value="<?echo _("Board");?>" onclick="javascript:afficheplayer();">
+				<? } ?>
+				<? if ($gameResult=="") {
+				?>
+				<input type="button" name="btnResign" class="button" value="<?php echo _("Resign")?>"  onClick="resigngame()">
 				<? } ?>
 				<input type="hidden" name="from" value="<? echo($_POST['from']) ?>" />
 			</div>

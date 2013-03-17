@@ -257,10 +257,10 @@ function getPGNCode($piecename)
 
 function isBoardDisabled()
 {
-	global $board, $isDrawRequested, $isGameOver, $playersColor, $nb_game_vacation;
+	global $board, $isDrawRequested, $isGameOver, $playersColor, $nb_game_vacation, $isPlayersTurn;
 
 	/* if current player is promoting, a message needs to be replied to (Undo or Draw) or the game is over, then board is Disabled */
-	$tmpIsBoardDisabled = (($isDrawRequested || $isGameOver) == true || $playersColor == "" || $nb_game_vacation > 0);
+	$tmpIsBoardDisabled = (($isDrawRequested || $isGameOver) == true || $playersColor == "" || $nb_game_vacation > 0 || !$isPlayersTurn);
 
 	return $tmpIsBoardDisabled;
 }
