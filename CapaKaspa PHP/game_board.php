@@ -330,8 +330,8 @@ require 'include/page_body.php';
 			</div>			
 				        
 			<div id="gameaction">
-				<input type="button" name="hide" id="hide" class="link" style="display:inline;" value="<?echo _("Show viewer");?>" onclick="javascript:afficheviewer();">
-				<input type="button" name="show" id="show" class="link" style="display:none;" value="<?echo _("Show player");?>" onclick="javascript:afficheplayer();">
+				<input type="button" name="hide" id="hide" class="link" style="display:inline;" value="<?echo _("Viewer");?>" onclick="javascript:afficheviewer();">
+				<input type="button" name="show" id="show" class="link" style="display:none;" value="<?echo _("Board");?>" onclick="javascript:afficheplayer();">
 				<input type="button" name="pgn" id="pgn" class="link" value="<?echo _("Download PGN");?>" onclick="location.href='game_pgn.php?id=<? echo($_POST['gameID'])?>'">
 				<? if (!isBoardDisabled()) {
 				?>

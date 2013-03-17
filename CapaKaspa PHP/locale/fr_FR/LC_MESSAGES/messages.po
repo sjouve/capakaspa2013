@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2013-03-13 13:07+0100\n"
-"PO-Revision-Date: 2013-03-13 13:08+0100\n"
+"POT-Creation-Date: 2013-03-17 11:20+0100\n"
+"PO-Revision-Date: 2013-03-17 11:20+0100\n"
 "Last-Translator: S. JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: French\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.5.5\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -380,13 +380,11 @@ msgid "Share"
 msgstr "Partager"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:333
-#: PHP/mobile/game_board.php:332
-msgid "Show viewer"
+msgid "Viewer"
 msgstr "Visualiseur"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:334
-#: PHP/mobile/game_board.php:333
-msgid "Show player"
+msgid "Board"
 msgstr "Echiquier"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:335
@@ -2619,6 +2617,14 @@ msgstr "CGU"
 #: PHP/mobile/game_in_progress.php:178 PHP/mobile/index.php:75
 msgid "Games"
 msgstr "Parties"
+
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/mobile/game_board.php:332
+msgid "Show viewer"
+msgstr "Visualiseur"
+
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/mobile/game_board.php:333
+msgid "Show player"
+msgstr "Echiquier"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/mobile/index.php:44
 msgid "CapaKaspa mobile"
