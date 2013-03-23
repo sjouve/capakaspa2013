@@ -31,7 +31,11 @@ $playerID = isset($_GET['playerID']) ? $_GET['playerID']:$_SESSION['playerID'];
 // Si le joueur n'est pas celui connecté on récupère ces infos
 if (isset($_GET['playerID']))
     $player = getPlayer($playerID);
-	
+
+$tmpLostGames = listLostGames($playerID);
+$tmpDrawGames = listDrawGames($playerID);
+$tmpWonGames = listWonGames($playerID);
+
 $titre_page = _("Ended games");
 $desc_page = _("All ended chess games of a player");
 require 'include/page_header.php';
@@ -53,42 +57,36 @@ require 'include/page_body.php';
 	  <?
 		if ($errMsg != "")
 			echo("<div class='error'>".$errMsg."</div>");
+		
+		if (mysql_num_rows($tmpLostGames)+mysql_num_rows($tmpDrawGames)+mysql_num_rows($tmpWonGames) > 0)
+		{
 		?>
-    
-      <form name="endedGames" action="game_board.php" method="post">
-        <?
-    	$tmpGames = mysql_query("SELECT G.gameID gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage gameMessage, G.messageFrom messageFrom, G.dateCreated, G.lastMove
-                                FROM games G, players W, players B, eco E 
-								WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
-                                AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
-                                AND ((G.gameMessage = 'playerResigned' AND G.messageFrom = 'white' AND G.whitePlayer = ".$playerID.")
-                                    OR (G.gameMessage = 'playerResigned' AND G.messageFrom = 'black' AND G.blackPlayer = ".$playerID.")
-                                    OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'black' AND G.whitePlayer = ".$playerID.")
-                                    OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'white' AND G.blackPlayer = ".$playerID.")) 
-								AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
-								AND G.eco = E.eco
-    							AND E.ecoLang = '".getLang()."'
-                                ORDER BY G.eco ASC, G.lastMove DESC");
-		?>
+		<div id="games_statistics">
+			<img src="graph_results_perc.php?playerID=<?php echo($playerID);?>">
+			<img src="graph_eco_games.php?playerID=<?php echo($playerID);?>">
+      	</div>
+      	<? }?>
+    	<form name="endedGames" action="game_board.php" method="post">
+        
         <A NAME="defaites"></A>
-		<h3><?echo _("Lost games");?> (<?echo(mysql_num_rows($tmpGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
+		<h3><?echo _("Lost games");?> (<?echo(mysql_num_rows($tmpLostGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
         <div class="tabliste">
-          <table border="0" width="650">
+          <table border="0" width="100%">
             <tr>
-              <th width="17%"><?echo _("Whites");?></th>
-              <th width="17%"><?echo _("Blacks");?></th>
-              <th width="8%"><?echo _("Result");?></th>
-              <th width="8%"><?echo _("ECO");?></th>
-              <th width="25%"><?echo _("Started");?></th>
-              <th width="25%"><?echo _("Last move");?></th>
+              <th width="20%"><?echo _("Whites");?></th>
+              <th width="20%"><?echo _("Blacks");?></th>
+              <th width="10%"><?echo _("Result");?></th>
+              <th width="10%"><?echo _("ECO");?></th>
+              <th width="20%"><?echo _("Started");?></th>
+              <th width="20%"><?echo _("Last move");?></th>
             </tr>
             
 	<?
-	if (mysql_num_rows($tmpGames) == 0)
+	if (mysql_num_rows($tmpLostGames) == 0)
 		echo("<tr><td colspan='6'>"._("No lost games")."</td></tr>\n");
 	else
 	{
-		while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
+		while($tmpGame = mysql_fetch_array($tmpLostGames, MYSQL_ASSOC))
 		{
 			/* White */
 			echo("<tr><td>");
@@ -133,39 +131,28 @@ require 'include/page_body.php';
 ?>
           </table>
         </div>
-        
-        <?
-	$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove
-                                FROM games G, players W, players B, eco E
-                                WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
-                                AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
-                                AND G.gameMessage = 'draw'
-                                AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
-                                AND G.eco = E.eco
-								AND E.ecoLang = '".getLang()."'
-                                ORDER BY E.eco ASC, G.lastMove DESC");?>
-		
+        		
 		<br/>
 		
 		<A NAME="nulles"></A>
-		<h3><?echo _("Draw games");?> (<?echo(mysql_num_rows($tmpGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
+		<h3><?echo _("Draw games");?> (<?echo(mysql_num_rows($tmpDrawGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
         <div class="tabliste">
-          <table border="0" width="650">
+          <table border="0" width="100%">
             <tr>
-              <th width="17%"><?echo _("Whites");?></th>
-              <th width="17%"><?echo _("Blacks");?></th>
-              <th width="8%"><?echo _("Result");?></th>
-              <th width="8%"><?echo _("ECO");?></th>
-              <th width="25%"><?echo _("Started");?></th>
-              <th width="25%"><?echo _("Last move");?></th>
+              <th width="20%"><?echo _("Whites");?></th>
+              <th width="20%"><?echo _("Blacks");?></th>
+              <th width="10%"><?echo _("Result");?></th>
+              <th width="10%"><?echo _("ECO");?></th>
+              <th width="20%"><?echo _("Started");?></th>
+              <th width="20%"><?echo _("Last move");?></th>
             </tr>
             
 	<?
-	if (mysql_num_rows($tmpGames) == 0)
+	if (mysql_num_rows($tmpDrawGames) == 0)
 		echo("<tr><td colspan='6'>"._("No draw games")."</td></tr>\n");
 	else
 	{
-		while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
+		while($tmpGame = mysql_fetch_array($tmpDrawGames, MYSQL_ASSOC))
 		{
 			/* White */
 			echo("<tr><td>");
@@ -200,44 +187,30 @@ require 'include/page_body.php';
 	}
 ?>
           </table>
-        </div>
-         
-          <?
-	$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove
-                                FROM games G, players W, players B, eco E WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
-                                AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
-                                AND ((G.gameMessage = 'playerResigned' AND G.messageFrom = 'white' AND G.blackPlayer = ".$playerID.")
-                                    OR (G.gameMessage = 'playerResigned' AND G.messageFrom = 'black' AND G.whitePlayer = ".$playerID.")
-                                    OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'black' AND G.blackPlayer = ".$playerID.")
-                                    OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'white' AND G.whitePlayer = ".$playerID."))
-                                AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
-                                AND G.eco = E.eco
-								AND E.ecoLang = '".getLang()."'
-                                ORDER BY E.eco ASC, G.lastMove DESC");?>
-                                
+	</div>
 
 	<br/>
 	
 	<A NAME="victoires"></A>
-	<h3><?echo _("Won games");?> (<?echo(mysql_num_rows($tmpGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
+	<h3><?echo _("Won games");?> (<?echo(mysql_num_rows($tmpWonGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
 	
         <div class="tabliste">
-          <table border="0" width="650">
+          <table border="0" width="100%">
             <tr>
-              <th width="17%"><?echo _("Whites");?></th>
-              <th width="17%"><?echo _("Blacks");?></th>
-              <th width="8%"><?echo _("Result");?></th>
-              <th width="8%"><?echo _("ECO");?></th>
-              <th width="25%"><?echo _("Started");?></th>
-              <th width="25%"><?echo _("Last move");?></th>
+              <th width="20%"><?echo _("Whites");?></th>
+              <th width="20%"><?echo _("Blacks");?></th>
+              <th width="10%"><?echo _("Result");?></th>
+              <th width="10%"><?echo _("ECO");?></th>
+              <th width="20%"><?echo _("Started");?></th>
+              <th width="20%"><?echo _("Last move");?></th>
             </tr>
            
 	<?
-	if (mysql_num_rows($tmpGames) == 0)
+	if (mysql_num_rows($tmpWonGames) == 0)
 		echo("<tr><td colspan='6'>"._("No won games")."</td></tr>\n");
 	else
 	{
-		while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
+		while($tmpGame = mysql_fetch_array($tmpWonGames, MYSQL_ASSOC))
 		{
 			/* White */
 			echo("<tr><td>");

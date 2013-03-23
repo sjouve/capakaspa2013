@@ -222,4 +222,68 @@ function listGamesProgressWithMoves($playerID)
 	
 	return $tmpGames;
 }
+
+function countGamesByEco($playerID)
+{
+	$tmpGames = mysql_query("SELECT G.eco eco, count(G.gameID) nb
+							FROM games G, eco E
+							WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
+							AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
+							AND E.eco = G.eco AND E.ecoLang = '".getLang()."'
+							GROUP BY G.eco
+							ORDER BY nb desc");
+	
+	return $tmpGames;
+}
+
+function listWonGames($playerID)
+{
+	$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove
+			FROM games G, players W, players B, eco E WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
+			AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
+			AND ((G.gameMessage = 'playerResigned' AND G.messageFrom = 'white' AND G.blackPlayer = ".$playerID.")
+			OR (G.gameMessage = 'playerResigned' AND G.messageFrom = 'black' AND G.whitePlayer = ".$playerID.")
+			OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'black' AND G.blackPlayer = ".$playerID.")
+			OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'white' AND G.whitePlayer = ".$playerID."))
+			AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
+			AND G.eco = E.eco
+			AND E.ecoLang = '".getLang()."'
+			ORDER BY E.eco ASC, G.lastMove DESC");
+	
+	return $tmpGames;
+}
+
+function listDrawGames($playerID)
+{
+	$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove
+			FROM games G, players W, players B, eco E
+			WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
+			AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
+			AND G.gameMessage = 'draw'
+			AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
+			AND G.eco = E.eco
+			AND E.ecoLang = '".getLang()."'
+	        ORDER BY E.eco ASC, G.lastMove DESC");
+		
+	return $tmpGames;
+}
+
+function listLostGames($playerID)
+{
+	$tmpGames = mysql_query("SELECT G.gameID gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage gameMessage, G.messageFrom messageFrom, G.dateCreated, G.lastMove
+			FROM games G, players W, players B, eco E
+			WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
+			AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
+			AND ((G.gameMessage = 'playerResigned' AND G.messageFrom = 'white' AND G.whitePlayer = ".$playerID.")
+			OR (G.gameMessage = 'playerResigned' AND G.messageFrom = 'black' AND G.blackPlayer = ".$playerID.")
+			OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'black' AND G.whitePlayer = ".$playerID.")
+			OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'white' AND G.blackPlayer = ".$playerID."))
+			AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
+			AND G.eco = E.eco
+			AND E.ecoLang = '".getLang()."'
+			ORDER BY G.eco ASC, G.lastMove DESC");
+	
+	return $tmpGames;
+}
+
 ?>
