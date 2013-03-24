@@ -1190,4 +1190,15 @@
 		background-color: #EEEEEE;
 		padding: 5px;
 	}
+	.profile_picture {
+		float: left;
+		background-color: #FFFFFF;
+		border-style: solid;
+		border-width: 1px;
+		border-color: #CCCCCC;
+		padding: 2px;
+		width: 50px;
+		height: 50x;
+		margin: 5px;
+	}
 }

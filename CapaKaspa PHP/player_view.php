@@ -134,10 +134,12 @@ require 'include/page_body_no_menu.php';
  */
 ?>
 <div id="player_header">
-	<div id="player_name" style="float:left; display: block;padding: 5px;">
+	<div class="profile_picture">
 		<img src="<?echo(getPicturePath($player['socialNetwork'], $player['socialID']));?>" width="50" height="50" style="vertical-align: middle"/>
+	</div>
+	<div id="player_name" style="float:left; display: block; padding: 5px;">
 		<? 
-		echo("<span class='player_name'>".$player['firstName']." ".$player['lastName']." (".$player['nick'].")</span>"); 
+		echo("<br><span class='player_name'>".$player['firstName']." ".$player['lastName']." (".$player['nick'].")</span>"); 
   		if (getOnlinePlayer($player['playerID'])) echo (" <img src='images/user_online.gif'/>");
   		if (isNewPlayer($player['creationDate'])) echo (" <span class='newplayer'>"._("New player")."</span>");
   		?>
