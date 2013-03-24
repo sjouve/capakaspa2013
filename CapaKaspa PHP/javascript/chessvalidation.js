@@ -467,7 +467,7 @@ function GamePiece()
 		else if ((tmpDir == 1) && (fromRow == 4) && (toRow == 5) && (board[4][toCol] == (PAWN | BLACK)))
 		{
 			/* can only move en passant if last move is the one where the white pawn moved up two */
-			if ((chessHistory[numMoves][TOROW] == 4) && (chessHistory[numMoves][TOCOL] == toCol))
+			if ((chessHistory[numMoves][TOROW] == 4) && (chessHistory[numMoves][FROMROW] == 6) && (chessHistory[numMoves][TOCOL] == toCol))
 				return true;
 			else
 			{
@@ -481,7 +481,7 @@ function GamePiece()
 		else if ((tmpDir == -1) && (fromRow == 3) && (toRow == 2) && (board[3][toCol] == PAWN))
 		{
 			/* can only move en passant if last move is the one where the black pawn moved up two */
-			if ((chessHistory[numMoves][TOROW] == 3) && (chessHistory[numMoves][TOCOL] == toCol))
+			if ((chessHistory[numMoves][TOROW] == 3) && (chessHistory[numMoves][FROMROW] == 1) && (chessHistory[numMoves][TOCOL] == toCol))
 				return true;
 			else
 			{
