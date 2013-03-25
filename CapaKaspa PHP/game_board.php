@@ -349,7 +349,7 @@ require 'include/page_body.php';
 				<input type="button" name="show" id="show" class="link" style="display:none;" value="<?echo _("Board");?>" onclick="javascript:afficheplayer();">
 				<? } ?>
 				<input type="button" name="pgn" id="pgn" class="link" value="<?echo _("Download PGN");?>" onclick="location.href='game_pgn.php?id=<? echo($_POST['gameID'])?>'">
-				<? if ($gameResult=="") {
+				<? if ($gameResult=="" && ($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['blackPlayer'])) {
 				?>
 				<input type="button" name="message" id="message" class="link" value="<?echo _("Private message");?>" onclick="popup('popUpDiv')">			
 				<input type="button" name="btnResign" class="button" value="<?php echo _("Resign")?>"  onClick="resigngame()">
