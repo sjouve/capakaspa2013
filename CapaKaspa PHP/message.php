@@ -67,7 +67,7 @@ require 'include/page_body.php';
 	</div>
 </div>
 <div id="rightbar">
-	<div id="contacts">
+	<div id="contacts" style="display: block;overflow-y: auto;height: 500px;">
 		<div class='navlinks'>
 			<div class='title'>
 				<? echo _("Contacts")?>
