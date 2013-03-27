@@ -32,6 +32,7 @@ $playerID = isset($_GET['playerID']) ? $_GET['playerID']:$_SESSION['playerID'];
 if (isset($_GET['playerID']))
     $player = getPlayer($playerID);
 
+$tmpForEloGames = listEndedGamesForElo($playerID);
 $tmpLostGames = listLostGames($playerID);
 $tmpDrawGames = listDrawGames($playerID);
 $tmpWonGames = listWonGames($playerID);
@@ -49,7 +50,8 @@ function loadEndedGame(gameID)
 }
 </script>
 <?
-$attribut_body = "onload='highlightMenu(3)'";
+if ($playerID == $_SESSION['playerID'])	
+	$attribut_body = "onload='highlightMenu(3)'";
 require 'include/page_body.php';
 ?>
   <div id="contentlarge">
@@ -66,6 +68,73 @@ require 'include/page_body.php';
 			<img src="graph_eco_games.php?playerID=<?php echo($playerID);?>">
       	</div>
       	<? }?>
+      	<? if ($playerID == $_SESSION['playerID']) {?>
+      	<form name="endedGames" action="game_board.php" method="post">
+		<h3><?echo _("To take in account for next Elo ranking");?></h3>
+        <div class="tabliste">
+          <table border="0" width="100%">
+            <tr>
+              <th width="20%"><?echo _("Whites");?></th>
+              <th width="20%"><?echo _("Blacks");?></th>
+              <th width="10%"><?echo _("Result");?></th>
+              <th width="10%"><?echo _("ECO");?></th>
+              <th width="20%"><?echo _("Started");?></th>
+              <th width="20%"><?echo _("Last move");?></th>
+            </tr>
+            
+				<?
+				if (mysql_num_rows($tmpForEloGames) == 0)
+					echo("<tr><td colspan='6'>"._("No games to take in account")."</td></tr>\n");
+				else
+				{
+					while($tmpGame = mysql_fetch_array($tmpForEloGames, MYSQL_ASSOC))
+					{
+						/* White */
+						echo("<tr><td>");
+						echo("<a href='player_view.php?playerID=".$tmpGame['whitePlayerID']."'>".$tmpGame['whiteNick']."</a>");
+						
+						/* Black */
+						echo ("</td><td>");
+						echo("<a href='player_view.php?playerID=".$tmpGame['blackPlayerID']."'>".$tmpGame['blackNick']."</a>");
+						
+						/* Status */
+						if (is_null($tmpGame['gameMessage']))
+							echo("</td><td>&nbsp;");
+						else
+						{
+							if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "white"))
+								echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a>");
+							else if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "black"))
+								echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a>");
+							else if (($tmpGame['gameMessage'] == "checkMate") && ($tmpGame['messageFrom'] == "white"))
+								echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a>");
+							else if ($tmpGame['gameMessage'] == "checkMate")
+								echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a>");
+							else
+								echo("</td><td>&nbsp;");
+						}
+						
+						/* ECO Code */
+						echo ("</td><td align='center'><span title=\"".$tmpGame['ecoName']."\">".$tmpGame['eco']);
+						
+						$started = new DateTime($tmpGame['dateCreated']);
+						$strStarted = $fmt->format($started);
+						$lastMove = new DateTime($tmpGame['lastMove']);
+						$strLastMove = $fmt->format($lastMove);
+						
+						/* Start Date */
+						echo ("</span></td><td align='center'>".$strStarted);
+			
+						/* Last Move */
+						echo ("</td><td align='center'>".$strLastMove."</td></tr>\n");
+					}
+				}
+			?>
+          </table>
+        </div>
+        		
+		<br/>
+		<? }?>
     	<form name="endedGames" action="game_board.php" method="post">
         
         <A NAME="defaites"></A>
@@ -114,7 +183,7 @@ require 'include/page_body.php';
 			}
 			
 			/* ECO Code */
-			echo ("</td><td align='center'><span title='".$tmpGame['ecoName']."'>".$tmpGame['eco']);
+			echo ("</td><td align='center'><span title=\"".$tmpGame['ecoName']."\">".$tmpGame['eco']);
 			
 			$started = new DateTime($tmpGame['dateCreated']);
 			$strStarted = $fmt->format($started);
@@ -171,7 +240,7 @@ require 'include/page_body.php';
 					echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1/2-1/2</a>");
 			}
 			/* ECO Code */
-			echo ("</td><td align='center'><span title='".$tmpGame['ecoName']."'>".$tmpGame['eco']);
+			echo ("</td><td align='center'><span title=\"".$tmpGame['ecoName']."\">".$tmpGame['eco']);
 			
 			$started = new DateTime($tmpGame['dateCreated']);
 			$strStarted = $fmt->format($started);
@@ -238,7 +307,7 @@ require 'include/page_body.php';
 					echo("</td><td>&nbsp;");
 			}
 			/* ECO Code */
-			echo ("</td><td align='center'><span title='".$tmpGame['ecoName']."'>".$tmpGame['eco']);
+			echo ("</td><td align='center'><span title=\"".$tmpGame['ecoName']."\">".$tmpGame['eco']);
 			
 			$started = new DateTime($tmpGame['dateCreated']);
 			$strStarted = $fmt->format($started);

@@ -276,8 +276,11 @@ function loadGame($gameID, $numMoves)
 	if ($dateLastMove < $dateNow)
 	{
 		// Terminer la partie si dépassement de temps
+		// Dans cas lastMove est mis à jour pour prise en compte calcul Elo
 		$res = mysql_query("UPDATE games 
-							SET gameMessage = 'playerResigned', messageFrom = '".$turnColor."' 
+							SET gameMessage = 'playerResigned', 
+								messageFrom = '".$turnColor."',
+								lastMove = NOW()
 							WHERE gameMessage IS NULL 
 							AND gameID = ".$_POST['gameID']);
 	}
@@ -1049,7 +1052,7 @@ function writeStatus($tmpGame)
 				?>
 	          	</div>
           		<div class="econame"><a href="javascript:loadgame(<?echo($_POST['gameID']);?>);"><img src="images/icone_rafraichir.png" border="0" title="<?echo _("Refresh game")?>" alt="<?echo _("Refresh game")?>"/></a>
-					<?echo _("Expiration")?> : <? echo($strExpirationDate);?></div>
+					<?echo _("Expiration")?> : <? if ($tmpGame['gameMessage'] == '') echo($strExpirationDate); else echo _("Ended game");?></div>
 			</th>
 		</tr>        		
 		<tr>

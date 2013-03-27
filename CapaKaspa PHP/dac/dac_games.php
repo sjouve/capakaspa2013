@@ -286,4 +286,18 @@ function listLostGames($playerID)
 	return $tmpGames;
 }
 
+function listEndedGamesForElo($playerID)
+{
+	$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove
+						FROM games G, players W, players B, eco E 
+						WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
+						AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
+						AND G.lastMove >= DATE_FORMAT((SELECT MAX(DISTINCT(eloDate)) from elo_history), '%Y-%m-01')
+						AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
+						AND G.eco = E.eco
+						AND E.ecoLang = '".getLang()."'
+						ORDER BY E.eco ASC, G.lastMove DESC");
+	
+	return $tmpGames;
+}
 ?>
