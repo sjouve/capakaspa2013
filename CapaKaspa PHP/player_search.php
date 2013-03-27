@@ -109,33 +109,18 @@ require 'include/page_body.php';
 			            </td>
 		        	</tr>
 		        	<tr>
-		            	<td width="140"><? echo _("Network");?> :</td>
-			            <td>
-			              <input name="critFavorite" name="critFavorite" type="radio" value="na" <?if ($critFavorite=='na') echo('checked');?>>
-			              <? echo _("All");?>
-			            </td>
-			            <td>
-			              <input name="critFavorite" type="radio" value="wing" <?if ($critFavorite=='wing') echo('checked');?>>
-			              <? echo _("Following");?>	              
-			            </td>
-			            <td>
-			              <input name="critFavorite" type="radio" value="wers" <?if ($critFavorite=='wers') echo('checked');?>>
-			              <? echo _("Followers");?>	              
-			            </td>
-		          	</tr>
-		          	<tr>
-			            <td><? echo _("Activity");?> :</td>
+			            <td><? echo _("Last connection");?> :</td>
 			            <td>
 			              <input name="critStatus" type="radio" value="tous" <?if ($critStatus=='tous') echo('checked');?>>
 			              <? echo _("All");?>
 			            </td>
 			            <td> 
 			              <input name="critStatus" type="radio" value="actif" <?if ($critStatus=='actif') echo('checked');?>>
-			              <img src='images/joueur_actif.gif' /> <? echo _("Active");?>
+			               <? echo _("less than 15 days");?>
 			            </td>
 			            <td>
 			              <input name="critStatus" type="radio" value="passif" <?if ($critStatus=='passif') echo('checked');?>>
-			              <img src='images/joueur_passif.gif' /> <? echo _("Passive");?>
+			               <? echo _("more than 14 days");?>
 			            </td>
 		          	</tr>
 		          	<tr>
