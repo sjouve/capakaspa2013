@@ -22,7 +22,7 @@ require 'include/sessioncheck.php';
 require 'include/localization.php';
 
 $toPlayerIDInit = isset($_GET['pID'])?$_GET['pID']:0;
-$toEmailInit = isset($_GET['pEmail'])?$_GET['pEmail']:"";
+$toEmailInit = isset($_GET['pE'])?base64_decode($_GET['pE']):"";
 
 $titre_page = _("Private messages");
 $desc_page = _("Your private messages");

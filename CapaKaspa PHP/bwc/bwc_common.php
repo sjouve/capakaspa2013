@@ -122,7 +122,7 @@ function displayPrivateMessage($toPlayerID, $toFirstName, $toLastName, $toNick, 
 			<div style="margin-top: 10px;">
 				<input type="button" class="button" value="<? echo _("Send")?>" onclick="insertPrivateMessagePopup(<? echo($_SESSION['playerID'])?>,<? echo($toPlayerID)?>,'<? echo($toEmail)?>')">
 				<input type="button" class="link" value="<? echo _("Cancel")?>" onclick="popup('popUpDiv')">
-				<div style="float: right"><input type="button" class="link" onclick="location.href='message.php?pID=<? echo($toPlayerID)?>&pEmail=<?echo($toEmail)?>'" value="<? echo _("See full conversation")?>"></div>
+				<div style="float: right"><input type="button" class="link" onclick="location.href='message.php?pID=<? echo($toPlayerID)?>&pE=<?echo(base64_encode($toEmail))?>'" value="<? echo _("See full conversation")?>"></div>
 			</div>
 		</div>
 		<div id="popupMessageProgress" class="contentbody" style="display: none;">
