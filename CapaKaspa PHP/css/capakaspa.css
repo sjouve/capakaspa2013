@@ -1201,4 +1201,20 @@
 		height: 50x;
 		margin: 5px;
 	}
+	.contentbody .message {
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+		color: #404040;
+		font-size: 13px;/*small;*/
+		font-weight: bold;
+		font-style: normal;
+		text-align: center;
+		line-height: 150%;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		background-color: #F2A521;
+		border-style: solid;
+		border-width: 1px;
+		border-color: #CCCCCC;
+		padding: 5px;
+	}
 }

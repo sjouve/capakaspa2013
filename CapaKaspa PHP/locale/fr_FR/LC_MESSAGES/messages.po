@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2013-03-27 22:49+0100\n"
-"PO-Revision-Date: 2013-03-27 22:49+0100\n"
+"POT-Creation-Date: 2013-04-01 17:04+0100\n"
+"PO-Revision-Date: 2013-04-01 17:04+0100\n"
 "Last-Translator: S. JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: French\n"
@@ -359,7 +359,7 @@ msgid "OK"
 msgstr "OK"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:298
-#: PHP/game_in_progress.php:242 PHP/bwc/bwc_common.php:124
+#: PHP/game_in_progress.php:244 PHP/bwc/bwc_common.php:124
 #: PHP/mobile/game_board.php:302 PHP/mobile/game_in_progress.php:238
 msgid "Cancel"
 msgstr "Annuler"
@@ -435,14 +435,14 @@ msgid "! Like"
 msgstr "! J'aime"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:391
-#: PHP/game_in_progress.php:389 PHP/game_list_ended.php:81
+#: PHP/game_in_progress.php:391 PHP/game_list_ended.php:81
 #: PHP/game_list_ended.php:149 PHP/game_list_ended.php:215
 #: PHP/game_list_ended.php:273
 msgid "Started"
 msgstr "Commencée le"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:391
-#: PHP/game_in_progress.php:389 PHP/game_list_ended.php:82
+#: PHP/game_in_progress.php:391 PHP/game_list_ended.php:82
 #: PHP/game_list_ended.php:150 PHP/game_list_ended.php:216
 #: PHP/game_list_ended.php:274 PHP/mobile/game_board.php:385
 #: PHP/mobile/game_in_progress.php:369
@@ -454,7 +454,7 @@ msgid "Here are old existing comments on this game"
 msgstr "Anciens commentaires sur la partie"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:141
-#: PHP/game_in_progress.php:330 PHP/include/page_body.php:65
+#: PHP/game_in_progress.php:332 PHP/include/page_body.php:65
 #: PHP/mobile/game_in_progress.php:141 PHP/mobile/game_in_progress.php:320
 msgid "My games in progress"
 msgstr "Mes parties en cours"
@@ -472,100 +472,104 @@ msgstr ""
 "Votre navigateur n'est pas compatible. Installez une version plus récente "
 "d'Internet Explorer (9 ou +). Vous pouvez aussi installer Chrome ou Firefox."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:187
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:183
+msgid "The new Elo ranking was computed !"
+msgstr "Le nouveau classement Elo a été calculé !"
+
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:189
 #: PHP/mobile/game_in_progress.php:189
 msgid "You have a current vacation ! Your games are postponed"
 msgstr "Vous avez des vacances en cours ! Vos parties sont suspendues"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:194
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:196
 #: PHP/mobile/game_in_progress.php:196
 msgid "My pending requests"
 msgstr "Mes demandes en attente"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:224
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:226
 msgid "You"
 msgstr "Vous"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:224
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:226
 msgid "invite a player to play a new game"
 msgstr "invitez un joueur à jouer une nouvelle partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:232
-#: PHP/game_in_progress.php:300 PHP/game_in_progress.php:383
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:234
+#: PHP/game_in_progress.php:302 PHP/game_in_progress.php:385
 #: PHP/game_new.php:150 PHP/mobile/game_in_progress.php:228
 #: PHP/mobile/game_in_progress.php:290 PHP/mobile/game_in_progress.php:363
 msgid "Time per move"
 msgstr "Temps par coup"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:232
-#: PHP/game_in_progress.php:300 PHP/game_in_progress.php:383
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:234
+#: PHP/game_in_progress.php:302 PHP/game_in_progress.php:385
 #: PHP/mobile/game_in_progress.php:228 PHP/mobile/game_in_progress.php:290
 #: PHP/mobile/game_in_progress.php:363
 msgid "days"
 msgstr "jours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:239
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:241
 #: PHP/mobile/game_in_progress.php:235
 msgid "Response waiting"
 msgstr "Réponse en attente"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:241
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:243
 #: PHP/mobile/game_in_progress.php:237
 msgid "Request declined"
 msgstr "Demande refusée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:286
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:288
 msgid "invite you to play a new game"
 msgstr "vous invite à jouer une nouvelle partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:306
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:308
 #: PHP/message.php:64 PHP/bwc/bwc_common.php:121
 #: PHP/mobile/game_in_progress.php:296
 msgid "Your message..."
 msgstr "Votre message..."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:309
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:311
 #: PHP/mobile/game_in_progress.php:299
 msgid "Accept"
 msgstr "Accepter"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:310
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:312
 #: PHP/mobile/game_in_progress.php:300
 msgid "Decline"
 msgstr "Refuser"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:330
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:332
 #: PHP/mobile/game_in_progress.php:320
 msgid "Refresh list"
 msgstr "Rafraîchir la liste"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:365
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:367
 msgid "is your opponent in this game."
 msgstr "est votre adversaire dans cette partie."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:380
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:382
 #: PHP/mobile/game_in_progress.php:360
 msgid "Play"
 msgstr "Jouer"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:382
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:384
 #: PHP/player_view.php:272 PHP/player_view.php:299
 #: PHP/ajax/ajx_display_activity.php:165 PHP/mobile/game_in_progress.php:362
 msgid "View"
 msgstr "Voir"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:384
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:386
 #: PHP/bwc/bwc_games.php:1055 PHP/bwc/bwc_games.php:1156
 #: PHP/mobile/game_in_progress.php:364
 msgid "Expiration"
 msgstr "Expiration"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:388
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:390
 #: PHP/ajax/ajx_display_activity.php:175 PHP/mobile/game_in_progress.php:368
 msgid "Comment"
 msgstr "Commenter"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:398
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:400
 #: PHP/mobile/game_in_progress.php:378
 msgid "No games in progress..."
 msgstr "Pas de parties en cours..."
