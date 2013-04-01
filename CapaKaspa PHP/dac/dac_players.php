@@ -60,7 +60,7 @@ function listPlayersForElo()
 				FROM players P, elo_history E 
 				WHERE P.playerID = E.playerID 
 				AND P.activate=1 
-				AND E.eloDate > '2012-09-30' 
+				AND E.eloDate > '2013-03-31' 
 				ORDER BY playerID";
 
 	return mysql_query($tmpQuery);

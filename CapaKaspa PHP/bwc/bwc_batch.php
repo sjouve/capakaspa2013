@@ -178,8 +178,8 @@ function calculerElo()
 {
 	echo("<htlm><body>");
 	// Dates
-	$dateDeb = date("Y-m-d", mktime(0,0,0, 07, 1, 2012));
-	$dateFin = date("Y-m-d", mktime(0,0,0, 9, 30, 2012));
+	$dateDeb = date("Y-m-d", mktime(0,0,0, 01, 1, 2013));
+	$dateFin = date("Y-m-d", mktime(0,0,0, 03, 31, 2013));
 	echo("TRIM ".$dateDeb." -> ".$dateFin."<br/>");
 	$listPlayers = listPlayersForElo();
 	$bonusMalusTable = array(100	=>	470	,
@@ -281,7 +281,8 @@ function calculerElo()
 			4	=>	-470	,
 			3	=>	-470	,
 			2	=>	-470	,
-			1	=>	-470);
+			1	=>	-470	,
+			0   =>	-470);
 
 	while($player = mysql_fetch_array($listPlayers, MYSQL_ASSOC))
 	{

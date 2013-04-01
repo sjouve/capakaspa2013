@@ -48,7 +48,7 @@ function listEndedGames($playerID, $dateDeb, $dateFin)
 									AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
 									AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
 									AND W.playerID = EW.playerID AND B.playerID = EB.playerID
-									AND EW.eloDate > '2012-09-30' AND EB.eloDate > '2012-09-30'
+									AND EW.eloDate > '2013-03-31' AND EB.eloDate > '2013-03-31'
 									AND G.type=0 AND G.lastMove >= '".$dateDeb."' AND G.lastMove <= '".$dateFin."'");
 	
 	return $tmpGames;
