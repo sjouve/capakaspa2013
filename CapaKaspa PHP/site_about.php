@@ -14,7 +14,7 @@ require 'include/page_body_no_menu.php';
 <div id="contentlarge">
     <div class="contentbody">
 		<h2><?echo _("About and contact");?></h2>
-		<h4><?echo _("About");?><h4>
+		<h4><?echo _("About");?></h4>
 		<p>
 		<?echo _("CapaKaspa is a website edited by Sébastien JOUVE (<a href='http://www.netassistant.fr'>NetAssistant</a>).");?>
 		</p>
@@ -26,12 +26,12 @@ require 'include/page_body_no_menu.php';
 		Code NAF/APE : 6201Z<br>
 		</p>
 		
-		<h4><?echo _("Contact");?><h4>
+		<h4><?echo _("Contact");?></h4>
 		<p>
 		<?echo _("To contact us send an email at capakaspa@capakaspa.info");?>
 		</p>
 		
-		<h4><?echo _("Credits");?><h4>
+		<h4><?echo _("Credits");?></h4>
 		<p>
 		<?echo _("CapaKaspa works with some PHP libraries")." : 
 				<br>- "._("an old version of")." WebChess (http://webchess.sourceforge.net), 

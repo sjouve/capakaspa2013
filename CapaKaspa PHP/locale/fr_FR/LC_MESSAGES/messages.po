@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2013-04-01 17:04+0100\n"
-"PO-Revision-Date: 2013-04-01 17:04+0100\n"
+"POT-Creation-Date: 2013-04-03 14:05+0100\n"
+"PO-Revision-Date: 2013-04-03 14:06+0100\n"
 "Last-Translator: S. JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: French\n"
@@ -1265,6 +1265,7 @@ msgid "Elo CapaKaspa"
 msgstr "Elo CapaKaspa"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:422
+#: PHP/site_help.php:23
 msgid ""
 "Elo ranking is calculated quarterly and takes into account the classic games "
 "completed during the quarter past."
@@ -1554,6 +1555,7 @@ msgid "Contact"
 msgstr "Contact"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:31
+#: PHP/site_help.php:18
 msgid "To contact us send an email at capakaspa@capakaspa.info"
 msgstr "Pour nous contacter envoyez un email à capakaspa@capakaspa.info"
 
@@ -1569,9 +1571,30 @@ msgstr "CapaKaspa fonctionne avec quelques librairies PHP"
 msgid "an old version of"
 msgstr "une ancienne version de"
 
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_help.php:4
+#: PHP/include/page_footer.php:5 PHP/include/page_footer_right.php:5
+msgid "Help"
+msgstr "Aide"
+
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_help.php:5
+msgid "Frequently Asked Questions about how to play chess on CapaKaspa"
+msgstr "Questions fréquentes sur la manière de jouer aux échecs sur CapaKaspa"
+
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_help.php:17
+msgid "A problem ? A question ?"
+msgstr "Un problème ? Une question ?"
+
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_help.php:20
+msgid "Frequently Asked Questions"
+msgstr "Questions fréquentes"
+
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_help.php:22
+msgid "How is the ranking of players on the site ?"
+msgstr "Comment est calculé le classement des joueurs sur le site ?"
+
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:4
-#: PHP/site_privacy.php:16 PHP/include/page_footer.php:2
-#: PHP/include/page_footer_right.php:2
+#: PHP/site_privacy.php:16 PHP/include/page_footer.php:3
+#: PHP/include/page_footer_right.php:3
 msgid "Privacy"
 msgstr "Vie privée"
 
@@ -2642,8 +2665,8 @@ msgstr "Jouer à JChess"
 msgid "Play flashChess"
 msgstr "Jouer à flashChess"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_footer.php:2
-#: PHP/include/page_footer_right.php:2
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_footer.php:4
+#: PHP/include/page_footer_right.php:4
 msgid "Terms"
 msgstr "CGU"
 
