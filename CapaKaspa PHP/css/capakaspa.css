@@ -1137,9 +1137,10 @@
 	}
 	
 	.activity_type {
-		color: #FFFFFF;
+		color: #404040;
 		font-weight: bold;
-		text-shadow: 0.1em 0.1em 0.2em black;
+		font-size: 12px;
+		text-shadow: 0.1em 0.1em 0.2em white;
 	}
 	.suggestion {
 		float: left;
