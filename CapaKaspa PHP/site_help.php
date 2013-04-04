@@ -19,6 +19,9 @@ require 'include/page_body_no_menu.php';
 		</p>
 		<h2><?echo _("Frequently Asked Questions");?></h2>
 		
+		<h4><?echo _("Is that the site is compatible with all browsers ?");?></h4>
+		<?echo _("No. The site is compatible with all recent browsers. It does not work with Internet Explorer under version 9.");?>
+		
 		<h4><?echo _("How is the ranking of players on the site ?");?></h4>
 		<?echo _("Elo ranking is calculated quarterly and takes into account the classic games completed during the quarter past.");?>
 		
