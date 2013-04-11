@@ -179,7 +179,7 @@ require 'include/page_body.php';
     	<div class='error'><? echo _("Your browser is not compatible. Install a newer version of Internet Explorer (9 or more). You can also install Chrome or Firefox.");?></div>
     <![endif]-->
     <?
-    if (true)
+    if (false)
     	echo("<div class='message'>"._("The new Elo ranking was computed !")."</div>");
     if ($errMsg != "")
 		echo("<div class='error'>".$errMsg."</div>");
