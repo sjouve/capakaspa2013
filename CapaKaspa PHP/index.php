@@ -21,6 +21,29 @@ $securimage = new Securimage();
 
 require 'include/connectdb.php';
 
+// Si cookie alors connexion auto
+if ((!isset($_SESSION['playerID'])||$_SESSION['playerID'] == -1) && isset($_COOKIE['capakaspacn']['nick']))
+{
+	loginPlayer($_COOKIE['capakaspacn']['nick'], $_COOKIE['capakaspacn']['password'], 0);
+}
+
+if (!isset($_SESSION['playerID']))
+{
+	$_SESSION['playerID'] = -1;
+}
+
+if ($_SESSION['playerID'] != -1)
+{
+	if (time() - $_SESSION['lastInputTime'] >= $CFG_SESSIONTIMEOUT)
+	{
+		$_SESSION['playerID'] = -1;
+	}
+	else if (!isset($_GET['autoreload']))
+	{
+		$_SESSION['lastInputTime'] = time();
+	}
+}
+
 require 'include/localization.php';
 
 /* Traitement des actions */
