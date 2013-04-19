@@ -110,6 +110,8 @@ require 'include/page_body.php';
 								echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a>");
 							else if ($tmpGame['gameMessage'] == "checkMate")
 								echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a>");
+							else if ($tmpGame['gameMessage'] == "draw")
+								echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1/2-1/2</a>");
 							else
 								echo("</td><td>&nbsp;");
 						}
