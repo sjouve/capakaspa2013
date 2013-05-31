@@ -63,7 +63,7 @@ require 'include/page_body_no_menu.php';
 		
 		<h4><?echo _("7. Competent court in case of dispute");?></h4>
 		<p>
-		<?echo _("French law applies to any contractual relationship with Trombi.com, regardless of the country of residence of the user.");?><br>	
+		<?echo _("French law applies to any contractual relationship with capakaspa.info, regardless of the country of residence of the user.");?><br>	
 		<?echo _("Complaints and obligations can be sent by email (address available on the page <a href='site_about.php'>About and contact</a>).");?>
 		</p>
 		

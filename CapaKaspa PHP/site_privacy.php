@@ -66,7 +66,7 @@ require 'include/page_body_no_menu.php';
 		
 		<h4><?echo _("3. Update this text");?></h4>
 		<p>
-		<?echo _("CapaKaspa reserves the right to update the text on the protection of personal data in order to adapt to any new legislation or site improvements. Date of update text on the protection of personal data will be updated accordingly. If significant changes are made ​​to the text, Trombi.com will notify you so visible on the website or information that will be sent. Please read the text on the protection of personal data regularly to always be informed about the protection of personal data we have stored. By using this service, you accept the text content on the protection of personal data in the updated version.");?>
+		<?echo _("CapaKaspa reserves the right to update the text on the protection of personal data in order to adapt to any new legislation or site improvements. Date of update text on the protection of personal data will be updated accordingly. If significant changes are made to the text, capakaspa.info will notify you so visible on the website or information that will be sent. Please read the text on the protection of personal data regularly to always be informed about the protection of personal data we have stored. By using this service, you accept the text content on the protection of personal data in the updated version.");?>
 		</p>
 		<h4><?echo _("4. Termination of your registration");?></h4>
 		<p>
