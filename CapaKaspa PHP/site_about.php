@@ -16,7 +16,8 @@ require 'include/page_body_no_menu.php';
 		<h2><?echo _("About and contact");?></h2>
 		<h4><?echo _("About");?></h4>
 		<p>
-		<?echo _("CapaKaspa is a website edited by Sébastien JOUVE (<a href='http://www.netassistant.fr'>NetAssistant</a>).");?>
+		<?echo _("CapaKaspa is a website edited by Sébastien JOUVE (<a href='http://www.netassistant.fr'>NetAssistant</a>). It's a website to play chess games and share them.
+		</p>");?>
 		</p>
 		<p>
 		<?echo _("Official data");?> :<br>

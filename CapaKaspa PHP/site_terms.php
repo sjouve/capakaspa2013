@@ -17,7 +17,7 @@ require 'include/page_body_no_menu.php';
 		<h4><?echo _("1. Scope of terms and conditions");?></h4>
 		<p>
 		<?echo _("CapaKaspa is a service edited by Sébastien Jouve (see page <a href='site_about.php'>About and contact</a>)");?><br>
-		<?echo _("CapaKaspa offers its visitors free access to its website accessible at http://www.capakaspa.info (hereinafter referred to as \"the website\") to access an area of ​​chess game deferred.");?><br>
+		<?echo _("CapaKaspa offers its visitors free access to its website accessible at http://www.capakaspa.info (hereinafter referred to as \"the website\") to access an area to play chess games.");?><br>
 		<?echo _("By visiting the website or by registering on the website, visitors must comply with the terms and conditions of service.");?>
 		</p>
 		<p>

@@ -214,7 +214,7 @@ require 'include/page_body_home.php';
 		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; background-image: url('images/home_capakaspa_board.jpg');">
 			<span style="position: relative; top: 110px; font-size: 16px; text-shadow: 0.1em 0.1em 0.2em black; color: #FFFFFF;">
 				<?php echo _("Play chess games, choose your cadence and type.");?><br>
-				<?php echo _("Improve your Elo ranking.");?>
+				<?php echo _("Improve your Elo chess ranking.");?>
 			</span>
 		</div>
 		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; margin-left: 30px; background-image: url('images/home_capakaspa_news.jpg');">

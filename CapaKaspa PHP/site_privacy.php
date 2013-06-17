@@ -39,7 +39,7 @@ require 'include/page_body_no_menu.php';
 		<p><?echo _("c) Data on parts");?></p>
 		<p>
 		<?echo _("All data concerning the parts of chess are visible to all other members of CapaKaspa. It also includes comments.");?><br>
-		<?echo _("You can choose to share news about a shot of a part, such as event invitations and game results.");?>
+		<?echo _("You can choose to share news about a shot of a part, such as event invitations and chess game results.");?>
 		</p>
 		
 		<h4><?echo _("2. Duration of storage of your data");?></h4>

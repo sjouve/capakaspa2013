@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2013-05-31 13:58+0100\n"
-"PO-Revision-Date: 2013-05-31 14:00+0100\n"
+"POT-Creation-Date: 2013-06-17 09:55+0100\n"
+"PO-Revision-Date: 2013-06-17 09:58+0100\n"
 "Last-Translator: S. JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: French\n"
@@ -840,8 +840,8 @@ msgid "Play chess games, choose your cadence and type."
 msgstr "Jouer des parties d'échecs, choisir votre cadence et le type."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:217
-msgid "Improve your Elo ranking."
-msgstr "Améliorer votre classement Elo."
+msgid "Improve your Elo chess ranking."
+msgstr "Améliorer votre classement Elo de jeu d'échecs."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:222
 msgid "Share your moves, results and invitations with your followers."
@@ -1269,7 +1269,6 @@ msgid "Elo CapaKaspa"
 msgstr "Elo CapaKaspa"
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:422
-#: PHP/site_help.php:26
 msgid ""
 "Elo ranking is calculated quarterly and takes into account the classic games "
 "completed during the quarter past."
@@ -1545,33 +1544,36 @@ msgstr "Vous n'avez jamais joué contre ce joueur"
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:19
 msgid ""
 "CapaKaspa is a website edited by Sébastien JOUVE (<a href='http://www."
-"netassistant.fr'>NetAssistant</a>)."
+"netassistant.fr'>NetAssistant</a>). It's a website to play chess games and "
+"share them.\n"
+"\t\t</p>"
 msgstr ""
 "Capakaspa est un site Internet édité par Sébastien JOUVE  (<a href='http://"
-"www.netassistant.fr'>NetAssistant</a>)."
+"www.netassistant.fr'>NetAssistant</a>). C'est un site Web pour jouer des "
+"parties d'échecs et les partager."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:22
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:23
 msgid "Official data"
 msgstr "Données officielles"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:29
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:30
 msgid "Contact"
 msgstr "Contact"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:31
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:32
 #: PHP/site_help.php:18
 msgid "To contact us send an email at capakaspa@capakaspa.info"
 msgstr "Pour nous contacter envoyez un email à capakaspa@capakaspa.info"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:34
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:35
 msgid "Credits"
 msgstr "Crédits"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:36
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:37
 msgid "CapaKaspa works with some PHP libraries"
 msgstr "CapaKaspa fonctionne avec quelques librairies PHP"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:37
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:38
 msgid "an old version of"
 msgstr "une ancienne version de"
 
@@ -1605,8 +1607,17 @@ msgstr ""
 "fonctionne pas avec une version d'Internet Explorer inférieure à 9."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_help.php:25
-msgid "How is the ranking of players on the site ?"
-msgstr "Comment est calculé le classement des joueurs sur le site ?"
+msgid "How is calculated the chess ranking of players on the site ?"
+msgstr ""
+"Comment est calculé le classement de jeu d'échecs des joueurs sur le site ?"
+
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_help.php:26
+msgid ""
+"Elo ranking is calculated quarterly and takes into account the classic chess "
+"games completed during the quarter past."
+msgstr ""
+"Le classement Elo est calculé tous les trimestres et prend en compte les "
+"parties d'échecs classiques terminées pendant le trimestre passé."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:4
 #: PHP/site_privacy.php:16 PHP/include/page_footer.php:3
@@ -1717,10 +1728,11 @@ msgstr ""
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:42
 msgid ""
 "You can choose to share news about a shot of a part, such as event "
-"invitations and game results."
+"invitations and chess game results."
 msgstr ""
 "Vous pouvez choisir de partager des actualités concernant un coup d'une "
-"partie, les évènements tels que les invitations ou les résultats des parties."
+"partie, les évènements tels que les invitations ou les résultats des parties "
+"d'échecs."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:45
 msgid "2. Duration of storage of your data"
@@ -1905,11 +1917,11 @@ msgstr ""
 msgid ""
 "CapaKaspa offers its visitors free access to its website accessible at "
 "http://www.capakaspa.info (hereinafter referred to as \"the website\") to "
-"access an area of ​​chess game deferred."
+"access an area to play chess games."
 msgstr ""
 "CapaKaspa offre à ses visiteurs, en accès gratuit sur son site internet "
 "accessible à l'adresse http://www.capakaspa.info (ci-après dénommé « le site "
-"internet ») l'accès à une zone de jeu d'échecs en différé."
+"internet ») l'accès à une zone pour jouer des parties d'échecs en différé."
 
 #: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:21
 msgid ""

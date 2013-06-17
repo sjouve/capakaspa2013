@@ -22,8 +22,8 @@ require 'include/page_body_no_menu.php';
 		<h4><?echo _("Is that the site is compatible with all browsers ?");?></h4>
 		<?echo _("No. The site is compatible with all recent browsers. It does not work with Internet Explorer under version 9.");?>
 		
-		<h4><?echo _("How is the ranking of players on the site ?");?></h4>
-		<?echo _("Elo ranking is calculated quarterly and takes into account the classic games completed during the quarter past.");?>
+		<h4><?echo _("How is calculated the chess ranking of players on the site ?");?></h4>
+		<?echo _("Elo ranking is calculated quarterly and takes into account the classic chess games completed during the quarter past.");?>
 		
 	</div>
 </div>
