@@ -89,16 +89,15 @@ if (isset($toPlayerID))
 	  		</ul>
 	</div>
 	<? } ?>
-	<? if (isset($_SESSION['playerID'])&&$_SESSION['playerID']!=-1) {?>
 	<div class="navlinks">
 		<div class="title"><?php echo _("Applications");?></div>
 			<ul>
-		        <li id="menu7"><img src="images/puce.gif"/> <a href="app_jchess.php"><?php echo _("Play JChess");?></a></li>
-		        <li id="menu8"><img src="images/puce.gif"/> <a href="app_flashchess.php"><?php echo _("Play flashChess");?></a></li>
-		        <li id="menu9"><img src="images/puce.gif"/> <a href="app_puzzle.php"><?php echo _("Puzzle of the day");?></a></li>
+		        <li id="menu7"><img src="images/puce.gif"/> <a href="app_jchess.php"><?php echo _("Play chess vs JChess");?></a></li>
+		        <li id="menu8"><img src="images/puce.gif"/> <a href="app_flashchess.php"><?php echo _("Play chess vs FlashChess");?></a></li>
+		        <li id="menu9"><img src="images/puce.gif"/> <a href="app_puzzle.php"><?php echo _("Chess puzzle of the day");?></a></li>
       		</ul>
 	</div>
-	<? } ?>
+	
 </div>
 
 <div id="advertisement">

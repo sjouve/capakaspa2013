@@ -15,11 +15,12 @@ require 'bwc/bwc_games.php';
 require 'include/connectdb.php';
 
 /* check session status */
-require 'include/sessioncheck.php';
+//require 'include/sessioncheck.php';
 
 require 'include/localization.php';
 
-$titre_page = _("Play a chess game against flashChess");
+$titre_page = _("Play chess against flashChess");
+$desc_page = _("Play a chess game against flashChess");
 require 'include/page_header.php';
 ?>
 <script src="javascript/menu.js" type="text/javascript"></script>
@@ -29,7 +30,7 @@ require 'include/page_body.php';
 ?>
 <div id="contentlarge">
     <div class="contentbody">
-		
+		<h3><? echo $titre_page?></h3>
     	<embed width="760" height="550" name="plugin" src="bin/FLChess.swf" type="application/x-shockwave-flash">
 		<br>
 		

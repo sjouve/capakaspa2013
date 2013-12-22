@@ -15,11 +15,11 @@ require 'bwc/bwc_games.php';
 require 'include/connectdb.php';
 
 /* check session status */
-require 'include/sessioncheck.php';
+//require 'include/sessioncheck.php';
 
 require 'include/localization.php';
 
-$titre_page = _("Play against JChess");
+$titre_page = _("Play chess against JChess");
 $desc_page = _("Play a chess game against JChess");
 require 'include/page_header.php';
 ?>
@@ -41,6 +41,7 @@ require 'include/page_body.php';
 ?>
 <div id="contentlarge">
 	<div class="contentbody">
+	<h3><? echo $titre_page?></h3>
 		<center>
 		<applet
 			code=jchess.class archive="bin/jchess.zip"

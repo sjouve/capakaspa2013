@@ -265,6 +265,7 @@ require 'include/page_body_home.php';
 			if ($err == 'captcha')
 				echo("<div class='error'>"._("Security code error. Try again.")."</div>");
 		?>
+		<!--google_ad_section_start(weight=ignore)-->
 		<form name="userdata" method="post" action="index.php?ToDo=NewUser">
 		<table>
 			<tr>
@@ -362,6 +363,7 @@ require 'include/page_body_home.php';
 	
 			<!-- <input name="ToDo" value="NewUser" type="hidden"> -->
 		</form>
+		<!--google_ad_section_end-->
 		<?}?>
 	</div>
 </div>
@@ -389,7 +391,10 @@ require 'include/page_body_home.php';
 	     <br>
    		<h3><?php echo _("Play chess on CapaKaspa");?></h3>
    		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActiveGameForAll()); ?></span> <?php echo _("chess games in progress");?><br>
-   		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActivePlayers()+getNbPassivePlayers()); ?></span> <?php echo _("players are waiting to play chess games");?>
+   		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActivePlayers()+getNbPassivePlayers()); ?></span> <?php echo _("players are waiting to play chess games");?><br><br>
+   		<img src="images/puce.gif"/> <a href="app_puzzle.php"><? echo _("Play chess vs JChess");?></a><br>
+   		<img src="images/puce.gif"/> <a href="app_puzzle.php"><? echo _("Play chess vs FlashChess");?></a><br>
+   		<img src="images/puce.gif"/> <a href="app_puzzle.php"><? echo _("Chess puzzle of the day");?></a><br>
 	</div>
 </div>
 <?

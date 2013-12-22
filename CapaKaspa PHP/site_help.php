@@ -14,7 +14,7 @@ require 'include/page_body_no_menu.php';
 <div id="contentlarge">
     <div class="contentbody">
 		<p>
-		<?echo _("A problem ? A question ?");?><br>
+		<?echo _("A problem with a game ? A question about the site ?");?><br>
 		<?echo _("To contact us send an email at capakaspa@capakaspa.info");?>
 		</p>
 		<h2><?echo _("Frequently Asked Questions");?></h2>
@@ -23,7 +23,7 @@ require 'include/page_body_no_menu.php';
 		<?echo _("No. The site is compatible with all recent browsers. It does not work with Internet Explorer under version 9.");?>
 		
 		<h4><?echo _("How is calculated the chess ranking of players on the site ?");?></h4>
-		<?echo _("Elo ranking is calculated quarterly and takes into account the classic chess games completed during the quarter past.");?>
+		<?echo _("Elo ranking is calculated monthly and takes into account the classic chess games completed during the month past.");?>
 		
 	</div>
 </div>
