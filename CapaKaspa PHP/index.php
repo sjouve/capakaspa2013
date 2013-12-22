@@ -392,8 +392,8 @@ require 'include/page_body_home.php';
    		<h3><?php echo _("Play chess on CapaKaspa");?></h3>
    		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActiveGameForAll()); ?></span> <?php echo _("chess games in progress");?><br>
    		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActivePlayers()+getNbPassivePlayers()); ?></span> <?php echo _("players are waiting to play chess games");?><br><br>
-   		<img src="images/puce.gif"/> <a href="app_puzzle.php"><? echo _("Play chess vs JChess");?></a><br>
-   		<img src="images/puce.gif"/> <a href="app_puzzle.php"><? echo _("Play chess vs FlashChess");?></a><br>
+   		<img src="images/puce.gif"/> <a href="app_jchess.php"><? echo _("Play chess vs JChess");?></a><br>
+   		<img src="images/puce.gif"/> <a href="app_flashchess.php"><? echo _("Play chess vs FlashChess");?></a><br>
    		<img src="images/puce.gif"/> <a href="app_puzzle.php"><? echo _("Chess puzzle of the day");?></a><br>
 	</div>
 </div>
