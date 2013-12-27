@@ -16,10 +16,12 @@ if (isset($toPlayerID))
 		  </form>
 	  	<? } ?>
 	  	</span>
-		<span class="social"><a href="http://www.facebook.com/capakaspa" target="_blank"><img src="images/icone_facebook.png" alt="<?php echo _("Follow us on Facebook");?>" title="<?php echo _("Follow us on Facebook");?>" width="32" height="32" style="border: 0;"/></a>
+		<span class="social">
+		<a href="http://www.facebook.com/capakaspa" target="_blank"><img src="images/icone_facebook.png" alt="<?php echo _("Follow us on Facebook");?>" title="<?php echo _("Follow us on Facebook");?>" width="32" height="32" style="border: 0;"/></a>
 		<a href="http://www.twitter.com/CapaKaspa" target="_blank"><img src="http://twitter-badges.s3.amazonaws.com/t_logo-a.png" title="<?php echo _("Follow us on Twitter");?>" alt="<?php echo _("Follow us on Twitter");?>" width="32" height="32" style="border: 0;"/></a>
 		<a href="https://plus.google.com/114694270583726807082/?prsrc=3" style="text-decoration: none;" target="_blank"><img src="https://ssl.gstatic.com/images/icons/gplus-32.png" title="<?php echo _("Follow us on Google+");?>" alt="<?php echo _("Follow us on Google+");?>" width="32" height="32" style="border: 0;"/></a>
 		<a href="http://www.youtube.com/user/CapaKaspaEchecs?feature=creators_cornier-http%253A%2F%2Fs.ytimg.com%2Fyt%2Fimg%2Fcreators_corner%2FYouTube%2Fyoutube_32x32.png" target="_blank"><img src="http://s.ytimg.com/yt/img/creators_corner/YouTube/youtube_32x32.png" title="<?php echo _("Follow us on YouTube");?>" alt="<?php echo _("Follow us on YouTube");?>"/></a><img src="http://www.youtube-nocookie.com/gen_204?feature=creators_cornier-http%3A//s.ytimg.com/yt/img/creators_corner/YouTube/youtube_32x32.png" style="display: none"/>
+		<a href="http://www.pinterest.com/capakaspa" target="_blank"><img src="images/icone_pinterest.png" alt="<?php echo _("Follow us on Pinterest");?>" title="<?php echo _("Follow us on Pinterest");?>" width="32" height="32" style="border: 0;"/></a>
 		</span>
 	</div>
 </div>
