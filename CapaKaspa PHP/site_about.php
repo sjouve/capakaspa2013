@@ -21,10 +21,8 @@ require 'include/page_body_no_menu.php';
 		</p>
 		<p>
 		<?echo _("Official data");?> :<br>
-		Lentilly, 69210<br>
+		Lyon, 69003<br>
 		FRANCE<br>
-		No SIRET : 53523014800038<br>
-		Code NAF/APE : 6201Z<br>
 		</p>
 		
 		<h4><?echo _("Contact");?></h4>

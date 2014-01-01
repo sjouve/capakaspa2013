@@ -1,58 +1,60 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2013-06-17 11:11+0100\n"
-"PO-Revision-Date: 2013-06-17 11:12+0100\n"
-"Last-Translator: S. JOUVE <sjouve@gmail.com>\n"
+"POT-Creation-Date: 2014-01-01 16:37+0100\n"
+"PO-Revision-Date: 2014-01-01 16:37+0100\n"
+"Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
-"Language: French\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Poedit 1.6.3\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: D:\\eclipse\\wokspace\\capakaspa\\CapaKaspa PHP\n"
+"X-Poedit-SearchPath-1: C:\\Users\\Sebastien\\git\\capakaspa2013\\CapaKaspa "
+"PHP\n"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:31
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:31
 msgid "Activate your account"
 msgstr "Activer votre compte"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:32
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:32
 msgid "Activate your account and play chess on CapaKaspa"
 msgstr "Activer votre compte et jouer aux échecs sur CapaKaspa"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:40
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:40
 msgid "This account doesn't exist"
 msgstr "Ce compte existe déjà"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:42
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:42
 #: PHP/password.php:41
 msgid "A technical problem prevented the sending of the message"
 msgstr "Un problème technique a empêché l'envoi du message"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:44
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:44
 msgid "The email address is already in use"
 msgstr "L'adresse email est déjà utilisée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:46
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:46
 msgid "The email address is not valid"
 msgstr "L'adresse email n'est pas valide"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:49
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:49
 msgid "An activation message has been sent to the email address."
 msgstr "Un message d'activation a été envoyé à l'adresse email."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:51
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:51
 msgid "Your account is not activated."
 msgstr "Votre compte n'est pas activé."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:52
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:52
 msgid "You are surely one of the following case"
 msgstr "Vous êtes sûrement dans l'un des cas suivants"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:54
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:54
 msgid ""
 "You received the message containing the link to activate your account but "
 "you have not yet used"
@@ -60,15 +62,15 @@ msgstr ""
 "Vous avez reçu le message contenant le lien d'activation mais vous ne l'avez "
 "pas utilisé"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:55
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:55
 msgid "you do not receive a message containing the activation link"
 msgstr "vous n'avez pas reçu le message contenant le lien d'activation"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:56
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:56
 msgid "you have disabled your account"
 msgstr "vous avez désactivé votre compte"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:59
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:59
 msgid ""
 "If you prefer, you can use the form below to update your email address "
 "associated with your account and start the activation process"
@@ -76,230 +78,234 @@ msgstr ""
 "Si vous le souhaitez, vous pouvez utiliser le formulaire ci-dessous pour "
 "mettre à jour votre adresse email et commencer le processus d'activation"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:64
-#: PHP/index.php:258 PHP/index.php:280 PHP/index.php:374
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:64
+#: PHP/index.php:258 PHP/index.php:281 PHP/index.php:376
 #: PHP/player_update.php:334 PHP/bwc/bwc_players.php:353
-#: PHP/include/page_body.php:35 PHP/mobile/index.php:57
+#: PHP/include/page_body.php:37 PHP/mobile/index.php:57
 msgid "User name"
 msgstr "Nom d'utilisateur"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:69
-#: PHP/index.php:378 PHP/bwc/bwc_players.php:354 PHP/include/page_body.php:36
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:69
+#: PHP/index.php:380 PHP/bwc/bwc_players.php:354 PHP/include/page_body.php:38
 #: PHP/mobile/index.php:58
 msgid "Password"
 msgstr "Mot de passe"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:74
-#: PHP/index.php:260 PHP/index.php:300 PHP/player_update.php:378
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:74
+#: PHP/index.php:260 PHP/index.php:301 PHP/player_update.php:378
 msgid "Email"
 msgstr "Email"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:80
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:80
 #: PHP/message.php:65 PHP/password.php:58 PHP/bwc/bwc_common.php:123
 msgid "Send"
 msgstr "Envoyer"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activity.php:27
-#: PHP/include/page_body.php:74
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activity.php:27
+#: PHP/include/page_body.php:76
 msgid "News feed"
 msgstr "Fil d'actualités"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activity.php:28
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activity.php:28
 msgid "News feed of your following"
 msgstr "Fil d'actualités de vos abonnements"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/app_flashchess.php:22
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_flashchess.php:22
+msgid "Play chess against flashChess"
+msgstr "Jouer aux échecs avec flashChess"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_flashchess.php:23
 msgid "Play a chess game against flashChess"
-msgstr "Jouer une partie d'échecs contre flashChess"
+msgstr "Jouer une partie d'échecs avec flashChess"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/app_jchess.php:22
-msgid "Play against JChess"
-msgstr "Jouer contre JChess"
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_jchess.php:22
+msgid "Play chess against JChess"
+msgstr "Jouer aux échecs avec JChess"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/app_jchess.php:23
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_jchess.php:23
 msgid "Play a chess game against JChess"
-msgstr "Jouer une partie d'échecs contre JChess"
+msgstr "Jouer une partie d'échecs avec JChess"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/app_jchess.php:52
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_jchess.php:53
 msgid "Config"
 msgstr "Paramètres"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/app_jchess.php:53
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_jchess.php:54
 msgid "Play !"
 msgstr "Jouer !"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/app_jchess.php:54
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_jchess.php:55
 #: PHP/game_new.php:25 PHP/player_view.php:157
-#: PHP/ajax/ajx_display_player.php:58 PHP/include/page_body.php:64
+#: PHP/ajax/ajx_display_player.php:58 PHP/include/page_body.php:66
 msgid "New game"
 msgstr "Nouvelle partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/app_jchess.php:55
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_jchess.php:56
 #: PHP/player_view.php:175 PHP/site_about.php:17 PHP/include/page_footer.php:2
 #: PHP/include/page_footer_right.php:2
 msgid "About"
 msgstr "A propos"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/app_jchess.php:57
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_jchess.php:58
 msgid "Play with blacks"
 msgstr "Jouer avec les noirs"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/app_jchess.php:58
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_jchess.php:59
 msgid "Flip the board"
 msgstr "Retourner l'échiquier"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/app_puzzle.php:22
-#: PHP/include/page_body.php:98
-msgid "Puzzle of the day"
-msgstr "Diagramme du jour"
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_puzzle.php:22
+#: PHP/app_puzzle.php:23 PHP/index.php:397 PHP/include/page_body.php:99
+msgid "Chess puzzle of the day"
+msgstr "Diagramme d'échecs du jour"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/error_404.php:4
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/error_404.php:4
 #: PHP/site_about.php:4 PHP/site_about.php:16
 msgid "About and contact"
 msgstr "A propos et contact"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/error_404.php:5
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/error_404.php:5
 #: PHP/site_about.php:5
 msgid "All details about us"
 msgstr "Tous les détails à notre sujet"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/error_404.php:17
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/error_404.php:17
 msgid "This page doesn't exist !"
 msgstr "Cette page n'existe pas !"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:132
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:132
 #: PHP/mobile/game_board.php:131
 msgid "Play chess - Your move"
 msgstr "Jouer aux échecs - Votre tour"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:134
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:134
 #: PHP/mobile/game_board.php:133
 msgid "Play chess - Opponent move"
 msgstr "Jouer aux échecs - Au tour de l'adversaire"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:136
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:136
 #: PHP/mobile/game_board.php:135
 msgid "Play chess and share your game. It's your game, it's up to you !"
 msgstr ""
 "Jouer aux échecs et partager vos parties. C'est votre partie, c'est à vous "
 "de jouer !"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:234
-#: PHP/mobile/game_board.php:236
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:233
+#: PHP/mobile/game_board.php:235
 msgid "Your opponent is absent at the moment. The game is postponed"
 msgstr "Votre adversaire est absent pour le moment. La partie est suspendue"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:240
-#: PHP/mobile/game_board.php:241
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:239
+#: PHP/mobile/game_board.php:240
 msgid "Are you sure you want to cancel your last move ?"
 msgstr "Etes-vous sûr de vouloir annuler votre dernier coup ?"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:241
-#: PHP/mobile/game_board.php:242
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:240
+#: PHP/mobile/game_board.php:241
 msgid "Confirm your draw proposal ?"
 msgstr "Confirmez-vous votre proposition de Nulle ?"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:242
-#: PHP/mobile/game_board.php:243
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:241
+#: PHP/mobile/game_board.php:242
 msgid "Are you sure you want to resign ?"
 msgstr "Etes vous sûr de vouloir abandonner ?"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:243
-#: PHP/mobile/game_board.php:244
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:242
+#: PHP/mobile/game_board.php:243
 msgid "Invalid move"
 msgstr "Coup invalide"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:244
-#: PHP/mobile/game_board.php:245
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:243
+#: PHP/mobile/game_board.php:244
 msgid "You are playing with"
 msgstr "Vous jouez avec"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:245
-#: PHP/mobile/game_board.php:246
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:244
+#: PHP/mobile/game_board.php:245
 msgid "whites"
 msgstr "les blancs"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:246
-#: PHP/mobile/game_board.php:247
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:245
+#: PHP/mobile/game_board.php:246
 msgid "blacks"
 msgstr "les noirs"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:247
-#: PHP/mobile/game_board.php:248
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:246
+#: PHP/mobile/game_board.php:247
 msgid "Cannot move into check."
 msgstr "Ne peut pas bouger en échecs."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:248
-#: PHP/mobile/game_board.php:249
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:247
+#: PHP/mobile/game_board.php:248
 msgid "Kings cannot move like that."
 msgstr "Le Roi ne peut pas bouger comme cela."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:249
-#: PHP/mobile/game_board.php:250
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:248
+#: PHP/mobile/game_board.php:249
 msgid "Pawns cannot move backwards, only forward."
 msgstr "Les pions ne peuvent pas reculer, seulement avancer."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:250
-#: PHP/mobile/game_board.php:251
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:249
+#: PHP/mobile/game_board.php:250
 msgid ""
 "Pawns can only move en passant immediately after an opponent played his pawn."
 msgstr ""
 "Les pions ne peuvent prendre en passant qu'immédiatement après que "
 "l'adversaire ait joué son pion."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:251
-#: PHP/mobile/game_board.php:252
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:250
+#: PHP/mobile/game_board.php:251
 msgid "Knights cannot move like that."
 msgstr "Les cavaliers ne peuvent pas bouger comme ça."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:252
-#: PHP/mobile/game_board.php:253
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:251
+#: PHP/mobile/game_board.php:252
 msgid "Bishops cannot move like that."
 msgstr "Les Fous ne peuvent pas bouger comme ça."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:253
-#: PHP/mobile/game_board.php:254
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:252
+#: PHP/mobile/game_board.php:253
 msgid "Bishops cannot jump over other pieces."
 msgstr "Les Fous ne peuvent pas sauter par dessus d'autres pièces."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:254
-#: PHP/mobile/game_board.php:255
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:253
+#: PHP/mobile/game_board.php:254
 msgid "Rooks cannot move like that."
 msgstr "Les Tours ne peuvent pas bouger comme ça."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:255
-#: PHP/mobile/game_board.php:256
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:254
+#: PHP/mobile/game_board.php:255
 msgid "Rooks cannot jump over other pieces."
 msgstr "Les Tours ne peuvent pas sauter pas dessus d'autres pièces."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:256
-#: PHP/mobile/game_board.php:257
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:255
+#: PHP/mobile/game_board.php:256
 msgid "Queens cannot move like that."
 msgstr "Les Dames ne peuvent pas bouger comme ça."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:257
-#: PHP/mobile/game_board.php:258
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:256
+#: PHP/mobile/game_board.php:257
 msgid "Queens cannot jump over other pieces."
 msgstr "Les Dames ne peuvent pas sauter par dessus d'autres pièces."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:258
-#: PHP/mobile/game_board.php:259
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:257
+#: PHP/mobile/game_board.php:258
 msgid "Can only castle if king has not moved yet."
 msgstr "On ne peut roquer que si le Roi n'a pas encore bougé."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:259
-#: PHP/mobile/game_board.php:260
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:258
+#: PHP/mobile/game_board.php:259
 msgid "Can only castle if rook has not moved yet."
 msgstr "On ne peut roquer que si la Tour n'a pas encore bougé."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:260
-#: PHP/mobile/game_board.php:261
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:259
+#: PHP/mobile/game_board.php:260
 msgid "Can only castle if there are no pieces between the rook and the king."
 msgstr ""
 "On ne peut roquer que s'il n'y a pas de pièces entre le Roi et la Tour."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:261
-#: PHP/mobile/game_board.php:262
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:260
+#: PHP/mobile/game_board.php:261
 msgid ""
 "When castling, the king cannot move over a square that is attacked by an "
 "ennemy piece."
@@ -307,164 +313,164 @@ msgstr ""
 "En roquant, le Roi ne peut bouger sur une case qui est attaquée par une "
 "pièce ennemie."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:262
-#: PHP/mobile/game_board.php:263
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:261
+#: PHP/mobile/game_board.php:262
 msgid "Stalemate - The game ends with a draw."
 msgstr "Pat - La partie se termine sur une Nulle."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:263
-#: PHP/mobile/game_board.php:264
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:262
+#: PHP/mobile/game_board.php:263
 msgid "Insufficient material to checkmate - The game ends with a draw."
 msgstr "Matériel insuffisant pour mater - La partie se termine sur une Nulle."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:264
-#: PHP/mobile/game_board.php:265
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:263
+#: PHP/mobile/game_board.php:264
 msgid ""
 "Draw (this position has occurred three times) - The game ends with a draw."
 msgstr "La position s'est répétée 3 fois - La partie se termine sur une Nulle."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:265
-#: PHP/mobile/game_board.php:266
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:264
+#: PHP/mobile/game_board.php:265
 msgid "Draw (50 moves rule) - The game ends with a draw."
 msgstr "Règle des 50 coups - La partie se termine sur une Nulle."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:274
-#: PHP/mobile/game_board.php:275
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:273
+#: PHP/mobile/game_board.php:274
 msgid "Promote the pawn in"
 msgstr "Promouvoir le pion en"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:275
-#: PHP/game_new.php:199 PHP/mobile/game_board.php:276
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:274
+#: PHP/game_new.php:145 PHP/mobile/game_board.php:275
 msgid "Queen"
 msgstr "Dame"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:276
-#: PHP/mobile/game_board.php:277
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:275
+#: PHP/mobile/game_board.php:276
 msgid "Rook"
 msgstr "Tour"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:277
-#: PHP/mobile/game_board.php:278
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:276
+#: PHP/mobile/game_board.php:277
 msgid "Knight"
 msgstr "Cavalier"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:278
-#: PHP/mobile/game_board.php:279
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:277
+#: PHP/mobile/game_board.php:278
 msgid "Bishop"
 msgstr "Fou"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:279
-#: PHP/bwc/bwc_games.php:1202 PHP/mobile/game_board.php:280
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:278
+#: PHP/bwc/bwc_games.php:1191 PHP/mobile/game_board.php:279
 msgid "OK"
 msgstr "OK"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:299
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:298
 #: PHP/game_in_progress.php:244 PHP/bwc/bwc_common.php:124
-#: PHP/mobile/game_board.php:303 PHP/mobile/game_in_progress.php:238
+#: PHP/mobile/game_board.php:302 PHP/mobile/game_in_progress.php:238
 msgid "Cancel"
 msgstr "Annuler"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:300
-#: PHP/mobile/game_board.php:304
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:299
+#: PHP/mobile/game_board.php:303
 msgid "Valid"
 msgstr "Valider"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:301
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:300
 #: PHP/graph_results_perc.php:19 PHP/player_view.php:217
-#: PHP/mobile/game_board.php:305
+#: PHP/mobile/game_board.php:304
 msgid "Draw"
 msgstr "Nulle"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:302
-#: PHP/mobile/game_board.php:306
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:301
+#: PHP/mobile/game_board.php:305
 msgid "Share"
 msgstr "Partager"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:349
-#: PHP/mobile/game_board.php:346
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:348
+#: PHP/mobile/game_board.php:345
 msgid "Viewer"
 msgstr "Visualiseur"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:350
-#: PHP/mobile/game_board.php:347
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:349
+#: PHP/mobile/game_board.php:346
 msgid "Board"
 msgstr "Echiquier"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:352
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:351
 msgid "Download PGN"
 msgstr "Télécharger PGN"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:355
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:354
 #: PHP/player_view.php:160
 msgid "Private message"
 msgstr "Message privé"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:356
-#: PHP/mobile/game_board.php:351
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:355
+#: PHP/mobile/game_board.php:350
 msgid "Resign"
 msgstr "Abandonner"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:381
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:380
 #: PHP/ajax/ajx_display_activity.php:171 PHP/ajax/ajx_display_comment.php:51
-#: PHP/ajax/ajx_insert_like.php:25 PHP/mobile/game_board.php:375
+#: PHP/ajax/ajx_insert_like.php:25 PHP/mobile/game_board.php:374
 #: PHP/mobile/ajax/ajx_display_comment.php:51
 #: PHP/mobile/ajax/ajx_insert_like.php:25
 msgid "Stop liking this item"
 msgstr "Je n'aime plus ça"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:381
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:380
 #: PHP/ajax/ajx_display_activity.php:171 PHP/ajax/ajx_display_comment.php:51
-#: PHP/ajax/ajx_insert_like.php:25 PHP/mobile/game_board.php:375
+#: PHP/ajax/ajx_insert_like.php:25 PHP/mobile/game_board.php:374
 #: PHP/mobile/ajax/ajx_display_comment.php:51
 #: PHP/mobile/ajax/ajx_insert_like.php:25
 msgid "! Unlike"
 msgstr "! Je n'aime plus"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:383
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:382
 #: PHP/ajax/ajx_display_activity.php:173 PHP/ajax/ajx_display_comment.php:53
-#: PHP/mobile/game_board.php:377 PHP/mobile/ajax/ajx_display_comment.php:53
+#: PHP/mobile/game_board.php:376 PHP/mobile/ajax/ajx_display_comment.php:53
 msgid "I like this item"
 msgstr "J'aime ça"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:383
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:382
 #: PHP/ajax/ajx_delete_like.php:25 PHP/ajax/ajx_display_activity.php:173
-#: PHP/ajax/ajx_display_comment.php:53 PHP/mobile/game_board.php:377
+#: PHP/ajax/ajx_display_comment.php:53 PHP/mobile/game_board.php:376
 #: PHP/mobile/ajax/ajx_delete_like.php:25
 #: PHP/mobile/ajax/ajx_display_comment.php:53
 msgid "! Like"
 msgstr "! J'aime"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:392
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:391
 #: PHP/game_in_progress.php:391 PHP/game_list_ended.php:81
 #: PHP/game_list_ended.php:151 PHP/game_list_ended.php:217
 #: PHP/game_list_ended.php:275
 msgid "Started"
 msgstr "Commencée le"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:392
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:391
 #: PHP/game_in_progress.php:391 PHP/game_list_ended.php:82
 #: PHP/game_list_ended.php:152 PHP/game_list_ended.php:218
-#: PHP/game_list_ended.php:276 PHP/mobile/game_board.php:386
+#: PHP/game_list_ended.php:276 PHP/mobile/game_board.php:385
 #: PHP/mobile/game_in_progress.php:369
 msgid "Last move"
 msgstr "Dernier coup"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_board.php:414
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:413
 msgid "Here are old existing comments on this game"
 msgstr "Anciens commentaires sur la partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:141
-#: PHP/game_in_progress.php:332 PHP/include/page_body.php:65
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:141
+#: PHP/game_in_progress.php:332 PHP/include/page_body.php:67
 #: PHP/mobile/game_in_progress.php:141 PHP/mobile/game_in_progress.php:320
 msgid "My games in progress"
 msgstr "Mes parties en cours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:142
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:142
 #: PHP/mobile/game_in_progress.php:142
 msgid "Play chess and share your games. My games in progress."
 msgstr "Jouer aux échecs et partager vos parties. Mes parties en cours."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:179
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:179
 msgid ""
 "Your browser is not compatible. Install a newer version of Internet Explorer "
 "(9 or more). You can also install Chrome or Firefox."
@@ -472,294 +478,290 @@ msgstr ""
 "Votre navigateur n'est pas compatible. Installez une version plus récente "
 "d'Internet Explorer (9 ou +). Vous pouvez aussi installer Chrome ou Firefox."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:183
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:183
 msgid "The new Elo ranking was computed !"
 msgstr "Le nouveau classement Elo a été calculé !"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:189
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:189
 #: PHP/mobile/game_in_progress.php:189
 msgid "You have a current vacation ! Your games are postponed"
 msgstr "Vous avez des vacances en cours ! Vos parties sont suspendues"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:196
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:196
 #: PHP/mobile/game_in_progress.php:196
 msgid "My pending requests"
 msgstr "Mes demandes en attente"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:226
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:226
 msgid "You"
 msgstr "Vous"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:226
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:226
 msgid "invite a player to play a new game"
 msgstr "invitez un joueur à jouer une nouvelle partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:234
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:234
 #: PHP/game_in_progress.php:302 PHP/game_in_progress.php:385
-#: PHP/game_new.php:213 PHP/mobile/game_in_progress.php:228
+#: PHP/game_new.php:150 PHP/mobile/game_in_progress.php:228
 #: PHP/mobile/game_in_progress.php:290 PHP/mobile/game_in_progress.php:363
 msgid "Time per move"
 msgstr "Temps par coup"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:234
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:234
 #: PHP/game_in_progress.php:302 PHP/game_in_progress.php:385
 #: PHP/mobile/game_in_progress.php:228 PHP/mobile/game_in_progress.php:290
 #: PHP/mobile/game_in_progress.php:363
 msgid "days"
 msgstr "jours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:241
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:241
 #: PHP/mobile/game_in_progress.php:235
 msgid "Response waiting"
 msgstr "Réponse en attente"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:243
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:243
 #: PHP/mobile/game_in_progress.php:237
 msgid "Request declined"
 msgstr "Demande refusée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:288
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:288
 msgid "invite you to play a new game"
 msgstr "vous invite à jouer une nouvelle partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:308
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:308
 #: PHP/message.php:64 PHP/bwc/bwc_common.php:121
 #: PHP/mobile/game_in_progress.php:296
 msgid "Your message..."
 msgstr "Votre message..."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:311
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:311
 #: PHP/mobile/game_in_progress.php:299
 msgid "Accept"
 msgstr "Accepter"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:312
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:312
 #: PHP/mobile/game_in_progress.php:300
 msgid "Decline"
 msgstr "Refuser"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:332
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:332
 #: PHP/mobile/game_in_progress.php:320
 msgid "Refresh list"
 msgstr "Rafraîchir la liste"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:367
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:367
 msgid "is your opponent in this game."
 msgstr "est votre adversaire dans cette partie."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:382
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:382
 #: PHP/mobile/game_in_progress.php:360
 msgid "Play"
 msgstr "Jouer"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:384
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:384
 #: PHP/player_view.php:272 PHP/player_view.php:299
 #: PHP/ajax/ajx_display_activity.php:165 PHP/mobile/game_in_progress.php:362
 msgid "View"
 msgstr "Voir"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:386
-#: PHP/bwc/bwc_games.php:1066 PHP/bwc/bwc_games.php:1167
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:386
+#: PHP/bwc/bwc_games.php:1055 PHP/bwc/bwc_games.php:1156
 #: PHP/mobile/game_in_progress.php:364
 msgid "Expiration"
 msgstr "Expiration"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:390
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:390
 #: PHP/ajax/ajx_display_activity.php:175 PHP/mobile/game_in_progress.php:368
 msgid "Comment"
 msgstr "Commenter"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:400
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:400
 #: PHP/mobile/game_in_progress.php:378
 msgid "No games in progress..."
 msgstr "Pas de parties en cours..."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:40
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:40
 #: PHP/player_view.php:164
 msgid "Ended games"
 msgstr "Parties terminées"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:41
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:41
 msgid "All ended chess games of a player"
 msgstr "Toutes les parties terminées d'un joueur"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:73
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:73
 msgid "To take in account for next Elo ranking"
 msgstr "A prendre en compte dans le prochain classement Elo"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:77
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:77
 #: PHP/game_list_ended.php:147 PHP/game_list_ended.php:213
 #: PHP/game_list_ended.php:271 PHP/player_view.php:270 PHP/player_view.php:325
-#: PHP/bwc/bwc_games.php:582 PHP/bwc/bwc_games.php:1072
-#: PHP/bwc/bwc_games.php:1173
+#: PHP/bwc/bwc_games.php:571 PHP/bwc/bwc_games.php:1061
+#: PHP/bwc/bwc_games.php:1162
 msgid "Whites"
 msgstr "Les blancs"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:78
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:78
 #: PHP/game_list_ended.php:148 PHP/game_list_ended.php:214
 #: PHP/game_list_ended.php:272 PHP/player_view.php:271 PHP/player_view.php:326
-#: PHP/bwc/bwc_games.php:585 PHP/bwc/bwc_games.php:1074
-#: PHP/bwc/bwc_games.php:1175
+#: PHP/bwc/bwc_games.php:574 PHP/bwc/bwc_games.php:1063
+#: PHP/bwc/bwc_games.php:1164
 msgid "Blacks"
 msgstr "Les noirs"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:79
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:79
 #: PHP/game_list_ended.php:149 PHP/game_list_ended.php:215
 #: PHP/game_list_ended.php:273 PHP/player_view.php:327
 msgid "Result"
 msgstr "Résultat"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:80
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:80
 #: PHP/game_list_ended.php:150 PHP/game_list_ended.php:216
 #: PHP/game_list_ended.php:274 PHP/player_view.php:273 PHP/player_view.php:328
 msgid "ECO"
 msgstr "ECO"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:87
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:87
 msgid "No games to take in account"
 msgstr "Pas de parties à prendre en compte"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:143
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:143
 msgid "Lost games"
 msgstr "Parties perdues"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:143
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:143
 #: PHP/game_list_ended.php:209 PHP/game_list_ended.php:266
 msgid "of"
 msgstr "de"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:157
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:157
 msgid "No lost games"
 msgstr "Aucune partie perdue"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:209
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:209
 msgid "Draw games"
 msgstr "Parties nulles"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:223
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:223
 msgid "No draw games"
 msgstr "Aucune partie nulle"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:266
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:266
 msgid "Won games"
 msgstr "Parties gagnées"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_list_ended.php:281
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:281
 msgid "No won games"
 msgstr "Aucune partie gagnée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:26
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:26
 msgid "Invite someone to play a new chess game"
 msgstr "Inviter une personne à jouer une nouvelle partie d'échecs"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:179
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:125
 msgid "Start new game"
 msgstr "Commencer une nouvelle partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:184
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:130
 msgid "Game type"
 msgstr "Type de partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:187
-#: PHP/bwc/bwc_games.php:1265
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:133
+#: PHP/bwc/bwc_games.php:1254
 msgid "Classic game"
 msgstr "Partie classique"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:195
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:141
 msgid "Beginner game with King, Pawns and"
 msgstr "Partie débutant avec Roi, Pions et"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:196
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:142
 msgid "Bishops"
 msgstr "Fous"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:197
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:143
 msgid "Knigths"
 msgstr "Cavaliers"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:198
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:144
 msgid "Rooks"
 msgstr "Tours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:207
-msgid "Fischer Chess Random (Chess960)"
-msgstr ""
-
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:217
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:154
 msgid "2 days"
 msgstr "2 jours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:218
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:155
 msgid "3 days"
 msgstr "3 jours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:219
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:156
 msgid "4 days"
 msgstr "4 jours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:220
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:157
 msgid "5 days"
 msgstr "5 jours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:221
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:158
 msgid "7 days"
 msgstr "7 jours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:222
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:159
 msgid "10 days"
 msgstr "10 jours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:223
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:160
 msgid "14 days"
 msgstr "14 jours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:229
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:166
 msgid "Play as (color)"
 msgstr "Jouer en (couleur)"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:232
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:169
 msgid "White"
 msgstr "Blanc"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:233
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:170
 msgid "Black"
 msgstr "Noir"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:234
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:171
 msgid "Random"
 msgstr "Au hasard"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:239
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:176
 msgid "Select a player"
 msgstr "Choisir un joueur"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:243
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:180
 msgid "Type a part of user name, first name or last name in the box"
 msgstr "Taper une partie du nom d'utilisateur, prénom ou nom dans le champ"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:250
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:187
 msgid "Start game"
 msgstr "Commencer une partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:255
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:192
 msgid "Advanced search"
 msgstr "Recherche avancée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:256
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:193
 msgid "Find a player with advanced search and invite him to play a new game."
 msgstr ""
 "Trouver un joueur avec la recherche avancée et l'inviter à jouer une "
 "nouvelle partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:257
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:194
 msgid "Search players"
 msgstr "Rechercher des joueurs"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:260
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:197
 msgid "Invite friends to join you"
 msgstr "Inviter des amis à se joindre à vous"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:261
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:198
 msgid ""
 "Invite by email a friend not on CapaKaspa to join you. If a player exist "
 "with the email you will invite to start a new game directly."
@@ -768,342 +770,359 @@ msgstr ""
 "un joueur existe avec l'email, vous l'inviterez à jouer une partie "
 "directement."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:266
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:203
 msgid "Email address"
 msgstr "Adresse email"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:271
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:208
 msgid "It's not a valid email format"
 msgstr "Ce n'est pas un format d'adresse email valide"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:272
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:209
 msgid "An account exist with this email. Start a new game."
 msgstr "Un compte existe avec le même email. Commencer une nouvelle partie."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:273
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:210
 msgid "Invitation was sent successfully"
 msgstr "L'invitation a été envoyée avec succès"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:277
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:214
 msgid "Send invitation"
 msgstr "Envoyer une invitation"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/graph_eco_games.php:73
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/graph_eco_games.php:73
 msgid "Games per ECO Code"
 msgstr "Parties par code ECO"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/graph_eco_games.php:77
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/graph_eco_games.php:77
 msgid "ECO Code"
 msgstr "Code ECO"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/graph_eco_games.php:78
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/graph_eco_games.php:78
 msgid "Number of games"
 msgstr "Nombre de parties"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/graph_elo_progress.php:48
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/graph_elo_progress.php:48
 msgid "Elo ranking history"
 msgstr "Historique du classement Elo"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/graph_results_perc.php:18
-#: PHP/player_view.php:216
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/graph_results_perc.php:18 PHP/player_view.php:216
 msgid "Won"
 msgstr "Gagnée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/graph_results_perc.php:20
-#: PHP/player_view.php:218
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/graph_results_perc.php:20 PHP/player_view.php:218
 msgid "Lost"
 msgstr "Perdue"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/graph_results_perc.php:43
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/graph_results_perc.php:43
 msgid "Games per results"
 msgstr "Parties par résultats"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:114
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:114
 #: PHP/mobile/index.php:45
 msgid "Play chess and share your games"
 msgstr "Jouer aux échecs et partager ses parties"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:115
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:115
 msgid "Sign up for CapaKaspa, play chess and share your games."
 msgstr "Inscription sur CapaKaspa, jouer aux échecs et partager vos parties."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:207
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:207
 msgid "Play Chess"
 msgstr "Jouer aux Echecs"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:210
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:210
 msgid "and Share your Games !"
 msgstr "et Partager ses Parties !"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:216
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:216
 msgid "Play chess games, choose your cadence and type."
 msgstr "Jouer des parties d'échecs, choisir votre cadence et le type."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:217
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:217
 msgid "Improve your Elo chess ranking."
 msgstr "Améliorer votre classement Elo de jeu d'échecs."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:222
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:222
 msgid "Share your moves, results and invitations with your followers."
 msgstr "Partager vos coups, résultats et invitations avec vos abonnés."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:223
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:223
 msgid "Follow players, comment news..."
 msgstr "Suivre les joueurs, commenter les actualités..."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:228
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:228
 msgid "View detailed profile of players."
 msgstr "Voir le profil détaillé des joueurs."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:229
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:229
 msgid "Discuss with them in private and comment their public news."
 msgstr "Discuter avec eux en privé et commenter leurs actualités publics."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:236
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:236
 msgid "New on CapaKaspa ? Sign up"
 msgstr "Nouveau sur CapaKaspa ? Inscription"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:238
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:238
 msgid "Your account is actived."
 msgstr "Votre compte est activé."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:240
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:240
 msgid "You can now sign in, play chess and share your games."
 msgstr ""
 "Vous pouvez maintenant vous connecter, jouer aux échecs et partager vos "
 "parties."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:243
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:243
 msgid "An error has occured during activation !"
 msgstr "Une erreur s'est produite pendant l'activation !"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:245
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:245
 msgid "A confirmation message has been sent at this email address"
 msgstr "Un message de confirmation a été envoyé à cette adresse email"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:248
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:248
 #: PHP/player_update.php:308
 msgid "All fields are required"
 msgstr "Tous les champs sont obligatoires"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:249
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:249
 msgid "Bad format for user name : at least 2 caracters"
 msgstr "Mauvais format pour le nom d'utilisateur : au moins 2 caractères"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:250
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:250
 #: PHP/player_update.php:310
 msgid "Bad format for password : at least 6 caracters"
 msgstr "Mauvais format pour le mot de passe : au moins 6 caractères"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:251
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:251
 #: PHP/player_update.php:311
 msgid "Bad format for email"
 msgstr "Mauvais format pour l'email"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:252
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:252
 #: PHP/player_update.php:312
 msgid "Bad format for first name"
 msgstr "Mauvais format pour le prénom"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:253
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:253
 #: PHP/player_update.php:313
 msgid "Bad format for last name"
 msgstr "Mauvais format pour le nom"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:254
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:254
 #: PHP/player_update.php:314
 msgid "Password confirmation error"
 msgstr "Erreur de confirmation de mot de passe"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:258
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:258
 msgid "you have choosen already exists. Try another user name."
 msgstr "que vous avez choisi existe déjà. Essayez un autre nom d'utilisateur."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:260
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:260
 msgid "you have choosen aleady exists. Try another email."
 msgstr "que vous avez choisi existe déjà. Essayez un autre email."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:262
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:262
 msgid "Empty user name"
 msgstr "Nom d'utilisateur vide"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:264
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:264
 #: PHP/player_update.php:288
 msgid "A technical error has occured"
 msgstr "Une erreur technique s'est produite"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:266
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:266
 msgid "Security code error. Try again."
 msgstr "Erreur de code de sécurité. Essayez encore."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:271
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:272
 #: PHP/player_update.php:324
 msgid "I am"
 msgstr "Je suis"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:274
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:275
 #: PHP/player_update.php:327
 msgid "Male"
 msgstr "Homme"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:275
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:276
 #: PHP/player_update.php:328
 msgid "Female"
 msgstr "Femme"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:284
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:285
 msgid "Choose password"
 msgstr "Choisir un mot de passe"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:288
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:289
 #: PHP/player_update.php:370
 msgid "Confirm password"
 msgstr "Confirmer mot de passe"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:292
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:293
 #: PHP/player_update.php:339
 msgid "First name"
 msgstr "Prénom"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:296
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:297
 #: PHP/player_update.php:345
 msgid "Last name"
 msgstr "Nom"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:301
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:302
 msgid "A valid email is required for confirmation"
 msgstr "Un email valide est obligatoire pour confirmation"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:304
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:305
 #: PHP/player_search.php:88 PHP/player_update.php:390
 msgid "Country"
 msgstr "Pays"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:307
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:308
 #: PHP/player_update.php:393
 msgid "Select your country"
 msgstr "Choisir votre pays"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:323
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:324
 msgid "Birth date"
 msgstr "Date naissance"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:326
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:327
 #: PHP/player_update.php:354
 msgid "Select a year"
 msgstr "Choisir une année"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:347
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:348
 msgid "Type the security code"
 msgstr "Entrer le code de sécurité"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:349
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:350
 msgid "Try other security code"
 msgstr "Essayez un autre code de sécurité"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:353
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:354
 msgid "Captcha Image"
 msgstr "Image Captcha"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:358
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:359
 msgid "Sign up for free"
 msgstr "Inscrivez-vous gratuitement"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:370 PHP/index.php:386
-#: PHP/include/page_body.php:41 PHP/mobile/index.php:60
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:372
+#: PHP/index.php:388 PHP/include/page_body.php:43 PHP/mobile/index.php:60
 msgid "Sign in"
 msgstr "Se connecter"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:383
-#: PHP/include/page_body.php:38
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:385
+#: PHP/include/page_body.php:40
 msgid "Invalid user name or password !"
 msgstr "Nom d'utilisateur ou mot de passe invalide !"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:385
-#: PHP/include/page_body.php:40 PHP/mobile/index.php:59
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:387
+#: PHP/include/page_body.php:42 PHP/mobile/index.php:59
 msgid "Remember me"
 msgstr "Se souvenir de moi"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:386
-#: PHP/include/page_body.php:44
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:388
+#: PHP/include/page_body.php:46
 msgid "Forgot password ?"
 msgstr "Mot de passe oublié ?"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:390
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:392
 msgid "Play chess on CapaKaspa"
 msgstr "Jouer aux échecs sur CapaKaspa"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:391
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:393
 msgid "chess games in progress"
 msgstr "parties d'échecs en cours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:392
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:394
 msgid "players are waiting to play chess games"
 msgstr "joueurs attendent de jouer aux échecs"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/message.php:27
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:395
+#: PHP/include/page_body.php:97
+msgid "Play chess vs JChess"
+msgstr "Jouer aux échecs avec JChess"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:396
+#: PHP/include/page_body.php:98
+msgid "Play chess vs FlashChess"
+msgstr "Jouer aux échecs avec flashChess"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:398
+#: PHP/include/page_body.php:105
+msgid "The Chess Blog (french)"
+msgstr "Le Blog du jeu d'échecs"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/message.php:27
 msgid "Private messages"
 msgstr "Messages privés"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/message.php:28
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/message.php:28
 msgid "Your private messages"
 msgstr "Vos messages privées"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/message.php:59
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/message.php:59
 msgid "No Conversation Selected"
 msgstr "Aucune conversation sélectionnée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/message.php:73
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/message.php:73
 msgid "Contacts"
 msgstr "Contacts"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/message.php:91
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/message.php:91
 #: PHP/ajax/ajx_display_player.php:51 PHP/bwc/bwc_common.php:176
-#: PHP/bwc/bwc_common.php:197 PHP/bwc/bwc_games.php:1004
-#: PHP/bwc/bwc_games.php:1013 PHP/bwc/bwc_games.php:1020
-#: PHP/bwc/bwc_games.php:1032 PHP/bwc/bwc_games.php:1041
-#: PHP/bwc/bwc_games.php:1047 PHP/bwc/bwc_games.php:1108
-#: PHP/bwc/bwc_games.php:1117 PHP/bwc/bwc_games.php:1124
-#: PHP/bwc/bwc_games.php:1136 PHP/bwc/bwc_games.php:1145
-#: PHP/bwc/bwc_games.php:1151
+#: PHP/bwc/bwc_common.php:197 PHP/bwc/bwc_games.php:993
+#: PHP/bwc/bwc_games.php:1002 PHP/bwc/bwc_games.php:1009
+#: PHP/bwc/bwc_games.php:1021 PHP/bwc/bwc_games.php:1030
+#: PHP/bwc/bwc_games.php:1036 PHP/bwc/bwc_games.php:1097
+#: PHP/bwc/bwc_games.php:1106 PHP/bwc/bwc_games.php:1113
+#: PHP/bwc/bwc_games.php:1125 PHP/bwc/bwc_games.php:1134
+#: PHP/bwc/bwc_games.php:1140
 msgid "Player online"
 msgstr "Joueur en ligne"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/message.php:93
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/message.php:93
 #: PHP/player_view.php:144 PHP/ajax/ajx_display_player.php:53
 #: PHP/bwc/bwc_common.php:178 PHP/bwc/bwc_common.php:199
 msgid "New player"
 msgstr "Nouveau joueur"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/message.php:95
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/message.php:95
 msgid "Unread messages"
 msgstr "Messages non lus"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/message.php:101
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/message.php:101
 msgid "No contact"
 msgstr "Aucun contact"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/password.php:30
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/password.php:30
 msgid "Forgotten password - CapaKaspa"
 msgstr "Mot de passe oublié - CapaKaspa"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/password.php:31
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/password.php:31
 msgid "Play chess and share your games. Retrieve your password"
 msgstr "Jouer aux échecs et partager vos parties. Retoruver votre mot de passe"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/password.php:39
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/password.php:39
 msgid "No account available with this email"
 msgstr "Pas de compte disponible avec cette adresse email"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/password.php:44
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/password.php:44
 msgid "A message has been sent to the specified email address."
 msgstr "Un message a été envoyé à l'adresse email indiquée."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/password.php:46
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/password.php:46
 msgid "Forgotten password"
 msgstr "Mot de passe oublié"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/password.php:47
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/password.php:47
 msgid ""
 "Already have an account to access the play area but <b>you forgot your "
 "password</b>."
@@ -1111,7 +1130,7 @@ msgstr ""
 "Vous avez déjà un compte pour accèder à la zone de jeu mais <b>vous avez "
 "oublié le mot de passe</b>."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/password.php:48
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/password.php:48
 msgid ""
 "Enter the email address that you assigned to this account. A message will be "
 "sent to this address. It will contain the information for sign in."
@@ -1119,108 +1138,108 @@ msgstr ""
 "Entrer l'adresse email que vous avez assigné à ce compte. Un message sera "
 "envoyé à cette adresse. Il contiendra les informations pour vous connecter."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_search.php:33
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_search.php:33
 msgid "Search for players"
 msgstr "Rechercher des joueurs"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_search.php:34
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_search.php:34
 msgid "Search for players, play and share chess"
 msgstr "Rechercher des joueurs, jouer aux échecs et partager"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_search.php:83
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_search.php:83
 msgid "Players advanced search"
 msgstr "Recherche avancée de joueurs"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_search.php:91
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_search.php:91
 msgid "All countries"
 msgstr "Tous les pays"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_search.php:106
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_search.php:106
 msgid "Name"
 msgstr "Nom"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_search.php:108
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_search.php:108
 msgid "Part of user name, first name or last name"
 msgstr "Partie du nom d'utilisateur, prénom ou nom"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_search.php:112
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_search.php:112
 msgid "Last connection"
 msgstr "Dernière connexion"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_search.php:115
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_search.php:115
 msgid "All"
 msgstr "Tous"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_search.php:119
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_search.php:119
 msgid "less than 15 days"
 msgstr "moins de 15 jours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_search.php:123
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_search.php:123
 msgid "more than 14 days"
 msgstr "plus de 14 jours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_search.php:127
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_search.php:127
 msgid "Elo ranking"
 msgstr "Classement Elo"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_search.php:129
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_search.php:129
 msgid "Between"
 msgstr "Entre"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_search.php:132
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_search.php:132
 msgid "and"
 msgstr "et"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_search.php:135
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_search.php:135
 msgid "Filter"
 msgstr "Filtrer"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_search.php:140
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_search.php:140
 msgid "player(s) found"
 msgstr "joueur(s) trouvés"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:119
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:119
 #: PHP/player_update.php:120
 msgid "Update your profile"
 msgstr "Mettre à jour votre profil"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:290
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:290
 msgid "Invalid image file for picture"
 msgstr "Fichier image invalide pour la photo"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:292
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:292
 msgid "GIF not allowed. Please use only PNG or JPEG formats"
 msgstr "GIF interdit. Utilisez seulement PNG ou JPEG formats"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:294
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:294
 msgid "Maximum width and height exceeded (max 1000x1000 pixels)"
 msgstr "Largeur et hauteur maximum dépassées (max 1000x1000 pixels)"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:296
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:296
 msgid "Large file size (max 500kb)"
 msgstr "Taille du fichier trop grande (max 500 Kb)"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:298
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:298
 msgid "Error moving the uploaded file"
 msgstr "Erreur du déplacement du fichier"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:303
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:303
 msgid "Your old password is wrong"
 msgstr "Votre ancien mote de passe est erroné"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:305
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:305
 msgid "Profile changes have been saved successfully"
 msgstr "Les changements ont bien été enregistrés"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:309
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:309
 msgid "Bad format for login"
 msgstr "Mauvais format pour le nom d'utilisateur"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:315
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:315
 msgid "Old password is required"
 msgstr "L'ancien mot de passe est obligatoire"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:317
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:317
 msgid ""
 "This postponement can not be canceled and all your games will be immediately "
 "postponed. Please confirm your absence ?"
@@ -1228,59 +1247,59 @@ msgstr ""
 "Cette suspension ne peut pas être annulée et toutes vos parties seront "
 "immédiatement suspendues. Confirmez-vous votre absence ?"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:318
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:318
 msgid "You want to disable your account. Please confirm ?"
 msgstr "Vous voulez désactiver votre compte. Confirmez-vous ?"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:321
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:321
 msgid "Basic info"
 msgstr "Informations de base"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:336
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:336
 msgid "Enter data here to change password"
 msgstr "Entrer les données ici pour changer de mot de passe"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:341
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:341
 msgid "Actual password"
 msgstr "Mot de passe actuel"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:347
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:347
 msgid "New password"
 msgstr "Nouveau mot de passe"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:351
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:351
 msgid "Birth date (year)"
 msgstr "Date naissance (année)"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:375
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:375
 msgid "Contact info"
 msgstr "Informations de contact"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:383
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:383
 msgid "You can update your email address."
 msgstr "Vous pouvez mettre à jour votre adresse email."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:384
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:384
 msgid "First disable your account (see bottom of this page)."
 msgstr "Commencez par désactiver votre compte (voir au bas de la page)."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:385
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:385
 msgid "Sign in and follow the activation process."
 msgstr "Connectez-vous et suivez le processus d'activation."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:409
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:409
 msgid "Localization"
 msgstr "Localisation"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:414
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:414
 msgid "More about you"
 msgstr "Plus à votre sujet"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:417
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:417
 msgid "Elo CapaKaspa"
 msgstr "Elo CapaKaspa"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:422
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:422
 msgid ""
 "Elo ranking is calculated quarterly and takes into account the classic games "
 "completed during the quarter past."
@@ -1288,201 +1307,201 @@ msgstr ""
 "Le classement Elo est calculé tous les trimestres et prend en compte les "
 "parties classiques terminées pendant le trimestre passé."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:427
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:427
 msgid "About you"
 msgstr "A propos de vous"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:431
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:431
 msgid "Picture"
 msgstr "Photo"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:434
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:434
 msgid "Display picture of your profile on"
 msgstr "Afficher votre photo de profil sur"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:435
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:435
 #: PHP/include/page_body.php:11 PHP/include/page_body_home.php:11
 #: PHP/include/page_body_no_menu.php:11
 msgid "CapaKaspa"
 msgstr "CapaKaspa"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:436
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:436
 #: PHP/player_update.php:460
 msgid "Facebook"
 msgstr "Facebook"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:437
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:437
 #: PHP/player_update.php:467
 msgid "Google+"
 msgstr "Google+"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:438
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:438
 #: PHP/player_update.php:465
 msgid "Twitter"
 msgstr "Twitter"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:448
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:448
 msgid "Social network ID"
 msgstr "Réseau social ID"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:452
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:452
 msgid "Choose your picture"
 msgstr "Choisir votre photo"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:455
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:455
 #: PHP/ajax/ajx_display_activity.php:186 PHP/ajax/ajx_display_comment.php:57
 #: PHP/mobile/ajax/ajx_display_comment.php:57
 msgid "Delete"
 msgstr "Supprimer"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:457
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:457
 msgid "Max 500 Kb, JPEG/PNG only (1000x1000 pixels maximum)"
 msgstr "Max 500 Kb, JPEG/PNG seulement (1000x1000 pixels maximum)"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:461
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:461
 msgid "In Facebook, at the bottom of the Infos section of your account:"
 msgstr "Dans Facebook, au bas de la section Infos de votre compte :"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:462
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:462
 msgid "Facebook http://www.facebook.com/[ ID ]"
 msgstr "Facebook http://www.facebook.com/[ ID ]"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:463
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:463
 msgid "Or"
 msgstr "Ou"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:464
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:464
 msgid "Facebook http://www.facebook.com/profile.php?id= [ ID ]"
 msgstr "Facebook http://www.facebook.com/profile.php?id= [ ID ]"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:466
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:466
 msgid "It's the name of your account."
 msgstr "C'est le nom de votre compte."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:468
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:468
 msgid ""
 "Display your profile page, the URL in the browser is something like that:"
 msgstr ""
 "Afficher votre page profil, l'adresse dans le navigateur est comme ça :"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:469
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:469
 msgid "https://plus.google.com/u/0/[ ID ]/posts (it's a long number)."
 msgstr "https://plus.google.com/u/0/[ ID ]/posts (c'est un long nombre)."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:475
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:475
 #: PHP/player_update.php:593
 msgid "Save"
 msgstr "Enregistrer"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:481
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:481
 msgid "Preferences"
 msgstr "Préférences"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:485
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:485
 msgid "Email notification"
 msgstr "Notification par email"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:491
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:491
 #: PHP/player_update.php:500 PHP/player_update.php:515
 #: PHP/player_update.php:524 PHP/player_update.php:538
-#: PHP/player_update.php:547 PHP/bwc/bwc_games.php:1199
+#: PHP/player_update.php:547 PHP/bwc/bwc_games.php:1188
 msgid "Yes"
 msgstr "Oui"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:493
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:493
 #: PHP/player_update.php:502 PHP/player_update.php:517
 #: PHP/player_update.php:526 PHP/player_update.php:540
-#: PHP/player_update.php:549 PHP/bwc/bwc_games.php:1200
+#: PHP/player_update.php:549 PHP/bwc/bwc_games.php:1189
 msgid "No"
 msgstr "Non"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:505
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:505
 msgid "(Invitations, moves, results and private messages)"
 msgstr "(Invitations, coups, résultats et messages privés)"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:509
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:509
 msgid "Share invitations"
 msgstr "Partager invitations"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:532
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:532
 msgid "Share results"
 msgstr "Partager résultats"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:555
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:555
 msgid "Chess set"
 msgstr "Pièces"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:583
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:583
 msgid "Displaying language"
 msgstr "Langue d'affichage"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:586
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:586
 msgid "English"
 msgstr "Anglais"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:587
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:587
 msgid "French"
 msgstr "Français"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:618
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:618
 msgid "Game postponement"
 msgstr "Suspension des parties"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:623
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:623
 msgid "The number of days of vacation that you requested is not valid"
 msgstr "Le nombre de jours de vacances que vous demandez n'est pas valide"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:625
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:625
 msgid "Your request of vacation has been saved successfully"
 msgstr "Votre demande de vacances a bien été enregistrée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:628
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:628
 msgid "Number of days must be between 0 and 30"
 msgstr "Le nombre de jours doit être entre 0 et 30"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:630
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:630
 msgid "You have"
 msgstr "Vous avez"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:630
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:630
 msgid "available days of vacation for year"
 msgstr "jours de vacances disponibles pour l'année"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:630
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:630
 msgid "days of vacation on 2 years are counted in the last year"
 msgstr ""
 "les jours de vacances à cheval sur 2 années sont comptés la dernière année"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:637
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:637
 msgid "You don't have vacation in progress."
 msgstr "Vous n'avez pas de vacances en cours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:645
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:645
 msgid "You have vacation from"
 msgstr "Vous avez des vacances du"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:659
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:659
 msgid "You want to postpone your games for"
 msgstr "Vous voulez suspendre vos parties pour"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:660
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:660
 msgid "day(s) from"
 msgstr "jour(s) à partir du"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:661
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:661
 msgid "Postpone my games..."
 msgstr "Suspendre mes parties..."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:661
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:661
 msgid "(All your games will be postponed immediatly)"
 msgstr "(Toutes les parties seront suspendues immédiatement)"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:666
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:666
 #: PHP/player_update.php:670
 msgid "Disable my account"
 msgstr "Désactiver mon compte"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_update.php:667
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:667
 msgid ""
 "You can disable your account on CapaKaspa. Other players will no longer have "
 "interactions with your account. But it will viewable from games or news. You "
@@ -1493,67 +1512,67 @@ msgstr ""
 "partir des parties et des actualités. Vous pourrez l'activer de nouveau si "
 "vous le souhaitez."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:32
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:32
 #: PHP/player_view.php:33
 msgid "View player profile"
 msgstr "Voir le profil du joueur"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:150
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:150
 #: PHP/ajax/ajx_delete_follow.php:23
 msgid "Follow"
 msgstr "S'abonner"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:153
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:153
 #: PHP/ajax/ajx_insert_follow.php:48
 msgid "Unfollow"
 msgstr "Se désabonner"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:167
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:167
 msgid "Update my information"
 msgstr "Actualiser mes infos"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:173
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:173
 msgid "Was born in "
 msgstr "Est né en"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:174
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:174
 msgid "Lives in "
 msgstr "Vit à"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:219
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:219
 msgid "News"
 msgstr "Actualités"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:220
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:220
 msgid "Followers"
 msgstr "Abonnés"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:221
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:221
 msgid "Following"
 msgstr "Abonnements"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:230
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:230
 msgid "Are you sure you want to delete this news ?"
 msgstr "Etes vous sûr de vouloir supprimer cette actualité ?"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:261
-#: PHP/include/page_body.php:85
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:261
+#: PHP/include/page_body.php:87
 msgid "Games in progress"
 msgstr "Parties en cours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:284
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:284
 msgid "No games in progress"
 msgstr "Pas de parties en cours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:317
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:317
 msgid "My games against"
 msgstr "Mes parties contre"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:339
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:339
 msgid "You've never played against this player"
 msgstr "Vous n'avez jamais joué contre ce joueur"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:19
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_about.php:19
 msgid ""
 "CapaKaspa is a website edited by Sébastien JOUVE (<a href='http://www."
 "netassistant.fr'>NetAssistant</a>). It's a website to play chess games and "
@@ -1561,56 +1580,56 @@ msgid ""
 "\t\t</p>"
 msgstr ""
 "Capakaspa est un site Internet édité par Sébastien JOUVE  (<a href='http://"
-"www.netassistant.fr'>NetAssistant</a>). C'est un site Web pour jouer des "
-"parties d'échecs et les partager."
+"www.netassistant.fr'>NetAssistant</a>). C'est un site Web pour jouer aux "
+"échecs en ligne et partager ses parties."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:23
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_about.php:23
 msgid "Official data"
 msgstr "Données officielles"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:30
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_about.php:28
 msgid "Contact"
 msgstr "Contact"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:32
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_about.php:30
 #: PHP/site_help.php:18
 msgid "To contact us send an email at capakaspa@capakaspa.info"
 msgstr "Pour nous contacter envoyez un email à capakaspa@capakaspa.info"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:35
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_about.php:33
 msgid "Credits"
 msgstr "Crédits"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:37
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_about.php:35
 msgid "CapaKaspa works with some PHP libraries"
 msgstr "CapaKaspa fonctionne avec quelques librairies PHP"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:38
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_about.php:36
 msgid "an old version of"
 msgstr "une ancienne version de"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_help.php:4
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_help.php:4
 #: PHP/include/page_footer.php:5 PHP/include/page_footer_right.php:5
 msgid "Help"
 msgstr "Aide"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_help.php:5
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_help.php:5
 msgid "Frequently Asked Questions about how to play chess on CapaKaspa"
 msgstr "Questions fréquentes sur la manière de jouer aux échecs sur CapaKaspa"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_help.php:17
-msgid "A problem ? A question ?"
-msgstr "Un problème ? Une question ?"
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_help.php:17
+msgid "A problem with a game ? A question about the site ?"
+msgstr "Un problème avec une partie ? Une question au sujet du site ?"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_help.php:20
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_help.php:20
 msgid "Frequently Asked Questions"
 msgstr "Questions fréquentes"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_help.php:22
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_help.php:22
 msgid "Is that the site is compatible with all browsers ?"
 msgstr "Le site est-il compatible avec tous les navigateurs ?"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_help.php:23
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_help.php:23
 msgid ""
 "No. The site is compatible with all recent browsers. It does not work with "
 "Internet Explorer under version 9."
@@ -1618,31 +1637,31 @@ msgstr ""
 "Non. Le site est compatible avec tous les navigateur récents. Il ne "
 "fonctionne pas avec une version d'Internet Explorer inférieure à 9."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_help.php:25
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_help.php:25
 msgid "How is calculated the chess ranking of players on the site ?"
 msgstr ""
 "Comment est calculé le classement de jeu d'échecs des joueurs sur le site ?"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_help.php:26
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_help.php:26
 msgid ""
-"Elo ranking is calculated quarterly and takes into account the classic chess "
-"games completed during the quarter past."
+"Elo ranking is calculated monthly and takes into account the classic chess "
+"games completed during the month past."
 msgstr ""
-"Le classement Elo est calculé tous les trimestres et prend en compte les "
-"parties d'échecs classiques terminées pendant le trimestre passé."
+"Le classement Elo est calculé tous les mois et prend en compte les parties "
+"d'échecs classiques terminées pendant le mois passé."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:4
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:4
 #: PHP/site_privacy.php:16 PHP/include/page_footer.php:3
 #: PHP/include/page_footer_right.php:3
 msgid "Privacy"
 msgstr "Vie privée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:5
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:5
 msgid "All details about privacy protection on CapaKaspa"
 msgstr ""
 "Tous les détails au sujet de la protection de la vie privée sur CapaKaspa"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:18
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:18
 msgid ""
 "Informations about people we receive on our website will be handled in "
 "accordance with:"
@@ -1650,15 +1669,15 @@ msgstr ""
 "Les données des personnes que nous recevons sur notre site seront traitées "
 "conformément :"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:19
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:19
 msgid "- The laws,"
 msgstr "- aux lois en vigueur,"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:20
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:20
 msgid "- The recommendations of the CNIL,"
 msgstr "- aux recommandations de la CNIL,"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:21
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:21
 msgid ""
 "- The Charter for the Right to oblivion signed on 13 October 2010 (charter "
 "initiated by Nathalie Kosciusko-Morizet, Secretary of State for the "
@@ -1668,11 +1687,11 @@ msgstr ""
 "initiée par Nathalie Kosciusko-Morizet, secrétaire d'Etat à la prospective "
 "et au développement l'économie numérique)."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:24
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:24
 msgid "1. Protection of your data"
 msgstr "1. Protection de vos données"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:26
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:26
 msgid ""
 "Your personal data is fully protected. You will receive the messages that "
 "others have sent you registered in our internal messaging. We will not pass "
@@ -1684,7 +1703,7 @@ msgstr ""
 "interne. Nous ne transmettons en aucun cas vos coordonnées à une tierce "
 "personne, sauf par obligation judiciaire."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:29
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:29
 msgid ""
 "Once you become a member CapaKaspa, data and other information about you is "
 "deliberately transmitted to other users, as follows:"
@@ -1693,11 +1712,11 @@ msgstr ""
 "information vous concernant sont délibérément transmises à d'autres "
 "utilisateurs, de la manière suivante :"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:31
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:31
 msgid "a) Options visibility"
 msgstr "a) Options de visibilité"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:33
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:33
 msgid ""
 "By default, your name, year of birth, place of life, countries are visible. "
 "All other information about you that you provide on CapaKaspa are visible "
@@ -1708,11 +1727,11 @@ msgstr ""
 "sur CapaKaspa ne sont visibles que par les membres de CapaKaspa. Vous pouvez "
 "modifier votre profil à tout moment."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:35
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:35
 msgid "b) Protection of your e-mail address"
 msgstr "b) Protection de votre adresse e-mail"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:37
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:37
 msgid ""
 "Your e-mail address is never visible on our website. If other members want "
 "to send you a message, they must pass through us and you will receive their "
@@ -1725,11 +1744,11 @@ msgstr ""
 "et à l'adresse que vous avez donnée pour vous inscrire si vous avez choisi "
 "de recevoir les notifications."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:39
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:39
 msgid "c) Data on parts"
 msgstr "c) Données concernant les parties"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:41
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:41
 msgid ""
 "All data concerning the parts of chess are visible to all other members of "
 "CapaKaspa. It also includes comments."
@@ -1737,7 +1756,7 @@ msgstr ""
 "Toutes les données concernant les parties de jeu d'échecs sont visibles de "
 "tous les autres membres de CapaKaspa. Cela inclut aussi les commentaires."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:42
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:42
 msgid ""
 "You can choose to share news about a shot of a part, such as event "
 "invitations and chess game results."
@@ -1746,11 +1765,11 @@ msgstr ""
 "partie, les évènements tels que les invitations ou les résultats des parties "
 "d'échecs."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:45
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:45
 msgid "2. Duration of storage of your data"
 msgstr "2. Durée de stockage de vos données"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:47
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:47
 msgid ""
 "CapaKaspa only stores your data for the period corresponding to a reasonable "
 "use of each of these data and within the limits set by the law of 6 January "
@@ -1762,7 +1781,7 @@ msgstr ""
 "limites fixées par la loi du 6 janvier 1978 modifiée par la loi du 6 août "
 "2004 relative aux fichiers, à l'informatique et aux libertés."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:50
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:50
 msgid ""
 "At any time, you can modify your data, correct or request that we modify or "
 "delete. Requests for removal, modification or blocking of account are "
@@ -1782,11 +1801,11 @@ msgstr ""
 "automatiquement et dans les plus brefs délais ces derniers de votre demande "
 "de modification, de correction ou de suppression de votre profil."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:53
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:53
 msgid "When we can not remove your data:"
-msgstr "as où nous ne pouvons pas supprimer vos données :"
+msgstr "Cas où nous ne pouvons pas supprimer vos données :"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:55
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:55
 msgid ""
 "Once your profile is deleted, the data on your connections, your use of this "
 "Site and the information collected passively and actively in the process of "
@@ -1797,7 +1816,7 @@ msgstr ""
 "activement dans le cadre de votre inscription sur CapaKaspa seront également "
 "immédiatement supprimées :"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:57
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:57
 msgid ""
 "a) unless we suspect not registered to use the site for illegal purposes or "
 "contrary to the terms and conditions (GTC)"
@@ -1805,7 +1824,7 @@ msgstr ""
 "a) tant que nous ne suspectons pas l'inscrit d'utiliser le site à des fins "
 "illégales ou contraires aux conditions générales d'utilisation (CGU),"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:59
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:59
 msgid ""
 "b) as a statute or court order requires us to maintain data despite the "
 "wishes of the registrant (for example in the case of a complaint of "
@@ -1815,7 +1834,7 @@ msgstr ""
 "données malgré le souhait de l'inscrit (par exemple dans le cas d'une "
 "plainte pour harcèlement)."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:61
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:61
 msgid ""
 "c) Except in the cases mentioned above, when removing or blocking a final "
 "part, any personal information (name, surname, date of birth, location) on "
@@ -1830,7 +1849,7 @@ msgstr ""
 "mention de ces données personnelles mais ils seront toujours visibles sur "
 "CapaKaspa et il sera mentionné le nom d'utilisateur du profil. "
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:64
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:64
 msgid ""
 "You can always ask our customer service email (see About page) list of "
 "information we have stored about you."
@@ -1839,11 +1858,11 @@ msgstr ""
 "électronique (voir page A propos) la liste des informations que nous avons "
 "enregistrées à votre sujet."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:67
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:67
 msgid "3. Update this text"
 msgstr "3. Mise à jour de ce texte"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:69
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:69
 msgid ""
 "CapaKaspa reserves the right to update the text on the protection of "
 "personal data in order to adapt to any new legislation or site improvements. "
@@ -1867,11 +1886,11 @@ msgstr ""
 "service, vous acceptez le contenu du texte sur la protection des données "
 "personnelles dans sa version actualisée."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:71
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:71
 msgid "4. Termination of your registration"
 msgstr "4. Résiliation de votre inscription"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:73
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:73
 msgid ""
 "At any time, you can deactivate your account. To do this, go to the edit "
 "page of your profile."
@@ -1879,7 +1898,7 @@ msgstr ""
 "À tout moment, vous pouvez désactiver votre compte.Pour cela, rendez-vous "
 "sur la page de modification de votre profil."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:76
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:76
 msgid ""
 "To ensure the proper use of our database, you can become a member of "
 "CapaKaspa if you have read and approved every paragraph on data protection. "
@@ -1892,7 +1911,7 @@ msgstr ""
 "ou plusieurs paragraphes, nous ne pourrons pas accepter votre inscription "
 "sur le site."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_privacy.php:79
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:79
 msgid ""
 "You may at any time object to the conditions of personal data or information "
 "about it. For this you can send us e-mail: capakaspa@capakaspa.info"
@@ -1901,23 +1920,23 @@ msgstr ""
 "personnelles ou vous renseigner à ce sujet. Pour cela vous pouvez nous "
 "écrire adresse e-mail : capakaspa@capakaspa.info"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:4
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:4
 msgid "Terms and policies"
 msgstr "Conditions Générales d'Utilisation"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:5
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:5
 msgid "All details about Terms and policies"
 msgstr "Tous les détails sur les Conditions Générales d'Utilisation"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:16
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:16
 msgid "Terms and Policies"
 msgstr "Conditions Générales d'Utilisation"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:17
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:17
 msgid "1. Scope of terms and conditions"
 msgstr "1. Champ d'application et modifications des conditions d'utilisation"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:19
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:19
 msgid ""
 "CapaKaspa is a service edited by Sébastien Jouve (see page <a "
 "href='site_about.php'>About and contact</a>)"
@@ -1925,7 +1944,7 @@ msgstr ""
 "CapaKaspa est un service édité par Sébastien JOUVE (voir page <a "
 "href='site_about.php'>A propos et contact</a>)."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:20
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:20
 msgid ""
 "CapaKaspa offers its visitors free access to its website accessible at "
 "http://www.capakaspa.info (hereinafter referred to as \"the website\") to "
@@ -1933,9 +1952,9 @@ msgid ""
 msgstr ""
 "CapaKaspa offre à ses visiteurs, en accès gratuit sur son site internet "
 "accessible à l'adresse http://www.capakaspa.info (ci-après dénommé « le site "
-"internet ») l'accès à une zone pour jouer des parties d'échecs en différé."
+"internet ») l'accès à une zone pour jouer aux échecs en ligne en différé."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:21
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:21
 msgid ""
 "By visiting the website or by registering on the website, visitors must "
 "comply with the terms and conditions of service."
@@ -1943,7 +1962,7 @@ msgstr ""
 "En visitant le site internet ou en s'inscrivant sur le site internet, le "
 "visiteur doit se conformer aux conditions d'utilisation du service."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:24
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:24
 msgid ""
 "Modification of Terms of Policies: If these terms are changed, users are "
 "informed about the \"Terms\" accessible at the bottom of all pages of the "
@@ -1956,25 +1975,25 @@ msgstr ""
 "ensuite applicables à l'expiration d'un délai d'un mois courant à partir du "
 "jour de leur publication sur le site."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:26
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:26
 msgid "2. Services free to all registered"
 msgstr "2. Services gratuits pour tous les inscrits"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:28
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:28
 msgid "All services provided by the website are free for all registered users."
 msgstr ""
 "Tous les services fournis par le site internet sont gratuits pour tous les "
 "inscrits."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:31
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:31
 msgid "3. Intellectual property and responsibility of the user"
 msgstr "3. Propriété intellectuelle et responsabilité de l'utilisateur"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:32
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:32
 msgid "3.1 Intellectual property"
 msgstr "3.1 Propriété intellectuelle"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:34
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:34
 msgid ""
 "All content published on the website may not be copied, used without the "
 "express prior written holders of rights related to these contents."
@@ -1983,7 +2002,7 @@ msgstr ""
 "le consentement exprès, préalable et écrit des titulaires des droits liés à "
 "ces contenus."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:35
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:35
 msgid ""
 "CapaKaspa mark and all contents of this website can not be used outside the "
 "website: http://www.capakaspa.info after prior written approval of the "
@@ -1993,11 +2012,11 @@ msgstr ""
 "utilisés à l'extérieur du site internet : http://www.capakaspa.info qu'après "
 "un accord écrit préalable de la direction de CapaKaspa."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:37
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:37
 msgid "3.2 Responsibility of the user"
 msgstr "3.2 Responsabilité de l'utilisateur"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:39
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:39
 msgid ""
 "Any member who registers on CapaKaspa undertakes to verify the accuracy of "
 "the data it captures. Conditions, the size and processing information about "
@@ -2011,7 +2030,7 @@ msgstr ""
 "des données personnelles accessible à partir du lien « Vie privée » présent "
 "en bas de toutes les pages du site internet."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:40
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:40
 msgid ""
 "Any incorrect or abusive registration, which is voluntary or not, parasite "
 "research results of people on the website."
@@ -2019,7 +2038,7 @@ msgstr ""
 "Toute inscription incorrecte ou abusive, quelle soit volontaire ou non, "
 "parasite les résultats des recherches de personnes sur le site internet."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:41
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:41
 msgid ""
 "Each member undertakes to CapaKaspa check the accuracy of the data reported "
 "to his profile on CapaKaspa and updating, for example when changing e-mail "
@@ -2030,7 +2049,7 @@ msgstr ""
 "exemple lorsqu'il change d'adresse e-mail, grâce à l'interface en ligne lui "
 "permettant de mettre à jour ses coordonnées."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:42
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:42
 msgid ""
 "Every registrant is invited to report to the customer service CapaKaspa all "
 "data it seemed wrong."
@@ -2038,11 +2057,11 @@ msgstr ""
 "Tout inscrit est invité à signaler au service clients de CapaKaspa toutes "
 "données lui semblant erronées."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:45
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:45
 msgid "5. Responsibility of the site CapaKaspa"
 msgstr "5. Responsabilité de CapaKaspa"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:47
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:47
 msgid ""
 "CapaKaspa agrees to take into account a reasonable time feedback from users "
 "on the quality of published data and warn when it has considered these "
@@ -2052,7 +2071,7 @@ msgstr ""
 "remarques des utilisateurs concernant la qualité des données publiées et à "
 "les avertir quand il a pris en compte ces demandes."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:48
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:48
 msgid ""
 "CapaKaspa undertakes to delete any incorrect registration and the "
 "registration of a member who abuses the services provided by CapaKaspa."
@@ -2061,7 +2080,7 @@ msgstr ""
 "l'inscription de tout membre qui abuserait des services fournis par "
 "CapaKaspa."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:49
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:49
 msgid ""
 "CapaKaspa is not responsible for the messages exchanged between the users "
 "registered on its website. Nevertheless, you can report to customer service "
@@ -2073,7 +2092,7 @@ msgstr ""
 "tout comportement que vous jugerez abusif, sans que cela engage la "
 "responsabilité de CapaKaspa."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:50
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:50
 msgid ""
 "CapaKaspa is not responsible for the accuracy and veracity of the data "
 "entered by users and do not guarantee that the data registered members are "
@@ -2083,7 +2102,7 @@ msgstr ""
 "données saisies par les utilisateurs et ne garantit pas non plus que les "
 "données des membres inscrits soient à jour et utilisables."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:51
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:51
 msgid ""
 "CapaKaspa can not be held responsible for any problems encountered by "
 "computer users."
@@ -2091,7 +2110,7 @@ msgstr ""
 "CapaKaspa ne peut être tenu responsable des problèmes informatiques "
 "rencontrés par les utilisateurs."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:52
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:52
 msgid ""
 "CapaKaspa is not responsible for the accuracy or completeness of the data "
 "provided on the site."
@@ -2099,12 +2118,12 @@ msgstr ""
 "CapaKaspa n'est pas responsable du degré d'exactitude ou d'exhaustivité des "
 "données mises à disposition sur le site."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:53
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:53
 msgid "CapaKaspa is not responsible for statements made to him by others."
 msgstr ""
 "CapaKaspa n'est pas responsable des propos tenus à son égard par des tiers."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:54
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:54
 msgid ""
 "CapaKaspa is only responsible for the provision of information posted by "
 "users and can not be held responsible for the quality."
@@ -2113,7 +2132,7 @@ msgstr ""
 "publiées par ses utilisateurs sans pouvoir être tenu responsable de la "
 "qualité."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:55
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:55
 msgid ""
 "CapaKaspa is not responsible for content on the pages of partner sites "
 "making a link to the site CapaKaspa."
@@ -2121,7 +2140,7 @@ msgstr ""
 "CapaKaspa n'est pas responsable des contenus présents sur les pages de sites "
 "partenaires faisant un lien vers le site CapaKaspa."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:56
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:56
 msgid ""
 "CapaKaspa can not be held responsible for the consequences of using indirect "
 "CapaKaspa."
@@ -2129,11 +2148,11 @@ msgstr ""
 "CapaKaspa ne peut être tenu responsable que des conséquences indirectes de "
 "l'utilisation de CapaKaspa."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:59
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:59
 msgid "6. System integrity"
 msgstr "6. Intégrité du système"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:61
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:61
 msgid ""
 "CapaKaspa does not, in any way whatsoever (software, automation, routine) "
 "use automated services offered on its website. The user is allowed to "
@@ -2148,11 +2167,11 @@ msgstr ""
 "services fournis par CapaKaspa que dans le cadre d'une activité personnelle "
 "individuelle et non systématique."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:64
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:64
 msgid "7. Competent court in case of dispute"
 msgstr "7. Tribunal compétent en cas de litige"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:66
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:66
 msgid ""
 "French law applies to any contractual relationship with capakaspa.info, "
 "regardless of the country of residence of the user."
@@ -2160,7 +2179,7 @@ msgstr ""
 "Le droit français s'applique à tout rapport contractuel avec capakaspa.info, "
 "quel que soit le pays de résidence de l'utilisateur."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:67
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:67
 msgid ""
 "Complaints and obligations can be sent by email (address available on the "
 "page <a href='site_about.php'>About and contact</a>)."
@@ -2168,11 +2187,11 @@ msgstr ""
 "Les plaintes et obligations peuvent être adressées par email (adresse "
 "disponible sur la page <a href='site_about.php'>A propos et contact</a>)."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:70
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:70
 msgid "8. If a point of these conditions was considered obsolete"
 msgstr "8. Si un point des présentes conditions était considéré comme caduc"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_terms.php:72
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_terms.php:72
 msgid ""
 "If a point these terms of use of the service became obsolete, the other "
 "points would not be affected. Any item declared obsolete will be replaced by "
@@ -2183,65 +2202,65 @@ msgstr ""
 "remplacé par une disposition se rapprochant le plus possible de la "
 "précédente disposition."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_activity.php:37
 msgid "No News to display. Share your activity and follow players !"
 msgstr ""
 "Aucune actualité à afficher. Partagez votre activité et suivez des joueurs !"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_activity.php:79
 msgid "invites someone to play a new game"
 msgstr "a invité quelqu'un à jouer une nouvelle partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_activity.php:80 PHP/ajax/ajx_display_activity.php:85
 #: PHP/ajax/ajx_display_activity.php:90 PHP/ajax/ajx_display_activity.php:95
 msgid "INVITATION"
 msgstr "INVITATION"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_activity.php:84
 msgid "canceled its invitation to play a new game with"
 msgstr "a annulé son invitation à une nouvelle partie avec"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_activity.php:89
 msgid "has accepted invitation. A new game began against"
 msgstr " a accepté l'invitation. Une nouvelle partie a commencé contre"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_activity.php:94
 msgid "refused invitation to play a new game against"
 msgstr "a refusé l'invitation à jouer une nouvelle partie contre"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_activity.php:107 PHP/ajax/ajx_display_activity.php:126
 msgid "lost"
 msgstr "a perdu"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_activity.php:109 PHP/ajax/ajx_display_activity.php:128
 msgid "won"
 msgstr "a gagné"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_activity.php:110
 msgid "by resignation against"
 msgstr "par abandon contre"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_activity.php:111 PHP/ajax/ajx_display_activity.php:116
 #: PHP/ajax/ajx_display_activity.php:121 PHP/ajax/ajx_display_activity.php:130
 msgid "RESULT"
 msgstr "RESULTAT"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_activity.php:115
 msgid "do a draw game by mutual consent"
 msgstr "a fait une partie nulle par consentement mutuel"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_activity.php:120
 msgid ""
 "do a draw game (stalemate, 3 times same position, 50 moves rule) against"
@@ -2249,94 +2268,107 @@ msgstr ""
 "a fait une partie nulle (Pat, répétition de position, règles des 50 coups) "
 "contre"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_activity.php:129
 msgid "by checkmate against"
 msgstr "par Echec et Mat contre"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_activity.php:135
 msgid "played the move"
 msgstr " a joué le coup"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_activity.php:135
 msgid " in the game against"
 msgstr " dans la partie contre"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_activity.php:136
 msgid "MOVE"
 msgstr "COUP"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_activity.php:186
 msgid "Delete this news"
 msgstr "Supprimer cette actualité"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_display_comment.php:31
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/ajax/ajx_display_comment.php:31
 #: PHP/mobile/ajax/ajx_display_comment.php:31
 msgid "person(s) like this"
 msgstr "personne(s) aiment ça"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_display_comment.php:57
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/ajax/ajx_display_comment.php:57
 #: PHP/mobile/ajax/ajx_display_comment.php:57
 msgid "Delete this comment"
 msgstr "Supprimer ce commentaire"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_display_comment.php:65
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/ajax/ajx_display_comment.php:65
 #: PHP/mobile/ajax/ajx_display_comment.php:65
 msgid "Write a comment..."
 msgstr "Ecrire un commentaire"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_display_comment.php:67
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/ajax/ajx_display_comment.php:67
 #: PHP/mobile/ajax/ajx_display_comment.php:67
 msgid "Publish"
 msgstr "Publier"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_display_player.php:60
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/ajax/ajx_display_player.php:60
 msgid "Elo"
 msgstr "Elo"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_pmessage.php:54
 msgid "No Messages"
 msgstr "Pas de Messages"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_insert_follow.php:35
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/ajax/ajx_insert_follow.php:35
 msgid "You have a new follower"
 msgstr "Vous avez un nouvel abonné"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_insert_follow.php:36
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/ajax/ajx_insert_follow.php:36
 msgid "follow you on CapaKaspa."
 msgstr "vous suit sur CapaKaspa."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_insert_pmessage.php:38
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/ajax/ajx_insert_pmessage.php:38
 msgid "You have a new private message"
 msgstr "Vous avez un nouveau message privé"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_insert_pmessage.php:39
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/ajax/ajx_insert_pmessage.php:39
 msgid "send you a new private message.\n"
 msgstr "vous a envoyé un nouveau message privé.\n"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_list_player_nick.php:33
 msgid "No player found"
 msgstr "Aucun joueur trouvé"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_send_invitation.php:30
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/ajax/ajx_send_invitation.php:30
 msgid "Invitation to play chess game"
 msgstr "Invitation à jouer une partie d'échecs"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_send_invitation.php:31
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/ajax/ajx_send_invitation.php:31
 msgid "A player want to play with you a chess game on CapaKaspa !"
 msgstr "Un joueur veut jouer avec vous une partie d'échecs sur CapaKaspa !"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_send_invitation.php:32
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/ajax/ajx_send_invitation.php:32
 msgid "Its user name is"
 msgstr "Son nom d'utilisateur est"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/ajax/ajx_send_invitation.php:33
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/ajax/ajx_send_invitation.php:33
 msgid ""
 "Click here to sign-up and join him : http://www.capakaspa.info \n"
 "\n"
@@ -2345,73 +2377,88 @@ msgstr ""
 "info \n"
 "\n"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:367
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:328
 msgid "The player"
 msgstr "Le joueur"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:368
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:329
 msgid "Your opponent"
 msgstr "Votre adversaire"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:375
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:336
 msgid "You are invited to play a new game"
 msgstr "Vous êtes invité à jouer une nouvelle partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:376
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:337
 msgid " invites you to play a new game."
 msgstr " vous invite à jouer une nouvelle partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:380
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:341
 msgid "Invitation canceled"
 msgstr "Invitation annulée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:381
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:342
 msgid " canceled its invitation to play a new game."
 msgstr " a annulé son invitation à jouer une nouvelle partie."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:385
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:346
 msgid "Invitation accepted"
 msgstr "Invitation acceptée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:386
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:347
 msgid " has accepted your invitation. A new game began."
 msgstr " a accepté votre invitation. Une nouvelle partie a commencé."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:388
-#: PHP/bwc/bwc_chessutils.php:397
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:349 PHP/bwc/bwc_chessutils.php:358
 msgid " joined a message :"
 msgstr "a joint un message :"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:394
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:355
 msgid "Invitation refused"
 msgstr "Invitation refusée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:395
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:356
 msgid " refused your invitation."
 msgstr "a refusé son invitation."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:403
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:364
 msgid "New move"
 msgstr "Nouveau coup"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:404
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:365
 msgid " play the move :"
 msgstr " a joué le coup :"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:409
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:370
 msgid "Resignation"
 msgstr "Abandon"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:410
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:371
 msgid " resigned."
 msgstr " a abandonné."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:414
-#: PHP/bwc/bwc_games.php:510
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:375 PHP/bwc/bwc_games.php:499
 msgid "Draw proposal accepted"
 msgstr "Proposition de nulle acceptée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:415
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:376
 msgid ""
 " accepted your draw proposal.\n"
 "The game ended."
@@ -2419,29 +2466,32 @@ msgstr ""
 " a accepté votre proposition de nulle.\n"
 "La partie est terminée."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:419
-#: PHP/bwc/bwc_games.php:575
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:380 PHP/bwc/bwc_games.php:564
 msgid "Draw game"
 msgstr "Partie nulle"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:420
-#: PHP/bwc/bwc_chessutils.php:425
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:381 PHP/bwc/bwc_chessutils.php:386
 msgid "Your game against"
 msgstr "Votre partie contre"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:420
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:381
 msgid " ended by a draw."
 msgstr " s'est terminée par une nulle."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:424
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:385
 msgid "Checkmate"
 msgstr "Echec et Mat"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_chessutils.php:425
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/bwc/bwc_chessutils.php:386
 msgid " ended by a checkmate."
 msgstr " s'est terminée par Echec et Mat."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_common.php:89
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_common.php:89
 msgid ""
 "\n"
 "\n"
@@ -2455,138 +2505,133 @@ msgstr ""
 "www.capakaspa.info).\n"
 "\n"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_common.php:90
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_common.php:90
 msgid "Follow us on Facebook (http://www.facebook.com/capakaspa)\n"
 msgstr "Suivez-nous sur Facebook (http://www.facebook.com/capakaspa)\n"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_common.php:91
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_common.php:91
 msgid "Follow us on Google+ (http://plus.google.com/114694270583726807082)\n"
 msgstr ""
 "Suivez-nous sur Google+ (http://plus.google.com/114694270583726807082)\n"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_common.php:92
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_common.php:92
 msgid "Follow us on Twitter (http://http://www.twitter.com/CapaKaspa)\n"
 msgstr "Suivez-nous sur Twitter (http://http://www.twitter.com/CapaKaspa)\n"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_common.php:93
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_common.php:93
 msgid ""
 "Follow us on YouTube (http://http://www.youtube.com/user/CapaKaspaEchecs)\n"
 msgstr ""
 "Suivez-nous sur YouTube (http://http://www.youtube.com/user/"
 "CapaKaspaEchecs)\n"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_common.php:119
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_common.php:119
 msgid "New message"
 msgstr "Nouveau message"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_common.php:120
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_common.php:120
 msgid "To"
 msgstr "A"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_common.php:125
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_common.php:125
 msgid "See full conversation"
 msgstr "Voir la conversation complète"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_common.php:132
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_common.php:132
 msgid "Message sent successfully"
 msgstr "Message envoyé avec succès"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_common.php:158
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_common.php:158
 msgid "Suggestion"
 msgstr "Suggestion"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_common.php:200
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_common.php:200
 msgid "is the same level that you !"
 msgstr "a le même niveau que vous !"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:490
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:479
 msgid "Move cancellation accepted"
 msgstr "Annulation du coup accepté"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:496
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:485
 msgid "Move cancellation refused"
 msgstr "Annulation du coup refusé"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:515
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:504
 msgid "Draw proposal refused"
 msgstr "Proposition de nulle refusée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:531
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:520
 msgid "Move cancellation pending"
 msgstr "Annulation de coup en attente"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:534
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:523
 msgid "Draw proposal pending..."
 msgstr "Proposition de nulle en attente..."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:599
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:588
 msgid "resigned"
 msgstr "ont abandonné"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:614
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:603
 msgid "Check and Mat!"
 msgstr "Echec et Mat !"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:614
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:603
 msgid "win the game"
 msgstr "gagnent la partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1005
-#: PHP/bwc/bwc_games.php:1014 PHP/bwc/bwc_games.php:1031
-#: PHP/bwc/bwc_games.php:1040 PHP/bwc/bwc_games.php:1109
-#: PHP/bwc/bwc_games.php:1118 PHP/bwc/bwc_games.php:1135
-#: PHP/bwc/bwc_games.php:1144
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:994
+#: PHP/bwc/bwc_games.php:1003 PHP/bwc/bwc_games.php:1020
+#: PHP/bwc/bwc_games.php:1029 PHP/bwc/bwc_games.php:1098
+#: PHP/bwc/bwc_games.php:1107 PHP/bwc/bwc_games.php:1124
+#: PHP/bwc/bwc_games.php:1133
 msgid "Player turn"
 msgstr "A son tour"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1065
-#: PHP/bwc/bwc_games.php:1166
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1054
+#: PHP/bwc/bwc_games.php:1155
 msgid "Refresh game"
 msgstr "Rafraîchir la partie"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1066
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1055
 msgid "Ended game"
 msgstr "Partie terminée"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1083
-#: PHP/bwc/bwc_games.php:1184
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1072
+#: PHP/bwc/bwc_games.php:1173
 msgid "are in check"
 msgstr "sont en échecs"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1198
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1187
 msgid "Your opponent do a draw proposal. Are you agree ?"
 msgstr "Votre adversaire vous propose une nulle. Etes vous d'accord ?"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1267
-#, fuzzy
-msgid "Chess960 game"
-msgstr "Parties d'échecs"
-
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1272
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1259
 msgid ", Bishops"
 msgstr ", Fous"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1274
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1261
 msgid ", Knights"
 msgstr ", Cavaliers"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1276
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1263
 msgid ", Rooks"
 msgstr ", Tours"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1278
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1265
 msgid ", Queens"
 msgstr ", Dames"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1280
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1267
 msgid "Beginner game - King and Pawns"
 msgstr "Partie débutant - Roi et Pions"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_players.php:78
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:78
 msgid "[CapaKaspa] Sign up confirmation"
 msgstr "[CapaKaspa] Confirmation d'inscription"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_players.php:79
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:79
 msgid ""
 "To complete your sign up please click the following link (in case of "
 "problems copy the link into the address bar of your browser)"
@@ -2595,11 +2640,11 @@ msgstr ""
 "problème copiez le lien directement dans la barre d'adresse de votre "
 "navigateur)"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_players.php:240
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:240
 msgid "[CapaKaspa] Confirm activation"
 msgstr "[CapaKaspa] Confirmer l'activation"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_players.php:241
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:241
 msgid ""
 "To activate your account please click the following link (in case of "
 "problems copy the link into the address bar of your browser)"
@@ -2607,132 +2652,135 @@ msgstr ""
 "Pour activer votre compte cliquez sur le lien suivant (en cas de problème "
 "copiez le lien directement dans la barre d'adresse de votre navigateur)"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_players.php:243
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:243
 msgid "This message was sent automatically from the site CapaKaspa"
 msgstr "Ce message a été envoyé automatiquement à partir du site CapaKaspa"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_players.php:351
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:351
 msgid "[CapaKaspa] Your password"
 msgstr "[CapaKaspa] Votre mot de passe"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_players.php:352
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:352
 msgid "Data about your account"
 msgstr "Données de votre compte"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:11
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:11
 #: PHP/include/page_body_home.php:11 PHP/include/page_body_no_menu.php:11
 msgid "CapaKaspa : Play chess and share your games"
 msgstr "CapaKaspa : Jouer aux échecs et partager vos parties"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:15
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:15
 #: PHP/include/page_body_home.php:15 PHP/include/page_body_no_menu.php:15
 #: PHP/mobile/index.php:85
 msgid "Sign out"
 msgstr "Déconnexion"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:19
-#: PHP/include/page_body_home.php:19 PHP/include/page_body_no_menu.php:19
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:20
+#: PHP/include/page_body_home.php:20 PHP/include/page_body_no_menu.php:20
 msgid "Follow us on Facebook"
 msgstr "Suivez-nous sur Facebook"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:20
-#: PHP/include/page_body_home.php:20 PHP/include/page_body_no_menu.php:20
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:21
+#: PHP/include/page_body_home.php:21 PHP/include/page_body_no_menu.php:21
 msgid "Follow us on Twitter"
 msgstr "Suivez-nous sur Twitter"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:21
-#: PHP/include/page_body_home.php:21 PHP/include/page_body_no_menu.php:21
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:22
+#: PHP/include/page_body_home.php:22 PHP/include/page_body_no_menu.php:22
 msgid "Follow us on Google+"
 msgstr "Suivez-nous sur Google+"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:22
-#: PHP/include/page_body_home.php:22 PHP/include/page_body_no_menu.php:22
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:23
+#: PHP/include/page_body_home.php:23 PHP/include/page_body_no_menu.php:23
 msgid "Follow us on YouTube"
 msgstr "Suivez-nous sur YouTube"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:50
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:24
+#: PHP/include/page_body_home.php:24 PHP/include/page_body_no_menu.php:24
+msgid "Follow us on Pinterest"
+msgstr "Suivez-nous sur Pinterest"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:52
 msgid "Update info"
 msgstr "Actualiser mes infos"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:62
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:64
 msgid "Chess games"
 msgstr "Parties d'échecs"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:65
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:67
 msgid "Moves to play"
 msgstr "Coups à jouer"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:66
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:68
 msgid "My games ended"
 msgstr "Mes parties terminées"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:72
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:74
 msgid "Players"
 msgstr "Joueurs"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:75
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:77
 msgid "Search"
 msgstr "Rechercher"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:76
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:78
 msgid "Messages"
 msgstr "Messages"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:76
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:78
 msgid "New private messages"
 msgstr "Nouveaux messages privés"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:83
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:85
 msgid "Statistics"
 msgstr "Statistiques"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:86
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:88
 msgid "Active players"
 msgstr "Joueurs actifs"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:87
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:89
 msgid "Passive players"
 msgstr "Joueurs passifs"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:88
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:90
 msgid "Online players"
 msgstr "Joueurs en ligne"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:94
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:95
 msgid "Applications"
 msgstr "Applications"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:96
-msgid "Play JChess"
-msgstr "Jouer à JChess"
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/include/page_body.php:103
+msgid "Links"
+msgstr "Liens"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:97
-msgid "Play flashChess"
-msgstr "Jouer à flashChess"
-
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_footer.php:4
-#: PHP/include/page_footer_right.php:4
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/include/page_footer.php:4 PHP/include/page_footer_right.php:4
 msgid "Terms"
 msgstr "CGU"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/mobile/game_board.php:226
-#: PHP/mobile/game_in_progress.php:178 PHP/mobile/index.php:75
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/mobile/game_board.php:225 PHP/mobile/game_in_progress.php:178
+#: PHP/mobile/index.php:75
 msgid "Games"
 msgstr "Parties"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/mobile/index.php:44
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/index.php:44
 msgid "CapaKaspa mobile"
 msgstr "CapaKaspa mobile"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/mobile/index.php:54
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/index.php:54
 msgid "Play your chess games on your mobile."
 msgstr "Jouez vos parties d'échecs sur votre mobile."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/mobile/index.php:63
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/index.php:63
 msgid "Invalid user name or password"
 msgstr "Nom d'utilisateur ou mot de passe invalide"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/mobile/index.php:68
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/index.php:68
 msgid ""
 "To sign-up on CapaKaspa access to the computer version by clicking on the "
 "link below."
@@ -2740,19 +2788,39 @@ msgstr ""
 "Pour vous inscrire sur CapaKaspa, accèdez à la version pour ordinateur en "
 "cliquant sur le lien au bas de l'écran."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/mobile/index.php:81
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/index.php:81
 msgid "Welcome"
 msgstr "Bienvenue"
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/mobile/index.php:82
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/index.php:82
 msgid "your are on the optimized version of CapaKaspa for your mobile."
 msgstr ""
 "vous êtes sur le version optimisée pour les smartphone du site CapaKaspa."
 
-#: D:\eclipse\wokspace\capakaspa\CapaKaspa
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/mobile/include/page_footer.php:2
 msgid "Access to computer version"
 msgstr "Accéder à la version pour ordinateur"
+
+#, fuzzy
+#~ msgid "Fischer Chess Random (Chess960)"
+#~ msgstr "Au hasard"
+
+#~ msgid "Chess960 game"
+#~ msgstr "Parties d'échecs Chess960"
+
+#~ msgid "Play against JChess"
+#~ msgstr "Jouer contre JChess"
+
+#~ msgid "Puzzle of the day"
+#~ msgstr "Diagramme du jour"
+
+#, fuzzy
+#~ msgid "Play chess vs flashChess"
+#~ msgstr "Jouer à flashChess"
+
+#~ msgid "Play JChess"
+#~ msgstr "Jouer à JChess"
 
 #~ msgid "Network"
 #~ msgstr "Réseau"

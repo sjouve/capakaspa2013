@@ -15,11 +15,11 @@ require 'bwc/bwc_games.php';
 require 'include/connectdb.php';
 
 /* check session status */
-require 'include/sessioncheck.php';
+//require 'include/sessioncheck.php';
 
 require 'include/localization.php';
 
-$titre_page = _("Play against JChess");
+$titre_page = _("Play chess against JChess");
 $desc_page = _("Play a chess game against JChess");
 require 'include/page_header.php';
 ?>
@@ -41,6 +41,7 @@ require 'include/page_body.php';
 ?>
 <div id="contentlarge">
 	<div class="contentbody">
+	<h3><? echo $titre_page?></h3>
 		<center>
 		<applet
 			code=jchess.class archive="bin/jchess.zip"
@@ -60,19 +61,7 @@ require 'include/page_body.php';
 		<br>
 		<br>
 		<br>
-		<center>
-			<script type="text/javascript"><!--
-		    google_ad_client = "ca-pub-8069368543432674";
-		    /* CapaKaspa JChess Bandeau Bas */
-		    google_ad_slot = "8246377058";
-		    google_ad_width = 468;
-		    google_ad_height = 60;
-		    //-->
-		    </script>
-		    <script type="text/javascript"
-		    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-		    </script>
-		</center>
+		
 		<br>
 		<br>
 		<br>
