@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2014-01-01 16:37+0100\n"
-"PO-Revision-Date: 2014-01-01 16:37+0100\n"
+"POT-Creation-Date: 2014-01-03 21:43+0100\n"
+"PO-Revision-Date: 2014-01-03 21:45+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -1649,6 +1649,29 @@ msgid ""
 msgstr ""
 "Le classement Elo est calculé tous les mois et prend en compte les parties "
 "d'échecs classiques terminées pendant le mois passé."
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_help.php:28
+msgid "How to share chess games ?"
+msgstr "Comment partager les parties d'échecs ?"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_help.php:29
+msgid "You can share invitations, results and move with yours followers."
+msgstr ""
+"Vous pouvez partager les invitations, les résultats et mes coups avec vos "
+"abonnés."
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_help.php:30
+msgid ""
+"By default invitations and results are shared. You can stop sharing on your "
+"profile page."
+msgstr ""
+"Par défaut les invitations et les résultats sont partagés. Vous pouvez "
+"arrêter de partager sur votre page profil."
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_help.php:31
+msgid "To share a move check the share option before validate your move."
+msgstr ""
+"Pour partager un coup cochez l'option partager avant de valider votre coup."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_privacy.php:4
 #: PHP/site_privacy.php:16 PHP/include/page_footer.php:3

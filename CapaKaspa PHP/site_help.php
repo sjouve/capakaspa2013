@@ -25,6 +25,11 @@ require 'include/page_body_no_menu.php';
 		<h4><?echo _("How is calculated the chess ranking of players on the site ?");?></h4>
 		<?echo _("Elo ranking is calculated monthly and takes into account the classic chess games completed during the month past.");?>
 		
+		<h4><?echo _("How to share chess games ?");?></h4>
+		<?echo _("You can share invitations, results and move with yours followers.");?><br>
+		<?echo _("By default invitations and results are shared. You can stop sharing on your profile page.");?><br>
+		<?echo _("To share a move check the share option before validate your move.");?><br>
+		
 	</div>
 </div>
 <?
