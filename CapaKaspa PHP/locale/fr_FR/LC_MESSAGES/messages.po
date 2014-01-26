@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2014-01-03 21:43+0100\n"
-"PO-Revision-Date: 2014-01-03 21:45+0100\n"
+"POT-Creation-Date: 2014-01-26 22:48+0100\n"
+"PO-Revision-Date: 2014-01-26 22:48+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -155,9 +155,17 @@ msgid "Flip the board"
 msgstr "Retourner l'échiquier"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_puzzle.php:22
-#: PHP/app_puzzle.php:23 PHP/index.php:397 PHP/include/page_body.php:99
+#: PHP/app_puzzle.php:23 PHP/index.php:398 PHP/include/page_body.php:100
 msgid "Chess puzzle of the day"
 msgstr "Diagramme d'échecs du jour"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_sparkchess.php:22
+msgid "Play chess against SparkChess"
+msgstr "Jouer aux échecs avec SparkChess"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_sparkchess.php:23
+msgid "Play a chess game against SparkChess"
+msgstr "Jouer une partie d'échecs avec SparkChess"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/error_404.php:4
 #: PHP/site_about.php:4 PHP/site_about.php:16
@@ -1055,8 +1063,13 @@ msgstr "Jouer aux échecs avec JChess"
 msgid "Play chess vs FlashChess"
 msgstr "Jouer aux échecs avec flashChess"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:398
-#: PHP/include/page_body.php:105
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:397
+#: PHP/include/page_body.php:99
+msgid "Play chess vs SparkChess"
+msgstr "Jouer aux échecs avec SparkChess"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:399
+#: PHP/include/page_body.php:106
 msgid "The Chess Blog (french)"
 msgstr "Le Blog du jeu d'échecs"
 
@@ -2776,7 +2789,7 @@ msgid "Applications"
 msgstr "Applications"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:103
+#: PHP/include/page_body.php:104
 msgid "Links"
 msgstr "Liens"
 
