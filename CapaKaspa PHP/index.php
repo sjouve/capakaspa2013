@@ -396,7 +396,8 @@ require 'include/page_body_home.php';
    		<img src="images/puce.gif"/> <a href="app_flashchess.php"><? echo _("Play chess vs FlashChess");?></a><br>
    		<img src="images/puce.gif"/> <a href="app_sparkchess.php"><? echo _("Play chess vs SparkChess");?></a><br>
    		<img src="images/puce.gif"/> <a href="app_puzzle.php"><? echo _("Chess puzzle of the day");?></a><br>
-   		<img src="images/puce.gif"/> <a href="http://blog.capakaspa.info" target="_blanck"><? echo _("The Chess Blog (french)");?></a><br>
+   		<img src="images/puce.gif"/> <a href="http://blog.capakaspa.info" target="_blank"><? echo _("The Chess Blog (french)");?></a><br>
+
 	</div>
 </div>
 <?

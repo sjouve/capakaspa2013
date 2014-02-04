@@ -106,7 +106,7 @@ if (isset($toPlayerID))
 		        <li><img src="images/puce.gif"/> <a href="http://blog.capakaspa.info" target="_blanck"><? echo _("The Chess Blog (french)");?></a></li>
       		</ul>
 	</div>
-	
+
 </div>
 
 <div id="advertisement">

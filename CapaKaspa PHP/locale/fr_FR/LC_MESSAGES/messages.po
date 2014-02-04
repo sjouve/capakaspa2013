@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2014-02-02 12:07+0100\n"
 "PO-Revision-Date: 2014-02-02 12:07+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
+=======
+"POT-Creation-Date: 2013-12-27 12:25+0100\n"
+"PO-Revision-Date: 2013-12-27 12:25+0100\n"
+"Last-Translator: S. JOUVE <sjouve@gmail.com>\n"
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -78,20 +84,32 @@ msgstr ""
 "Si vous le souhaitez, vous pouvez utiliser le formulaire ci-dessous pour "
 "mettre à jour votre adresse email et commencer le processus d'activation"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:64
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:64
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/index.php:258 PHP/index.php:281 PHP/index.php:376
 #: PHP/player_update.php:334 PHP/bwc/bwc_players.php:353
 #: PHP/include/page_body.php:37 PHP/mobile/index.php:57
 msgid "User name"
 msgstr "Nom d'utilisateur"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:69
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:69
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/index.php:380 PHP/bwc/bwc_players.php:354 PHP/include/page_body.php:38
 #: PHP/mobile/index.php:58
 msgid "Password"
 msgstr "Mot de passe"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:74
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activation.php:74
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/index.php:260 PHP/index.php:301 PHP/player_update.php:378
 msgid "Email"
 msgstr "Email"
@@ -101,7 +119,11 @@ msgstr "Email"
 msgid "Send"
 msgstr "Envoyer"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activity.php:27
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/activity.php:27
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/include/page_body.php:76
 msgid "News feed"
 msgstr "Fil d'actualités"
@@ -110,15 +132,27 @@ msgstr "Fil d'actualités"
 msgid "News feed of your following"
 msgstr "Fil d'actualités de vos abonnements"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_flashchess.php:22
 msgid "Play chess against flashChess"
 msgstr "Jouer aux échecs avec flashChess"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_flashchess.php:23
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/app_flashchess.php:22
+msgid "Play chess against flashChess"
+msgstr "Jouer aux échecs avec flashChess"
+
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/app_flashchess.php:23
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Play a chess game against flashChess"
 msgstr "Jouer une partie d'échecs avec flashChess"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_jchess.php:22
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/app_jchess.php:22
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Play chess against JChess"
 msgstr "Jouer aux échecs avec JChess"
 
@@ -126,36 +160,65 @@ msgstr "Jouer aux échecs avec JChess"
 msgid "Play a chess game against JChess"
 msgstr "Jouer une partie d'échecs avec JChess"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_jchess.php:53
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/app_jchess.php:53
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Config"
 msgstr "Paramètres"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_jchess.php:54
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/app_jchess.php:54
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Play !"
 msgstr "Jouer !"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_jchess.php:55
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/app_jchess.php:55
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/game_new.php:25 PHP/player_view.php:157
 #: PHP/ajax/ajx_display_player.php:58 PHP/include/page_body.php:66
 msgid "New game"
 msgstr "Nouvelle partie"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_jchess.php:56
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/app_jchess.php:56
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/player_view.php:175 PHP/site_about.php:17 PHP/include/page_footer.php:2
 #: PHP/include/page_footer_right.php:2
 msgid "About"
 msgstr "A propos"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_jchess.php:58
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/app_jchess.php:58
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Play with blacks"
 msgstr "Jouer avec les noirs"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_jchess.php:59
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/app_jchess.php:59
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Flip the board"
 msgstr "Retourner l'échiquier"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_puzzle.php:22
 #: PHP/app_puzzle.php:23 PHP/index.php:398 PHP/include/page_body.php:100
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/app_puzzle.php:22
+#: PHP/app_puzzle.php:23 PHP/index.php:397 PHP/include/page_body.php:99
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Chess puzzle of the day"
 msgstr "Diagramme d'échecs du jour"
 
@@ -467,7 +530,11 @@ msgstr "Dernier coup"
 msgid "Here are old existing comments on this game"
 msgstr "Anciens commentaires sur la partie"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:141
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_in_progress.php:141
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/game_in_progress.php:332 PHP/include/page_body.php:67
 #: PHP/mobile/game_in_progress.php:141 PHP/mobile/game_in_progress.php:320
 msgid "My games in progress"
@@ -695,7 +762,16 @@ msgstr "Cavaliers"
 msgid "Rooks"
 msgstr "Tours"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:154
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:207
+#, fuzzy
+msgid "Fischer Chess Random (Chess960)"
+msgstr "Au hasard"
+
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/game_new.php:217
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "2 days"
 msgstr "2 jours"
 
@@ -948,110 +1024,213 @@ msgstr "Une erreur technique s'est produite"
 msgid "Security code error. Try again."
 msgstr "Erreur de code de sécurité. Essayez encore."
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:272
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:272
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/player_update.php:324
 msgid "I am"
 msgstr "Je suis"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:275
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:275
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/player_update.php:327
 msgid "Male"
 msgstr "Homme"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:276
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:276
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/player_update.php:328
 msgid "Female"
 msgstr "Femme"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:285
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:285
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Choose password"
 msgstr "Choisir un mot de passe"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:289
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:289
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/player_update.php:370
 msgid "Confirm password"
 msgstr "Confirmer mot de passe"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:293
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:293
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/player_update.php:339
 msgid "First name"
 msgstr "Prénom"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:297
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:297
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/player_update.php:345
 msgid "Last name"
 msgstr "Nom"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:302
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:302
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "A valid email is required for confirmation"
 msgstr "Un email valide est obligatoire pour confirmation"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:305
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:305
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/player_search.php:88 PHP/player_update.php:390
 msgid "Country"
 msgstr "Pays"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:308
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:308
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/player_update.php:393
 msgid "Select your country"
 msgstr "Choisir votre pays"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:324
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:324
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Birth date"
 msgstr "Date naissance"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:327
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:327
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/player_update.php:354
 msgid "Select a year"
 msgstr "Choisir une année"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:348
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:348
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Type the security code"
 msgstr "Entrer le code de sécurité"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:350
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:350
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Try other security code"
 msgstr "Essayez un autre code de sécurité"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:354
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:354
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Captcha Image"
 msgstr "Image Captcha"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:359
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:359
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Sign up for free"
 msgstr "Inscrivez-vous gratuitement"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:372
 #: PHP/index.php:388 PHP/include/page_body.php:43 PHP/mobile/index.php:60
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:372 PHP/index.php:388
+#: PHP/include/page_body.php:43 PHP/mobile/index.php:60
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Sign in"
 msgstr "Se connecter"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:385
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:385
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/include/page_body.php:40
 msgid "Invalid user name or password !"
 msgstr "Nom d'utilisateur ou mot de passe invalide !"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:387
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:387
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/include/page_body.php:42 PHP/mobile/index.php:59
 msgid "Remember me"
 msgstr "Se souvenir de moi"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:388
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:388
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/include/page_body.php:46
 msgid "Forgot password ?"
 msgstr "Mot de passe oublié ?"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:392
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:392
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Play chess on CapaKaspa"
 msgstr "Jouer aux échecs sur CapaKaspa"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:393
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:393
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "chess games in progress"
 msgstr "parties d'échecs en cours"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:394
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:394
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "players are waiting to play chess games"
 msgstr "joueurs attendent de jouer aux échecs"
+
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:395
+#: PHP/include/page_body.php:97
+msgid "Play chess vs JChess"
+msgstr "Jouer aux échecs avec JChess"
+
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/index.php:396
+#: PHP/include/page_body.php:98
+msgid "Play chess vs FlashChess"
+msgstr "Jouer aux échecs avec flashChess"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:395
 #: PHP/include/page_body.php:97
@@ -1568,7 +1747,11 @@ msgstr "Abonnements"
 msgid "Are you sure you want to delete this news ?"
 msgstr "Etes vous sûr de vouloir supprimer cette actualité ?"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:261
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/player_view.php:261
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/include/page_body.php:87
 msgid "Games in progress"
 msgstr "Parties en cours"
@@ -1600,24 +1783,44 @@ msgstr ""
 msgid "Official data"
 msgstr "Données officielles"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_about.php:28
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:28
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Contact"
 msgstr "Contact"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_about.php:30
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:30
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/site_help.php:18
 msgid "To contact us send an email at capakaspa@capakaspa.info"
 msgstr "Pour nous contacter envoyez un email à capakaspa@capakaspa.info"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_about.php:33
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:33
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Credits"
 msgstr "Crédits"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_about.php:35
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:35
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "CapaKaspa works with some PHP libraries"
 msgstr "CapaKaspa fonctionne avec quelques librairies PHP"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_about.php:36
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_about.php:36
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "an old version of"
 msgstr "une ancienne version de"
 
@@ -1630,7 +1833,11 @@ msgstr "Aide"
 msgid "Frequently Asked Questions about how to play chess on CapaKaspa"
 msgstr "Questions fréquentes sur la manière de jouer aux échecs sur CapaKaspa"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/site_help.php:17
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/site_help.php:17
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "A problem with a game ? A question about the site ?"
 msgstr "Un problème avec une partie ? Une question au sujet du site ?"
 
@@ -2643,7 +2850,15 @@ msgstr "sont en échecs"
 msgid "Your opponent do a draw proposal. Are you agree ?"
 msgstr "Votre adversaire vous propose une nulle. Etes vous d'accord ?"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1259
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1267
+msgid "Chess960 game"
+msgstr "Parties d'échecs Chess960"
+
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/bwc/bwc_games.php:1272
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid ", Bishops"
 msgstr ", Fous"
 
@@ -2711,83 +2926,157 @@ msgstr "CapaKaspa : Jouer aux échecs et partager vos parties"
 msgid "Sign out"
 msgstr "Déconnexion"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:20
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:20
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/include/page_body_home.php:20 PHP/include/page_body_no_menu.php:20
 msgid "Follow us on Facebook"
 msgstr "Suivez-nous sur Facebook"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:21
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:21
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/include/page_body_home.php:21 PHP/include/page_body_no_menu.php:21
 msgid "Follow us on Twitter"
 msgstr "Suivez-nous sur Twitter"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:22
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:22
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/include/page_body_home.php:22 PHP/include/page_body_no_menu.php:22
 msgid "Follow us on Google+"
 msgstr "Suivez-nous sur Google+"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:23
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:23
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #: PHP/include/page_body_home.php:23 PHP/include/page_body_no_menu.php:23
 msgid "Follow us on YouTube"
 msgstr "Suivez-nous sur YouTube"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:24
 #: PHP/include/page_body_home.php:24 PHP/include/page_body_no_menu.php:24
 msgid "Follow us on Pinterest"
 msgstr "Suivez-nous sur Pinterest"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:52
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:24
+#: PHP/include/page_body_home.php:24 PHP/include/page_body_no_menu.php:24
+msgid "Follow us on Pinterest"
+msgstr "Suivez-nous sur Pinterest"
+
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:52
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Update info"
 msgstr "Actualiser mes infos"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:64
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:64
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Chess games"
 msgstr "Parties d'échecs"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:67
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:67
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Moves to play"
 msgstr "Coups à jouer"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:68
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:68
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "My games ended"
 msgstr "Mes parties terminées"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:74
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:74
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Players"
 msgstr "Joueurs"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:77
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:77
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Search"
 msgstr "Rechercher"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:78
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:78
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Messages"
 msgstr "Messages"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:78
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:78
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "New private messages"
 msgstr "Nouveaux messages privés"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:85
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:85
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Statistics"
 msgstr "Statistiques"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:88
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:88
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Active players"
 msgstr "Joueurs actifs"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:89
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:89
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Passive players"
 msgstr "Joueurs passifs"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:90
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:90
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Online players"
 msgstr "Joueurs en ligne"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:95
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_body.php:95
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Applications"
 msgstr "Applications"
 
+<<<<<<< HEAD
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/include/page_body.php:104
 msgid "Links"
@@ -2795,6 +3084,10 @@ msgstr "Liens"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/include/page_footer.php:4 PHP/include/page_footer_right.php:4
+=======
+#: D:\eclipse\wokspace\capakaspa\CapaKaspa PHP/include/page_footer.php:4
+#: PHP/include/page_footer_right.php:4
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 msgid "Terms"
 msgstr "CGU"
 
@@ -2838,6 +3131,7 @@ msgstr ""
 msgid "Access to computer version"
 msgstr "Accéder à la version pour ordinateur"
 
+<<<<<<< HEAD
 #~ msgid ""
 #~ "Elo ranking is calculated quarterly and takes into account the classic "
 #~ "games completed during the quarter past."
@@ -2852,6 +3146,8 @@ msgstr "Accéder à la version pour ordinateur"
 #~ msgid "Chess960 game"
 #~ msgstr "Parties d'échecs Chess960"
 
+=======
+>>>>>>> branch 'master' of https://github.com/sjouve/capakaspa2013
 #~ msgid "Play against JChess"
 #~ msgstr "Jouer contre JChess"
 
