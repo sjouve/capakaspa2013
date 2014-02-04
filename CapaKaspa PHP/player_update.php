@@ -419,7 +419,7 @@ require 'include/page_body.php';
             <? echo($_SESSION['elo']); ?> 
             <span onmouseout="document.getElementById('helpElo').style.display = 'none';" onmouseover="document.getElementById('helpElo').style.display = 'block';"><img src="images/point-interrogation.gif" border="0"/></span>
             <div id="helpElo" style="display: none;" class="help">
-            <? echo _("Elo ranking is calculated quarterly and takes into account the classic games completed during the quarter past.");?>
+            <? echo _("Elo ranking is calculated monthly and takes into account the classic games completed during the month past.");?>
             </div>
             </td>
           </tr>

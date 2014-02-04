@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2014-01-26 22:48+0100\n"
-"PO-Revision-Date: 2014-01-26 22:48+0100\n"
+"POT-Creation-Date: 2014-02-02 12:07+0100\n"
+"PO-Revision-Date: 2014-02-02 12:07+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -1314,11 +1314,11 @@ msgstr "Elo CapaKaspa"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:422
 msgid ""
-"Elo ranking is calculated quarterly and takes into account the classic games "
-"completed during the quarter past."
+"Elo ranking is calculated monthly and takes into account the classic games "
+"completed during the month past."
 msgstr ""
-"Le classement Elo est calculé tous les trimestres et prend en compte les "
-"parties classiques terminées pendant le trimestre passé."
+"Le classement Elo est calculé tous les mois et prend en compte les parties "
+"d'échecs classiques terminées pendant le mois passé."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:427
 msgid "About you"
@@ -2837,6 +2837,13 @@ msgstr ""
 #: PHP/mobile/include/page_footer.php:2
 msgid "Access to computer version"
 msgstr "Accéder à la version pour ordinateur"
+
+#~ msgid ""
+#~ "Elo ranking is calculated quarterly and takes into account the classic "
+#~ "games completed during the quarter past."
+#~ msgstr ""
+#~ "Le classement Elo est calculé tous les trimestres et prend en compte les "
+#~ "parties classiques terminées pendant le trimestre passé."
 
 #, fuzzy
 #~ msgid "Fischer Chess Random (Chess960)"
