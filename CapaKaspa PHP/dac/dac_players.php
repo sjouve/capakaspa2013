@@ -60,7 +60,7 @@ function listPlayersForElo()
 				FROM players P, elo_history E 
 				WHERE P.playerID = E.playerID 
 				AND P.activate=1 
-				AND E.eloDate > '2013-03-31' 
+				AND E.eloDate > '2013-08-31' 
 				ORDER BY playerID";
 
 	return mysql_query($tmpQuery);
@@ -86,7 +86,7 @@ function listPlayersByNickName($str, $type)
 /* Historique Elo d'un joueur */
 function listEloProgress($playerID)
 {
-	$tmpQuery = "SELECT elo, DATE_FORMAT(eloDate, '%c/%y') eloDateF
+	$tmpQuery = "SELECT elo, DATE_FORMAT(eloDate, '%c') eloDateF
 	FROM elo_history
 	WHERE playerID = ".$playerID."
 	ORDER BY eloDate ASC";

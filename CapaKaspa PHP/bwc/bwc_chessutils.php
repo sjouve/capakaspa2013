@@ -228,6 +228,35 @@ function getPieceCodeChar($char)
 	return $code;
 }
 
+function getPieceCodeChar960($char)
+{
+
+	// Load
+	switch($char)
+	{
+		case "P":
+			$code = PAWN;
+			break;
+		case "N":
+			$code = KNIGHT;
+			break;
+		case "B":
+			$code = BISHOP;
+			break;
+		case "R":
+			$code = ROOK;
+			break;
+		case "Q":
+			$code = QUEEN;
+			break;
+		case "K":
+			$code = KING;
+			break;
+	}
+
+	return $code;
+}
+
 function getPGNCode($piecename)
 {
 	switch($piecename)
@@ -268,7 +297,7 @@ function isBoardDisabled()
 function moveToPGNString($curColor, $piece, $fromRow, $fromCol, $toRow, $toCol, $pieceCaptured, $promotedTo, $isChecking)
 {
 	$pgnString = "";
-	
+	// TODO Chess960 Cas du roque à voir
 	/* check for castling */
 	if (($piece == "king") && (abs($toCol - $fromCol) == 2))
 	{
@@ -277,6 +306,16 @@ function moveToPGNString($curColor, $piece, $fromRow, $fromCol, $toRow, $toCol, 
 			$pgnString .= ("O-O");
 		else
 			$pgnString .= ("O-O-O");
+	}
+	else if (($piece == "king") && ($toCol == -1))
+	{		
+		/* Chess960 castling */
+		$pgnString .= ("O-O-O");
+	}
+	else if (($piece == "king") && ($toCol == 8))
+	{
+		/* Chess960 castling */
+		$pgnString .= ("O-O");
 	}
 	else
 	{

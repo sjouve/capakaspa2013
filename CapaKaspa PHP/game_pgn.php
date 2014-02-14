@@ -26,7 +26,7 @@ $tmpGame = getGame($gameID);
 loadHistory($gameID);
 $gameResult = processMessages($tmpGame);
 $listeCoups = writeHistoryPGN($history, $numMoves);
-$strPGN = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $listeCoups, $gameResult);
+$strPGN = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $tmpGame['chess960'], $listeCoups, $gameResult);
 
 echo $strPGN;
 mysql_close();

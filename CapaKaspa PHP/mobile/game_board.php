@@ -159,6 +159,7 @@ require 'include/page_header.php';
 
 
 	/* transfer board data to javacripts */
+	var boardGameType = <?echo($tmpGame['type']);?>;
 	<? writeJSboard($board, $numMoves); ?>
 	<? writeJSHistory($history, $numMoves); ?>
 	
@@ -330,7 +331,7 @@ require 'include/page_body.php';
 			
           	<?
 				$listeCoups = writeHistoryPGN($history, $numMoves);
-				$pgnstring = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $listeCoups, $gameResult);
+				$pgnstring = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $tmpGame['chess960'], $listeCoups, $gameResult);
 			?>
 			<form style="display: none;">
 				<textarea style="display: none;" id="pgnText">

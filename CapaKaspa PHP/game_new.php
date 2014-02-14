@@ -33,10 +33,64 @@ $username = isset($_POST['opponent'])? $_POST['opponent'] :"";
 <script src="javascript/menu.js" type="text/javascript"></script>
 <script src="javascript/formValidation.js" type="text/javascript"></script>
 <script type="text/javascript">
+function chess960()
+{
+  var aKnight = "N";
+  var aBishop = "B";
+  var aRook   = "R";
+  var aQueen  = "Q";
+  var aKing   = "K";
+
+  var sLetter = "01234567";
+  var nPlace, sPlace;
+
+  var sPiece   = new Array("X","X","X","X","X","X","X","X");
+  var sPlace = "";
+
+  var aPlace = new Array("0246", "1357");
+  for (var i=0; i<2; i++)
+  {
+    nPlace = Math.floor(Math.random() * 4);
+    sPlace = aPlace[i].substring(nPlace, nPlace + 1);
+    sPiece[sPlace] = aBishop;
+    nPlace = sLetter.indexOf(sPlace);
+    sLetter = sLetter.substring(0,nPlace) + sLetter.substring(nPlace+1, sLetter.length);
+  } // i
+
+  var aPiece = new Array(aQueen, aKnight, aKnight);
+  for (var i=0; i<3; i++)
+  {
+    nPlace = Math.floor(Math.random() * (6 - i));
+    sPlace = sLetter.substring(nPlace, nPlace + 1);
+    sPiece[sPlace] = aPiece[i];
+    sLetter = sLetter.substring(0,nPlace) + sLetter.substring(nPlace+1, sLetter.length);
+  } // i
+
+  var aPiece = new Array(aRook, aKing, aRook);
+  for (var i=0; i<3; i++)
+  {
+    sPiece[sLetter.substring(i, i+1)] = aPiece[i];
+  } // i
+
+  var sp="";
+  for (var i=0; i<8; i++)
+  {
+    sp=sp.concat(sPiece[i]);
+  } // i
+
+  return sp;
+
+} //Chess960
+
+function getChess960()
+{
+	document.startGameForm.chess960.value = chess960();	
+}
+
 function showHint(str, type)
 {
 	var xmlhttp;
-	if (str.length < 3)
+	if (str.length < 2)
 	{
 		document.getElementById("txtHint").innerHTML="";
 		return;
@@ -143,6 +197,15 @@ require 'include/page_body.php';
 						<input type="checkbox" name="flagKnight" value="1"> <?echo _("Knigths")?>
 						<input type="checkbox" name="flagRook" value="1"> <?echo _("Rooks")?>
 						<input type="checkbox" name="flagQueen" value="1"> <?echo _("Queen")?>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;
+					</td>
+					<td>
+						<input type="radio" name="type" value="2" onclick="javascript:getChess960();"> <?echo _("Fischer Chess Random (Chess960)")?>
+						<input type="hidden" name="chess960" value="">
 					</td>
 				</tr>
 				<tr>

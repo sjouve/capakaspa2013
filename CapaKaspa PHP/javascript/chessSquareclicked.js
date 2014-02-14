@@ -45,11 +45,15 @@
 			
 			/* if, on a player's second click, they click on one of their own piece */
 			/* act as if he was clicking for the first time (ie: select it) */
+			// TODO Chess960 Cas clique sur Tour avec le Roi
 			if (board[row][col] != 0 )
-				if (getPieceColor(board[row][col]) == curColor)
+				if (getPieceColor(board[row][col]) == curColor )
 				{
-					squareClickedFirst(row, col, isEmpty, curColor);
-					return null;
+					if (boardGameType != 2 || (getPieceName(board[row][col]) != 'rook' && boardGameType == 2))
+					{
+						squareClickedFirst(row, col, isEmpty, curColor);
+						return null;
+					}
 				}
 
 			var fromRow = parseInt(document.gamedata.fromRow.value);
@@ -81,15 +85,46 @@
 				
 				var isCapture = (board[row][col] != 0);
 				var thePiece = getPieceName(board[fromRow][fromCol]);
+				var fromPiece = getPieceName(board[row][col]);
 				
 				/* update board with move (client-side) */
-				board[row][col] = board[fromRow][fromCol];
-				board[fromRow][fromCol] = 0;
-				eval("document.images['pos" + row + "-" + col+"'].src = document.images['pos" + fromRow + "-" + fromCol+"'].src");
-				eval("document.images['pos" + fromRow + "-" + fromCol+"'].src = 'pgn4web/" + CURRENTTHEME + "/35/clear.png'");
+				if (boardGameType == 2 && thePiece == 'king' && fromPiece == 'rook')
+				{	// Castling Chess960
+					var rookToCol = 3;
+					var kingToCol = 2;
+					// Pour identifier le grand roque en Chess960
+					chessHistory[idx][TOCOL] = -1;
+					if (col > fromCol)
+					{
+						rookToCol = 5;
+						kingToCol = 6;
+						// Pour identifierl petit roque en Chess960
+						chessHistory[idx][TOCOL] = 8;
+					}
+					tmpKing = board[row][fromCol];
+					tmpRook = board[row][col];
+					board[row][fromCol] = 0;
+					board[row][col] = 0;
+					board[row][kingToCol] = tmpKing; 
+					board[row][rookToCol] = tmpRook;
+					tmpImageKing = eval("document.images['pos" + fromRow + "-" + fromCol+"'].src");
+					tmpImageRook = eval("document.images['pos" + row + "-" + col+"'].src");
+					eval("document.images['pos" + fromRow + "-" + fromCol+"'].src = 'pgn4web/" + CURRENTTHEME + "/35/clear.png'");
+					eval("document.images['pos" + row + "-" + col+"'].src = 'pgn4web/" + CURRENTTHEME + "/35/clear.png'");
+					eval("document.images['pos" + row + "-" + kingToCol+"'].src = tmpImageKing");
+					eval("document.images['pos" + row + "-" + rookToCol+"'].src = tmpImageRook");
+					
+				}
+				else
+				{
+					board[row][col] = board[fromRow][fromCol];
+					board[fromRow][fromCol] = 0;
+					eval("document.images['pos" + row + "-" + col+"'].src = document.images['pos" + fromRow + "-" + fromCol+"'].src");
+					eval("document.images['pos" + fromRow + "-" + fromCol+"'].src = 'pgn4web/" + CURRENTTHEME + "/35/clear.png'");
+				}
 				
                 /* if this is a castling move the rook must also be moved */
-				if ((thePiece == 'king') && (Math.abs(col - fromCol) == 2))
+				if (boardGameType != 2 && (thePiece == 'king') && (Math.abs(col - fromCol) == 2))
 				{	// The king only moves two squares when castling
 					var rookCol = 0;
 					var rookToCol = 3;
@@ -217,7 +252,7 @@
 	{
 		if (DEBUG)
 			alert('squareClicked -> row = ' + row + ', col = ' + col + ', isEmpty = ' + isEmpty);
-
+		
 		var curColor = "black";
 		if ((numMoves == -1) || (numMoves % 2 == 1))
 			curColor = "white";

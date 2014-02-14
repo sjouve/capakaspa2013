@@ -9,7 +9,7 @@ function getGame($gameID)
 	// Informations sur la partie : voir le type de partie (position normale ou pas) et le problème du code ECO
 	$tmpQuery = "SELECT G.gameID, G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, G.dialogue dialogue, G.position position,  
 	G.lastMove, G.dateCreated, DATE_ADD(G.lastMove, INTERVAL G.timeMove DAY) expirationDate, G.timeMove, 
-	G.type type, G.flagBishop flagBishop, G.flagKnight flagKnight, G.flagRook flagRook, G.flagQueen flagQueen,
+	G.type type, G.flagBishop flagBishop, G.flagKnight flagKnight, G.flagRook flagRook, G.flagQueen flagQueen, G.chess960,
 	G.eco eco, G.gameMessage, E.name ecoName, L.likeID, 
 	W.nick whiteNick, W.elo whiteElo, W.socialNetwork whiteSocialNet, W.socialID whiteSocialID, W.firstName whiteFirstName, W.lastName whiteLastName, W.email whiteEmail,
 	B.nick blackNick, B.elo blackElo, B.socialNetwork blackSocialNet, B.socialID blackSocialID, B.firstName blackFirstName, B.lastName blackLastName, B.email blackEmail
@@ -33,7 +33,7 @@ function countActiveGame($playerID)
 
 function countActiveGameForAll()
 {
-	$activeGames = mysql_query("SELECT count(gameID) nbGames FROM games WHERE gameMessage=''") or die(mysql_error());
+	$activeGames = mysql_query("SELECT count(gameID) nbGames FROM games WHERE gameMessage is null") or die(mysql_error());
 	return mysql_fetch_array($activeGames, MYSQL_ASSOC);
 }
 
@@ -48,7 +48,7 @@ function listEndedGames($playerID, $dateDeb, $dateFin)
 									AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
 									AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
 									AND W.playerID = EW.playerID AND B.playerID = EB.playerID
-									AND EW.eloDate > '2013-03-31' AND EB.eloDate > '2013-03-31'
+									AND EW.eloDate > '2013-08-31' AND EB.eloDate > '2013-08-31'
 									AND G.type=0 AND G.lastMove >= '".$dateDeb."' AND G.lastMove <= '".$dateFin."'");
 	
 	return $tmpGames;

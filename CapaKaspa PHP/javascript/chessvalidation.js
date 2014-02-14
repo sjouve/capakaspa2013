@@ -306,10 +306,11 @@ function GamePiece()
 	function isValidMoveKing(fromRow, fromCol, toRow, toCol, tmpColor)
 	{
 		/* the king cannot move to a square occupied by a friendly piece */
-		if ((board[toRow][toCol] != 0) && (getPieceColor(board[toRow][toCol]) == tmpColor))
-		{
-			return false;
-		}
+		if (boardGameType != 2 || (boardGameType == 2 && board[toRow][toCol] & COLOR_MASK != ROOK))
+			if ((board[toRow][toCol] != 0) && (getPieceColor(board[toRow][toCol]) == tmpColor))
+			{
+				return false;
+			}
 		/* temporarily move king to destination to see if in check */
 		var tmpPiece = board[toRow][toCol];
 		board[toRow][toCol] = board[fromRow][fromCol];
@@ -348,8 +349,14 @@ function GamePiece()
 
 			return true;
 		}
-		/* CASTLING: */
-		else if ((fromRow == toRow) && (fromCol == 4) && (Math.abs(toCol - fromCol) == 2))
+		/* CASTLING: No Chess960*/
+		else if (boardGameType == 2 && (board[toRow][toCol] & COLOR_MASK) == ROOK)
+		{
+			// TODO Chess960 Cas du roque à voir (pour le roque on déplace le Roi sur la Tour du côté du roque voulu, la position finale des deux est celle du roque classique)
+			return true;
+		}
+		/* CASTLING: No Chess960*/
+		else if ((fromRow == toRow) && (fromCol == 4) && (Math.abs(toCol - fromCol) == 2) && boardGameType != 2)
 		{
 			/*
 			The following conditions must be met:

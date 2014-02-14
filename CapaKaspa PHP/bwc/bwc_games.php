@@ -7,7 +7,7 @@ require 'dac/dac_games.php';
 /* Accès aux données concernant la table Games, History, Messages */
 
 /* Return le PGN de la partie */
-function getPGN($whiteNick, $blackNick, $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $listeCoups, $gameResult)
+function getPGN($whiteNick, $blackNick, $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $chess960, $listeCoups, $gameResult)
 {
 	$startFEN = "";
 	if ($type == 1)
@@ -38,6 +38,17 @@ function getPGN($whiteNick, $blackNick, $type, $flagBishop, $flagKnight, $flagRo
 		{
 			$startFEN[3]="q";
 			$startFEN[38]="Q";
+		}
+	}
+	if ($type == 2)
+	{
+		$startFEN = "11111111/pppppppp/8/8/8/8/PPPPPPPP/11111111";
+		// Init Chess960
+		for ($i = 0; $i < 8; $i++)
+		{
+			$char = $chess960[$i];
+			$startFEN[$i]=mb_strtolower($char);
+			$startFEN[$i+35]=$char;
 		}
 	}
 	
@@ -1195,7 +1206,7 @@ function writeDrawRequest($isMobile)
 <?
 }
 
-function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, &$oppColor, $timeMove)
+function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, &$oppColor, $timeMove, $chess960)
 {
 	global $board;
 	
@@ -1220,13 +1231,13 @@ function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $f
 		if ( $flagQueen == "1") {$flagQueen = 1;} else {$flagQueen = 0;};
 		
 		$position = "";
-		if ($type == 1)
+		if ($type == 1 || $type == 2)
 		{
-			initBoard($flagRook, $flagQueen, $flagKnight, $flagBishop);
+			initBoard($flagRook, $flagQueen, $flagKnight, $flagBishop, $chess960);
 			$position = getPositionFromBoard($board);
 		}
 		
-		$tmpQuery = "INSERT INTO games (whitePlayer, blackPlayer, gameMessage, messageFrom, dateCreated, lastMove, type, flagBishop, flagKnight, flagRook, flagQueen, timeMove, position) VALUES (";
+		$tmpQuery = "INSERT INTO games (whitePlayer, blackPlayer, gameMessage, messageFrom, dateCreated, lastMove, type, flagBishop, flagKnight, flagRook, flagQueen, timeMove, position, chess960) VALUES (";
 		if ($tmpColor == 'white')
 		{
 			$tmpQuery .= $playerID.", ".$opponentID;
@@ -1238,7 +1249,7 @@ function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $f
 			$oppColor = 'white';
 		}
 	
-		$tmpQuery .= ", 'playerInvited', '".$tmpColor."', NOW(), NOW(), ".$type.", ".$flagBishop.", ".$flagKnight.", ".$flagRook.", ".$flagQueen.", ".$timeMove.", '".$position."')";
+		$tmpQuery .= ", 'playerInvited', '".$tmpColor."', NOW(), NOW(), ".$type.", ".$flagBishop.", ".$flagKnight.", ".$flagRook.", ".$flagQueen.", ".$timeMove.", '".$position."','".$chess960."')";
 	
 		mysql_query($tmpQuery);
 		$newGameID = mysql_insert_id();
@@ -1252,6 +1263,8 @@ function getStrGameType($type, $flagBishop, $flagKnight, $flagRook, $flagQueen)
 {
 	if ($type == 0)
 		return _("Classic game");
+	else if ($type == 2)
+		return _("Chess960 game");
 	else
 	{
 		$pieces="";

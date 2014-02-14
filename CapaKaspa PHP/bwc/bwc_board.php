@@ -1,6 +1,6 @@
 <?
 /* these functions are used to start a new game */
-function initBoard($flagRook, $flagQueen, $flagKnight, $flagBishop)
+function initBoard($flagRook, $flagQueen, $flagKnight, $flagBishop, $chess960)
 {
 	global $board;
 
@@ -13,37 +13,51 @@ function initBoard($flagRook, $flagQueen, $flagKnight, $flagBishop)
 		}
 	}
 
+	if ($chess960 == "")
+	{
+		if ($flagRook==1)
+		{
+			$board[0][0] = WHITE | ROOK;
+			$board[0][7] = WHITE | ROOK;
+			$board[7][0] = BLACK | ROOK;
+			$board[7][7] = BLACK | ROOK;
+		}
+		if ($flagKnight==1)
+		{
+			$board[0][1] = WHITE | KNIGHT;
+			$board[0][6] = WHITE | KNIGHT;
+			$board[7][1] = BLACK | KNIGHT;
+			$board[7][6] = BLACK | KNIGHT;
+		}
+		if ($flagBishop==1)
+		{
+			$board[0][2] = WHITE | BISHOP;
+			$board[0][5] = WHITE | BISHOP;
+			$board[7][2] = BLACK | BISHOP;
+			$board[7][5] = BLACK | BISHOP;
+		}
+		if ($flagQueen==1)
+		{
+			$board[0][3] = WHITE | QUEEN;
+			$board[7][3] = BLACK | QUEEN;
+		}
 	
-	if ($flagRook==1)
-	{
-		$board[0][0] = WHITE | ROOK;
-		$board[0][7] = WHITE | ROOK;
-		$board[7][0] = BLACK | ROOK;
-		$board[7][7] = BLACK | ROOK;
+		$board[0][4] = WHITE | KING;
+		$board[7][4] = BLACK | KING;
+	
+		
 	}
-	if ($flagKnight==1)
+	else
 	{
-		$board[0][1] = WHITE | KNIGHT;
-		$board[0][6] = WHITE | KNIGHT;
-		$board[7][1] = BLACK | KNIGHT;
-		$board[7][6] = BLACK | KNIGHT;
+		// Init Chess960
+		for ($i = 0; $i < 8; $i++)
+		{
+			$char = $chess960[$i];
+			$board[0][$i] = WHITE | getPieceCodeChar960($char);
+			$board[7][$i] = BLACK | getPieceCodeChar960($char);
+		}
 	}
-	if ($flagBishop==1)
-	{
-		$board[0][2] = WHITE | BISHOP;
-		$board[0][5] = WHITE | BISHOP;
-		$board[7][2] = BLACK | BISHOP;
-		$board[7][5] = BLACK | BISHOP;
-	}
-	if ($flagQueen==1)
-	{
-		$board[0][3] = WHITE | QUEEN;
-		$board[7][3] = BLACK | QUEEN;
-	}
-
-	$board[0][4] = WHITE | KING;
-	$board[7][4] = BLACK | KING;
-
+	
 	/* setup pawns */
 	for ($i = 0; $i < 8; $i++)
 	{
@@ -76,13 +90,15 @@ function createNewGame($gameID)
 	
 	$numMoves = -1;
 	mysql_query("DELETE FROM history WHERE gameID = ".$gameID);
-	$res_game = mysql_query("SELECT type, flagBishop, flagKnight, flagRook, flagQueen FROM games WHERE gameID = ".$gameID);
+	$res_game = mysql_query("SELECT type, flagBishop, flagKnight, flagRook, flagQueen, chess960 FROM games WHERE gameID = ".$gameID);
 	$game = mysql_fetch_array($res_game, MYSQL_ASSOC);
 	
 	if ($game['type'] == 0)
-		initBoard(1, 1, 1, 1);
-	else
-		initBoard($game['flagRook'], $game['flagQueen'], $game['flagKnight'], $game['flagBishop']);
+		initBoard(1, 1, 1, 1, "");
+	else if ($game['type'] == 1)
+		initBoard($game['flagRook'], $game['flagQueen'], $game['flagKnight'], $game['flagBishop'], "");
+	else 
+		initBoard($game['flagRook'], $game['flagQueen'], $game['flagKnight'], $game['flagBishop'], $game['chess960']);
 }
 
 /* these functions deal specifically with moving a piece */
