@@ -31,15 +31,14 @@ require 'include/page_body.php';
 <div id="contentlarge">
     <div class="contentbody">
 		<h3><? echo $titre_page?></h3>
+		<p><?echo _("Play chess with sparkChess a Flash chess game with a 3D chessboard. 3 levels available.");?></p>
+		<br/>
+    	
     	<embed width="760" height="550" name="plugin" src="bin/sparkchess.swf" type="application/x-shockwave-flash">
-		<br>
+		
 		<br/>
 		<br/>
 		<br/>
-		<br/>
-	</div>
-</div>
-
 <?
 require 'include/page_footer.php';
 ?>

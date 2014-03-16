@@ -31,8 +31,10 @@ require 'include/page_body.php';
 <div id="contentlarge">
     <div class="contentbody">
 		<h3><? echo $titre_page?></h3>
+		<p><?echo _("Play chess with flashChess a good Flash chess game. Several levels available.");?></p>
+		<br/>
     	<embed width="760" height="550" name="plugin" src="bin/FLChess.swf" type="application/x-shockwave-flash">
-		<br>
+		
 		<br/>
 		<br/>
 		<br/>

@@ -42,6 +42,8 @@ require 'include/page_body.php';
 <div id="contentlarge">
 	<div class="contentbody">
 	<h3><? echo $titre_page?></h3>
+	<p><?echo _("Play chess with Little ChessPartner de Lokasoft. A strong Java chess game.");?></p>
+		<br/>
 		<center>
 		<applet
 			code=jchess.class archive="bin/jchess.zip"
