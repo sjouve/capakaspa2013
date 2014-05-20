@@ -175,12 +175,13 @@ require 'include/page_header.php';
 	function afficheviewer(){
 		document.getElementById("player").style.display = "none";
 		document.getElementById("viewer").style.display = "block";
-		document.getElementById("hide").style.display = "none";
-		document.getElementById("show").style.display = "inline";
+		if (document.getElementById("hide"))
+			document.getElementById("hide").style.display = "none";
+		if (document.getElementById("show"))
+			document.getElementById("show").style.display = "inline";
 	}
 	function loadgame(gameID)
 	{
-	
 		document.gamedata.gameID.value = gameID;
 		document.gamedata.submit();
 	}
@@ -223,7 +224,9 @@ require 'include/page_body.php';
 	<div id="onglet">
 		<table width="100%" cellpadding="0" cellspacing="0">
 		<tr>
-			<td><div class="ongletdisable"><a href="game_in_progress.php"><? echo _("Games");?></a></div></td>	
+			<td><div class="ongletdisable"><a href="game_in_progress.php"><? echo _("Games");?></a></div></td>
+			<td><div class="ongletdisable"><a href="activity.php"><? echo _("News");?></a></div></td>
+			<td><div class="ongletdisable"><a href="player_search.php"><? echo _("Players");?></a></div></td>
 		</tr>
 		</table>
 	</div>
@@ -331,7 +334,7 @@ require 'include/page_body.php';
 			
           	<?
 				$listeCoups = writeHistoryPGN($history, $numMoves);
-				$pgnstring = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $tmpGame['chess960'], $listeCoups, $gameResult);
+				$pgnstring = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $listeCoups, $gameResult);
 			?>
 			<form style="display: none;">
 				<textarea style="display: none;" id="pgnText">

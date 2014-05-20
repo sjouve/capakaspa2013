@@ -41,6 +41,12 @@ if ($_SESSION['playerID'] != -1)
 // Localization after login
 require '../include/localization.php';
 
+if (isset($_SESSION['playerID']) && $_SESSION['playerID'] != -1)
+{
+	header('Location: player_view.php?playerID='.$_SESSION['playerID']);
+	exit;
+}
+
 $titre_page = _("CapaKaspa mobile");
 $desc_page = _("Play chess and share your games");
 require 'include/page_header.php';
@@ -73,6 +79,8 @@ require 'include/page_body.php';
 		<table width="100%" cellpadding="0" cellspacing="0">
 		<tr>
 			<td><div class="ongletdisable"><a href="game_in_progress.php"><? echo _("Games")?></a></div></td>
+			<td><div class="ongletdisable"><a href="activity.php"><? echo _("News");?></a></div></td>
+			<td><div class="ongletdisable"><a href="player_search.php"><? echo _("Players");?></a></div></td>
 		</tr>
 		</table>
 		</div>
@@ -87,8 +95,6 @@ require 'include/page_body.php';
 		
       	</form>
 	<? } ?>
-	
-	<br/>
 	
 <?
 require 'include/page_footer.php';

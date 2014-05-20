@@ -176,6 +176,8 @@ require 'include/page_body.php';
 		<table width="100%" cellpadding="0" cellspacing="0">
 		<tr>
 			<td><div class="ongletenable"><? echo _("Games");?></div></td>	
+			<td><div class="ongletdisable"><a href="activity.php"><? echo _("News");?></a></div></td>
+			<td><div class="ongletdisable"><a href="player_search.php"><? echo _("Players");?></a></div></td>	
 		</tr>
 		</table>
 	</div>
@@ -375,7 +377,7 @@ require 'include/page_body.php';
 				</div>");
 			}
 			else {
-				echo _("No games in progress...");
+				echo ("<p>"._("No games in progress...")."</p>");
 			}
 		?>
         

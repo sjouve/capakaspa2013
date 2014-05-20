@@ -495,6 +495,35 @@ function getPicturePath($socialNetwork, $socialID)
 	return $picturePath;
 }
 
+/* Récupère le chemin de la photo du profil pour mobile */
+function getPicturePathM($socialNetwork, $socialID)
+{
+	$picturePath = "http://www.capakaspa.info/images/uploads/avatar_homme.jpg";
+	switch($socialNetwork)
+	{	
+		case "CK":
+			$picturePath = "http://www.capakaspa.info/images/uploads/".$socialID;
+			break;
+			
+		case "GP":
+			$picturePath = "https://plus.google.com/s2/photos/profile/".$socialID."?sz=32";
+			/*$profil_googleplus_json = file_get_contents("https://www.googleapis.com/plus/v1/people/".$socialID."?key=AIzaSyDbsmnLMbP6QxydxzhqZlCwxOVG1ewIX0o");
+			$profil_googleplus = json_decode($profil_googleplus_json);
+			$picturePath = $profil_googleplus->image->url;*/
+			break;
+		
+		case "FB":
+			$picturePath = "https://graph.facebook.com/".$socialID."/picture";
+			break;
+			
+		case "TW":
+			$picturePath = "http://api.twitter.com/1/users/profile_image/".$socialID.".xml";
+			break;
+	}
+	
+	return $picturePath;
+}
+
 /* Compte le nombre de joueurs en ligne sur le site */
 function getNbOnlinePlayers()
 {

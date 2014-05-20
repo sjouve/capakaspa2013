@@ -58,10 +58,6 @@
 		text-decoration: none;
 	}
 	
-	#advertisement {
-		background-color:#DDDDDD;
-	}
-	
 	#footer {
 		font-family: Verdana, Arial, Helvetica, sans-serif;
 		color: #FFFFFF;
@@ -96,14 +92,13 @@
 	#advertisement {
 		float: left;
 		width: 100%;
-		border-top-style: none;
-		border-right-style: none;
-		border-bottom-style: none;
 		border-left-style: none;
 		border-width: 0px;
-		border-color: #CCCCCC;
 		overflow: hidden;
+		background-color:#DDDDDD;
+		line-height: 100%;
 	}
+	
 	p {
 		margin-left: 3px;
 	}
@@ -129,15 +124,18 @@
 		
 	.ongletenable {
 		font-family: Verdana, Arial, Helvetica, sans-serif;
-		color: #000000;
-		font-size: 13px;/*small;*/
+		color: #FFFFFF;
+		font-size: 13px;
 		font-weight: bold;
 		font-style: normal;
-		background-color:#FFFFFF;
+		background-color:#3D3866;
 		text-align: center;
-		border-width: 1px;
-		border-color: #3D3866;
-		border-style: solid;
+		border-right-width: 1px;
+		border-right-color: #FFFFFF;
+		border-right-style: solid;
+		border-bottom-width: 5px;
+		border-bottom-color: #F2A521;
+		border-bottom-style: solid;
 		padding-left: 5px;
 		padding-right: 5px;
 		padding-top: 5px;
@@ -147,18 +145,18 @@
 	.ongletdisable {
 		font-family: Verdana, Arial, Helvetica, sans-serif;
 		color: #FFFFFF;
-		font-size: 13px;/*small;*/
+		font-size: 13px;
 		font-weight: bold;
 		font-style: normal;
 		background-color:#3D3866;
 		text-align: center;
-		border-width: 1px;
-		border-color: #FFFFFF;
-		border-style: solid;
+		border-right-width: 1px;
+		border-right-color: #FFFFFF;
+		border-right-style: solid;
 		padding-left: 5px;
 		padding-right: 5px;
 		padding-top: 5px;
-		padding-bottom: 5px;
+		padding-bottom: 10px;
 	}
 	
 	#onglet a:link {
@@ -301,8 +299,14 @@
 		border-left-style: none;
 		overflow: hidden;
 	}
+	.activity .details .title {
+		margin-left: 5px;
+		margin-right: 5px;
+	}
 	.activity .details .footer{
 		padding-left: 5px;
+		font-size: 12px;
+		font-weight: bold;
 	}
 	.activity .details .content .gameboard{
 		float: none;
@@ -377,5 +381,24 @@
     	font-weight: bold;
     	font-size: 12px;
 	}
-	
+	.player .leftbar {
+		width: 15%;
+	}
+	.player .details{
+		width: 85%;
+	}
+	#player_info {
+		padding-left: 5px;
+		padding-right: 0px;
+		padding-bottom: 0px;
+		width: 100%;
+		height: 240px;
+	}
+	.block_stat {
+		margin-left: 7px;
+		margin-right: 10px;
+	}
+	#button_right {
+		float: right;
+	}
 }
