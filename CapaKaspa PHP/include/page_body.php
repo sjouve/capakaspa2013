@@ -63,9 +63,9 @@ if (isset($toPlayerID))
 	<div class="navlinks">
 	<div class="title"><?php echo _("Chess games");?></div>		
       <ul>
-        <li id="menu1"><img src="images/puce.gif"/> <a href="game_new.php"><?php echo _("New game");?></a></li>
         <li id="menu2"><img src="images/puce.gif"/> <a href="game_in_progress.php"><?php echo _("My games in progress");?></a> <? if ($nbTurns > 0) echo("<span class='newplayer' title='"._("Moves to play")."'>".$nbTurns."</span>");?></li>
-		<li id="menu3"><img src="images/puce.gif"/> <a href="game_list_ended.php"><?php echo _("My games ended");?></a></li>
+		<li id="menu1"><img src="images/puce.gif"/> <a href="game_new.php"><?php echo _("New game");?></a></li>
+        <li id="menu3"><img src="images/puce.gif"/> <a href="game_list_ended.php"><?php echo _("My games ended");?></a></li>
         <!-- <li><img src="images/puce.gif"/> <a href="game_list_all.php"></a></li> -->
 		<!-- <li><img src="images/icone-mobile.png"/> <a href="http://mobile.capakaspa.info">Version mobile</a></li> -->
       </ul>  
@@ -94,10 +94,11 @@ if (isset($toPlayerID))
 	<div class="navlinks">
 		<div class="title"><?php echo _("Applications");?></div>
 			<ul>
+		        <li id="menu9"><img src="images/puce.gif"/> <a href="app_puzzle.php"><?php echo _("Chess puzzle of the day");?></a></li>
 		        <li id="menu7"><img src="images/puce.gif"/> <a href="app_jchess.php"><?php echo _("Play chess vs JChess");?></a></li>
 		        <li id="menu8"><img src="images/puce.gif"/> <a href="app_flashchess.php"><?php echo _("Play chess vs FlashChess");?></a></li>
 		        <li id="menu10"><img src="images/puce.gif"/> <a href="app_sparkchess.php"><?php echo _("Play chess vs SparkChess");?></a></li>
-		        <li id="menu9"><img src="images/puce.gif"/> <a href="app_puzzle.php"><?php echo _("Chess puzzle of the day");?></a></li>
+		        
       		</ul>
 	</div>
 	<div class="navlinks">
