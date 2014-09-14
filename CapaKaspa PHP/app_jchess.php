@@ -57,12 +57,12 @@ require 'include/page_body.php';
 		  <PARAM NAME="but3txt" VALUE="<? echo _("New game")?>">
 		  <PARAM NAME="but4txt" VALUE="<? echo _("About")?>">
 		</applet>
+		<br>
+	
 		<input type="button" class="button" value="<? echo _("Play with blacks")?>" onclick="nouveau();jouer()" />
 		<input type="button" class="button" value="<? echo _("Flip the board")?>" onclick="retourner()" />
 		</center>
-		<br>
-		<br>
-		<br>
+		
 		
 		<br>
 		<br>
