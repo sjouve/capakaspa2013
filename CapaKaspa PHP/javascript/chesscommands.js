@@ -79,7 +79,7 @@ function promotepawn()
 	
 	if (promotedTo == QUEEN) pieceLetter = 'q';
 	if (promotedTo == ROOK) pieceLetter = 'r';
-	if (promotedTo == KNIGHT) pieceLetter = 'k';
+	if (promotedTo == KNIGHT) pieceLetter = 'n';
 	if (promotedTo == BISHOP) pieceLetter = 'b';
 	
 	/* change pawn to promoted piece */

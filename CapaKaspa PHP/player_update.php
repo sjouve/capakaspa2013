@@ -560,21 +560,21 @@ require 'include/page_body.php';
 					<img src="pgn4web/merida/28/bq.png"/>
 					<img src="pgn4web/merida/28/br.png"/>
 					<img src="pgn4web/merida/28/bb.png"/>
-					<img src="pgn4web/merida/28/bk.png"/>
+					<img src="pgn4web/merida/28/bn.png"/>
 					<img src="pgn4web/merida/28/bp.png"/> 
               	<br><input name="rdoTheme" type="radio" value="alpha" <? if ($_SESSION['pref_theme'] == 'alpha') echo("checked");?>>
 					<img src="pgn4web/alpha/28/bk.png"/>
 					<img src="pgn4web/alpha/28/bq.png"/>
 					<img src="pgn4web/alpha/28/br.png"/>
 					<img src="pgn4web/alpha/28/bb.png"/>
-					<img src="pgn4web/alpha/28/bk.png"/>
+					<img src="pgn4web/alpha/28/bn.png"/>
 					<img src="pgn4web/alpha/28/bp.png"/>
 				<br><input name="rdoTheme" type="radio" value="uscf" <? if ($_SESSION['pref_theme'] == 'uscf') echo("checked");?>>
 					<img src="pgn4web/uscf/28/bk.png"/>
 					<img src="pgn4web/uscf/28/bq.png"/>
 					<img src="pgn4web/uscf/28/br.png"/>
 					<img src="pgn4web/uscf/28/bb.png"/>
-					<img src="pgn4web/uscf/28/bk.png"/>
+					<img src="pgn4web/uscf/28/bn.png"/>
 					<img src="pgn4web/uscf/28/bp.png"/>
               
             </td>
