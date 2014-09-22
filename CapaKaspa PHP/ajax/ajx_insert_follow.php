@@ -18,7 +18,7 @@ $playerID = $_GET["player"];
 $playerEmail = $_GET["email"];
 
 $res = insertFavPlayer($_SESSION['playerID'], $playerID);
-$favoriteID = mysql_insert_id();
+$favoriteID = mysqli_insert_id($dbh);
 if ($res) {
 	// Email with receiver language
 	$emailNotif = getPrefValue($playerID, "emailnotification");
@@ -48,5 +48,5 @@ if ($res) {
 <input id="btnUnfollow" value="<? echo _("Unfollow")?>" type="button" class="button" onclick="javascript:deleteFav(<?echo($favoriteID);?>, <?echo($playerID);?>);">
 <?
 }
-mysql_close();
+mysqli_close($dbh);
 ?>

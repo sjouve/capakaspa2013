@@ -34,5 +34,5 @@ else
 	$res = sendMail($email, $mailSubject, $mailMsg);
 }
 
-mysql_close();
+mysqli_close($dbh);
 ?>

@@ -24,12 +24,12 @@ $fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDa
 
 //$nbLike = countLike($entityType, $entityID);
 $tmpLikes = listLike($entityType, $entityID);
-$nbLikes = mysql_num_rows($tmpLikes);
+$nbLikes = mysqli_num_rows($tmpLikes);
 
 if ($nbLikes > 0)
 {
 	echo("<div class='item'>".$nbLikes." "._("person(s) like this").": ");
-	while($tmpLike = mysql_fetch_array($tmpLikes, MYSQL_ASSOC))
+	while($tmpLike = mysqli_fetch_array($tmpLikes, MYSQLI_ASSOC))
 	{
 		echo("<a href='player_view.php?playerID=".$tmpLike['playerID']."'>".$tmpLike['nick']."</a> ");
 	}
@@ -38,7 +38,7 @@ if ($nbLikes > 0)
 
 $tmpComments = listEntityComments($entityType, $entityID);
 
-while($tmpComment = mysql_fetch_array($tmpComments, MYSQL_ASSOC))
+while($tmpComment = mysqli_fetch_array($tmpComments, MYSQLI_ASSOC))
 {
 	$postDate = new DateTime($tmpComment['postDate']);
 	$strPostDate = $fmt->format($postDate);
@@ -68,5 +68,5 @@ echo("
 		
 	</div>
 <?
-mysql_close();
+mysqli_close($dbh);
 ?>

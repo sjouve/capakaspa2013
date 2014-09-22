@@ -29,5 +29,5 @@ $listeCoups = writeHistoryPGN($history, $numMoves);
 $strPGN = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $tmpGame['chess960'], $listeCoups, $gameResult);
 
 echo $strPGN;
-mysql_close();
+mysqli_close($dbh);
 ?>

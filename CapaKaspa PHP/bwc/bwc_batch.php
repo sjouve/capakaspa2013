@@ -12,7 +12,7 @@ function batchActivation()
 {
 	$listPlayers = listPlayers();
 	$precEmail = "";
-	while($player = mysql_fetch_array($listPlayers, MYSQL_ASSOC))
+	while($player = mysqli_fetch_array($listPlayers, MYSQLI_ASSOC))
 	{
 		$res = updatePlayer($player['playerID'], $player['PASSWORD'], $player['firstName'], $player['lastName'], $player['nick'], $player['email'], $player['profil'], $player['situationGeo'], $player['anneeNaissance'], 0);
 		
@@ -39,16 +39,16 @@ function batchActivation()
 /* Batch mise à jour des positions */
 function batchPosition()
 {
-	$games = mysql_query("SELECT gameID FROM games");
-	while ($thisGame = mysql_fetch_array($games, MYSQL_ASSOC))
+	$games = mysqli_query($dbh,"SELECT gameID FROM games");
+	while ($thisGame = mysqli_fetch_array($games, MYSQLI_ASSOC))
 	{		
 		echo($thisGame['gameID']." - ");
 		$position = "000000000000000000000000000000000000000000000000000000000000000000000000";
 		
-		$pieces = mysql_query("SELECT * FROM pieces WHERE gameID = ".$thisGame['gameID']." ORDER BY row, col");
+		$pieces = mysqli_query($dbh,"SELECT * FROM pieces WHERE gameID = ".$thisGame['gameID']." ORDER BY row, col");
 	
 		
-		while ($thisPiece = mysql_fetch_array($pieces, MYSQL_ASSOC))
+		while ($thisPiece = mysqli_fetch_array($pieces, MYSQLI_ASSOC))
 		{
 			$position{8*$thisPiece["row"]+$thisPiece["col"]} = getPieceCharFromName($thisPiece["color"], $thisPiece["piece"]);
 			
@@ -56,7 +56,7 @@ function batchPosition()
 		
 		echo($position." | ");
 		
-		$res = mysql_query("UPDATE games SET position = '".$position."' WHERE gameID = ".$thisGame['gameID']);
+		$res = mysqli_query($dbh,"UPDATE games SET position = '".$position."' WHERE gameID = ".$thisGame['gameID']);
 		
 	}
 }
@@ -65,9 +65,9 @@ function batchPosition()
 function batchEco()
 {
 	global $board;
-	$games = mysql_query("SELECT gameID FROM games WHERE eco is null OR eco = ''");
+	$games = mysqli_query($dbh,"SELECT gameID FROM games WHERE eco is null OR eco = ''");
 	
-	while ($thisGame = mysql_fetch_array($games, MYSQL_ASSOC))
+	while ($thisGame = mysqli_fetch_array($games, MYSQLI_ASSOC))
 	{
 	  	echo("Partie : ".$thisGame['gameID']."\n");
 		//
@@ -75,10 +75,10 @@ function batchEco()
 		// initBoard
 	  	initBoard();
 	  	$ecoCode = "";
-		$allMoves = mysql_query("SELECT * FROM history WHERE gameID = ".$thisGame['gameID']." ORDER BY timeOfMove");
+		$allMoves = mysqli_query($dbh,"SELECT * FROM history WHERE gameID = ".$thisGame['gameID']." ORDER BY timeOfMove");
 
 		$numMoves = -1;
-		while ($thisMove = mysql_fetch_array($allMoves, MYSQL_ASSOC))
+		while ($thisMove = mysqli_fetch_array($allMoves, MYSQLI_ASSOC))
 		{
 			$numMoves++;
 			if ($numMoves>20)
@@ -155,7 +155,7 @@ function batchEco()
 				echo("ECO : ".$ecoCode."\n");
 				$ecoCode = $newEco;
 				// Mettre à jour la date du dernier coup et la position
-				$res = mysql_query("UPDATE games SET eco = '".$ecoCode."' WHERE gameID = ".$thisGame['gameID']);
+				$res = mysqli_query($dbh,"UPDATE games SET eco = '".$ecoCode."' WHERE gameID = ".$thisGame['gameID']);
 			}
 			
 		}		
@@ -284,7 +284,7 @@ function calculerElo()
 			1	=>	-470	,
 			0   =>	-470);
 
-	while($player = mysql_fetch_array($listPlayers, MYSQL_ASSOC))
+	while($player = mysqli_fetch_array($listPlayers, MYSQLI_ASSOC))
 	{
 		$eloInitial = $player['elo'];
 		$eloFinal = $eloInitial;
@@ -308,7 +308,7 @@ function calculerElo()
 			$sommeElo = 0;
 			$moyenneElo = 0;
 			echo("<table border='1'><tr><th>B</th><th>ELO</th><th>N</th><th>ID</th></tr>");
-			while($game = mysql_fetch_array($listEndedGames, MYSQL_ASSOC))
+			while($game = mysqli_fetch_array($listEndedGames, MYSQLI_ASSOC))
 			{
 				$whiteID = $game['whitePlayer'];
 				$whiteElo = $game['whiteElo'];
@@ -367,7 +367,7 @@ function calculerElo()
 			if ($eloInitial<$eloFinal) $eloProgress = -1;
 			
 			// Mise à jour ELO player
-			$res_player = mysql_query("UPDATE players SET elo=".$eloFinal.", eloProgress =".$eloProgress." WHERE playerID = ".$player['playerID']);
+			$res_player = mysqli_query($dbh,"UPDATE players SET elo=".$eloFinal.", eloProgress =".$eloProgress." WHERE playerID = ".$player['playerID']);
 			
 			// Mise à jour historique
 		}

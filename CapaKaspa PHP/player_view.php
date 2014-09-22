@@ -202,13 +202,13 @@ require 'include/page_body_no_menu.php';
 	$res_count = searchPlayers("count", 0, 0, $player['playerID'], "wers", "", "", "", "", "");
 	if ($res_count)
 	{
-		$count = mysql_fetch_array($res_count, MYSQL_ASSOC);
+		$count = mysqli_fetch_array($res_count, MYSQLI_ASSOC);
 		$nbFollowers = $count['nbPlayers'];
 	}
 	$res_count = searchPlayers("count", 0, 0, $player['playerID'], "wing", "", "", "", "", "");
 	if ($res_count)
 	{
-		$count = mysql_fetch_array($res_count, MYSQL_ASSOC);
+		$count = mysqli_fetch_array($res_count, MYSQLI_ASSOC);
 		$nbFollowing = $count['nbPlayers'];
 	}
 	?>
@@ -273,18 +273,18 @@ require 'include/page_body_no_menu.php';
               <th width="15%"><? echo _("ECO")?></th>
             </tr>
             <?
-					$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom
+					$tmpGames = mysqli_query($dbh,"SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom
 				                            FROM games G, players W, players B
 				                            WHERE (G.gameMessage IS NULL OR gameMessage = '')
 				                            AND (G.whitePlayer = ".$player['playerID']." OR G.blackPlayer = ".$player['playerID'].")
 				                            AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
 				                            ORDER BY G.dateCreated");
 					
-					if (mysql_num_rows($tmpGames) == 0)
+					if (mysqli_num_rows($tmpGames) == 0)
 						echo("<tr><td colspan='4'>"._("No games in progress")."</td></tr>\n");
 					else
 					{
-						while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
+						while($tmpGame = mysqli_fetch_array($tmpGames, MYSQLI_ASSOC))
 						{
 							/* White */
 							echo("<tr><td>");
@@ -328,18 +328,18 @@ require 'include/page_body_no_menu.php';
               <th width="15%"><? echo _("ECO")?></th>
             </tr>
             <?
-					$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom
+					$tmpGames = mysqli_query($dbh,"SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom
 				                            FROM games G, players W, players B
 				                            WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
 				                            AND ((G.whitePlayer = ".$player['playerID']." AND G.blackPlayer = ".$_SESSION['playerID'].") OR (G.blackPlayer = ".$player['playerID']." AND G.whitePlayer = ".$_SESSION['playerID']."))
 				                            AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
 				                            ORDER BY G.dateCreated");
 					
-					if (mysql_num_rows($tmpGames) == 0)
+					if (mysqli_num_rows($tmpGames) == 0)
 						echo("<tr><td colspan='4'>"._("You've never played against this player")."</td></tr>\n");
 					else
 					{
-						while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
+						while($tmpGame = mysqli_fetch_array($tmpGames, MYSQLI_ASSOC))
 						{
 							/* White */
 							echo("<tr><td>");
@@ -379,5 +379,5 @@ require 'include/page_body_no_menu.php';
 </div>
 <?
 require 'include/page_footer.php';
-mysql_close();
+mysqli_close($dbh);
 ?>

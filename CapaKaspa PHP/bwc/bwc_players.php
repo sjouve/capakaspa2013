@@ -15,7 +15,8 @@ require 'bwc/bwc_players.php';
 /* Création du joueur et de ses préférences */
 function createPlayer()
 {
-	@mysql_query("BEGIN");
+	global $dbh;
+	@mysqli_query($dbh,"BEGIN");
 	
 	if ($_POST['pwdPassword']=='') return FALSE;
 	if ($_POST['pwdPassword']!=$_POST['pwdPassword2']) return FALSE;
@@ -29,7 +30,7 @@ function createPlayer()
 	$playerID = insertPlayer($_POST['pwdPassword'], $_POST['txtFirstName'], $_POST['txtLastName'], $_POST['txtNick'], $_POST['txtEmail'], $_POST['txtCountryCode'], $_POST['txtAnneeNaissance'], $_POST['txtSex'], $socialID, "CK");	
 	if (!$playerID)
 	{
-		@mysql_query("ROLLBACK");
+		@mysqli_query($dbh,"ROLLBACK");
 		return FALSE;  
 	}
 	
@@ -38,7 +39,7 @@ function createPlayer()
 	$res = insertPreference($playerID, "language", $lang);
 	if (!$res)
 	{
-		@mysql_query("ROLLBACK");
+		@mysqli_query($dbh,"ROLLBACK");
 		return FALSE;
 	}
 	
@@ -46,7 +47,7 @@ function createPlayer()
 	$res = insertPreference($playerID, "theme", "merida");
 	if (!$res)
 	{
-		@mysql_query("ROLLBACK");
+		@mysqli_query($dbh,"ROLLBACK");
 		return FALSE;  
 	}
 	
@@ -54,7 +55,7 @@ function createPlayer()
 	$res = insertPreference($playerID, "emailnotification", "oui");
 	if (!$res)
 	{
-		@mysql_query("ROLLBACK");
+		@mysqli_query($dbh,"ROLLBACK");
 		return FALSE;  
 	}
 	
@@ -62,7 +63,7 @@ function createPlayer()
 	$res = insertPreference($playerID, "shareinvitation", "oui");
 	if (!$res)
 	{
-		@mysql_query("ROLLBACK");
+		@mysqli_query($dbh,"ROLLBACK");
 		return FALSE;
 	}
 	
@@ -70,7 +71,7 @@ function createPlayer()
 	$res = insertPreference($playerID, "shareresult", "oui");
 	if (!$res)
 	{
-		@mysql_query("ROLLBACK");
+		@mysqli_query($dbh,"ROLLBACK");
 		return FALSE;
 	}
 	
@@ -82,17 +83,18 @@ function createPlayer()
 	
 	if (!$res)
 	{
-		@mysql_query("ROLLBACK");
+		@mysqli_query($dbh,"ROLLBACK");
 		return FALSE;
 	}
 			
-	@mysql_query("COMMIT");
+	@mysqli_query($dbh,"COMMIT");
 	return TRUE;
 }
 
 /* Mettre à jour le profil utilisateur */
 function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $lastName, $email, $profil, $situationGeo, $anneeNaissance, $prefTheme, $prefEmailNotification, $prefLanguage, $prefInvitation, $prefResult, $socialNetwork, $socialID, $countryCode, $playerSex)
 {
+	global $dbh;
 	$player = getPlayer($playerID);
 	if (!$player)
 	{
@@ -114,7 +116,7 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 		return 1;
 	}
 		
-	@mysql_query("BEGIN");
+	@mysqli_query($dbh,"BEGIN");
 		
 	// Changement de mot de passe
 	if (isset($pwdPassword) && $pwdPassword != "")
@@ -122,7 +124,7 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 		$res = updatePlayerWithSocial($playerID, $pwdPassword, $firstName, $lastName, $player['nick'], $email, $profil, $situationGeo, $anneeNaissance, $player['activate'], $socialNetwork, $socialID, $countryCode, $playerSex);
 		if (!$res)
 		{
-			@mysql_query("ROLLBACK");
+			@mysqli_query($dbh,"ROLLBACK");
 			return 0;  
 		}
 	}
@@ -131,7 +133,7 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 		$res = updatePlayerWithSocial($playerID, $player['PASSWORD'], $firstName, $lastName, $player['nick'], $email, $profil, $situationGeo, $anneeNaissance, $player['activate'], $socialNetwork, $socialID, $countryCode, $playerSex);
 		if (!$res)
 		{
-			@mysql_query("ROLLBACK");
+			@mysqli_query($dbh,"ROLLBACK");
 			return 0;  
 		}
 	}
@@ -141,7 +143,7 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 	$res = updatePreference($playerID, 'theme', $prefTheme);
 	if (!$res)
 	{
-		@mysql_query("ROLLBACK");
+		@mysqli_query($dbh,"ROLLBACK");
 		return 0;  
 	}
 		
@@ -149,7 +151,7 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 	$res = updatePreference($playerID, 'emailnotification', $prefEmailNotification);
 	if (!$res)
 	{
-		@mysql_query("ROLLBACK");
+		@mysqli_query($dbh,"ROLLBACK");
 		return 0;  
 	}
 	
@@ -157,7 +159,7 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 	$res = updatePreference($playerID, 'language', $prefLanguage);
 	if (!$res)
 	{
-		@mysql_query("ROLLBACK");
+		@mysqli_query($dbh,"ROLLBACK");
 		return 0;
 	}
 	
@@ -165,7 +167,7 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 	$res = updatePreference($playerID, 'shareinvitation', $prefInvitation);
 	if (!$res)
 	{
-		@mysql_query("ROLLBACK");
+		@mysqli_query($dbh,"ROLLBACK");
 		return 0;
 	}
 	
@@ -173,7 +175,7 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 	$res = updatePreference($playerID, 'shareresult', $prefResult);
 	if (!$res)
 	{
-		@mysql_query("ROLLBACK");
+		@mysqli_query($dbh,"ROLLBACK");
 		return 0;
 	}
 	
@@ -197,7 +199,7 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 	$_SESSION['pref_shareinvitation'] = $_POST['txtShareInvitation'];
 	$_SESSION['pref_shareresult'] = $_POST['txtShareResult'];
 	
-	@mysql_query("COMMIT");
+	@mysqli_query($dbh,"COMMIT");
 	return 1;
 }
 
@@ -277,6 +279,7 @@ function activatePlayer($playerID, $nick)
 /* Connexion d'un joueur */
 function loginPlayer($nick, $password, $flagAuto)
 {
+	global $dbh;
 	// check for a player with supplied nick and password
 	$player = getPlayerByNickPassword($nick, $password);
 
@@ -312,9 +315,9 @@ function loginPlayer($nick, $password, $flagAuto)
 	// Load user preferences
 	// TODO Requête dans DAC à utiliser pour updateProfil
 	$tmpQuery = "SELECT * FROM preferences WHERE playerID = ".$_SESSION['playerID'];
-	$tmpPreferences = mysql_query($tmpQuery);
+	$tmpPreferences = mysqli_query($dbh,$tmpQuery);
 
-	while($tmpPreference = mysql_fetch_array($tmpPreferences, MYSQL_ASSOC))
+	while($tmpPreference = mysqli_fetch_array($tmpPreferences, MYSQLI_ASSOC))
 	{
 		// setup SESSION var of name pref_PREF, like pref_theme
 		$_SESSION['pref_'.$tmpPreference['preference']] = $tmpPreference['value'];
@@ -324,7 +327,7 @@ function loginPlayer($nick, $password, $flagAuto)
 	// Update last connection date
 	// TODO Requête dans DAC
 	$tmpQuery = "UPDATE players SET lastConnection = now() WHERE playerID = ".$_SESSION['playerID'];
-	$tmpPlayers = mysql_query($tmpQuery);
+	$tmpPlayers = mysqli_query($dbh,$tmpQuery);
 	
 	// Si se souvenir de moi création du cookie
 	if ($flagAuto == "on")
@@ -380,19 +383,20 @@ function getNbPassivePlayers()
 function createVacation($playerID, $nbDays)
 {
 	
+	global $dbh;
 	// Contrôler le nombre de jours disponibles
 	if ($nbDays > countAvailableVacation($playerID) || $nbDays < 1)
 	{
 		return -100;
 	}
 	
-	@mysql_query("BEGIN");
+	@mysqli_query($dbh,"BEGIN");
 	
 	// Insérer l'absence
 	$res = insertVacation($playerID, $nbDays);
 	if (!$res) 
 	{
-		@mysql_query("ROLLBACK");
+		@mysqli_query($dbh,"ROLLBACK");
 		return 0;
 	} 
 	
@@ -404,7 +408,7 @@ function createVacation($playerID, $nbDays)
       	Sinon on ajoute la durée du congé saisi - (date de fin du congé en cours de l'adversaire - date de début du congé saisi)
       		si l'ajout reste positif      
 	*/
-	$tmpGames = mysql_query("SELECT * 
+	$tmpGames = mysqli_query($dbh,"SELECT * 
                              FROM games
                              WHERE (gameMessage = '' OR gameMessage is NULL)
                              AND (whitePlayer = ".$playerID." OR blackPlayer = ".$playerID.")
@@ -412,21 +416,21 @@ function createVacation($playerID, $nbDays)
                              ORDER BY dateCreated");
 
 	// Ne pas modifier les parties expirées pas encore terminées
-	while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
+	while($tmpGame = mysqli_fetch_array($tmpGames, MYSQLI_ASSOC))
     {
     	if ($tmpGame['whitePlayer']==$playerID)
     		$res_adv_vacations = getCurrentVacation($tmpGame['blackPlayer']);
     	else
     		$res_adv_vacations = getCurrentVacation($tmpGame['whitePlayer']);
     	
-    	if (mysql_num_rows($res_adv_vacations) == 0)
+    	if (mysqli_num_rows($res_adv_vacations) == 0)
     	{	
-    		$res = mysql_query("UPDATE games
+    		$res = mysqli_query($dbh,"UPDATE games
     						SET  lastMove = DATE_ADD(lastMove, INTERVAL ".$nbDays." DAY)
     						WHERE gameID = ".$tmpGame['gameID']);
     		if (!$res)
     		{
-    			@mysql_query("ROLLBACK");
+    			@mysqli_query($dbh,"ROLLBACK");
     			return 0;
     		}
     	}
@@ -434,7 +438,7 @@ function createVacation($playerID, $nbDays)
     	{
     		
     		$beginDate = date("Y-m-d", mktime(0, 0, 0, date("m"), date("d"),  date("Y")));
-    		$res_adv_vacation = mysql_fetch_array($res_adv_vacations, MYSQL_ASSOC);
+    		$res_adv_vacation = mysqli_fetch_array($res_adv_vacations, MYSQLI_ASSOC);
     		$nbDaysPlus = nbDays($beginDate, $res_adv_vacation['endDate']);
     		
     		if ($nbDaysPlus < $nbDays)
@@ -442,19 +446,19 @@ function createVacation($playerID, $nbDays)
 	    		
     			$nbDaysToAdd = $nbDays - $nbDaysPlus;
     			
-    			mysql_query("UPDATE games
+    			mysqli_query($dbh,"UPDATE games
 	    						SET  lastMove = DATE_ADD(lastMove, INTERVAL ".$nbDaysToAdd." DAY)
 	    						WHERE gameID = ".$tmpGame['gameID']);
 	    		if (!$res)
 	    		{
-	    			@mysql_query("ROLLBACK");
+	    			@mysqli_query($dbh,"ROLLBACK");
 	    			return 0;
 	    		}
     		}
     	}
     }
     
-    @mysql_query("COMMIT");
+    @mysqli_query($dbh,"COMMIT");
 	return 1;
 }
 

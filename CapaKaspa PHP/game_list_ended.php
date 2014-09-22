@@ -60,7 +60,7 @@ require 'include/page_body.php';
 		if ($errMsg != "")
 			echo("<div class='error'>".$errMsg."</div>");
 		
-		if (mysql_num_rows($tmpLostGames)+mysql_num_rows($tmpDrawGames)+mysql_num_rows($tmpWonGames) > 0)
+		if (mysqli_num_rows($tmpLostGames)+mysqli_num_rows($tmpDrawGames)+mysqli_num_rows($tmpWonGames) > 0)
 		{
 		?>
 		<div id="games_statistics">
@@ -83,11 +83,11 @@ require 'include/page_body.php';
             </tr>
             
 				<?
-				if (mysql_num_rows($tmpForEloGames) == 0)
+				if (mysqli_num_rows($tmpForEloGames) == 0)
 					echo("<tr><td colspan='6'>"._("No games to take in account")."</td></tr>\n");
 				else
 				{
-					while($tmpGame = mysql_fetch_array($tmpForEloGames, MYSQL_ASSOC))
+					while($tmpGame = mysqli_fetch_array($tmpForEloGames, MYSQLI_ASSOC))
 					{
 						/* White */
 						echo("<tr><td>");
@@ -140,7 +140,7 @@ require 'include/page_body.php';
     	<form name="endedGames" action="game_board.php" method="post">
         
         <A NAME="defaites"></A>
-		<h3><?echo _("Lost games");?> (<?echo(mysql_num_rows($tmpLostGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
+		<h3><?echo _("Lost games");?> (<?echo(mysqli_num_rows($tmpLostGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
         <div class="tabliste">
           <table border="0" width="100%">
             <tr>
@@ -153,11 +153,11 @@ require 'include/page_body.php';
             </tr>
             
 	<?
-	if (mysql_num_rows($tmpLostGames) == 0)
+	if (mysqli_num_rows($tmpLostGames) == 0)
 		echo("<tr><td colspan='6'>"._("No lost games")."</td></tr>\n");
 	else
 	{
-		while($tmpGame = mysql_fetch_array($tmpLostGames, MYSQL_ASSOC))
+		while($tmpGame = mysqli_fetch_array($tmpLostGames, MYSQLI_ASSOC))
 		{
 			/* White */
 			echo("<tr><td>");
@@ -206,7 +206,7 @@ require 'include/page_body.php';
 		<br/>
 		
 		<A NAME="nulles"></A>
-		<h3><?echo _("Draw games");?> (<?echo(mysql_num_rows($tmpDrawGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
+		<h3><?echo _("Draw games");?> (<?echo(mysqli_num_rows($tmpDrawGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
         <div class="tabliste">
           <table border="0" width="100%">
             <tr>
@@ -219,11 +219,11 @@ require 'include/page_body.php';
             </tr>
             
 	<?
-	if (mysql_num_rows($tmpDrawGames) == 0)
+	if (mysqli_num_rows($tmpDrawGames) == 0)
 		echo("<tr><td colspan='6'>"._("No draw games")."</td></tr>\n");
 	else
 	{
-		while($tmpGame = mysql_fetch_array($tmpDrawGames, MYSQL_ASSOC))
+		while($tmpGame = mysqli_fetch_array($tmpDrawGames, MYSQLI_ASSOC))
 		{
 			/* White */
 			echo("<tr><td>");
@@ -263,7 +263,7 @@ require 'include/page_body.php';
 	<br/>
 	
 	<A NAME="victoires"></A>
-	<h3><?echo _("Won games");?> (<?echo(mysql_num_rows($tmpWonGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
+	<h3><?echo _("Won games");?> (<?echo(mysqli_num_rows($tmpWonGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
 	
         <div class="tabliste">
           <table border="0" width="100%">
@@ -277,11 +277,11 @@ require 'include/page_body.php';
             </tr>
            
 	<?
-	if (mysql_num_rows($tmpWonGames) == 0)
+	if (mysqli_num_rows($tmpWonGames) == 0)
 		echo("<tr><td colspan='6'>"._("No won games")."</td></tr>\n");
 	else
 	{
-		while($tmpGame = mysql_fetch_array($tmpWonGames, MYSQL_ASSOC))
+		while($tmpGame = mysqli_fetch_array($tmpWonGames, MYSQLI_ASSOC))
 		{
 			/* White */
 			echo("<tr><td>");
@@ -335,5 +335,5 @@ require 'include/page_body.php';
 </div>
 <?
 require 'include/page_footer.php';
-mysql_close();
+mysqli_close($dbh);
 ?>

@@ -92,5 +92,5 @@ require 'include/page_body.php';
 		</form>
 <?
 require 'include/page_footer.php';
-mysql_close();
+mysqli_close($dbh);
 ?>

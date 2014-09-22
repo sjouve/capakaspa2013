@@ -30,14 +30,14 @@ $limit = 5;
 
 $fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
 $tmpActivities = listActivity($start, $limit, $type, $playerID);
-$numActivities = mysql_num_rows($tmpActivities);
+$numActivities = mysqli_num_rows($tmpActivities);
 
 if ($start == 0 && $numActivities == 0)
 {
 	echo ("<p>"._("No News to display. Share your activity and follow players !")."</p>");
 }
 else
-	while($tmpActivity = mysql_fetch_array($tmpActivities, MYSQL_ASSOC))
+	while($tmpActivity = mysqli_fetch_array($tmpActivities, MYSQLI_ASSOC))
 	{
 		$postDate = new DateTime($tmpActivity['postDate']);
 		$strPostDate = $fmt->format($postDate);
@@ -205,5 +205,5 @@ if ($numActivities == $limit)
 	</div>
 <?
 }
-mysql_close();
+mysqli_close($dbh);
 ?>

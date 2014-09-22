@@ -16,5 +16,5 @@ require '../dac/dac_activity.php';
 $activityID=$_GET["id"];
 
 deleteActivity($activityID);
-mysql_close();
+mysqli_close($dbh);
 ?>

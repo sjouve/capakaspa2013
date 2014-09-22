@@ -75,9 +75,9 @@ require 'include/page_body.php';
 		</div>
 		<? 
 		$result = listPMContact($_SESSION['playerID']);
-		$nb_contacts = mysql_num_rows($result);
+		$nb_contacts = mysqli_num_rows($result);
 		if ($nb_contacts > 0)
-			while($tmpPlayer = mysql_fetch_array($result, MYSQL_ASSOC))
+			while($tmpPlayer = mysqli_fetch_array($result, MYSQLI_ASSOC))
 			{
 				if ($tmpPlayer['playerID'] != $_SESSION['playerID'])
 				{	
@@ -106,5 +106,5 @@ require 'include/page_body.php';
 </div>
 <?
 require 'include/page_footer.php';
-mysql_close();
+mysqli_close($dbh);
 ?>

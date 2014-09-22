@@ -89,5 +89,5 @@ require 'include/page_body.php';
 </div>
 <?
 require 'include/page_footer.php';
-mysql_close();
+mysqli_close($dbh);
 ?>

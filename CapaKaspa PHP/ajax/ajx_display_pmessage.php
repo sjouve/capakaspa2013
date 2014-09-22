@@ -22,12 +22,12 @@ $withPlayerID = $_GET["wID"];
 
 $fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
 $tmpMessages = listPrivateMessageWith($playerID, $withPlayerID);
-$numMessages = mysql_num_rows($tmpMessages);
+$numMessages = mysqli_num_rows($tmpMessages);
 updateUnreadPrivateMessage($playerID, $withPlayerID);
 
 if ($numMessages > 0)
 {
-	while($tmpMessage = mysql_fetch_array($tmpMessages, MYSQL_ASSOC))
+	while($tmpMessage = mysqli_fetch_array($tmpMessages, MYSQLI_ASSOC))
 	{
 		$sendDate = new DateTime($tmpMessage['sendDate']);
 		$strSendDate = $fmt->format($sendDate);
@@ -53,5 +53,5 @@ if ($numMessages > 0)
 else
 	echo("<center>"._("No Messages")."</center>");
 
-mysql_close();
+mysqli_close($dbh);
 ?>

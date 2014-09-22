@@ -64,10 +64,10 @@
                             ORDER BY G.dateCreated DESC";
 			
 			$debut = $pge*$limit;
-			$total = mysql_query($requete) or die("SQL1 : ".mysql_error()); 
-			$nb_tot = mysql_num_rows($total);
+			$total = mysqli_query($dbh,$requete) or die("SQL1 : ".mysqli_error($dbh)); 
+			$nb_tot = mysqli_num_rows($total);
 			$nbpages = ceil($nb_tot/$limit); // ceil = plafond : pour arrondir à la valeur supérieure
-			$resultats = mysql_query($requete." limit ".$debut.",".$limit) or die("SQL1 : ".mysql_error()); 
+			$resultats = mysqli_query($dbh,$requete." limit ".$debut.",".$limit) or die("SQL1 : ".mysqli_error($dbh)); 
 		?>
         
 	        <form name="searchGames" action="game_list_all.php" method="post">
@@ -90,11 +90,11 @@
 	            </tr>
             
 			<?
-			if (mysql_num_rows($resultats) == 0)
+			if (mysqli_num_rows($resultats) == 0)
 				echo("<tr><td colspan='6'>Il n'y a aucune partie en cours sur le site</td></tr>\n");
 			else
 			{
-				while($tmpGame = mysql_fetch_array($resultats, MYSQL_ASSOC))
+				while($tmpGame = mysqli_fetch_array($resultats, MYSQLI_ASSOC))
 				{
 					/* White */
 					echo("<tr><td>");
@@ -146,5 +146,5 @@
     </div>
 <?
     require 'include/page_footer.php';
-    mysql_close();
+    mysqli_close($dbh);
 ?>

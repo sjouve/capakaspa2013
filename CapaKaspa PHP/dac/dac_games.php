@@ -6,6 +6,7 @@
  */
 function getGame($gameID)
 {
+	global $dbh;
 	// Informations sur la partie : voir le type de partie (position normale ou pas) et le problème du code ECO
 	$tmpQuery = "SELECT G.gameID, G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, G.dialogue dialogue, G.position position,  
 	G.lastMove, G.dateCreated, DATE_ADD(G.lastMove, INTERVAL G.timeMove DAY) expirationDate, G.timeMove, 
@@ -19,22 +20,24 @@ function getGame($gameID)
 	AND G.whitePlayer = W.playerID
 	AND G.blackPlayer = B.playerID";
 	
-	$tmpGames = mysql_query($tmpQuery);
-	$tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC);
+	$tmpGames = mysqli_query($dbh,$tmpQuery);
+	$tmpGame = mysqli_fetch_array($tmpGames, MYSQLI_ASSOC);
 	
 	return $tmpGame;
 }
 
 function countActiveGame($playerID)
 {
-	$activeGames = mysql_query("SELECT count(gameID) nbGames FROM games WHERE (whitePlayer = ".$playerID." OR blackPlayer = ".$playerID.") AND gameMessage=''");
-	return mysql_fetch_array($activeGames, MYSQL_ASSOC);
+	global $dbh;
+	$activeGames = mysqli_query($dbh,"SELECT count(gameID) nbGames FROM games WHERE (whitePlayer = ".$playerID." OR blackPlayer = ".$playerID.") AND gameMessage=''");
+	return mysqli_fetch_array($activeGames, MYSQLI_ASSOC);
 }
 
 function countActiveGameForAll()
 {
-	$activeGames = mysql_query("SELECT count(gameID) nbGames FROM games WHERE gameMessage is null") or die(mysql_error());
-	return mysql_fetch_array($activeGames, MYSQL_ASSOC);
+	global $dbh;
+	$activeGames = mysqli_query($dbh,"SELECT count(gameID) nbGames FROM games WHERE gameMessage is null") or die(mysqli_error($dbh));
+	return mysqli_fetch_array($activeGames, MYSQLI_ASSOC);
 }
 
 /**
@@ -42,7 +45,8 @@ function countActiveGameForAll()
 **/
 function listEndedGames($playerID, $dateDeb, $dateFin)
 {
-	$tmpGames = mysql_query("SELECT G.whitePlayer whitePlayer, EW.elo whiteElo, G.blackPlayer blackPlayer, EB.elo blackElo
+	global $dbh;
+	$tmpGames = mysqli_query($dbh,"SELECT G.whitePlayer whitePlayer, EW.elo whiteElo, G.blackPlayer blackPlayer, EB.elo blackElo
 	                                FROM games G, players W, players B, elo_history EW, elo_history EB 
 									WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
 									AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
@@ -58,7 +62,8 @@ function listEndedGames($playerID, $dateDeb, $dateFin)
 function countLost($playerID, $dateDeb, $dateFin)
 {							
 									
-	$tmpGames = mysql_query("SELECT count(G.gameID) nbGames
+	global $dbh;
+	$tmpGames = mysqli_query($dbh,"SELECT count(G.gameID) nbGames
 	                                FROM games G, players W, players B
 									WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
 	                                AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
@@ -69,13 +74,14 @@ function countLost($playerID, $dateDeb, $dateFin)
 									AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
 									AND G.type=0 AND G.lastMove >= '".$dateDeb."' AND G.lastMove <= '".$dateFin."'");
 	
-	return mysql_fetch_array($tmpGames, MYSQL_ASSOC);
+	return mysqli_fetch_array($tmpGames, MYSQLI_ASSOC);
 }
 
 function countDraw($playerID, $dateDeb, $dateFin)
 {							
 									
-	$tmpGames = mysql_query("SELECT count(G.gameID) nbGames
+	global $dbh;
+	$tmpGames = mysqli_query($dbh,"SELECT count(G.gameID) nbGames
 	                            FROM games G, players W, players B
                                 WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
                                 AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
@@ -83,13 +89,14 @@ function countDraw($playerID, $dateDeb, $dateFin)
                                 AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
 								AND G.type=0 AND G.lastMove >= '".$dateDeb."' AND G.lastMove <= '".$dateFin."'");
 	
-	return mysql_fetch_array($tmpGames, MYSQL_ASSOC);
+	return mysqli_fetch_array($tmpGames, MYSQLI_ASSOC);
 }
 
 function countWin($playerID, $dateDeb, $dateFin)
 {							
 									
-	$tmpGames = mysql_query("SELECT count(G.gameID) nbGames
+	global $dbh;
+	$tmpGames = mysqli_query($dbh,"SELECT count(G.gameID) nbGames
 	                            FROM games G, players W, players B
                                 WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
                                 AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
@@ -100,20 +107,21 @@ function countWin($playerID, $dateDeb, $dateFin)
                                 AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
 								AND G.type=0 AND G.lastMove >= '".$dateDeb."' AND G.lastMove <= '".$dateFin."'");
 	
-	return mysql_fetch_array($tmpGames, MYSQL_ASSOC);
+	return mysqli_fetch_array($tmpGames, MYSQLI_ASSOC);
 }
 
 function calculMoyenneElo($playerID, $dateDeb, $dateFin)
 {							
 									
-	$tmpGames = mysql_query("SELECT  nbGames
+	global $dbh;
+	$tmpGames = mysqli_query($dbh,"SELECT  nbGames
 	                            FROM games G, players W, players B
                                 WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
                                 AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
                                 AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
 								AND G.type=0 AND G.lastMove >= '".$dateDeb."' AND G.lastMove <= '".$dateFin."'");
 	
-	return mysql_fetch_array($tmpGames, MYSQL_ASSOC);
+	return mysqli_fetch_array($tmpGames, MYSQLI_ASSOC);
 }
 
 /*
@@ -144,7 +152,8 @@ function searchGames($debut, $limit)
 
 function listInProgressGames($playerID)
 {
-	$tmpGames = mysql_query("SELECT G.gameID gameID, G.eco eco, G.dateCreated, G.lastMove, DATE_ADD(G.lastMove, INTERVAL G.timeMove DAY) expirationDate, G.whitePlayer whitePlayer, G.timeMove, 
+	global $dbh;
+	$tmpGames = mysqli_query($dbh,"SELECT G.gameID gameID, G.eco eco, G.dateCreated, G.lastMove, DATE_ADD(G.lastMove, INTERVAL G.timeMove DAY) expirationDate, G.whitePlayer whitePlayer, G.timeMove, 
 									G.blackPlayer blackPlayer, G.position position, G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.type,  
 									E.name ecoName,
 									W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, W.socialID whiteSocialID, W.socialNetwork whiteSocialNetwork,
@@ -161,6 +170,7 @@ function listInProgressGames($playerID)
 
 function listInvitationFor($playerID)
 {
+	global $dbh;
 	$tmpQuery = "SELECT G.gameID, G.whitePlayer, G.blackPlayer, G.dateCreated, G.type, G.gameMessage, 
 						G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.position, G.timeMove,
 						W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, W.socialID whiteSocialID, W.socialNetwork whiteSocialNetwork,
@@ -172,13 +182,14 @@ function listInvitationFor($playerID)
 				AND W.playerID = G.whitePlayer 
 				AND B.playerID = G.blackPlayer 
 				ORDER BY dateCreated";
-	$tmpGames = mysql_query($tmpQuery);
+	$tmpGames = mysqli_query($dbh,$tmpQuery);
 	
 	return $tmpGames;
 }
 
 function listInvitationFrom($playerID)
 {
+	global $dbh;
 	/* if game is marked playerInvited and the invite is from the current player */
 	$tmpQuery = "SELECT G.gameID, G.whitePlayer, G.blackPlayer,  G.dateCreated, G.type, G.gameMessage, 
 						G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.position, G.timeMove,
@@ -197,14 +208,15 @@ function listInvitationFrom($playerID)
 					AND B.playerID = G.blackPlayer  
 					ORDER BY dateCreated";
 	
-	$tmpGames = mysql_query($tmpQuery);
+	$tmpGames = mysqli_query($dbh,$tmpQuery);
 	
 	return $tmpGames;
 }
 
 function listCapturedPieces($gameID)
 {
-	$tmpListPieces = mysql_query("SELECT curPiece, curColor, replaced
+	global $dbh;
+	$tmpListPieces = mysqli_query($dbh,"SELECT curPiece, curColor, replaced
 								FROM history 
 								WHERE replaced > '' 
 								AND gameID =  '".$gameID."' 
@@ -214,7 +226,8 @@ function listCapturedPieces($gameID)
 
 function listGamesProgressWithMoves($playerID)
 {
-	$tmpGames = mysql_query("SELECT count(H.gameID) nbMoves, G.gameID, G.whitePlayer, G.blackPlayer
+	global $dbh;
+	$tmpGames = mysqli_query($dbh,"SELECT count(H.gameID) nbMoves, G.gameID, G.whitePlayer, G.blackPlayer
 							FROM games G left join history H on H.gameID = G.gameID
 							WHERE (gameMessage is NULL OR gameMessage = '')
 							AND (whitePlayer = ".$playerID." OR blackPlayer = ".$playerID.")
@@ -225,7 +238,8 @@ function listGamesProgressWithMoves($playerID)
 
 function countGamesByEco($playerID)
 {
-	$tmpGames = mysql_query("SELECT G.eco eco, count(G.gameID) nb
+	global $dbh;
+	$tmpGames = mysqli_query($dbh,"SELECT G.eco eco, count(G.gameID) nb
 							FROM games G, eco E
 							WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
 							AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
@@ -238,7 +252,8 @@ function countGamesByEco($playerID)
 
 function listWonGames($playerID)
 {
-	$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove
+	global $dbh;
+	$tmpGames = mysqli_query($dbh,"SELECT G.gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove
 			FROM games G, players W, players B, eco E WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
 			AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
 			AND ((G.gameMessage = 'playerResigned' AND G.messageFrom = 'white' AND G.blackPlayer = ".$playerID.")
@@ -255,7 +270,8 @@ function listWonGames($playerID)
 
 function listDrawGames($playerID)
 {
-	$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove
+	global $dbh;
+	$tmpGames = mysqli_query($dbh,"SELECT G.gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove
 			FROM games G, players W, players B, eco E
 			WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
 			AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
@@ -270,7 +286,8 @@ function listDrawGames($playerID)
 
 function listLostGames($playerID)
 {
-	$tmpGames = mysql_query("SELECT G.gameID gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage gameMessage, G.messageFrom messageFrom, G.dateCreated, G.lastMove
+	global $dbh;
+	$tmpGames = mysqli_query($dbh,"SELECT G.gameID gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage gameMessage, G.messageFrom messageFrom, G.dateCreated, G.lastMove
 			FROM games G, players W, players B, eco E
 			WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
 			AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
@@ -288,7 +305,8 @@ function listLostGames($playerID)
 
 function listEndedGamesForElo($playerID)
 {
-	$tmpGames = mysql_query("SELECT G.gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove
+	global $dbh;
+	$tmpGames = mysqli_query($dbh,"SELECT G.gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove
 						FROM games G, players W, players B, eco E 
 						WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
 						AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")

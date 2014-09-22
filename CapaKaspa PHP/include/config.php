@@ -3,7 +3,7 @@
 
 	/* database settings */
 	/* local server */
-	$CFG_SERVER = "localhost";
+	$CFG_SERVER = "127.0.0.1";
 	$CFG_USER = "root";
 	$CFG_PASSWORD = "";
 	$CFG_DATABASE = "capakaspa";

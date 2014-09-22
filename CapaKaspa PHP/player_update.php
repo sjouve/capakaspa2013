@@ -392,7 +392,7 @@ require 'include/page_body.php';
 	            <?
 	            echo "\t",'<option value="">', _("Select your country") ,'</option>',"\n";
 	            $tmpCountries = listCountriesByLang(getLang());
-	            while($tmpCountry = mysql_fetch_array($tmpCountries, MYSQL_ASSOC))
+	            while($tmpCountry = mysqli_fetch_array($tmpCountries, MYSQLI_ASSOC))
 	            {
 	            	$selected = "";
 	            	$countryCode = $_SESSION['countryCode'];
@@ -632,12 +632,12 @@ require 'include/page_body.php';
       <?	
       		$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE);
       		$tmpVacations = getCurrentVacation($_SESSION['playerID']);
-			$nbCurrentVacation = mysql_num_rows($tmpVacations);
+			$nbCurrentVacation = mysqli_num_rows($tmpVacations);
 			if ($nbCurrentVacation == 0)
 				echo _("You don't have vacation in progress.");
 			else
 			{
-				$tmpVacation = mysql_fetch_array($tmpVacations, MYSQL_ASSOC);
+				$tmpVacation = mysqli_fetch_array($tmpVacations, MYSQLI_ASSOC);
 				$beginDate = new DateTime($tmpVacation['beginDate']);
 				$strBeginDate = $fmt->format($beginDate);
 				$endDate = new DateTime($tmpVacation['endDate']);
@@ -675,5 +675,5 @@ require 'include/page_body.php';
   </div>
 <?
     require 'include/page_footer.php';
-    mysql_close();
+    mysqli_close($dbh);
 ?>

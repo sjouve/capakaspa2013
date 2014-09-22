@@ -60,7 +60,7 @@ if ($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] ==
 	$res_vacation = getCurrentVacation($_SESSION['playerID']);
 	
 	global $nb_game_vacation;
-	$nb_game_vacation = mysql_num_rows($res_adv_vacation) + mysql_num_rows($res_vacation);
+	$nb_game_vacation = mysqli_num_rows($res_adv_vacation) + mysqli_num_rows($res_vacation);
 }
 		
 if (($TestFromRow != "") && ($_POST['fromCol'] != "") && ($_POST['toRow'] != "") && ($_POST['toCol'] != ""))
@@ -87,12 +87,12 @@ if (($TestFromRow != "") && ($_POST['fromCol'] != "") && ($_POST['toRow'] != "")
 	
 	if ($tmpIsValid)
 	{
-		@mysql_query("BEGIN");
+		@mysqli_query($dbh,"BEGIN");
 		
 		$res = saveHistory();
 		//echo(microtime()." history : ".$res);
 		if (!$res)
-			@mysql_query("ROLLBACK");
+			@mysqli_query($dbh,"ROLLBACK");
 		
 		doMove();
 		//echo(microtime()." move : ");
@@ -101,14 +101,14 @@ if (($TestFromRow != "") && ($_POST['fromCol'] != "") && ($_POST['toRow'] != "")
 		//echo(microtime()." game : ".$res);
 		if (!$res)
 		{
-			@mysql_query("ROLLBACK");
+			@mysqli_query($dbh,"ROLLBACK");
 			//echo(microtime()." game : ROLLBACK");
 		}
 			
 		if ($res)
 		{
 			
-			@mysql_query("COMMIT");
+			@mysqli_query($dbh,"COMMIT");
 			//echo(microtime()." game : COMMIT");
 			sendEmailNotification($history, $isPromoting, $numMoves, $isInCheck);
 			//echo(microtime()." mail : ".$res);
@@ -235,7 +235,7 @@ require 'include/page_body.php';
         if (($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['blackPlayer']) 
         		&& $tmpGame['gameMessage'] == "")
 		{
-        	if (mysql_num_rows($res_adv_vacation) > 0)
+        	if (mysqli_num_rows($res_adv_vacation) > 0)
 				echo("<div class='success'>"._("Your opponent is absent at the moment. The game is postponed").".</div>");
 			
 		}
@@ -334,7 +334,7 @@ require 'include/page_body.php';
 			
           	<?
 				$listeCoups = writeHistoryPGN($history, $numMoves);
-				$pgnstring = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $listeCoups, $gameResult);
+				$pgnstring = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $tmpGame['chess960'], $listeCoups, $gameResult);
 			?>
 			<form style="display: none;">
 				<textarea style="display: none;" id="pgnText">
@@ -360,7 +360,7 @@ require 'include/page_body.php';
 				// List of captured pieces
 				$listPieces = listCapturedPieces($_POST['gameID']);
 				
-				while($row=mysql_fetch_array($listPieces, MYSQL_ASSOC)){
+				while($row=mysqli_fetch_array($listPieces, MYSQLI_ASSOC)){
 				
 					if(preg_match("/white/", $row['curColor']))
 						$color="b";
@@ -394,5 +394,5 @@ require 'include/page_body.php';
 	  
 <?
 require 'include/page_footer.php';
-mysql_close();
+mysqli_close($dbh);
 ?>

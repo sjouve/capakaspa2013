@@ -4,9 +4,10 @@ if (!isset($_CONFIG))
 	require 'include/config.php';
 
 /* connect to database */
-$dbh=mysql_connect ($CFG_SERVER, $CFG_USER, $CFG_PASSWORD)
-	or die ('CapaKaspa cannot connect to the database.  Please check the database settings in your config : '.mysql_error());
+global $dbh;
+$dbh=mysqli_connect($CFG_SERVER, $CFG_USER, $CFG_PASSWORD, $CFG_DATABASE)
+	or die ('CapaKaspa cannot connect to the database.  Please check the database settings in your config : '.mysqli_connect_error());
 
-mysql_select_db ($CFG_DATABASE);
-mysql_query("SET NAMES UTF8");
+
+mysqli_query($dbh, "SET NAMES UTF8");
 ?>

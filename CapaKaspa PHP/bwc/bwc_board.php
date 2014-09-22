@@ -85,13 +85,14 @@ function getPositionFromBoard($board)
 
 function createNewGame($gameID)
 {
+	global $dbh;
 	/* clear history */
 	global $numMoves;
 	
 	$numMoves = -1;
-	mysql_query("DELETE FROM history WHERE gameID = ".$gameID);
-	$res_game = mysql_query("SELECT type, flagBishop, flagKnight, flagRook, flagQueen, chess960 FROM games WHERE gameID = ".$gameID);
-	$game = mysql_fetch_array($res_game, MYSQL_ASSOC);
+	mysqli_query($dbh,"DELETE FROM history WHERE gameID = ".$gameID);
+	$res_game = mysqli_query($dbh,"SELECT type, flagBishop, flagKnight, flagRook, flagQueen, chess960 FROM games WHERE gameID = ".$gameID);
+	$game = mysqli_fetch_array($res_game, MYSQLI_ASSOC);
 	
 	if ($game['type'] == 0)
 		initBoard(1, 1, 1, 1, "");
@@ -147,15 +148,16 @@ function doMove()
 function doUndo()
 {
 	global $board, $numMoves;
+	global $dbh;
 	
 	/* get the last move from the history */
 	/* NOTE: MySQL currently has no support for subqueries */
-	$tmpMaxTime = mysql_query("SELECT Max(timeOfMove) FROM history WHERE gameID = ".$_POST['gameID']);
-	$maxTime = mysql_result($tmpMaxTime,0);
-	$moves = mysql_query("SELECT * FROM history WHERE gameID = ".$_POST['gameID']." AND timeOfMove = '$maxTime'");
+	$tmpMaxTime = mysqli_query($dbh,"SELECT Max(timeOfMove) FROM history WHERE gameID = ".$_POST['gameID']);
+	$maxTime = mysqli_result($dbh,$tmpMaxTime,0);
+	$moves = mysqli_query($dbh,"SELECT * FROM history WHERE gameID = ".$_POST['gameID']." AND timeOfMove = '$maxTime'");
 
 	/* if there actually is a move... */
-	if ($lastMove = mysql_fetch_array($moves, MYSQL_ASSOC))
+	if ($lastMove = mysqli_fetch_array($moves, MYSQLI_ASSOC))
 	{
 		/* if the last move was played by this player */
 		
@@ -205,7 +207,7 @@ function doUndo()
 
 			/* remove last move from history */
 			$numMoves--;
-			mysql_query("DELETE FROM history WHERE gameID = ".$_POST['gameID']." AND timeOfMove = '$maxTime'");
+			mysqli_query($dbh,"DELETE FROM history WHERE gameID = ".$_POST['gameID']." AND timeOfMove = '$maxTime'");
 
 		/* else */
 			/* output error message */

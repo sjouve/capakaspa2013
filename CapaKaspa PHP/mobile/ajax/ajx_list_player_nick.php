@@ -21,9 +21,9 @@ $type=$_GET["type"];
 
 $tmpPlayers = listPlayersByNickName($str, $type);
 
-if (mysql_num_rows($tmpPlayers) > 0)
+if (mysqli_num_rows($tmpPlayers) > 0)
 {
-	while($tmpPlayer = mysql_fetch_array($tmpPlayers, MYSQL_ASSOC))
+	while($tmpPlayer = mysqli_fetch_array($tmpPlayers, MYSQLI_ASSOC))
 	{
 		echo("<option value='".$tmpPlayer['playerID']."'>".$tmpPlayer['nick']." (".$tmpPlayer['firstName']." ".$tmpPlayer['lastName'].")</option>");
 	}
@@ -34,5 +34,5 @@ else
 }
 
 
-mysql_close();
+mysqli_close($dbh);
 ?>

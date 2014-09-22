@@ -19,11 +19,11 @@ $entityType=$_GET["type"];
 $entityID=$_GET["id"];
 
 $res = insertLike($_SESSION['playerID'], $entityType, $entityID);
-$likeID = mysql_insert_id();
+$likeID = mysqli_insert_id($dbh);
 if ($res) {
 ?>
 <a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo($entityType);?>', <?echo($entityID);?>, <?echo($likeID);?>);"><?echo _("! Unlike");?></a>
 <?
 }
-mysql_close();
+mysqli_close($dbh);
 ?>

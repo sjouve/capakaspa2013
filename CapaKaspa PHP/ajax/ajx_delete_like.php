@@ -25,5 +25,5 @@ if ($res) {
 <a href="javascript:insertLike('<?echo($type);?>', <?echo($entityID);?>);"><?echo _("! Like");?></a>
 <?	
 }
-mysql_close();
+mysqli_close($dbh);
 ?>

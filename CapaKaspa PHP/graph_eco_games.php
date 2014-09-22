@@ -19,10 +19,10 @@ $gamesPerEco = countGamesByEco($_GET['playerID']);
 $tabNbGames = array();
 $tabEco = array();
 
-if (mysql_numrows($gamesPerEco)>0)
+if (mysqli_num_rows($gamesPerEco)>0)
 {
 	$i = 0;
-	while(($tmpGamesEco = mysql_fetch_array($gamesPerEco, MYSQL_ASSOC)) && ($i < 10))
+	while(($tmpGamesEco = mysqli_fetch_array($gamesPerEco, MYSQLI_ASSOC)) && ($i < 10))
 	{
 
 		$tabNbGames[$i] = $tmpGamesEco['nb'];

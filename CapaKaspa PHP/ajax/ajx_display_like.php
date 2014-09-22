@@ -20,10 +20,10 @@ $entityID=$_GET["id"];
 
 $tmpLikes = listLike($entityType, $entityID);
 echo("<div class='likeList'>");
-while($tmpLike = mysql_fetch_array($tmpLikes, MYSQL_ASSOC))
+while($tmpLike = mysqli_fetch_array($tmpLikes, MYSQLI_ASSOC))
 {
 	echo("<div class='likePlayer'>".$tmpLike['firstName']." ".$tmpLike['lastName']." (".$tmpLike['nick'].")</div>");
 }
 echo("</div>");
-mysql_close();
+mysqli_close($dbh);
 ?>

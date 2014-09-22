@@ -79,7 +79,7 @@ switch($ToDo)
 		{			
 			/* update game data */
 			$tmpQuery = "UPDATE games SET gameMessage = DEFAULT, messageFrom = DEFAULT WHERE gameID = ".$_POST['gameID'];
-			mysql_query($tmpQuery) or die (mysql_error());
+			mysqli_query($dbh,$tmpQuery) or die (mysqli_error($dbh));
 
 			/* setup new board */
 			createNewGame($_POST['gameID']);
@@ -98,7 +98,7 @@ switch($ToDo)
 		else
 		{
 			$tmpQuery = "UPDATE games SET gameMessage = 'inviteDeclined', messageFrom = '".$_POST['messageFrom']."' WHERE gameID = ".$_POST['gameID'];
-			mysql_query($tmpQuery);
+			mysqli_query($dbh,$tmpQuery);
 			
 			if ($_POST['whitePlayerID'] != $_SESSION['playerID'])
 				$oppColor = "white";
@@ -126,7 +126,7 @@ switch($ToDo)
 			insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'withdrawal');
 		
 		$tmpQuery = "DELETE FROM games WHERE gameID = ".$_POST['gameID'];
-		mysql_query($tmpQuery);
+		mysqli_query($dbh,$tmpQuery);
 		
 		break;
 }
@@ -185,19 +185,19 @@ require 'include/page_body.php';
 		echo("<div class='error'>".$errMsg."</div>");
     
 	$res_current_vacation = getCurrentVacation($_SESSION['playerID']);
-	if (mysql_num_rows($res_current_vacation) > 0)
+	if (mysqli_num_rows($res_current_vacation) > 0)
 		echo("<div class='success'>"._("You have a current vacation ! Your games are postponed").".</div>");
 	
 	$tmpGamesFrom = listInvitationFrom($_SESSION['playerID']);
 	$tmpGamesFor = listInvitationFor($_SESSION['playerID']);
-	if (mysql_num_rows($tmpGamesFrom) > 0 || mysql_num_rows($tmpGamesFor) > 0)
+	if (mysqli_num_rows($tmpGamesFrom) > 0 || mysqli_num_rows($tmpGamesFor) > 0)
 	{
 	?>		
 		<h2><?php echo _("My pending requests");?></h2>
 		<form name="withdrawRequestForm" action="game_in_progress.php" method="post">
 		<?
-		if (mysql_num_rows($tmpGamesFrom) > 0)
-			while($tmpGame = mysql_fetch_array($tmpGamesFrom, MYSQL_ASSOC))
+		if (mysqli_num_rows($tmpGamesFrom) > 0)
+			while($tmpGame = mysqli_fetch_array($tmpGamesFrom, MYSQLI_ASSOC))
 			{
 				/* Get opponent's nick and ID*/
 				if ($tmpGame['whitePlayer'] == $_SESSION['playerID']) {
@@ -258,8 +258,8 @@ require 'include/page_body.php';
       
 		<form name="responseToInvite" action="game_in_progress.php" method="post">
 		<?
-		if (mysql_num_rows($tmpGamesFor) > 0)
-			while($tmpGame = mysql_fetch_array($tmpGamesFor, MYSQL_ASSOC))
+		if (mysqli_num_rows($tmpGamesFor) > 0)
+			while($tmpGame = mysqli_fetch_array($tmpGamesFor, MYSQLI_ASSOC))
 			{
 				/* Get opponent's nick and ID*/
 				if ($tmpGame['whitePlayer'] == $_SESSION['playerID']) {
@@ -333,8 +333,8 @@ require 'include/page_body.php';
 		<form name="existingGames" action="game_board.php" method="post">
 		<?
 		$tmpGames = listInProgressGames($_SESSION['playerID']);
-		if (mysql_num_rows($tmpGames) > 0)
-			while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
+		if (mysqli_num_rows($tmpGames) > 0)
+			while($tmpGame = mysqli_fetch_array($tmpGames, MYSQLI_ASSOC))
 			{
 				/* Get opponent's nick and ID*/
 				if ($tmpGame['whitePlayer'] == $_SESSION['playerID']) {
@@ -429,5 +429,5 @@ require 'include/page_body.php';
 </div>
 <?
 require 'include/page_footer.php';
-mysql_close();
+mysqli_close($dbh);
 ?>

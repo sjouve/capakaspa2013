@@ -82,7 +82,7 @@ require 'include/page_body.php';
 			$res_count = searchPlayers("count", 0, 0, $_SESSION['playerID'], $critFavorite, $critStatus, $critEloStart, $critEloEnd, $critCountry, $critName); 
 			if ($res_count)
 			{
-				$count = mysql_fetch_array($res_count, MYSQL_ASSOC);
+				$count = mysqli_fetch_array($res_count, MYSQLI_ASSOC);
 				$nb_tot = $count['nbPlayers'];
 			}
 			
@@ -97,7 +97,7 @@ require 'include/page_body.php';
 				            <?
 				            echo "\t",'<option value="">', _("All countries") ,'</option>',"\n";
 				            $tmpCountries = listCountriesByLang(getLang());
-				            while($tmpCountry = mysql_fetch_array($tmpCountries, MYSQL_ASSOC))
+				            while($tmpCountry = mysqli_fetch_array($tmpCountries, MYSQLI_ASSOC))
 				            {
 				            	$selected = "";
 				            	if($tmpCountry['countryCode'] == $critCountry)
@@ -143,5 +143,5 @@ require 'include/page_body.php';
         
 <?
 require 'include/page_footer.php';
-mysql_close();
+mysqli_close($dbh);
 ?>

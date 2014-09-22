@@ -18,12 +18,12 @@ $eloProgress = listEloProgress($_GET['playerID']);
 $tableauEloPprogress = array();
 $eloDates = array();
 
-if (mysql_numrows($eloProgress)>0)
+if (mysqli_num_rows($eloProgress)>0)
 {
 	$i = 0;
 	$eloDates[$i] = '-';
 	$tableauEloPprogress[$i] = '1300';
-	while($tmpElo = mysql_fetch_array($eloProgress, MYSQL_ASSOC))
+	while($tmpElo = mysqli_fetch_array($eloProgress, MYSQLI_ASSOC))
 	{
 		
 		$tableauEloPprogress[$i] = $tmpElo['elo'];

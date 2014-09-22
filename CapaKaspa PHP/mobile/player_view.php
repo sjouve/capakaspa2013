@@ -211,13 +211,13 @@ require 'include/page_body.php';
 	$res_count = searchPlayers("count", 0, 0, $player['playerID'], "wers", "", "", "", "", "");
 	if ($res_count)
 	{
-		$count = mysql_fetch_array($res_count, MYSQL_ASSOC);
+		$count = mysqli_fetch_array($res_count, MYSQLI_ASSOC);
 		$nbFollowers = $count['nbPlayers'];
 	}
 	$res_count = searchPlayers("count", 0, 0, $player['playerID'], "wing", "", "", "", "", "");
 	if ($res_count)
 	{
-		$count = mysql_fetch_array($res_count, MYSQL_ASSOC);
+		$count = mysqli_fetch_array($res_count, MYSQLI_ASSOC);
 		$nbFollowing = $count['nbPlayers'];
 	}
 	?>
@@ -246,5 +246,5 @@ require 'include/page_body.php';
 
 <?
 require 'include/page_footer.php';
-mysql_close();
+mysqli_close($dbh);
 ?>

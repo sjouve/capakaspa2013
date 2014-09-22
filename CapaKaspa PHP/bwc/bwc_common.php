@@ -161,7 +161,7 @@ function displaySuggestion()
 	
 	$limit = 10;
 	$result = searchPlayers("", 0, $limit, $_SESSION['playerID'], "", "nouveau", "", "", "", "");
-	while($tmpPlayer = mysql_fetch_array($result, MYSQL_ASSOC))
+	while($tmpPlayer = mysqli_fetch_array($result, MYSQLI_ASSOC))
 	{
 		//$lastConnection = new DateTime($tmpPlayer['lastConnection']);
 		//$strLastConnection = $fmt->format($lastConnection);
@@ -182,7 +182,7 @@ function displaySuggestion()
 	
 	$limit = 5;
 	$result = searchPlayers("", 0, $limit, $_SESSION['playerID'], "", "actif", $_SESSION['elo']-50, $_SESSION['elo']+50, $_SESSION['countryCode'], "");	
-	while($tmpPlayer = mysql_fetch_array($result, MYSQL_ASSOC))
+	while($tmpPlayer = mysqli_fetch_array($result, MYSQLI_ASSOC))
 	{
 		//$lastConnection = new DateTime($tmpPlayer['lastConnection']);
 		//$strLastConnection = $fmt->format($lastConnection);

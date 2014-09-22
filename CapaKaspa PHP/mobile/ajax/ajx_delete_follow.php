@@ -23,5 +23,5 @@ if ($res) {
 <input id="btnFollow" value="<? echo _("Follow")?>" type="button" class="button" onclick="javascript:insertFav(<?echo($playerID);?>);">
 <?
 }
-mysql_close();
+mysqli_close($dbh);
 ?>

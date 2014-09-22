@@ -34,5 +34,5 @@ switch($ToDo)
 		break;
 }
 
-mysql_close();
+mysqli_close($dbh);
 ?>	

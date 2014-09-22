@@ -31,9 +31,9 @@ $limit = 20;
 $fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
 
 $result = searchPlayers("", $start, $limit, $playerID, $critFavorite, $critStatus, $critEloStart, $critEloEnd, $critCountry, $critName);
-$numPlayers = mysql_num_rows($result);
+$numPlayers = mysqli_num_rows($result);
 	
-while($tmpPlayer = mysql_fetch_array($result, MYSQL_ASSOC))
+while($tmpPlayer = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
 	$lastConnection = new DateTime($tmpPlayer['lastConnection']);
 	$strLastConnection = $fmt->format($lastConnection);
@@ -78,5 +78,5 @@ if ($numPlayers == $limit)
 	</div>
 <?
 }
-mysql_close();
+mysqli_close($dbh);
 ?>

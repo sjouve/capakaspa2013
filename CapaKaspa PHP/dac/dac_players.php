@@ -11,51 +11,57 @@ define ("MAX_NB_JOUR_ABSENCE", 30);
 /* Charger un utilisateur par son ID */
 function getPlayer($playerID)
 {
-	$res_player = mysql_query("SELECT P.*, C.countryName 
+	global $dbh;
+	$res_player = mysqli_query($dbh,"SELECT P.*, C.countryName 
 								FROM players P, country C 
 								WHERE playerID = ".$playerID." 
 								AND P.countryCode = C.countryCode
 								AND C.countryLang = '".getLang()."'");
 	
-    $player = mysql_fetch_array($res_player, MYSQL_ASSOC);
+    $player = mysqli_fetch_array($res_player, MYSQLI_ASSOC);
     return $player;
 }
 
 /* Charger un utilisateur pour email */
 function getPlayerByEmail($email)
 {
-	$res_player = mysql_query("SELECT * FROM players WHERE email = '".$email."'");
-    $player = mysql_fetch_array($res_player, MYSQL_ASSOC);
+	global $dbh;
+	$res_player = mysqli_query($dbh,"SELECT * FROM players WHERE email = '".$email."'");
+    $player = mysqli_fetch_array($res_player, MYSQLI_ASSOC);
     return $player;
 }
 
 /* Charger un utilisateur pour un surnom et mot de passe */
 function getPlayerByNickPassword($nick, $password)
 {
-	$res_player = mysql_query("SELECT * FROM players WHERE nick = '".$nick."' AND password = '".$password."'");
-    $player = mysql_fetch_array($res_player, MYSQL_ASSOC);
+	global $dbh;
+	$res_player = mysqli_query($dbh,"SELECT * FROM players WHERE nick = '".$nick."' AND password = '".$password."'");
+    $player = mysqli_fetch_array($res_player, MYSQLI_ASSOC);
     return $player;
 }
 
 /* Charger un utilisateur pour un surnom ou email */
 function getPlayerByNickEmail($nick, $email)
 {
-	$res_player = mysql_query("SELECT playerID, nick, email FROM players WHERE nick = '".$nick."' OR email = '".$email."'");
-    $player = mysql_fetch_array($res_player, MYSQL_ASSOC);
+	global $dbh;
+	$res_player = mysqli_query($dbh,"SELECT playerID, nick, email FROM players WHERE nick = '".$nick."' OR email = '".$email."'");
+    $player = mysqli_fetch_array($res_player, MYSQLI_ASSOC);
     return $player;
 }
 
 /* Liste tous les joueurs */
 function listPlayers()
 {
+	global $dbh;
 	$tmpQuery = "SELECT * FROM players ORDER BY email";
 
-	return mysql_query($tmpQuery);
+	return mysqli_query($dbh,$tmpQuery);
 }
 
 /* Liste les joueurs pour calcul Elo */
 function listPlayersForElo()
 {
+	global $dbh;
 	$tmpQuery = "SELECT P.playerID playerID, E.elo elo, P.nick nick 
 				FROM players P, elo_history E 
 				WHERE P.playerID = E.playerID 
@@ -63,12 +69,13 @@ function listPlayersForElo()
 				AND E.eloDate > '2013-08-31' 
 				ORDER BY playerID";
 
-	return mysql_query($tmpQuery);
+	return mysqli_query($dbh,$tmpQuery);
 }
 
 /* Liste les joueurs par nom */
 function listPlayersByNickName($str, $type)
 {
+	global $dbh;
 	$tmpQuery = "SELECT playerID, nick, firstName, lastName
 	FROM players ";
 	if ($type != 0)
@@ -80,38 +87,41 @@ function listPlayersByNickName($str, $type)
 	AND playerID != '".$_SESSION['playerID']."'
 	ORDER BY nick";
 
-	return mysql_query($tmpQuery);
+	return mysqli_query($dbh,$tmpQuery);
 }
 
 /* Historique Elo d'un joueur */
 function listEloProgress($playerID)
 {
+	global $dbh;
 	$tmpQuery = "SELECT elo, DATE_FORMAT(eloDate, '%c') eloDateF
 	FROM elo_history
 	WHERE playerID = ".$playerID."
 	ORDER BY eloDate ASC";
 
-	return mysql_query($tmpQuery);
+	return mysqli_query($dbh,$tmpQuery);
 }
 
 function countActivePlayers()
 {
-	$res_player = mysql_query("SELECT count(playerID) nbPlayers 
+	global $dbh;
+	$res_player = mysqli_query($dbh,"SELECT count(playerID) nbPlayers 
 								FROM players 
 								WHERE DATE_ADD(lastConnection, INTERVAL 14 DAY) >= NOW() 
 								AND activate = 1 
 								ORDER BY lastConnection DESC");
-	return mysql_fetch_array($res_player, MYSQL_ASSOC);
+	return mysqli_fetch_array($res_player, MYSQLI_ASSOC);
 }
 
 function countPassivePlayers()
 {
-	$res_player = mysql_query("SELECT count(playerID) nbPlayers 
+	global $dbh;
+	$res_player = mysqli_query($dbh,"SELECT count(playerID) nbPlayers 
 								FROM players 
 								WHERE DATE_ADD(lastConnection, INTERVAL 14 DAY) < NOW() 
 								AND activate = 1 
 								ORDER BY lastConnection DESC");
-	return mysql_fetch_array($res_player, MYSQL_ASSOC);
+	return mysqli_fetch_array($res_player, MYSQLI_ASSOC);
 }
 
 /*
@@ -123,6 +133,7 @@ function countPassivePlayers()
 function searchPlayers($mode, $debut, $limit, $playerID, $critFavorite, $critStatus, $critEloStart, $critEloEnd, $critCountry, $critName)
 {
 
+	global $dbh;
 	if ($mode=="count")
 		$tmpQuery = "SELECT count(*) nbPlayers
 		FROM players P left join online_players O on O.playerID = P.playerID";
@@ -180,7 +191,7 @@ function searchPlayers($mode, $debut, $limit, $playerID, $critFavorite, $critSta
 	if ($mode != "count")
 		$tmpQuery .= " limit ".$debut.",".$limit;
 
-	return mysql_query($tmpQuery);
+	return mysqli_query($dbh,$tmpQuery);
 }
 
 /*
@@ -190,12 +201,13 @@ function searchPlayers($mode, $debut, $limit, $playerID, $critFavorite, $critSta
 /* Insérer un joueur */	
 function insertPlayer($password, $firstName, $lastName, $nick, $email, $countryCode, $anneeNaissance, $playerSex, $socialID, $socialNetwork)
 {
+	global $dbh;
 	$strQuery = "INSERT INTO players (password, firstName, lastName, nick, email, countryCode, anneeNaissance, creationDate, playerSex, socialID, socialNetwork) 
 	VALUES ('".$password."', '".addslashes(strip_tags($firstName))."', '".addslashes(strip_tags($lastName))."', '".$nick."', '".$email."', '".$countryCode."', '".$anneeNaissance."', now(), '".$playerSex."','".$socialID."','".$socialNetwork."')";
-	$res_player = mysql_query($strQuery);
+	$res_player = mysqli_query($dbh,$strQuery);
 
 	if ($res_player)	
-		return mysql_insert_id();
+		return mysqli_insert_id($dbh);
 	else
 		return FALSE;
 }
@@ -203,7 +215,8 @@ function insertPlayer($password, $firstName, $lastName, $nick, $email, $countryC
 /* Mettre à jour un joueur */
 function updatePlayer($playerID, $password, $firstName, $lastName, $nick, $email, $profil, $situationGeo, $anneeNaissance, $activate)
 { 		
-	  $res_player = mysql_query("UPDATE players SET password='".$password."', firstName='".addslashes(strip_tags($firstName))."', lastName='".addslashes(strip_tags($lastName))."', nick='".$nick."', email='".$email."', profil='".addslashes(strip_tags($profil))."', situationGeo='".addslashes(strip_tags($situationGeo))."', anneeNaissance='".$anneeNaissance."', activate=".$activate." WHERE playerID = ".$playerID);
+	  global $dbh;
+	  $res_player = mysqli_query($dbh,"UPDATE players SET password='".$password."', firstName='".addslashes(strip_tags($firstName))."', lastName='".addslashes(strip_tags($lastName))."', nick='".$nick."', email='".$email."', profil='".addslashes(strip_tags($profil))."', situationGeo='".addslashes(strip_tags($situationGeo))."', anneeNaissance='".$anneeNaissance."', activate=".$activate." WHERE playerID = ".$playerID);
 	  
 	if ($res_player)	
 		return TRUE;
@@ -214,7 +227,8 @@ function updatePlayer($playerID, $password, $firstName, $lastName, $nick, $email
 /* Mettre à jour un joueur avec données réseau social */
 function updatePlayerWithSocial($playerID, $password, $firstName, $lastName, $nick, $email, $profil, $situationGeo, $anneeNaissance, $activate, $socialNetwork, $socialID, $countryCode, $playerSex)
 { 		
-	  $res_player = mysql_query("UPDATE players 
+	  global $dbh;
+	  $res_player = mysqli_query($dbh,"UPDATE players 
 	  							SET password='".$password."', 
 		  							firstName='".addslashes(strip_tags($firstName))."', 
 		  							lastName='".addslashes(strip_tags($lastName))."', 
@@ -243,7 +257,8 @@ function updatePlayerWithSocial($playerID, $password, $firstName, $lastName, $ni
 function insertPreference($playerID, $preference, $value)
 {
 	
-	$res_preference = mysql_query("INSERT INTO preferences (playerID, preference, value) 
+	global $dbh;
+	$res_preference = mysqli_query($dbh,"INSERT INTO preferences (playerID, preference, value) 
 									VALUES (".$playerID.", '".$preference."', '".$value."')");
 	return $res_preference;
 }
@@ -252,7 +267,8 @@ function insertPreference($playerID, $preference, $value)
 function updatePreference($playerID, $preference, $value)
 {
 	
-	$res_pref = mysql_query("UPDATE preferences SET value = '".$value."' 
+	global $dbh;
+	$res_pref = mysqli_query($dbh,"UPDATE preferences SET value = '".$value."' 
 								WHERE playerID = ".$playerID." AND preference = '".$preference."'");
 	
 	if ($res_pref)	
@@ -263,10 +279,11 @@ function updatePreference($playerID, $preference, $value)
 
 function getPrefNotification($gameID, $playerColor)
 {
+	global $dbh;
 	// Check player notification preferences
 	if ($playerColor == 'white')
 	{
-		$tmpReceiver = mysql_query("SELECT P.email email, PR.value value, PR2.value language
+		$tmpReceiver = mysqli_query($dbh,"SELECT P.email email, PR.value value, PR2.value language
 				FROM games G, players P left join preferences PR2 on PR2.playerID = P.playerID AND PR2.preference='language', preferences PR
 				WHERE G.gameID =".$gameID."
 				AND G.whitePlayer = P.playerID
@@ -275,7 +292,7 @@ function getPrefNotification($gameID, $playerColor)
 	}
 	else
 	{
-		$tmpReceiver = mysql_query("SELECT P.email email, PR.value value, PR2.value language
+		$tmpReceiver = mysqli_query($dbh,"SELECT P.email email, PR.value value, PR2.value language
 				FROM games G, players P left join preferences PR2 on PR2.playerID = P.playerID AND PR2.preference='language', preferences PR
 				WHERE G.gameID =".$gameID."
 				AND G.blackPlayer = P.playerID
@@ -283,15 +300,16 @@ function getPrefNotification($gameID, $playerColor)
 				AND PR.preference='emailnotification'");
 	}
 
-	$receiver = mysql_fetch_array($tmpReceiver, MYSQL_ASSOC);
+	$receiver = mysqli_fetch_array($tmpReceiver, MYSQLI_ASSOC);
 
 	return $receiver;
 }
 
 function getPrefValue($playerID, $prefName)
 {
-	$res_pref = mysql_query("SELECT value FROM preferences WHERE preference = '".$prefName."' AND playerID =".$playerID);
-	$player = mysql_fetch_array($res_pref, MYSQL_ASSOC);
+	global $dbh;
+	$res_pref = mysqli_query($dbh,"SELECT value FROM preferences WHERE preference = '".$prefName."' AND playerID =".$playerID);
+	$player = mysqli_fetch_array($res_pref, MYSQLI_ASSOC);
 	return $player['value'];
 }
 
@@ -302,10 +320,11 @@ function getPrefValue($playerID, $prefName)
 /* Format date YYYY-MM-DD */
 function insertVacation($playerID, $duration)
 {
+	global $dbh;
 	$beginDate = date("Y-m-d", mktime(0, 0, 0, date("m"), date("d")+1,  date("Y")));
 	$endDate = date("Y-m-d", mktime(0, 0, 0, date("m"), date("d")+$duration,  date("Y")));
 	
-	$res_absence = mysql_query("INSERT INTO vacation (playerID, beginDate, endDate, duration) 
+	$res_absence = mysqli_query($dbh,"INSERT INTO vacation (playerID, beginDate, endDate, duration) 
 								VALUES (".$playerID.", '".$beginDate."', '".$endDate."', ".$duration.")");
 	return $res_absence;
 }
@@ -314,11 +333,12 @@ function insertVacation($playerID, $duration)
 /* Format de l'année YYYY */
 function countVacation($playerID, $year)
 {
+	global $dbh;
 	// Nombre de jours pour congés complètement sur l'année
-	$res = mysql_query("SELECT SUM(duration) nbVacation 
+	$res = mysqli_query($dbh,"SELECT SUM(duration) nbVacation 
 						FROM vacation WHERE playerID=".$playerID." 
-						AND YEAR(endDate)=".$year)  or die(mysql_error()."\n".$requete);
-	$res_vacation = mysql_fetch_array($res, MYSQL_ASSOC);   
+						AND YEAR(endDate)=".$year)  or die(mysqli_error($dbh)."\n".$requete);
+	$res_vacation = mysqli_fetch_array($res, MYSQLI_ASSOC);   
 	
 	return $res_vacation['nbVacation'];
 }
@@ -326,7 +346,8 @@ function countVacation($playerID, $year)
 /* Récupère les vacances en cours d'un joueur */
 function getCurrentVacation($playerID)
 {
-	$res_vacation = mysql_query("SELECT beginDate, endDate, duration 
+	global $dbh;
+	$res_vacation = mysqli_query($dbh,"SELECT beginDate, endDate, duration 
 								FROM vacation 
 								WHERE playerID=".$playerID." 
 								AND endDate >= NOW()");
@@ -341,7 +362,8 @@ function getCurrentVacation($playerID)
 function insertFavPlayer($playerID, $favPlayerID)
 {
 	
-	$res_fav_player = mysql_query("INSERT INTO fav_players (playerID, favPlayerID) 
+	global $dbh;
+	$res_fav_player = mysqli_query($dbh,"INSERT INTO fav_players (playerID, favPlayerID) 
 								VALUES (".$playerID.", '".$favPlayerID."')");
 	return $res_fav_player;
 }
@@ -349,7 +371,8 @@ function insertFavPlayer($playerID, $favPlayerID)
 /* Supprimer un favori joueur */
 function deleteFavPlayer($favoriteID)
 {
-	$res_fav_player = mysql_query("DELETE FROM fav_players WHERE favoriteID = ".$favoriteID);  
+	global $dbh;
+	$res_fav_player = mysqli_query($dbh,"DELETE FROM fav_players WHERE favoriteID = ".$favoriteID);  
 							
 	return $res_fav_player;
 }
@@ -357,6 +380,7 @@ function deleteFavPlayer($favoriteID)
 /* Liste les favoris d'un joueur */
 function listPlayersFavoris($playerID)
 {
+	global $dbh;
 	$tmpQuery = "SELECT P.playerID, P.nick, P.anneeNaissance, P.profil, P.situationGeo, P.elo 
 				FROM players P, fav_players F
 				WHERE P.playerID = F.favPlayerID 
@@ -365,14 +389,15 @@ function listPlayersFavoris($playerID)
 				AND P.activate=1 
 				ORDER BY P.lastConnection DESC";
 	
-	return mysql_query($tmpQuery); 
+	return mysqli_query($dbh,$tmpQuery); 
 }
 
 /* Récupère un favori */
 function getPlayerFavorite($playerID, $favPlayerID)
 {
-	$res_favorite = mysql_query("SELECT favoriteID FROM fav_players WHERE playerID = ".$playerID." AND favPlayerID = ".$favPlayerID);
-    $favorite = mysql_fetch_array($res_favorite, MYSQL_ASSOC);
+	global $dbh;
+	$res_favorite = mysqli_query($dbh,"SELECT favoriteID FROM fav_players WHERE playerID = ".$playerID." AND favPlayerID = ".$favPlayerID);
+    $favorite = mysqli_fetch_array($res_favorite, MYSQLI_ASSOC);
     return $favorite;
 }
 
@@ -383,19 +408,21 @@ function getPlayerFavorite($playerID, $favPlayerID)
 /* Charger un utilisateur en ligne par son ID */
 function getOnlinePlayer($playerID)
 {
-	$res_olplayer = mysql_query("SELECT * FROM online_players WHERE playerID = ".$playerID);
-    $olplayer = mysql_fetch_array($res_olplayer, MYSQL_ASSOC);
+	global $dbh;
+	$res_olplayer = mysqli_query($dbh,"SELECT * FROM online_players WHERE playerID = ".$playerID);
+    $olplayer = mysqli_fetch_array($res_olplayer, MYSQLI_ASSOC);
     return $olplayer;
 }
 
 /* Insérer joueur en ligne */	
 function insertOnlinePlayer($playerID)
 {
-	$res_olplayer = mysql_query("INSERT INTO online_players (playerID, lastActionTime) 
+	global $dbh;
+	$res_olplayer = mysqli_query($dbh,"INSERT INTO online_players (playerID, lastActionTime) 
 								VALUES (".$playerID.", now())");
 
 	if ($res_olplayer)	
-		return mysql_insert_id();
+		return mysqli_insert_id($dbh);
 	else
 		return FALSE;
 }
@@ -403,7 +430,8 @@ function insertOnlinePlayer($playerID)
 /* Mettre à jour joueur en ligne*/
 function updateOnlinePlayer($playerID)
 { 		
-	  $res_olplayer = mysql_query("UPDATE online_players 
+	  global $dbh;
+	  $res_olplayer = mysqli_query($dbh,"UPDATE online_players 
 	  							SET lastActionTime = now() 
 	  							WHERE playerID = ".$playerID);
 	  
@@ -416,7 +444,8 @@ function updateOnlinePlayer($playerID)
 /* Supprime tous les joueurs hors ligne */
 function deleteOnlinePlayers()
 {
-	$res_olplayer = mysql_query("DELETE FROM online_players 
+	global $dbh;
+	$res_olplayer = mysqli_query($dbh,"DELETE FROM online_players 
 	  							WHERE now() > DATE_ADD(lastActionTime, INTERVAL 10 MINUTE)");
 	
 	return $res_olplayer;
@@ -424,8 +453,9 @@ function deleteOnlinePlayers()
 
 function countOnlinePlayers()
 {
-	$res_olplayer = mysql_query("SELECT count(playerID) nbPlayers FROM online_players");
-	return mysql_fetch_array($res_olplayer, MYSQL_ASSOC);
+	global $dbh;
+	$res_olplayer = mysqli_query($dbh,"SELECT count(playerID) nbPlayers FROM online_players");
+	return mysqli_fetch_array($res_olplayer, MYSQLI_ASSOC);
 }
 
 

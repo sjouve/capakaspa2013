@@ -66,8 +66,9 @@ function getPGN($whiteNick, $blackNick, $type, $flagBishop, $flagKnight, $flagRo
 /* Code ECO d'une position */
 function getEco($position)
 {
-	$all_fen_eco = mysql_query("SELECT F.eco eco, F.trait trait, E.name name FROM fen_eco F, eco E WHERE fen = '".$position."' AND F.eco = E.eco");
-	$fen_eco = mysql_fetch_array($all_fen_eco, MYSQL_ASSOC);
+	global $dbh;
+	$all_fen_eco = mysqli_query($dbh,"SELECT F.eco eco, F.trait trait, E.name name FROM fen_eco F, eco E WHERE fen = '".$position."' AND F.eco = E.eco");
+	$fen_eco = mysqli_fetch_array($all_fen_eco, MYSQLI_ASSOC);
 	return $fen_eco;
 }
 
@@ -89,14 +90,16 @@ function getNbActiveGameForAll()
 function updateTimestamp()
 {
 	
-	mysql_query("UPDATE games SET lastMove = NOW() WHERE gameID = ".$_POST['gameID']);
+	global $dbh;
+	mysqli_query($dbh,"UPDATE games SET lastMove = NOW() WHERE gameID = ".$_POST['gameID']);
 }
 
 /* Met à jour la position et le code ECO d'une partie */
 function updateGame($gameID, $position, $ecoCode)
 {
 	
-	$res = mysql_query("UPDATE games SET lastMove = NOW(), position = '".$position."', eco = '".$ecoCode."' WHERE gameID = ".$gameID);
+	global $dbh;
+	$res = mysqli_query($dbh,"UPDATE games SET lastMove = NOW(), position = '".$position."', eco = '".$ecoCode."' WHERE gameID = ".$gameID);
 	return $res;
 }
 
@@ -118,11 +121,12 @@ function calculateTargetDate($lastMove, $whitePlayerID, $blackPlayerID, $cadence
 function loadHistory($gameID)
 {
 	global $history, $numMoves;
+	global $dbh;
 	
-	$allMoves = mysql_query("SELECT * FROM history WHERE gameID = ".$gameID." ORDER BY timeOfMove");
+	$allMoves = mysqli_query($dbh,"SELECT * FROM history WHERE gameID = ".$gameID." ORDER BY timeOfMove");
 
 	$numMoves = -1;
-	while ($thisMove = mysql_fetch_array($allMoves, MYSQL_ASSOC))
+	while ($thisMove = mysqli_fetch_array($allMoves, MYSQLI_ASSOC))
 	{
 		$numMoves++;
 		$history[$numMoves] = $thisMove;
@@ -135,7 +139,8 @@ function loadHistory($gameID)
 function saveHistory()
 {
 	global $board, $isPromoting, $history, $numMoves, $isInCheck;
-
+	global $dbh;
+	
 	/* set destination row for pawn promotion */
 	if ($board[$_POST['fromRow']][$_POST['fromCol']] & BLACK)
 		$targetRow = 0;
@@ -219,7 +224,7 @@ function saveHistory()
 		$tmpReplaced = $history[$numMoves]['replaced'];
 	}
 
-	$res = mysql_query($tmpQuery);
+	$res = mysqli_query($dbh,$tmpQuery);
 	if ($res)
 		return TRUE;
 	else
@@ -249,6 +254,7 @@ function sendEmailNotification($history, $isPromoting, $numMoves, $isInCheck)
 function loadGame($gameID, $numMoves)
 {
 	global $board, $playersColor, $ecoCode, $ecoName;
+	global $dbh;
 	
 	$tmpGame = getGame($gameID);
 	
@@ -288,7 +294,7 @@ function loadGame($gameID, $numMoves)
 	{
 		// Terminer la partie si dépassement de temps
 		// Dans cas lastMove est mis à jour pour prise en compte calcul Elo
-		$res = mysql_query("UPDATE games 
+		$res = mysqli_query($dbh,"UPDATE games 
 							SET gameMessage = 'playerResigned', 
 								messageFrom = '".$turnColor."',
 								lastMove = NOW()
@@ -353,6 +359,7 @@ function saveGame()
 function processMessages($tmpGame)
 {
 	global $isUndoRequested, $isDrawRequested, $isUndoing, $isGameOver, $isCheckMate, $playersColor, $statusMessage;
+	global $dbh;
 	
 	if (DEBUG)
 		echo("Entering processMessages()<br>\n");
@@ -382,7 +389,7 @@ function processMessages($tmpGame)
 	if ($Test == "yes")
 	{
 		$tmpQuery = "INSERT INTO messages (gameID, msgType, msgStatus, destination) VALUES (".$tmpGame['gameID'].", 'undo', 'request', '".$opponentColor."')";
-		mysql_query($tmpQuery);
+		mysqli_query($dbh,$tmpQuery);
 		
 		updateTimestamp();
 	}
@@ -392,7 +399,7 @@ function processMessages($tmpGame)
 	if ($Test == "yes")
 	{
 		$tmpQuery = "INSERT INTO messages (gameID, msgType, msgStatus, destination) VALUES (".$tmpGame['gameID'].", 'draw', 'request', '".$opponentColor."')";
-		mysql_query($tmpQuery);
+		mysqli_query($dbh,$tmpQuery);
 		
 		updateTimestamp();
 	}
@@ -411,7 +418,7 @@ function processMessages($tmpGame)
 				$tmpStatus = "denied";
 		
 			$tmpQuery = "UPDATE messages SET msgStatus = '".$tmpStatus."', destination = '".$opponentColor."' WHERE gameID = ".$tmpGame['gameID']." AND msgType = 'undo' AND msgStatus = 'request' AND destination = '".$playersColor."'";
-			mysql_query($tmpQuery);
+			mysqli_query($dbh,$tmpQuery);
 		
 			updateTimestamp();
 		}
@@ -426,13 +433,13 @@ function processMessages($tmpGame)
 			{
 				$tmpStatus = "approved";
 				$tmpQuery = "UPDATE games SET gameMessage = 'draw', messageFrom = '".$playersColor."' WHERE gameID = ".$tmpGame['gameID'];
-				mysql_query($tmpQuery);				
+				mysqli_query($dbh,$tmpQuery);				
 			}
 			else
 				$tmpStatus = "denied";
 		
 			$tmpQuery = "UPDATE messages SET msgStatus = '".$tmpStatus."', destination = '".$opponentColor."' WHERE gameID = ".$tmpGame['gameID']." AND msgType = 'draw' AND msgStatus = 'request' AND destination = '".$playersColor."'";
-			mysql_query($tmpQuery);
+			mysqli_query($dbh,$tmpQuery);
 
 			updateTimestamp();
 			
@@ -454,7 +461,7 @@ function processMessages($tmpGame)
 	if ($Test == "yes")
 	{
 		$tmpQuery = "UPDATE games SET gameMessage = 'playerResigned', messageFrom = '".$playersColor."' WHERE gameID = ".$tmpGame['gameID'];
-		mysql_query($tmpQuery);
+		mysqli_query($dbh,$tmpQuery);
 
 		updateTimestamp();
 
@@ -472,9 +479,9 @@ function processMessages($tmpGame)
 	/* process queued messages (ie: from database) */
 	/* ******************************************* */
 	$tmpQuery = "SELECT * FROM messages WHERE gameID = ".$tmpGame['gameID']." AND destination = '".$playersColor."'";
-	$tmpMessages = mysql_query($tmpQuery);
+	$tmpMessages = mysqli_query($dbh,$tmpQuery);
 
-	while($tmpMessage = mysql_fetch_array($tmpMessages, MYSQL_ASSOC))
+	while($tmpMessage = mysqli_fetch_array($tmpMessages, MYSQLI_ASSOC))
 	{
 		switch($tmpMessage['msgType'])
 		{
@@ -486,13 +493,13 @@ function processMessages($tmpGame)
 						break;
 					case 'approved':
 						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$tmpGame['gameID']." AND msgType = 'undo' AND msgStatus = 'approved' AND destination = '".$playersColor."'";
-						mysql_query($tmpQuery);
+						mysqli_query($dbh,$tmpQuery);
 						$statusMessage .= _("Move cancellation accepted")."\n";
 						break;
 					case 'denied':
 						$isUndoing = false;
 						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$tmpGame['gameID']." AND msgType = 'undo' AND msgStatus = 'denied' AND destination = '".$playersColor."'";
-						mysql_query($tmpQuery);
+						mysqli_query($dbh,$tmpQuery);
 						$statusMessage .= _("Move cancellation refused")."\n";
 						break;
 				}
@@ -506,12 +513,12 @@ function processMessages($tmpGame)
 						break;
 					case 'approved':
 						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$tmpGame['gameID']." AND msgType = 'draw' AND msgStatus = 'approved' AND destination = '".$playersColor."'";
-						mysql_query($tmpQuery);
+						mysqli_query($dbh,$tmpQuery);
 						$statusMessage .= _("Draw proposal accepted")."\n";
 						break;
 					case 'denied':
 						$tmpQuery = "DELETE FROM messages WHERE gameID = ".$tmpGame['gameID']." AND msgType = 'draw' AND msgStatus = 'denied' AND destination = '".$playersColor."'";
-						mysql_query($tmpQuery);
+						mysqli_query($dbh,$tmpQuery);
 						$statusMessage .= _("Draw proposal refused")."\n";
 						break;
 				}
@@ -521,9 +528,9 @@ function processMessages($tmpGame)
 
 	/* requests pending */
 	$tmpQuery = "SELECT * FROM messages WHERE gameID = ".$tmpGame['gameID']." AND msgStatus = 'request' AND destination = '".$opponentColor."'";
-	$tmpMessages = mysql_query($tmpQuery);
+	$tmpMessages = mysqli_query($dbh,$tmpQuery);
 
-	while($tmpMessage = mysql_fetch_array($tmpMessages, MYSQL_ASSOC))
+	while($tmpMessage = mysqli_fetch_array($tmpMessages, MYSQLI_ASSOC))
 	{
 		switch($tmpMessage['msgType'])
 		{
@@ -541,7 +548,7 @@ function processMessages($tmpGame)
 	$Test = isset($_POST['isCheckMate']) ? $_POST['isCheckMate']:Null;
 	if ($Test == 'true')
 	{
-		mysql_query("UPDATE games SET gameMessage = 'checkMate', messageFrom = '".$playersColor."' WHERE gameID = ".$tmpGame['gameID']);
+		mysqli_query($dbh,"UPDATE games SET gameMessage = 'checkMate', messageFrom = '".$playersColor."' WHERE gameID = ".$tmpGame['gameID']);
 		/* Notification */
 		chessNotification('checkmate', $opponentColor, '', $_SESSION['nick'], $tmpGame['gameID']);
 		if ($_SESSION['pref_shareresult'] == 'oui')
@@ -555,7 +562,7 @@ function processMessages($tmpGame)
 	if ($Test == 'true')
 	{
 		$tmpQuery = "UPDATE games SET gameMessage = 'draw', messageFrom = '".$playersColor."' WHERE gameID = ".$tmpGame['gameID'];
-		mysql_query($tmpQuery);
+		mysqli_query($dbh,$tmpQuery);
 		/* Notification */
 		chessNotification('drawrule', $opponentColor, '', $_SESSION['nick'], $tmpGame['gameID']);
 		if ($_SESSION['pref_shareresult'] == 'oui')
@@ -567,8 +574,8 @@ function processMessages($tmpGame)
 	$gameResult = "";
 	
 	$tmpQuery = "SELECT gameMessage, messageFrom FROM games WHERE gameID = ".$tmpGame['gameID'];
-	$tmpMessages = mysql_query($tmpQuery);
-	$tmpMessage = mysql_fetch_array($tmpMessages, MYSQL_ASSOC);
+	$tmpMessages = mysqli_query($dbh,$tmpQuery);
+	$tmpMessage = mysqli_fetch_array($tmpMessages, MYSQLI_ASSOC);
 	
 	if ($tmpMessage['gameMessage'] == "draw")
 	{
@@ -625,10 +632,11 @@ function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
 {
 
 	global $isPlayersTurn;
-
+	global $dbh;
+	
 	// Nombre de 1/2 coups
-	$allMoves = mysql_query("SELECT count(gameID) nbMove FROM history WHERE gameID = ".$gameID." ORDER BY timeOfMove");
-	$thisMove = mysql_fetch_array($allMoves, MYSQL_ASSOC);
+	$allMoves = mysqli_query($dbh,"SELECT count(gameID) nbMove FROM history WHERE gameID = ".$gameID." ORDER BY timeOfMove");
+	$thisMove = mysqli_fetch_array($allMoves, MYSQLI_ASSOC);
 	$numMoves = $thisMove['nbMove'] - 1;
 
 	// Remplir l'échiquier
@@ -1104,7 +1112,7 @@ function writeStatusMobile($tmpGame)
 	    <?
           	if ($isPlayersTurn)
           	{
-          		echo("<div class='playername'>".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']);
+          		echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteNick']."</a><br>".$tmpGame['whiteElo']);
           		if (getOnlinePlayer($tmpGame['whitePlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
           		if ($tmpGame['whiteNick'] == $_SESSION['nick']) echo (" <img src='images/hand.gif' title='"._("Player turn")."' alt='"._("Player turn")."'>");
           		echo("</div>");
@@ -1113,14 +1121,14 @@ function writeStatusMobile($tmpGame)
           	{
           		if ($tmpGame['whiteNick'] == $_SESSION['nick'] || $tmpGame['blackNick'] == $_SESSION['nick'])
           		{
-          			echo("<div class='playername'>".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']);
+          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteNick']."</a><br>".$tmpGame['whiteElo']);
           			if (getOnlinePlayer($tmpGame['whitePlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
           			if ($tmpGame['whiteNick'] != $_SESSION['nick']) echo (" <img src='images/hand.gif' title='"._("Player turn")."' alt='"._("Player turn")."'>");
           			echo("</div>");
           		}
           		else
           		{
-          			echo("<div class='playername'>".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']);
+          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteNick']."</a><br>".$tmpGame['whiteElo']);
           			if (getOnlinePlayer($tmpGame['whitePlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
           			echo("</div>");
           		}
@@ -1131,7 +1139,7 @@ function writeStatusMobile($tmpGame)
           	<?
           	if ($isPlayersTurn)
           	{
-          		echo("<div class='playername'>".$tmpGame['blackNick']."<br>");
+          		echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackNick']."</a><br>");
           		if ($tmpGame['blackNick'] == $_SESSION['nick']) echo ("<img src='images/hand.gif' title='"._("Player turn")."' alt='"._("Player turn")."'> ");
           		if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
           		echo($tmpGame['blackElo']."</div>");	
@@ -1140,14 +1148,14 @@ function writeStatusMobile($tmpGame)
           	{
           		if ($tmpGame['whiteNick'] == $_SESSION['nick'] || $tmpGame['blackNick'] == $_SESSION['nick'])
           		{
-          			echo("<div class='playername'>".$tmpGame['blackNick']."<br>");
+          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackNick']."</a><br>");
           			if ($tmpGame['blackNick'] != $_SESSION['nick']) echo ("<img src='images/hand.gif' title='"._("Player turn")."' alt='"._("Player turn")."'> ");
           			if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
           			echo($tmpGame['blackElo']."</div>");	
           		}
           		else
           		{
-          			echo("<div class='playername'>".$tmpGame['blackNick']."<br>");
+          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackNick']."</a><br>");
           			if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
           			echo($tmpGame['blackElo']."</div>");
           		}
@@ -1209,15 +1217,16 @@ function writeDrawRequest($isMobile)
 function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, &$oppColor, $timeMove, $chess960)
 {
 	global $board;
+	global $dbh;
 	
 	/* prevent multiple pending requests between two players with the same originator */
 	$tmpQuery = "SELECT gameID FROM games WHERE gameMessage = 'playerInvited'";
 	$tmpQuery .= " AND ((messageFrom = 'white' AND whitePlayer = ".$playerID." AND blackPlayer = ".$opponentID.")";
 	$tmpQuery .= " OR (messageFrom = 'black' AND whitePlayer = ".$opponentID." AND blackPlayer = ".$playerID."))";
 	
-	$tmpExistingRequests = mysql_query($tmpQuery);
+	$tmpExistingRequests = mysqli_query($dbh,$tmpQuery);
 	
-	if (mysql_num_rows($tmpExistingRequests) == 0)
+	if (mysqli_num_rows($tmpExistingRequests) == 0)
 	{
 	
 		if ($color == 'random')
@@ -1251,8 +1260,8 @@ function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $f
 	
 		$tmpQuery .= ", 'playerInvited', '".$tmpColor."', NOW(), NOW(), ".$type.", ".$flagBishop.", ".$flagKnight.", ".$flagRook.", ".$flagQueen.", ".$timeMove.", '".$position."','".$chess960."')";
 	
-		mysql_query($tmpQuery);
-		$newGameID = mysql_insert_id();
+		mysqli_query($dbh,$tmpQuery);
+		$newGameID = mysqli_insert_id($dbh);
 		return $newGameID;
 	}
 	else return false;
@@ -1286,8 +1295,8 @@ function getNbGameTurns($playerID)
 	$nbTurns = 0;
 	$tmpGames = listGamesProgressWithMoves($playerID);
 	
-	if (mysql_num_rows($tmpGames) > 0)
-		while($tmpGame = mysql_fetch_array($tmpGames, MYSQL_ASSOC))
+	if (mysqli_num_rows($tmpGames) > 0)
+		while($tmpGame = mysqli_fetch_array($tmpGames, MYSQLI_ASSOC))
 		{
 			$numMoves = $tmpGame['nbMoves'] - 1;
 			if ($tmpGame['whitePlayer'] == $playerID)
