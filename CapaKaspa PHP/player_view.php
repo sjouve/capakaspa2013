@@ -225,40 +225,10 @@ require 'include/page_body_no_menu.php';
 	<img src="graph_elo_progress.php?playerID=<?php echo($playerID);?>&elo=<?php echo($player['elo']);?>" width="650" height="250" />
 </div>
 
-<div id="content">
-	<div class="contentbody">
-		<span id="#confirm_delete_activity" style="display: none"><?echo _("Are you sure you want to delete this news ?")?></span>
-	    
-		<input id="feedType" type="hidden" name="feedType" value="activity">
-		<form name="activityGames" action="game_board.php" method="post">
-			<div id="activities0" style="display: none;"><img src='images/ajaxloader.gif'/></div>
-			<input type="hidden" name="gameID" value="">
-			<input type="hidden" name="from" value="encours">
-		</form>
-		
-		<div id="players0" style="display: none;"><img src='images/ajaxloader.gif'/></div>
-		<br>
-		<center>
-			<script type="text/javascript"><!--
-			google_ad_client = "pub-8069368543432674";
-			/* 468x60, Profil consultation bandeau */
-			google_ad_slot = "3062307582";
-			google_ad_width = 468;
-			google_ad_height = 60;
-			//-->
-			</script>
-			<script type="text/javascript"
-			src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-			</script>
-		</center>		
-	</div>
-</div>
 <div id="rightbarlarge">
-	<div class="contentbody">
-		<br>
-		<div class="navlinks">
-			<div class="title">
-			<? echo _("Games in progress")?>
+	<div class="navlinks">
+		<div class="title">
+		<? echo _("Games in progress")?>
 			</div>
 		</div>
 		
@@ -273,45 +243,45 @@ require 'include/page_body_no_menu.php';
               <th width="15%"><? echo _("ECO")?></th>
             </tr>
             <?
-					$tmpGames = mysqli_query($dbh,"SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom
-				                            FROM games G, players W, players B
-				                            WHERE (G.gameMessage IS NULL OR gameMessage = '')
-				                            AND (G.whitePlayer = ".$player['playerID']." OR G.blackPlayer = ".$player['playerID'].")
-				                            AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
-				                            ORDER BY G.dateCreated");
-					
-					if (mysqli_num_rows($tmpGames) == 0)
-						echo("<tr><td colspan='4'>"._("No games in progress")."</td></tr>\n");
-					else
-					{
-						while($tmpGame = mysqli_fetch_array($tmpGames, MYSQLI_ASSOC))
-						{
-							/* White */
-							echo("<tr><td>");
-							echo($tmpGame['whiteNick']);
-							
-							/* Black */
-							echo ("</td><td>");
-							echo($tmpGame['blackNick']);
-							
-							/* Current Turn */
-							echo ("</td><td align=center>");
-							echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'><img src='images/eye.gif' border=0 alt=\""._("View")."\"/></a>");
+				$tmpGames = mysqli_query($dbh,"SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom
+			                            FROM games G, players W, players B
+			                            WHERE (G.gameMessage IS NULL OR gameMessage = '')
+			                            AND (G.whitePlayer = ".$player['playerID']." OR G.blackPlayer = ".$player['playerID'].")
+			                            AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
+			                            ORDER BY G.dateCreated");
 				
-							/* ECO Code */
-							echo ("</td><td align='center'>".$tmpGame['eco']."</td></tr>");
-						}									
-					}
-				?>
+				if (mysqli_num_rows($tmpGames) == 0)
+					echo("<tr><td colspan='4'>"._("No games in progress")."</td></tr>\n");
+				else
+				{
+					while($tmpGame = mysqli_fetch_array($tmpGames, MYSQLI_ASSOC))
+					{
+						/* White */
+						echo("<tr><td>");
+						echo($tmpGame['whiteNick']);
+						
+						/* Black */
+						echo ("</td><td>");
+						echo($tmpGame['blackNick']);
+						
+						/* Current Turn */
+						echo ("</td><td align=center>");
+						echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'><img src='images/eye.gif' border=0 alt=\""._("View")."\"/></a>");
+			
+						/* ECO Code */
+						echo ("</td><td align='center'>".$tmpGame['eco']."</td></tr>");
+					}									
+				}
+			?>
           </table>
         </div>
         <input type="hidden" name="gameID" value="">
         <input type="hidden" name="sharePC" value="no">
         <input type="hidden" name="from" value="toutes">
       </form>
-      
+      <br>
       <? if ($_SESSION['playerID'] != $player['playerID']) {?>
-      	<br>
+      	
 		<div class="navlinks">
 			<div class="title">
 			<? echo _("My games against"); ?> <? echo($player['nick']); ?>
@@ -328,53 +298,78 @@ require 'include/page_body_no_menu.php';
               <th width="15%"><? echo _("ECO")?></th>
             </tr>
             <?
-					$tmpGames = mysqli_query($dbh,"SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom
-				                            FROM games G, players W, players B
-				                            WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
-				                            AND ((G.whitePlayer = ".$player['playerID']." AND G.blackPlayer = ".$_SESSION['playerID'].") OR (G.blackPlayer = ".$player['playerID']." AND G.whitePlayer = ".$_SESSION['playerID']."))
-				                            AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
-				                            ORDER BY G.dateCreated");
-					
-					if (mysqli_num_rows($tmpGames) == 0)
-						echo("<tr><td colspan='4'>"._("You've never played against this player")."</td></tr>\n");
-					else
-					{
-						while($tmpGame = mysqli_fetch_array($tmpGames, MYSQLI_ASSOC))
-						{
-							/* White */
-							echo("<tr><td>");
-							echo($tmpGame['whiteNick']);
-							
-							/* Black */
-							echo ("</td><td>");
-							echo($tmpGame['blackNick']);
-							
-							/* Current Turn */
-						
-							if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "white"))
-								echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a>");
-							else if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "black"))
-								echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a>");
-							else if (($tmpGame['gameMessage'] == "checkMate") && ($tmpGame['messageFrom'] == "white"))
-								echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a>");
-							else if ($tmpGame['gameMessage'] == "checkMate")
-								echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a>");
-							else
-								echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1/2-1/2</a>");
+				$tmpGames = mysqli_query($dbh,"SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom
+			                            FROM games G, players W, players B
+			                            WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
+			                            AND ((G.whitePlayer = ".$player['playerID']." AND G.blackPlayer = ".$_SESSION['playerID'].") OR (G.blackPlayer = ".$player['playerID']." AND G.whitePlayer = ".$_SESSION['playerID']."))
+			                            AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
+			                            ORDER BY G.dateCreated");
 				
-							/* ECO Code */
-							echo ("</td><td align='center'>".$tmpGame['eco']."</td></tr>");
-						}					
-					}
-				?>
+				if (mysqli_num_rows($tmpGames) == 0)
+					echo("<tr><td colspan='4'>"._("You've never played against this player")."</td></tr>\n");
+				else
+				{
+					while($tmpGame = mysqli_fetch_array($tmpGames, MYSQLI_ASSOC))
+					{
+						/* White */
+						echo("<tr><td>");
+						echo($tmpGame['whiteNick']);
+						
+						/* Black */
+						echo ("</td><td>");
+						echo($tmpGame['blackNick']);
+						
+						/* Current Turn */
+					
+						if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "white"))
+							echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a>");
+						else if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "black"))
+							echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a>");
+						else if (($tmpGame['gameMessage'] == "checkMate") && ($tmpGame['messageFrom'] == "white"))
+							echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a>");
+						else if ($tmpGame['gameMessage'] == "checkMate")
+							echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a>");
+						else
+							echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1/2-1/2</a>");
+			
+						/* ECO Code */
+						echo ("</td><td align='center'>".$tmpGame['eco']."</td></tr>");
+					}					
+				}
+			?>
           </table>
         </div>
         <input type="hidden" name="gameID" value="">
         <input type="hidden" name="sharePC" value="no">
         <input type="hidden" name="from" value="toutes">
       	</form>
-		<br/>
+		<br>
 		<?}?>
+	<div class="navlinks">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- CapaKaspa Profil Consultation Carré -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:336px;height:280px"
+		     data-ad-client="ca-pub-8069368543432674"
+		     data-ad-slot="9559526061"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+</div>
+<div id="content">
+	<div class="contentbody">
+		<span id="#confirm_delete_activity" style="display: none"><?echo _("Are you sure you want to delete this news ?")?></span>
+	    
+		<input id="feedType" type="hidden" name="feedType" value="activity">
+		<form name="activityGames" action="game_board.php" method="post">
+			<div id="activities0" style="display: none;"><img src='images/ajaxloader.gif'/></div>
+			<input type="hidden" name="gameID" value="">
+			<input type="hidden" name="from" value="encours">
+		</form>
+		
+		<div id="players0" style="display: none;"><img src='images/ajaxloader.gif'/></div>
+		<br>		
 	</div>
 </div>
 <?
