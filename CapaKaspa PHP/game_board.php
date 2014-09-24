@@ -396,16 +396,14 @@ require 'include/page_body.php';
 		</div>
 		
 		<div id="adsbottom" style="width: 700px;text-align: center;">
-			<script type="text/javascript"><!--
-		      google_ad_client = "ca-pub-8069368543432674";
-		      /* CapaKaspa Partie Bandeau Discussion */
-		      google_ad_slot = "9888264481";
-		      google_ad_width = 468;
-		      google_ad_height = 60;
-		      //-->
-		      </script>
-		      <script type="text/javascript"
-		      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- CapaKaspa Partie Bandeau Discussion -->
+			<ins class="adsbygoogle"
+			     style="display:inline-block;width:468px;height:60px"
+			     data-ad-client="ca-pub-8069368543432674"
+			     data-ad-slot="9888264481"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
 			</script>
 	    </div>
 	    <br>

@@ -406,17 +406,16 @@ require 'include/page_body.php';
 			<input type="hidden" name="from" value="encours">
 		</form>
 		<br>
-		<center><script type="text/javascript"><!--
-	        google_ad_client = "ca-pub-8069368543432674";
-	        /* CapaKaspa Tableau bord Bandeau Partie */
-	        google_ad_slot = "3190675956";
-	        google_ad_width = 468;
-	        google_ad_height = 60;
-	        //-->
-	        </script>
-	        <script type="text/javascript"
-	        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-	        </script>
+		<center>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- CapaKaspa Tableau bord Bandeau Partie -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:468px;height:60px"
+		     data-ad-client="ca-pub-8069368543432674"
+		     data-ad-slot="3190675956"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
 		</center>
 		<br>
 	</div>
