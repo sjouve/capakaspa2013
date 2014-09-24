@@ -112,30 +112,26 @@ if (isset($toPlayerID))
 
 <div id="advertisement">
 	<div class="leaderboard">
-		<script type="text/javascript"><!--
-	      google_ad_client = "ca-pub-8069368543432674";
-	      /* CapaKaspa Leaderboard */
-	      google_ad_slot = "6207727366";
-	      google_ad_width = 728;
-	      google_ad_height = 90;
-	      //-->
-		</script>
-		<script type="text/javascript"
-	      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- CapaKaspa Leaderboard -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:728px;height:90px"
+		     data-ad-client="ca-pub-8069368543432674"
+		     data-ad-slot="6207727366"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
 		</script>
 	</div>
 	
     <div class="skyscraper">
-	  	<script type="text/javascript"><!--
-	    google_ad_client = "ca-pub-8069368543432674";
-	    /* CapaKaspa Accueil Bandeau Droite */
-	    google_ad_slot = "2254640927";
-	    google_ad_width = 160;
-	    google_ad_height = 600;
-	    //-->
-	    </script>
-	    <script type="text/javascript"
-	    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-	    </script>
+	  	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- CapaKaspa Skyscraper -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:160px;height:600px"
+		     data-ad-client="ca-pub-8069368543432674"
+		     data-ad-slot="2254640927"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
   	</div>
 </div>
