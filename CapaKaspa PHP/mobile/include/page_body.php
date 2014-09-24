@@ -19,16 +19,14 @@
 </div>
 <div id="advertisement">
 	<center>
-	<script type="text/javascript"><!--
-	google_ad_client = "ca-pub-8069368543432674";
-	/* CapaKaspa mobile */
-	google_ad_slot = "3841873078";
-	google_ad_width = 320;
-	google_ad_height = 50;
-	//-->
-	</script>
-	<script type="text/javascript"
-	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- CapaKaspa Mobile -->
+	<ins class="adsbygoogle"
+	     style="display:inline-block;width:320px;height:50px"
+	     data-ad-client="ca-pub-8069368543432674"
+	     data-ad-slot="3841873078"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
 	</script>
 	</center>
 </div>
