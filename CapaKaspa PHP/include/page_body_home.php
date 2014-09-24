@@ -1,5 +1,5 @@
 </head>
-<body style="background-color: #EEEEEE">
+<body style="background-color: #DDDDDD">
 
 <? 
 if (isset($toPlayerID))
@@ -27,22 +27,3 @@ if (isset($toPlayerID))
 </div>
 
 <div id="container_home">
-<div id="contentxlarge">
-	<br>
-    <div class="skyscraper">
-	  	<script type="text/javascript"><!--
-	    google_ad_client = "ca-pub-8069368543432674";
-	    /* CapaKaspa Accueil Bandeau Droite */
-	    google_ad_slot = "2254640927";
-	    google_ad_width = 160;
-	    google_ad_height = 600;
-	    //-->
-	    </script>
-	    <script type="text/javascript"
-	    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-	    </script>
-  	</div>
-</div>
-  
-    
-

@@ -199,7 +199,7 @@ require 'include/page_body_home.php';
 ?>
 <div id="contenthome">
     <div class="contentbody">
-	    
+	    <br>
 	    <div style="float: left"><img src="images/pawn_128.jpg" style="vertical-align: middle" height="128" width="128" alt="CapaKaspa" title="CapaKaspa">
 		</div>
 		<div style="float: left;height: 128px;width: 800px;">
@@ -217,22 +217,25 @@ require 'include/page_body_home.php';
 				<?php echo _("Improve your Elo chess ranking.");?>
 			</span>
 		</div>
-		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; margin-left: 30px; background-image: url('images/home_capakaspa_news.jpg');">
+		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; margin-left: 35px; background-image: url('images/home_capakaspa_news.jpg');">
 			<span style="position: relative; top: 110px; font-size: 16px; text-shadow: 0.1em 0.1em 0.2em black; color: #FFFFFF;">
 				<?php echo _("Share your moves, results and invitations with your followers.");?><br>
 				<?php echo _("Follow players, comment news...");?>
 			</span>
 		</div>
-		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; margin-left: 30px; background-image: url('images/home_capakaspa_profil.jpg');">
+		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; margin-left: 35px; background-image: url('images/home_capakaspa_profil.jpg');">
 			<span style="position: relative; top: 110px; font-size: 16px; text-shadow: 0.1em 0.1em 0.2em black; color: #FFFFFF;">
 				<?php echo _("View detailed profile of players.");?><br>
 				<?php echo _("Discuss with them in private and comment their public news.");?>
 			</span>
 		</div>
+		
 	</div>
 </div>
-<div id="content">
+
+<div id="content" style="border-left-style: none;">
 	<div class="contentbody">
+		<br>
 		<h3><?php echo _("New on CapaKaspa ? Sign up");?></h3>
 		<?if ($ToDo == 'activer' && !$err) {?>
 		<div class="success"><? echo _("Your account is actived.")?></div>
@@ -265,7 +268,7 @@ require 'include/page_body_home.php';
 			if ($err == 'captcha')
 				echo("<div class='error'>"._("Security code error. Try again.")."</div>");
 		?>
-		<!--google_ad_section_start(weight=ignore)-->
+		
 		<form name="userdata" method="post" action="index.php?ToDo=NewUser">
 		<table>
 			<tr>
@@ -363,7 +366,7 @@ require 'include/page_body_home.php';
 	
 			<!-- <input name="ToDo" value="NewUser" type="hidden"> -->
 		</form>
-		<!--google_ad_section_end-->
+		
 		<?}?>
 		
 		
@@ -371,6 +374,7 @@ require 'include/page_body_home.php';
 </div>
 <div id="rightbarlarge">
 	<div class="contentbody">
+		<br>
 		<h3><?php echo _("Sign in");?></h3>
 		<form method="post" action="game_in_progress.php">
 			<table>
@@ -390,20 +394,22 @@ require 'include/page_body_home.php';
 	        <center><input name="login" value="<? echo _("Sign in");?>" type="submit" class="button"> <img src="images/puce.gif"/> <a href="password.php"><? echo _("Forgot password ?");?></a></center>
 	        <input name="ToDo" value="Login" type="hidden">
 	     </form>
-	     <br>
+	    <br><br>
    		<h3><?php echo _("Play chess on CapaKaspa");?></h3>
    		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActiveGameForAll()); ?></span> <?php echo _("chess games in progress");?><br>
    		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActivePlayers()+getNbPassivePlayers()); ?></span> <?php echo _("players are waiting to play chess games");?><br><br>
+   		<h3><?php echo _("Start, practice and progress");?></h3>
    		<img src="images/puce.gif"/> <a href="http://blog.capakaspa.info" target="_blank"><? echo _("The Chess Blog (french)");?></a><br>
    		<img src="images/puce.gif"/> <a href="app_puzzle.php"><? echo _("Chess puzzle of the day");?></a><br>
    		<img src="images/puce.gif"/> <a href="app_jchess.php"><? echo _("Play chess vs JChess");?></a><br>
    		
    		<img src="images/puce.gif"/> <a href="app_flashchess.php"><? echo _("Play chess vs FlashChess");?></a><br>
    		
-   		<img src="images/puce.gif"/> <a href="app_sparkchess.php"><? echo _("Play chess vs SparkChess");?></a><br>
-   		
-   		
+   		<img src="images/puce.gif"/> <a href="app_sparkchess.php"><? echo _("Play chess vs SparkChess");?></a><br>	
 	</div>
+</div>
+<div id="contentxlarge">
+	<br>
 </div>
 <?
 require 'include/page_footer.php';
