@@ -179,9 +179,10 @@ require 'include/page_body.php';
 	</div>
 </div>
 <div id="player_info">
-	<? echo _("Was born in ")?> <? echo($player['anneeNaissance']); ?><br>
-	<? echo _("Lives in ")?> <? echo(stripslashes($player['situationGeo'])); ?>, <? echo($player['countryName']); ?>	
-	<br><br><? echo _("About")?>
+	<span style="margin-left: 3px"><? echo _("Was born in ")?> <? echo($player['anneeNaissance']); ?></span><br>
+	<span style="margin-left: 3px"><? echo _("Lives in ")?> <? echo(stripslashes($player['situationGeo'])); ?>, <? echo($player['countryName']); ?></span>
+	<br><br>
+	<span style="margin-left: 3px"><? echo _("About")?></span>
 		<div style="background-color: #FFFFFF;padding: 3px;height: 60px;overflow-y: auto;">
 			<? echo(nl2br(stripslashes($player['profil']))); ?>
 		</div>
@@ -231,7 +232,6 @@ require 'include/page_body.php';
 	
 </div>
 		
-<br/>
 <span id="#confirm_delete_activity" style="display: none"><?echo _("Are you sure you want to delete this news ?")?></span>
     
 	<input id="feedType" type="hidden" name="feedType" value="activity">
