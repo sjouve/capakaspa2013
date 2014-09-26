@@ -39,6 +39,8 @@ require 'include/page_body.php';
 		<br/>
 		<br/>
 		<br/>
+	</div>
+</div>
 <?
 require 'include/page_footer.php';
 ?>

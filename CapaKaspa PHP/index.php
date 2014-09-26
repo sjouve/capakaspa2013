@@ -200,9 +200,9 @@ require 'include/page_body_home.php';
 <div id="contenthome">
     <div class="contentbody">
 	    <br>
-	    <div style="float: left"><img src="images/pawn_128.jpg" style="vertical-align: middle" height="128" width="128" alt="CapaKaspa" title="CapaKaspa">
+	    <div style="float: left"><img src="images/pawn_128.jpg" style="vertical-align: middle;" height="128" width="128" alt="CapaKaspa" title="CapaKaspa">
 		</div>
-		<div style="float: left;height: 128px;width: 800px;">
+		<div style="float: left; height: 128px; width: 800px;">
 			<h1> 
 			<?php echo _("Play Chess");?>
 			</h1>
@@ -217,13 +217,13 @@ require 'include/page_body_home.php';
 				<?php echo _("Improve your Elo chess ranking.");?>
 			</span>
 		</div>
-		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; margin-left: 35px; background-image: url('images/home_capakaspa_news.jpg');">
+		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; margin-left: 38px; background-image: url('images/home_capakaspa_news.jpg');">
 			<span style="position: relative; top: 110px; font-size: 16px; text-shadow: 0.1em 0.1em 0.2em black; color: #FFFFFF;">
 				<?php echo _("Share your moves, results and invitations with your followers.");?><br>
 				<?php echo _("Follow players, comment news...");?>
 			</span>
 		</div>
-		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; margin-left: 35px; background-image: url('images/home_capakaspa_profil.jpg');">
+		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; margin-left: 38px; background-image: url('images/home_capakaspa_profil.jpg');">
 			<span style="position: relative; top: 110px; font-size: 16px; text-shadow: 0.1em 0.1em 0.2em black; color: #FFFFFF;">
 				<?php echo _("View detailed profile of players.");?><br>
 				<?php echo _("Discuss with them in private and comment their public news.");?>
@@ -359,7 +359,7 @@ require 'include/page_body_home.php';
 			</tr>
 			<tr>
 				<td align="center" colspan="2">
-					<input name="btnCreate" type="button" value="<?php echo _("Sign up for free");?>" onClick="validateForm()" class="button">
+					<input name="btnCreate" type="button" value="<?php echo _("Sign up for free");?>" onClick="validateForm()" class="button" style="font-size: 13px;">
 				</td>
 			</tr>
 		</table>
@@ -391,7 +391,7 @@ require 'include/page_body_home.php';
 	        <div class='error'><? echo _("Invalid user name or password !");?></div>
 	        <?}?>
 	        <input name="chkAutoConn" type="checkbox"/> <? echo _("Remember me");?><br><br>
-	        <center><input name="login" value="<? echo _("Sign in");?>" type="submit" class="button"> <img src="images/puce.gif"/> <a href="password.php"><? echo _("Forgot password ?");?></a></center>
+	        <center><input name="login" value="<? echo _("Sign in");?>" type="submit" class="button" style="font-size: 13px;"> <img src="images/puce.gif"/> <a href="password.php"><? echo _("Forgot password ?");?></a></center>
 	        <input name="ToDo" value="Login" type="hidden">
 	     </form>
 	    <br><br>
