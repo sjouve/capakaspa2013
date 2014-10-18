@@ -30,7 +30,7 @@ require 'include/page_header.php';
 $username = isset($_POST['opponent'])? $_POST['opponent'] :"";
 
 ?>
-<script src="http://www.capakaspa.info/javascript/formValidation.js" type="text/javascript"></script>
+<script src="http://jouerauxechecs.capakaspa.info/javascript/formValidation.js" type="text/javascript"></script>
 <script type="text/javascript">
 function showHint(str, type)
 {

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2014-09-24 22:24+0100\n"
-"PO-Revision-Date: 2014-09-24 22:25+0100\n"
+"POT-Creation-Date: 2014-10-15 21:31+0100\n"
+"PO-Revision-Date: 2014-10-15 21:58+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -449,7 +449,7 @@ msgstr "Jouer !"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_jchess.php:58
 #: PHP/include/page_footer.php:2 PHP/include/page_footer_right.php:2
-#: PHP/mobile/player_view.php:184 PHP/player_view.php:175
+#: PHP/mobile/player_view.php:185 PHP/player_view.php:175
 #: PHP/site_about.php:17
 msgid "About"
 msgstr "A propos"
@@ -463,7 +463,7 @@ msgid "Flip the board"
 msgstr "Retourner l'échiquier"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_puzzle.php:22
-#: PHP/app_puzzle.php:23 PHP/include/page_body.php:97 PHP/index.php:403
+#: PHP/app_puzzle.php:23 PHP/include/page_body.php:97 PHP/index.php:402
 msgid "Chess puzzle of the day"
 msgstr "Diagramme d'échecs du jour"
 
@@ -1054,7 +1054,7 @@ msgstr "Valider"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:301
 #: PHP/graph_results_perc.php:19 PHP/mobile/game_board.php:308
-#: PHP/mobile/player_view.php:226 PHP/player_view.php:217
+#: PHP/mobile/player_view.php:227 PHP/player_view.php:217
 msgid "Draw"
 msgstr "Nulle"
 
@@ -1102,7 +1102,7 @@ msgstr "Commencée le"
 msgid "Last move"
 msgstr "Dernier coup"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:414
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:412
 msgid "Here are old existing comments on this game"
 msgstr "Anciens commentaires sur la partie"
 
@@ -1299,9 +1299,8 @@ msgid "Rooks"
 msgstr "Tours"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:207
-#, fuzzy
 msgid "Fischer Chess Random (Chess960)"
-msgstr "Au hasard"
+msgstr "Fischer Chess Random (Chess960)"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:217
 #: PHP/mobile/game_new.php:115
@@ -1438,13 +1437,13 @@ msgid "Elo ranking history"
 msgstr "Historique du classement Elo"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/graph_results_perc.php:18 PHP/mobile/player_view.php:225
+#: PHP/graph_results_perc.php:18 PHP/mobile/player_view.php:226
 #: PHP/player_view.php:216
 msgid "Won"
 msgstr "Gagnée"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/graph_results_perc.php:20 PHP/mobile/player_view.php:227
+#: PHP/graph_results_perc.php:20 PHP/mobile/player_view.php:228
 #: PHP/player_view.php:218
 msgid "Lost"
 msgstr "Perdue"
@@ -1574,33 +1573,43 @@ msgid "Online players"
 msgstr "Joueurs en ligne"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:95
-msgid "Applications"
-msgstr "Applications"
+msgid "Play chess"
+msgstr "Jouer aux échecs"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:98
-#: PHP/index.php:404
+#: PHP/index.php:403
 msgid "Play chess vs JChess"
 msgstr "Jouer aux échecs avec JChess"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:99
-#: PHP/index.php:406
+#: PHP/index.php:405
 msgid "Play chess vs FlashChess"
 msgstr "Jouer aux échecs avec flashChess"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:100 PHP/index.php:408
+#: PHP/include/page_body.php:100 PHP/index.php:407
 msgid "Play chess vs SparkChess"
 msgstr "Jouer aux échecs avec SparkChess"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/include/page_body.php:105
-msgid "Links"
-msgstr "Liens"
+msgid "More on CapaKaspa"
+msgstr "Plus sur CapaKaspa"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:107 PHP/index.php:402
-msgid "The Chess Blog (french)"
-msgstr "Blog : Mieux jouer aux échecs"
+#: PHP/include/page_body.php:107
+msgid "Chess news"
+msgstr "Actualités des échecs"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/include/page_body.php:108
+msgid "Learning chess"
+msgstr "Apprentissage des échecs"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/include/page_body.php:109
+msgid "And more"
+msgstr "Et plus..."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/include/page_footer.php:3 PHP/include/page_footer_right.php:3
@@ -1626,7 +1635,9 @@ msgstr "Jouer aux échecs et partager ses parties"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:115
 msgid "Sign up for CapaKaspa, play chess and share your games."
-msgstr "Inscription sur CapaKaspa, jouer aux échecs et partager vos parties."
+msgstr ""
+"Zone de jeu d'échecs en ligne de CapaKaspa. Jouer aux échecs en différé et "
+"partager vos parties."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:207
 msgid "Play Chess"
@@ -1862,7 +1873,7 @@ msgstr "Parties"
 #: PHP/mobile/game_board.php:228 PHP/mobile/game_in_progress.php:179
 #: PHP/mobile/game_new.php:80 PHP/mobile/index.php:82
 #: PHP/mobile/player_search.php:74 PHP/mobile/player_view.php:139
-#: PHP/mobile/player_view.php:228 PHP/player_view.php:219
+#: PHP/mobile/player_view.php:229 PHP/player_view.php:219
 msgid "News"
 msgstr "Actualités"
 
@@ -1992,12 +2003,12 @@ msgid "Lives in "
 msgstr "Vit à"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_view.php:229 PHP/player_view.php:220
+#: PHP/mobile/player_view.php:230 PHP/player_view.php:220
 msgid "Followers"
 msgstr "Abonnés"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_view.php:230 PHP/player_view.php:221
+#: PHP/mobile/player_view.php:231 PHP/player_view.php:221
 msgid "Following"
 msgstr "Abonnements"
 
@@ -2987,6 +2998,15 @@ msgstr ""
 "autres points n'en seraient pas affectés. Tout point déclaré caduc sera "
 "remplacé par une disposition se rapprochant le plus possible de la "
 "précédente disposition."
+
+#~ msgid "Applications"
+#~ msgstr "Applications"
+
+#~ msgid "Links"
+#~ msgstr "Liens"
+
+#~ msgid "The Chess Blog (french)"
+#~ msgstr "Blog : Mieux jouer aux échecs"
 
 #~ msgid ""
 #~ "Elo ranking is calculated quarterly and takes into account the classic "

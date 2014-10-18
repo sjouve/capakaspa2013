@@ -1,6 +1,14 @@
 #Deny from all
-#Allow from 78.226.13.16
+#Allow from 31.34.144.241
 AddDefaultCharset UTF-8
 AddCharset UTF-8 .html
 ErrorDocument 404 /error_404.php
-ErrorDocument 403 /error_403.php
+RedirectPermanent /sign-up.php http://jouerauxechecs.capakaspa.info/index.php
+RedirectPermanent /app_puzzle.php http://www.capakaspa.info/diagramme-dechecs-du-jour/
+RedirectPermanent /app_jchess.php http://www.capakaspa.info/jouer-aux-echecs-avec-jchess/
+RedirectPermanent /app_flashchess.php http://www.capakaspa.info/jouer-aux-echecs-avec-flashchess/
+RedirectPermanent /app_sparkchess.php http://www.capakaspa.info/jouer-aux-echecs-avec-sparkchess/
+RedirectPermanent /site_about.php http://www.capakaspa.info/propos-contact/
+RedirectPermanent /site_privacy.php http://www.capakaspa.info/vie-prive/
+RedirectPermanent /site_terms.php http://www.capakaspa.info/conditions-generales-dutilisation
+RedirectPermanent /site_help.php http://www.capakaspa.info/aide/

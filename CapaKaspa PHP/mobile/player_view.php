@@ -32,14 +32,14 @@ $titre_page = _("View player profile");
 $desc_page = _("View player profile");
 require 'include/page_header.php';
 ?>
-<link href="http://www.capakaspa.info/pgn4web/fonts/pgn4web-font-ChessSansPiratf.css" type="text/css" rel="stylesheet" />
-<script src="http://www.capakaspa.info/javascript/player.js" type="text/javascript"></script>
-<script src="http://www.capakaspa.info/javascript/follow.js" type="text/javascript"></script>
-<script src="http://www.capakaspa.info/javascript/activity.js" type="text/javascript"></script>
-<script src="http://www.capakaspa.info/javascript/comment.js" type="text/javascript"></script>
-<script src="http://www.capakaspa.info/javascript/like.js" type="text/javascript"></script>
-<script src="http://www.capakaspa.info/javascript/pmessage.js" type="text/javascript"></script>
-<script src="http://www.capakaspa.info/javascript/css-pop.js" type="text/javascript"></script>
+<link href="http://jouerauxechecs.capakaspa.info/pgn4web/fonts/pgn4web-font-ChessSansPiratf.css" type="text/css" rel="stylesheet" />
+<script src="http://jouerauxechecs.capakaspa.info/javascript/player.js" type="text/javascript"></script>
+<script src="http://jouerauxechecs.capakaspa.info/javascript/follow.js" type="text/javascript"></script>
+<script src="http://jouerauxechecs.capakaspa.info/javascript/activity.js" type="text/javascript"></script>
+<script src="http://jouerauxechecs.capakaspa.info/javascript/comment.js" type="text/javascript"></script>
+<script src="http://jouerauxechecs.capakaspa.info/javascript/like.js" type="text/javascript"></script>
+<script src="http://jouerauxechecs.capakaspa.info/javascript/pmessage.js" type="text/javascript"></script>
+<script src="http://jouerauxechecs.capakaspa.info/javascript/css-pop.js" type="text/javascript"></script>
 <script type="text/javascript">
 function loadEndedGame(gameID)
 {

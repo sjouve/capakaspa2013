@@ -34,8 +34,8 @@ $titre_page = _("Search for players");
 $desc_page = _("Search for players, play and share chess");
 require 'include/page_header.php';
 ?>
-<script src="http://www.capakaspa.info/javascript/menu.js" type="text/javascript"></script>
-<script src="http://www.capakaspa.info/javascript/player.js" type="text/javascript"></script>
+<script src="http://jouerauxechecs.capakaspa.info/javascript/menu.js" type="text/javascript"></script>
+<script src="http://jouerauxechecs.capakaspa.info/javascript/player.js" type="text/javascript"></script>
 <script type="text/javascript">
 function getheight() {
 	var myWidth = 0,

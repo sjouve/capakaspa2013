@@ -8,7 +8,7 @@ if (isset($toPlayerID))
 
 <div id="topbar">
 	<div id="container">
-		<span class="title"><a href="index.php" title="<?php echo _("CapaKaspa : Play chess and share your games");?>"><?php echo _("CapaKaspa");?></a></span>
+		<span class="title"><a href="http://www.capakaspa.info" title="<?php echo _("CapaKaspa : Play chess and share your games");?>"><?php echo _("CapaKaspa");?></a></span>
 		<span class="social"><? if (isset($_SESSION['playerID'])&&$_SESSION['playerID']!=-1) {?>
 	      <form name="logout" action="game_in_progress.php" method="post">
 		        <input type="hidden" name="ToDo" value="Logout">
@@ -92,7 +92,7 @@ if (isset($toPlayerID))
 	</div>
 	<? } ?>
 	<div class="navlinks">
-		<div class="title"><?php echo _("Applications");?></div>
+		<div class="title"><?php echo _("Play chess");?></div>
 			<ul>
 		        <li id="menu9"><img src="images/puce.gif"/> <a href="app_puzzle.php"><?php echo _("Chess puzzle of the day");?></a></li>
 		        <li id="menu7"><img src="images/puce.gif"/> <a href="app_jchess.php"><?php echo _("Play chess vs JChess");?></a></li>
@@ -102,9 +102,11 @@ if (isset($toPlayerID))
       		</ul>
 	</div>
 	<div class="navlinks">
-		<div class="title"><?php echo _("Links");?></div>
+		<div class="title"><?php echo _("More on CapaKaspa");?></div>
 			<ul>
-		        <li><img src="images/puce.gif"/> <a href="http://blog.capakaspa.info" target="_blanck"><? echo _("The Chess Blog (french)");?></a></li>
+		        <li><img src="images/puce.gif"/> <a href="http://www.capakaspa.info/category/actualites-des-echecs/"><? echo _("Chess news");?></a></li>
+		        <li><img src="images/puce.gif"/> <a href="http://www.capakaspa.info/category/apprentissage/"><? echo _("Learning chess");?></a></li>
+		        <li><img src="images/puce.gif"/> <a href="http://www.capakaspa.info/"><? echo _("And more");?></a></li>
       		</ul>
 	</div>
 

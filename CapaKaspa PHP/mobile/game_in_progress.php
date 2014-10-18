@@ -142,8 +142,8 @@ $titre_page = _("My games in progress");
 $desc_page = _("Play chess and share your games. My games in progress.");
 require 'include/page_header.php';
 ?>
-<script src="http://www.capakaspa.info/javascript/comment.js" type="text/javascript"></script>
-<script src="http://www.capakaspa.info/javascript/like.js" type="text/javascript"></script>
+<script src="http://jouerauxechecs.capakaspa.info/javascript/comment.js" type="text/javascript"></script>
+<script src="http://jouerauxechecs.capakaspa.info/javascript/like.js" type="text/javascript"></script>
 <script type="text/javascript">
 	function sendResponse(responseType, messageFrom, gameID, whitePlayerID)
 	{

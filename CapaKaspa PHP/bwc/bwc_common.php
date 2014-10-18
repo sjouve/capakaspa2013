@@ -86,7 +86,7 @@ function sendMail($msgTo, $mailSubject, $mailMsg)
 	$headers = "From: CapaKaspa <".$CFG_MAILADDRESS.">\r\n";
 	$headers .= "Reply-To: CapaKaspa <".$CFG_MAILADDRESS.">\r\n";
 	
-	$mailMsg .= _("\n\nThis email was sent automatically from site CapaKaspa (http://www.capakaspa.info).\n\n");
+	$mailMsg .= _("\n\nThis email was sent automatically from site CapaKaspa (http://jouerauxechecs.capakaspa.info).\n\n");
 	$mailMsg .= _("Follow us on Facebook (http://www.facebook.com/capakaspa)\n");
 	$mailMsg .= _("Follow us on Google+ (http://plus.google.com/114694270583726807082)\n");
 	$mailMsg .= _("Follow us on Twitter (http://http://www.twitter.com/CapaKaspa)\n");

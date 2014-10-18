@@ -199,7 +199,7 @@ require 'include/page_body_home.php';
 ?>
 <div id="contenthome">
     <div class="contentbody">
-	    <br>
+	    <!-- <br>
 	    <div style="float: left"><img src="images/pawn_128.jpg" style="vertical-align: middle;" height="128" width="128" alt="CapaKaspa" title="CapaKaspa">
 		</div>
 		<div style="float: left; height: 128px; width: 800px;">
@@ -209,7 +209,7 @@ require 'include/page_body_home.php';
 			<h1 style="text-align: right;"> 
 			<?php echo _("and Share your Games !");?>
 			</h1>
-		</div>
+		</div> -->
 		
 		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; background-image: url('images/home_capakaspa_board.jpg');">
 			<span style="position: relative; top: 110px; font-size: 16px; text-shadow: 0.1em 0.1em 0.2em black; color: #FFFFFF;">
@@ -399,7 +399,6 @@ require 'include/page_body_home.php';
    		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActiveGameForAll()); ?></span> <?php echo _("chess games in progress");?><br>
    		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActivePlayers()+getNbPassivePlayers()); ?></span> <?php echo _("players are waiting to play chess games");?><br><br>
    		<h3><?php echo _("Start, practice and progress");?></h3>
-   		<img src="images/puce.gif"/> <a href="http://blog.capakaspa.info" target="_blank"><? echo _("The Chess Blog (french)");?></a><br>
    		<img src="images/puce.gif"/> <a href="app_puzzle.php"><? echo _("Chess puzzle of the day");?></a><br>
    		<img src="images/puce.gif"/> <a href="app_jchess.php"><? echo _("Play chess vs JChess");?></a><br>
    		

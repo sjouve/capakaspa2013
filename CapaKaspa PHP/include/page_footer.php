@@ -3,7 +3,6 @@
 		- <a href="site_privacy.php"><? echo _("Privacy");?></a> 
 		- <a href="site_terms.php"><? echo _("Terms");?></a>
 		- <a href="site_help.php"><? echo _("Help");?></a> 
-		<? if (!isset($_SESSION['playerID']) || $_SESSION['playerID'] == -1) {?>- <a href="?locale=en_US">English</a> - <a href="?locale=fr_FR">Français</a><? }?>
 	</div>  
 </div>
 

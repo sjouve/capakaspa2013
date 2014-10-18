@@ -136,15 +136,15 @@ $desc_page = _("Play chess and share your game. It's your game, it's up to you !
 require 'include/page_header.php';
 //echo("<meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>\n");
 ?>
-<link href="http://www.capakaspa.info/css/pgn4web.css" type="text/css" rel="stylesheet" />
+<link href="http://jouerauxechecs.capakaspa.info/css/pgn4web.css" type="text/css" rel="stylesheet" />
 <link href="css/pgn4web.css" type="text/css" rel="stylesheet" />
-<link href="http://www.capakaspa.info/pgn4web/fonts/pgn4web-font-ChessSansPiratf.css" type="text/css" rel="stylesheet" />
-<link href="http://www.capakaspa.info/pgn4web/fonts/pgn4web-font-ChessSansUscf.css" type="text/css" rel="stylesheet" />
-<link href="http://www.capakaspa.info/pgn4web/fonts/pgn4web-font-ChessSansMerida.css" type="text/css" rel="stylesheet" />
-<link href="http://www.capakaspa.info/pgn4web/fonts/pgn4web-font-ChessSansAlpha.css" type="text/css" rel="stylesheet" />
-<script src="http://www.capakaspa.info/pgn4web/pgn4web.js" type="text/javascript"></script>
-<script src="http://www.capakaspa.info/javascript/comment.js" type="text/javascript"></script>
-<script src="http://www.capakaspa.info/javascript/like.js" type="text/javascript"></script>
+<link href="http://jouerauxechecs.capakaspa.info/pgn4web/fonts/pgn4web-font-ChessSansPiratf.css" type="text/css" rel="stylesheet" />
+<link href="http://jouerauxechecs.capakaspa.info/pgn4web/fonts/pgn4web-font-ChessSansUscf.css" type="text/css" rel="stylesheet" />
+<link href="http://jouerauxechecs.capakaspa.info/pgn4web/fonts/pgn4web-font-ChessSansMerida.css" type="text/css" rel="stylesheet" />
+<link href="http://jouerauxechecs.capakaspa.info/pgn4web/fonts/pgn4web-font-ChessSansAlpha.css" type="text/css" rel="stylesheet" />
+<script src="http://jouerauxechecs.capakaspa.info/pgn4web/pgn4web.js" type="text/javascript"></script>
+<script src="http://jouerauxechecs.capakaspa.info/javascript/comment.js" type="text/javascript"></script>
+<script src="http://jouerauxechecs.capakaspa.info/javascript/like.js" type="text/javascript"></script>
 <script type="text/javascript">
 //pgn4web parameter
 	SetImagePath ("pgn4web/<?echo($_SESSION['pref_theme']);?>/37");
@@ -186,19 +186,19 @@ require 'include/page_header.php';
 		document.gamedata.submit();
 	}
 </script>
-<script type="text/javascript" src="http://www.capakaspa.info/javascript/chessutils.js">
+<script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessutils.js">
  /* these are utility functions used by other functions */
 </script>
-<script type="text/javascript" src="http://www.capakaspa.info/javascript/chesscommands.js">
+<script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chesscommands.js">
 // these functions interact with the server
 </script>
-<script type="text/javascript" src="http://www.capakaspa.info/javascript/chessvalidation.js">
+<script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessvalidation.js">
 // these functions are used to test the validity of moves
 </script>
-<script type="text/javascript" src="http://www.capakaspa.info/javascript/chessIsCheckMate.js">
+<script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessIsCheckMate.js">
 // these functions are used to test the validity of moves
 </script>
-<script type="text/javascript" src="http://www.capakaspa.info/javascript/chessSquareclicked.js">
+<script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessSquareclicked.js">
 // this is the main function that interacts with the user everytime they click on a square
 </script>
 <?
