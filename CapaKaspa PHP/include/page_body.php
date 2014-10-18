@@ -8,7 +8,7 @@ if (isset($toPlayerID))
 
 <div id="topbar">
 	<div id="container">
-		<span class="title"><a href="http://www.capakaspa.info" title="<?php echo _("CapaKaspa : Play chess and share your games");?>"><?php echo _("CapaKaspa");?></a></span>
+		<span class="title"><a href="index.php" title="<?php echo _("CapaKaspa : Play chess and share your games");?>"><?php echo _("CapaKaspa");?></a></span>
 		<span class="social"><? if (isset($_SESSION['playerID'])&&$_SESSION['playerID']!=-1) {?>
 	      <form name="logout" action="game_in_progress.php" method="post">
 		        <input type="hidden" name="ToDo" value="Logout">
@@ -75,6 +75,7 @@ if (isset($toPlayerID))
       <ul>
         <li id="menu4"><img src="images/puce.gif"/> <a href="activity.php"><?php echo _("News feed");?></a></li>
 		<li id="menu5"><img src="images/puce.gif"/> <a href="player_search.php"><?php echo _("Search");?></a></li>
+		<li id="menu15"><img src="images/puce.gif"/> <a href="player_ranking.php"><?php echo _("Rankings");?></a></li>
 		<li id="menu6"><img src="images/puce.gif"/> <a href="message.php"><?php echo _("Messages");?></a> <? if ($nbUnreadMessages > 0) echo("<span class='newplayer' title='"._("New private messages")."'>".$nbUnreadMessages."</span>");?></li>      
       </ul>  
 	</div>

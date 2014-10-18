@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2014-10-15 21:31+0100\n"
-"PO-Revision-Date: 2014-10-15 21:58+0100\n"
+"POT-Creation-Date: 2014-10-18 23:03+0100\n"
+"PO-Revision-Date: 2014-10-18 23:05+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -326,23 +326,23 @@ msgid "Player online"
 msgstr "Joueur en ligne"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_player.php:53 PHP/bwc/bwc_common.php:178
-#: PHP/bwc/bwc_common.php:199 PHP/message.php:93
+#: PHP/ajax/ajx_display_player.php:53 PHP/ajax/ajx_display_ranking.php:47
+#: PHP/bwc/bwc_common.php:178 PHP/bwc/bwc_common.php:199 PHP/message.php:93
 #: PHP/mobile/ajax/ajx_display_player.php:53 PHP/mobile/player_view.php:153
 #: PHP/player_view.php:144
 msgid "New player"
 msgstr "Nouveau joueur"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_player.php:58 PHP/app_jchess.php:57
-#: PHP/game_new.php:25 PHP/include/page_body.php:67
+#: PHP/ajax/ajx_display_player.php:58 PHP/ajax/ajx_display_ranking.php:52
+#: PHP/app_jchess.php:57 PHP/game_new.php:25 PHP/include/page_body.php:67
 #: PHP/mobile/ajax/ajx_display_player.php:58 PHP/mobile/game_new.php:25
 #: PHP/mobile/player_view.php:174 PHP/player_view.php:157
 msgid "New game"
 msgstr "Nouvelle partie"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_player.php:60
+#: PHP/ajax/ajx_display_player.php:60 PHP/ajax/ajx_display_ranking.php:54
 #: PHP/mobile/ajax/ajx_display_player.php:60
 msgid "Elo"
 msgstr "Elo"
@@ -402,11 +402,11 @@ msgstr "Son nom d'utilisateur est"
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_send_invitation.php:33
 msgid ""
-"Click here to sign-up and join him : http://www.capakaspa.info \n"
+"Click here to sign-up and join him : http://jouerauxechecs.capakaspa.info \n"
 "\n"
 msgstr ""
-"Cliquer ici pour vous inscrire et le rejoindre :  http://www.capakaspa."
-"info \n"
+"Cliquer ici pour vous inscrire et le rejoindre :  http://jouerauxechecs."
+"capakaspa.info \n"
 "\n"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_flashchess.php:22
@@ -463,7 +463,7 @@ msgid "Flip the board"
 msgstr "Retourner l'échiquier"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_puzzle.php:22
-#: PHP/app_puzzle.php:23 PHP/include/page_body.php:97 PHP/index.php:402
+#: PHP/app_puzzle.php:23 PHP/include/page_body.php:98 PHP/index.php:402
 msgid "Chess puzzle of the day"
 msgstr "Diagramme d'échecs du jour"
 
@@ -615,14 +615,14 @@ msgstr " s'est terminée par Echec et Mat."
 msgid ""
 "\n"
 "\n"
-"This email was sent automatically from site CapaKaspa (http://www.capakaspa."
-"info).\n"
+"This email was sent automatically from site CapaKaspa (http://jouerauxechecs."
+"capakaspa.info).\n"
 "\n"
 msgstr ""
 "\n"
 "\n"
 "Cet email a été envoyé automatiquement à partir du site CapaKaspa (http://"
-"www.capakaspa.info).\n"
+"jouerauxechecs.capakaspa.info).\n"
 "\n"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_common.php:90
@@ -781,7 +781,7 @@ msgid "OK"
 msgstr "OK"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1274
-#: PHP/game_new.php:187 PHP/mobile/game_new.php:94
+#: PHP/game_new.php:187 PHP/mobile/game_new.php:94 PHP/player_ranking.php:105
 msgid "Classic game"
 msgstr "Partie classique"
 
@@ -1274,7 +1274,7 @@ msgid "Start new game"
 msgstr "Commencer une nouvelle partie"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:184
-#: PHP/mobile/game_new.php:91
+#: PHP/mobile/game_new.php:91 PHP/player_ranking.php:102
 msgid "Game type"
 msgstr "Type de partie"
 
@@ -1544,70 +1544,74 @@ msgid "Search"
 msgstr "Rechercher"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:78
+msgid "Rankings"
+msgstr "Classements"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:79
 msgid "Messages"
 msgstr "Messages"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:78
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:79
 msgid "New private messages"
 msgstr "Nouveaux messages privés"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:85
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:86
 msgid "Statistics"
 msgstr "Statistiques"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:87
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:88
 #: PHP/player_view.php:231
 msgid "Games in progress"
 msgstr "Parties en cours"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:88
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:89
 msgid "Active players"
 msgstr "Joueurs actifs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:89
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:90
 msgid "Passive players"
 msgstr "Joueurs passifs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:90
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:91
 msgid "Online players"
 msgstr "Joueurs en ligne"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:95
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:96
 msgid "Play chess"
 msgstr "Jouer aux échecs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:98
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:99
 #: PHP/index.php:403
 msgid "Play chess vs JChess"
 msgstr "Jouer aux échecs avec JChess"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:99
-#: PHP/index.php:405
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/include/page_body.php:100 PHP/index.php:405
 msgid "Play chess vs FlashChess"
 msgstr "Jouer aux échecs avec flashChess"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:100 PHP/index.php:407
+#: PHP/include/page_body.php:101 PHP/index.php:407
 msgid "Play chess vs SparkChess"
 msgstr "Jouer aux échecs avec SparkChess"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:105
+#: PHP/include/page_body.php:106
 msgid "More on CapaKaspa"
 msgstr "Plus sur CapaKaspa"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:107
+#: PHP/include/page_body.php:108
 msgid "Chess news"
 msgstr "Actualités des échecs"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:108
+#: PHP/include/page_body.php:109
 msgid "Learning chess"
 msgstr "Apprentissage des échecs"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:109
+#: PHP/include/page_body.php:110
 msgid "And more"
 msgstr "Et plus..."
 
@@ -1787,8 +1791,8 @@ msgid "A valid email is required for confirmation"
 msgstr "Un email valide est obligatoire pour confirmation"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:308
-#: PHP/mobile/player_search.php:95 PHP/player_search.php:88
-#: PHP/player_update.php:390
+#: PHP/mobile/player_search.php:95 PHP/player_ranking.php:84
+#: PHP/player_search.php:88 PHP/player_update.php:390
 msgid "Country"
 msgstr "Pays"
 
@@ -1927,7 +1931,8 @@ msgid "Players advanced search"
 msgstr "Recherche avancée de joueurs"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_search.php:98 PHP/player_search.php:91
+#: PHP/mobile/player_search.php:98 PHP/player_ranking.php:87
+#: PHP/player_search.php:91
 msgid "All countries"
 msgstr "Tous les pays"
 
@@ -1977,12 +1982,14 @@ msgid "and"
 msgstr "et"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_search.php:137 PHP/player_search.php:135
+#: PHP/mobile/player_search.php:137 PHP/player_ranking.php:111
+#: PHP/player_search.php:135
 msgid "Filter"
 msgstr "Filtrer"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_search.php:139 PHP/player_search.php:140
+#: PHP/mobile/player_search.php:139 PHP/player_ranking.php:116
+#: PHP/player_search.php:140
 msgid "player(s) found"
 msgstr "joueur(s) trouvés"
 
@@ -2052,6 +2059,15 @@ msgid ""
 msgstr ""
 "Entrer l'adresse email que vous avez assigné à ce compte. Un message sera "
 "envoyé à cette adresse. Il contiendra les informations pour vous connecter."
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:29
+#: PHP/player_ranking.php:79
+msgid "Players ranking"
+msgstr "Classement des joueurs"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:30
+msgid "Players ranking by country and game type"
+msgstr "Classement des joueurs par pays et type de partie"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:119
 #: PHP/player_update.php:120
@@ -2998,6 +3014,10 @@ msgstr ""
 "autres points n'en seraient pas affectés. Tout point déclaré caduc sera "
 "remplacé par une disposition se rapprochant le plus possible de la "
 "précédente disposition."
+
+#, fuzzy
+#~ msgid "Players rankings"
+#~ msgstr "Joueur en ligne"
 
 #~ msgid "Applications"
 #~ msgstr "Applications"

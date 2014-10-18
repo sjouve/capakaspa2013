@@ -8,7 +8,7 @@ if (isset($toPlayerID))
 
 <div id="topbar">
 	<div id="container">
-		<span class="title"><a href="http://www.capakaspa.info" title="<?php echo _("CapaKaspa : Play chess and share your games");?>"><?php echo _("CapaKaspa");?></a></span>
+		<span class="title"><a href="index.php" title="<?php echo _("CapaKaspa : Play chess and share your games");?>"><?php echo _("CapaKaspa");?></a></span>
 		<span class="social"><? if (isset($_SESSION['playerID'])&&$_SESSION['playerID']!=-1) {?>
 	      <form name="logout" action="game_in_progress.php" method="post">
 		        <input type="hidden" name="ToDo" value="Logout">

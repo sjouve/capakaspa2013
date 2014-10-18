@@ -193,6 +193,32 @@ function searchPlayers($mode, $debut, $limit, $playerID, $critFavorite, $critSta
 
 	return mysqli_query($dbh,$tmpQuery);
 }
+/*
+ * Recherche des utilisateurs pour les classements
+* $debut :
+* $limit : nb résultat par page
+*/
+function searchPlayersRanking($mode, $debut, $limit, $playerID, $critCountry, $critGameType)
+{
+	global $dbh;
+	
+	$tmpQuery = "SELECT P.playerID, P.nick, P.firstName, P.lastName, P.socialNetwork, P.socialID, P.profil,
+	P.situationGeo, P.elo, P.lastConnection, P.creationDate, C.countryName
+	FROM players P, country C ";
+
+	$tmpQuery .= " WHERE P.activate=1
+	AND P.countryCode = C.countryCode
+	AND C.countryLang = '".getLang()."'";
+
+	if ($critCountry != '')
+		$tmpQuery .= " AND P.countryCode = '".$critCountry."'";
+
+	$tmpQuery .= " ORDER BY P.elo DESC";
+
+	$tmpQuery .= " limit ".$debut.",".$limit;
+
+	return mysqli_query($dbh,$tmpQuery);
+}
 
 /*
  * PLAYER WRITE
