@@ -22,24 +22,48 @@ $start = $_GET["start"];
 $playerID = $_GET["player"];
 $critCountry = $_GET["cc"];
 $critType = $_GET["tp"];
+$critOrder = $_GET["od"];
+$rank = $_GET["rk"];
+$previousElo = $_GET["ce"];
 $limit = 20;
-$rank = $start;
-$previousElo = "";
 $currentElo = "";
 
 $fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
 
-$result = searchPlayersRanking("", $start, $limit, $playerID, $critCountry, $critType);
+$number = $start;
+
+// Si commence par dernier le compteur de joueur démarre par le nom de joueur
+if ($critOrder == "ASC")
+{
+	$nb_tot=0;
+	$res_count = searchPlayers("count", 0, 0, $_SESSION['playerID'], "", "", "", "", $critCountry, ""); 
+	if ($res_count)
+	{
+		$count = mysqli_fetch_array($res_count, MYSQLI_ASSOC);
+		$nb_tot = $count['nbPlayers'];
+	}
+
+$number = $nb_tot - $start;
+}
+
+
+$result = searchPlayersRanking("", $start, $limit, $playerID, $critCountry, $critType, $critOrder);
 $numPlayers = mysqli_num_rows($result);
 	
 while($tmpPlayer = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
 	$lastConnection = new DateTime($tmpPlayer['lastConnection']);
 	$strLastConnection = $fmt->format($lastConnection);
-	
 	$currentElo = $tmpPlayer['elo'];
+	
+	// On incrémente ou décrémente systématiquement le compteur
+	if ($critOrder == "DESC") $number += 1;
+	if ($critOrder == "ASC") $number -= 1;
+	
+	// Si le rupture alors le classement est égal au compteur de joueur
 	if ($currentElo != $previousElo)
-		$rank = $rank + 1;
+		$rank = $number;
+		
 	$previousElo = $tmpPlayer['elo'];
 	
 	echo("
@@ -77,6 +101,8 @@ if ($numPlayers == $limit)
 	<div id="players<?echo($start + $limit);?>" style="display: none;">
 		<img src='images/ajaxloader.gif'/>
 		<input type="hidden" id="playerStartPage" value="<?echo($start + $limit);?>"/>
+		<input type="hidden" id="playerRank" value="<?echo($rank);?>"/>
+		<input type="hidden" id="previousElo" value="<?echo($previousElo);?>"/>
 	</div>
 <?
 }

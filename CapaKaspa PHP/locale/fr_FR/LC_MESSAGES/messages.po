@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2014-10-18 23:03+0100\n"
-"PO-Revision-Date: 2014-10-18 23:05+0100\n"
+"POT-Creation-Date: 2014-10-19 12:21+0100\n"
+"PO-Revision-Date: 2014-10-19 12:22+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -326,7 +326,7 @@ msgid "Player online"
 msgstr "Joueur en ligne"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_player.php:53 PHP/ajax/ajx_display_ranking.php:47
+#: PHP/ajax/ajx_display_player.php:53 PHP/ajax/ajx_display_ranking.php:56
 #: PHP/bwc/bwc_common.php:178 PHP/bwc/bwc_common.php:199 PHP/message.php:93
 #: PHP/mobile/ajax/ajx_display_player.php:53 PHP/mobile/player_view.php:153
 #: PHP/player_view.php:144
@@ -334,7 +334,7 @@ msgid "New player"
 msgstr "Nouveau joueur"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_player.php:58 PHP/ajax/ajx_display_ranking.php:52
+#: PHP/ajax/ajx_display_player.php:58 PHP/ajax/ajx_display_ranking.php:61
 #: PHP/app_jchess.php:57 PHP/game_new.php:25 PHP/include/page_body.php:67
 #: PHP/mobile/ajax/ajx_display_player.php:58 PHP/mobile/game_new.php:25
 #: PHP/mobile/player_view.php:174 PHP/player_view.php:157
@@ -342,7 +342,7 @@ msgid "New game"
 msgstr "Nouvelle partie"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_player.php:60 PHP/ajax/ajx_display_ranking.php:54
+#: PHP/ajax/ajx_display_player.php:60 PHP/ajax/ajx_display_ranking.php:63
 #: PHP/mobile/ajax/ajx_display_player.php:60
 msgid "Elo"
 msgstr "Elo"
@@ -781,7 +781,7 @@ msgid "OK"
 msgstr "OK"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1274
-#: PHP/game_new.php:187 PHP/mobile/game_new.php:94 PHP/player_ranking.php:105
+#: PHP/game_new.php:187 PHP/mobile/game_new.php:94 PHP/player_ranking.php:106
 msgid "Classic game"
 msgstr "Partie classique"
 
@@ -1274,7 +1274,7 @@ msgid "Start new game"
 msgstr "Commencer une nouvelle partie"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:184
-#: PHP/mobile/game_new.php:91 PHP/player_ranking.php:102
+#: PHP/mobile/game_new.php:91 PHP/player_ranking.php:103
 msgid "Game type"
 msgstr "Type de partie"
 
@@ -1791,7 +1791,7 @@ msgid "A valid email is required for confirmation"
 msgstr "Un email valide est obligatoire pour confirmation"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:308
-#: PHP/mobile/player_search.php:95 PHP/player_ranking.php:84
+#: PHP/mobile/player_search.php:95 PHP/player_ranking.php:85
 #: PHP/player_search.php:88 PHP/player_update.php:390
 msgid "Country"
 msgstr "Pays"
@@ -1931,7 +1931,7 @@ msgid "Players advanced search"
 msgstr "Recherche avancée de joueurs"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_search.php:98 PHP/player_ranking.php:87
+#: PHP/mobile/player_search.php:98 PHP/player_ranking.php:88
 #: PHP/player_search.php:91
 msgid "All countries"
 msgstr "Tous les pays"
@@ -1982,13 +1982,13 @@ msgid "and"
 msgstr "et"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_search.php:137 PHP/player_ranking.php:111
+#: PHP/mobile/player_search.php:137 PHP/player_ranking.php:121
 #: PHP/player_search.php:135
 msgid "Filter"
 msgstr "Filtrer"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_search.php:139 PHP/player_ranking.php:116
+#: PHP/mobile/player_search.php:139 PHP/player_ranking.php:126
 #: PHP/player_search.php:140
 msgid "player(s) found"
 msgstr "joueur(s) trouvés"
@@ -2060,14 +2060,26 @@ msgstr ""
 "Entrer l'adresse email que vous avez assigné à ce compte. Un message sera "
 "envoyé à cette adresse. Il contiendra les informations pour vous connecter."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:29
-#: PHP/player_ranking.php:79
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:30
+#: PHP/player_ranking.php:80
 msgid "Players ranking"
 msgstr "Classement des joueurs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:30
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:31
 msgid "Players ranking by country and game type"
 msgstr "Classement des joueurs par pays et type de partie"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:111
+msgid "Order"
+msgstr "Ordre"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:114
+msgid "From first to last"
+msgstr "Du premier au dernier"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:115
+msgid "From last to first"
+msgstr "Du dernier au premier"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:119
 #: PHP/player_update.php:120

@@ -1,5 +1,5 @@
 <?
-/* AccÃ¨s aux donnÃ©es concernant les tables Players et Preferences */
+/* Accès aux données concernant les tables Players et Preferences */
 
 /* Constantes du module */
 define ("MAX_NB_JOUR_ABSENCE", 30);
@@ -198,7 +198,7 @@ function searchPlayers($mode, $debut, $limit, $playerID, $critFavorite, $critSta
 * $debut :
 * $limit : nb résultat par page
 */
-function searchPlayersRanking($mode, $debut, $limit, $playerID, $critCountry, $critGameType)
+function searchPlayersRanking($mode, $debut, $limit, $playerID, $critCountry, $critGameType, $critOrder)
 {
 	global $dbh;
 	
@@ -212,8 +212,11 @@ function searchPlayersRanking($mode, $debut, $limit, $playerID, $critCountry, $c
 
 	if ($critCountry != '')
 		$tmpQuery .= " AND P.countryCode = '".$critCountry."'";
-
-	$tmpQuery .= " ORDER BY P.elo DESC";
+		
+	if ($critOrder == "ASC")
+		$tmpQuery .= " ORDER BY P.elo ASC";
+	else
+		$tmpQuery .= " ORDER BY P.elo DESC";
 
 	$tmpQuery .= " limit ".$debut.",".$limit;
 
@@ -279,7 +282,7 @@ function updatePlayerWithSocial($playerID, $password, $firstName, $lastName, $ni
  * PREFERENCES
  */
 
-/* InsÃ©rer une prÃ©fÃ©rence d'un joueur */
+/* InsÃ©rer une préférence d'un joueur */
 function insertPreference($playerID, $preference, $value)
 {
 	
