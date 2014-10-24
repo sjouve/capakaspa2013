@@ -388,6 +388,19 @@ require 'include/page_body.php';
 			$strLastMove = $fmt->format($lastMove);
 			echo _("Last move")?> : <? echo($strLastMove);?></span>
 		</div>
+		<div id="ads_bottom">
+			<center>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- CapaKaspa Mobile Bottom -->
+			<ins class="adsbygoogle"
+			     style="display:inline-block;width:320px;height:100px"
+			     data-ad-client="ca-pub-8069368543432674"
+			     data-ad-slot="7983531266"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+			</center>
+		</div>
 	 	<div id="comment<?echo($_POST['gameID']);?>" class="comment">
 			<img src="images/ajaxloader.gif"/>
 		</div>

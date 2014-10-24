@@ -57,6 +57,7 @@ require 'include/page_body.php';
 	
 	<? if (!isset($_SESSION['playerID'])||$_SESSION['playerID']==-1) {?>
 		<center>
+		<br>
 		<p><? echo _("Play your chess games on your mobile.")?></p>
 		<form method="post" action="game_in_progress.php">
         <br>

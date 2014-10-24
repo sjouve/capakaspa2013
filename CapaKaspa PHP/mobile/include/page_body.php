@@ -20,7 +20,7 @@
 <div id="advertisement">
 	<center>
 	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<!-- CapaKaspa Mobile -->
+	<!-- CapaKaspa Mobile Top -->
 	<ins class="adsbygoogle"
 	     style="display:inline-block;width:320px;height:50px"
 	     data-ad-client="ca-pub-8069368543432674"
