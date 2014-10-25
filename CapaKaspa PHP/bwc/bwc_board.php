@@ -105,7 +105,7 @@ function createNewGame($gameID)
 /* these functions deal specifically with moving a piece */
 function doMove()
 {
-	global $board, $isPromoting, $doUndo, $history, $numMoves;
+	global $board, $isPromoting, $isChess960Castling, $history, $numMoves;
 
 	/* if moving en-passant */
 	/* (ie: if pawn moves diagonally without replacing anything) */
@@ -124,7 +124,33 @@ function doMove()
 		$board[$_POST['toRow']][$_POST['toCol']] = $_POST['promotion'] | ($board[$_POST['toRow']][$_POST['toCol']] & BLACK);
 	
 	/* if not Undoing, but castling */
-	if (($doUndo != "yes") && (($board[$_POST['toRow']][$_POST['toCol']] & COLOR_MASK) == KING) && (($_POST['toCol'] - $_POST['fromCol']) == 2))
+	if ($isChess960Castling)
+	{
+		// castling to the left
+		$tmpPosKing = $_POST['fromCol'];
+		$tmpPosRook = $_POST['toCol'];
+		
+		if ($_POST['fromCol'] > $_POST['toCol']) {
+			// King 
+			$board[$_POST['toRow']][2] = $board[$_POST['toRow']][$_POST['fromCol']];
+			// Rook
+			$board[$_POST['toRow']][3] = $board[$_POST['toRow']][$_POST['toCol']];
+			// Removes piece from original position if not new position
+			if ($tmpPosKing != 3 && $tmpPosKing != 2) $board[$_POST['toRow']][$_POST['fromCol']] == 0;
+			if ($tmpPosRook != 3 && $tmpPosRook != 2) $board[$_POST['toRow']][$_POST['toCol']] == 0;
+		}
+		else {
+			// King 
+			$board[$_POST['toRow']][6] = $board[$_POST['toRow']][$_POST['fromCol']];
+			// Rook
+			$board[$_POST['toRow']][5] = $board[$_POST['toRow']][$_POST['toCol']];
+			// Removes piece from original position if not new position
+			if ($tmpPosKing != 6 && $tmpPosKing != 5) $board[$_POST['toRow']][$_POST['fromCol']] == 0;
+			if ($tmpPosRook != 6 && $tmpPosRook != 5) $board[$_POST['toRow']][$_POST['toCol']] == 0;
+		}
+		
+	}
+	else if ((($board[$_POST['toRow']][$_POST['toCol']] & COLOR_MASK) == KING) && (($_POST['toCol'] - $_POST['fromCol']) == 2))
 	{
 		/* castling to the right, move the right rook to the left side of the king */
 		$board[$_POST['toRow']][5] = $board[$_POST['toRow']][7];
@@ -132,7 +158,7 @@ function doMove()
 		/* delete rook from original position */
 		$board[$_POST['toRow']][7] = 0;
 	}
-	elseif (($doUndo != "yes") && (($board[$_POST['toRow']][$_POST['toCol']] & COLOR_MASK) == KING) && (($_POST['fromCol'] - $_POST['toCol']) == 2))
+	elseif ((($board[$_POST['toRow']][$_POST['toCol']] & COLOR_MASK) == KING) && (($_POST['fromCol'] - $_POST['toCol']) == 2))
 	{
 		/* castling to the left, move the left rook to the right side of the king */
 		$board[$_POST['toRow']][3] = $board[$_POST['toRow']][0];
@@ -144,73 +170,4 @@ function doMove()
 	return true;
 }
 
-/* these functions deal specifically with undoing a move */
-function doUndo()
-{
-	global $board, $numMoves;
-	global $dbh;
-	
-	/* get the last move from the history */
-	/* NOTE: MySQL currently has no support for subqueries */
-	$tmpMaxTime = mysqli_query($dbh,"SELECT Max(timeOfMove) FROM history WHERE gameID = ".$_POST['gameID']);
-	$maxTime = mysqli_result($dbh,$tmpMaxTime,0);
-	$moves = mysqli_query($dbh,"SELECT * FROM history WHERE gameID = ".$_POST['gameID']." AND timeOfMove = '$maxTime'");
-
-	/* if there actually is a move... */
-	if ($lastMove = mysqli_fetch_array($moves, MYSQLI_ASSOC))
-	{
-		/* if the last move was played by this player */
-		
-			/* undo move */
-			$fromRow = $lastMove['fromRow'];
-			$fromCol = $lastMove['fromCol'];
-			$toRow = $lastMove['toRow'];
-			$toCol = $lastMove['toCol'];
-
-			$board[$fromRow][$fromCol] = getPieceCode($lastMove['curColor'], $lastMove['curPiece']);
-			$board[$toRow][$toCol] = 0;
-
-			/* check for en-passant */
-			/* if pawn moves diagonally without replacing a piece, it's en passant */
-			if (($lastMove['curPiece'] == "pawn") && ($toCol != $fromCol) && is_null($lastMove['replaced']))
-			{
-				if ($lastMove['curColor'] == "black")
-					$board[$fromRow][$toCol] = getPieceCode("white", "pawn");
-				else
-					$board[$fromRow][$toCol] = getPieceCode("black", "pawn");
-			}
-			
-			/* check for castling */
-			if ((($board[$fromRow][$fromCol] & COLOR_MASK) == KING) && (abs($toCol - $fromCol) == 2))
-			{
-				/* move rook back as well */
-				if (($toCol - $fromCol) == 2)
-				{
-					$board[$fromRow][7] = $board[$fromRow][5];
-					$board[$fromRow][5] = 0;
-				}
-				else
-				{
-					$board[$fromRow][0] = $board[$fromRow][3];
-					$board[$fromRow][3] = 0;
-				}
-			}
-
-			/* restore lost piece */
-			if (!is_null($lastMove['replaced']))
-			{
-				if ($lastMove['curColor'] == "black")
-					$board[$toRow][$toCol] = getPieceCode("white", $lastMove['replaced']);
-				else
-					$board[$toRow][$toCol] = getPieceCode("black", $lastMove['replaced']);
-			}
-
-			/* remove last move from history */
-			$numMoves--;
-			mysqli_query($dbh,"DELETE FROM history WHERE gameID = ".$_POST['gameID']." AND timeOfMove = '$maxTime'");
-
-		/* else */
-			/* output error message */
-	}
-}
 ?>

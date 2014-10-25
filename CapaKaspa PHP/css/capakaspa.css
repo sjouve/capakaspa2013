@@ -425,6 +425,7 @@ h3 {
 	padding: 0px;
 }
 TEXTAREA {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	font-weight: normal;
 	font-style: normal;
@@ -979,6 +980,7 @@ input[type="file"] {
 .activity .details .content .gameboard{
 	float: left;
 	width: 162px;
+	line-height: 100%;
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: none;
@@ -988,7 +990,7 @@ input[type="file"] {
 .activity .details .content .gamedetails{
 	float: left;
 	width: 335px;
-	height: 150px;
+	height: 142px;
 	padding: 10px;
 	font-size: 11px;
 	text-align: center;
