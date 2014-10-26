@@ -57,12 +57,18 @@ require 'include/page_body.php';
 	
 	<? if (!isset($_SESSION['playerID'])||$_SESSION['playerID']==-1) {?>
 		<center>
-		<br>
-		<p><? echo _("Play your chess games on your mobile.")?></p>
+		<p>&nbsp;</p>
+		<h4><? echo _("Play your chess games on your mobile.")?></h4>
 		<form method="post" action="game_in_progress.php">
         <br>
-        <? echo _("User name");?> : <input name="txtNick" type="text" size="13" maxlength="20"/><br>
-        <? echo _("Password");?> : <input name="pwdPassword" type="password" size="13" maxlength="16"/><br>
+        <div id="homefieldnames" style="float: left; text-align: right; width: 50%;">
+	        <? echo _("User name");?> : <br>
+	        <? echo _("Password");?> : <br>
+        </div>
+        <div id="homefieldimputs" style="float: left; text-align: left; width: 50%;">
+	        <input name="txtNick" type="text" size="13" maxlength="20"/><br>
+	        <input name="pwdPassword" type="password" size="13" maxlength="16"/><br>
+        </div>
         <input name="chkAutoConn" type="checkbox"> <? echo _("Remember me")?><br/>
         <input name="ToDo" value="Login" type="hidden"><input name="login" value="<? echo _("Sign in")?>" type="submit" class="button">
         

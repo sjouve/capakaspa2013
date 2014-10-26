@@ -307,6 +307,7 @@ function loginPlayer($nick, $password, $flagAuto)
 	$_SESSION['profil'] = stripslashes($player['profil']);
 	$_SESSION['anneeNaissance'] = $player['anneeNaissance'];
 	$_SESSION['elo'] = $player['elo'];
+	$_SESSION['elo960'] = $player['elo960'];
 	$_SESSION['socialNetwork'] = $player['socialNetwork'];
 	$_SESSION['socialID'] = $player['socialID'];
 	$_SESSION['countryCode'] = $player['countryCode'];

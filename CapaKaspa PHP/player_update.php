@@ -423,6 +423,16 @@ require 'include/page_body.php';
             </div>
             </td>
           </tr>
+          <tr>
+            <td width="180"><?php echo _("Elo Chess960");?> : </td>
+            <td>
+            <? echo($_SESSION['elo960']); ?> 
+            <span onmouseout="document.getElementById('helpElo960').style.display = 'none';" onmouseover="document.getElementById('helpElo960').style.display = 'block';"><img src="images/point-interrogation.gif" border="0"/></span>
+            <div id="helpElo960" style="display: none;" class="help">
+            <? echo _("Elo Chess960 ranking is calculated monthly and takes into account the Chess960 games completed during the month past.");?>
+            </div>
+            </td>
+          </tr>
 		  <tr>
             <td><?php echo _("About you");?> : </td>
             <td><textarea name="txtProfil" cols="50" rows="5"><? echo($_SESSION['profil']); ?></textarea></td>

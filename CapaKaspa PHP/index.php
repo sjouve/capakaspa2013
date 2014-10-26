@@ -211,23 +211,23 @@ require 'include/page_body_home.php';
 			</h1>
 		</div> -->
 		
-		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; background-image: url('images/home_capakaspa_board.jpg');">
-			<span style="position: relative; top: 110px; font-size: 16px; text-shadow: 0.1em 0.1em 0.2em black; color: #FFFFFF;">
-				<?php echo _("Play chess games, choose your cadence and type.");?><br>
-				<?php echo _("Improve your Elo chess ranking.");?>
-			</span>
+		<div style="width: 300px; height: 190px; float:left; margin-top: 15px; margin-bottom: 15px; border-style: solid; border-width: 1px; border-color: #555555; background-image: url('images/capakaspa_partie_2014_min.jpg');">
+			<div style="height: 75px; padding: 5px; background-color: #000000; opacity: 0.6; position: relative; float: left; top: 105px; font-size: 16px; color: #FFFFFF;">
+				<?php echo _("Play chess online, choose your cadence and type.");?><br>
+				<?php echo _("Classic game, Fisher Random Chess (Chess960), Beginner game.");?>
+			</div>
 		</div>
-		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; margin-left: 38px; background-image: url('images/home_capakaspa_news.jpg');">
-			<span style="position: relative; top: 110px; font-size: 16px; text-shadow: 0.1em 0.1em 0.2em black; color: #FFFFFF;">
+		<div style="width: 300px; height: 190px; float:left; margin-top: 15px; margin-bottom: 15px; margin-left: 35px; border-style: solid; border-width: 1px; border-color: #555555; background-image: url('images/capakaspa_actualites_2014_min.jpg');">
+			<div style="height: 75px; padding: 5px; background-color: #000000; opacity: 0.6; position: relative; top: 105px; font-size: 16px; color: #FFFFFF;">
 				<?php echo _("Share your moves, results and invitations with your followers.");?><br>
 				<?php echo _("Follow players, comment news...");?>
-			</span>
+			</div>
 		</div>
-		<div style="width: 290px; height: 192px; padding: 5px; float:left; margin-top: 15px; margin-bottom: 15px; margin-left: 38px; background-image: url('images/home_capakaspa_profil.jpg');">
-			<span style="position: relative; top: 110px; font-size: 16px; text-shadow: 0.1em 0.1em 0.2em black; color: #FFFFFF;">
+		<div style="width: 300px; height: 190px; float:left; margin-top: 15px; margin-bottom: 15px; margin-left: 35px; border-style: solid; border-width: 1px; border-color: #555555; background-image: url('images/capakaspa_profil_2014_min.jpg');">
+			<div style="height: 75px; padding: 5px; background-color: #000000; opacity: 0.6; position: relative; top: 105px; font-size: 16px; color: #FFFFFF;">
 				<?php echo _("View detailed profile of players.");?><br>
 				<?php echo _("Discuss with them in private and comment their public news.");?>
-			</span>
+			</div>
 		</div>
 		
 	</div>

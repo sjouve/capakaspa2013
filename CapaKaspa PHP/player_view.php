@@ -171,8 +171,9 @@ require 'include/page_body_no_menu.php';
 </div>
 <div id="player_info">
 	<? echo _("Was born in ")?> <? echo($player['anneeNaissance']); ?><br>
-	<? echo _("Lives in ")?> <? echo(stripslashes($player['situationGeo'])); ?>, <? echo($player['countryName']); ?>	
-	<br><br><? echo _("About")?>
+	<? echo _("Lives in ")?> <? echo(stripslashes($player['situationGeo'])); ?>, <? echo($player['countryName']); ?><br>
+	<? echo _("Elo")." :"?> <? echo($player['elo']); ?> - <?echo _("Chess960")." :"?> <? echo($player['elo960']); ?><br>
+	<? echo _("About")?>
 		<div style="background-color: #FFFFFF;padding: 3px;height: 60px;overflow-y: auto;">
 			<? echo(nl2br(stripslashes($player['profil']))); ?>
 		</div>
@@ -239,11 +240,11 @@ require 'include/page_body_no_menu.php';
             <tr>
               <th width="35%"><? echo _("Whites")?></th>
               <th width="35%"><? echo _("Blacks")?></th>
-              <th width="15%"><? echo _("View")?></th>
               <th width="15%"><? echo _("ECO")?></th>
+              <th width="15%"><? echo _("View")?></th>
             </tr>
             <?
-				$tmpGames = mysqli_query($dbh,"SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom
+				$tmpGames = mysqli_query($dbh,"SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom, G.type
 			                            FROM games G, players W, players B
 			                            WHERE (G.gameMessage IS NULL OR gameMessage = '')
 			                            AND (G.whitePlayer = ".$player['playerID']." OR G.blackPlayer = ".$player['playerID'].")
@@ -264,12 +265,16 @@ require 'include/page_body_no_menu.php';
 						echo ("</td><td>");
 						echo($tmpGame['blackNick']);
 						
+						/* ECO Code */
+						if ($tmpGame['type'] == 2)
+							echo ("</td><td align='center'>"._("Chess960"));
+						else
+							echo ("</td><td align='center'>".$tmpGame['eco']);
+						
 						/* Current Turn */
 						echo ("</td><td align=center>");
-						echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'><img src='images/eye.gif' border=0 alt=\""._("View")."\"/></a>");
+						echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'><img src='images/eye.gif' border=0 alt=\""._("View")."\"/></a></td></tr>");
 			
-						/* ECO Code */
-						echo ("</td><td align='center'>".$tmpGame['eco']."</td></tr>");
 					}									
 				}
 			?>
@@ -298,7 +303,7 @@ require 'include/page_body_no_menu.php';
               <th width="15%"><? echo _("ECO")?></th>
             </tr>
             <?
-				$tmpGames = mysqli_query($dbh,"SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom
+				$tmpGames = mysqli_query($dbh,"SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom, G.type
 			                            FROM games G, players W, players B
 			                            WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
 			                            AND ((G.whitePlayer = ".$player['playerID']." AND G.blackPlayer = ".$_SESSION['playerID'].") OR (G.blackPlayer = ".$player['playerID']." AND G.whitePlayer = ".$_SESSION['playerID']."))
@@ -319,21 +324,23 @@ require 'include/page_body_no_menu.php';
 						echo ("</td><td>");
 						echo($tmpGame['blackNick']);
 						
-						/* Current Turn */
-					
-						if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "white"))
-							echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a>");
-						else if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "black"))
-							echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a>");
-						else if (($tmpGame['gameMessage'] == "checkMate") && ($tmpGame['messageFrom'] == "white"))
-							echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a>");
-						else if ($tmpGame['gameMessage'] == "checkMate")
-							echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a>");
-						else
-							echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1/2-1/2</a>");
-			
 						/* ECO Code */
-						echo ("</td><td align='center'>".$tmpGame['eco']."</td></tr>");
+						if ($tmpGame['type'] == 2)
+							echo ("</td><td align='center'>"._("Chess960"));
+						else
+							echo ("</td><td align='center'>".$tmpGame['eco']);
+						
+						/* Result */
+						if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "white"))
+							echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a></td></tr>");
+						else if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "black"))
+							echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a></td></tr>");
+						else if (($tmpGame['gameMessage'] == "checkMate") && ($tmpGame['messageFrom'] == "white"))
+							echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a></td></tr>");
+						else if ($tmpGame['gameMessage'] == "checkMate")
+							echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a></td></tr>");
+						else
+							echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1/2-1/2</a></td></tr>");
 					}					
 				}
 			?>

@@ -213,6 +213,18 @@ require 'include/page_body.php';
 					$opponentSocialNW = $tmpGame['whiteSocialNetwork'];
 				}
 				
+				// Elo
+				if ($tmpGame['type'] == 2)
+				{
+					$whiteElo = $tmpGame['whiteElo960'];
+					$blackElo = $tmpGame['blackElo960'];
+				}
+				else
+				{
+					$whiteElo = $tmpGame['whiteElo'];
+					$blackElo = $tmpGame['blackElo'];
+				}
+				
 				$postDate = new DateTime($tmpGame['dateCreated']);
 				$strPostDate = $fmt->format($postDate);
 				
@@ -233,8 +245,8 @@ require 'include/page_body.php';
 							echo(getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
 							echo("<br>"._("Time per move").": ".$tmpGame['timeMove']." "._("days"));
 							echo("<br>
-									<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']."</span>
-									<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpGame['blackNick']."<br>".$tmpGame['blackElo']."</span><br><br><br>");
+									<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpGame['whiteNick']."<br>".$whiteElo."</span>
+									<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpGame['blackNick']."<br>".$blackElo."</span><br><br><br>");
 							
 							echo ("<span style='float: right'>");
 							if ($tmpGame['gameMessage'] == 'playerInvited')
@@ -275,6 +287,18 @@ require 'include/page_body.php';
 					$opponentSocialNW = $tmpGame['whiteSocialNetwork'];
 				}
 				
+				// Elo
+				if ($tmpGame['type'] == 2)
+				{
+					$whiteElo = $tmpGame['whiteElo960'];
+					$blackElo = $tmpGame['blackElo960'];
+				}
+				else
+				{
+					$whiteElo = $tmpGame['whiteElo'];
+					$blackElo = $tmpGame['blackElo'];
+				}
+				
 				$postDate = new DateTime($tmpGame['dateCreated']);
 				$strPostDate = $fmt->format($postDate);
 				
@@ -301,8 +325,8 @@ require 'include/page_body.php';
 							echo(getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
 							echo("<br>"._("Time per move").": ".$tmpGame['timeMove']." "._("days"));
 							echo("<br>
-									<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']."</span>
-									<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpGame['blackNick']."<br>".$tmpGame['blackElo']."</span><br><br><br>");
+									<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpGame['whiteNick']."<br>".$whiteElo."</span>
+									<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpGame['blackNick']."<br>".$blackElo."</span><br><br><br>");
 							
 							/* Response */
 							echo ("<span style='float: left'><TEXTAREA name='respMessage' rows='3' placeholder='"._("Your message...")."' style='background-color: white;border-color: #CCCCCC;width: 250px;height: 45px;'></TEXTAREA></span>");
@@ -350,6 +374,18 @@ require 'include/page_body.php';
 					$opponentSocialNW = $tmpGame['whiteSocialNetwork'];
 				}
 				
+				// Elo
+				if ($tmpGame['type'] == 2)
+				{
+					$whiteElo = $tmpGame['whiteElo960'];
+					$blackElo = $tmpGame['blackElo960'];
+				}
+				else
+				{
+					$whiteElo = $tmpGame['whiteElo'];
+					$blackElo = $tmpGame['blackElo'];
+				}
+				
 				$postDate = new DateTime($tmpGame['lastMove']);
 				$strPostDate = $fmt->format($postDate);
 				$startedDate = new DateTime($tmpGame['dateCreated']);
@@ -375,8 +411,8 @@ require 'include/page_body.php';
 								if ($tmpGame['type'] == 0)
 									echo("<br>[".$tmpGame['eco']."] ".$tmpGame['ecoName']);
 								echo("<br>
-								<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpGame['whiteNick']."<br>".$tmpGame['whiteElo']."</span>
-								<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpGame['blackNick']."<br>".$tmpGame['blackElo']."</span><br>");
+								<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpGame['whiteNick']."<br>".$whiteElo."</span>
+								<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpGame['blackNick']."<br>".$blackElo."</span><br>");
 								
 								if ($isPlayersTurn)
 									echo ("<br><br><span style='float: right'><input type='button' value='"._("Play")."' class='link_highlight' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></span>");

@@ -113,17 +113,20 @@ function doMove()
 		/* delete eaten pawn */
 		$board[$_POST['fromRow']][$_POST['toCol']] = 0;
 	
-	/* move piece to destination, replacing whatever's there */
-	$board[$_POST['toRow']][$_POST['toCol']] = $board[$_POST['fromRow']][$_POST['fromCol']];
-
-	/* delete piece from old position */
-	$board[$_POST['fromRow']][$_POST['fromCol']] = 0;
+	if (!$isChess960Castling)
+	{
+		/* move piece to destination, replacing whatever's there */
+		$board[$_POST['toRow']][$_POST['toCol']] = $board[$_POST['fromRow']][$_POST['fromCol']];
+	
+		/* delete piece from old position */
+		$board[$_POST['fromRow']][$_POST['fromCol']] = 0;
+	}
 	
 	/* promoting */
 	if ($isPromoting)
 		$board[$_POST['toRow']][$_POST['toCol']] = $_POST['promotion'] | ($board[$_POST['toRow']][$_POST['toCol']] & BLACK);
 	
-	/* if not Undoing, but castling */
+	/* castling */
 	if ($isChess960Castling)
 	{
 		// castling to the left
@@ -136,8 +139,8 @@ function doMove()
 			// Rook
 			$board[$_POST['toRow']][3] = $board[$_POST['toRow']][$_POST['toCol']];
 			// Removes piece from original position if not new position
-			if ($tmpPosKing != 3 && $tmpPosKing != 2) $board[$_POST['toRow']][$_POST['fromCol']] == 0;
-			if ($tmpPosRook != 3 && $tmpPosRook != 2) $board[$_POST['toRow']][$_POST['toCol']] == 0;
+			if ($tmpPosKing != 3 && $tmpPosKing != 2) $board[$_POST['toRow']][$_POST['fromCol']] = 0;
+			if ($tmpPosRook != 3 && $tmpPosRook != 2) $board[$_POST['toRow']][$_POST['toCol']] = 0;
 		}
 		else {
 			// King 
@@ -145,26 +148,29 @@ function doMove()
 			// Rook
 			$board[$_POST['toRow']][5] = $board[$_POST['toRow']][$_POST['toCol']];
 			// Removes piece from original position if not new position
-			if ($tmpPosKing != 6 && $tmpPosKing != 5) $board[$_POST['toRow']][$_POST['fromCol']] == 0;
-			if ($tmpPosRook != 6 && $tmpPosRook != 5) $board[$_POST['toRow']][$_POST['toCol']] == 0;
+			if ($tmpPosKing != 6 && $tmpPosKing != 5) $board[$_POST['toRow']][$_POST['fromCol']] = 0;
+			if ($tmpPosRook != 6 && $tmpPosRook != 5) $board[$_POST['toRow']][$_POST['toCol']] = 0;
 		}
 		
 	}
-	else if ((($board[$_POST['toRow']][$_POST['toCol']] & COLOR_MASK) == KING) && (($_POST['toCol'] - $_POST['fromCol']) == 2))
+	else
 	{
-		/* castling to the right, move the right rook to the left side of the king */
-		$board[$_POST['toRow']][5] = $board[$_POST['toRow']][7];
-
-		/* delete rook from original position */
-		$board[$_POST['toRow']][7] = 0;
-	}
-	elseif ((($board[$_POST['toRow']][$_POST['toCol']] & COLOR_MASK) == KING) && (($_POST['fromCol'] - $_POST['toCol']) == 2))
-	{
-		/* castling to the left, move the left rook to the right side of the king */
-		$board[$_POST['toRow']][3] = $board[$_POST['toRow']][0];
-
-		/* delete rook from original position */
-		$board[$_POST['toRow']][0] = 0;
+		if ((($board[$_POST['toRow']][$_POST['toCol']] & COLOR_MASK) == KING) && (($_POST['toCol'] - $_POST['fromCol']) == 2))
+		{
+			/* castling to the right, move the right rook to the left side of the king */
+			$board[$_POST['toRow']][5] = $board[$_POST['toRow']][7];
+	
+			/* delete rook from original position */
+			$board[$_POST['toRow']][7] = 0;
+		}
+		elseif ((($board[$_POST['toRow']][$_POST['toCol']] & COLOR_MASK) == KING) && (($_POST['fromCol'] - $_POST['toCol']) == 2))
+		{
+			/* castling to the left, move the left rook to the right side of the king */
+			$board[$_POST['toRow']][3] = $board[$_POST['toRow']][0];
+	
+			/* delete rook from original position */
+			$board[$_POST['toRow']][0] = 0;
+		}
 	}
 
 	return true;

@@ -194,13 +194,13 @@ require 'include/page_header.php';
 <script type="text/javascript" src="javascript/chesscommands.js">
 // these functions interact with the server
 </script>
-<script type="text/javascript" src="javascript/chessvalidation.js">
+<script type="text/javascript" src="javascript/chessValidation.js">
 // these functions are used to test the validity of moves
 </script>
 <script type="text/javascript" src="javascript/chessIsCheckMate.js">
 // these functions are used to test the validity of moves
 </script>
-<script type="text/javascript" src="javascript/chessSquareclicked.js">
+<script type="text/javascript" src="javascript/chessSquareClicked.js">
 // this is the main function that interacts with the user everytime they click on a square
 </script>
 <?
@@ -258,6 +258,7 @@ require 'include/page_body.php';
 	    <span id="#alert_err_castle_king_id" style="display: none"><?echo _("Can only castle if king has not moved yet.")?></span>
 	    <span id="#alert_err_castle_rook_id" style="display: none"><?echo _("Can only castle if rook has not moved yet.")?></span>
 	    <span id="#alert_err_castle_pieces_id" style="display: none"><?echo _("Can only castle if there are no pieces between the rook and the king.")?></span>
+	    <span id="#alert_err_castle960_pieces_id" style="display: none"><?echo _("Can only castle if there are no pieces between current position and final position.")?></span>
 	    <span id="#alert_err_castle_attack_id" style="display: none"><?echo _("When castling, the king cannot move over a square that is attacked by an ennemy piece.")?></span>
 	    <span id="#alert_draw_stalemate_id" style="display: none"><?echo _("Stalemate - The game ends with a draw.")?></span>
 	    <span id="#alert_draw_material_id" style="display: none"><?echo _("Insufficient material to checkmate - The game ends with a draw.")?></span>

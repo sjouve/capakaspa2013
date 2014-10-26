@@ -180,8 +180,8 @@ require 'include/page_body.php';
 </div>
 <div id="player_info">
 	<span style="margin-left: 3px"><? echo _("Was born in ")?> <? echo($player['anneeNaissance']); ?></span><br>
-	<span style="margin-left: 3px"><? echo _("Lives in ")?> <? echo(stripslashes($player['situationGeo'])); ?>, <? echo($player['countryName']); ?></span>
-	<br><br>
+	<span style="margin-left: 3px"><? echo _("Lives in ")?> <? echo(stripslashes($player['situationGeo'])); ?>, <? echo($player['countryName']); ?></span><br>
+	<span style="margin-left: 3px"><? echo _("Elo")." :"?> <? echo($player['elo']); ?> - <?echo _("Chess960")." :"?> <? echo($player['elo960']); ?></span><br>
 	<span style="margin-left: 3px"><? echo _("About")?></span>
 		<div style="background-color: #FFFFFF;padding: 3px;height: 60px;overflow-y: auto;">
 			<? echo(nl2br(stripslashes($player['profil']))); ?>

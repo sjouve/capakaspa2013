@@ -42,6 +42,18 @@ else
 		$postDate = new DateTime($tmpActivity['postDate']);
 		$strPostDate = $fmt->format($postDate);
 		
+		// Elo
+		if ($tmpActivity['type'] == 2)
+		{
+			$wElo = $tmpActivity['wElo960'];
+			$bElo = $tmpActivity['bElo960'];
+		}
+		else
+		{
+			$wElo = $tmpActivity['wElo'];
+			$bElo = $tmpActivity['bElo'];
+		}
+		
 		if ($tmpActivity['playerID']==$tmpActivity['wPlayerID'])
 		{
 			$playerID = $tmpActivity['wPlayerID'];
@@ -155,8 +167,8 @@ else
 							<div class='gamedetails'>
 								<span class='activity_type'>".$activityType."</span>");
 								echo("<br>
-									<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpActivity['wNick']."<br>".$tmpActivity['wElo']."</span>
-									<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpActivity['bNick']."<br>".$tmpActivity['bElo']."</span>");
+									<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpActivity['wNick']."<br>".$wElo."</span>
+									<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpActivity['bNick']."<br>".$bElo."</span>");
 								echo("<br><br>".getStrGameType($tmpActivity['type'], $tmpActivity['flagBishop'], $tmpActivity['flagKnight'], $tmpActivity['flagRook'], $tmpActivity['flagQueen']));
 								if ($tmpActivity['type'] == 0)
 									echo("<br>[".$tmpActivity['eco']."] ".$tmpActivity['ecoName']);

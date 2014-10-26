@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2014-10-19 12:21+0100\n"
-"PO-Revision-Date: 2014-10-19 12:22+0100\n"
+"POT-Creation-Date: 2014-10-26 17:32+0100\n"
+"PO-Revision-Date: 2014-10-26 17:35+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -79,15 +79,15 @@ msgstr ""
 "mettre à jour votre adresse email et commencer le processus d'activation"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:64
-#: PHP/bwc/bwc_players.php:356 PHP/include/page_body.php:37 PHP/index.php:261
-#: PHP/index.php:284 PHP/index.php:382 PHP/mobile/index.php:63
+#: PHP/bwc/bwc_players.php:357 PHP/include/page_body.php:37 PHP/index.php:261
+#: PHP/index.php:284 PHP/index.php:382 PHP/mobile/index.php:65
 #: PHP/player_update.php:334
 msgid "User name"
 msgstr "Nom d'utilisateur"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:69
-#: PHP/bwc/bwc_players.php:357 PHP/include/page_body.php:38 PHP/index.php:386
-#: PHP/mobile/index.php:64
+#: PHP/bwc/bwc_players.php:358 PHP/include/page_body.php:38 PHP/index.php:386
+#: PHP/mobile/index.php:66
 msgid "Password"
 msgstr "Mot de passe"
 
@@ -118,11 +118,11 @@ msgid "Follow"
 msgstr "S'abonner"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_delete_like.php:25 PHP/ajax/ajx_display_activity.php:173
-#: PHP/ajax/ajx_display_comment.php:53 PHP/game_board.php:383
+#: PHP/ajax/ajx_delete_like.php:25 PHP/ajax/ajx_display_activity.php:185
+#: PHP/ajax/ajx_display_comment.php:53 PHP/game_board.php:384
 #: PHP/mobile/ajax/ajx_delete_like.php:25
-#: PHP/mobile/ajax/ajx_display_activity.php:177
-#: PHP/mobile/ajax/ajx_display_comment.php:53 PHP/mobile/game_board.php:380
+#: PHP/mobile/ajax/ajx_display_activity.php:189
+#: PHP/mobile/ajax/ajx_display_comment.php:53 PHP/mobile/game_board.php:381
 msgid "! Like"
 msgstr "! J'aime"
 
@@ -133,78 +133,78 @@ msgid "No News to display. Share your activity and follow players !"
 msgstr "Aucune actualité à afficher. Ce joueur n'a encore rien partagé !"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:79
-#: PHP/mobile/ajax/ajx_display_activity.php:79
+#: PHP/ajax/ajx_display_activity.php:91
+#: PHP/mobile/ajax/ajx_display_activity.php:91
 msgid "invites someone to play a new game"
 msgstr "a invité quelqu'un à jouer une nouvelle partie"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:80 PHP/ajax/ajx_display_activity.php:85
-#: PHP/ajax/ajx_display_activity.php:90 PHP/ajax/ajx_display_activity.php:95
-#: PHP/mobile/ajax/ajx_display_activity.php:80
-#: PHP/mobile/ajax/ajx_display_activity.php:85
-#: PHP/mobile/ajax/ajx_display_activity.php:90
-#: PHP/mobile/ajax/ajx_display_activity.php:95
+#: PHP/ajax/ajx_display_activity.php:92 PHP/ajax/ajx_display_activity.php:97
+#: PHP/ajax/ajx_display_activity.php:102 PHP/ajax/ajx_display_activity.php:107
+#: PHP/mobile/ajax/ajx_display_activity.php:92
+#: PHP/mobile/ajax/ajx_display_activity.php:97
+#: PHP/mobile/ajax/ajx_display_activity.php:102
+#: PHP/mobile/ajax/ajx_display_activity.php:107
 msgid "INVITATION"
 msgstr "INVITATION"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:84
-#: PHP/mobile/ajax/ajx_display_activity.php:84
+#: PHP/ajax/ajx_display_activity.php:96
+#: PHP/mobile/ajax/ajx_display_activity.php:96
 msgid "canceled its invitation to play a new game with"
 msgstr "a annulé son invitation à une nouvelle partie avec"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:89
-#: PHP/mobile/ajax/ajx_display_activity.php:89
+#: PHP/ajax/ajx_display_activity.php:101
+#: PHP/mobile/ajax/ajx_display_activity.php:101
 msgid "has accepted invitation. A new game began against"
 msgstr " a accepté l'invitation. Une nouvelle partie a commencé contre"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:94
-#: PHP/mobile/ajax/ajx_display_activity.php:94
+#: PHP/ajax/ajx_display_activity.php:106
+#: PHP/mobile/ajax/ajx_display_activity.php:106
 msgid "refused invitation to play a new game against"
 msgstr "a refusé l'invitation à jouer une nouvelle partie contre"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:107 PHP/ajax/ajx_display_activity.php:126
-#: PHP/mobile/ajax/ajx_display_activity.php:107
-#: PHP/mobile/ajax/ajx_display_activity.php:126
+#: PHP/ajax/ajx_display_activity.php:119 PHP/ajax/ajx_display_activity.php:138
+#: PHP/mobile/ajax/ajx_display_activity.php:119
+#: PHP/mobile/ajax/ajx_display_activity.php:138
 msgid "lost"
 msgstr "a perdu"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:109 PHP/ajax/ajx_display_activity.php:128
-#: PHP/mobile/ajax/ajx_display_activity.php:109
-#: PHP/mobile/ajax/ajx_display_activity.php:128
+#: PHP/ajax/ajx_display_activity.php:121 PHP/ajax/ajx_display_activity.php:140
+#: PHP/mobile/ajax/ajx_display_activity.php:121
+#: PHP/mobile/ajax/ajx_display_activity.php:140
 msgid "won"
 msgstr "a gagné"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:110
-#: PHP/mobile/ajax/ajx_display_activity.php:110
+#: PHP/ajax/ajx_display_activity.php:122
+#: PHP/mobile/ajax/ajx_display_activity.php:122
 msgid "by resignation against"
 msgstr "par abandon contre"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:111 PHP/ajax/ajx_display_activity.php:116
-#: PHP/ajax/ajx_display_activity.php:121 PHP/ajax/ajx_display_activity.php:130
-#: PHP/mobile/ajax/ajx_display_activity.php:111
-#: PHP/mobile/ajax/ajx_display_activity.php:116
-#: PHP/mobile/ajax/ajx_display_activity.php:121
-#: PHP/mobile/ajax/ajx_display_activity.php:130
+#: PHP/ajax/ajx_display_activity.php:123 PHP/ajax/ajx_display_activity.php:128
+#: PHP/ajax/ajx_display_activity.php:133 PHP/ajax/ajx_display_activity.php:142
+#: PHP/mobile/ajax/ajx_display_activity.php:123
+#: PHP/mobile/ajax/ajx_display_activity.php:128
+#: PHP/mobile/ajax/ajx_display_activity.php:133
+#: PHP/mobile/ajax/ajx_display_activity.php:142
 msgid "RESULT"
 msgstr "RESULTAT"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:115
-#: PHP/mobile/ajax/ajx_display_activity.php:115
+#: PHP/ajax/ajx_display_activity.php:127
+#: PHP/mobile/ajax/ajx_display_activity.php:127
 msgid "do a draw game by mutual consent"
 msgstr "a fait une partie nulle par consentement mutuel"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:120
-#: PHP/mobile/ajax/ajx_display_activity.php:120
+#: PHP/ajax/ajx_display_activity.php:132
+#: PHP/mobile/ajax/ajx_display_activity.php:132
 msgid ""
 "do a draw game (stalemate, 3 times same position, 50 moves rule) against"
 msgstr ""
@@ -212,79 +212,79 @@ msgstr ""
 "contre"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:129
-#: PHP/mobile/ajax/ajx_display_activity.php:129
+#: PHP/ajax/ajx_display_activity.php:141
+#: PHP/mobile/ajax/ajx_display_activity.php:141
 msgid "by checkmate against"
 msgstr "par Echec et Mat contre"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:135
-#: PHP/mobile/ajax/ajx_display_activity.php:135
+#: PHP/ajax/ajx_display_activity.php:147
+#: PHP/mobile/ajax/ajx_display_activity.php:147
 msgid "played the move"
 msgstr " a joué le coup"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:135
-#: PHP/mobile/ajax/ajx_display_activity.php:135
+#: PHP/ajax/ajx_display_activity.php:147
+#: PHP/mobile/ajax/ajx_display_activity.php:147
 msgid " in the game against"
 msgstr " dans la partie contre"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:136
-#: PHP/mobile/ajax/ajx_display_activity.php:136
+#: PHP/ajax/ajx_display_activity.php:148
+#: PHP/mobile/ajax/ajx_display_activity.php:148
 msgid "MOVE"
 msgstr "COUP"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:165 PHP/game_in_progress.php:384
-#: PHP/mobile/ajax/ajx_display_activity.php:168
-#: PHP/mobile/game_in_progress.php:364 PHP/player_view.php:242
-#: PHP/player_view.php:269
+#: PHP/ajax/ajx_display_activity.php:177 PHP/game_in_progress.php:420
+#: PHP/mobile/ajax/ajx_display_activity.php:180
+#: PHP/mobile/game_in_progress.php:388 PHP/player_view.php:244
+#: PHP/player_view.php:276
 msgid "View"
 msgstr "Voir"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:171 PHP/ajax/ajx_display_comment.php:51
-#: PHP/ajax/ajx_insert_like.php:25 PHP/game_board.php:381
-#: PHP/mobile/ajax/ajx_display_activity.php:175
+#: PHP/ajax/ajx_display_activity.php:183 PHP/ajax/ajx_display_comment.php:51
+#: PHP/ajax/ajx_insert_like.php:25 PHP/game_board.php:382
+#: PHP/mobile/ajax/ajx_display_activity.php:187
 #: PHP/mobile/ajax/ajx_display_comment.php:51
-#: PHP/mobile/ajax/ajx_insert_like.php:25 PHP/mobile/game_board.php:378
+#: PHP/mobile/ajax/ajx_insert_like.php:25 PHP/mobile/game_board.php:379
 msgid "Stop liking this item"
 msgstr "Je n'aime plus ça"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:171 PHP/ajax/ajx_display_comment.php:51
-#: PHP/ajax/ajx_insert_like.php:25 PHP/game_board.php:381
-#: PHP/mobile/ajax/ajx_display_activity.php:175
+#: PHP/ajax/ajx_display_activity.php:183 PHP/ajax/ajx_display_comment.php:51
+#: PHP/ajax/ajx_insert_like.php:25 PHP/game_board.php:382
+#: PHP/mobile/ajax/ajx_display_activity.php:187
 #: PHP/mobile/ajax/ajx_display_comment.php:51
-#: PHP/mobile/ajax/ajx_insert_like.php:25 PHP/mobile/game_board.php:378
+#: PHP/mobile/ajax/ajx_insert_like.php:25 PHP/mobile/game_board.php:379
 msgid "! Unlike"
 msgstr "! Je n'aime plus"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:173 PHP/ajax/ajx_display_comment.php:53
-#: PHP/game_board.php:383 PHP/mobile/ajax/ajx_display_activity.php:177
-#: PHP/mobile/ajax/ajx_display_comment.php:53 PHP/mobile/game_board.php:380
+#: PHP/ajax/ajx_display_activity.php:185 PHP/ajax/ajx_display_comment.php:53
+#: PHP/game_board.php:384 PHP/mobile/ajax/ajx_display_activity.php:189
+#: PHP/mobile/ajax/ajx_display_comment.php:53 PHP/mobile/game_board.php:381
 msgid "I like this item"
 msgstr "J'aime ça"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:175 PHP/game_in_progress.php:390
-#: PHP/mobile/ajax/ajx_display_activity.php:179
-#: PHP/mobile/game_in_progress.php:370
+#: PHP/ajax/ajx_display_activity.php:187 PHP/game_in_progress.php:426
+#: PHP/mobile/ajax/ajx_display_activity.php:191
+#: PHP/mobile/game_in_progress.php:394
 msgid "Comment"
 msgstr "Commenter"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:186
-#: PHP/mobile/ajax/ajx_display_activity.php:189
+#: PHP/ajax/ajx_display_activity.php:198
+#: PHP/mobile/ajax/ajx_display_activity.php:201
 msgid "Delete this news"
 msgstr "Supprimer cette actualité"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:186 PHP/ajax/ajx_display_comment.php:57
-#: PHP/mobile/ajax/ajx_display_activity.php:189
-#: PHP/mobile/ajax/ajx_display_comment.php:57 PHP/player_update.php:455
+#: PHP/ajax/ajx_display_activity.php:198 PHP/ajax/ajx_display_comment.php:57
+#: PHP/mobile/ajax/ajx_display_activity.php:201
+#: PHP/mobile/ajax/ajx_display_comment.php:57 PHP/player_update.php:465
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -314,19 +314,19 @@ msgstr "Publier"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_player.php:51 PHP/bwc/bwc_common.php:176
-#: PHP/bwc/bwc_common.php:197 PHP/bwc/bwc_games.php:1012
-#: PHP/bwc/bwc_games.php:1021 PHP/bwc/bwc_games.php:1028
-#: PHP/bwc/bwc_games.php:1040 PHP/bwc/bwc_games.php:1049
-#: PHP/bwc/bwc_games.php:1055 PHP/bwc/bwc_games.php:1116
-#: PHP/bwc/bwc_games.php:1125 PHP/bwc/bwc_games.php:1132
-#: PHP/bwc/bwc_games.php:1144 PHP/bwc/bwc_games.php:1153
-#: PHP/bwc/bwc_games.php:1159 PHP/message.php:91
+#: PHP/bwc/bwc_common.php:197 PHP/bwc/bwc_games.php:1053
+#: PHP/bwc/bwc_games.php:1062 PHP/bwc/bwc_games.php:1069
+#: PHP/bwc/bwc_games.php:1081 PHP/bwc/bwc_games.php:1090
+#: PHP/bwc/bwc_games.php:1096 PHP/bwc/bwc_games.php:1157
+#: PHP/bwc/bwc_games.php:1166 PHP/bwc/bwc_games.php:1173
+#: PHP/bwc/bwc_games.php:1185 PHP/bwc/bwc_games.php:1194
+#: PHP/bwc/bwc_games.php:1200 PHP/message.php:91
 #: PHP/mobile/ajax/ajx_display_player.php:51
 msgid "Player online"
 msgstr "Joueur en ligne"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_player.php:53 PHP/ajax/ajx_display_ranking.php:56
+#: PHP/ajax/ajx_display_player.php:53 PHP/ajax/ajx_display_ranking.php:79
 #: PHP/bwc/bwc_common.php:178 PHP/bwc/bwc_common.php:199 PHP/message.php:93
 #: PHP/mobile/ajax/ajx_display_player.php:53 PHP/mobile/player_view.php:153
 #: PHP/player_view.php:144
@@ -334,7 +334,7 @@ msgid "New player"
 msgstr "Nouveau joueur"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_player.php:58 PHP/ajax/ajx_display_ranking.php:61
+#: PHP/ajax/ajx_display_player.php:58 PHP/ajax/ajx_display_ranking.php:84
 #: PHP/app_jchess.php:57 PHP/game_new.php:25 PHP/include/page_body.php:67
 #: PHP/mobile/ajax/ajx_display_player.php:58 PHP/mobile/game_new.php:25
 #: PHP/mobile/player_view.php:174 PHP/player_view.php:157
@@ -342,10 +342,18 @@ msgid "New game"
 msgstr "Nouvelle partie"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_player.php:60 PHP/ajax/ajx_display_ranking.php:63
-#: PHP/mobile/ajax/ajx_display_player.php:60
+#: PHP/ajax/ajx_display_player.php:60 PHP/ajax/ajx_display_ranking.php:86
+#: PHP/mobile/ajax/ajx_display_player.php:60 PHP/mobile/player_view.php:184
+#: PHP/player_view.php:175
 msgid "Elo"
 msgstr "Elo"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/ajax/ajx_display_player.php:60 PHP/game_list_ended.php:151
+#: PHP/mobile/ajax/ajx_display_player.php:60 PHP/mobile/player_view.php:184
+#: PHP/player_view.php:175 PHP/player_view.php:270 PHP/player_view.php:329
+msgid "Chess960"
+msgstr "Chess960"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_pmessage.php:54
@@ -449,7 +457,7 @@ msgstr "Jouer !"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/app_jchess.php:58
 #: PHP/include/page_footer.php:2 PHP/include/page_footer_right.php:2
-#: PHP/mobile/player_view.php:185 PHP/player_view.php:175
+#: PHP/mobile/player_view.php:185 PHP/player_view.php:176
 #: PHP/site_about.php:17
 msgid "About"
 msgstr "A propos"
@@ -498,87 +506,87 @@ msgstr ""
 "en 3D. 3 niveaux disponibles."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:367
+#: PHP/bwc/bwc_chessutils.php:366
 msgid "The player"
 msgstr "Le joueur"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:368
+#: PHP/bwc/bwc_chessutils.php:367
 msgid "Your opponent"
 msgstr "Votre adversaire"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:375
+#: PHP/bwc/bwc_chessutils.php:374
 msgid "You are invited to play a new game"
 msgstr "Vous êtes invité à jouer une nouvelle partie"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:376
+#: PHP/bwc/bwc_chessutils.php:375
 msgid " invites you to play a new game."
 msgstr " vous invite à jouer une nouvelle partie"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:380
+#: PHP/bwc/bwc_chessutils.php:379
 msgid "Invitation canceled"
 msgstr "Invitation annulée"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:381
+#: PHP/bwc/bwc_chessutils.php:380
 msgid " canceled its invitation to play a new game."
 msgstr " a annulé son invitation à jouer une nouvelle partie."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:385
+#: PHP/bwc/bwc_chessutils.php:384
 msgid "Invitation accepted"
 msgstr "Invitation acceptée"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:386
+#: PHP/bwc/bwc_chessutils.php:385
 msgid " has accepted your invitation. A new game began."
 msgstr " a accepté votre invitation. Une nouvelle partie a commencé."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:388 PHP/bwc/bwc_chessutils.php:397
+#: PHP/bwc/bwc_chessutils.php:387 PHP/bwc/bwc_chessutils.php:396
 msgid " joined a message :"
 msgstr "a joint un message :"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:394
+#: PHP/bwc/bwc_chessutils.php:393
 msgid "Invitation refused"
 msgstr "Invitation refusée"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:395
+#: PHP/bwc/bwc_chessutils.php:394
 msgid " refused your invitation."
 msgstr "a refusé son invitation."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:403
+#: PHP/bwc/bwc_chessutils.php:402
 msgid "New move"
 msgstr "Nouveau coup"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:404
+#: PHP/bwc/bwc_chessutils.php:403
 msgid " play the move :"
 msgstr " a joué le coup :"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:409
+#: PHP/bwc/bwc_chessutils.php:408
 msgid "Resignation"
 msgstr "Abandon"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:410
+#: PHP/bwc/bwc_chessutils.php:409
 msgid " resigned."
 msgstr " a abandonné."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:414 PHP/bwc/bwc_games.php:517
+#: PHP/bwc/bwc_chessutils.php:413 PHP/bwc/bwc_games.php:546
 msgid "Draw proposal accepted"
 msgstr "Proposition de nulle acceptée"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:415
+#: PHP/bwc/bwc_chessutils.php:414
 msgid ""
 " accepted your draw proposal.\n"
 "The game ended."
@@ -587,27 +595,27 @@ msgstr ""
 "La partie est terminée."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:419 PHP/bwc/bwc_games.php:582
+#: PHP/bwc/bwc_chessutils.php:418 PHP/bwc/bwc_games.php:611
 msgid "Draw game"
 msgstr "Partie nulle"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:420 PHP/bwc/bwc_chessutils.php:425
+#: PHP/bwc/bwc_chessutils.php:419 PHP/bwc/bwc_chessutils.php:424
 msgid "Your game against"
 msgstr "Votre partie contre"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:420
+#: PHP/bwc/bwc_chessutils.php:419
 msgid " ended by a draw."
 msgstr " s'est terminée par une nulle."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:424
+#: PHP/bwc/bwc_chessutils.php:423
 msgid "Checkmate"
 msgstr "Echec et Mat"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:425
+#: PHP/bwc/bwc_chessutils.php:424
 msgid " ended by a checkmate."
 msgstr " s'est terminée par Echec et Mat."
 
@@ -654,14 +662,14 @@ msgid "To"
 msgstr "A"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_common.php:121
-#: PHP/game_in_progress.php:308 PHP/message.php:64
-#: PHP/mobile/game_in_progress.php:298
+#: PHP/game_in_progress.php:332 PHP/message.php:64
+#: PHP/mobile/game_in_progress.php:322
 msgid "Your message..."
 msgstr "Votre message..."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_common.php:124
-#: PHP/game_board.php:299 PHP/game_in_progress.php:244
-#: PHP/mobile/game_board.php:306 PHP/mobile/game_in_progress.php:240
+#: PHP/game_board.php:300 PHP/game_in_progress.php:256
+#: PHP/mobile/game_board.php:307 PHP/mobile/game_in_progress.php:252
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -681,131 +689,131 @@ msgstr "Suggestion"
 msgid "is the same level that you !"
 msgstr "a le même niveau que vous !"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:497
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:526
 msgid "Move cancellation accepted"
 msgstr "Annulation du coup accepté"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:503
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:532
 msgid "Move cancellation refused"
 msgstr "Annulation du coup refusé"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:522
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:551
 msgid "Draw proposal refused"
 msgstr "Proposition de nulle refusée"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:538
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:567
 msgid "Move cancellation pending"
 msgstr "Annulation de coup en attente"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:541
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:570
 msgid "Draw proposal pending..."
 msgstr "Proposition de nulle en attente..."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:589
-#: PHP/bwc/bwc_games.php:1080 PHP/bwc/bwc_games.php:1181
-#: PHP/game_list_ended.php:77 PHP/game_list_ended.php:147
-#: PHP/game_list_ended.php:213 PHP/game_list_ended.php:271
-#: PHP/player_view.php:240 PHP/player_view.php:295
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:618
+#: PHP/bwc/bwc_games.php:1121 PHP/bwc/bwc_games.php:1222
+#: PHP/game_list_ended.php:78 PHP/game_list_ended.php:148
+#: PHP/game_list_ended.php:219 PHP/game_list_ended.php:285
+#: PHP/game_list_ended.php:343 PHP/player_view.php:241 PHP/player_view.php:300
 msgid "Whites"
 msgstr "Les blancs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:592
-#: PHP/bwc/bwc_games.php:1082 PHP/bwc/bwc_games.php:1183
-#: PHP/game_list_ended.php:78 PHP/game_list_ended.php:148
-#: PHP/game_list_ended.php:214 PHP/game_list_ended.php:272
-#: PHP/player_view.php:241 PHP/player_view.php:296
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:621
+#: PHP/bwc/bwc_games.php:1123 PHP/bwc/bwc_games.php:1224
+#: PHP/game_list_ended.php:79 PHP/game_list_ended.php:149
+#: PHP/game_list_ended.php:220 PHP/game_list_ended.php:286
+#: PHP/game_list_ended.php:344 PHP/player_view.php:242 PHP/player_view.php:301
 msgid "Blacks"
 msgstr "Les noirs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:606
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:635
 msgid "resigned"
 msgstr "ont abandonné"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:621
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:650
 msgid "Check and Mat!"
 msgstr "Echec et Mat !"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:621
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:650
 msgid "win the game"
 msgstr "gagnent la partie"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1013
-#: PHP/bwc/bwc_games.php:1022 PHP/bwc/bwc_games.php:1039
-#: PHP/bwc/bwc_games.php:1048 PHP/bwc/bwc_games.php:1117
-#: PHP/bwc/bwc_games.php:1126 PHP/bwc/bwc_games.php:1143
-#: PHP/bwc/bwc_games.php:1152
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1054
+#: PHP/bwc/bwc_games.php:1063 PHP/bwc/bwc_games.php:1080
+#: PHP/bwc/bwc_games.php:1089 PHP/bwc/bwc_games.php:1158
+#: PHP/bwc/bwc_games.php:1167 PHP/bwc/bwc_games.php:1184
+#: PHP/bwc/bwc_games.php:1193
 msgid "Player turn"
 msgstr "A son tour"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1073
-#: PHP/bwc/bwc_games.php:1174
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1114
+#: PHP/bwc/bwc_games.php:1215
 msgid "Refresh game"
 msgstr "Rafraîchir la partie"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1074
-#: PHP/bwc/bwc_games.php:1175 PHP/game_in_progress.php:386
-#: PHP/mobile/game_in_progress.php:366
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1115
+#: PHP/bwc/bwc_games.php:1216 PHP/game_in_progress.php:422
+#: PHP/mobile/game_in_progress.php:390
 msgid "Expiration"
 msgstr "Expiration"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1074
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1115
 msgid "Ended game"
 msgstr "Partie terminée"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1091
-#: PHP/bwc/bwc_games.php:1192
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1132
+#: PHP/bwc/bwc_games.php:1233
 msgid "are in check"
 msgstr "sont en échecs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1206
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1247
 msgid "Your opponent do a draw proposal. Are you agree ?"
 msgstr "Votre adversaire vous propose une nulle. Etes vous d'accord ?"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1207
-#: PHP/player_update.php:491 PHP/player_update.php:500
-#: PHP/player_update.php:515 PHP/player_update.php:524
-#: PHP/player_update.php:538 PHP/player_update.php:547
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1248
+#: PHP/player_update.php:501 PHP/player_update.php:510
+#: PHP/player_update.php:525 PHP/player_update.php:534
+#: PHP/player_update.php:548 PHP/player_update.php:557
 msgid "Yes"
 msgstr "Oui"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1208
-#: PHP/player_update.php:493 PHP/player_update.php:502
-#: PHP/player_update.php:517 PHP/player_update.php:526
-#: PHP/player_update.php:540 PHP/player_update.php:549
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1249
+#: PHP/player_update.php:503 PHP/player_update.php:512
+#: PHP/player_update.php:527 PHP/player_update.php:536
+#: PHP/player_update.php:550 PHP/player_update.php:559
 msgid "No"
 msgstr "Non"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1210
-#: PHP/game_board.php:279 PHP/mobile/game_board.php:283
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1251
+#: PHP/game_board.php:280 PHP/mobile/game_board.php:284
 msgid "OK"
 msgstr "OK"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1274
-#: PHP/game_new.php:187 PHP/mobile/game_new.php:94 PHP/player_ranking.php:106
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1315
+#: PHP/game_new.php:187 PHP/mobile/game_new.php:94 PHP/player_ranking.php:108
 msgid "Classic game"
 msgstr "Partie classique"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1276
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1317
 msgid "Chess960 game"
 msgstr "Parties d'échecs Chess960"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1281
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1322
 msgid ", Bishops"
 msgstr ", Fous"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1283
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1324
 msgid ", Knights"
 msgstr ", Cavaliers"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1285
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1326
 msgid ", Rooks"
 msgstr ", Tours"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1287
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1328
 msgid ", Queens"
 msgstr ", Dames"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1289
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1330
 msgid "Beginner game - King and Pawns"
 msgstr "Partie débutant - Roi et Pions"
 
@@ -838,11 +846,11 @@ msgstr ""
 msgid "This message was sent automatically from the site CapaKaspa"
 msgstr "Ce message a été envoyé automatiquement à partir du site CapaKaspa"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:354
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:355
 msgid "[CapaKaspa] Your password"
 msgstr "[CapaKaspa] Votre mot de passe"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:355
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:356
 msgid "Data about your account"
 msgstr "Données de votre compte"
 
@@ -994,121 +1002,130 @@ msgstr ""
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:261
 #: PHP/mobile/game_board.php:265
 msgid ""
+"Can only castle if there are no pieces between current position and final "
+"position."
+msgstr ""
+"On ne peut roquer que s'il n'y a pas de pièces entre la position actuelle et "
+"la position finale."
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:262
+#: PHP/mobile/game_board.php:266
+msgid ""
 "When castling, the king cannot move over a square that is attacked by an "
 "ennemy piece."
 msgstr ""
 "En roquant, le Roi ne peut bouger sur une case qui est attaquée par une "
 "pièce ennemie."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:262
-#: PHP/mobile/game_board.php:266
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:263
+#: PHP/mobile/game_board.php:267
 msgid "Stalemate - The game ends with a draw."
 msgstr "Pat - La partie se termine sur une Nulle."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:263
-#: PHP/mobile/game_board.php:267
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:264
+#: PHP/mobile/game_board.php:268
 msgid "Insufficient material to checkmate - The game ends with a draw."
 msgstr "Matériel insuffisant pour mater - La partie se termine sur une Nulle."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:264
-#: PHP/mobile/game_board.php:268
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:265
+#: PHP/mobile/game_board.php:269
 msgid ""
 "Draw (this position has occurred three times) - The game ends with a draw."
 msgstr "La position s'est répétée 3 fois - La partie se termine sur une Nulle."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:265
-#: PHP/mobile/game_board.php:269
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:266
+#: PHP/mobile/game_board.php:270
 msgid "Draw (50 moves rule) - The game ends with a draw."
 msgstr "Règle des 50 coups - La partie se termine sur une Nulle."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:274
-#: PHP/mobile/game_board.php:278
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:275
+#: PHP/mobile/game_board.php:279
 msgid "Promote the pawn in"
 msgstr "Promouvoir le pion en"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:275
-#: PHP/game_new.php:199 PHP/mobile/game_board.php:279
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:276
+#: PHP/game_new.php:199 PHP/mobile/game_board.php:280
 #: PHP/mobile/game_new.php:106
 msgid "Queen"
 msgstr "Dame"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:276
-#: PHP/mobile/game_board.php:280
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:277
+#: PHP/mobile/game_board.php:281
 msgid "Rook"
 msgstr "Tour"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:277
-#: PHP/mobile/game_board.php:281
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:278
+#: PHP/mobile/game_board.php:282
 msgid "Knight"
 msgstr "Cavalier"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:278
-#: PHP/mobile/game_board.php:282
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:279
+#: PHP/mobile/game_board.php:283
 msgid "Bishop"
 msgstr "Fou"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:300
-#: PHP/mobile/game_board.php:307
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:301
+#: PHP/mobile/game_board.php:308
 msgid "Valid"
 msgstr "Valider"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:301
-#: PHP/graph_results_perc.php:19 PHP/mobile/game_board.php:308
-#: PHP/mobile/player_view.php:227 PHP/player_view.php:217
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:302
+#: PHP/graph_results_perc.php:19 PHP/mobile/game_board.php:309
+#: PHP/mobile/player_view.php:227 PHP/player_view.php:218
 msgid "Draw"
 msgstr "Nulle"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:302
-#: PHP/mobile/game_board.php:309
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:303
+#: PHP/mobile/game_board.php:310
 msgid "Share"
 msgstr "Partager"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:349
-#: PHP/mobile/game_board.php:349
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:350
+#: PHP/mobile/game_board.php:350
 msgid "Viewer"
 msgstr "Visualiseur"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:350
-#: PHP/mobile/game_board.php:350
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:351
+#: PHP/mobile/game_board.php:351
 msgid "Board"
 msgstr "Echiquier"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:352
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:353
 msgid "Download PGN"
 msgstr "Télécharger PGN"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:355
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:356
 #: PHP/player_view.php:160
 msgid "Private message"
 msgstr "Message privé"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:356
-#: PHP/mobile/game_board.php:354
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:357
+#: PHP/mobile/game_board.php:355
 msgid "Resign"
 msgstr "Abandonner"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:392
-#: PHP/game_in_progress.php:391 PHP/game_list_ended.php:81
-#: PHP/game_list_ended.php:151 PHP/game_list_ended.php:217
-#: PHP/game_list_ended.php:275
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:393
+#: PHP/game_in_progress.php:427 PHP/game_list_ended.php:82
+#: PHP/game_list_ended.php:152 PHP/game_list_ended.php:223
+#: PHP/game_list_ended.php:289 PHP/game_list_ended.php:347
 msgid "Started"
 msgstr "Commencée le"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:392
-#: PHP/game_in_progress.php:391 PHP/game_list_ended.php:82
-#: PHP/game_list_ended.php:152 PHP/game_list_ended.php:218
-#: PHP/game_list_ended.php:276 PHP/mobile/game_board.php:389
-#: PHP/mobile/game_in_progress.php:371
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:393
+#: PHP/game_in_progress.php:427 PHP/game_list_ended.php:83
+#: PHP/game_list_ended.php:153 PHP/game_list_ended.php:224
+#: PHP/game_list_ended.php:290 PHP/game_list_ended.php:348
+#: PHP/mobile/game_board.php:390 PHP/mobile/game_in_progress.php:395
 msgid "Last move"
 msgstr "Dernier coup"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:412
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:413
 msgid "Here are old existing comments on this game"
 msgstr "Anciens commentaires sur la partie"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:141
-#: PHP/game_in_progress.php:332 PHP/include/page_body.php:66
-#: PHP/mobile/game_in_progress.php:141 PHP/mobile/game_in_progress.php:322
+#: PHP/game_in_progress.php:356 PHP/include/page_body.php:66
+#: PHP/mobile/game_in_progress.php:141 PHP/mobile/game_in_progress.php:346
 msgid "My games in progress"
 msgstr "Mes parties en cours"
 
@@ -1139,127 +1156,133 @@ msgstr "Vous avez des vacances en cours ! Vos parties sont suspendues"
 msgid "My pending requests"
 msgstr "Mes demandes en attente"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:226
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:238
 msgid "You"
 msgstr "Vous"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:226
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:238
 msgid "invite a player to play a new game"
 msgstr "invitez un joueur à jouer une nouvelle partie"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:234
-#: PHP/game_in_progress.php:302 PHP/game_in_progress.php:385
-#: PHP/game_new.php:213 PHP/mobile/game_in_progress.php:230
-#: PHP/mobile/game_in_progress.php:292 PHP/mobile/game_in_progress.php:365
-#: PHP/mobile/game_new.php:111
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:246
+#: PHP/game_in_progress.php:326 PHP/game_in_progress.php:421
+#: PHP/game_new.php:213 PHP/mobile/game_in_progress.php:242
+#: PHP/mobile/game_in_progress.php:316 PHP/mobile/game_in_progress.php:389
+#: PHP/mobile/game_new.php:120
 msgid "Time per move"
 msgstr "Temps par coup"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:234
-#: PHP/game_in_progress.php:302 PHP/game_in_progress.php:385
-#: PHP/mobile/game_in_progress.php:230 PHP/mobile/game_in_progress.php:292
-#: PHP/mobile/game_in_progress.php:365
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:246
+#: PHP/game_in_progress.php:326 PHP/game_in_progress.php:421
+#: PHP/mobile/game_in_progress.php:242 PHP/mobile/game_in_progress.php:316
+#: PHP/mobile/game_in_progress.php:389
 msgid "days"
 msgstr "jours"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:241
-#: PHP/mobile/game_in_progress.php:237
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:253
+#: PHP/mobile/game_in_progress.php:249
 msgid "Response waiting"
 msgstr "Réponse en attente"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:243
-#: PHP/mobile/game_in_progress.php:239
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:255
+#: PHP/mobile/game_in_progress.php:251
 msgid "Request declined"
 msgstr "Demande refusée"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:288
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:312
 msgid "invite you to play a new game"
 msgstr "vous invite à jouer une nouvelle partie"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:311
-#: PHP/mobile/game_in_progress.php:301
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:335
+#: PHP/mobile/game_in_progress.php:325
 msgid "Accept"
 msgstr "Accepter"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:312
-#: PHP/mobile/game_in_progress.php:302
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:336
+#: PHP/mobile/game_in_progress.php:326
 msgid "Decline"
 msgstr "Refuser"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:332
-#: PHP/mobile/game_in_progress.php:322
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:356
+#: PHP/mobile/game_in_progress.php:346
 msgid "Refresh list"
 msgstr "Rafraîchir la liste"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:367
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:403
 msgid "is your opponent in this game."
 msgstr "est votre adversaire dans cette partie."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:382
-#: PHP/mobile/game_in_progress.php:362
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:418
+#: PHP/mobile/game_in_progress.php:386
 msgid "Play"
 msgstr "Jouer"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:400
-#: PHP/mobile/game_in_progress.php:380
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:436
+#: PHP/mobile/game_in_progress.php:404
 msgid "No games in progress..."
 msgstr "Pas de parties en cours..."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:40
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:41
 #: PHP/player_view.php:164
 msgid "Ended games"
 msgstr "Parties terminées"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:41
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:42
 msgid "All ended chess games of a player"
 msgstr "Toutes les parties terminées d'un joueur"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:73
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:74
 msgid "To take in account for next Elo ranking"
 msgstr "A prendre en compte dans le prochain classement Elo"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:79
-#: PHP/game_list_ended.php:149 PHP/game_list_ended.php:215
-#: PHP/game_list_ended.php:273 PHP/player_view.php:297
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:80
+#: PHP/game_list_ended.php:150 PHP/game_list_ended.php:221
+#: PHP/game_list_ended.php:287 PHP/game_list_ended.php:345
+#: PHP/player_view.php:302
 msgid "Result"
 msgstr "Résultat"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:80
-#: PHP/game_list_ended.php:150 PHP/game_list_ended.php:216
-#: PHP/game_list_ended.php:274 PHP/player_view.php:243 PHP/player_view.php:298
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:81
+#: PHP/game_list_ended.php:222 PHP/game_list_ended.php:288
+#: PHP/game_list_ended.php:346 PHP/player_view.php:243 PHP/player_view.php:303
 msgid "ECO"
 msgstr "ECO"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:87
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:88
+#: PHP/game_list_ended.php:158
 msgid "No games to take in account"
 msgstr "Pas de parties à prendre en compte"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:143
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:144
+msgid "To take in account for next Chess960 Elo ranking"
+msgstr "A prendre en compte dans le prochain classement Elo Chess960"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:215
 msgid "Lost games"
 msgstr "Parties perdues"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:143
-#: PHP/game_list_ended.php:209 PHP/game_list_ended.php:266
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:215
+#: PHP/game_list_ended.php:281 PHP/game_list_ended.php:338
 msgid "of"
 msgstr "de"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:157
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:229
 msgid "No lost games"
 msgstr "Aucune partie perdue"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:209
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:281
 msgid "Draw games"
 msgstr "Parties nulles"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:223
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:295
 msgid "No draw games"
 msgstr "Aucune partie nulle"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:266
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:338
 msgid "Won games"
 msgstr "Parties gagnées"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:281
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:353
 msgid "No won games"
 msgstr "Aucune partie gagnée"
 
@@ -1274,7 +1297,7 @@ msgid "Start new game"
 msgstr "Commencer une nouvelle partie"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:184
-#: PHP/mobile/game_new.php:91 PHP/player_ranking.php:103
+#: PHP/mobile/game_new.php:91 PHP/player_ranking.php:105
 msgid "Game type"
 msgstr "Type de partie"
 
@@ -1299,76 +1322,77 @@ msgid "Rooks"
 msgstr "Tours"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:207
+#: PHP/mobile/game_new.php:114
 msgid "Fischer Chess Random (Chess960)"
 msgstr "Fischer Chess Random (Chess960)"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:217
-#: PHP/mobile/game_new.php:115
+#: PHP/mobile/game_new.php:124
 msgid "2 days"
 msgstr "2 jours"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:218
-#: PHP/mobile/game_new.php:116
+#: PHP/mobile/game_new.php:125
 msgid "3 days"
 msgstr "3 jours"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:219
-#: PHP/mobile/game_new.php:117
+#: PHP/mobile/game_new.php:126
 msgid "4 days"
 msgstr "4 jours"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:220
-#: PHP/mobile/game_new.php:118
+#: PHP/mobile/game_new.php:127
 msgid "5 days"
 msgstr "5 jours"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:221
-#: PHP/mobile/game_new.php:119
+#: PHP/mobile/game_new.php:128
 msgid "7 days"
 msgstr "7 jours"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:222
-#: PHP/mobile/game_new.php:120
+#: PHP/mobile/game_new.php:129
 msgid "10 days"
 msgstr "10 jours"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:223
-#: PHP/mobile/game_new.php:121
+#: PHP/mobile/game_new.php:130
 msgid "14 days"
 msgstr "14 jours"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:229
-#: PHP/mobile/game_new.php:127
+#: PHP/mobile/game_new.php:136
 msgid "Play as (color)"
 msgstr "Jouer en (couleur)"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:232
-#: PHP/mobile/game_new.php:130
+#: PHP/mobile/game_new.php:139
 msgid "White"
 msgstr "Blanc"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:233
-#: PHP/mobile/game_new.php:131
+#: PHP/mobile/game_new.php:140
 msgid "Black"
 msgstr "Noir"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:234
-#: PHP/mobile/game_new.php:132
+#: PHP/mobile/game_new.php:141
 msgid "Random"
 msgstr "Au hasard"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:239
-#: PHP/mobile/game_new.php:137
+#: PHP/mobile/game_new.php:146
 msgid "Select a player"
 msgstr "Choisir un joueur"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:243
-#: PHP/mobile/game_new.php:141
+#: PHP/mobile/game_new.php:150
 msgid "Type a part of user name, first name or last name in the box"
 msgstr "Taper une partie du nom d'utilisateur, prénom ou nom dans le champ"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:250
-#: PHP/mobile/game_new.php:147
+#: PHP/mobile/game_new.php:156
 msgid "Start game"
 msgstr "Commencer une partie"
 
@@ -1438,13 +1462,13 @@ msgstr "Historique du classement Elo"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/graph_results_perc.php:18 PHP/mobile/player_view.php:226
-#: PHP/player_view.php:216
+#: PHP/player_view.php:217
 msgid "Won"
 msgstr "Gagnée"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/graph_results_perc.php:20 PHP/mobile/player_view.php:228
-#: PHP/player_view.php:218
+#: PHP/player_view.php:219
 msgid "Lost"
 msgstr "Perdue"
 
@@ -1460,13 +1484,13 @@ msgstr "CapaKaspa : Jouer aux échecs et partager vos parties"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:11
 #: PHP/include/page_body_home.php:11 PHP/include/page_body_no_menu.php:11
-#: PHP/player_update.php:435
+#: PHP/player_update.php:445
 msgid "CapaKaspa"
 msgstr "CapaKaspa"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:15
 #: PHP/include/page_body_home.php:15 PHP/include/page_body_no_menu.php:15
-#: PHP/mobile/index.php:93 PHP/mobile/player_view.php:161
+#: PHP/mobile/index.php:100 PHP/mobile/player_view.php:161
 msgid "Sign out"
 msgstr "Déconnexion"
 
@@ -1501,12 +1525,12 @@ msgid "Invalid user name or password !"
 msgstr "Nom d'utilisateur ou mot de passe invalide !"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:42
-#: PHP/index.php:393 PHP/mobile/index.php:65
+#: PHP/index.php:393 PHP/mobile/index.php:72
 msgid "Remember me"
 msgstr "Se souvenir de moi"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:43
-#: PHP/index.php:378 PHP/index.php:394 PHP/mobile/index.php:66
+#: PHP/index.php:378 PHP/index.php:394 PHP/mobile/index.php:73
 msgid "Sign in"
 msgstr "Se connecter"
 
@@ -1534,7 +1558,7 @@ msgstr "Mes parties terminées"
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:74
 #: PHP/mobile/activity.php:80 PHP/mobile/game_board.php:229
 #: PHP/mobile/game_in_progress.php:180 PHP/mobile/game_new.php:81
-#: PHP/mobile/index.php:83 PHP/mobile/player_search.php:75
+#: PHP/mobile/index.php:90 PHP/mobile/player_search.php:75
 #: PHP/mobile/player_view.php:140
 msgid "Players"
 msgstr "Joueurs"
@@ -1560,7 +1584,7 @@ msgid "Statistics"
 msgstr "Statistiques"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:88
-#: PHP/player_view.php:231
+#: PHP/player_view.php:232
 msgid "Games in progress"
 msgstr "Parties en cours"
 
@@ -1652,12 +1676,12 @@ msgid "and Share your Games !"
 msgstr "et Partager ses parties !"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:216
-msgid "Play chess games, choose your cadence and type."
-msgstr "Jouer des parties d'échecs, choisir votre cadence et le type."
+msgid "Play chess online, choose your cadence and type."
+msgstr "Jouer aux échecs en ligne, choisir votre cadence et le type."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:217
-msgid "Improve your Elo chess ranking."
-msgstr "Améliorer votre classement Elo de jeu d'échecs."
+msgid "Classic game, Fisher Random Chess (Chess960), Beginner game."
+msgstr "Partie classique, débutant et Fisher Random Chess (Chess960)."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:222
 msgid "Share your moves, results and invitations with your followers."
@@ -1791,7 +1815,7 @@ msgid "A valid email is required for confirmation"
 msgstr "Un email valide est obligatoire pour confirmation"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:308
-#: PHP/mobile/player_search.php:95 PHP/player_ranking.php:85
+#: PHP/mobile/player_search.php:95 PHP/player_ranking.php:87
 #: PHP/player_search.php:88 PHP/player_update.php:390
 msgid "Country"
 msgstr "Pays"
@@ -1868,16 +1892,16 @@ msgstr "Aucun contact"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/activity.php:78
 #: PHP/mobile/game_board.php:227 PHP/mobile/game_in_progress.php:178
-#: PHP/mobile/game_new.php:79 PHP/mobile/index.php:81
+#: PHP/mobile/game_new.php:79 PHP/mobile/index.php:88
 #: PHP/mobile/player_search.php:73 PHP/mobile/player_view.php:138
 msgid "Games"
 msgstr "Parties"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/activity.php:79
 #: PHP/mobile/game_board.php:228 PHP/mobile/game_in_progress.php:179
-#: PHP/mobile/game_new.php:80 PHP/mobile/index.php:82
+#: PHP/mobile/game_new.php:80 PHP/mobile/index.php:89
 #: PHP/mobile/player_search.php:74 PHP/mobile/player_view.php:139
-#: PHP/mobile/player_view.php:229 PHP/player_view.php:219
+#: PHP/mobile/player_view.php:229 PHP/player_view.php:220
 msgid "News"
 msgstr "Actualités"
 
@@ -1890,15 +1914,15 @@ msgstr "Accéder à la version pour ordinateur"
 msgid "CapaKaspa mobile"
 msgstr "CapaKaspa mobile"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/index.php:60
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/index.php:61
 msgid "Play your chess games on your mobile."
 msgstr "Jouez vos parties d'échecs sur votre mobile."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/index.php:69
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/index.php:76
 msgid "Invalid user name or password"
 msgstr "Nom d'utilisateur ou mot de passe invalide"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/index.php:74
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/index.php:81
 msgid ""
 "To sign-up on CapaKaspa access to the computer version by clicking on the "
 "link below."
@@ -1906,11 +1930,11 @@ msgstr ""
 "Pour vous inscrire sur CapaKaspa, accèdez à la version pour ordinateur en "
 "cliquant sur le lien au bas de l'écran."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/index.php:89
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/index.php:96
 msgid "Welcome"
 msgstr "Bienvenue"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/index.php:90
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/index.php:97
 msgid "your are on the optimized version of CapaKaspa for your mobile."
 msgstr ""
 "vous êtes sur le version optimisée pour les smartphone du site CapaKaspa."
@@ -1931,7 +1955,7 @@ msgid "Players advanced search"
 msgstr "Recherche avancée de joueurs"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_search.php:98 PHP/player_ranking.php:88
+#: PHP/mobile/player_search.php:98 PHP/player_ranking.php:90
 #: PHP/player_search.php:91
 msgid "All countries"
 msgstr "Tous les pays"
@@ -1982,13 +2006,13 @@ msgid "and"
 msgstr "et"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_search.php:137 PHP/player_ranking.php:121
+#: PHP/mobile/player_search.php:137 PHP/player_ranking.php:123
 #: PHP/player_search.php:135
 msgid "Filter"
 msgstr "Filtrer"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_search.php:139 PHP/player_ranking.php:126
+#: PHP/mobile/player_search.php:139 PHP/player_ranking.php:128
 #: PHP/player_search.php:140
 msgid "player(s) found"
 msgstr "joueur(s) trouvés"
@@ -2010,17 +2034,17 @@ msgid "Lives in "
 msgstr "Vit à"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_view.php:230 PHP/player_view.php:220
+#: PHP/mobile/player_view.php:230 PHP/player_view.php:221
 msgid "Followers"
 msgstr "Abonnés"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_view.php:231 PHP/player_view.php:221
+#: PHP/mobile/player_view.php:231 PHP/player_view.php:222
 msgid "Following"
 msgstr "Abonnements"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_view.php:235 PHP/player_view.php:362
+#: PHP/mobile/player_view.php:235 PHP/player_view.php:369
 msgid "Are you sure you want to delete this news ?"
 msgstr "Etes vous sûr de vouloir supprimer cette actualité ?"
 
@@ -2061,7 +2085,7 @@ msgstr ""
 "envoyé à cette adresse. Il contiendra les informations pour vous connecter."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:30
-#: PHP/player_ranking.php:80
+#: PHP/player_ranking.php:82
 msgid "Players ranking"
 msgstr "Classement des joueurs"
 
@@ -2069,15 +2093,15 @@ msgstr "Classement des joueurs"
 msgid "Players ranking by country and game type"
 msgstr "Classement des joueurs par pays et type de partie"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:111
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:113
 msgid "Order"
 msgstr "Ordre"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:114
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:116
 msgid "From first to last"
 msgstr "Du premier au dernier"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:115
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:117
 msgid "From last to first"
 msgstr "Du dernier au premier"
 
@@ -2191,174 +2215,186 @@ msgstr ""
 "d'échecs classiques terminées pendant le mois passé."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:427
+msgid "Elo Chess960"
+msgstr "Elo Chess960"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:432
+msgid ""
+"Elo Chess960 ranking is calculated monthly and takes into account the "
+"Chess960 games completed during the month past."
+msgstr ""
+"Le classement Elo Chess960 est calculé tous les mois et prend en compte les "
+"parties d'échecs Chess960 terminées pendant le mois passé."
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:437
 msgid "About you"
 msgstr "A propos de vous"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:431
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:441
 msgid "Picture"
 msgstr "Photo"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:434
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:444
 msgid "Display picture of your profile on"
 msgstr "Afficher votre photo de profil sur"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:436
-#: PHP/player_update.php:460
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:446
+#: PHP/player_update.php:470
 msgid "Facebook"
 msgstr "Facebook"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:437
-#: PHP/player_update.php:467
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:447
+#: PHP/player_update.php:477
 msgid "Google+"
 msgstr "Google+"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:438
-#: PHP/player_update.php:465
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:448
+#: PHP/player_update.php:475
 msgid "Twitter"
 msgstr "Twitter"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:448
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:458
 msgid "Social network ID"
 msgstr "Réseau social ID"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:452
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:462
 msgid "Choose your picture"
 msgstr "Choisir votre photo"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:457
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:467
 msgid "Max 500 Kb, JPEG/PNG only (1000x1000 pixels maximum)"
 msgstr "Max 500 Kb, JPEG/PNG seulement (1000x1000 pixels maximum)"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:461
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:471
 msgid "In Facebook, at the bottom of the Infos section of your account:"
 msgstr "Dans Facebook, au bas de la section Infos de votre compte :"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:462
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:472
 msgid "Facebook http://www.facebook.com/[ ID ]"
 msgstr "Facebook http://www.facebook.com/[ ID ]"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:463
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:473
 msgid "Or"
 msgstr "Ou"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:464
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:474
 msgid "Facebook http://www.facebook.com/profile.php?id= [ ID ]"
 msgstr "Facebook http://www.facebook.com/profile.php?id= [ ID ]"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:466
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:476
 msgid "It's the name of your account."
 msgstr "C'est le nom de votre compte."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:468
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:478
 msgid ""
 "Display your profile page, the URL in the browser is something like that:"
 msgstr ""
 "Afficher votre page profil, l'adresse dans le navigateur est comme ça :"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:469
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:479
 msgid "https://plus.google.com/u/0/[ ID ]/posts (it's a long number)."
 msgstr "https://plus.google.com/u/0/[ ID ]/posts (c'est un long nombre)."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:475
-#: PHP/player_update.php:593
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:485
+#: PHP/player_update.php:603
 msgid "Save"
 msgstr "Enregistrer"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:481
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:491
 msgid "Preferences"
 msgstr "Préférences"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:485
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:495
 msgid "Email notification"
 msgstr "Notification par email"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:505
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:515
 msgid "(Invitations, moves, results and private messages)"
 msgstr "(Invitations, coups, résultats et messages privés)"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:509
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:519
 msgid "Share invitations"
 msgstr "Partager invitations"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:532
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:542
 msgid "Share results"
 msgstr "Partager résultats"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:555
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:565
 msgid "Chess set"
 msgstr "Pièces"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:583
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:593
 msgid "Displaying language"
 msgstr "Langue d'affichage"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:586
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:596
 msgid "English"
 msgstr "Anglais"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:587
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:597
 msgid "French"
 msgstr "Français"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:618
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:628
 msgid "Game postponement"
 msgstr "Suspension des parties"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:623
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:633
 msgid "The number of days of vacation that you requested is not valid"
 msgstr "Le nombre de jours de vacances que vous demandez n'est pas valide"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:625
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:635
 msgid "Your request of vacation has been saved successfully"
 msgstr "Votre demande de vacances a bien été enregistrée"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:628
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:638
 msgid "Number of days must be between 0 and 30"
 msgstr "Le nombre de jours doit être entre 0 et 30"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:630
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:640
 msgid "You have"
 msgstr "Vous avez"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:630
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:640
 msgid "available days of vacation for year"
 msgstr "jours de vacances disponibles pour l'année"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:630
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:640
 msgid "days of vacation on 2 years are counted in the last year"
 msgstr ""
 "les jours de vacances à cheval sur 2 années sont comptés la dernière année"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:637
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:647
 msgid "You don't have vacation in progress."
 msgstr "Vous n'avez pas de vacances en cours"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:645
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:655
 msgid "You have vacation from"
 msgstr "Vous avez des vacances du"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:659
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:669
 msgid "You want to postpone your games for"
 msgstr "Vous voulez suspendre vos parties pour"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:660
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:670
 msgid "day(s) from"
 msgstr "jour(s) à partir du"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:661
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:671
 msgid "Postpone my games..."
 msgstr "Suspendre mes parties..."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:661
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:671
 msgid "(All your games will be postponed immediatly)"
 msgstr "(Toutes les parties seront suspendues immédiatement)"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:666
-#: PHP/player_update.php:670
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:676
+#: PHP/player_update.php:680
 msgid "Disable my account"
 msgstr "Désactiver mon compte"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:667
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:677
 msgid ""
 "You can disable your account on CapaKaspa. Other players will no longer have "
 "interactions with your account. But it will viewable from games or news. You "
@@ -2373,15 +2409,15 @@ msgstr ""
 msgid "Update my information"
 msgstr "Actualiser mes infos"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:254
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:255
 msgid "No games in progress"
 msgstr "Pas de parties en cours"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:287
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:292
 msgid "My games against"
 msgstr "Mes parties contre"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:309
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:314
 msgid "You've never played against this player"
 msgstr "Vous n'avez jamais joué contre ce joueur"
 
@@ -3026,6 +3062,13 @@ msgstr ""
 "autres points n'en seraient pas affectés. Tout point déclaré caduc sera "
 "remplacé par une disposition se rapprochant le plus possible de la "
 "précédente disposition."
+
+#~ msgid "Improve your Elo chess ranking."
+#~ msgstr "Améliorer votre classement Elo de jeu d'échecs."
+
+#, fuzzy
+#~ msgid "Chess960 :"
+#~ msgstr "Parties d'échecs Chess960"
 
 #, fuzzy
 #~ msgid "Players rankings"

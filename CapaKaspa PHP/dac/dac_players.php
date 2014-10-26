@@ -139,7 +139,7 @@ function searchPlayers($mode, $debut, $limit, $playerID, $critFavorite, $critSta
 		FROM players P left join online_players O on O.playerID = P.playerID";
 	else
 		$tmpQuery = "SELECT P.playerID, P.nick, P.firstName, P.lastName, P.socialNetwork, P.socialID, P.profil,
-		P.situationGeo, P.elo, P.lastConnection, P.creationDate,
+		P.situationGeo, P.elo, P.elo960, P.lastConnection, P.creationDate,
 		O.lastActionTime,
 		C.countryName
 		FROM players P left join online_players O on O.playerID = P.playerID, country C ";

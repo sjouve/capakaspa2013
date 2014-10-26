@@ -7,13 +7,13 @@
 function getGame($gameID)
 {
 	global $dbh;
-	// Informations sur la partie : voir le type de partie (position normale ou pas) et le problÃ¨me du code ECO
+	// Informations sur la partie : voir le type de partie (position normale ou pas) et le probème du code ECO
 	$tmpQuery = "SELECT G.gameID, G.whitePlayer whitePlayer, G.blackPlayer blackPlayer, G.dialogue dialogue, G.position position,  
 	G.lastMove, G.dateCreated, DATE_ADD(G.lastMove, INTERVAL G.timeMove DAY) expirationDate, G.timeMove, 
 	G.type type, G.flagBishop flagBishop, G.flagKnight flagKnight, G.flagRook flagRook, G.flagQueen flagQueen, G.chess960,
 	G.eco eco, G.gameMessage, E.name ecoName, L.likeID, 
-	W.nick whiteNick, W.elo whiteElo, W.socialNetwork whiteSocialNet, W.socialID whiteSocialID, W.firstName whiteFirstName, W.lastName whiteLastName, W.email whiteEmail,
-	B.nick blackNick, B.elo blackElo, B.socialNetwork blackSocialNet, B.socialID blackSocialID, B.firstName blackFirstName, B.lastName blackLastName, B.email blackEmail
+	W.nick whiteNick, W.elo whiteElo, W.elo960 whiteElo960, W.socialNetwork whiteSocialNet, W.socialID whiteSocialID, W.firstName whiteFirstName, W.lastName whiteLastName, W.email whiteEmail,
+	B.nick blackNick, B.elo blackElo, W.elo960 blackElo960, B.socialNetwork blackSocialNet, B.socialID blackSocialID, B.firstName blackFirstName, B.lastName blackLastName, B.email blackEmail
 	FROM ((games G left join eco E on E.eco = G.eco AND E.ecoLang = '".getLang()."') 
 				left join like_entity L on L.type = '".GAME."' AND L.entityID = G.gameID AND L.playerID = ".$_SESSION['playerID']."), players W, players B
 	WHERE gameID = ".$gameID."
@@ -41,7 +41,7 @@ function countActiveGameForAll()
 }
 
 /**
-* Liste des parties terminÃ©es d'un joueur pour calcul moyenne elo adversaire
+* Liste des parties terminées d'un joueur pour calcul moyenne elo adversaire
 **/
 function listEndedGames($playerID, $dateDeb, $dateFin)
 {
@@ -156,8 +156,8 @@ function listInProgressGames($playerID)
 	$tmpGames = mysqli_query($dbh,"SELECT G.gameID gameID, G.eco eco, G.dateCreated, G.lastMove, DATE_ADD(G.lastMove, INTERVAL G.timeMove DAY) expirationDate, G.whitePlayer whitePlayer, G.timeMove, 
 									G.blackPlayer blackPlayer, G.position position, G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.type,  
 									E.name ecoName,
-									W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, W.socialID whiteSocialID, W.socialNetwork whiteSocialNetwork,
-						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.socialID blackSocialID, B.socialNetwork blackSocialNetwork
+									W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, W.elo960 whiteElo960, W.socialID whiteSocialID, W.socialNetwork whiteSocialNetwork,
+						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.elo960 blackElo960, B.socialID blackSocialID, B.socialNetwork blackSocialNetwork
 						FROM games G left join eco E on E.eco = G.eco AND E.ecoLang = '".getLang()."', players W, players B
 						WHERE (gameMessage is NULL OR gameMessage = '')
 						AND (whitePlayer = ".$playerID." OR blackPlayer = ".$playerID.")
@@ -173,8 +173,8 @@ function listInvitationFor($playerID)
 	global $dbh;
 	$tmpQuery = "SELECT G.gameID, G.whitePlayer, G.blackPlayer, G.dateCreated, G.type, G.gameMessage, 
 						G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.position, G.timeMove,
-						W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, W.socialID whiteSocialID, W.socialNetwork whiteSocialNetwork,
-						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.socialID blackSocialID, B.socialNetwork blackSocialNetwork
+						W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, W.elo960 whiteElo960, W.socialID whiteSocialID, W.socialNetwork whiteSocialNetwork,
+						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.elo960 blackElo960, B.socialID blackSocialID, B.socialNetwork blackSocialNetwork
 				FROM games G, players W, players B 
 				WHERE (gameMessage = 'playerInvited' 
 				AND ((whitePlayer = ".$playerID." AND messageFrom = 'black') 
@@ -193,8 +193,8 @@ function listInvitationFrom($playerID)
 	/* if game is marked playerInvited and the invite is from the current player */
 	$tmpQuery = "SELECT G.gameID, G.whitePlayer, G.blackPlayer,  G.dateCreated, G.type, G.gameMessage, 
 						G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.position, G.timeMove,
-						W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, W.socialID whiteSocialID, W.socialNetwork whiteSocialNetwork,
-						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.socialID blackSocialID, B.socialNetwork blackSocialNetwork
+						W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, W.elo960 whiteElo960, W.socialID whiteSocialID, W.socialNetwork whiteSocialNetwork,
+						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.elo960 blackElo960, B.socialID blackSocialID, B.socialNetwork blackSocialNetwork
 					FROM games G, players W, players B 
 					WHERE ((gameMessage = 'playerInvited' 
 						AND ((whitePlayer = ".$playerID." AND messageFrom = 'white') 
@@ -219,7 +219,8 @@ function listCapturedPieces($gameID)
 	$tmpListPieces = mysqli_query($dbh,"SELECT curPiece, curColor, replaced
 								FROM history 
 								WHERE replaced > '' 
-								AND gameID =  '".$gameID."' 
+								AND gameID =  '".$gameID."'
+								AND replaced != 'chess960' 
 								ORDER BY curColor DESC , replaced DESC");
 	return $tmpListPieces;
 }
@@ -315,6 +316,20 @@ function listEndedGamesForElo($playerID)
 						AND G.eco = E.eco
 						AND E.ecoLang = '".getLang()."'
 						ORDER BY E.eco ASC, G.lastMove DESC");
+	
+	return $tmpGames;
+}
+
+function listEndedGamesForElo960($playerID)
+{
+	global $dbh;
+	$tmpGames = mysqli_query($dbh,"SELECT G.gameID, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove, G.chess960
+						FROM games G, players W, players B
+						WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
+						AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
+						AND G.lastMove >= DATE_FORMAT((SELECT MAX(DISTINCT(eloDate)) from elo960_history), '%Y-%m-01')
+						AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
+						ORDER BY G.lastMove DESC");
 	
 	return $tmpGames;
 }

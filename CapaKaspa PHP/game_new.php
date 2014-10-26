@@ -199,7 +199,7 @@ require 'include/page_body.php';
 						<input type="checkbox" name="flagQueen" value="1"> <?echo _("Queen")?>
 					</td>
 				</tr>
-				<!-- <tr>
+				<tr>
 					<td>
 						&nbsp;
 					</td>
@@ -207,18 +207,18 @@ require 'include/page_body.php';
 						<input type="radio" name="type" value="2" onclick="javascript:getChess960();"> <?echo _("Fischer Chess Random (Chess960)")?>
 						<input type="hidden" name="chess960" value="">
 					</td>
-				</tr> -->
+				</tr>
 				<tr>
 					<td>
 						<?echo _("Time per move")?> : 
 					</td>
 					<td>
 						<select name="timeMove" id="timeMove">
-		            		<option value="2" selected><?echo _("2 days");?></option>
+		            		<option value="2"><?echo _("2 days");?></option>
 		            		<option value="3"><?echo _("3 days");?></option>
 		            		<option value="4"><?echo _("4 days");?></option>
 		            		<option value="5"><?echo _("5 days");?></option>
-		            		<option value="7"><?echo _("7 days");?></option>
+		            		<option value="7" selected><?echo _("7 days");?></option>
 		            		<option value="10"><?echo _("10 days");?></option>
 		            		<option value="14"><?echo _("14 days");?></option>
 		            	</select>

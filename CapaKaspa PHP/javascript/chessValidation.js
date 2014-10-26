@@ -305,13 +305,14 @@ function GamePiece()
 
 	function isValidMoveKing(fromRow, fromCol, toRow, toCol, tmpColor)
 	{
-		/* the king cannot move to a square occupied by a friendly piece */
-		if (boardGameType != 2 || (boardGameType == 2 && board[toRow][toCol] & COLOR_MASK != ROOK))
+		/* The king cannot move to a square occupied by a friendly piece. Not for Chess960 */
+		if (boardGameType != 2 || (boardGameType == 2 && (board[toRow][toCol] & COLOR_MASK) != ROOK))
 			if ((board[toRow][toCol] != 0) && (getPieceColor(board[toRow][toCol]) == tmpColor))
 			{
 				return false;
 			}
-		/* temporarily move king to destination to see if in check */
+		
+		/* Temporarily move king to destination to see if in check */
 		var tmpPiece = board[toRow][toCol];
 		board[toRow][toCol] = board[fromRow][fromCol];
 		board[fromRow][fromCol] = 0;
@@ -342,17 +343,128 @@ function GamePiece()
 		board[toRow][toCol] = tmpPiece;
 
 		/* NORMAL MOVE: */
-		if ((Math.abs(toRow - fromRow) <= 1) && (Math.abs(toCol - fromCol) <= 1))
+		if (((boardGameType != 2) || ((boardGameType == 2) && ((board[toRow][toCol] & COLOR_MASK) != ROOK)))
+			&& ((Math.abs(toRow - fromRow) <= 1) && (Math.abs(toCol - fromCol) <= 1)))
 		{
 			if (DEBUG)
 				alert("king -> normal move");
 
 			return true;
 		}
-		/* CASTLING: No Chess960*/
+		/* CASTLING: Chess960*/
 		else if (boardGameType == 2 && (board[toRow][toCol] & COLOR_MASK) == ROOK)
 		{
-			// TODO Chess960 Cas du roque à voir (pour le roque on déplace le Roi sur la Tour du côté du roque voulu, la position finale des deux est celle du roque classique)
+			// Chess960 Cas du roque à voir (pour le roque on déplace le Roi sur la Tour du côté du roque voulu)
+			/*
+			 * La position finale du roque est exactement la même que dans les échecs orthodoxes, peu importe la position initiale.
+			 * Après le roque du côté a, qui se note « O-O-O », le roi est en c et la tour en d alors qu'après le roque du côté h, 
+			 * qui se note « O-O », le roi se retrouve en g et la tour en f. Les cases qui se retrouvent entre l'emplacement initial 
+			 * de la tour et sa case finale de même que celles qui se trouvent entre la case initiale du roi et celle de son arrivée 
+			 * doivent être vacantes (sauf si elles sont occupées par la pièce participant au roque) et doivent répondre aux mêmes 
+			 * exigences qu'aux échecs orthodoxes. Dans certaines positions, une des deux pièces ne bouge pas.
+			 */
+			
+			/* 
+			 * The king that makes the castling move has not yet moved in the game.
+			 */
+			for (i = 0; i <= numMoves; i++)
+			{
+				/* if king has already moved */
+				if ((chessHistory[i][FROMROW] == fromRow) && (chessHistory[i][CURPIECE] == "king"))
+				{
+					//errMsg = "Can only castle if king has not moved yet.";
+					errMsg = document.getElementById('#alert_err_castle_king_id').innerHTML;
+					
+					return false;
+				}
+				/* if rook has already moved */
+				else if ((chessHistory[i][FROMROW] == fromRow) && (chessHistory[i][FROMCOL] == rookCol))
+				{
+					//errMsg = "Can only castle if rook has not moved yet.";
+					errMsg = document.getElementById('#alert_err_castle_rook_id').innerHTML;
+					return false;
+				}
+			}
+			
+			/*
+			* Squares for Rook and King are empty
+			*/
+			if (fromCol > toCol)
+			{
+				if (board[fromRow][2] != 0 && (board[fromRow][2] & COLOR_MASK) != KING && (board[fromRow][2] & COLOR_MASK) != ROOK) 
+				{
+					//errMsg = "Can only castle if there are no pieces between the rook and the king";
+					errMsg = document.getElementById('#alert_err_castle_pieces_id').innerHTML;
+					
+					return false;
+				}
+				if (board[fromRow][3] != 0 && (board[fromRow][3] & COLOR_MASK) != ROOK && (board[fromRow][3] & COLOR_MASK) != KING) 
+				{
+					//errMsg = "Can only castle if there are no pieces between the rook and the king";
+					errMsg = document.getElementById('#alert_err_castle_pieces_id').innerHTML;
+					
+					return false;
+				}
+			}
+			else
+			{
+				if (board[fromRow][5] != 0 && (board[fromRow][5] & COLOR_MASK) != ROOK && (board[fromRow][5] & COLOR_MASK) != KING) 
+				{
+					//errMsg = "Can only castle if there are no pieces between the rook and the king";
+					errMsg = document.getElementById('#alert_err_castle_pieces_id').innerHTML;
+					
+					return false;
+				}
+				if (board[fromRow][6] != 0 && (board[fromRow][6] & COLOR_MASK) != KING && (board[fromRow][6] & COLOR_MASK) != ROOK) 
+				{
+					//errMsg = "Can only castle if there are no pieces between the rook and the king";
+					errMsg = document.getElementById('#alert_err_castle_pieces_id').innerHTML;
+					
+					return false;
+				}
+			}
+				
+			/*
+			* All squares between the rook and king before the castling move are empty.
+			*/
+			if (fromCol > toCol) tmpStep = -1;
+			else tmpStep = 1;
+			
+			for (i = fromCol; i != toCol; i += tmpStep)
+				if (board[fromRow][i] != 0 && (board[toRow][toCol] & COLOR_MASK) != ROOK)
+				{
+					if (DEBUG)
+						alert("king -> castling -> square not empty");
+
+					//errMsg = "Can only castle if there are no pieces between the rook and the king";
+					errMsg = document.getElementById('#alert_err_castle_pieces_id').innerHTML;
+					
+					return false;
+				}
+			
+			/*
+		    * The king is not in check.
+		    * The king does not move over a square that is attacked by an enemy piece during the castling move
+			*/
+			if (isSafe(fromRow, fromCol, tmpColor)
+					&& isSafe(fromRow, fromCol + tmpStep, tmpColor))
+			{
+				if (DEBUG)
+					alert("king -> castling -> VALID!");
+
+				return true;
+			}
+			else
+			{
+				if (DEBUG)
+					alert("king -> castling -> moving over attacked square");
+
+				//errMsg = "When castling, the king cannot move over a square that is attacked by an ennemy piece";
+				errMsg = document.getElementById('#alert_err_castle_attack_id').innerHTML;
+				
+				return false;
+			}
+			
 			return true;
 		}
 		/* CASTLING: No Chess960*/
@@ -365,7 +477,14 @@ function GamePiece()
 			*/
 			if (DEBUG)
 				alert("isValidMoveKing -> Castling");
-
+			
+			// No castling for beginner game with no rook
+			if ((boardGameType == 1) && ((board[toRow][7] & COLOR_MASK) != ROOK ) && ((board[toRow][0] & COLOR_MASK) != ROOK))
+			{
+				errMsg = document.getElementById('#alert_err_move_king_id').innerHTML;
+				return false;
+			}
+			
 			var rookCol = 0;
 			if (toCol - fromCol == 2)
 				rookCol = 7;

@@ -42,7 +42,7 @@ function getPGN($whiteNick, $blackNick, $type, $flagBishop, $flagKnight, $flagRo
 	}
 	if ($type == 2)
 	{
-		$startFEN = "11111111/pppppppp/8/8/8/8/PPPPPPPP/11111111";
+		$startFEN = "11111111/pppppppp/8/8/8/8/PPPPPPPP/11111111 w KQkq - 0 1";
 		// Init Chess960
 		for ($i = 0; $i < 8; $i++)
 		{
@@ -53,11 +53,14 @@ function getPGN($whiteNick, $blackNick, $type, $flagBishop, $flagKnight, $flagRo
 	}
 	
 	$pattern = "[\n\r]";
-	$pgnstring = "[FEN \"".$startFEN."\"][Site \"CapaKaspa\"][White \"".$whiteNick."\"][Black \"".$blackNick."\"] ";
+	$pgnstring = "[FEN \"".$startFEN."\"][Site \"CapaKaspa\"][White \"".$whiteNick."\"][Black \"".$blackNick."\"]";
+	if ($type == 2) $pgnstring .= "[Variant \"Chess960\"]";
 	if ($gameResult != "")
 	{
-		$pgnstring .= "[Result \"".$gameResult."\"] ";
+		$pgnstring .= "[Result \"".$gameResult."\"]";
 	}
+	$pgnstring .= " ";
+	
 	$pgnstring .= mb_eregi_replace($pattern," ",$listeCoups);
 		return $pgnstring;
 	
@@ -138,7 +141,7 @@ function loadHistory($gameID)
 */
 function saveHistory()
 {
-	global $board, $isPromoting, $history, $numMoves, $isInCheck;
+	global $board, $isPromoting, $history, $numMoves, $isInCheck, $isChess960Castling;
 	global $dbh;
 	
 	/* set destination row for pawn promotion */
@@ -152,7 +155,28 @@ function saveHistory()
 		$isPromoting = true;
 	else
 		$isPromoting = false;
-
+		
+		
+	/* determine chess960 castling : from piece and to piece have same colour */
+	$isChess960Castling = false;
+	if (
+			(
+				(($board[$_POST['fromRow']][$_POST['fromCol']] & COLOR_MASK) == KING) 
+				&& 
+				(($board[$_POST['toRow']][$_POST['toCol']] & COLOR_MASK) == ROOK)
+			)
+			&&
+			(
+				(($board[$_POST['fromRow']][$_POST['fromCol']] & WHITE) == ($board[$_POST['toRow']][$_POST['toCol']] & WHITE))
+				||
+				(($board[$_POST['fromRow']][$_POST['fromCol']] & BLACK) == ($board[$_POST['toRow']][$_POST['toCol']] & BLACK))
+			)
+		)
+	{
+		$isChess960Castling = true;
+	}
+	
+		
 	/* determine who's playing based on number of moves so far */
 	if (($numMoves == -1) || ($numMoves % 2 == 1))
 	{
@@ -215,13 +239,18 @@ function saveHistory()
 	}
 	else
 	{
-		if ($isPromoting)
-			$tmpQuery = "INSERT INTO history (timeOfMove, gameID, curPiece, curColor, fromRow, fromCol, toRow, toCol, replaced, promotedTo, isInCheck) VALUES (Now(), ".$_POST['gameID'].", '".getPieceName($board[$_POST['fromRow']][$_POST['fromCol']])."', '$curColor', ".$_POST['fromRow'].", ".$_POST['fromCol'].", ".$_POST['toRow'].", ".$_POST['toCol'].", '".getPieceName($board[$_POST['toRow']][$_POST['toCol']])."', '".getPieceName($_POST['promotion'])."', ".$history[$numMoves]['isInCheck'].")"; 
-		else
-			$tmpQuery = "INSERT INTO history (timeOfMove, gameID, curPiece, curColor, fromRow, fromCol, toRow, toCol, replaced, promotedTo, isInCheck) VALUES (Now(), ".$_POST['gameID'].", '".getPieceName($board[$_POST['fromRow']][$_POST['fromCol']])."', '$curColor', ".$_POST['fromRow'].", ".$_POST['fromCol'].", ".$_POST['toRow'].", ".$_POST['toCol'].", '".getPieceName($board[$_POST['toRow']][$_POST['toCol']])."', null, ".$history[$numMoves]['isInCheck'].")"; 
-		
-		$history[$numMoves]['replaced'] = getPieceName($board[$_POST['toRow']][$_POST['toCol']]);
+		if ($isChess960Castling)
+			$history[$numMoves]['replaced'] = "chess960";
+		else 
+			$history[$numMoves]['replaced'] = getPieceName($board[$_POST['toRow']][$_POST['toCol']]);
+			
 		$tmpReplaced = $history[$numMoves]['replaced'];
+		
+		if ($isPromoting)
+			$tmpQuery = "INSERT INTO history (timeOfMove, gameID, curPiece, curColor, fromRow, fromCol, toRow, toCol, replaced, promotedTo, isInCheck) VALUES (Now(), ".$_POST['gameID'].", '".getPieceName($board[$_POST['fromRow']][$_POST['fromCol']])."', '$curColor', ".$_POST['fromRow'].", ".$_POST['fromCol'].", ".$_POST['toRow'].", ".$_POST['toCol'].", '".$history[$numMoves]['replaced']."', '".getPieceName($_POST['promotion'])."', ".$history[$numMoves]['isInCheck'].")"; 
+		else
+			$tmpQuery = "INSERT INTO history (timeOfMove, gameID, curPiece, curColor, fromRow, fromCol, toRow, toCol, replaced, promotedTo, isInCheck) VALUES (Now(), ".$_POST['gameID'].", '".getPieceName($board[$_POST['fromRow']][$_POST['fromCol']])."', '$curColor', ".$_POST['fromRow'].", ".$_POST['fromCol'].", ".$_POST['toRow'].", ".$_POST['toCol'].", '".$history[$numMoves]['replaced']."', null, ".$history[$numMoves]['isInCheck'].")"; 
+		
 	}
 
 	$res = mysqli_query($dbh,$tmpQuery);
@@ -308,15 +337,15 @@ function loadGame($gameID, $numMoves)
 
 function saveGame()
 {
-	// TODO VÃ©rifier impact $ecoCode, $ecoName
+	// TODO Vérifier impact $ecoCode, $ecoName
 	global $board, $playersColor, $ecoCode, $ecoName, $numMoves;
 	
-	// Sauvegarde de l'Ã©chiquier sous la forme d'une chaÃ®ne de 64 caractÃ¨res
+	// Sauvegarde de l'échiquier sous la forme d'une chaîne de 64 caractères
 	// tcfdrfct pppppppp 00000000 00000000 00000000 00000000 PPPPPPPP TCFDRFCT
 	
 	$position = "";
 	
-	// Construire la chaÃ®ne de la position courante Ã  partir de l'Ã©chiquier
+	// Construire la chaîne de la position courante à partir de l'échiquier
 	// Pour chaque ligne
 	for ($i = 0; $i < 8; $i++)
 	{
@@ -334,7 +363,7 @@ function saveGame()
 	else
 		$turnColor = "b";
 		
-	// ContrÃ´le code ECO de la position
+	// Contrôle code ECO de la position
 	$fen_eco = getEco($position);
 	$turnColorEco = "";
 	$newEco = "";
@@ -351,7 +380,7 @@ function saveGame()
 	}
 	
 			
-	// Mettre Ã  jour la date du dernier coup et la position
+	// Mettre à  jour la date du dernier coup et la position
 	$res = updateGame($_POST['gameID'], $position, $ecoCode);
 	return $res;
 }
@@ -998,6 +1027,18 @@ function writeStatus($tmpGame)
 	$expirationDate = new DateTime($tmpGame['expirationDate']);
 	$strExpirationDate = $fmt->format($expirationDate);
 	
+	// Elo
+	if ($tmpGame['type'] == 2)
+	{
+		$whiteElo = $tmpGame['whiteElo960'];
+		$blackElo = $tmpGame['blackElo960'];
+	}
+	else
+	{
+		$whiteElo = $tmpGame['whiteElo'];
+		$blackElo = $tmpGame['blackElo'];
+	}
+	
 	?>
 	<table border="0" align="center" cellspacing="0" cellpadding="0">
 	<tr bgcolor="#EEEEEE" valign="top">
@@ -1008,7 +1049,7 @@ function writeStatus($tmpGame)
 	    <?
           	if ($isPlayersTurn)
           	{
-          		echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteNick']."</a><br/>".$tmpGame['whiteElo']);
+          		echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteNick']."</a><br/>".$whiteElo);
           		if (getOnlinePlayer($tmpGame['whitePlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
           		if ($tmpGame['whiteNick'] == $_SESSION['nick']) echo (" <img src='images/hand.gif' title='"._("Player turn")."' alt='"._("Player turn")."'>");
           		echo("</div>");
@@ -1017,14 +1058,14 @@ function writeStatus($tmpGame)
           	{
           		if ($tmpGame['whiteNick'] == $_SESSION['nick'] || $tmpGame['blackNick'] == $_SESSION['nick'])
           		{
-          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteNick']."</a><br/>".$tmpGame['whiteElo']);
+          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteNick']."</a><br/>".$whiteElo);
           			if (getOnlinePlayer($tmpGame['whitePlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
           			if ($tmpGame['whiteNick'] != $_SESSION['nick']) echo (" <img src='images/hand.gif' title='"._("Player turn")."' alt='"._("Player turn")."'>");
           			echo("</div>");
           		}
           		else
           		{
-          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteNick']."</a><br/>".$tmpGame['whiteElo']);
+          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteNick']."</a><br/>".$whiteElo);
           			if (getOnlinePlayer($tmpGame['whitePlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
           			echo("</div>");
           		}
@@ -1038,7 +1079,7 @@ function writeStatus($tmpGame)
           		echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackNick']."</a><br/>");
           		if ($tmpGame['blackNick'] == $_SESSION['nick']) echo ("<img src='images/hand.gif' title='"._("Player turn")."' alt='"._("Player turn")."'> ");
           		if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
-          		echo($tmpGame['blackElo']."</div>");	
+          		echo($blackElo."</div>");	
           	}
           	else
           	{
@@ -1047,13 +1088,13 @@ function writeStatus($tmpGame)
           			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackNick']."</a><br/>");
           			if ($tmpGame['blackNick'] != $_SESSION['nick']) echo ("<img src='images/hand.gif' title='"._("Player turn")."' alt='"._("Player turn")."'> ");
           			if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
-          			echo($tmpGame['blackElo']."</div>");	
+          			echo($blackElo."</div>");	
           		}
           		else
           		{
           			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackNick']."</a><br/>");
           			if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
-          			echo($tmpGame['blackElo']."</div>");
+          			echo($blackElo."</div>");
           		}
           	}
 			?>

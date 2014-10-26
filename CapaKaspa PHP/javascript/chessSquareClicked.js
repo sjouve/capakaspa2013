@@ -45,7 +45,6 @@
 			
 			/* if, on a player's second click, they click on one of their own piece */
 			/* act as if he was clicking for the first time (ie: select it) */
-			// TODO Chess960 Cas clique sur Tour avec le Roi
 			if (board[row][col] != 0 )
 				if (getPieceColor(board[row][col]) == curColor )
 				{
@@ -87,7 +86,7 @@
 				var thePiece = getPieceName(board[fromRow][fromCol]);
 				var fromPiece = getPieceName(board[row][col]);
 				
-				/* update board with move (client-side) */
+				// Update board with move (client-side)
 				if (boardGameType == 2 && thePiece == 'king' && fromPiece == 'rook')
 				{	// Castling Chess960
 					var rookToCol = 3;
@@ -98,7 +97,7 @@
 					{
 						rookToCol = 5;
 						kingToCol = 6;
-						// Pour identifierl petit roque en Chess960
+						// Pour identifier petit roque en Chess960
 						chessHistory[idx][TOCOL] = 8;
 					}
 					tmpKing = board[row][fromCol];

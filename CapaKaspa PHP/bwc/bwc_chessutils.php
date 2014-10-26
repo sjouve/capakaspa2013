@@ -297,7 +297,6 @@ function isBoardDisabled()
 function moveToPGNString($curColor, $piece, $fromRow, $fromCol, $toRow, $toCol, $pieceCaptured, $promotedTo, $isChecking)
 {
 	$pgnString = "";
-	// TODO Chess960 Cas du roque à voir
 	/* check for castling */
 	if (($piece == "king") && (abs($toCol - $fromCol) == 2))
 	{
@@ -307,12 +306,12 @@ function moveToPGNString($curColor, $piece, $fromRow, $fromCol, $toRow, $toCol, 
 		else
 			$pgnString .= ("O-O-O");
 	}
-	else if (($piece == "king") && ($toCol == -1))
+	else if ($piece == "king" && $pieceCaptured == "chess960" && $fromCol > $toCol)
 	{		
 		/* Chess960 castling */
 		$pgnString .= ("O-O-O");
 	}
-	else if (($piece == "king") && ($toCol == 8))
+	else if (($piece == "king") && $pieceCaptured == "chess960" && $fromCol < $toCol)
 	{
 		/* Chess960 castling */
 		$pgnString .= ("O-O");

@@ -33,6 +33,7 @@ if (isset($_GET['playerID']))
     $player = getPlayer($playerID);
 
 $tmpForEloGames = listEndedGamesForElo($playerID);
+$tmpForElo960Games = listEndedGamesForElo960($playerID);
 $tmpLostGames = listLostGames($playerID);
 $tmpDrawGames = listDrawGames($playerID);
 $tmpWonGames = listWonGames($playerID);
@@ -137,6 +138,77 @@ require 'include/page_body.php';
         		
 		<br/>
 		<? }?>
+		
+      	<? if ($playerID == $_SESSION['playerID']) {?>
+      	<form name="endedGames" action="game_board.php" method="post">
+		<h3><?echo _("To take in account for next Chess960 Elo ranking");?></h3>
+        <div class="tabliste">
+          <table border="0" width="100%">
+            <tr>
+              <th width="20%"><?echo _("Whites");?></th>
+              <th width="20%"><?echo _("Blacks");?></th>
+              <th width="10%"><?echo _("Result");?></th>
+              <th width="10%"><?echo _("Chess960");?></th>
+              <th width="20%"><?echo _("Started");?></th>
+              <th width="20%"><?echo _("Last move");?></th>
+            </tr>
+            
+				<?
+				if (mysqli_num_rows($tmpForElo960Games) == 0)
+					echo("<tr><td colspan='6'>"._("No games to take in account")."</td></tr>\n");
+				else
+				{
+					while($tmpGame = mysqli_fetch_array($tmpForElo960Games, MYSQLI_ASSOC))
+					{
+						/* White */
+						echo("<tr><td>");
+						echo("<a href='player_view.php?playerID=".$tmpGame['whitePlayerID']."'>".$tmpGame['whiteNick']."</a>");
+						
+						/* Black */
+						echo ("</td><td>");
+						echo("<a href='player_view.php?playerID=".$tmpGame['blackPlayerID']."'>".$tmpGame['blackNick']."</a>");
+						
+						/* Status */
+						if (is_null($tmpGame['gameMessage']))
+							echo("</td><td>&nbsp;");
+						else
+						{
+							if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "white"))
+								echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a>");
+							else if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "black"))
+								echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a>");
+							else if (($tmpGame['gameMessage'] == "checkMate") && ($tmpGame['messageFrom'] == "white"))
+								echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a>");
+							else if ($tmpGame['gameMessage'] == "checkMate")
+								echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a>");
+							else if ($tmpGame['gameMessage'] == "draw")
+								echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1/2-1/2</a>");
+							else
+								echo("</td><td>&nbsp;");
+						}
+						
+						/* Chess960 */
+						echo ("</td><td align='center'><span title=\"".$tmpGame['chess960']."\">".$tmpGame['chess960']);
+						
+						$started = new DateTime($tmpGame['dateCreated']);
+						$strStarted = $fmt->format($started);
+						$lastMove = new DateTime($tmpGame['lastMove']);
+						$strLastMove = $fmt->format($lastMove);
+						
+						/* Start Date */
+						echo ("</span></td><td align='center'>".$strStarted);
+			
+						/* Last Move */
+						echo ("</td><td align='center'>".$strLastMove."</td></tr>\n");
+					}
+				}
+			?>
+          </table>
+        </div>
+        		
+		<br/>
+		<? }?>
+				
     	<form name="endedGames" action="game_board.php" method="post">
         
         <A NAME="defaites"></A>
