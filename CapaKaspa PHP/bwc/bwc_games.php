@@ -139,7 +139,7 @@ function loadHistory($gameID)
 /* I: $history, $board, $isPromoting, $numMoves, $isInCheck
  * O: $history, $isPromoting, $numMoves
 */
-function saveHistory()
+function saveHistory($gameType)
 {
 	global $board, $isPromoting, $history, $numMoves, $isInCheck, $isChess960Castling;
 	global $dbh;
@@ -159,22 +159,25 @@ function saveHistory()
 		
 	/* determine chess960 castling : from piece and to piece have same colour */
 	$isChess960Castling = false;
-	if (
-			(
-				(($board[$_POST['fromRow']][$_POST['fromCol']] & COLOR_MASK) == KING) 
-				&& 
-				(($board[$_POST['toRow']][$_POST['toCol']] & COLOR_MASK) == ROOK)
+	if ($gameType == 2) {
+		if (
+				(
+					(($board[$_POST['fromRow']][$_POST['fromCol']] & COLOR_MASK) == KING) 
+					&& 
+					(($board[$_POST['toRow']][$_POST['toCol']] & COLOR_MASK) == ROOK)
+				)
+				&&
+				(
+					(($board[$_POST['fromRow']][$_POST['fromCol']] & WHITE) == ($board[$_POST['toRow']][$_POST['toCol']] & WHITE))
+					||
+					(($board[$_POST['fromRow']][$_POST['fromCol']] & BLACK) == ($board[$_POST['toRow']][$_POST['toCol']] & BLACK))
+				)
 			)
-			&&
-			(
-				(($board[$_POST['fromRow']][$_POST['fromCol']] & WHITE) == ($board[$_POST['toRow']][$_POST['toCol']] & WHITE))
-				||
-				(($board[$_POST['fromRow']][$_POST['fromCol']] & BLACK) == ($board[$_POST['toRow']][$_POST['toCol']] & BLACK))
-			)
-		)
-	{
-		$isChess960Castling = true;
+		{
+			$isChess960Castling = true;
+		}
 	}
+	
 	
 		
 	/* determine who's playing based on number of moves so far */

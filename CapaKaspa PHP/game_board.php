@@ -90,7 +90,7 @@ if (($TestFromRow != "") && ($_POST['fromCol'] != "") && ($_POST['toRow'] != "")
 	{
 		@mysqli_query($dbh,"BEGIN");
 		
-		$res = saveHistory();
+		$res = saveHistory($tmpGame['type']);
 		//echo(microtime()." history : ".$res);
 		if (!$res)
 			@mysqli_query($dbh,"ROLLBACK");
