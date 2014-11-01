@@ -63,7 +63,7 @@ switch($ToDo)
 	case 'InvitePlayer':
 		
 		$opponentColor="";
-		$newGameID = createInvitation($_SESSION['playerID'], $_POST['opponent'], $_POST['color'], $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $opponentColor, $_POST['timeMove']);
+		$newGameID = createInvitation($_SESSION['playerID'], $_POST['opponent'], $_POST['color'], $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $opponentColor, $_POST['timeMove'], $_POST['chess960']);
 		
 		if ($newGameID) {
 			// Notification
