@@ -59,16 +59,16 @@ function listPlayers()
 }
 
 /* Liste les joueurs pour calcul Elo */
-function listPlayersForElo()
+function listPlayersForElo($dateFin)
 {
 	global $dbh;
 	$tmpQuery = "SELECT P.playerID playerID, E.elo elo, P.nick nick 
 				FROM players P, elo_history E 
 				WHERE P.playerID = E.playerID 
 				AND P.activate=1 
-				AND E.eloDate > '2013-08-31' 
+				AND E.eloDate > '".$dateFin."' 
 				ORDER BY playerID";
-
+	
 	return mysqli_query($dbh,$tmpQuery);
 }
 
@@ -487,5 +487,11 @@ function countOnlinePlayers()
 	return mysqli_fetch_array($res_olplayer, MYSQLI_ASSOC);
 }
 
-
+function createEloHistory()
+{
+	global $dbh;
+	$res_elohistory = mysqli_query($dbh,"INSERT into elo_history SELECT now(), elo, playerID FROM players where activate=1");
+	
+	return $res_elohistory;
+}
 ?>

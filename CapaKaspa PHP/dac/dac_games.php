@@ -52,8 +52,8 @@ function listEndedGames($playerID, $dateDeb, $dateFin)
 									AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
 									AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
 									AND W.playerID = EW.playerID AND B.playerID = EB.playerID
-									AND EW.eloDate > '2013-08-31' AND EB.eloDate > '2013-08-31'
-									AND G.type=0 AND G.lastMove >= '".$dateDeb."' AND G.lastMove <= '".$dateFin."'");
+									AND EW.eloDate > '".$dateFin."' AND EB.eloDate > '".$dateFin."'
+									AND G.type=0 AND G.lastMove >= '".$dateDeb."' AND DATE(G.lastMove) <= '".$dateFin."'");
 	
 	return $tmpGames;
 }
@@ -72,7 +72,7 @@ function countLost($playerID, $dateDeb, $dateFin)
 	                                    OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'black' AND G.whitePlayer = ".$playerID.")
 	                                    OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'white' AND G.blackPlayer = ".$playerID.")) 
 									AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
-									AND G.type=0 AND G.lastMove >= '".$dateDeb."' AND G.lastMove <= '".$dateFin."'");
+									AND G.type=0 AND G.lastMove >= '".$dateDeb."' AND DATE(G.lastMove) <= '".$dateFin."'");
 	
 	return mysqli_fetch_array($tmpGames, MYSQLI_ASSOC);
 }
@@ -87,7 +87,7 @@ function countDraw($playerID, $dateDeb, $dateFin)
                                 AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
                                 AND G.gameMessage = 'draw'
                                 AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
-								AND G.type=0 AND G.lastMove >= '".$dateDeb."' AND G.lastMove <= '".$dateFin."'");
+								AND G.type=0 AND G.lastMove >= '".$dateDeb."' AND DATE(G.lastMove) <= '".$dateFin."'");
 	
 	return mysqli_fetch_array($tmpGames, MYSQLI_ASSOC);
 }
@@ -105,7 +105,7 @@ function countWin($playerID, $dateDeb, $dateFin)
                                     OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'black' AND G.blackPlayer = ".$playerID.")
                                     OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'white' AND G.whitePlayer = ".$playerID."))
                                 AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
-								AND G.type=0 AND G.lastMove >= '".$dateDeb."' AND G.lastMove <= '".$dateFin."'");
+								AND G.type=0 AND G.lastMove >= '".$dateDeb."' AND DATE(G.lastMove) <= '".$dateFin."'");
 	
 	return mysqli_fetch_array($tmpGames, MYSQLI_ASSOC);
 }

@@ -176,12 +176,12 @@ Fin Pour Chaque
 **/
 function calculerElo()
 {
-	echo("<htlm><body>");
+	global $dbh;
 	// Dates
-	$dateDeb = date("Y-m-d", mktime(0,0,0, 06, 1, 2013));
-	$dateFin = date("Y-m-d", mktime(0,0,0, 08, 31, 2013));
-	echo("TRIM ".$dateDeb." -> ".$dateFin."<br/>");
-	$listPlayers = listPlayersForElo();
+	$dateDeb = date('Y-m-d', mktime(0,0,0,date('m')-1,1,date('Y')));
+	$dateFin = date('Y-m-d', mktime(0,0,0,date('m'),0,date('Y')));
+	echo("Période du ".$dateDeb." au ".$dateFin."<br/>");
+	$listPlayers = listPlayersForElo($dateFin);
 	$bonusMalusTable = array(100	=>	470	,
 			99	=>	470	,
 			98	=>	470	,
@@ -373,6 +373,6 @@ function calculerElo()
 		}
 		echo("=> ELO = ".$eloFinal."<br/><hr/><br/>");
 	}
-	echo("</body></html>");
+	return 1;
 }
 ?>
