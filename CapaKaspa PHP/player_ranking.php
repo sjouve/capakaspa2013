@@ -66,8 +66,7 @@ $res_count = searchPlayers("count", 0, 0, $_SESSION['playerID'], "", "", "", "",
 if ($res_count)
 {
 	$count = mysqli_fetch_array($res_count, MYSQLI_ASSOC);
-	// +1 car inclus le joueur connecté
-	$nb_tot = $count['nbPlayers'] + 1;
+	$nb_tot = $count['nbPlayers'];
 }
 $startRank = 0;
 if ($critOrder == "ASC") $startRank = $nb_tot;

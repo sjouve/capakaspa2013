@@ -82,7 +82,9 @@ while($tmpPlayer = mysqli_fetch_array($result, MYSQLI_ASSOC))
 					
 					if ($tmpPlayer['playerID'] != $_SESSION['playerID'])
 						echo("<span style='float: right'><input type='submit' class='link' value='"._("New game")."'></span>");
-					echo(stripslashes($tmpPlayer['situationGeo']).", ".$tmpPlayer['countryName']."
+					if (strlen(stripslashes($tmpPlayer['situationGeo'])) > 0)
+						echo(stripslashes($tmpPlayer['situationGeo']).", ");
+						echo($tmpPlayer['countryName']."
 					<br><b>"._("Elo")." : ".$tmpPlayer['elo']."</b>
 					<br><span class='date'>".nl2br(stripslashes($tmpPlayer['profil']))."</span>
 				</div>

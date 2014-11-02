@@ -391,7 +391,7 @@ require 'include/page_body.php';
             <td><select name="txtCountryCode" id="txtCountryCode">
 	            <?
 	            echo "\t",'<option value="">', _("Select your country") ,'</option>',"\n";
-	            $tmpCountries = listCountriesByLang(getLang());
+	            $tmpCountries = listAllCountriesByLang(getLang());
 	            while($tmpCountry = mysqli_fetch_array($tmpCountries, MYSQLI_ASSOC))
 	            {
 	            	$selected = "";
