@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2014-10-26 17:32+0100\n"
-"PO-Revision-Date: 2014-10-26 17:35+0100\n"
+"POT-Creation-Date: 2014-11-02 21:04+0100\n"
+"PO-Revision-Date: 2014-11-02 21:04+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -314,13 +314,13 @@ msgstr "Publier"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_player.php:51 PHP/bwc/bwc_common.php:176
-#: PHP/bwc/bwc_common.php:197 PHP/bwc/bwc_games.php:1053
-#: PHP/bwc/bwc_games.php:1062 PHP/bwc/bwc_games.php:1069
-#: PHP/bwc/bwc_games.php:1081 PHP/bwc/bwc_games.php:1090
-#: PHP/bwc/bwc_games.php:1096 PHP/bwc/bwc_games.php:1157
-#: PHP/bwc/bwc_games.php:1166 PHP/bwc/bwc_games.php:1173
-#: PHP/bwc/bwc_games.php:1185 PHP/bwc/bwc_games.php:1194
-#: PHP/bwc/bwc_games.php:1200 PHP/message.php:91
+#: PHP/bwc/bwc_common.php:197 PHP/bwc/bwc_games.php:1056
+#: PHP/bwc/bwc_games.php:1065 PHP/bwc/bwc_games.php:1072
+#: PHP/bwc/bwc_games.php:1084 PHP/bwc/bwc_games.php:1093
+#: PHP/bwc/bwc_games.php:1099 PHP/bwc/bwc_games.php:1160
+#: PHP/bwc/bwc_games.php:1169 PHP/bwc/bwc_games.php:1176
+#: PHP/bwc/bwc_games.php:1188 PHP/bwc/bwc_games.php:1197
+#: PHP/bwc/bwc_games.php:1203 PHP/message.php:91
 #: PHP/mobile/ajax/ajx_display_player.php:51
 msgid "Player online"
 msgstr "Joueur en ligne"
@@ -342,15 +342,15 @@ msgid "New game"
 msgstr "Nouvelle partie"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_player.php:60 PHP/ajax/ajx_display_ranking.php:86
-#: PHP/mobile/ajax/ajx_display_player.php:60 PHP/mobile/player_view.php:184
+#: PHP/ajax/ajx_display_player.php:62 PHP/ajax/ajx_display_ranking.php:88
+#: PHP/mobile/ajax/ajx_display_player.php:62 PHP/mobile/player_view.php:184
 #: PHP/player_view.php:175
 msgid "Elo"
 msgstr "Elo"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_player.php:60 PHP/game_list_ended.php:151
-#: PHP/mobile/ajax/ajx_display_player.php:60 PHP/mobile/player_view.php:184
+#: PHP/ajax/ajx_display_player.php:62 PHP/game_list_ended.php:151
+#: PHP/mobile/ajax/ajx_display_player.php:62 PHP/mobile/player_view.php:184
 #: PHP/player_view.php:175 PHP/player_view.php:270 PHP/player_view.php:329
 msgid "Chess960"
 msgstr "Chess960"
@@ -581,7 +581,7 @@ msgid " resigned."
 msgstr " a abandonné."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:413 PHP/bwc/bwc_games.php:546
+#: PHP/bwc/bwc_chessutils.php:413 PHP/bwc/bwc_games.php:549
 msgid "Draw proposal accepted"
 msgstr "Proposition de nulle acceptée"
 
@@ -595,7 +595,7 @@ msgstr ""
 "La partie est terminée."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/bwc/bwc_chessutils.php:418 PHP/bwc/bwc_games.php:611
+#: PHP/bwc/bwc_chessutils.php:418 PHP/bwc/bwc_games.php:614
 msgid "Draw game"
 msgstr "Partie nulle"
 
@@ -689,131 +689,131 @@ msgstr "Suggestion"
 msgid "is the same level that you !"
 msgstr "a le même niveau que vous !"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:526
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:529
 msgid "Move cancellation accepted"
 msgstr "Annulation du coup accepté"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:532
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:535
 msgid "Move cancellation refused"
 msgstr "Annulation du coup refusé"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:551
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:554
 msgid "Draw proposal refused"
 msgstr "Proposition de nulle refusée"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:567
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:570
 msgid "Move cancellation pending"
 msgstr "Annulation de coup en attente"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:570
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:573
 msgid "Draw proposal pending..."
 msgstr "Proposition de nulle en attente..."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:618
-#: PHP/bwc/bwc_games.php:1121 PHP/bwc/bwc_games.php:1222
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:621
+#: PHP/bwc/bwc_games.php:1124 PHP/bwc/bwc_games.php:1225
 #: PHP/game_list_ended.php:78 PHP/game_list_ended.php:148
 #: PHP/game_list_ended.php:219 PHP/game_list_ended.php:285
 #: PHP/game_list_ended.php:343 PHP/player_view.php:241 PHP/player_view.php:300
 msgid "Whites"
 msgstr "Les blancs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:621
-#: PHP/bwc/bwc_games.php:1123 PHP/bwc/bwc_games.php:1224
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:624
+#: PHP/bwc/bwc_games.php:1126 PHP/bwc/bwc_games.php:1227
 #: PHP/game_list_ended.php:79 PHP/game_list_ended.php:149
 #: PHP/game_list_ended.php:220 PHP/game_list_ended.php:286
 #: PHP/game_list_ended.php:344 PHP/player_view.php:242 PHP/player_view.php:301
 msgid "Blacks"
 msgstr "Les noirs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:635
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:638
 msgid "resigned"
 msgstr "ont abandonné"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:650
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:653
 msgid "Check and Mat!"
 msgstr "Echec et Mat !"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:650
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:653
 msgid "win the game"
 msgstr "gagnent la partie"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1054
-#: PHP/bwc/bwc_games.php:1063 PHP/bwc/bwc_games.php:1080
-#: PHP/bwc/bwc_games.php:1089 PHP/bwc/bwc_games.php:1158
-#: PHP/bwc/bwc_games.php:1167 PHP/bwc/bwc_games.php:1184
-#: PHP/bwc/bwc_games.php:1193
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1057
+#: PHP/bwc/bwc_games.php:1066 PHP/bwc/bwc_games.php:1083
+#: PHP/bwc/bwc_games.php:1092 PHP/bwc/bwc_games.php:1161
+#: PHP/bwc/bwc_games.php:1170 PHP/bwc/bwc_games.php:1187
+#: PHP/bwc/bwc_games.php:1196
 msgid "Player turn"
 msgstr "A son tour"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1114
-#: PHP/bwc/bwc_games.php:1215
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1117
+#: PHP/bwc/bwc_games.php:1218
 msgid "Refresh game"
 msgstr "Rafraîchir la partie"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1115
-#: PHP/bwc/bwc_games.php:1216 PHP/game_in_progress.php:422
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1118
+#: PHP/bwc/bwc_games.php:1219 PHP/game_in_progress.php:422
 #: PHP/mobile/game_in_progress.php:390
 msgid "Expiration"
 msgstr "Expiration"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1115
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1118
 msgid "Ended game"
 msgstr "Partie terminée"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1132
-#: PHP/bwc/bwc_games.php:1233
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1135
+#: PHP/bwc/bwc_games.php:1236
 msgid "are in check"
 msgstr "sont en échecs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1247
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1250
 msgid "Your opponent do a draw proposal. Are you agree ?"
 msgstr "Votre adversaire vous propose une nulle. Etes vous d'accord ?"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1248
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1251
 #: PHP/player_update.php:501 PHP/player_update.php:510
 #: PHP/player_update.php:525 PHP/player_update.php:534
 #: PHP/player_update.php:548 PHP/player_update.php:557
 msgid "Yes"
 msgstr "Oui"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1249
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1252
 #: PHP/player_update.php:503 PHP/player_update.php:512
 #: PHP/player_update.php:527 PHP/player_update.php:536
 #: PHP/player_update.php:550 PHP/player_update.php:559
 msgid "No"
 msgstr "Non"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1251
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1254
 #: PHP/game_board.php:280 PHP/mobile/game_board.php:284
 msgid "OK"
 msgstr "OK"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1315
-#: PHP/game_new.php:187 PHP/mobile/game_new.php:94 PHP/player_ranking.php:108
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1318
+#: PHP/game_new.php:187 PHP/mobile/game_new.php:94 PHP/player_ranking.php:107
 msgid "Classic game"
 msgstr "Partie classique"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1317
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1320
 msgid "Chess960 game"
 msgstr "Parties d'échecs Chess960"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1322
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1325
 msgid ", Bishops"
 msgstr ", Fous"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1324
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1327
 msgid ", Knights"
 msgstr ", Cavaliers"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1326
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1329
 msgid ", Rooks"
 msgstr ", Tours"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1328
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1331
 msgid ", Queens"
 msgstr ", Dames"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1330
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1333
 msgid "Beginner game - King and Pawns"
 msgstr "Partie débutant - Roi et Pions"
 
@@ -1119,7 +1119,11 @@ msgstr "Commencée le"
 msgid "Last move"
 msgstr "Dernier coup"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:413
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:394
+msgid "Report a problem"
+msgstr "Signaler un problème"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:414
 msgid "Here are old existing comments on this game"
 msgstr "Anciens commentaires sur la partie"
 
@@ -1297,7 +1301,7 @@ msgid "Start new game"
 msgstr "Commencer une nouvelle partie"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:184
-#: PHP/mobile/game_new.php:91 PHP/player_ranking.php:105
+#: PHP/mobile/game_new.php:91 PHP/player_ranking.php:104
 msgid "Game type"
 msgstr "Type de partie"
 
@@ -1815,7 +1819,7 @@ msgid "A valid email is required for confirmation"
 msgstr "Un email valide est obligatoire pour confirmation"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:308
-#: PHP/mobile/player_search.php:95 PHP/player_ranking.php:87
+#: PHP/mobile/player_search.php:95 PHP/player_ranking.php:86
 #: PHP/player_search.php:88 PHP/player_update.php:390
 msgid "Country"
 msgstr "Pays"
@@ -1955,7 +1959,7 @@ msgid "Players advanced search"
 msgstr "Recherche avancée de joueurs"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_search.php:98 PHP/player_ranking.php:90
+#: PHP/mobile/player_search.php:98 PHP/player_ranking.php:89
 #: PHP/player_search.php:91
 msgid "All countries"
 msgstr "Tous les pays"
@@ -2006,13 +2010,13 @@ msgid "and"
 msgstr "et"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_search.php:137 PHP/player_ranking.php:123
+#: PHP/mobile/player_search.php:137 PHP/player_ranking.php:122
 #: PHP/player_search.php:135
 msgid "Filter"
 msgstr "Filtrer"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_search.php:139 PHP/player_ranking.php:128
+#: PHP/mobile/player_search.php:139 PHP/player_ranking.php:127
 #: PHP/player_search.php:140
 msgid "player(s) found"
 msgstr "joueur(s) trouvés"
@@ -2085,7 +2089,7 @@ msgstr ""
 "envoyé à cette adresse. Il contiendra les informations pour vous connecter."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:30
-#: PHP/player_ranking.php:82
+#: PHP/player_ranking.php:81
 msgid "Players ranking"
 msgstr "Classement des joueurs"
 
@@ -2093,15 +2097,15 @@ msgstr "Classement des joueurs"
 msgid "Players ranking by country and game type"
 msgstr "Classement des joueurs par pays et type de partie"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:113
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:112
 msgid "Order"
 msgstr "Ordre"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:116
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:115
 msgid "From first to last"
 msgstr "Du premier au dernier"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:117
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:116
 msgid "From last to first"
 msgstr "Du dernier au premier"
 

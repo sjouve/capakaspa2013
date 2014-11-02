@@ -391,6 +391,7 @@ require 'include/page_body.php';
 			$strStartDate = $fmt->format($startDate);
 			$strLastMove = $fmt->format($lastMove);
 			echo _("Started")?> : <? echo($strStartDate);?> - <?echo _("Last move")?> : <? echo($strLastMove);?></span>
+			<span style="float: right;"><a href="http://www.capakaspa.info/propos-contact/"><?echo _("Report a problem")?></a></span>
 		</div>
 	 	<div id="comment<?echo($_POST['gameID']);?>" class="comment">
 			<img src="images/ajaxloader.gif"/>
