@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2014-11-02 21:04+0100\n"
-"PO-Revision-Date: 2014-11-02 21:04+0100\n"
+"POT-Creation-Date: 2014-11-04 23:12+0100\n"
+"PO-Revision-Date: 2014-11-04 23:12+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -1635,11 +1635,16 @@ msgstr "Actualités des échecs"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/include/page_body.php:109
+msgid "World Chess Championship 2014"
+msgstr "Championnat du Monde d'échecs 2014"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/include/page_body.php:110
 msgid "Learning chess"
 msgstr "Apprentissage des échecs"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:110
+#: PHP/include/page_body.php:111
 msgid "And more"
 msgstr "Et plus..."
 

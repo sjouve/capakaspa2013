@@ -105,6 +105,7 @@ if (isset($toPlayerID))
 	<div class="navlinks">
 		<div class="title"><?php echo _("More on CapaKaspa");?></div>
 			<ul>
+		        <li><img src="images/puce.gif"/> <a href="http://www.capakaspa.info/tag/carlsenanand/"><b><? echo _("World Chess Championship 2014");?></b></a></li>
 		        <li><img src="images/puce.gif"/> <a href="http://www.capakaspa.info/category/actualites-des-echecs/"><? echo _("Chess news");?></a></li>
 		        <li><img src="images/puce.gif"/> <a href="http://www.capakaspa.info/category/apprentissage/"><? echo _("Learning chess");?></a></li>
 		        <li><img src="images/puce.gif"/> <a href="http://www.capakaspa.info/"><? echo _("And more");?></a></li>
