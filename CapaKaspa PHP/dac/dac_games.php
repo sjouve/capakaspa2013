@@ -313,6 +313,7 @@ function listEndedGamesForElo($playerID)
 						AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
 						AND G.lastMove >= DATE_FORMAT((SELECT MAX(DISTINCT(eloDate)) from elo_history), '%Y-%m-01')
 						AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
+						AND G.type=0
 						AND G.eco = E.eco
 						AND E.ecoLang = '".getLang()."'
 						ORDER BY E.eco ASC, G.lastMove DESC");
@@ -329,6 +330,7 @@ function listEndedGamesForElo960($playerID)
 						AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
 						AND G.lastMove >= DATE_FORMAT((SELECT MAX(DISTINCT(eloDate)) from elo960_history), '%Y-%m-01')
 						AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
+						AND G.type=2
 						ORDER BY G.lastMove DESC");
 	
 	return $tmpGames;
