@@ -132,21 +132,23 @@ function doMove()
 		// castling to the left
 		$tmpPosKing = $_POST['fromCol'];
 		$tmpPosRook = $_POST['toCol'];
+		$tmpKing = $board[$_POST['toRow']][$_POST['fromCol']];
+		$tmpRook = $board[$_POST['toRow']][$_POST['toCol']];
 		
 		if ($_POST['fromCol'] > $_POST['toCol']) {
 			// King 
-			$board[$_POST['toRow']][2] = $board[$_POST['toRow']][$_POST['fromCol']];
+			$board[$_POST['toRow']][2] = $tmpKing;
 			// Rook
-			$board[$_POST['toRow']][3] = $board[$_POST['toRow']][$_POST['toCol']];
+			$board[$_POST['toRow']][3] = $tmpRook;
 			// Removes piece from original position if not new position
 			if ($tmpPosKing != 3 && $tmpPosKing != 2) $board[$_POST['toRow']][$_POST['fromCol']] = 0;
 			if ($tmpPosRook != 3 && $tmpPosRook != 2) $board[$_POST['toRow']][$_POST['toCol']] = 0;
 		}
 		else {
 			// King 
-			$board[$_POST['toRow']][6] = $board[$_POST['toRow']][$_POST['fromCol']];
+			$board[$_POST['toRow']][6] = $tmpKing;
 			// Rook
-			$board[$_POST['toRow']][5] = $board[$_POST['toRow']][$_POST['toCol']];
+			$board[$_POST['toRow']][5] = $tmpRook;
 			// Removes piece from original position if not new position
 			if ($tmpPosKing != 6 && $tmpPosKing != 5) $board[$_POST['toRow']][$_POST['fromCol']] = 0;
 			if ($tmpPosRook != 6 && $tmpPosRook != 5) $board[$_POST['toRow']][$_POST['toCol']] = 0;
