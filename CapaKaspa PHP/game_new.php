@@ -204,7 +204,7 @@ require 'include/page_body.php';
 						&nbsp;
 					</td>
 					<td>
-						<input type="radio" name="type" value="2" onclick="javascript:getChess960();"> <?echo _("Fischer Chess Random (Chess960)")?>
+						<input type="radio" name="type" value="2" onclick="javascript:getChess960();"> <?echo _("Fischer Random Chess (Chess960)")?>
 						<input type="hidden" name="chess960" value="">
 					</td>
 				</tr>
