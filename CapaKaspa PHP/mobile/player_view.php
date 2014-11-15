@@ -198,11 +198,11 @@ require 'include/page_body.php';
 	
 	$dateDeb = date("Y-m-d", mktime(0,0,0, 1, 1, 1990));
 	$dateFin = date("Y-m-d", mktime(0,0,0, 12, 31, 2020));
-	$countLost = countLost($player['playerID'], $dateDeb, $dateFin);
+	$countLost = countLost($player['playerID'], $dateDeb, $dateFin, 0);
 	$nbDefaites = $countLost['nbGames'];
-	$countDraw = countDraw($player['playerID'], $dateDeb, $dateFin);
+	$countDraw = countDraw($player['playerID'], $dateDeb, $dateFin, 0);
 	$nbNulles = $countDraw['nbGames'];
-	$countWin = countWin($player['playerID'], $dateDeb, $dateFin);
+	$countWin = countWin($player['playerID'], $dateDeb, $dateFin, 0);
 	$nbVictoires = $countWin['nbGames'];
 	$nbParties = $nbDefaites + $nbNulles + $nbVictoires;
 	$nbNews = 0;

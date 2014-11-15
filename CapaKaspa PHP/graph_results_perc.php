@@ -21,11 +21,11 @@ $tabResult[] = _("Lost");
 
 $dateDeb = date("Y-m-d", mktime(0,0,0, 1, 1, 1990));
 $dateFin = date("Y-m-d", mktime(0,0,0, 12, 31, 2020));
-$countLost = countLost($_GET['playerID'], $dateDeb, $dateFin);
+$countLost = countLost($_GET['playerID'], $dateDeb, $dateFin, 0);
 $nbDefaites = $countLost['nbGames'];
-$countDraw = countDraw($_GET['playerID'], $dateDeb, $dateFin);
+$countDraw = countDraw($_GET['playerID'], $dateDeb, $dateFin, 0);
 $nbNulles = $countDraw['nbGames'];
-$countWin = countWin($_GET['playerID'], $dateDeb, $dateFin);
+$countWin = countWin($_GET['playerID'], $dateDeb, $dateFin, 0);
 $nbVictoires = $countWin['nbGames'];
 
 $tabNbGames[] = $nbVictoires;

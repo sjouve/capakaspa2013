@@ -487,10 +487,20 @@ function countOnlinePlayers()
 	return mysqli_fetch_array($res_olplayer, MYSQLI_ASSOC);
 }
 
+/* Historise le Elo des joueurs */
 function createEloHistory()
 {
 	global $dbh;
 	$res_elohistory = mysqli_query($dbh,"INSERT into elo_history SELECT now(), elo, playerID FROM players where activate=1");
+	
+	return $res_elohistory;
+}
+
+/* Historise le Elo Chess960 des joueurs */
+function createElo960History()
+{
+	global $dbh;
+	$res_elohistory = mysqli_query($dbh,"INSERT into elo960_history SELECT now(), elo960, playerID FROM players where activate=1");
 	
 	return $res_elohistory;
 }

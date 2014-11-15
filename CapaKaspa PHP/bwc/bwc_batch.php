@@ -174,7 +174,7 @@ Pour chaque joueur
 - Enregistrer le nouvel ELO dans l'historique
 Fin Pour Chaque
 **/
-function calculerElo()
+function calculerElo($type)
 {
 	global $dbh;
 	// Dates
@@ -290,11 +290,11 @@ function calculerElo()
 		$eloFinal = $eloInitial;
 		$nbParties = 0;
 		
-		$countLost = countLost($player['playerID'], $dateDeb, $dateFin);
+		$countLost = countLost($player['playerID'], $dateDeb, $dateFin, $type);
 		$nbDefaites = $countLost['nbGames'];
-		$countDraw = countDraw($player['playerID'], $dateDeb, $dateFin);
+		$countDraw = countDraw($player['playerID'], $dateDeb, $dateFin, $type);
 		$nbNulles = $countDraw['nbGames'];
-		$countWin = countWin($player['playerID'], $dateDeb, $dateFin);
+		$countWin = countWin($player['playerID'], $dateDeb, $dateFin, $type);
 		$nbVictoires = $countWin['nbGames'];
 		$nbParties = $nbDefaites + $nbNulles + $nbVictoires;
 		
@@ -304,7 +304,7 @@ function calculerElo()
 		{
 			
 			// Moyenne elo des adversaires
-			$listEndedGames = listEndedGames($player['playerID'], $dateDeb, $dateFin);
+			$listEndedGames = listEndedGames($player['playerID'], $dateDeb, $dateFin, $type);
 			$sommeElo = 0;
 			$moyenneElo = 0;
 			echo("<table border='1'><tr><th>B</th><th>ELO</th><th>N</th><th>ID</th></tr>");
@@ -367,8 +367,10 @@ function calculerElo()
 			if ($eloInitial<$eloFinal) $eloProgress = -1;
 			
 			// Mise à jour ELO player
-			$res_player = mysqli_query($dbh,"UPDATE players SET elo=".$eloFinal.", eloProgress =".$eloProgress." WHERE playerID = ".$player['playerID']);
-			
+			if ($type==0)
+				$res_player = mysqli_query($dbh,"UPDATE players SET elo=".$eloFinal.", eloProgress =".$eloProgress." WHERE playerID = ".$player['playerID']);
+			else
+				$res_player = mysqli_query($dbh,"UPDATE players SET elo960=".$eloFinal." WHERE playerID = ".$player['playerID']);
 			// Mise à jour historique
 		}
 		echo("=> ELO = ".$eloFinal."<br/><hr/><br/>");

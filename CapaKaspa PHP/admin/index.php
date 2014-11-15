@@ -27,12 +27,20 @@ $dateFin = date('Y-m-d', mktime(0,0,0,date('m'),0,date('Y')));
 <head>
 </head>
 <body>
-<form name="userdata" action="index.php" method="post">
-<input id="ToDo" name="ToDo" type="radio" value="save_elo">Historiser Elo
-<input id="ToDo" name="ToDo" type="radio" value="elo">Calculer Elo (<?php echo($dateDeb);?> -> <?php echo($dateFin);?>)
+<h2>Période active : (<?php echo($dateDeb);?> - <?php echo($dateFin);?>)</h2>
 
-<input type="submit">
+<form name="userdata" action="index.php" method="post">
+<h3>Classique</h3>
+<input id="ToDo" name="ToDo" type="radio" value="save_elo">Historiser Elo
+<input id="ToDo" name="ToDo" type="radio" value="elo">Calculer Elo
+
+<h3>Chess960</h3>
+<input id="ToDo" name="ToDo" type="radio" value="save_elo960">Historiser Elo
+<input id="ToDo" name="ToDo" type="radio" value="elo960">Calculer Elo
+
+<p><input type="submit"></p>
 </form>
+
 <?php 
 echo("Action : ".$ToDo."<br>");
 switch($ToDo)
@@ -47,10 +55,16 @@ switch($ToDo)
 		$err = batchEco();
 		break;*/
 	case 'elo':
-		$err = calculerElo();
+		$err = calculerElo(0);
+		break;
+	case 'elo960':
+		$err = calculerElo(2);
 		break;
 	case 'save_elo':
 		$err = createEloHistory();
+		break;
+	case 'save_elo960':
+		$err = createElo960History();
 		break;
 }
 
