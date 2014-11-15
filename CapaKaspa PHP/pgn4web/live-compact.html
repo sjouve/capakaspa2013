@@ -8,7 +8,8 @@
 -->
 
 <head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>pgn4web live broadcast</title>
 
 <!-- use the base tag to host live-compact.html on a different server than pgn4web.js
@@ -69,7 +70,7 @@
   SetGameSelectorOptions(" select a game...", true, 0, 0, 0, 18, 18, 3, 0); // (head, num, chEvent, chSite, chRound, chWhite, chBlack, chResult, chDate)
 
   SetCommentsOnSeparateLines(true);
-  SetAutoplayDelay(1000); // milliseconds
+  SetAutoplayDelay(200); // milliseconds
   SetAutostartAutoplay(false);
   SetAutoplayNextGame(false);
   SetInitialGame(iniGame);
@@ -92,7 +93,7 @@
     document.getElementById("statusDetails").className =
       ((!LiveBroadcastStarted) || (LiveBroadcastEnded)) ? "headerHighlighted" : "header";
     document.getElementById("additionalMessage").innerHTML =
-      LiveBroadcastEnded ? ", click H6 for the next event" : "";
+      LiveBroadcastEnded ? "" : "";
 
     // cope with occasional failures to load the live PGN data
     if ((LiveBroadcastDelay !== 0) && (LiveBroadcastTicker > 0) && (!LiveBroadcastFoundOldGame)) {
@@ -263,11 +264,11 @@ function user_help() {
 <!-- need the external table to force height of 360 (see blackberry background issue) -->
 <!-- 460 is the max width for a 480 wide screen allowing for scrollbars -->
 <!-- 360 is the max height for a 360 tall screen -->
-<table id="outerTable" width=460 height=360 cellpadding=5 cellspacing=0 border=0>
+<table id="outerTable" width=660 height=360 cellpadding=5 cellspacing=0 border=0>
 <tr><td align=center valign=top>
 
 <!-- width 450 = 460 outerTable width - 2 * 5 cellpadding -->
-<table width=450 cellpadding=0 cellspacing=0 border=0>
+<table width=650 cellpadding=0 cellspacing=0 border=0>
 <tr height=27>
 <td align=center valign=bottom style="padding-bottom: 4px;">
 <div id="GameSelector"></div>
@@ -276,7 +277,7 @@ function user_help() {
 </table>
 
 <!-- same 450 width as above -->
-<table id="eventDetails" class="header" width=450px cellpadding=0 cellspacing=0 border=0>
+<table id="eventDetails" class="header" width=650px cellpadding=0 cellspacing=0 border=0>
 <tr>
 <td width=100 align=left valign=middle style="padding: 3px;">
 <div id="GameSite" style="width: 94px; height: 1.3em; line-height: 1.3em; overflow: hidden; white-space: nowrap;"></div>
@@ -291,7 +292,7 @@ function user_help() {
 </table>
 
 <!-- same 450 width as above -->
-<table id="playersDetails" class="header" width=450px cellpadding=0 cellspacing=0 border=0>
+<table id="playersDetails" class="header" width=650px cellpadding=0 cellspacing=0 border=0>
 <tr>
 <td width=65 align=left valign=middle style="padding: 3px;">
 <div id="GameWhiteClock" style="width: 59px; height: 1.3em; line-height: 1.3em; overflow: hidden; white-space: nowrap;"></div>
@@ -310,7 +311,7 @@ function user_help() {
 </table>
 
 <!-- same 450 width as above -->
-<table width=450px cellpadding=0 cellspacing=0 border=0>
+<table width=650px cellpadding=0 cellspacing=0 border=0>
 <tr>
 <!-- 240 chessboard size = 8 * (26 square size + 2 * (2 square border)) -->
 <!-- 246 = (chessboard size) + (6 right padding) -->
@@ -319,17 +320,17 @@ function user_help() {
 </td>
 
 <!-- right column width 204 = (460 outer cell width) - (246 left column width) - (2 * 5 cellpaddding) -->
-<td width=204 align=left valign=top style="padding-top: 8px; padding-bottom: 8px; padding-left: 0px; padding-right: 0px;">
+<td width=404 align=left valign=top style="padding-top: 8px; padding-bottom: 8px; padding-left: 0px; padding-right: 0px;">
 <!-- height 240 = chessboard size -->
 <!-- width 199 = table cell size - 5 padding -->
-<div class="movebox" id="GameText" style="height: 240px; width:199px; padding-right: 5px; overflow-x: hidden; overflow-y: auto;">
+<div class="movebox" id="GameText" style="height: 240px; width:399px; padding-right: 5px; overflow-x: hidden; overflow-y: auto;">
 </div>
 </td>
 <tr>
 </table>
 
 <!-- same 450 width as above -->
-<table id="statusDetails" class="header" width=450px cellpadding=0 cellspacing=0 border=0>
+<table id="statusDetails" class="header" width=650px cellpadding=0 cellspacing=0 border=0>
 <tr>
 <td width=55 align=left valign=middle style="padding: 3px;">
 <div style="width: 49px; height: 1.3em; line-height: 1.3em; overflow: hidden; white-space: nowrap;">
@@ -343,9 +344,9 @@ function user_help() {
 </div>
 </td>
 <td width=55 align=right valign=middle style="padding: 3px;">
-<div style="width: 49px; height: 1.3em; line-height: 1.3em; overflow: hidden; white-space: nowrap;">
+<!-- <div style="width: 49px; height: 1.3em; line-height: 1.3em; overflow: hidden; white-space: nowrap;">
 <a id="helplink" class="helplinkNosize" href="javascript: user_help();" onFocus="this.blur()" title="pgn4web live broadcast help">help</a>
-</div>
+</div> -->
 </td>
 </tr>
 </table>
