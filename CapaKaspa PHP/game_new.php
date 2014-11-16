@@ -163,10 +163,8 @@ function sendInvitation(email)
 
 function startGame()
 {
-	if (document.getElementById('opponent').value.length > 0)
-	{
-		document.startGameForm.submit();
-	}
+	document.startGameForm.submit();
+
 }
 </script>
 <?
@@ -240,13 +238,20 @@ require 'include/page_body.php';
 					</td>
 					<td>
 						<select id="opponent" name="opponent" style="width:380px;">
-							<option value="" selected><?echo _("Type a part of user name, first name or last name in the box")?></option>
+							<option value="0" selected><?echo _("Type a part of user name, first name or last name in the box")?></option>
 						</select>
 						<input id="txtHint" name="txtHint" type="text" size="15" maxlength="20" value="<? echo($username);?>" onkeyup="javascript:showHint(this.value, 0);">
-						<div id="ajaxprogressname" style="display: none;"><img src="images/ajaxprogress.gif"></div>				
+						<div id="ajaxprogressname" style="display: none;"><img src="images/ajaxprogress.gif"></div>
+							
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<?echo _("Don't select a player to invite all players")?>				
 					</td>
 				</tr>
 			</table>
+			
 			<input type="button" value="<?echo _("Start game")?>" class="button" onclick="javascript:startGame();">
 			<input type="hidden" name="ToDo" value="InvitePlayer">
 		</form>

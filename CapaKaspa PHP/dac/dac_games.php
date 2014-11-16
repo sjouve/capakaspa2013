@@ -177,8 +177,33 @@ function listInvitationFor($playerID)
 						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.elo960 blackElo960, B.socialID blackSocialID, B.socialNetwork blackSocialNetwork
 				FROM games G, players W, players B 
 				WHERE (gameMessage = 'playerInvited' 
-				AND ((whitePlayer = ".$playerID." AND messageFrom = 'black') 
-					OR (blackPlayer = ".$playerID." AND messageFrom = 'white')))
+				AND (
+						(whitePlayer = ".$playerID." AND messageFrom = 'black') 
+						OR (blackPlayer = ".$playerID." AND messageFrom = 'white')
+					)
+				)
+				AND W.playerID = G.whitePlayer 
+				AND B.playerID = G.blackPlayer 
+				ORDER BY dateCreated";
+	$tmpGames = mysqli_query($dbh,$tmpQuery);
+	
+	return $tmpGames;
+}
+
+function listInvitationForAll($playerID)
+{
+	global $dbh;
+	$tmpQuery = "SELECT G.gameID, G.whitePlayer, G.blackPlayer, G.dateCreated, G.type, G.gameMessage, 
+						G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.position, G.timeMove,
+						W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, W.elo960 whiteElo960, W.socialID whiteSocialID, W.socialNetwork whiteSocialNetwork,
+						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.elo960 blackElo960, B.socialID blackSocialID, B.socialNetwork blackSocialNetwork
+				FROM games G, players W, players B 
+				WHERE (gameMessage = 'playerInvited' 
+				AND (
+						(whitePlayer = 0 AND blackPlayer != ".$playerID.") 
+						OR (blackPlayer = 0 AND whitePlayer != ".$playerID.")
+					)
+				)
 				AND W.playerID = G.whitePlayer 
 				AND B.playerID = G.blackPlayer 
 				ORDER BY dateCreated";

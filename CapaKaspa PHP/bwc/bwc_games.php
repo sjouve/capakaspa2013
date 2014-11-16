@@ -1270,7 +1270,7 @@ function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $f
 	
 	$tmpExistingRequests = mysqli_query($dbh,$tmpQuery);
 	
-	if (mysqli_num_rows($tmpExistingRequests) == 0)
+	if (mysqli_num_rows($tmpExistingRequests) == 0 || $opponentID == "0")
 	{
 	
 		if ($color == 'random')

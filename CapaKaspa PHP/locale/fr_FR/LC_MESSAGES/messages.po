@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2014-11-16 15:35+0100\n"
-"PO-Revision-Date: 2014-11-16 15:36+0100\n"
+"POT-Creation-Date: 2014-11-16 23:05+0100\n"
+"PO-Revision-Date: 2014-11-16 23:08+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -236,7 +236,7 @@ msgid "MOVE"
 msgstr "COUP"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:177 PHP/game_in_progress.php:420
+#: PHP/ajax/ajx_display_activity.php:177 PHP/game_in_progress.php:546
 #: PHP/mobile/ajax/ajx_display_activity.php:180
 #: PHP/mobile/game_in_progress.php:388 PHP/player_view.php:244
 #: PHP/player_view.php:276
@@ -269,7 +269,7 @@ msgid "I like this item"
 msgstr "J'aime ça"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:187 PHP/game_in_progress.php:426
+#: PHP/ajax/ajx_display_activity.php:187 PHP/game_in_progress.php:552
 #: PHP/mobile/ajax/ajx_display_activity.php:191
 #: PHP/mobile/game_in_progress.php:394
 msgid "Comment"
@@ -663,13 +663,13 @@ msgid "To"
 msgstr "A"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_common.php:121
-#: PHP/game_in_progress.php:332 PHP/message.php:64
-#: PHP/mobile/game_in_progress.php:322
+#: PHP/game_in_progress.php:360 PHP/game_in_progress.php:458
+#: PHP/message.php:64 PHP/mobile/game_in_progress.php:322
 msgid "Your message..."
 msgstr "Votre message..."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_common.php:124
-#: PHP/game_board.php:300 PHP/game_in_progress.php:256
+#: PHP/game_board.php:300 PHP/game_in_progress.php:284
 #: PHP/mobile/game_board.php:307 PHP/mobile/game_in_progress.php:252
 msgid "Cancel"
 msgstr "Annuler"
@@ -752,7 +752,7 @@ msgid "Refresh game"
 msgstr "Rafraîchir la partie"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1118
-#: PHP/bwc/bwc_games.php:1219 PHP/game_in_progress.php:422
+#: PHP/bwc/bwc_games.php:1219 PHP/game_in_progress.php:548
 #: PHP/mobile/game_in_progress.php:390
 msgid "Expiration"
 msgstr "Expiration"
@@ -1106,14 +1106,14 @@ msgid "Resign"
 msgstr "Abandonner"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:393
-#: PHP/game_in_progress.php:427 PHP/game_list_ended.php:84
+#: PHP/game_in_progress.php:553 PHP/game_list_ended.php:84
 #: PHP/game_list_ended.php:154 PHP/game_list_ended.php:225
 #: PHP/game_list_ended.php:291 PHP/game_list_ended.php:349
 msgid "Started"
 msgstr "Commencée le"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:393
-#: PHP/game_in_progress.php:427 PHP/game_list_ended.php:85
+#: PHP/game_in_progress.php:553 PHP/game_list_ended.php:85
 #: PHP/game_list_ended.php:155 PHP/game_list_ended.php:226
 #: PHP/game_list_ended.php:292 PHP/game_list_ended.php:350
 #: PHP/mobile/game_board.php:390 PHP/mobile/game_in_progress.php:395
@@ -1128,18 +1128,26 @@ msgstr "Signaler un problème"
 msgid "Here are old existing comments on this game"
 msgstr "Anciens commentaires sur la partie"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:141
-#: PHP/game_in_progress.php:356 PHP/include/page_body.php:66
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:123
+msgid "A player accepted the game before you !"
+msgstr "Un joueur a accepté la partie avant vous !"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:144
+msgid "Your pending resquet was accepted !"
+msgstr "Votre demande en attente a été acceptée !"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:155
+#: PHP/game_in_progress.php:482 PHP/include/page_body.php:66
 #: PHP/mobile/game_in_progress.php:141 PHP/mobile/game_in_progress.php:346
 msgid "My games in progress"
 msgstr "Mes parties en cours"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:142
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:156
 #: PHP/mobile/game_in_progress.php:142
 msgid "Play chess and share your games. My games in progress."
 msgstr "Jouer aux échecs et partager vos parties. Mes parties en cours."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:179
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:202
 msgid ""
 "Your browser is not compatible. Install a newer version of Internet Explorer "
 "(9 or more). You can also install Chrome or Firefox."
@@ -1147,82 +1155,91 @@ msgstr ""
 "Votre navigateur n'est pas compatible. Installez une version plus récente "
 "d'Internet Explorer (9 ou +). Vous pouvez aussi installer Chrome ou Firefox."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:183
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:206
 msgid "The new Elo ranking was computed !"
 msgstr "Le nouveau classement Elo a été calculé !"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:189
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:212
 #: PHP/mobile/game_in_progress.php:191
 msgid "You have a current vacation ! Your games are postponed"
 msgstr "Vous avez des vacances en cours ! Vos parties sont suspendues"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:196
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:221
 #: PHP/mobile/game_in_progress.php:198
 msgid "My pending requests"
 msgstr "Mes demandes en attente"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:238
-msgid "You"
-msgstr "Vous"
-
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:238
-msgid "invite a player to play a new game"
-msgstr "invitez un joueur à jouer une nouvelle partie"
-
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:246
-#: PHP/game_in_progress.php:326 PHP/game_in_progress.php:421
-#: PHP/game_new.php:213 PHP/mobile/game_in_progress.php:242
-#: PHP/mobile/game_in_progress.php:316 PHP/mobile/game_in_progress.php:389
-#: PHP/mobile/game_new.php:120
-msgid "Time per move"
-msgstr "Temps par coup"
-
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:246
-#: PHP/game_in_progress.php:326 PHP/game_in_progress.php:421
-#: PHP/mobile/game_in_progress.php:242 PHP/mobile/game_in_progress.php:316
-#: PHP/mobile/game_in_progress.php:389
-msgid "days"
-msgstr "jours"
-
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:253
-#: PHP/mobile/game_in_progress.php:249
-msgid "Response waiting"
-msgstr "Réponse en attente"
-
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:255
-#: PHP/mobile/game_in_progress.php:251
-msgid "Request declined"
-msgstr "Demande refusée"
-
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:312
-msgid "invite you to play a new game"
-msgstr "vous invite à jouer une nouvelle partie"
-
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:335
-#: PHP/mobile/game_in_progress.php:325
-msgid "Accept"
-msgstr "Accepter"
-
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:336
-#: PHP/mobile/game_in_progress.php:326
-msgid "Decline"
-msgstr "Refuser"
-
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:356
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:221
+#: PHP/game_in_progress.php:389 PHP/game_in_progress.php:482
 #: PHP/mobile/game_in_progress.php:346
 msgid "Refresh list"
 msgstr "Rafraîchir la liste"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:403
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:265
+msgid "You"
+msgstr "Vous"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:265
+msgid "invite a player to play a new game"
+msgstr "invitez un joueur à jouer une nouvelle partie"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:274
+#: PHP/game_in_progress.php:354 PHP/game_in_progress.php:452
+#: PHP/game_in_progress.php:547 PHP/game_new.php:213
+#: PHP/mobile/game_in_progress.php:242 PHP/mobile/game_in_progress.php:316
+#: PHP/mobile/game_in_progress.php:389 PHP/mobile/game_new.php:120
+msgid "Time per move"
+msgstr "Temps par coup"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:274
+#: PHP/game_in_progress.php:354 PHP/game_in_progress.php:452
+#: PHP/game_in_progress.php:547 PHP/mobile/game_in_progress.php:242
+#: PHP/mobile/game_in_progress.php:316 PHP/mobile/game_in_progress.php:389
+msgid "days"
+msgstr "jours"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:281
+#: PHP/mobile/game_in_progress.php:249
+msgid "Response waiting"
+msgstr "Réponse en attente"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:283
+#: PHP/mobile/game_in_progress.php:251
+msgid "Request declined"
+msgstr "Demande refusée"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:340
+msgid "invite you to play a new game"
+msgstr "vous invite à jouer une nouvelle partie"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:363
+#: PHP/game_in_progress.php:461 PHP/mobile/game_in_progress.php:325
+msgid "Accept"
+msgstr "Accepter"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:364
+#: PHP/mobile/game_in_progress.php:326
+msgid "Decline"
+msgstr "Refuser"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:389
+msgid "Other pending requests"
+msgstr "Autres demandes en attente"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:438
+msgid "invite somebody to play a new game"
+msgstr "invite quelqu'un à jouer une nouvelle partie"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:529
 msgid "is your opponent in this game."
 msgstr "est votre adversaire dans cette partie."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:418
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:544
 #: PHP/mobile/game_in_progress.php:386
 msgid "Play"
 msgstr "Jouer"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:436
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:562
 #: PHP/mobile/game_in_progress.php:404
 msgid "No games in progress..."
 msgstr "Pas de parties en cours..."
@@ -1400,30 +1417,34 @@ msgstr "Choisir un joueur"
 msgid "Type a part of user name, first name or last name in the box"
 msgstr "Taper une partie du nom d'utilisateur, prénom ou nom dans le champ"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:250
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:252
+msgid "Don't select a player to invite all players"
+msgstr "Ne pas sélectionner de joueur pour proposer une partie à tous"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:257
 #: PHP/mobile/game_new.php:156
 msgid "Start game"
 msgstr "Commencer une partie"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:255
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:262
 msgid "Advanced search"
 msgstr "Recherche avancée"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:256
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:263
 msgid "Find a player with advanced search and invite him to play a new game."
 msgstr ""
 "Trouver un joueur avec la recherche avancée et l'inviter à jouer une "
 "nouvelle partie"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:257
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:264
 msgid "Search players"
 msgstr "Rechercher des joueurs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:260
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:267
 msgid "Invite friends to join you"
 msgstr "Inviter des amis à se joindre à vous"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:261
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:268
 msgid ""
 "Invite by email a friend not on CapaKaspa to join you. If a player exist "
 "with the email you will invite to start a new game directly."
@@ -1432,23 +1453,23 @@ msgstr ""
 "un joueur existe avec l'email, vous l'inviterez à jouer une partie "
 "directement."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:266
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:273
 msgid "Email address"
 msgstr "Adresse email"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:271
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:278
 msgid "It's not a valid email format"
 msgstr "Ce n'est pas un format d'adresse email valide"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:272
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:279
 msgid "An account exist with this email. Start a new game."
 msgstr "Un compte existe avec le même email. Commencer une nouvelle partie."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:273
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:280
 msgid "Invitation was sent successfully"
 msgstr "L'invitation a été envoyée avec succès"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:277
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:284
 msgid "Send invitation"
 msgstr "Envoyer une invitation"
 

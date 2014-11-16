@@ -65,7 +65,7 @@ switch($ToDo)
 		$opponentColor="";
 		$newGameID = createInvitation($_SESSION['playerID'], $_POST['opponent'], $_POST['color'], $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $opponentColor, $_POST['timeMove'], $_POST['chess960']);
 		
-		if ($newGameID) {
+		if ($newGameID && $_POST['opponent'] != "0") {
 			// Notification
 			chessNotification('invitation', $opponentColor, '', $_SESSION['nick'], $newGameID);
 			if ($_SESSION['pref_shareinvitation'] == 'oui')
@@ -74,60 +74,74 @@ switch($ToDo)
 		break;
 
 	case 'ResponseToInvite':
-
-		if ($_POST['response'] == 'accepted')
-		{			
-			/* update game data */
-			$tmpQuery = "UPDATE games SET gameMessage = DEFAULT, messageFrom = DEFAULT WHERE gameID = ".$_POST['gameID'];
-			mysqli_query($dbh,$tmpQuery) or die (mysqli_error($dbh));
-
-			/* setup new board */
-			createNewGame($_POST['gameID']);
-			saveGame();
-			
-			if ($_POST['whitePlayerID'] != $_SESSION['playerID'])
-				$oppColor = "white";
-			else 
-			  	$oppColor = "black";
-			
-			/* Notification */
-			chessNotification('accepted', $oppColor, $_POST['respMessage'], $_SESSION['nick'], $_POST['gameID']);
-			if ($_SESSION['pref_shareinvitation'] == 'oui')
-				insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'accepted');					
-		}
-		else
+		
+		// Attention la partie ne doit pas avoir été acceptée entre temps
+		$game = getGame($_POST['gameID']);
+		if ($game['gameMessage'] == 'playerInvited')
 		{
-			$tmpQuery = "UPDATE games SET gameMessage = 'inviteDeclined', messageFrom = '".$_POST['messageFrom']."' WHERE gameID = ".$_POST['gameID'];
-			mysqli_query($dbh,$tmpQuery);
-			
-			if ($_POST['whitePlayerID'] != $_SESSION['playerID'])
-				$oppColor = "white";
+			if ($_POST['response'] == 'accepted')
+			{			
+				
+				/* update game data */
+				$tmpQuery = "UPDATE games 
+								SET gameMessage = DEFAULT, messageFrom = DEFAULT,
+									whitePlayer = (SELECT CASE WHEN whitePlayer = 0 THEN ".$_SESSION['playerID']." ELSE whitePlayer END),
+									blackPlayer = (SELECT CASE WHEN blackPlayer = 0 THEN ".$_SESSION['playerID']." ELSE blackPlayer END) 
+								WHERE gameID = ".$_POST['gameID'];
+				mysqli_query($dbh,$tmpQuery) or die (mysqli_error($dbh));
+	
+				/* setup new board */
+				createNewGame($_POST['gameID']);
+				saveGame();
+				
+				if ($_POST['whitePlayerID'] != $_SESSION['playerID'])
+					$oppColor = "white";
+				else 
+				  	$oppColor = "black";
+				
+				/* Notification */
+				chessNotification('accepted', $oppColor, $_POST['respMessage'], $_SESSION['nick'], $_POST['gameID']);
+				if ($_SESSION['pref_shareinvitation'] == 'oui')
+					insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'accepted');					
+			}
 			else
-			  	$oppColor = "black";
-			
-			/* Notification */
-			chessNotification('declined', $oppColor, $_POST['respMessage'], $_SESSION['nick'], $_POST['gameID']);
-			if ($_SESSION['pref_shareinvitation'] == 'oui')
-				insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'declined');
+			{
+				$tmpQuery = "UPDATE games SET gameMessage = 'inviteDeclined', messageFrom = '".$_POST['messageFrom']."' WHERE gameID = ".$_POST['gameID'];
+				mysqli_query($dbh,$tmpQuery);
+				
+				if ($_POST['whitePlayerID'] != $_SESSION['playerID'])
+					$oppColor = "white";
+				else
+				  	$oppColor = "black";
+				
+				/* Notification */
+				chessNotification('declined', $oppColor, $_POST['respMessage'], $_SESSION['nick'], $_POST['gameID']);
+				if ($_SESSION['pref_shareinvitation'] == 'oui')
+					insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'declined');
+			}
 		}
-
+		else $errMsg = _("A player accepted the game before you !");
 		break;
 
 	case 'WithdrawRequest':
-
-		if ($_POST['whitePlayerID'] == $_SESSION['playerID'])
-			$oppColor = "black";
-		else
-			$oppColor = "white";
-
-		/* notify opponent of invitation via email */
-		chessNotification('withdrawal', $oppColor, '', $_SESSION['nick'], $_POST['gameID']);
-		if ($_SESSION['pref_shareinvitation'] == 'oui')
-			insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'withdrawal');
 		
-		$tmpQuery = "DELETE FROM games WHERE gameID = ".$_POST['gameID'];
-		mysqli_query($dbh,$tmpQuery);
+		$game = getGame($_POST['gameID']);
+		if ($game['gameMessage'] == 'playerInvited')
+		{
+			if ($_POST['whitePlayerID'] == $_SESSION['playerID'])
+				$oppColor = "black";
+			else
+				$oppColor = "white";
 		
+			/* notify opponent of invitation via email */
+			chessNotification('withdrawal', $oppColor, '', $_SESSION['nick'], $_POST['gameID']);
+			if ($_SESSION['pref_shareinvitation'] == 'oui')
+				insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'withdrawal');
+			
+			$tmpQuery = "DELETE FROM games WHERE gameID = ".$_POST['gameID'];
+			mysqli_query($dbh,$tmpQuery);
+		}
+		else $errMsg = _("Your pending resquet was accepted !");
 		break;
 }
 
@@ -153,6 +167,15 @@ require 'include/page_header.php';
 		document.responseToInvite.gameID.value = gameID;
 		document.responseToInvite.whitePlayerID.value = whitePlayerID;
 		document.responseToInvite.submit();
+	}
+
+	function sendResponseAll(responseType, messageFrom, gameID, whitePlayerID)
+	{
+		document.responseToInviteAll.response.value = responseType;
+		document.responseToInviteAll.messageFrom.value = messageFrom;
+		document.responseToInviteAll.gameID.value = gameID;
+		document.responseToInviteAll.whitePlayerID.value = whitePlayerID;
+		document.responseToInviteAll.submit();
 	}
 
 	function loadGame(gameID)
@@ -188,12 +211,14 @@ require 'include/page_body.php';
 	if (mysqli_num_rows($res_current_vacation) > 0)
 		echo("<div class='success'>"._("You have a current vacation ! Your games are postponed").".</div>");
 	
+	$tmpGames = listInProgressGames($_SESSION['playerID']);
+	
 	$tmpGamesFrom = listInvitationFrom($_SESSION['playerID']);
 	$tmpGamesFor = listInvitationFor($_SESSION['playerID']);
 	if (mysqli_num_rows($tmpGamesFrom) > 0 || mysqli_num_rows($tmpGamesFor) > 0)
 	{
 	?>		
-		<h2><?php echo _("My pending requests");?></h2>
+		<h2><?php echo _("My pending requests");?> <a href="game_in_progress.php"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a></h2>
 		<form name="withdrawRequestForm" action="game_in_progress.php" method="post">
 		<?
 		if (mysqli_num_rows($tmpGamesFrom) > 0)
@@ -214,15 +239,17 @@ require 'include/page_body.php';
 				}
 				
 				// Elo
+				$whiteElo = "";
+				$blackElo = "";
 				if ($tmpGame['type'] == 2)
 				{
-					$whiteElo = $tmpGame['whiteElo960'];
-					$blackElo = $tmpGame['blackElo960'];
+					if ($tmpGame['whitePlayerID'] !=0) $whiteElo = $tmpGame['whiteElo960'];
+					if ($tmpGame['blackPlayerID'] !=0) $blackElo = $tmpGame['blackElo960'];
 				}
 				else
 				{
-					$whiteElo = $tmpGame['whiteElo'];
-					$blackElo = $tmpGame['blackElo'];
+					if ($tmpGame['whitePlayerID'] !=0) $whiteElo = $tmpGame['whiteElo'];
+					if ($tmpGame['blackPlayerID'] !=0) $blackElo = $tmpGame['blackElo'];
 				}
 				
 				$postDate = new DateTime($tmpGame['dateCreated']);
@@ -235,8 +262,9 @@ require 'include/page_body.php';
 					</div>
 					<div class='details'>
 						<div class='title'>
-							<span class='name'>"._("You")."</span> "._("invite a player to play a new game")." <a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponent."</span></a>
-						</div>
+							<span class='name'>"._("You")."</span> "._("invite a player to play a new game"));
+							if ($tmpGame['whitePlayerID'] != 0 && $tmpGame['blackPlayerID'] != 0) echo(" <a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponent."</span></a>");
+						echo("</div>
 						<div class='content'>
 							<div class='gameboard'>");
 								drawboardGame($tmpGame['gameID'], $tmpGame['whitePlayerID'], $tmpGame['blackPlayerID'], $tmpGame['position']);
@@ -351,12 +379,110 @@ require 'include/page_body.php';
 			<input type="hidden" name="ToDo" value="ResponseToInvite">
 		</form>
 		&nbsp;<br>
-	<? }?>
-			
+	<? }
+	
+	$tmpGamesFor = listInvitationForAll($_SESSION['playerID']);
+	if (mysqli_num_rows($tmpGamesFor) > 0)
+	{
+	?>
+	
+		<h2><?php echo _("Other pending requests");?> (<a href="#" onclick="javascript:document.getElementById('requests').style.display = 'block';"><?php echo(mysqli_num_rows($tmpGamesFor));?></a>) <a href="game_in_progress.php"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a></h2>
+	<? if (mysqli_num_rows($tmpGames) > 0) {?>
+	<div id="requests" style="display: none;">
+	<?} else {?>
+	<div id="requests">
+	<?php }?>
+		<form name="responseToInviteAll" action="game_in_progress.php" method="post">
+		<?
+		if (mysqli_num_rows($tmpGamesFor) > 0)
+			while($tmpGame = mysqli_fetch_array($tmpGamesFor, MYSQLI_ASSOC))
+			{
+				/* Get opponent's nick and ID*/
+				if ($tmpGame['whitePlayer'] == 0) {
+					$opponent = $tmpGame['blackNick'];
+					$opponentID = $tmpGame['blackPlayerID'];
+					$opponentSocialID = $tmpGame['blackSocialID'];
+					$opponentSocialNW = $tmpGame['blackSocialNetwork'];
+				}
+				else {
+					$opponent = $tmpGame['whiteNick'];
+					$opponentID = $tmpGame['whitePlayerID'];
+					$opponentSocialID = $tmpGame['whiteSocialID'];
+					$opponentSocialNW = $tmpGame['whiteSocialNetwork'];
+				}
+				
+				// Elo
+				$whiteElo = "";
+				$blackElo = "";
+				if ($tmpGame['type'] == 2)
+				{
+					if ($tmpGame['whitePlayerID'] !=0) $whiteElo = $tmpGame['whiteElo960'];
+					if ($tmpGame['blackPlayerID'] !=0) $blackElo = $tmpGame['blackElo960'];
+				}
+				else
+				{
+					if ($tmpGame['whitePlayerID'] !=0) $whiteElo = $tmpGame['whiteElo'];
+					if ($tmpGame['blackPlayerID'] !=0) $blackElo = $tmpGame['blackElo'];
+				}
+				
+				$postDate = new DateTime($tmpGame['dateCreated']);
+				$strPostDate = $fmt->format($postDate);
+				
+				echo("
+				<div class='activity'>
+					<div class='leftbar'>
+						<img src='".getPicturePath($opponentSocialNW, $opponentSocialID)."' width='40' height='40' border='0'/>
+					</div>
+					<div class='details'>
+						<div class='title'>
+							<a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponent."</span></a> "._("invite somebody to play a new game")."
+						</div>
+						<div class='content'>
+							<div class='gameboard'>");
+								drawboardGame($tmpGame['gameID'], $tmpGame['whitePlayerID'], $tmpGame['blackPlayerID'], $tmpGame['position']);
+							echo("</div>
+							<div class='gamedetails'>");
+							if ($tmpGame['whitePlayer'] == $_SESSION['playerID']) {
+								$tmpFrom = "white";
+							}
+							else {
+								$tmpFrom = "black";
+							}
+							echo(getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
+							echo("<br>"._("Time per move").": ".$tmpGame['timeMove']." "._("days"));
+							echo("<br>
+									<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpGame['whiteNick']."<br>".$whiteElo."</span>
+									<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpGame['blackNick']."<br>".$blackElo."</span><br><br><br>");
+							
+							/* Response */
+							echo ("<span style='float: left'><TEXTAREA name='respMessage' rows='3' placeholder='"._("Your message...")."' style='background-color: white;border-color: #CCCCCC;width: 250px;height: 45px;'></TEXTAREA></span>");
+							
+							/* Action */
+							echo ("<span style='float: right'><input type='button' value='"._("Accept")."' class='button' onclick=\"sendResponseAll('accepted', '".$tmpFrom."', ".$tmpGame['gameID'].", ".$tmpGame['whitePlayerID'].")\"><br>");
+							
+							echo("</div>
+						</div>
+						<div class='footer'>
+							<span class='date'>".$strPostDate."</span>
+						</div>
+					</div>
+				</div>");
+			}
+		?>
+
+			<input type="hidden" name="response" value="">
+			<input type="hidden" name="messageFrom" value="">
+			<input type="hidden" name="gameID" value="">
+			<input type="hidden" name="whitePlayerID" value="">
+			<input type="hidden" name="ToDo" value="ResponseToInvite">
+		</form>
+	</div>
+	&nbsp;<br>
+	<? } ?>	
 		<h2><?php echo _("My games in progress")?> <a href="game_in_progress.php"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a></h2>
 		<form name="existingGames" action="game_board.php" method="post">
 		<?
-		$tmpGames = listInProgressGames($_SESSION['playerID']);
+		
 		if (mysqli_num_rows($tmpGames) > 0)
 			while($tmpGame = mysqli_fetch_array($tmpGames, MYSQLI_ASSOC))
 			{
