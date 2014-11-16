@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2014-11-16 14:49+0100\n"
-"PO-Revision-Date: 2014-11-16 14:50+0100\n"
+"POT-Creation-Date: 2014-11-16 15:35+0100\n"
+"PO-Revision-Date: 2014-11-16 15:36+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -349,7 +349,7 @@ msgid "Elo"
 msgstr "Elo"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_player.php:62 PHP/game_list_ended.php:151
+#: PHP/ajax/ajx_display_player.php:62 PHP/game_list_ended.php:153
 #: PHP/mobile/ajax/ajx_display_player.php:62 PHP/mobile/player_view.php:184
 #: PHP/player_ranking.php:93 PHP/player_view.php:175 PHP/player_view.php:270
 #: PHP/player_view.php:329
@@ -712,17 +712,17 @@ msgstr "Proposition de nulle en attente..."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:621
 #: PHP/bwc/bwc_games.php:1124 PHP/bwc/bwc_games.php:1225
-#: PHP/game_list_ended.php:78 PHP/game_list_ended.php:148
-#: PHP/game_list_ended.php:219 PHP/game_list_ended.php:285
-#: PHP/game_list_ended.php:343 PHP/player_view.php:241 PHP/player_view.php:300
+#: PHP/game_list_ended.php:80 PHP/game_list_ended.php:150
+#: PHP/game_list_ended.php:221 PHP/game_list_ended.php:287
+#: PHP/game_list_ended.php:345 PHP/player_view.php:241 PHP/player_view.php:300
 msgid "Whites"
 msgstr "Les blancs"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:624
 #: PHP/bwc/bwc_games.php:1126 PHP/bwc/bwc_games.php:1227
-#: PHP/game_list_ended.php:79 PHP/game_list_ended.php:149
-#: PHP/game_list_ended.php:220 PHP/game_list_ended.php:286
-#: PHP/game_list_ended.php:344 PHP/player_view.php:242 PHP/player_view.php:301
+#: PHP/game_list_ended.php:81 PHP/game_list_ended.php:151
+#: PHP/game_list_ended.php:222 PHP/game_list_ended.php:288
+#: PHP/game_list_ended.php:346 PHP/player_view.php:242 PHP/player_view.php:301
 msgid "Blacks"
 msgstr "Les noirs"
 
@@ -1106,16 +1106,16 @@ msgid "Resign"
 msgstr "Abandonner"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:393
-#: PHP/game_in_progress.php:427 PHP/game_list_ended.php:82
-#: PHP/game_list_ended.php:152 PHP/game_list_ended.php:223
-#: PHP/game_list_ended.php:289 PHP/game_list_ended.php:347
+#: PHP/game_in_progress.php:427 PHP/game_list_ended.php:84
+#: PHP/game_list_ended.php:154 PHP/game_list_ended.php:225
+#: PHP/game_list_ended.php:291 PHP/game_list_ended.php:349
 msgid "Started"
 msgstr "Commencée le"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:393
-#: PHP/game_in_progress.php:427 PHP/game_list_ended.php:83
-#: PHP/game_list_ended.php:153 PHP/game_list_ended.php:224
-#: PHP/game_list_ended.php:290 PHP/game_list_ended.php:348
+#: PHP/game_in_progress.php:427 PHP/game_list_ended.php:85
+#: PHP/game_list_ended.php:155 PHP/game_list_ended.php:226
+#: PHP/game_list_ended.php:292 PHP/game_list_ended.php:350
 #: PHP/mobile/game_board.php:390 PHP/mobile/game_in_progress.php:395
 msgid "Last move"
 msgstr "Dernier coup"
@@ -1236,58 +1236,62 @@ msgstr "Parties terminées"
 msgid "All ended chess games of a player"
 msgstr "Toutes les parties terminées d'un joueur"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:74
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:67
+msgid "Statistics (no Chess960)"
+msgstr "Statistiques (sans Chess960)"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:76
 msgid "To take in account for next Elo ranking"
 msgstr "A prendre en compte dans le prochain classement Elo"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:80
-#: PHP/game_list_ended.php:150 PHP/game_list_ended.php:221
-#: PHP/game_list_ended.php:287 PHP/game_list_ended.php:345
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:82
+#: PHP/game_list_ended.php:152 PHP/game_list_ended.php:223
+#: PHP/game_list_ended.php:289 PHP/game_list_ended.php:347
 #: PHP/player_view.php:302
 msgid "Result"
 msgstr "Résultat"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:81
-#: PHP/game_list_ended.php:222 PHP/game_list_ended.php:288
-#: PHP/game_list_ended.php:346 PHP/player_view.php:243 PHP/player_view.php:303
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:83
+#: PHP/game_list_ended.php:224 PHP/game_list_ended.php:290
+#: PHP/game_list_ended.php:348 PHP/player_view.php:243 PHP/player_view.php:303
 msgid "ECO"
 msgstr "ECO"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:88
-#: PHP/game_list_ended.php:158
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:90
+#: PHP/game_list_ended.php:160
 msgid "No games to take in account"
 msgstr "Pas de parties à prendre en compte"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:144
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:146
 msgid "To take in account for next Chess960 Elo ranking"
 msgstr "A prendre en compte dans le prochain classement Elo Chess960"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:215
-msgid "Lost games"
-msgstr "Parties perdues"
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:217
+msgid "Lost classic games"
+msgstr "Parties classiques perdues"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:215
-#: PHP/game_list_ended.php:281 PHP/game_list_ended.php:338
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:217
+#: PHP/game_list_ended.php:283 PHP/game_list_ended.php:340
 msgid "of"
 msgstr "de"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:229
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:231
 msgid "No lost games"
 msgstr "Aucune partie perdue"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:281
-msgid "Draw games"
-msgstr "Parties nulles"
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:283
+msgid "Draw classic games"
+msgstr "Parties classiques nulles"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:295
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:297
 msgid "No draw games"
 msgstr "Aucune partie nulle"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:338
-msgid "Won games"
-msgstr "Parties gagnées"
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:340
+msgid "Won classic games"
+msgstr "Parties classiques gagnées"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:353
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:355
 msgid "No won games"
 msgstr "Aucune partie gagnée"
 
@@ -3093,6 +3097,15 @@ msgstr ""
 "autres points n'en seraient pas affectés. Tout point déclaré caduc sera "
 "remplacé par une disposition se rapprochant le plus possible de la "
 "précédente disposition."
+
+#~ msgid "Lost games"
+#~ msgstr "Parties perdues"
+
+#~ msgid "Draw games"
+#~ msgstr "Parties nulles"
+
+#~ msgid "Won games"
+#~ msgstr "Parties gagnées"
 
 #~ msgid "Order"
 #~ msgstr "Ordre"

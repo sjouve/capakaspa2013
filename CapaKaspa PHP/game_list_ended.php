@@ -64,10 +64,12 @@ require 'include/page_body.php';
 		if (mysqli_num_rows($tmpLostGames)+mysqli_num_rows($tmpDrawGames)+mysqli_num_rows($tmpWonGames) > 0)
 		{
 		?>
+		<h3><?echo _("Statistics (no Chess960)");?></h3>
 		<div id="games_statistics">
 			<img src="graph_results_perc.php?playerID=<?php echo($playerID);?>">
 			<img src="graph_eco_games.php?playerID=<?php echo($playerID);?>">
       	</div>
+      	<br>
       	<? }?>
       	<? if ($playerID == $_SESSION['playerID']) {?>
       	<form name="endedGames" action="game_board.php" method="post">
@@ -212,7 +214,7 @@ require 'include/page_body.php';
     	<form name="endedGames" action="game_board.php" method="post">
         
         <A NAME="defaites"></A>
-		<h3><?echo _("Lost games");?> (<?echo(mysqli_num_rows($tmpLostGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
+		<h3><?echo _("Lost classic games");?> (<?echo(mysqli_num_rows($tmpLostGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
         <div class="tabliste">
           <table border="0" width="100%">
             <tr>
@@ -278,7 +280,7 @@ require 'include/page_body.php';
 		<br/>
 		
 		<A NAME="nulles"></A>
-		<h3><?echo _("Draw games");?> (<?echo(mysqli_num_rows($tmpDrawGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
+		<h3><?echo _("Draw classic games");?> (<?echo(mysqli_num_rows($tmpDrawGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
         <div class="tabliste">
           <table border="0" width="100%">
             <tr>
@@ -335,7 +337,7 @@ require 'include/page_body.php';
 	<br/>
 	
 	<A NAME="victoires"></A>
-	<h3><?echo _("Won games");?> (<?echo(mysqli_num_rows($tmpWonGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
+	<h3><?echo _("Won classic games");?> (<?echo(mysqli_num_rows($tmpWonGames));?>) <?if (isset($_GET['playerID'])) echo(_("of")." ".$player['nick']);?></h3>
 	
         <div class="tabliste">
           <table border="0" width="100%">
