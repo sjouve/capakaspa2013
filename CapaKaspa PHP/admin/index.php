@@ -12,7 +12,10 @@ require '../dac/dac_games.php';
 require '../bwc/bwc_chessutils.php';
 require '../bwc/bwc_board.php';
 require '../bwc/bwc_games.php';
+require '../bwc/bwc_players.php';
 require '../bwc/bwc_batch.php';
+require '../bwc/bwc_common.php';
+
 
 /* Traitement des actions */
 $err="N/A";
@@ -33,10 +36,12 @@ $dateFin = date('Y-m-d', mktime(0,0,0,date('m'),0,date('Y')));
 <h3>Classique</h3>
 <input id="ToDo" name="ToDo" type="radio" value="save_elo">Historiser Elo
 <input id="ToDo" name="ToDo" type="radio" value="elo">Calculer Elo
+<input id="ToDo" name="ToDo" type="radio" value="rank">Classement
 
 <h3>Chess960</h3>
 <input id="ToDo" name="ToDo" type="radio" value="save_elo960">Historiser Elo
 <input id="ToDo" name="ToDo" type="radio" value="elo960">Calculer Elo
+<input id="ToDo" name="ToDo" type="radio" value="rank960">Classement
 
 <p><input type="submit"></p>
 </form>
@@ -65,6 +70,12 @@ switch($ToDo)
 		break;
 	case 'save_elo960':
 		$err = createElo960History();
+		break;
+	case 'rank':
+		$err = computeRank();
+		break;
+	case 'rank960':
+		$err = computeRank960();
 		break;
 }
 

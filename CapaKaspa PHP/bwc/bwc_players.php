@@ -549,4 +549,64 @@ function isNewPlayer($creationDate)
 		return false; 
 }
 
+/* Calcul du classement des joueurs par Elo Classique */
+function computeRank()
+{
+	$result = searchPlayersRanking("", 0, 0, "", "", 0, "DESC");
+	$numPlayers = mysqli_num_rows($result);
+	$rank = 0;
+	$number = 0;
+	$currentElo = "";
+	$previousElo = "";
+	
+	while($tmpPlayer = mysqli_fetch_array($result, MYSQLI_ASSOC))
+	{
+		$currentElo = $tmpPlayer['elo'];
+	
+		// On incrémente systématiquement le compteur
+		$number += 1;
+		
+		// Si le rupture alors le classement est égal au compteur de joueur
+		if ($currentElo != $previousElo)
+			$rank = $number;
+			
+		$previousElo = $tmpPlayer['elo'];
+		
+		// Update player rank
+		$res = updatePlayerRanks($tmpPlayer['playerID'], $rank, $tmpPlayer['rank960']);
+		if (!$res) return false;
+	}
+	
+	return true;
+}
+
+/* Calcul du classement des joueurs par Elo Classique */
+function computeRank960()
+{
+	$result = searchPlayersRanking("", 0, 0, "", "", 2, "DESC");
+	$numPlayers = mysqli_num_rows($result);
+	$rank = 0;
+	$number = 0;
+	$currentElo = "";
+	$previousElo = "";
+	
+	while($tmpPlayer = mysqli_fetch_array($result, MYSQLI_ASSOC))
+	{
+		$currentElo = $tmpPlayer['elo960'];
+	
+		// On incrémente systématiquement le compteur
+		$number += 1;
+		
+		// Si le rupture alors le classement est égal au compteur de joueur
+		if ($currentElo != $previousElo)
+			$rank = $number;
+			
+		$previousElo = $tmpPlayer['elo960'];
+		
+		// Update player rank
+		$res = updatePlayerRanks($tmpPlayer['playerID'], $tmpPlayer['rank'], $rank);
+	}
+	
+	return true;
+}
 ?>

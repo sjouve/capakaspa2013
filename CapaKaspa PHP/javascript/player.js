@@ -24,7 +24,7 @@ function displayPlayers(start, player, critFav, critStat, critEloS, critEloE, cr
 	xmlhttp.send();
 }
 
-function displayPlayersRanking(start, player, critCtry, critType, critOrder, rank, prevElo)
+function displayPlayersRanking(start, player, critCtry, critType, critOrder)
 {
 	if (start == 0)
 		document.getElementById("players"+start).innerHTML="<img src='images/ajaxloader.gif'/>";
@@ -45,6 +45,6 @@ function displayPlayersRanking(start, player, critCtry, critType, critOrder, ran
 			document.getElementById("players"+start).innerHTML=xmlhttp.responseText;
 		}
 	};
-	xmlhttp.open("GET","ajax/ajx_display_ranking.php?start="+start+"&player="+player+"&cc="+critCtry+"&tp="+critType+"&od="+critOrder+"&rk="+rank+"&ce="+prevElo,true);
+	xmlhttp.open("GET","ajax/ajx_display_ranking.php?start="+start+"&player="+player+"&cc="+critCtry+"&tp="+critType+"&od="+critOrder,true);
 	xmlhttp.send();
 }

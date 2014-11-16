@@ -202,26 +202,41 @@ function searchPlayersRanking($mode, $debut, $limit, $playerID, $critCountry, $c
 {
 	global $dbh;
 	
-	$tmpQuery = "SELECT P.playerID, P.nick, P.firstName, P.lastName, P.socialNetwork, P.socialID, P.profil,
-	P.situationGeo, P.elo, P.lastConnection, P.creationDate, C.countryName
-	FROM players P, country C ";
+	if ($mode=="count")
+		$tmpQuery = "SELECT count(*) nbPlayers
+		FROM players P ";
+	else
+		$tmpQuery = "SELECT P.playerID, P.nick, P.firstName, P.lastName, P.socialNetwork, P.socialID, P.profil,
+		P.situationGeo, P.elo, P.elo960, P.lastConnection, P.creationDate, P.rank, P.rank960, C.countryName
+		FROM players P, country C ";
 
-	$tmpQuery .= " WHERE P.activate=1
-	AND P.countryCode = C.countryCode
-	AND C.countryLang = '".getLang()."'";
-
+	if ($mode=="count")
+		$tmpQuery .= " WHERE P.activate=1";
+	else
+		$tmpQuery .= " WHERE P.activate=1
+		AND P.countryCode = C.countryCode
+		AND C.countryLang = '".getLang()."'";
+	
 	if ($critCountry != '')
 		$tmpQuery .= " AND P.countryCode = '".$critCountry."'";
-		
-	if ($critOrder == "ASC")
-		$tmpQuery .= " ORDER BY P.elo ASC";
-	else
-		$tmpQuery .= " ORDER BY P.elo DESC";
 
-	$tmpQuery .= " limit ".$debut.",".$limit;
+	if ($critGameType == 0)
+		if ($critOrder == "ASC")
+			$tmpQuery .= " ORDER BY P.elo ASC";
+		else
+			$tmpQuery .= " ORDER BY P.elo DESC";
+	else
+		if ($critOrder == "ASC")
+			$tmpQuery .= " ORDER BY P.elo960 ASC";
+		else
+			$tmpQuery .= " ORDER BY P.elo960 DESC";
+
+	if ($mode == "rank")
+		$tmpQuery .= " limit ".$debut.",".$limit;
 
 	return mysqli_query($dbh,$tmpQuery);
 }
+
 
 /*
  * PLAYER WRITE
@@ -503,5 +518,18 @@ function createElo960History()
 	$res_elohistory = mysqli_query($dbh,"INSERT into elo960_history SELECT now(), elo960, playerID FROM players where activate=1");
 	
 	return $res_elohistory;
+}
+
+function updatePlayerRanks($playerID, $rank, $rank960)
+{
+	global $dbh;
+	$res_player = mysqli_query($dbh,"UPDATE players SET rank=".$rank.", rank960=".$rank960." WHERE playerID = ".$playerID);
+	  
+	if ($res_player)	
+		return TRUE;
+	else
+		return FALSE;
+	
+	
 }
 ?>

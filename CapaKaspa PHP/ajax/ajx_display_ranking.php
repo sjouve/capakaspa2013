@@ -23,49 +23,28 @@ $playerID = $_GET["player"];
 $critCountry = $_GET["cc"];
 $critType = $_GET["tp"];
 $critOrder = $_GET["od"];
-$rank = $_GET["rk"];
-$previousElo = $_GET["ce"];
 $limit = 20;
-$currentElo = "";
 
 $fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
 
-$number = $start;
-
-// Si commence par dernier le compteur de joueur démarre par le nom de joueur
-if ($critOrder == "ASC")
-{
-	$nb_tot=0;
-	$res_count = searchPlayers("count", 0, 0, $_SESSION['playerID'], "", "", "", "", $critCountry, ""); 
-	if ($res_count)
-	{
-		$count = mysqli_fetch_array($res_count, MYSQLI_ASSOC);
-		$nb_tot = $count['nbPlayers'];
-	}
-
-$number = $nb_tot - $start;
-}
-
-
-$result = searchPlayersRanking("", $start, $limit, $playerID, $critCountry, $critType, $critOrder);
+$result = searchPlayersRanking("rank", $start, $limit, $playerID, $critCountry, $critType, $critOrder);
 $numPlayers = mysqli_num_rows($result);
 	
 while($tmpPlayer = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
 	$lastConnection = new DateTime($tmpPlayer['lastConnection']);
 	$strLastConnection = $fmt->format($lastConnection);
-	$currentElo = $tmpPlayer['elo'];
-	
-	// On incrémente ou décrémente systématiquement le compteur
-	if ($critOrder == "DESC") $number += 1;
-	if ($critOrder == "ASC") $number -= 1;
-	
-	// Si le rupture alors le classement est égal au compteur de joueur
-	if ($currentElo != $previousElo)
-		$rank = $number;
+	if ($critType == 0)
+	{
+		$player_elo = $tmpPlayer['elo'];
+		$rank = $tmpPlayer['rank'];
+	}
+	else
+	{
+		$player_elo = $tmpPlayer['elo960'];
+		$rank = $tmpPlayer['rank960'];
+	}
 		
-	$previousElo = $tmpPlayer['elo'];
-	
 	echo("
 		<form action='game_new.php' method='post'>
 		<div class='player'>
@@ -85,7 +64,7 @@ while($tmpPlayer = mysqli_fetch_array($result, MYSQLI_ASSOC))
 					if (strlen(stripslashes($tmpPlayer['situationGeo'])) > 0)
 						echo(stripslashes($tmpPlayer['situationGeo']).", ");
 						echo($tmpPlayer['countryName']."
-					<br><b>"._("Elo")." : ".$tmpPlayer['elo']."</b>
+					<br><b>"._("Elo")." : ".$player_elo."</b>
 					<br><span class='date'>".nl2br(stripslashes($tmpPlayer['profil']))."</span>
 				</div>
 				<div class='footer'>
@@ -103,8 +82,6 @@ if ($numPlayers == $limit)
 	<div id="players<?echo($start + $limit);?>" style="display: none;">
 		<img src='images/ajaxloader.gif'/>
 		<input type="hidden" id="playerStartPage" value="<?echo($start + $limit);?>"/>
-		<input type="hidden" id="playerRank" value="<?echo($rank);?>"/>
-		<input type="hidden" id="previousElo" value="<?echo($previousElo);?>"/>
 	</div>
 <?
 }

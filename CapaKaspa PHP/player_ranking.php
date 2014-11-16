@@ -24,8 +24,14 @@ require 'include/localization.php';
 
 // Traitement des critères
 $critCountry = isset($_POST['critCountryCode']) ? $_POST['critCountryCode'] : "";
-$critGameType = isset($_POST['critGameTypeCode']) ? $_POST['critGameTypeCode'] : "";
+$critGameType = isset($_POST['critGameTypeCode']) ? $_POST['critGameTypeCode'] : "0";
 $critOrder = isset($_POST['critOrder']) ? $_POST['critOrder'] : "DESC";
+
+$player = getPlayer($_SESSION['playerID']);
+if ($critGameType == 0)
+	$player_rank = $player['rank'];
+else
+	$player_rank = $player['rank960'];
 
 $titre_page = _("Players ranking");
 $desc_page = _("Players ranking by country and game type");
@@ -53,7 +59,7 @@ function getheight() {
 		var scrolledtonum = window.pageYOffset + myHeight + 2;
 		var heightofbody = document.body.offsetHeight;
 		if (scrolledtonum >= heightofbody && document.getElementById("playerStartPage")) {
-			displayPlayersRanking(document.getElementById("playerStartPage").value,<? echo($_SESSION['playerID']);?>,'<? echo($critCountry);?>','<? echo($critGameType);?>','<? echo($critOrder);?>',document.getElementById("playerRank").value,document.getElementById("previousElo").value);
+			displayPlayersRanking(document.getElementById("playerStartPage").value,<? echo($_SESSION['playerID']);?>,'<? echo($critCountry);?>','<? echo($critGameType);?>','<? echo($critOrder);?>');
 	}
 }
 
@@ -62,28 +68,43 @@ window.onscroll = getheight;
 </script>
 <?
 $nb_tot=0;
-$res_count = searchPlayers("count", 0, 0, $_SESSION['playerID'], "", "", "", "", $critCountry, ""); 
+$res_count = searchPlayersRanking("count", 0, 0, "", $critCountry, $critGameType, $critOrder); 
 if ($res_count)
 {
 	$count = mysqli_fetch_array($res_count, MYSQLI_ASSOC);
 	$nb_tot = $count['nbPlayers'];
 }
-$startRank = 0;
-if ($critOrder == "ASC") $startRank = $nb_tot;
 
-$attribut_body = "onload=\"highlightMenu(15);displayPlayersRanking(0,".$_SESSION['playerID'].",'".$critCountry."','".$critGameType."','".$critOrder."',".$startRank.")\"";
+$attribut_body = "onload=\"highlightMenu(15);displayPlayersRanking(0,".$_SESSION['playerID'].",'".$critCountry."','".$critGameType."','".$critOrder."')\"";
 require 'include/page_body.php';
 ?>
 <div id="content">
 	<div class="contentbody">
-  
 		
 		<h3><? echo _("Players ranking");?></h3>
 		<div id="searchForm">
 			<form name="searchPlayers" action="player_ranking.php" method="post">
 				<table border="0" width="100%">
 		        	<tr>
-			            <td><?echo _("Country");?> :</td>
+			            <td><?echo _("Choose ranking");?> :</td>
+			            <td>
+			            	<select name="critGameTypeCode" id="critGameTypeCode">
+				            	<option value="0" <?php if ($critGameType == 0) echo(" selected");?>><?echo _("Classic game")?></option>
+				            	<option value="2" <?php if ($critGameType == 2) echo(" selected");?>><?echo _("Chess960")?></option>
+			            	</select>
+			            </td>
+		        	</tr>
+		        	<tr>
+			            <td><?echo _("Order ranking");?> :</td>
+			            <td>
+			            	<select name="critOrder" id="critOrder">	            		
+				            	<option value="DESC" <? if ($critOrder == "DESC") echo(" selected");?>><?echo _("From first to last")?></option>
+				            	<option value="ASC" <? if ($critOrder == "ASC") echo(" selected");?>><?echo _("From last to first")?></option>
+			            	</select>
+			            </td>
+		        	</tr>
+		        	<tr>
+			            <td><?echo _("Filter by country");?> :</td>
 			            <td ><select name="critCountryCode" id="critCountryCode">
 				            <?
 				            echo "\t",'<option value="">', _("All countries") ,'</option>',"\n";
@@ -100,23 +121,6 @@ require 'include/page_body.php';
 				            ?>
 			            </select></td>
 		        	</tr>
-		        	<tr>
-			            <td><?echo _("Game type");?> :</td>
-			            <td>
-			            	<select name="critGameTypeCode" id="critGameTypeCode">
-				            	<option value="CL"><?echo _("Classic game")?></option>
-			            	</select>
-			            </td>
-		        	</tr>
-		        	<!-- <tr>
-			            <td><?echo _("Order");?> :</td>
-			            <td>
-			            	<select name="critOrder" id="critOrder">	            		
-				            	<option value="DESC" <? if ($critOrder == "DESC") echo(" selected");?>><?echo _("From first to last")?></option>
-				            	<option value="ASC" <? if ($critOrder == "ASC") echo(" selected");?>><?echo _("From last to first")?></option>
-			            	</select>
-			            </td>
-		        	</tr> -->
 		          	<tr>
 			            <td colspan="2" align="right">
 			            	<input type="submit" name="Filter" value="<? echo _("Filter");?>" class="button">	
@@ -124,6 +128,7 @@ require 'include/page_body.php';
 		          	</tr>	          
 		        </table>
 			</form>
+			<?php echo(_("Your rank is")." : ".$player_rank);?><br>
 	        <br><? echo($nb_tot." "._("player(s) found"));?>	        	
         </div>
         

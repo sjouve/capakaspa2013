@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2014-11-04 23:12+0100\n"
-"PO-Revision-Date: 2014-11-04 23:12+0100\n"
+"POT-Creation-Date: 2014-11-16 14:49+0100\n"
+"PO-Revision-Date: 2014-11-16 14:50+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.9\n"
+"X-Generator: Poedit 1.6.10\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -326,7 +326,7 @@ msgid "Player online"
 msgstr "Joueur en ligne"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_player.php:53 PHP/ajax/ajx_display_ranking.php:79
+#: PHP/ajax/ajx_display_player.php:53 PHP/ajax/ajx_display_ranking.php:58
 #: PHP/bwc/bwc_common.php:178 PHP/bwc/bwc_common.php:199 PHP/message.php:93
 #: PHP/mobile/ajax/ajx_display_player.php:53 PHP/mobile/player_view.php:153
 #: PHP/player_view.php:144
@@ -334,7 +334,7 @@ msgid "New player"
 msgstr "Nouveau joueur"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_player.php:58 PHP/ajax/ajx_display_ranking.php:84
+#: PHP/ajax/ajx_display_player.php:58 PHP/ajax/ajx_display_ranking.php:63
 #: PHP/app_jchess.php:57 PHP/game_new.php:25 PHP/include/page_body.php:67
 #: PHP/mobile/ajax/ajx_display_player.php:58 PHP/mobile/game_new.php:25
 #: PHP/mobile/player_view.php:174 PHP/player_view.php:157
@@ -342,7 +342,7 @@ msgid "New game"
 msgstr "Nouvelle partie"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_player.php:62 PHP/ajax/ajx_display_ranking.php:88
+#: PHP/ajax/ajx_display_player.php:62 PHP/ajax/ajx_display_ranking.php:67
 #: PHP/mobile/ajax/ajx_display_player.php:62 PHP/mobile/player_view.php:184
 #: PHP/player_view.php:175
 msgid "Elo"
@@ -351,7 +351,8 @@ msgstr "Elo"
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_player.php:62 PHP/game_list_ended.php:151
 #: PHP/mobile/ajax/ajx_display_player.php:62 PHP/mobile/player_view.php:184
-#: PHP/player_view.php:175 PHP/player_view.php:270 PHP/player_view.php:329
+#: PHP/player_ranking.php:93 PHP/player_view.php:175 PHP/player_view.php:270
+#: PHP/player_view.php:329
 msgid "Chess960"
 msgstr "Chess960"
 
@@ -789,7 +790,7 @@ msgid "OK"
 msgstr "OK"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1318
-#: PHP/game_new.php:187 PHP/mobile/game_new.php:94 PHP/player_ranking.php:107
+#: PHP/game_new.php:187 PHP/mobile/game_new.php:94 PHP/player_ranking.php:92
 msgid "Classic game"
 msgstr "Partie classique"
 
@@ -1301,7 +1302,7 @@ msgid "Start new game"
 msgstr "Commencer une nouvelle partie"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:184
-#: PHP/mobile/game_new.php:91 PHP/player_ranking.php:104
+#: PHP/mobile/game_new.php:91
 msgid "Game type"
 msgstr "Type de partie"
 
@@ -1326,8 +1327,8 @@ msgid "Rooks"
 msgstr "Tours"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:207
-#: PHP/mobile/game_new.php:114
-msgid "Fischer Chess Random (Chess960)"
+#, fuzzy
+msgid "Fischer Random Chess (Chess960)"
 msgstr "Fischer Chess Random (Chess960)"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:217
@@ -1630,8 +1631,8 @@ msgstr "Plus sur CapaKaspa"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/include/page_body.php:108
-msgid "Chess news"
-msgstr "Actualités des échecs"
+msgid "Carlsen-Anand 2014 Direct !"
+msgstr ""
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/include/page_body.php:109
@@ -1640,11 +1641,16 @@ msgstr "Championnat du Monde d'échecs 2014"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/include/page_body.php:110
+msgid "Chess news"
+msgstr "Actualités des échecs"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/include/page_body.php:111
 msgid "Learning chess"
 msgstr "Apprentissage des échecs"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:111
+#: PHP/include/page_body.php:112
 msgid "And more"
 msgstr "Et plus..."
 
@@ -1824,8 +1830,8 @@ msgid "A valid email is required for confirmation"
 msgstr "Un email valide est obligatoire pour confirmation"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:308
-#: PHP/mobile/player_search.php:95 PHP/player_ranking.php:86
-#: PHP/player_search.php:88 PHP/player_update.php:390
+#: PHP/mobile/player_search.php:95 PHP/player_search.php:88
+#: PHP/player_update.php:390
 msgid "Country"
 msgstr "Pays"
 
@@ -1914,6 +1920,10 @@ msgstr "Parties"
 msgid "News"
 msgstr "Actualités"
 
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/game_new.php:114
+msgid "Fischer Chess Random (Chess960)"
+msgstr "Fischer Chess Random (Chess960)"
+
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/mobile/include/page_footer.php:2
 msgid "Access to computer version"
@@ -1964,7 +1974,7 @@ msgid "Players advanced search"
 msgstr "Recherche avancée de joueurs"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_search.php:98 PHP/player_ranking.php:89
+#: PHP/mobile/player_search.php:98 PHP/player_ranking.php:110
 #: PHP/player_search.php:91
 msgid "All countries"
 msgstr "Tous les pays"
@@ -2015,13 +2025,13 @@ msgid "and"
 msgstr "et"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_search.php:137 PHP/player_ranking.php:122
+#: PHP/mobile/player_search.php:137 PHP/player_ranking.php:126
 #: PHP/player_search.php:135
 msgid "Filter"
 msgstr "Filtrer"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_search.php:139 PHP/player_ranking.php:127
+#: PHP/mobile/player_search.php:139 PHP/player_ranking.php:132
 #: PHP/player_search.php:140
 msgid "player(s) found"
 msgstr "joueur(s) trouvés"
@@ -2093,26 +2103,38 @@ msgstr ""
 "Entrer l'adresse email que vous avez assigné à ce compte. Un message sera "
 "envoyé à cette adresse. Il contiendra les informations pour vous connecter."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:30
-#: PHP/player_ranking.php:81
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:36
+#: PHP/player_ranking.php:84
 msgid "Players ranking"
 msgstr "Classement des joueurs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:31
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:37
 msgid "Players ranking by country and game type"
 msgstr "Classement des joueurs par pays et type de partie"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:112
-msgid "Order"
-msgstr "Ordre"
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:89
+msgid "Choose ranking"
+msgstr "Choisir le classement"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:115
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:98
+msgid "Order ranking"
+msgstr "Trier le classement"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:101
 msgid "From first to last"
 msgstr "Du premier au dernier"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:116
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:102
 msgid "From last to first"
 msgstr "Du dernier au premier"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:107
+msgid "Filter by country"
+msgstr "Filtrer par pays"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_ranking.php:131
+msgid "Your rank is"
+msgstr "Votre classement est"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_update.php:119
 #: PHP/player_update.php:120
@@ -3071,6 +3093,9 @@ msgstr ""
 "autres points n'en seraient pas affectés. Tout point déclaré caduc sera "
 "remplacé par une disposition se rapprochant le plus possible de la "
 "précédente disposition."
+
+#~ msgid "Order"
+#~ msgstr "Ordre"
 
 #~ msgid "Improve your Elo chess ranking."
 #~ msgstr "Améliorer votre classement Elo de jeu d'échecs."

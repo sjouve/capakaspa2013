@@ -377,4 +377,5 @@ function calculerElo($type)
 	}
 	return 1;
 }
+
 ?>
