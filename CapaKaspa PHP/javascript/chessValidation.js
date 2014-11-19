@@ -1,6 +1,4 @@
 ﻿// these functions are used to test the validity of moves
-DEBUG = false;
-
 var knightMove = [[-1, -2], [+1, -2], [-2, -1], [-2, +1], [-1, +2], [+1, +2], [+2, -1], [+2, +1]];
 var diagonalMove = [[-1, -1], [-1, +1], [+1, +1], [+1, -1]];
 var horzVertMove = [[-1, 0], [0, +1], [+1, 0], [0, -1]];
@@ -36,9 +34,6 @@ function GamePiece()
 		/* DESIGN NOTE: this function is mostly designed with CHECK checking in mind and
 			may not be suitable for other purposes */
 
-		if (DEBUG)
-			alert("in isSafe(" + testRow + ", " + testCol + ", " + testColor + ")");
-
 		var ennemyColor = 0;
 		
 		if (testColor == 'white')
@@ -68,9 +63,6 @@ function GamePiece()
 			if (((testRow - i) >= 0) && ((testCol - i) >= 0))
 				if ((pieceFound[0].piece == 0) && (board[testRow - i][testCol - i] != 0))
 				{
-					if (DEBUG)
-						alert("isSafe -> pieceFound[0] = " + board[testRow - i][testCol - i] + "\ndist = " + i);
-
 					pieceFound[0].piece = board[testRow - i][testCol - i];
 					pieceFound[0].dist = i;
 				}
@@ -78,9 +70,6 @@ function GamePiece()
 			if ((testRow - i) >= 0)
 				if ((pieceFound[1].piece == 0) && (board[testRow - i][testCol] != 0))
 				{
-					if (DEBUG)
-						alert("isSafe -> pieceFound[1] = " + board[testRow - i][testCol] + "\ndist = " + i);
-
 					pieceFound[1].piece = board[testRow - i][testCol];
 					pieceFound[1].dist = i;
 				}
@@ -88,9 +77,6 @@ function GamePiece()
 			if (((testRow - i) >= 0) && ((testCol + i) < 8))
 				if ((pieceFound[2].piece == 0) && (board[testRow - i][testCol + i] != 0))
 				{
-					if (DEBUG)
-						alert("isSafe -> pieceFound[2] = " + board[testRow - i][testCol + i] + "\ndist = " + i);
-
 					pieceFound[2].piece = board[testRow - i][testCol + i];
 					pieceFound[2].dist = i;
 				}
@@ -98,9 +84,6 @@ function GamePiece()
 			if ((testCol + i) < 8)
 				if ((pieceFound[3].piece == 0) && (board[testRow][testCol + i] != 0))
 				{
-					if (DEBUG)
-						alert("isSafe -> pieceFound[3] = " + board[testRow][testCol + i] + "\ndist = " + i);
-
 					pieceFound[3].piece = board[testRow][testCol + i];
 					pieceFound[3].dist = i;
 				}
@@ -108,9 +91,6 @@ function GamePiece()
 			if (((testRow + i) < 8) && ((testCol + i) < 8))
 				if ((pieceFound[4].piece == 0) && (board[testRow + i][testCol + i] != 0))
 				{
-					if (DEBUG)
-						alert("isSafe -> pieceFound[4] = " + board[testRow + i][testCol + i] + "\ndist = " + i);
-
 					pieceFound[4].piece = board[testRow + i][testCol + i];
 					pieceFound[4].dist = i;
 				}
@@ -118,9 +98,6 @@ function GamePiece()
 			if ((testRow + i) < 8)
 				if ((pieceFound[5].piece == 0) && (board[testRow + i][testCol] != 0))
 				{
-					if (DEBUG)
-						alert("isSafe -> pieceFound[5] = " + board[testRow + i][testCol] + "\ndist = " + i);
-
 					pieceFound[5].piece = board[testRow + i][testCol];
 					pieceFound[5].dist = i;
 				}
@@ -128,9 +105,6 @@ function GamePiece()
 			if (((testRow + i) < 8) && ((testCol - i) >= 0))
 				if ((pieceFound[6].piece == 0) && (board[testRow + i][testCol - i] != 0))
 				{
-					if (DEBUG)
-						alert("isSafe -> pieceFound[6] = " + board[testRow + i][testCol - i] + "\ndist = " + i);
-
 					pieceFound[6].piece = board[testRow + i][testCol - i];
 					pieceFound[6].dist = i;
 				}
@@ -138,9 +112,6 @@ function GamePiece()
 			if ((testCol - i) >= 0)
 				if ((pieceFound[7].piece == 0) && (board[testRow][testCol - i] != 0))
 				{
-					if (DEBUG)
-						alert("isSafe -> pieceFound[7] = " + board[testRow][testCol - i] + "\ndist = " + i);
-
 					pieceFound[7].piece = board[testRow][testCol - i];
 					pieceFound[7].dist = i;
 				}
@@ -159,16 +130,12 @@ function GamePiece()
 						if (((pieceFound[i].piece & COLOR_MASK) == QUEEN)
 								|| ((pieceFound[i].piece & COLOR_MASK) == BISHOP))
 						{
-							if (DEBUG)
-								alert("isSafe -> notKnight -> diagonal -> Q or B -> " + getPieceColor(pieceFound[i].piece) + " " + getPieceName(pieceFound[i].piece) + "\ndist = " + pieceFound[i].dist + "\ndir = " + i);
 							return false;
 						}
 
 						if ((pieceFound[i].dist == 1)
 								&& ((pieceFound[i].piece & COLOR_MASK) == PAWN))
 						{
-							if (DEBUG)
-								alert("isSafe -> notKnight -> diagonal -> Pawn -> " + getPieceColor(pieceFound[i].piece) + " " + getPieceName(pieceFound[i].piece) + "\ndist = " + pieceFound[i].dist + "\ndir = " + i);
 							if ((ennemyColor == WHITE) && ((i == 0) || (i == 2)))
 								return false;
 							else if ((ennemyColor == BLACK) && ((i == 4) || (i == 6)))
@@ -178,9 +145,6 @@ function GamePiece()
 						if ((pieceFound[i].dist == 1)
 								&& ((pieceFound[i].piece & COLOR_MASK) == KING))
 						{
-							if (DEBUG)
-								alert("isSafe -> notKnight -> diagonal -> King -> " + getPieceColor(pieceFound[i].piece) + " " + getPieceName(pieceFound[i].piece) + "\ndist = " + pieceFound[i].dist + "\ndir = " + i);
-
 							/* Are the kings next to each other? */
 							if ((board[testRow][testCol] & COLOR_MASK) == KING)
 								return false;
@@ -237,18 +201,12 @@ function GamePiece()
 						if (((pieceFound[i].piece & COLOR_MASK) == QUEEN)
 								|| ((pieceFound[i].piece & COLOR_MASK) == ROOK))
 						{
-							if (DEBUG)
-								alert("isSafe -> notKnight -> horiz/vert -> Q or R -> " + getPieceColor(pieceFound[i].piece) + " " + getPieceName(pieceFound[i].piece) + "\ndist = " + pieceFound[i].dist + "\ndir = " + i);
-
 							return false;
 						}
 
 						if ((pieceFound[i].dist == 1)
 								&& ((pieceFound[i].piece & COLOR_MASK) == KING))
 						{
-							if (DEBUG)
-								alert("isSafe -> notKnight -> horiz/vert -> King -> " + getPieceColor(pieceFound[i].piece) + " " + getPieceName(pieceFound[i].piece) + "\ndist = " + pieceFound[i].dist + "\ndir = " + i);
-
 							/* Are the kings next to each other? */
 							if ((board[testRow][testCol] & COLOR_MASK) == KING)
 								return false;
@@ -297,9 +255,6 @@ function GamePiece()
 						}
 						break;
 				}
-		if (DEBUG)
-			alert("isSafe is true");
-
 		return true;
 	}
 
@@ -329,9 +284,6 @@ function GamePiece()
 			board[fromRow][fromCol] = board[toRow][toCol];
 			board[toRow][toCol] = tmpPiece;
 
-			if (DEBUG)
-				alert("king -> destination not safe!");
-
 			//errMsg = "Cannot move into check.";
 			errMsg = document.getElementById('#alert_err_move_check_id').innerHTML;
 			
@@ -343,12 +295,10 @@ function GamePiece()
 		board[toRow][toCol] = tmpPiece;
 
 		/* NORMAL MOVE: */
-		if (((boardGameType != 2) || ((boardGameType == 2) && ((board[toRow][toCol] & COLOR_MASK) != ROOK)))
+		if (((boardGameType != 2) || ((boardGameType == 2) && (tmpColor == 'white') && ((board[toRow][toCol]) != (WHITE | ROOK)))
+				|| ((boardGameType == 2) && (tmpColor == 'black') && ((board[toRow][toCol]) != (BLACK | ROOK))))
 			&& ((Math.abs(toRow - fromRow) <= 1) && (Math.abs(toCol - fromCol) <= 1)))
 		{
-			if (DEBUG)
-				alert("king -> normal move");
-
 			return true;
 		}
 		/* CASTLING: Chess960*/
@@ -433,9 +383,6 @@ function GamePiece()
 			for (i = fromCol; i != toCol; i += tmpStep)
 				if (board[fromRow][i] != 0 && (board[toRow][toCol] & COLOR_MASK) != ROOK)
 				{
-					if (DEBUG)
-						alert("king -> castling -> square not empty");
-
 					//errMsg = "Can only castle if there are no pieces between the rook and the king";
 					errMsg = document.getElementById('#alert_err_castle_pieces_id').innerHTML;
 					
@@ -449,16 +396,10 @@ function GamePiece()
 			if (isSafe(fromRow, fromCol, tmpColor)
 					&& isSafe(fromRow, fromCol + tmpStep, tmpColor))
 			{
-				if (DEBUG)
-					alert("king -> castling -> VALID!");
-
 				return true;
 			}
 			else
 			{
-				if (DEBUG)
-					alert("king -> castling -> moving over attacked square");
-
 				//errMsg = "When castling, the king cannot move over a square that is attacked by an ennemy piece";
 				errMsg = document.getElementById('#alert_err_castle_attack_id').innerHTML;
 				
@@ -475,9 +416,6 @@ function GamePiece()
 			    * The King and rook must occupy the same rank (or row).
 			    * The king that makes the castling move has not yet moved in the game.
 			*/
-			if (DEBUG)
-				alert("isValidMoveKing -> Castling");
-			
 			// No castling for beginner game with no rook
 			if ((boardGameType == 1) && ((board[toRow][7] & COLOR_MASK) != ROOK ) && ((board[toRow][0] & COLOR_MASK) != ROOK))
 			{
@@ -516,9 +454,6 @@ function GamePiece()
 			for (i = 4 + tmpStep; i != rookCol; i += tmpStep)
 				if (board[fromRow][i] != 0)
 				{
-					if (DEBUG)
-						alert("king -> castling -> square not empty");
-
 					//errMsg = "Can only castle if there are no pieces between the rook and the king";
 					errMsg = document.getElementById('#alert_err_castle_pieces_id').innerHTML;
 					
@@ -535,16 +470,10 @@ function GamePiece()
 			if (isSafe(fromRow, fromCol, tmpColor)
 					&& isSafe(fromRow, fromCol + tmpStep, tmpColor))
 			{
-				if (DEBUG)
-					alert("king -> castling -> VALID!");
-
 				return true;
 			}
 			else
 			{
-				if (DEBUG)
-					alert("king -> castling -> moving over attacked square");
-
 				//errMsg = "When castling, the king cannot move over a square that is attacked by an ennemy piece";
 				errMsg = document.getElementById('#alert_err_castle_attack_id').innerHTML;
 				
@@ -554,16 +483,12 @@ function GamePiece()
 		/* INVALID MOVE */
 		else
 		{
-			if (DEBUG)
-				alert("king -> completely invalid move\nfrom " + fromRow + ", " + fromCol + "\nto " + toRow + ", " + toCol);
 			//errMsg = "Kings cannot move like that.";
 			errMsg = document.getElementById('#alert_err_move_king_id').innerHTML;
 			
 			return false;
 		}
 
-		if (DEBUG)
-			alert("king -> castling -> unknown error");
 	}
 
 	/* checks whether a pawn is making a valid move */
@@ -859,8 +784,6 @@ function GamePiece()
 				break;
 
 			default:	/* ie: not implemented yet */
-				if (DEBUG)
-					alert("unknown game piece");
 		}
 
 		return isValid;
@@ -885,9 +808,6 @@ function GamePiece()
 
 		if ((board[fromRow][fromCol] & COLOR_MASK) != KING)
 		{
-			if (DEBUG)
-				alert("isValidMove -> are we moving into check?");
-
 			/* save current board destination */
 			var tmpPiece = board[toRow][toCol];
 
@@ -906,9 +826,6 @@ function GamePiece()
 			/* are we in check now? */
 			if (isInCheck(curColor))
 			{
-				if (DEBUG)
-					alert("isValidMove -> moving into check -> CHECK!");
-
 				/* if so, invalid move */
 				errMsg = document.getElementById('#alert_err_move_check_id').innerHTML;
 				//errMsg = "Cannot move into check.";
@@ -923,9 +840,6 @@ function GamePiece()
 				board[fromRow][toCol] = tmpEnPassant;
 			}
 		}
-
-		if (DEBUG)
-			alert("isValidMove returns " + isValid);
 
 		return isValid;
 	}
@@ -942,14 +856,6 @@ function canSquareBeBlocked(testRow, testCol, testColor)
 	NOTE: testColor is the attacker color!
 	*/
 
-	//var DEBUG=true;
-
-	if (DEBUG)
-	{
-		alert("in canSquareBeBlocked(" + testRow + ", " + testCol + ", " + testColor + ")");
-		//alert("Test Color: " + testColor);
-	}
-	
 	var ennemyColor = WHITE;	// Attacking
 	var myColor = BLACK;		// Blocking
 

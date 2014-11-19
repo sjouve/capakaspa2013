@@ -61,10 +61,7 @@
 			document.gamedata.toCol.value = col;
 
 			if (isValidMove(fromRow, fromCol, row, col))
-			{
-				if (DEBUG)
-					alert("Move is valid, updating game...");
-				
+			{	
 				// Note the move in the history of the game
 				// Note that this entry won't be used unless numMoves is incremented
 				// Important: Some checks below need this entry, while it would cause others to fail
@@ -87,7 +84,7 @@
 				var fromPiece = getPieceName(board[row][col]);
 				
 				// Update board with move (client-side)
-				if (boardGameType == 2 && thePiece == 'king' && fromPiece == 'rook')
+				if (boardGameType == 2 && thePiece == 'king' && fromPiece == 'rook' && getPieceColor(board[row][col]) == curColor)
 				{	// Castling Chess960
 					var rookToCol = 3;
 					var kingToCol = 2;
@@ -249,9 +246,6 @@
 	
 	function squareClicked(row, col, isEmpty)
 	{
-		if (DEBUG)
-			alert('squareClicked -> row = ' + row + ', col = ' + col + ', isEmpty = ' + isEmpty);
-		
 		var curColor = "black";
 		if ((numMoves == -1) || (numMoves % 2 == 1))
 			curColor = "white";

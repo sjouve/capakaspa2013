@@ -162,15 +162,15 @@ function saveHistory($gameType)
 	if ($gameType == 2) {
 		if (
 				(
-					(($board[$_POST['fromRow']][$_POST['fromCol']] & COLOR_MASK) == KING) 
+					($board[$_POST['fromRow']][$_POST['fromCol']] == (KING | WHITE)) 
 					&& 
-					(($board[$_POST['toRow']][$_POST['toCol']] & COLOR_MASK) == ROOK)
+					($board[$_POST['toRow']][$_POST['toCol']] == (ROOK | WHITE))
 				)
-				&&
+				||
 				(
-					(($board[$_POST['fromRow']][$_POST['fromCol']] & WHITE) == ($board[$_POST['toRow']][$_POST['toCol']] & WHITE))
-					||
-					(($board[$_POST['fromRow']][$_POST['fromCol']] & BLACK) == ($board[$_POST['toRow']][$_POST['toCol']] & BLACK))
+					($board[$_POST['fromRow']][$_POST['fromCol']] == (KING | BLACK)) 
+					&& 
+					($board[$_POST['toRow']][$_POST['toCol']] == (ROOK | BLACK))
 				)
 			)
 		{
