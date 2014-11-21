@@ -126,7 +126,7 @@ switch($ToDo)
 	case 'WithdrawRequest':
 		
 		$game = getGame($_POST['gameID']);
-		if ($game['gameMessage'] == 'playerInvited')
+		if ($game['gameMessage'] == 'playerInvited' || $game['gameMessage'] == 'inviteDeclined')
 		{
 			if ($_POST['whitePlayerID'] == $_SESSION['playerID'])
 				$oppColor = "black";
