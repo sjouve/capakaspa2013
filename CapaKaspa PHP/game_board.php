@@ -188,19 +188,19 @@ require 'include/page_header.php';
 		document.gamedata.submit();
 	}
 </script>
-<script type="text/javascript" src="javascript/chessutils.js">
+<script type="text/javascript" src="javascript/chessUtils001.js">
  /* these are utility functions used by other functions */
 </script>
-<script type="text/javascript" src="javascript/chesscommands.js">
+<script type="text/javascript" src="javascript/chessCommands001.js">
 // these functions interact with the server
 </script>
-<script type="text/javascript" src="javascript/chessValidation.js">
+<script type="text/javascript" src="javascript/chessValidation001.js">
 // these functions are used to test the validity of moves
 </script>
-<script type="text/javascript" src="javascript/chessIsCheckMate.js">
+<script type="text/javascript" src="javascript/chessIsCheckMate001.js">
 // these functions are used to test the validity of moves
 </script>
-<script type="text/javascript" src="javascript/chessSquareClicked.js">
+<script type="text/javascript" src="javascript/chessSquareClicked001.js">
 // this is the main function that interacts with the user everytime they click on a square
 </script>
 <?
@@ -312,6 +312,7 @@ require 'include/page_body.php';
 					<input type="hidden" name="isInCheck" value="false">
 					<input type="hidden" name="isCheckMate" value="false">
 					<input type="hidden" id="drawResult" name="drawResult" value="false">
+					<input type="hidden" id="drawCase" name="drawCase" value="">
 				</div>
 				
 				<? if (!isBoardDisabled()) {

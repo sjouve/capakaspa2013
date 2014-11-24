@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2014-11-16 23:05+0100\n"
-"PO-Revision-Date: 2014-11-16 23:08+0100\n"
+"POT-Creation-Date: 2014-11-21 22:07+0100\n"
+"PO-Revision-Date: 2014-11-21 22:08+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -790,7 +790,7 @@ msgid "OK"
 msgstr "OK"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1318
-#: PHP/game_new.php:187 PHP/mobile/game_new.php:94 PHP/player_ranking.php:92
+#: PHP/game_new.php:185 PHP/mobile/game_new.php:91 PHP/player_ranking.php:92
 msgid "Classic game"
 msgstr "Partie classique"
 
@@ -1045,8 +1045,8 @@ msgid "Promote the pawn in"
 msgstr "Promouvoir le pion en"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_board.php:276
-#: PHP/game_new.php:199 PHP/mobile/game_board.php:280
-#: PHP/mobile/game_new.php:106
+#: PHP/game_new.php:197 PHP/mobile/game_board.php:280
+#: PHP/mobile/game_new.php:103
 msgid "Queen"
 msgstr "Dame"
 
@@ -1185,9 +1185,9 @@ msgstr "invitez un joueur à jouer une nouvelle partie"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:274
 #: PHP/game_in_progress.php:354 PHP/game_in_progress.php:452
-#: PHP/game_in_progress.php:547 PHP/game_new.php:213
+#: PHP/game_in_progress.php:547 PHP/game_new.php:211
 #: PHP/mobile/game_in_progress.php:242 PHP/mobile/game_in_progress.php:316
-#: PHP/mobile/game_in_progress.php:389 PHP/mobile/game_new.php:120
+#: PHP/mobile/game_in_progress.php:389 PHP/mobile/game_new.php:117
 msgid "Time per move"
 msgstr "Temps par coup"
 
@@ -1317,134 +1317,139 @@ msgstr "Aucune partie gagnée"
 msgid "Invite someone to play a new chess game"
 msgstr "Inviter une personne à jouer une nouvelle partie d'échecs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:179
-#: PHP/mobile/game_new.php:86
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:176
+#: PHP/mobile/game_new.php:82
+msgid "Fischer Random Chess (Chess960) is not available yet !"
+msgstr "Fischer Chess Random (Chess960) n'est plus disponible pour le moment !"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:177
+#: PHP/mobile/game_new.php:83
 msgid "Start new game"
 msgstr "Commencer une nouvelle partie"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:184
-#: PHP/mobile/game_new.php:91
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:182
+#: PHP/mobile/game_new.php:88
 msgid "Game type"
 msgstr "Type de partie"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:195
-#: PHP/mobile/game_new.php:102
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:193
+#: PHP/mobile/game_new.php:99
 msgid "Beginner game with King, Pawns and"
 msgstr "Partie débutant avec Roi, Pions et"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:196
-#: PHP/mobile/game_new.php:103
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:194
+#: PHP/mobile/game_new.php:100
 msgid "Bishops"
 msgstr "Fous"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:197
-#: PHP/mobile/game_new.php:104
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:195
+#: PHP/mobile/game_new.php:101
 msgid "Knigths"
 msgstr "Cavaliers"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:198
-#: PHP/mobile/game_new.php:105
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:196
+#: PHP/mobile/game_new.php:102
 msgid "Rooks"
 msgstr "Tours"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:207
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:205
 #, fuzzy
 msgid "Fischer Random Chess (Chess960)"
 msgstr "Fischer Chess Random (Chess960)"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:217
-#: PHP/mobile/game_new.php:124
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:215
+#: PHP/mobile/game_new.php:121
 msgid "2 days"
 msgstr "2 jours"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:218
-#: PHP/mobile/game_new.php:125
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:216
+#: PHP/mobile/game_new.php:122
 msgid "3 days"
 msgstr "3 jours"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:219
-#: PHP/mobile/game_new.php:126
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:217
+#: PHP/mobile/game_new.php:123
 msgid "4 days"
 msgstr "4 jours"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:220
-#: PHP/mobile/game_new.php:127
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:218
+#: PHP/mobile/game_new.php:124
 msgid "5 days"
 msgstr "5 jours"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:221
-#: PHP/mobile/game_new.php:128
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:219
+#: PHP/mobile/game_new.php:125
 msgid "7 days"
 msgstr "7 jours"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:222
-#: PHP/mobile/game_new.php:129
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:220
+#: PHP/mobile/game_new.php:126
 msgid "10 days"
 msgstr "10 jours"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:223
-#: PHP/mobile/game_new.php:130
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:221
+#: PHP/mobile/game_new.php:127
 msgid "14 days"
 msgstr "14 jours"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:229
-#: PHP/mobile/game_new.php:136
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:227
+#: PHP/mobile/game_new.php:133
 msgid "Play as (color)"
 msgstr "Jouer en (couleur)"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:232
-#: PHP/mobile/game_new.php:139
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:230
+#: PHP/mobile/game_new.php:136
 msgid "White"
 msgstr "Blanc"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:233
-#: PHP/mobile/game_new.php:140
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:231
+#: PHP/mobile/game_new.php:137
 msgid "Black"
 msgstr "Noir"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:234
-#: PHP/mobile/game_new.php:141
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:232
+#: PHP/mobile/game_new.php:138
 msgid "Random"
 msgstr "Au hasard"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:239
-#: PHP/mobile/game_new.php:146
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:237
+#: PHP/mobile/game_new.php:143
 msgid "Select a player"
 msgstr "Choisir un joueur"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:243
-#: PHP/mobile/game_new.php:150
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:241
+#: PHP/mobile/game_new.php:147
 msgid "Type a part of user name, first name or last name in the box"
 msgstr "Taper une partie du nom d'utilisateur, prénom ou nom dans le champ"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:252
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:250
 msgid "Don't select a player to invite all players"
 msgstr "Ne pas sélectionner de joueur pour proposer une partie à tous"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:257
-#: PHP/mobile/game_new.php:156
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:255
+#: PHP/mobile/game_new.php:153
 msgid "Start game"
 msgstr "Commencer une partie"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:262
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:260
 msgid "Advanced search"
 msgstr "Recherche avancée"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:263
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:261
 msgid "Find a player with advanced search and invite him to play a new game."
 msgstr ""
 "Trouver un joueur avec la recherche avancée et l'inviter à jouer une "
 "nouvelle partie"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:264
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:262
 msgid "Search players"
 msgstr "Rechercher des joueurs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:267
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:265
 msgid "Invite friends to join you"
 msgstr "Inviter des amis à se joindre à vous"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:268
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:266
 msgid ""
 "Invite by email a friend not on CapaKaspa to join you. If a player exist "
 "with the email you will invite to start a new game directly."
@@ -1453,23 +1458,23 @@ msgstr ""
 "un joueur existe avec l'email, vous l'inviterez à jouer une partie "
 "directement."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:273
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:271
 msgid "Email address"
 msgstr "Adresse email"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:278
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:276
 msgid "It's not a valid email format"
 msgstr "Ce n'est pas un format d'adresse email valide"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:279
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:277
 msgid "An account exist with this email. Start a new game."
 msgstr "Un compte existe avec le même email. Commencer une nouvelle partie."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:280
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:278
 msgid "Invitation was sent successfully"
 msgstr "L'invitation a été envoyée avec succès"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:284
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:282
 msgid "Send invitation"
 msgstr "Envoyer une invitation"
 
@@ -1587,7 +1592,7 @@ msgstr "Mes parties terminées"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:74
 #: PHP/mobile/activity.php:80 PHP/mobile/game_board.php:229
-#: PHP/mobile/game_in_progress.php:180 PHP/mobile/game_new.php:81
+#: PHP/mobile/game_in_progress.php:180 PHP/mobile/game_new.php:78
 #: PHP/mobile/index.php:90 PHP/mobile/player_search.php:75
 #: PHP/mobile/player_view.php:140
 msgid "Players"
@@ -1932,20 +1937,20 @@ msgstr "Aucun contact"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/activity.php:78
 #: PHP/mobile/game_board.php:227 PHP/mobile/game_in_progress.php:178
-#: PHP/mobile/game_new.php:79 PHP/mobile/index.php:88
+#: PHP/mobile/game_new.php:76 PHP/mobile/index.php:88
 #: PHP/mobile/player_search.php:73 PHP/mobile/player_view.php:138
 msgid "Games"
 msgstr "Parties"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/activity.php:79
 #: PHP/mobile/game_board.php:228 PHP/mobile/game_in_progress.php:179
-#: PHP/mobile/game_new.php:80 PHP/mobile/index.php:89
+#: PHP/mobile/game_new.php:77 PHP/mobile/index.php:89
 #: PHP/mobile/player_search.php:74 PHP/mobile/player_view.php:139
 #: PHP/mobile/player_view.php:229 PHP/player_view.php:220
 msgid "News"
 msgstr "Actualités"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/game_new.php:114
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/mobile/game_new.php:111
 msgid "Fischer Chess Random (Chess960)"
 msgstr "Fischer Chess Random (Chess960)"
 

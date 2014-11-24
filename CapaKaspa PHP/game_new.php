@@ -173,7 +173,7 @@ require 'include/page_body.php';
 ?>
 <div id="contentlarge">
 	<div class="contentbody">
-  
+  		
 		<h3><? echo _("Start new game")?></h3>
 		<form name="startGameForm" action="game_in_progress.php" method="post">
 			<table width="100%">

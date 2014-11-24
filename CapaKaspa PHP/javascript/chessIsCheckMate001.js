@@ -274,18 +274,8 @@ function canBlockAttacker(attackerPiece, attackerRow, attackerCol, attackerColor
 	{
 
 		/* if a piece of the target's color can move there, the attack can be blocked */
-		if(DEBUG)
-		{
-			alert("Checking square (" + (targetRow + (i*rowStep)) + "," + (targetCol + (i*colStep)) + ")");
-		}
-
 		if (canSquareBeBlocked(targetRow + (i * rowStep), targetCol + (i * colStep), attackerColor))
 		{
-			if(DEBUG)
-			{
-				alert("canBeBlocked() -> some piece can move into (" + (targetRow + (i * rowStep)) + "," + (targetCol + (i*colStep)) + ")");
-			}
-
 			return true;
 		}
 
@@ -320,10 +310,6 @@ function isCheckMate(curColor, epCol)
 			{ // If the row and col is part of the board..
 				if (isValidMoveKing(kingRow, kingCol, kingRow + i, kingCol + j, curColor))	// DJ: Fixed
 				{ // If the king is safe to move
-					if (DEBUG)
-					{
-						alert("King can move into a safe square!");
-					}
 					return false; // Then it's not a check mate
 				}
 			}
@@ -351,23 +337,10 @@ function isCheckMate(curColor, epCol)
 		/* can attacker be captured */
 		var isEnPrise = canBeCaptured(attackerRow, attackerCol, epCol);
 		
-
 		/* can attacker be blocked */
 		var canBeBlocked = false;
 		if (canBlockAttacker(board[attackerRow][attackerCol], attackerRow, attackerCol, attackerColor, kingRow, kingCol))
 			canBeBlocked = true;
-
-		if (DEBUG)
-		{
-			if(canBeBlocked)
-				alert("can be blocked");
-			else
-				alert("Can't be blocked");
-			if(canBeCaptured)
-				alert("can be captured");
-			else
-				alert("Can't be captured");
-		}
 
 		if (!isEnPrise && !canBeBlocked)
 			return true;

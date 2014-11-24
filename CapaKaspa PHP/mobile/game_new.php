@@ -62,10 +62,7 @@ function showHint(str, type)
 }
 function startGame()
 {
-	if (document.getElementById('opponent').value.length > 0)
-	{
-		document.startGameForm.submit();
-	}
+	document.startGameForm.submit();
 }
 </script>
 <?

@@ -72,9 +72,6 @@
 
 	function unhighlight(row, col)
 	{
-		if (DEBUG)
-			alert("unhighlight -> row = " + row + ", col = " + col);
-
 		if (board[parseInt(row)][parseInt(col)] != "")
 		{
 			// row paire et col paire => black

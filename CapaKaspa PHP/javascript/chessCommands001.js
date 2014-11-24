@@ -1,5 +1,4 @@
 ﻿// these functions interact with the server
-	
 function play()
 {		
 	document.gamedata.submit();
@@ -12,6 +11,8 @@ function undo()
 	document.gamedata.fromCol.value = "";
 	document.gamedata.toRow.value = "";
 	document.gamedata.toCol.value = "";
+	document.gamedata.drawResult.value = "false";
+	document.gamedata.drawCase.value = "";
 	
 	document.gamedata.submit();
 	
@@ -24,9 +25,6 @@ function draw()
 	if (vok)
 	{
 		document.gamedata.requestDraw.value = "yes";
-		if (DEBUG)
-			alert("gamedata.requestDraw = " + document.gamedata.requestDraw.value);
-
 		document.gamedata.submit();
 	}
 }
@@ -38,9 +36,6 @@ function resigngame()
 	if (vok)
 	{
 		document.gamedata.resign.value = "yes";
-		if (DEBUG)
-			alert("gamedata.resign = " + document.gamedata.resign.value);
-
 		document.gamedata.submit();
 	}
 }
@@ -89,18 +84,13 @@ function promotepawn()
 		ennemyColor = "white";
 		board[0][i] = (BLACK | promotedTo);
 		eval("document.images['pos" + 0 + "-" + i +"'].src = 'pgn4web/" + CURRENTTHEME + "/35/b" + pieceLetter + ".png'");
-		
-		if (DEBUG)
-			alert("Promoting to: (black) " + board[0][i]);
 
 	}
 	else if (whitePawnFound)
 	{
 		board[7][i] = (WHITE | promotedTo);
 		eval("document.images['pos" + 7 + "-" + i +"'].src = 'pgn4web/" + CURRENTTHEME + "/35/w" + pieceLetter + ".png'");
-		
-		if (DEBUG)
-			alert("Promoting to: (white) " + board[7][i]);
+
 	}
 	else
 		alert("WARNING!: cannot find pawn being promoted!");
@@ -108,9 +98,6 @@ function promotepawn()
 	/* verify check and checkmate status */
 	if (isInCheck(ennemyColor))
 	{
-		if (DEBUG)
-			alert("Promotion results in check!");
-
 		document.gamedata.isInCheck.value = "true";
 		document.gamedata.isCheckMate.value = isCheckMate(ennemyColor);
 	}

@@ -43,20 +43,21 @@
 		else
 		{
 			
+			var fromRow = parseInt(document.gamedata.fromRow.value);
+			var fromCol = parseInt(document.gamedata.fromCol.value);
+			
 			/* if, on a player's second click, they click on one of their own piece */
 			/* act as if he was clicking for the first time (ie: select it) */
 			if (board[row][col] != 0 )
 				if (getPieceColor(board[row][col]) == curColor )
 				{
-					if (boardGameType != 2 || (getPieceName(board[row][col]) != 'rook' && boardGameType == 2))
+					if (boardGameType != 2 || (boardGameType == 2 && (getPieceName(board[row][col]) != 'rook' || getPieceName(board[fromRow][fromCol]) != 'king')))
 					{
 						squareClickedFirst(row, col, isEmpty, curColor);
 						return null;
 					}
 				}
 
-			var fromRow = parseInt(document.gamedata.fromRow.value);
-			var fromCol = parseInt(document.gamedata.fromCol.value);
 			document.gamedata.toRow.value = row;
 			document.gamedata.toCol.value = col;
 
@@ -174,6 +175,7 @@
 					{
 						alert(document.getElementById('#alert_draw_stalemate_id').innerHTML);
 						document.getElementById('drawResult').value= 'true';
+						document.getElementById('drawCase').value= 'stalemate';
 					}
 
 					numMoves--;		// Reset chessHistory to it's initial size
@@ -199,24 +201,29 @@
 				{
 					alert(document.getElementById('#alert_draw_material_id').innerHTML);
 					document.getElementById('drawResult').value= 'true';
+					document.getElementById('drawCase').value= 'material';
 				}
 
 				// Is the game drawn because this is the third time that the exact same position arises?
 				numMoves++;		// Use the additional entry in chessHistory (the current move)
-				var FEN = historyToFEN();	// The chessHistory in FEN format
-				if(isThirdTimePosDraw(FEN))
-				{
-					alert(document.getElementById('#alert_draw_3_times_id').innerHTML);
-					document.getElementById('drawResult').value= 'true';
+				// TODO Faire fonctionner historyToFEN pour Chess960
+				if (boardGameType != 2) {
+					var FEN = historyToFEN();	// The chessHistory in FEN format
+					if(isThirdTimePosDraw(FEN))
+					{
+						alert(document.getElementById('#alert_draw_3_times_id').innerHTML);
+						document.getElementById('drawResult').value= 'true';
+						document.getElementById('drawCase').value= '3times';
+					}
+	
+					// Draw because of no capture of pawn move for the last 50 moves?
+					if(!isCapture && (thePiece != 'pawn') && isFiftyMoveDraw(FEN[FEN.length-1]))
+					{
+						alert(document.getElementById('#alert_draw_50_moves_id').innerHTML);
+						document.getElementById('drawResult').value= 'true';
+						document.getElementById('drawCase').value= '50moves';
+					}
 				}
-
-				// Draw because of no capture of pawn move for the last 50 moves?
-				if(!isCapture && (thePiece != 'pawn') && isFiftyMoveDraw(FEN[FEN.length-1]))
-				{
-					alert(document.getElementById('#alert_draw_50_moves_id').innerHTML);
-					document.getElementById('drawResult').value= 'true';
-				}
-
 				numMoves--;		// Reset chessHistory to it's initial size
 				
 				// Display promoting selection

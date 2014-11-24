@@ -186,19 +186,19 @@ require 'include/page_header.php';
 		document.gamedata.submit();
 	}
 </script>
-<script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessutils.js">
+<script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessUtils001.js">
  /* these are utility functions used by other functions */
 </script>
-<script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chesscommands.js">
+<script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessCommands001.js">
 // these functions interact with the server
 </script>
-<script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessValidation.js">
+<script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessValidation001.js">
 // these functions are used to test the validity of moves
 </script>
-<script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessIsCheckMate.js">
+<script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessIsCheckMate001.js">
 // these functions are used to test the validity of moves
 </script>
-<script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessSquareClicked.js">
+<script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessSquareClicked001.js">
 // this is the main function that interacts with the user everytime they click on a square
 </script>
 <?
