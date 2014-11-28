@@ -319,6 +319,7 @@ require 'include/page_body.php';
 					<input type="hidden" name="isInCheck" value="false">
 					<input type="hidden" name="isCheckMate" value="false">
 					<input type="hidden" id="drawResult" name="drawResult" value="false">
+					<input type="hidden" id="drawCase" name="drawCase" value="">
 				</div>
 				<? if (!isBoardDisabled()) {
 				?>
