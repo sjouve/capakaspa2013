@@ -83,7 +83,7 @@ require 'include/page_body.php';
 				{	
 					echo("
 							<div id='contact".$tmpPlayer['playerID']."' class='contact' onmouseover=\"this.style.cursor='pointer';\" onclick='javascript:displayPrivateMessage(".$_SESSION['playerID'].", ".$tmpPlayer['playerID'].", \"".$tmpPlayer['email']."\")'>
-							<div id='picture' style='float: left; margin-right: 5px;'>
+							<div id='picture' style='float: left; margin-left: 3px; margin-right: 5px;'>
 							<img src='".getPicturePath($tmpPlayer['socialNetwork'], $tmpPlayer['socialID'])."' width='32' height='32' border='0'/>
 							</div>
 							<span class='name'>".$tmpPlayer['firstName']." ".$tmpPlayer['lastName']." (".$tmpPlayer['nick'].")</span>");

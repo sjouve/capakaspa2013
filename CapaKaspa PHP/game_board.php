@@ -380,9 +380,9 @@ require 'include/page_body.php';
 		</div>
 		<div id="gamefooter">
 			<?if (isset($tmpGame['likeID'])){?>
-				<span id="like<?echo(GAME.$_POST['gameID']);?>"><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>, <?echo($tmpGame['likeID']);?>);"><?echo _("! Unlike");?></a></span>
+				<span style="padding-left: 5px;" id="like<?echo(GAME.$_POST['gameID']);?>"><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>, <?echo($tmpGame['likeID']);?>);"><?echo _("! Unlike");?></a></span>
 			<?} else {?>
-				<span id="like<?echo(GAME.$_POST['gameID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>);"><?echo _("! Like");?></a></span>
+				<span style="padding-left: 5px;" id="like<?echo(GAME.$_POST['gameID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>);"><?echo _("! Like");?></a></span>
 			<?}?>
 			- <span class="date"><?
 			$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::SHORT, IntlDateFormatter::SHORT);
@@ -392,7 +392,7 @@ require 'include/page_body.php';
 			$strStartDate = $fmt->format($startDate);
 			$strLastMove = $fmt->format($lastMove);
 			echo _("Started")?> : <? echo($strStartDate);?> - <?echo _("Last move")?> : <? echo($strLastMove);?></span>
-			<span style="float: right;"><a href="http://www.capakaspa.info/propos-contact/"><?echo _("Report a problem")?></a></span>
+			<span style="float: right; padding-right: 5px;"><a href="http://www.capakaspa.info/propos-contact/"><?echo _("Report a problem")?></a></span>
 		</div>
 	 	<div id="comment<?echo($_POST['gameID']);?>" class="comment">
 			<img src="images/ajaxloader.gif"/>

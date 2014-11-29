@@ -270,7 +270,7 @@ require 'include/page_body.php';
 								drawboardGame($tmpGame['gameID'], $tmpGame['whitePlayerID'], $tmpGame['blackPlayerID'], $tmpGame['position'], $tmpGame['nbMoves']);
 							echo("</div>
 							<div class='gamedetails'>");
-							echo(getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
+							echo("<b>".getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'])."</b>");
 							echo("<br>"._("Time per move").": ".$tmpGame['timeMove']." "._("days"));
 							echo("<br>
 									<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpGame['whiteNick']."<br>".$whiteElo."</span>
@@ -532,8 +532,9 @@ require 'include/page_body.php';
 							<div class='gameboard'>");
 								drawboardGame($tmpGame['gameID'],$tmpGame['whitePlayer'],$tmpGame['blackPlayer'], $tmpGame['position'], $tmpGame['nbMoves']);
 							echo("</div>
-							<div class='gamedetails'>".
+							<div class='gamedetails'><b>".
 								getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
+								echo("</b>");
 								if ($tmpGame['type'] == 0)
 									echo("<br>[".$tmpGame['eco']."] ".$tmpGame['ecoName']);
 								echo("<br>

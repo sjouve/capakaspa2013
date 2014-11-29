@@ -77,7 +77,7 @@ $pie->value->SetFont(FF_FONT1,FS_BOLD);
 
 // ajouter le graphique PIE3D au conteneur 
 $graph->Add($pie);
-
+$graph->SetMarginColor('#FFFFFF');
 $graph->SetFrame(true,'#CCCCCC',0);
 
 // Provoquer l'affichage

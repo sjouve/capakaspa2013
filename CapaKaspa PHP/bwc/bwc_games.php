@@ -1041,7 +1041,7 @@ function writeStatus($tmpGame)
 	
 	?>
 	<table border="0" align="center" cellspacing="0" cellpadding="0">
-	<tr bgcolor="#EEEEEE" valign="top">
+	<tr bgcolor="#FFFFFF" valign="top">
 		<th width="10%" align="left">
 			<img src="<?echo(getPicturePath($tmpGame['whiteSocialNet'], $tmpGame['whiteSocialID']));?>" width="40" height="40" style="margin:3px;"/>
 		</th>
@@ -1103,7 +1103,7 @@ function writeStatus($tmpGame)
           		<img src="<?echo(getPicturePath($tmpGame['blackSocialNet'], $tmpGame['blackSocialID']));?>" width="40" height="40" style="margin:3px;"/><br/>
           	</th>
 		</tr>
-		<tr bgcolor="#EEEEEE">
+		<tr bgcolor="#FFFFFF">
 			<th colspan="4">
 	          	<div class="econame">
 	          	<?	echo(getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
@@ -1125,7 +1125,7 @@ function writeStatus($tmpGame)
           		if ((!$isCheckMate && ($history[$numMoves]['isInCheck'] == 1)) || isset($statusMessage))
           			$bgcolor = "F2A521";
           		else
-          			$bgcolor = "EEEEEE";
+          			$bgcolor = "FFFFFF";
           		
           		echo("<td align='center' bgcolor='".$bgcolor."' colspan='4'>");
           		if (!$isCheckMate && ($history[$numMoves]['isInCheck'] == 1))

@@ -2,7 +2,7 @@
 body {
 	margin: 0px 0px 0px 0px;
 	text-align: center;
-	background-color: #FFFFFF;
+	background-color: #EEEEEE;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 #container {
@@ -10,7 +10,7 @@ body {
 	width: 1000px;
 	padding: 0px;
 	border-top-style: none;
-	border-right-style: solid;
+	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
 	border-width: 1px;
@@ -23,9 +23,9 @@ body {
 	width: 1000px;
 	padding: 0px;
 	border-top-st yle: none;
-	border-right-style: solid;
+	border-right-style: none;
 	border-bottom-style: none;
-	border-left-style: solid;
+	border-left-style: none;
 	border-width: 1px;
 	border-color: #CCCCCC;
 	margin-right: auto;
@@ -49,7 +49,7 @@ body {
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: none;
-	border-left-style: solid;
+	border-left-style: none;
 	border-width: 1px;
 	border-color: #CCCCCC;
 	overflow: hidden;
@@ -60,7 +60,7 @@ body {
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: none;
-	border-left-style: solid;
+	border-left-style: none;
 	border-width: 1px;
 	border-color: #CCCCCC;
 	overflow: hidden;
@@ -94,7 +94,7 @@ body {
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: none;
-	border-left-style: solid;
+	border-left-style: none;
 	border-width: 1px;
 	border-color: #CCCCCC;
 	overflow: hidden;
@@ -270,28 +270,32 @@ body {
 	padding: 0px;
 }
 #gamedata {
-	background-color: #EEEEEE;
+	background-color: #FFFFFF;
 	height: 355px;
+	border-bottom: solid;
+	border-right: solid;
+	border-width: 1px;
+	border-color: #DDDDDD;
 }
 #gameplayer {
 	display: block;
 	float:left;
-	width:298px;
-	background-color: #EEEEEE;
+	width:297px;
+	background-color: #FFFFFF;
 }
 #gamestatus {
 	display: block;
 	padding-left: 5px;
 	padding-right: 5px;
 	padding-top: 5px;
-	width: 470px;
+	width: 469px;
 	float: right;
-	background-color: #EEEEEE;
+	background-color: #FFFFFF;
 }
 #gameaction {
-	width: 470px;
+	width: 469px;
 	float: right;
-	background-color: #EEEEEE;
+	background-color: #FFFFFF;
 	padding-left: 5px;
 	padding-right: 5px;
 	text-align: right;
@@ -306,7 +310,7 @@ body {
 	padding-left: 5px;
 	padding-right: 5px;
 	float: right;
-	background-color: #EEEEEE;
+	background-color: #FFFFFF;
 }
 #gamecaptured {
 	width: 768px;
@@ -315,27 +319,42 @@ body {
 	padding-top: 3px;
 	padding-left: 5px;
 	padding-right: 5px;
-	background-color: #EEEEEE;
+	background-color: #FFFFFF;
 }
 #gamefooter {
 	float: left;
 	width: 100%;
 	font-size: 11px;
+	border-bottom-style: solid;
+	border-right-style: solid;
+	border-width: 1px;
+	border-color: #DDDDDD;
+	background-color: #FFFFFF;
 }
 .gamemoveaction {
 	height: 25px;
 	padding-left: 3px;
 	padding-top:2x;
 }
+#player_view_header {
+	background-color: #FFFFFF;
+	display: block;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #DDDDDD;
+	width: 100%;
+	float: left;
+	margin-bottom: 10px;
+}
 #player_header {
-	background-color: #EEEEEE;
+	background-color: #FFFFFF;
 	width: 100%;
 	display: block;
 	float: left;
 	text-align: left;
 }
 #player_info {
-	background-color: #EEEEEE;
+	background-color: #FFFFFF;
 	color: #404040;
 	font-size: 11px;
 	font-weight: normal;
@@ -445,13 +464,17 @@ TEXTAREA {
 	font-style: normal;
 	background-color:#F2A521;
 	text-align: center;
+	padding-top: 2px;
+	padding-bottom: 3px;
 }
 .tabliste td {
 	color: #000000;
 	font-size: 10px;/*x-small;*/
 	font-weight: normal;
 	font-style: normal;
-	background-color: #EEEEEE;
+	background-color: #FFFFFF;
+	padding-top: 2px;
+	padding-bottom: 3px;
 }
 .tabliste td TEXTAREA {
 	color: #000000;
@@ -602,6 +625,17 @@ input[type="file"] {
 	text-transform: none;
 	padding-left: 10px;
 	padding-right: 10px;
+	padding-bottom: 10px;
+	text-align: left;
+	line-height: 150%;
+}	
+.contentactivity {
+	color: #404040;
+	font-size: 13px;
+	font-weight: normal;
+	font-style: normal;
+	text-transform: none;
+	padding-left: 10px;
 	padding-bottom: 10px;
 	text-align: left;
 	line-height: 150%;
@@ -789,7 +823,7 @@ input[type="file"] {
 
 .navlinks .form {
 	color: #404040;
-	font-size: 13px;/*small;*/
+	font-size: 13px;
 	font-weight: normal;
 	font-style: normal;
 	text-transform: none;
@@ -799,8 +833,8 @@ input[type="file"] {
 }
 
 .navlinks .title {
-	color: #3D3866;
-	font-size: 12px;/*small;*/
+	color: #999999;
+	font-size: 12px;
 	font-weight: bold;
 	font-style: normal;
 	text-transform: none;
@@ -813,38 +847,31 @@ input[type="file"] {
 	border-color: #CCCCCC;
 	padding: 0px;
 }
-
 .navlinks ul {
 	padding: 0px;
 	margin: 0px;
 	margin-bottom: 10px;
 	list-style-type: none;
 }
-
 .navlinks a {
 	text-decoration: none;
 }
-
 .navlinks a:link {
 	text-decoration: none;
 	color: #3D3866;
 }
-
 .navlinks a:visited {
 	text-decoration: none;
 	color: #3D3866;
 }
-
 .navlinks a:active {
 	text-decoration: none;
 	color: #3D3866;
 }
-
 .navlinks a:hover {
 	text-decoration: none;
 	color: #9B6A15;
 }
-
 .navlinks li {
 	color: #404040;
 	font-size: 11px;/*x-small;*/
@@ -854,7 +881,6 @@ input[type="file"] {
 	line-height: 150%;
 	margin-top: 5px;
 }
-
 .navlinks .item {
 	color: #404040;
 	font-size: 11px;/*x-small;*/
@@ -865,7 +891,6 @@ input[type="file"] {
 	margin-top: 5px;
 	margin-bottom: 2px;
 }
-
 .profil {
   	width: 135px;
   	height: 160px;
@@ -874,23 +899,27 @@ input[type="file"] {
 	margin: 5px;
 	
 }
-
 .player {
 	float: left;
 	width: 100%;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	border-top-style: solid;
-	border-right-style: none;
-	border-bottom-style: none;
+	
+	border-top-style: none;
+	border-right-style: solid;
+	border-bottom-style: solid;
 	border-left-style: none;
 	border-width: 1px;
-	border-color: #CCCCCC;
+	border-color: #DDDDDD;
+	background-color: #FFFFFF;
 	overflow: hidden;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	margin-bottom: 3px;
 }
 .player .leftbar{
 	float: left;
-	width: 10%;
+	padding-right: 5px;
+	padding-left: 5px;
+	padding-top: 5px;
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: none;
@@ -932,17 +961,20 @@ input[type="file"] {
 	width: 100%;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	border-top-style: solid;
-	border-right-style: none;
-	border-bottom-style: none;
+	border-top-style: none;
+	border-right-style: solid;
+	border-bottom-style: solid;
 	border-left-style: none;
 	border-width: 1px;
-	border-color: #CCCCCC;
+	border-color: #DDDDDD;
+	background-color: #FFFFFF;
+	margin-bottom: 5px;
 	overflow: hidden;
 }
 .activity .leftbar{
 	float: left;
-	width: 10%;
+	padding-left: 5px;
+	padding-right: 10px;
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: none;
@@ -989,16 +1021,17 @@ input[type="file"] {
 }
 .activity .details .content .gamedetails{
 	float: left;
-	width: 335px;
-	height: 142px;
+	width: 330px;
+	height: 141px;
 	padding: 10px;
 	font-size: 11px;
 	text-align: center;
-	border-top-style: none;
-	border-right-style: none;
-	border-bottom-style: none;
+	border-width: 1px;
+	border-color: #DDDDDD;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
 	border-left-style: none;
-	background-color: #EEEEEE;
 	overflow: hidden;
 }
 .activity .details .footer{
@@ -1019,12 +1052,13 @@ input[type="file"] {
 .comment{
 	float: left;
 	width: 100%;
-	
 	background-color: #FFFFFF;
 	border-top-style: none;
-	border-right-style: none;
-	border-bottom-style: none;
+	border-right-style: solid;
+	border-bottom-style: solid;
 	border-left-style: none;
+	border-width: 1px;
+	border-color: #DDDDDD;
 	overflow: hidden;
 	display: none;
 }
@@ -1033,7 +1067,7 @@ input[type="file"] {
 	width: 100%;
 	font-size: 11px;
 	color: #404040;
-	background-color: #EEEEEE;
+	background-color: #FFFFFF;
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: solid;
@@ -1073,7 +1107,7 @@ input[type="file"] {
 	text-transform: none;
 }
 .block_stat {
-	background-color: #FFFFFF;
+	background-color: #EEEEEE;
 	width: 80px;
 	height: 35px;
 	float: left;
@@ -1106,27 +1140,28 @@ input[type="file"] {
 .suggestion {
 	float: left;
 	width: 100%;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	padding: 3px;
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: solid;
 	border-left-style: none;
 	border-width: 1px;
-	border-color: #CCCCCC;
+	border-color: #DDDDDD;
+	background-color: #FFFFFF;
 	overflow: hidden;
 	line-height: normal;
 	font-size: 10px;
 	text-align: left;
+	margin-bottom: 3px;
 }
 .contact {
 	float: left;
 	width: 100%;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	border-top-style: none;
+	border-top-style: solid;
 	border-right-style: none;
-	border-bottom-style: solid;
+	border-bottom-style: none;
 	border-left-style: none;
 	border-width: 1px;
 	border-color: #CCCCCC;
@@ -1134,6 +1169,7 @@ input[type="file"] {
 	line-height: normal;
 	font-size: 10px;
 	text-align: left;
+	background-color: #FFFFFF;
 }
 .newplayer {
 	color: #FFFFFF;

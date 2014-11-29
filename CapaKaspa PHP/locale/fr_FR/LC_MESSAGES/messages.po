@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
 "POT-Creation-Date: 2014-11-21 22:07+0100\n"
-"PO-Revision-Date: 2014-11-21 22:08+0100\n"
+"PO-Revision-Date: 2014-11-29 17:11+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -684,11 +684,11 @@ msgstr "Message envoyé avec succès"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_common.php:158
 msgid "Suggestion"
-msgstr "Suggestion"
+msgstr "Suggestions"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_common.php:200
 msgid "is the same level that you !"
-msgstr "a le même niveau que vous !"
+msgstr "vous avez le même niveau !"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:529
 msgid "Move cancellation accepted"
