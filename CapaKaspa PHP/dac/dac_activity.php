@@ -15,8 +15,9 @@ function listActivity($start, $limit, $type, $playerID)
 				G.gameID, G.eco, G.position, G.gameMessage, G.lastMove, G.dateCreated, G.type, G.flagBishop, G.flagKnight, G.flagRook, G.flagQueen, E.name ecoName,
 				WP.playerID wPlayerID, WP.firstName wFirstName, WP.lastName wLastName, WP.nick wNick, WP.elo wElo, WP.elo960 wElo960, WP.socialNetwork wSocialNetwork, WP.socialID wSocialID,
 				BP.playerID bPlayerID, BP.firstName bFirstName, BP.lastName bLastName, BP.nick bNick, BP.elo bElo, BP.elo960 bElo960, BP.socialNetwork bSocialNetwork, BP.socialID bSocialID,
-				(SELECT COUNT(commentID) FROM comment WHERE type='activity' and entityID=A.activityID) nbComment,
-				(SELECT COUNT(likeID) FROM like_entity WHERE type='activity' and entityID=A.activityID) nbLike
+				(SELECT COUNT(commentID) FROM comment WHERE type='".ACTIVITY."' and entityID = A.activityID) nbComment,
+				(SELECT COUNT(likeID) FROM like_entity WHERE type='".ACTIVITY."' and entityID = A.activityID) nbLike,
+				(SELECT COUNT(gameID) nbMove FROM history H WHERE H.gameID = G.gameID) nbMoves
 		FROM activity A left join like_entity L on L.type = '".ACTIVITY."' AND L.entityID = A.activityID AND L.playerID = ".$_SESSION['playerID'].", 
 			games G left join eco E on E.eco = G.eco AND E.ecoLang = '".getLang()."', players WP, players BP";
 		

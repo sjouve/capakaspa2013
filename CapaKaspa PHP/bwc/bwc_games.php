@@ -660,18 +660,15 @@ function processMessages($tmpGame)
 /* functions for outputting to html and javascript */
 
 /* Miniature */
-function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position)
+function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position, $nbMoves)
 {
 
 	global $isPlayersTurn;
-	global $dbh;
 	
 	// Nombre de 1/2 coups
-	$allMoves = mysqli_query($dbh,"SELECT count(gameID) nbMove FROM history WHERE gameID = ".$gameID." ORDER BY timeOfMove");
-	$thisMove = mysqli_fetch_array($allMoves, MYSQLI_ASSOC);
-	$numMoves = $thisMove['nbMove'] - 1;
+	$numMoves = $nbMoves - 1;
 
-	// Remplir l'Ã©chiquier
+	// Remplir l'échiquier
 	if (!isset($position) || $position == "") $position = "tcfdrfctpppppppp00000000000000000000000000000000PPPPPPPPTCFDRFCT";
 	$strPos = 0;
 	for ($i = 0; $i < 8; $i++)

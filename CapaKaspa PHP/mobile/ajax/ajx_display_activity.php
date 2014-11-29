@@ -174,7 +174,7 @@ else
 									echo("<br>[".$tmpActivity['eco']."] ".$tmpActivity['ecoName']);
 								
 								echo("<br><br><div class='gameboard'>");
-									drawboardGame($tmpActivity['gameID'], $tmpActivity['wPlayerID'], $tmpActivity['bPlayerID'], $tmpActivity['position']);
+									drawboardGame($tmpActivity['gameID'], $tmpActivity['wPlayerID'], $tmpActivity['bPlayerID'], $tmpActivity['position'], $tmpActivity['nbMoves']);
 								echo("</div>");
 								if ($tmpActivity['gameMessage'] != "playerInvited")
 									echo("<span style='float: right'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGameActivity(".$tmpActivity['gameID'].")'></span>");

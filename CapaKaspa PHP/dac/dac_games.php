@@ -139,7 +139,7 @@ function calculMoyenneElo($playerID, $dateDeb, $dateFin)
  */
 function searchGames($debut, $limit)
 {
-	// TODO Recherche de parties Ã  implÃ©menter
+	// TODO Recherche de parties à implémenter
 	$requete = "SELECT G.gameID, G.eco eco, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, DATE_FORMAT(G.dateCreated, '%d/%m/%Y %T') dateCreatedF, DATE_FORMAT(G.lastMove, '%d/%m/%Y %T') lastMove
                 FROM games G, players W, players B
                 WHERE W.playerID = G.whitePlayer
@@ -157,7 +157,8 @@ function listInProgressGames($playerID)
 									G.blackPlayer blackPlayer, G.position position, G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.type,  
 									E.name ecoName,
 									W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, W.elo960 whiteElo960, W.socialID whiteSocialID, W.socialNetwork whiteSocialNetwork,
-						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.elo960 blackElo960, B.socialID blackSocialID, B.socialNetwork blackSocialNetwork
+						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.elo960 blackElo960, B.socialID blackSocialID, B.socialNetwork blackSocialNetwork,
+						(SELECT COUNT(gameID) nbMove FROM history H WHERE H.gameID = G.gameID) nbMoves
 						FROM games G left join eco E on E.eco = G.eco AND E.ecoLang = '".getLang()."', players W, players B
 						WHERE (gameMessage is NULL OR gameMessage = '')
 						AND (whitePlayer = ".$playerID." OR blackPlayer = ".$playerID.")
@@ -174,7 +175,8 @@ function listInvitationFor($playerID)
 	$tmpQuery = "SELECT G.gameID, G.whitePlayer, G.blackPlayer, G.dateCreated, G.type, G.gameMessage, 
 						G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.position, G.timeMove,
 						W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, W.elo960 whiteElo960, W.socialID whiteSocialID, W.socialNetwork whiteSocialNetwork,
-						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.elo960 blackElo960, B.socialID blackSocialID, B.socialNetwork blackSocialNetwork
+						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.elo960 blackElo960, B.socialID blackSocialID, B.socialNetwork blackSocialNetwork,
+						(SELECT COUNT(gameID) nbMove FROM history H WHERE H.gameID = G.gameID) nbMoves
 				FROM games G, players W, players B 
 				WHERE (gameMessage = 'playerInvited' 
 				AND (
@@ -196,7 +198,8 @@ function listInvitationForAll($playerID)
 	$tmpQuery = "SELECT G.gameID, G.whitePlayer, G.blackPlayer, G.dateCreated, G.type, G.gameMessage, 
 						G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.position, G.timeMove,
 						W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, W.elo960 whiteElo960, W.socialID whiteSocialID, W.socialNetwork whiteSocialNetwork,
-						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.elo960 blackElo960, B.socialID blackSocialID, B.socialNetwork blackSocialNetwork
+						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.elo960 blackElo960, B.socialID blackSocialID, B.socialNetwork blackSocialNetwork,
+						(SELECT COUNT(gameID) nbMove FROM history H WHERE H.gameID = G.gameID) nbMoves
 				FROM games G, players W, players B 
 				WHERE (gameMessage = 'playerInvited' 
 				AND (
@@ -219,7 +222,8 @@ function listInvitationFrom($playerID)
 	$tmpQuery = "SELECT G.gameID, G.whitePlayer, G.blackPlayer,  G.dateCreated, G.type, G.gameMessage, 
 						G.flagBishop, G.flagRook, G.flagKnight, G.flagQueen, G.position, G.timeMove,
 						W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, W.elo960 whiteElo960, W.socialID whiteSocialID, W.socialNetwork whiteSocialNetwork,
-						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.elo960 blackElo960, B.socialID blackSocialID, B.socialNetwork blackSocialNetwork
+						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.elo960 blackElo960, B.socialID blackSocialID, B.socialNetwork blackSocialNetwork,
+						(SELECT COUNT(gameID) nbMove FROM history H WHERE H.gameID = G.gameID) nbMoves
 					FROM games G, players W, players B 
 					WHERE ((gameMessage = 'playerInvited' 
 						AND ((whitePlayer = ".$playerID." AND messageFrom = 'white') 

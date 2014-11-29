@@ -235,7 +235,7 @@ require 'include/page_body.php';
 					<div class='details'>
 						<div class='content'>
 							<div class='gameboard'>");
-								drawboardGame($tmpGame['gameID'], $tmpGame['whitePlayerID'], $tmpGame['blackPlayerID'], $tmpGame['position']);
+								drawboardGame($tmpGame['gameID'], $tmpGame['whitePlayerID'], $tmpGame['blackPlayerID'], $tmpGame['position'], $tmpGame['nbMoves']);
 							echo("</div>
 							<div class='gamedetails'>");
 							echo(getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
@@ -303,7 +303,7 @@ require 'include/page_body.php';
 					<div class='details'>
 						<div class='content'>
 							<div class='gameboard'>");
-								drawboardGame($tmpGame['gameID'], $tmpGame['whitePlayerID'], $tmpGame['blackPlayerID'], $tmpGame['position']);
+								drawboardGame($tmpGame['gameID'], $tmpGame['whitePlayerID'], $tmpGame['blackPlayerID'], $tmpGame['position'], $tmpGame['nbMoves']);
 							echo("</div>
 							<div class='gamedetails'>");
 							if ($tmpGame['whitePlayer'] == $_SESSION['playerID']) {
@@ -376,7 +376,7 @@ require 'include/page_body.php';
 					<div class='details'>
 						<div class='content'>
 							<div class='gameboard'>");
-								drawboardGame($tmpGame['gameID'],$tmpGame['whitePlayer'],$tmpGame['blackPlayer'], $tmpGame['position']);
+								drawboardGame($tmpGame['gameID'],$tmpGame['whitePlayer'],$tmpGame['blackPlayer'], $tmpGame['position'], $tmpGame['nbMoves']);
 							echo("</div>
 							<div class='gamedetails'>
 								<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> <b>".$tmpGame['whiteNick']."</b></span>

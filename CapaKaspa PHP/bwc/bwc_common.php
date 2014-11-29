@@ -163,8 +163,6 @@ function displaySuggestion()
 	$result = searchPlayers("", 0, $limit, $_SESSION['playerID'], "", "nouveau", "", "", "", "");
 	while($tmpPlayer = mysqli_fetch_array($result, MYSQLI_ASSOC))
 	{
-		//$lastConnection = new DateTime($tmpPlayer['lastConnection']);
-		//$strLastConnection = $fmt->format($lastConnection);
 			
 		echo("
 				<div class='suggestion'>
@@ -181,11 +179,10 @@ function displaySuggestion()
 	}
 	
 	$limit = 5;
-	$result = searchPlayers("", 0, $limit, $_SESSION['playerID'], "", "actif", $_SESSION['elo']-50, $_SESSION['elo']+50, $_SESSION['countryCode'], "");	
+	$result = searchPlayers("", 0, $limit, $_SESSION['playerID'], "", "actif", $_SESSION['elo']-50, $_SESSION['elo']+50, "", "");
+	$nbPlayers = mysqli_num_rows($result);
 	while($tmpPlayer = mysqli_fetch_array($result, MYSQLI_ASSOC))
 	{
-		//$lastConnection = new DateTime($tmpPlayer['lastConnection']);
-		//$strLastConnection = $fmt->format($lastConnection);
 			
 		echo("		
 		<div class='suggestion'>		
@@ -203,5 +200,28 @@ function displaySuggestion()
 		");
 	}
 	
+	if ($nbPlayers < 5)
+	{
+		$limit = 5 - $nbPlayers;
+		$result = searchPlayers("", 0, $limit, $_SESSION['playerID'], "", "passif", $_SESSION['elo']-50, $_SESSION['elo']+50, "", "");	
+		while($tmpPlayer = mysqli_fetch_array($result, MYSQLI_ASSOC))
+		{
+				
+			echo("		
+			<div class='suggestion'>		
+					<div id='picture' style='float: left; margin-right: 5px;'>
+						<img src='".getPicturePath($tmpPlayer['socialNetwork'], $tmpPlayer['socialID'])."' width='32' height='32' border='0'/>
+					</div>
+					<a href='player_view.php?playerID=".$tmpPlayer['playerID']."'><span class='name'>".$tmpPlayer['firstName']." ".$tmpPlayer['lastName']." (".$tmpPlayer['nick'].")</span></a>");
+					if ($tmpPlayer['lastActionTime'])
+						echo(" <img src='images/user_online.gif' style='vertical-align:bottom;' alt='"._("Player online")."'/>");
+					if (isNewPlayer($tmpPlayer['creationDate']))
+						echo("<br><span class='newplayer'>"._("New player")."</span>");
+					echo("<br>"._("is the same level that you !"));
+			echo("</div>
+			
+			");
+		}
+	}
 }
 ?>

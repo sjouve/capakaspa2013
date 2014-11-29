@@ -162,7 +162,7 @@ else
 						</div>
 						<div class='content'>
 							<div class='gameboard'>");
-								drawboardGame($tmpActivity['gameID'], $tmpActivity['wPlayerID'], $tmpActivity['bPlayerID'], $tmpActivity['position']);
+								drawboardGame($tmpActivity['gameID'], $tmpActivity['wPlayerID'], $tmpActivity['bPlayerID'], $tmpActivity['position'], $tmpActivity['nbMoves']);
 							echo("</div>
 							<div class='gamedetails'>
 								<span class='activity_type'>".$activityType."</span>");
