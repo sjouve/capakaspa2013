@@ -84,27 +84,32 @@ else
 		}
 		
 		$activityType = "";
+		$pictoPath = "";
 		switch($tmpActivity['msgType'])
 		{
 			// Invitation	
 			case 'invitation':
 				$message = _("invites someone to play a new game");
 				$activityType = _("INVITATION");
+				$pictoPath .= "images/picto_megaphone_20.png";
 				break;
 					
 			case 'withdrawal':
 				$message = _("canceled its invitation to play a new game with");		
 				$activityType = _("INVITATION");
+				$pictoPath .= "images/picto_megaphone_20.png";
 				break;
 					
 			case 'accepted':
 				$message = _("has accepted invitation. A new game began against");
 				$activityType = _("INVITATION");
+				$pictoPath .= "images/picto_megaphone_20.png";
 				break;
 				
 			case 'declined':
 				$message = _("refused invitation to play a new game against");
 				$activityType = _("INVITATION");
+				$pictoPath .= "images/picto_megaphone_20.png";
 				break;
 	
 			// Result
@@ -121,16 +126,19 @@ else
 					$message = _("won")." ";
 				$message .= _("by resignation against");
 				$activityType = _("RESULT");
+				$pictoPath .= "images/picto_cup_20.png";
 				break;
 					
 			case 'draw':
 				$message = _("do a draw game by mutual consent");
 				$activityType = _("RESULT");
+				$pictoPath .= "images/picto_cup_20.png";
 				break;
 			
 			case 'drawrule':
 				$message = _("do a draw game (stalemate, 3 times same position, 50 moves rule) against");
 				$activityType = _("RESULT");
+				$pictoPath .= "images/picto_cup_20.png";
 				break;
 			
 			case 'checkmate':
@@ -140,6 +148,7 @@ else
 					$message = _("won")." ";
 				$message .= _("by checkmate against");
 				$activityType = _("RESULT");
+				$pictoPath .= "images/picto_cup_20.png";
 				break;
 					
 			// Move
@@ -164,8 +173,9 @@ else
 							
 						</div>
 						<div class='content'>
-							<div class='gamedetails'>
-								<span class='activity_type'>".$activityType."</span>");
+							<div class='gamedetails'>");
+								if ($pictoPath != "") echo("<img src='".$pictoPath."'/> ");
+								echo("<span class='activity_type'>".$activityType."</span>");
 								echo("<br>
 									<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpActivity['wNick']."<br>".$wElo."</span>
 									<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpActivity['bNick']."<br>".$bElo."</span>");
