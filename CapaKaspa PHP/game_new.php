@@ -173,7 +173,7 @@ require 'include/page_body.php';
 ?>
 <div id="contentlarge">
 	<div class="contentbody">
-  		
+  		<div class="blockform">
 		<h3><? echo _("Start new game")?></h3>
 		<form name="startGameForm" action="game_in_progress.php" method="post">
 			<table width="100%">
@@ -255,13 +255,13 @@ require 'include/page_body.php';
 			<input type="button" value="<?echo _("Start game")?>" class="button" onclick="javascript:startGame();">
 			<input type="hidden" name="ToDo" value="InvitePlayer">
 		</form>
-		<br>
-		
+		</div>
+		<div class="blockform">
 		<h3><? echo _("Advanced search")?></h3>
 		<p><? echo _("Find a player with advanced search and invite him to play a new game.");?></p>
 		<input type="button" class="link" value="<? echo _("Search players")?>" onclick="location.href='player_search.php'">
-		<br><br>
-		
+		</div>
+		<div class="blockform">
 		<h3><? echo _("Invite friends to join you")?></h3>
 		<p><? echo _("Invite by email a friend not on CapaKaspa to join you. If a player exist with the email you will invite to start a new game directly.");?></p>
 		
@@ -281,7 +281,7 @@ require 'include/page_body.php';
 			</table>
 			<input type="button" value="<?echo _("Send invitation")?>" class="button" onclick="javascript:sendInvitation(document.getElementById('txtEmail').value);">
 			<input type="hidden" name="ToDo" value="InviteFriend">
-		
+		</div>
 	</div>
 </div>
 <?

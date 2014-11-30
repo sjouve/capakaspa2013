@@ -80,7 +80,7 @@ require 'include/page_body.php';
 ?>
 <div id="content">
 	<div class="contentbody">
-		
+		<div class="blockform">
 		<h3><? echo _("Players ranking");?></h3>
 		<div id="searchForm">
 			<form name="searchPlayers" action="player_ranking.php" method="post">
@@ -128,10 +128,11 @@ require 'include/page_body.php';
 		          	</tr>	          
 		        </table>
 			</form>
-			<?php echo(_("Your rank is")." : ".$player_rank);?><br>
-	        <br><? echo($nb_tot." "._("player(s) found"));?>	        	
+			   	
         </div>
-        
+        </div>
+        <?php echo(_("Your rank is")." : ".$player_rank);?><br><br>
+	    <? echo($nb_tot." "._("player(s) found"));?>	     
         <div id="players0" style="display: none;"><img src='images/ajaxloader.gif'/></div>
         
 	</div>

@@ -318,6 +318,7 @@ require 'include/page_body.php';
     <span id="#confirm_disable_account_id" style="display: none"><?echo _("You want to disable your account. Please confirm ?")?></span>
     
 	<form name="userdata" action="player_update.php" method="post" enctype="multipart/form-data">
+	<div class="blockform">	
 	  <h3><?php echo _("Basic info");?></h3>
         <table border="0" width="100%">
           <tr>
@@ -410,7 +411,7 @@ require 'include/page_body.php';
             <td><input name="txtSituationGeo" type="text" size="50" maxlength="50" value="<? echo($_SESSION['situationGeo']); ?>"></td>
           </tr>
           </table>
-          
+	
 		  <h3><?php echo _("More about you");?></h3>
 		  <table border="0" width="100%">
 		   <tr>
@@ -487,7 +488,8 @@ require 'include/page_body.php';
             </td>
           </tr>
         </table>
-      	
+	</div>
+	<div class="blockform">
       <h3><?echo _("Preferences");?></h3>
       
         <table border="0" width="100%">
@@ -606,7 +608,8 @@ require 'include/page_body.php';
           </tr>
         </table>
 		<input type="hidden" name="ToDo" value="UpdateProfil">
-      </form>
+	</div>
+	</form>
       
       <!-- 
       Gestion des absences
@@ -624,7 +627,7 @@ require 'include/page_body.php';
       Tant qu'un des joueurs d'une partie est en congé la partie est gelée (il est impossible de jouer un coup)
        -->
 	
-      
+	<div class="blockform">
       <h3><? echo _("Game postponement");?> </h3>
       	<? 
 		if ($ToDo == 'CreateVacation')
@@ -672,7 +675,8 @@ require 'include/page_body.php';
 	      	<input type="hidden" name="ToDo" value="CreateVacation">
     	</form>
     	<? }?>
-    	<br>
+    </div>
+    <div class="blockform">
     	<h3><?echo _("Disable my account")?></h3>
     	<?echo _("You can disable your account on CapaKaspa. Other players will no longer have interactions with your account. But it will viewable from games or news. You can reactivate it later if you want.")?>
     	<form name="disable" action="player_update.php" method="post">
@@ -681,6 +685,7 @@ require 'include/page_body.php';
     		</center>
     		<input type="hidden" name="ToDo" value="DisableAccount">
     	</form>
+    </div>
     </div>
   </div>
 <?

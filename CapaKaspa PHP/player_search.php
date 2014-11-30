@@ -80,6 +80,7 @@ require 'include/page_body.php';
 			}
 			
 		?>
+		<div class="blockform">
 		<h3><? echo _("Players advanced search");?></h3>
 		<div id="searchForm">
 			<form name="searchPlayers" action="player_search.php" method="post">
@@ -137,9 +138,9 @@ require 'include/page_body.php';
 		          	</tr>	          
 		        </table>
 			</form>
-	        <br><? echo($nb_tot." "._("player(s) found"));?>	        	
+			</div>  	        	
         </div>
-        
+        <? echo($nb_tot." "._("player(s) found"));?>
         <div id="players0" style="display: none;"><img src='images/ajaxloader.gif'/></div>
         
 	</div>

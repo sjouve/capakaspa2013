@@ -235,7 +235,7 @@ require 'include/page_body_home.php';
 
 <div id="content" style="border-left-style: none;">
 	<div class="contentbody">
-		<br>
+		<div class="blockform">
 		<h3><?php echo _("New on CapaKaspa ? Sign up");?></h3>
 		<?if ($ToDo == 'activer' && !$err) {?>
 		<div class="success"><? echo _("Your account is actived.")?></div>
@@ -368,13 +368,13 @@ require 'include/page_body_home.php';
 		</form>
 		
 		<?}?>
-		
+		</div>
 		
 	</div>
 </div>
 <div id="rightbarlarge">
 	<div class="contentbody">
-		<br>
+		<div class="blockform">
 		<h3><?php echo _("Sign in");?></h3>
 		<form method="post" action="game_in_progress.php">
 			<table>
@@ -393,18 +393,23 @@ require 'include/page_body_home.php';
 	        <input name="chkAutoConn" type="checkbox"/> <? echo _("Remember me");?><br><br>
 	        <center><input name="login" value="<? echo _("Sign in");?>" type="submit" class="button" style="font-size: 13px;"> <img src="images/puce.gif"/> <a href="password.php"><? echo _("Forgot password ?");?></a></center>
 	        <input name="ToDo" value="Login" type="hidden">
-	     </form>
-	    <br><br>
+	    </form>
+		</div>
+	    <div class="blockform">
    		<h3><?php echo _("Play chess on CapaKaspa");?></h3>
    		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActiveGameForAll()); ?></span> <?php echo _("chess games in progress");?><br>
-   		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActivePlayers()+getNbPassivePlayers()); ?></span> <?php echo _("players are waiting to play chess games");?><br><br>
+   		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActivePlayers()+getNbPassivePlayers()); ?></span> <?php echo _("players are waiting to play chess games");?>
+   		<br>
+   		</div>
+   		<div class="blockform">
    		<h3><?php echo _("Start, practice and progress");?></h3>
    		<img src="images/puce.gif"/> <a href="app_puzzle.php"><? echo _("Chess puzzle of the day");?></a><br>
    		<img src="images/puce.gif"/> <a href="app_jchess.php"><? echo _("Play chess vs JChess");?></a><br>
    		
    		<img src="images/puce.gif"/> <a href="app_flashchess.php"><? echo _("Play chess vs FlashChess");?></a><br>
    		
-   		<img src="images/puce.gif"/> <a href="app_sparkchess.php"><? echo _("Play chess vs SparkChess");?></a><br>	
+   		<img src="images/puce.gif"/> <a href="app_sparkchess.php"><? echo _("Play chess vs SparkChess");?></a><br>
+   		</div>
 	</div>
 </div>
 <div id="contentxlarge">
