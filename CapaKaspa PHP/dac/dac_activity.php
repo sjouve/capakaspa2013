@@ -29,7 +29,8 @@ function listActivity($start, $limit, $type, $playerID)
 			$tmpQuery .= "
 			WHERE A.playerID = ".$playerID;
 			
-		$tmpQuery .= " AND A.entityID = G.gameID
+		$tmpQuery .= " AND A.type = '".GAME."' 
+		AND A.entityID = G.gameID
 		AND G.whitePlayer = WP.playerID
 		AND G.blackPlayer = BP.playerID
 		ORDER BY postDate desc
