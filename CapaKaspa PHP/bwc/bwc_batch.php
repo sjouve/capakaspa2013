@@ -286,7 +286,10 @@ function calculerElo($type)
 
 	while($player = mysqli_fetch_array($listPlayers, MYSQLI_ASSOC))
 	{
-		$eloInitial = $player['elo'];
+		if ($type==0)
+			$eloInitial = $player['elo'];
+		else
+			$eloInitial = $player['elo960'];
 		$eloFinal = $eloInitial;
 		$nbParties = 0;
 		

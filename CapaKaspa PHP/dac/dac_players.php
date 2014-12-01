@@ -62,11 +62,13 @@ function listPlayers()
 function listPlayersForElo($dateFin)
 {
 	global $dbh;
-	$tmpQuery = "SELECT P.playerID playerID, E.elo elo, P.nick nick 
-				FROM players P, elo_history E 
+	$tmpQuery = "SELECT P.playerID playerID, E.elo elo, F.elo elo960, P.nick nick 
+				FROM players P, elo_history E, elo960_history F
 				WHERE P.playerID = E.playerID 
+				AND P.playerID = F.playerID 
 				AND P.activate=1 
 				AND E.eloDate > '".$dateFin."' 
+				AND F.eloDate > '".$dateFin."' 
 				ORDER BY playerID";
 	
 	return mysqli_query($dbh,$tmpQuery);
