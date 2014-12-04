@@ -64,16 +64,16 @@ function displayFeed (type, start)
 	{
 		document.getElementById("players0").style.display = "none";
 		document.getElementById("stat_news").style.backgroundColor = "#F2A521";
-		document.getElementById("stat_wing").style.backgroundColor = "#FFFFFF";
-		document.getElementById("stat_wers").style.backgroundColor = "#FFFFFF";
+		document.getElementById("stat_wing").style.backgroundColor = "#EEEEEE";
+		document.getElementById("stat_wers").style.backgroundColor = "#EEEEEE";
 		document.getElementById("feedType").value = 'activity';
 		displayActivity(start, 1, <? echo($playerID);?>);
 	}
 	if (type == 'wers')
 	{
 		document.getElementById("activities0").style.display = "none";
-		document.getElementById("stat_news").style.backgroundColor = "#FFFFFF";
-		document.getElementById("stat_wing").style.backgroundColor = "#FFFFFF";
+		document.getElementById("stat_news").style.backgroundColor = "#EEEEEE";
+		document.getElementById("stat_wing").style.backgroundColor = "#EEEEEE";
 		document.getElementById("stat_wers").style.backgroundColor = "#F2A521";
 		document.getElementById("feedType").value = 'wers';
 		displayPlayers(start, <? echo($playerID);?>, 'wers', '', '', '', '', '');
@@ -81,9 +81,9 @@ function displayFeed (type, start)
 	if (type == 'wing')
 	{
 		document.getElementById("activities0").style.display = "none";
-		document.getElementById("stat_news").style.backgroundColor = "#FFFFFF";
+		document.getElementById("stat_news").style.backgroundColor = "#EEEEEE";
 		document.getElementById("stat_wing").style.backgroundColor = "#F2A521";
-		document.getElementById("stat_wers").style.backgroundColor = "#FFFFFF";
+		document.getElementById("stat_wers").style.backgroundColor = "#EEEEEE";
 		document.getElementById("feedType").value = 'wing';
 		displayPlayers(start, <? echo($playerID);?>, 'wing', '', '', '', '', '');
 	}
@@ -183,7 +183,7 @@ require 'include/page_body.php';
 	<span style="margin-left: 3px"><? echo _("Lives in ")?> <? echo(stripslashes($player['situationGeo'])); ?>, <? echo($player['countryName']); ?></span><br>
 	<span style="margin-left: 3px"><? echo _("Elo")." :"?> <? echo($player['elo']); ?> - <?echo _("Chess960")." :"?> <? echo($player['elo960']); ?></span><br>
 	<span style="margin-left: 3px"><? echo _("About")?></span>
-		<div style="background-color: #FFFFFF;padding: 3px;height: 60px;overflow-y: auto;">
+		<div style="background-color: #EEEEEE;padding: 3px;height: 60px;overflow-y: auto;">
 			<? echo(nl2br(stripslashes($player['profil']))); ?>
 		</div>
 		<? 

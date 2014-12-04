@@ -2,7 +2,7 @@
 body {
 	margin: 0px 0px 0px 0px;
 	text-align: center;
-	background-color: #FFFFFF;
+	background-color: #EEEEEE;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	color: #404040;
 	font-size: 12px;
@@ -266,6 +266,17 @@ th .econame {
 	width: 100%;
 	resize:none;
 }
+
+.activity {
+	width: 96%;
+	border-top-style: solid;
+	border-left-style: solid;
+	border-width: 1px;
+	border-color: #DDDDDD;
+	background-color: #FFFFFF;
+	margin: 5px;
+	overflow: hidden;
+}
 .activity .details{
 	float: left;
 	width: 97%;
@@ -299,15 +310,15 @@ th .econame {
 }
 .activity .details .content .gamedetails{
 	float: left;
-	width: 95%;
+	width: 94%;
 	font-size: 10px;
 	padding: 0px;
+	padding-top: 5px;
 	text-align: center;
-	border-top-style: none;
-	border-right-style: none;
-	border-bottom-style: none;
-	border-left-style: none;
-	background-color: #EEEEEE;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #DDDDDD;
+	background-color: #FFFFFF;
 	margin-left: 5px;
 	margin-right: 5px;
 	padding-left: 5px;
@@ -354,16 +365,24 @@ th .econame {
    	font-weight: bold;
    	font-size: 12px;
 }
+.player {
+	border-top-style: solid;
+	border-left-style: solid;
+	margin-right: 5px;
+	margin-left: 5px;
+	width: 96%;
+}
 .player .leftbar {
 	width: 15%;
 }
 .player .details{
-	width: 85%;
+	width: 80%;
 }
 #player_info {
 	padding-left: 0px;
 	padding-right: 0px;
 	padding-bottom: 0px;
+	margin-bottom: 5px;
 	width: 100%;
 	height: 240px;
 }
