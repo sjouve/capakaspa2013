@@ -66,18 +66,10 @@ require 'include/page_body.php';
 		?>
 		<h2><?echo _("Statistics (no Chess960)");?></h2>
 		<div id="games_statistics">
-			<img style="border-top-style: none;
-	border-right-style: solid;
-	border-bottom-style: solid;
-	border-left-style: none;
-	border-width: 1px;
-	border-color: #DDDDDD;" src="graph_results_perc.php?playerID=<?php echo($playerID);?>">
-			<img style="border-top-style: none;
-	border-right-style: solid;
-	border-bottom-style: solid;
-	border-left-style: none;
-	border-width: 1px;
-	border-color: #DDDDDD;float: right;" src="graph_eco_games.php?playerID=<?php echo($playerID);?>">
+			<img style="border: 1px solid;
+	border-color: #e9eaed #dfe0e4 #d0d1d5;" src="graph_results_perc.php?playerID=<?php echo($playerID);?>">
+			<img style="border: 1px solid;
+	border-color: #e9eaed #dfe0e4 #d0d1d5;float: right;" src="graph_eco_games.php?playerID=<?php echo($playerID);?>">
       	</div>
       	<br>
       	<? }?>
