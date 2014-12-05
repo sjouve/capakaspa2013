@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
 "POT-Creation-Date: 2014-11-21 22:07+0100\n"
-"PO-Revision-Date: 2014-12-05 22:08+0100\n"
+"PO-Revision-Date: 2014-12-06 00:01+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -200,7 +200,7 @@ msgstr "RESULTAT"
 #: PHP/ajax/ajx_display_activity.php:127
 #: PHP/mobile/ajax/ajx_display_activity.php:127
 msgid "do a draw game by mutual consent"
-msgstr "a fait une partie nulle par consentement mutuel"
+msgstr "a fait une partie nulle par consentement mutuel avec"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_activity.php:132
