@@ -135,8 +135,8 @@ switch($ToDo)
 		
 			/* notify opponent of invitation via email */
 			chessNotification('withdrawal', $oppColor, '', $_SESSION['nick'], $_POST['gameID']);
-			if ($_SESSION['pref_shareinvitation'] == 'oui')
-				insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'withdrawal');
+			/*if ($_SESSION['pref_shareinvitation'] == 'oui')
+				insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], "", 'withdrawal');*/
 			
 			$tmpQuery = "DELETE FROM games WHERE gameID = ".$_POST['gameID'];
 			mysqli_query($dbh,$tmpQuery);
