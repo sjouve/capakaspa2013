@@ -166,7 +166,7 @@ function displaySuggestion()
 			
 		echo("
 				<div class='suggestion'>
-				<div id='picture' style='float: left; margin-right: 5px;'>
+				<div id='picture' style='float: left; margin-right: 3px;'>
 				<img src='".getPicturePath($tmpPlayer['socialNetwork'], $tmpPlayer['socialID'])."' width='32' height='32' border='0'/>
 				</div>
 				<a href='player_view.php?playerID=".$tmpPlayer['playerID']."'><span class='name'>".$tmpPlayer['firstName']." ".$tmpPlayer['lastName']." (".$tmpPlayer['nick'].")</span></a>");

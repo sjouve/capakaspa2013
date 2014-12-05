@@ -339,9 +339,8 @@ body {
 #player_view_header {
 	background-color: #FFFFFF;
 	display: block;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #DDDDDD;
+	border: 1px solid;
+	border-color: #e9eaed #dfe0e4 #d0d1d5;
 	width: 100%;
 	float: left;
 	margin-bottom: 10px;
@@ -902,13 +901,8 @@ input[type="file"] {
 .player {
 	float: left;
 	width: 100%;
-	
-	border-top-style: none;
-	border-right-style: solid;
-	border-bottom-style: solid;
-	border-left-style: none;
-	border-width: 1px;
-	border-color: #DDDDDD;
+	border: 1px solid;
+	border-color: #e9eaed #dfe0e4 #d0d1d5;
 	background-color: #FFFFFF;
 	overflow: hidden;
 	padding-bottom: 5px;
@@ -961,12 +955,8 @@ input[type="file"] {
 	width: 100%;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	border-top-style: none;
-	border-right-style: solid;
-	border-bottom-style: solid;
-	border-left-style: none;
-	border-width: 1px;
-	border-color: #DDDDDD;
+	border: 1px solid;
+	border-color: #e9eaed #dfe0e4 #d0d1d5;
 	background-color: #FFFFFF;
 	margin-bottom: 5px;
 	overflow: hidden;
@@ -1139,14 +1129,10 @@ input[type="file"] {
 }
 .suggestion {
 	float: left;
-	width: 100%;
+	width: 96%;
 	padding: 3px;
-	border-top-style: none;
-	border-right-style: none;
-	border-bottom-style: solid;
-	border-left-style: none;
-	border-width: 1px;
-	border-color: #DDDDDD;
+	border: 1px solid;
+	border-color: #e9eaed #dfe0e4 #d0d1d5;
 	background-color: #FFFFFF;
 	overflow: hidden;
 	line-height: normal;
@@ -1215,8 +1201,6 @@ input[type="file"] {
 	background-color: #FFFFFF;
 	padding: 5px;
 	margin-bottom: 10px;
-	border-bottom-style: solid;
-	border-right-style: solid;
-	border-width: 1px;
-	border-color: #DDDDDD;
+	border: 1px solid;
+	border-color: #e9eaed #dfe0e4 #d0d1d5;
 }
