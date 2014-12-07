@@ -395,8 +395,11 @@ body {
 .leaderboard {
 	float: left;
 	overflow: hidden;
-	padding-left: 10px;
-	padding-bottom: 10px;
+	width: 100%;
+	text-align: center;
+	background-color: #FFFFFF;
+	margin-left: 10px;
+	margin-bottom: 10px;
 }
 .skyscraper {
 	position: absolute;

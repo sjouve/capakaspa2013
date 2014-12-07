@@ -56,7 +56,7 @@ require 'include/page_body.php';
 		echo("<div class='error'>".$errMsg."</div>");
 	?>
 		<div id="messages" style="display: block;overflow-y: auto;height: 500px;">
-			<center><? echo _("No Conversation Selected")?></center>
+			<p><center><? echo _("No Conversation Selected")?></center></p>
 		</div>
 		<div id="messageForm" style="display: none;">
 			<input id="toPlayerID" type="hidden" value="">
