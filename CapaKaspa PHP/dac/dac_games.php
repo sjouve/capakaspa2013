@@ -336,7 +336,7 @@ function listLostGames($playerID)
 function listEndedGamesForElo($playerID, $type)
 {
 	global $dbh;
-	$tmpGames = mysqli_query($dbh,"SELECT G.gameID, W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove
+	$tmpGames = mysqli_query($dbh,"SELECT G.gameID, W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, W.elo960 whiteElo960, B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.elo960 blackElo960, G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove
 						FROM games G, players W, players B
 						WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
 						AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")

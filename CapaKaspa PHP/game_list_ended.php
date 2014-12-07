@@ -194,9 +194,9 @@ require 'include/page_body.php';
 						}
 						
 						/* Opponent ELO */
-						$opponentElo = $tmpGame['whiteElo'];
+						$opponentElo = $tmpGame['whiteElo960'];
 						if ($tmpGame['whitePlayerID'] == $playerID)
-							$opponentElo = $tmpGame['blackElo'];
+							$opponentElo = $tmpGame['blackElo960'];
 						echo ("</td><td align='center'>".$opponentElo);
 						
 						/* Start Date */
