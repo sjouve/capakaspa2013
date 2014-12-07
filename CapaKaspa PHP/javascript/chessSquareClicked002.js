@@ -155,12 +155,14 @@
 				///////
 				if (isInCheck(ennemyColor))
 				{
+					numMoves++;
 					document.gamedata.isInCheck.value = "true";
 					if(thePiece == 'pawn' && Math.abs(row - fromRow) == 2)	// Pawn double advance
 						var epCol = col;	// The column of the en passant square
 					else
 						var epCol = -1;
 					document.gamedata.isCheckMate.value = isCheckMate(ennemyColor, epCol);
+					numMoves--;	
 				}
 				else
 				{	// Not in check

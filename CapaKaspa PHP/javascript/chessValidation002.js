@@ -1010,7 +1010,7 @@ function canBeCaptured(testRow, testCol, epCol)
 
 			if(board[testRow + tmpDir][testCol] == 0)	// It's not a regular capture
 
-					if(isValidMove(testRow, testCol+1, testRow + tmpDir, testCol. epCol))
+					if(isValidMove(testRow, testCol+1, testRow + tmpDir, testCol, epCol))
 
 						return true;	// En passant capture
 

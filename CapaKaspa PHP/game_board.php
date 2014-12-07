@@ -188,19 +188,19 @@ require 'include/page_header.php';
 		document.gamedata.submit();
 	}
 </script>
-<script type="text/javascript" src="javascript/chessUtils001.js">
+<script type="text/javascript" src="javascript/chessUtils002.js">
  /* these are utility functions used by other functions */
 </script>
-<script type="text/javascript" src="javascript/chessCommands001.js">
+<script type="text/javascript" src="javascript/chessCommands002.js">
 // these functions interact with the server
 </script>
-<script type="text/javascript" src="javascript/chessValidation001.js">
+<script type="text/javascript" src="javascript/chessValidation002.js">
 // these functions are used to test the validity of moves
 </script>
-<script type="text/javascript" src="javascript/chessIsCheckMate001.js">
+<script type="text/javascript" src="javascript/chessIsCheckMate002.js">
 // these functions are used to test the validity of moves
 </script>
-<script type="text/javascript" src="javascript/chessSquareClicked001.js">
+<script type="text/javascript" src="javascript/chessSquareClicked002.js">
 // this is the main function that interacts with the user everytime they click on a square
 </script>
 <?

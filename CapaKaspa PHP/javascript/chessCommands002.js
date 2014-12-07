@@ -11,9 +11,10 @@ function undo()
 	document.gamedata.fromCol.value = "";
 	document.gamedata.toRow.value = "";
 	document.gamedata.toCol.value = "";
+	document.gamedata.isInCheck.value = "false";
+	document.gamedata.isCheckMate.value = "false";
 	document.gamedata.drawResult.value = "false";
 	document.gamedata.drawCase.value = "";
-	
 	document.gamedata.submit();
 	
 }
