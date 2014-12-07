@@ -1052,6 +1052,7 @@ input[type="file"] {
 	border-left-style: none;
 	border-width: 1px;
 	border-color: #DDDDDD;
+	margin-bottom: 5px;
 	overflow: hidden;
 	display: none;
 }
@@ -1207,3 +1208,12 @@ input[type="file"] {
 	border: 1px solid;
 	border-color: #e9eaed #dfe0e4 #d0d1d5;
 }
+.adsbottom {
+	float: left;
+	overflow: hidden;
+	width: 100%;
+	text-align: center;
+	background-color: #FFFFFF;
+	margin-bottom: 10px;
+}
+	

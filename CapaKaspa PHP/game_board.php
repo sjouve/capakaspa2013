@@ -398,7 +398,7 @@ require 'include/page_body.php';
 			<img src="images/ajaxloader.gif"/>
 		</div>
 		
-		<div id="adsbottom" style="width: 700px;text-align: center;">
+		<div class="adsbottom">
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 			<!-- CapaKaspa Partie Bandeau Discussion -->
 			<ins class="adsbygoogle"

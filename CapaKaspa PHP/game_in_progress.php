@@ -586,19 +586,18 @@ require 'include/page_body.php';
 			<input type="hidden" name="sharePC" value="no">
 			<input type="hidden" name="from" value="encours">
 		</form>
-		<br>
 		<?php if (mysqli_num_rows($tmpGames) > 0) {?>
-		<center>
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- CapaKaspa Tableau bord Bandeau Partie -->
-		<ins class="adsbygoogle"
-		     style="display:inline-block;width:468px;height:60px"
-		     data-ad-client="ca-pub-8069368543432674"
-		     data-ad-slot="3190675956"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
-		</center>
+		<div class="adsbottom">
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- CapaKaspa Tableau bord Bandeau Partie -->
+			<ins class="adsbygoogle"
+			     style="display:inline-block;width:468px;height:60px"
+			     data-ad-client="ca-pub-8069368543432674"
+			     data-ad-slot="3190675956"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
 		<br>
 		<?php }?>
 	</div>
