@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
 "POT-Creation-Date: 2014-12-07 17:38+0100\n"
-"PO-Revision-Date: 2014-12-07 17:38+0100\n"
+"PO-Revision-Date: 2014-12-07 17:53+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -130,7 +130,8 @@ msgstr "! J'aime"
 #: PHP/ajax/ajx_display_activity.php:37
 #: PHP/mobile/ajax/ajx_display_activity.php:37
 msgid "No News to display. Share your activity and follow players !"
-msgstr "Aucune actualité à afficher. Ce joueur n'a encore rien partagé !"
+msgstr ""
+"Aucune actualité à afficher. Partagez votre activité et suivez des joueurs !"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_activity.php:92
