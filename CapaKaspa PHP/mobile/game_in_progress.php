@@ -401,7 +401,24 @@ require 'include/page_body.php';
 				</div>");
 			}
 			else {
-				echo ("<p>"._("No games in progress...")."</p>");
+				echo _("No games in progress...");
+				echo ("<br><br>");
+				?>
+				<div class="blockform">
+				<h3><? echo _("Begin to play")?></h3>
+				<?php 
+				echo _("Submit a new game for all players or a specific player");
+				?>
+				<br>
+				<input type="button" class="link" value="<? echo _("New game")?>" onclick="location.href='game_new.php'">
+				<br><br>
+				<?php 
+				echo _("Find a player with advanced search and invite him to play a new game.");
+				?>
+				<input type="button" class="link" value="<? echo _("Search players")?>" onclick="location.href='player_search.php'">
+				</div>
+				<?php 
+				
 			}
 		?>
         
