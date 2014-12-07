@@ -32,8 +32,8 @@ $playerID = isset($_GET['playerID']) ? $_GET['playerID']:$_SESSION['playerID'];
 if (isset($_GET['playerID']))
     $player = getPlayer($playerID);
 
-$tmpForEloGames = listEndedGamesForElo($playerID);
-$tmpForElo960Games = listEndedGamesForElo960($playerID);
+$tmpForEloGames = listEndedGamesForElo($playerID, 0);
+$tmpForElo960Games = listEndedGamesForElo($playerID, 2);
 $tmpLostGames = listLostGames($playerID);
 $tmpDrawGames = listDrawGames($playerID);
 $tmpWonGames = listWonGames($playerID);
@@ -82,7 +82,7 @@ require 'include/page_body.php';
               <th width="20%"><?echo _("Whites");?></th>
               <th width="20%"><?echo _("Blacks");?></th>
               <th width="10%"><?echo _("Result");?></th>
-              <th width="10%"><?echo _("ECO");?></th>
+              <th width="10%"><?echo _("ELO");?></th>
               <th width="20%"><?echo _("Started");?></th>
               <th width="20%"><?echo _("Last move");?></th>
             </tr>
@@ -121,18 +121,20 @@ require 'include/page_body.php';
 								echo("</td><td>&nbsp;");
 						}
 						
-						/* ECO Code */
-						echo ("</td><td align='center'><span title=\"".$tmpGame['ecoName']."\">".$tmpGame['eco']);
-						
-						$started = new DateTime($tmpGame['dateCreated']);
-						$strStarted = $fmt->format($started);
-						$lastMove = new DateTime($tmpGame['lastMove']);
-						$strLastMove = $fmt->format($lastMove);
+						/* Opponent ELO */
+						$opponentElo = $tmpGame['whiteElo'];
+						if ($tmpGame['whitePlayerID'] == $playerID)
+							$opponentElo = $tmpGame['blackElo'];
+						echo ("</td><td align='center'>".$opponentElo);
 						
 						/* Start Date */
+						$started = new DateTime($tmpGame['dateCreated']);
+						$strStarted = $fmt->format($started);
 						echo ("</span></td><td align='center'>".$strStarted);
 			
 						/* Last Move */
+						$lastMove = new DateTime($tmpGame['lastMove']);
+						$strLastMove = $fmt->format($lastMove);
 						echo ("</td><td align='center'>".$strLastMove."</td></tr>\n");
 					}
 				}
@@ -152,7 +154,7 @@ require 'include/page_body.php';
               <th width="20%"><?echo _("Whites");?></th>
               <th width="20%"><?echo _("Blacks");?></th>
               <th width="10%"><?echo _("Result");?></th>
-              <th width="10%"><?echo _("Chess960");?></th>
+              <th width="10%"><?echo _("ELO");?></th>
               <th width="20%"><?echo _("Started");?></th>
               <th width="20%"><?echo _("Last move");?></th>
             </tr>
@@ -191,18 +193,20 @@ require 'include/page_body.php';
 								echo("</td><td>&nbsp;");
 						}
 						
-						/* Chess960 */
-						echo ("</td><td align='center'><span title=\"".$tmpGame['chess960']."\">".$tmpGame['chess960']);
-						
-						$started = new DateTime($tmpGame['dateCreated']);
-						$strStarted = $fmt->format($started);
-						$lastMove = new DateTime($tmpGame['lastMove']);
-						$strLastMove = $fmt->format($lastMove);
+						/* Opponent ELO */
+						$opponentElo = $tmpGame['whiteElo'];
+						if ($tmpGame['whitePlayerID'] == $playerID)
+							$opponentElo = $tmpGame['blackElo'];
+						echo ("</td><td align='center'>".$opponentElo);
 						
 						/* Start Date */
+						$started = new DateTime($tmpGame['dateCreated']);
+						$strStarted = $fmt->format($started);
 						echo ("</span></td><td align='center'>".$strStarted);
 			
 						/* Last Move */
+						$lastMove = new DateTime($tmpGame['lastMove']);
+						$strLastMove = $fmt->format($lastMove);
 						echo ("</td><td align='center'>".$strLastMove."</td></tr>\n");
 					}
 				}
