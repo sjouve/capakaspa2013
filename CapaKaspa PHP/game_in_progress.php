@@ -561,6 +561,24 @@ require 'include/page_body.php';
 			}
 			else {
 				echo _("No games in progress...");
+				echo ("<br><br>");
+				?>
+				<div class="blockform">
+				<h3><? echo _("Begin to play")?></h3>
+				<?php 
+				echo _("Submit a new game for all players or a specific player");
+				?>
+				<br>
+				<input type="button" class="link" value="<? echo _("New game")?>" onclick="location.href='game_new.php'">
+				<br><br>
+				<?php 
+				echo _("Find a player with advanced search and invite him to play a new game.");
+				?>
+				<input type="button" class="link" value="<? echo _("Search players")?>" onclick="location.href='player_search.php'">
+				</div>
+				<?php 
+				
+
 			}
 		?>
         
@@ -569,6 +587,7 @@ require 'include/page_body.php';
 			<input type="hidden" name="from" value="encours">
 		</form>
 		<br>
+		<?php if (mysqli_num_rows($tmpGames) > 0) {?>
 		<center>
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<!-- CapaKaspa Tableau bord Bandeau Partie -->
@@ -581,6 +600,7 @@ require 'include/page_body.php';
 		</script>
 		</center>
 		<br>
+		<?php }?>
 	</div>
 </div>
 <div id="rightbar">
