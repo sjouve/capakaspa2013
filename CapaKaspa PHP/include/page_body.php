@@ -63,9 +63,9 @@ if (isset($toPlayerID))
 	<div class="navlinks">
 	<div class="title"><?php echo _("Chess games");?></div>		
       <ul>
-        <li id="menu2"><img src="images/puce.gif"/> <a href="game_in_progress.php"><?php echo _("My games in progress");?></a> <? if ($nbTurns > 0) echo("<span class='newplayer' title='"._("Moves to play")."'>".$nbTurns."</span>");?></li>
-		<li id="menu1"><img src="images/puce.gif"/> <a href="game_new.php"><?php echo _("New game");?></a></li>
-        <li id="menu3"><img src="images/puce.gif"/> <a href="game_list_ended.php"><?php echo _("My games ended");?></a></li>
+        <li id="menu2"><img src="images/hand.gif"/> <a href="game_in_progress.php"><?php echo _("My games in progress");?></a> <? if ($nbTurns > 0) echo("<span class='newplayer' title='"._("Moves to play")."'>".$nbTurns."</span>");?></li>
+		<li id="menu1"><img src="images/newgame.png"/> <a href="game_new.php"><?php echo _("New game");?></a></li>
+        <li id="menu3"><img src="images/statistics.png"/> <a href="game_list_ended.php"><?php echo _("My games ended");?></a></li>
         <!-- <li><img src="images/puce.gif"/> <a href="game_list_all.php"></a></li> -->
 		<!-- <li><img src="images/icone-mobile.png"/> <a href="http://mobile.capakaspa.info">Version mobile</a></li> -->
       </ul>  
@@ -73,10 +73,10 @@ if (isset($toPlayerID))
 	<div class="navlinks">
 	<div class="title"><?php echo _("Players");?></div>		
       <ul>
-        <li id="menu4"><img src="images/puce.gif"/> <a href="activity.php"><?php echo _("News feed");?></a></li>
-		<li id="menu5"><img src="images/puce.gif"/> <a href="player_search.php"><?php echo _("Search");?></a></li>
-		<li id="menu15"><img src="images/puce.gif"/> <a href="player_ranking.php"><?php echo _("Rankings");?></a></li>
-		<li id="menu6"><img src="images/puce.gif"/> <a href="message.php"><?php echo _("Messages");?></a> <? if ($nbUnreadMessages > 0) echo("<span class='newplayer' title='"._("New private messages")."'>".$nbUnreadMessages."</span>");?></li>      
+        <li id="menu4"><img src="images/news.png"/> <a href="activity.php"><?php echo _("News feed");?></a></li>
+		<li id="menu5"><img src="images/search.png"/> <a href="player_search.php"><?php echo _("Search");?></a></li>
+		<li id="menu15"><img src="images/classements.gif"/> <a href="player_ranking.php"><?php echo _("Rankings");?></a></li>
+		<li id="menu6"><img src="images/messages.png"/> <a href="message.php"><?php echo _("Messages");?></a> <? if ($nbUnreadMessages > 0) echo("<span class='newplayer' title='"._("New private messages")."'>".$nbUnreadMessages."</span>");?></li>      
       </ul>  
 	</div>
 	<? } ?>
@@ -93,21 +93,21 @@ if (isset($toPlayerID))
 	</div>
 	<? } ?>
 	<div class="navlinks">
-		<div class="title"><?php echo _("Play chess");?></div>
+		<div class="title"><?php echo _("Training");?></div>
 			<ul>
-		        <li id="menu9"><img src="images/puce.gif"/> <a href="app_puzzle.php"><?php echo _("Chess puzzle of the day");?></a></li>
-		        <li id="menu7"><img src="images/puce.gif"/> <a href="app_jchess.php"><?php echo _("Play chess vs JChess");?></a></li>
-		        <li id="menu8"><img src="images/puce.gif"/> <a href="app_flashchess.php"><?php echo _("Play chess vs FlashChess");?></a></li>
-		        <li id="menu10"><img src="images/puce.gif"/> <a href="app_sparkchess.php"><?php echo _("Play chess vs SparkChess");?></a></li>
+		        <li id="menu9"><img src="images/chesspuzzle.png"/> <a href="app_puzzle.php"><?php echo _("Puzzle of the day");?></a></li>
+		        <li id="menu7"><img src="images/jchess.png"/> <a href="app_jchess.php"><?php echo _("Play vs JChess");?></a></li>
+		        <li id="menu8"><img src="images/flashchess.gif"/> <a href="app_flashchess.php"><?php echo _("Play vs FlashChess");?></a></li>
+		        <li id="menu10"><img src="images/sparkchess.png"/> <a href="app_sparkchess.php"><?php echo _("Play vs SparkChess");?></a></li>
 		        
       		</ul>
 	</div>
 	<div class="navlinks">
 		<div class="title"><?php echo _("More on CapaKaspa");?></div>
 			<ul>
-		        <li><img src="images/puce.gif"/> <a href="http://www.capakaspa.info/category/actualites-des-echecs/"><? echo _("Chess news");?></a></li>
-		        <li><img src="images/puce.gif"/> <a href="http://www.capakaspa.info/category/apprentissage/"><? echo _("Learning chess");?></a></li>
-		        <li><img src="images/puce.gif"/> <a href="http://www.capakaspa.info/"><? echo _("And more");?></a></li>
+		        <li><img src="images/chessnews.png"/> <a href="http://www.capakaspa.info/category/actualites-des-echecs/"><? echo _("Chess news");?></a></li>
+		        <li><img src="images/learnchess.png"/> <a href="http://www.capakaspa.info/category/apprentissage/"><? echo _("Learning chess");?></a></li>
+		        <li><img src="images/capakaspa.png"/> <a href="http://www.capakaspa.info/"><? echo _("And more");?></a></li>
       		</ul>
 	</div>
 

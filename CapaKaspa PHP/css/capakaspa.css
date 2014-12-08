@@ -876,12 +876,14 @@ input[type="file"] {
 }
 .navlinks li {
 	color: #404040;
-	font-size: 11px;/*x-small;*/
+	font-size: 12px;
 	font-weight: normal;
 	font-style: normal;
 	text-align: left;
-	line-height: 150%;
 	margin-top: 5px;
+}
+.navlinks li img {
+  	vertical-align: middle;
 }
 .navlinks .item {
 	color: #404040;
