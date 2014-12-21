@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2014-12-08 21:10+0100\n"
-"PO-Revision-Date: 2014-12-08 22:01+0100\n"
+"POT-Creation-Date: 2014-12-21 22:35+0100\n"
+"PO-Revision-Date: 2014-12-21 22:38+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -239,8 +239,8 @@ msgstr "COUP"
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_activity.php:187 PHP/game_in_progress.php:547
 #: PHP/mobile/ajax/ajx_display_activity.php:190
-#: PHP/mobile/game_in_progress.php:388 PHP/player_view.php:245
-#: PHP/player_view.php:277
+#: PHP/mobile/game_in_progress.php:388 PHP/player_view.php:280
+#: PHP/player_view.php:312
 msgid "View"
 msgstr "Voir"
 
@@ -354,8 +354,8 @@ msgstr "Elo"
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_player.php:62
 #: PHP/mobile/ajax/ajx_display_player.php:62 PHP/mobile/player_view.php:184
-#: PHP/player_ranking.php:93 PHP/player_view.php:176 PHP/player_view.php:271
-#: PHP/player_view.php:330
+#: PHP/player_ranking.php:93 PHP/player_view.php:176 PHP/player_view.php:306
+#: PHP/player_view.php:365
 msgid "Chess960"
 msgstr "Chess960"
 
@@ -718,7 +718,7 @@ msgstr "Proposition de nulle en attente..."
 #: PHP/bwc/bwc_games.php:1121 PHP/bwc/bwc_games.php:1222
 #: PHP/game_list_ended.php:82 PHP/game_list_ended.php:154
 #: PHP/game_list_ended.php:227 PHP/game_list_ended.php:293
-#: PHP/game_list_ended.php:351 PHP/player_view.php:242 PHP/player_view.php:301
+#: PHP/game_list_ended.php:351 PHP/player_view.php:277 PHP/player_view.php:336
 msgid "Whites"
 msgstr "Les blancs"
 
@@ -726,7 +726,7 @@ msgstr "Les blancs"
 #: PHP/bwc/bwc_games.php:1123 PHP/bwc/bwc_games.php:1224
 #: PHP/game_list_ended.php:83 PHP/game_list_ended.php:155
 #: PHP/game_list_ended.php:228 PHP/game_list_ended.php:294
-#: PHP/game_list_ended.php:352 PHP/player_view.php:243 PHP/player_view.php:302
+#: PHP/game_list_ended.php:352 PHP/player_view.php:278 PHP/player_view.php:337
 msgid "Blacks"
 msgstr "Les noirs"
 
@@ -858,6 +858,54 @@ msgstr "[CapaKaspa] Votre mot de passe"
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:356
 msgid "Data about your account"
 msgstr "Données de votre compte"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:657
+msgid "Player"
+msgstr "Joueur"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:658
+msgid "Total number of games played"
+msgstr "Nombre total de parties jouées"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:659
+msgid "Classic"
+msgstr "Classique"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:659
+msgid "Number of classic games played"
+msgstr "Nombre de parties classiques jouées"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:660
+msgid "Outside the box"
+msgstr "Aventurier"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:660
+msgid "Number of other games played"
+msgstr "Nombre d'autres parties jouées (Chess960, Débutant)"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:661
+msgid "Winner"
+msgstr "Vainqueur"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:661
+msgid "Number of games won"
+msgstr "Nombre de parties gagnées"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:662
+msgid "Black wins"
+msgstr "Victoires noires"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:662
+msgid "Number of games won with blacks"
+msgstr "Nombre de parties gagnées avec les noirs"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:663
+msgid "Social"
+msgstr "Social"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:663
+msgid "Number of different opponents"
+msgstr "Nombre d'adversaires différents"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/error_404.php:4
 #: PHP/site_about.php:4 PHP/site_about.php:16
@@ -1290,7 +1338,7 @@ msgstr "A prendre en compte dans le prochain classement Elo"
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:84
 #: PHP/game_list_ended.php:156 PHP/game_list_ended.php:229
 #: PHP/game_list_ended.php:295 PHP/game_list_ended.php:353
-#: PHP/player_view.php:303
+#: PHP/player_view.php:338
 msgid "Result"
 msgstr "Résultat"
 
@@ -1319,7 +1367,7 @@ msgstr "de"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:230
 #: PHP/game_list_ended.php:296 PHP/game_list_ended.php:354
-#: PHP/player_view.php:244 PHP/player_view.php:304
+#: PHP/player_view.php:279 PHP/player_view.php:339
 msgid "ECO"
 msgstr "ECO"
 
@@ -1635,7 +1683,7 @@ msgid "Statistics"
 msgstr "Statistiques"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:88
-#: PHP/player_view.php:233
+#: PHP/player_view.php:268
 msgid "Games in progress"
 msgstr "Parties en cours"
 
@@ -1680,16 +1728,21 @@ msgstr "Plus sur CapaKaspa"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/include/page_body.php:108
+msgid "London Chess Classic 2014"
+msgstr ""
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/include/page_body.php:109
 msgid "Chess news"
 msgstr "Actualités des échecs"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:109
+#: PHP/include/page_body.php:110
 msgid "Learning chess"
 msgstr "Apprentissage des échecs"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:110
+#: PHP/include/page_body.php:111
 msgid "And more"
 msgstr "Et plus..."
 
@@ -2114,7 +2167,7 @@ msgid "Following"
 msgstr "Abonnements"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/mobile/player_view.php:235 PHP/player_view.php:370
+#: PHP/mobile/player_view.php:235 PHP/player_view.php:405
 msgid "Are you sure you want to delete this news ?"
 msgstr "Etes vous sûr de vouloir supprimer cette actualité ?"
 
@@ -2491,15 +2544,19 @@ msgstr ""
 msgid "Update my information"
 msgstr "Actualiser mes infos"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:256
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:250
+msgid "Level "
+msgstr "Niveau"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:291
 msgid "No games in progress"
 msgstr "Pas de parties en cours"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:293
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:328
 msgid "My games against"
 msgstr "Mes parties contre"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:315
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/player_view.php:350
 msgid "You've never played against this player"
 msgstr "Vous n'avez jamais joué contre ce joueur"
 
@@ -3144,6 +3201,24 @@ msgstr ""
 "autres points n'en seraient pas affectés. Tout point déclaré caduc sera "
 "remplacé par une disposition se rapprochant le plus possible de la "
 "précédente disposition."
+
+#~ msgid "Player : total number of games played"
+#~ msgstr "Joueur : nombre total de parties jouées"
+
+#~ msgid "Classic : Number of classic games played"
+#~ msgstr "Classique : nombre de parties classiques jouées"
+
+#~ msgid "Outside the box : Number of other games played"
+#~ msgstr "Aventurier : nombre des autres parties jouées (Chess960, Débutant)"
+
+#~ msgid "Winner : Number of games won"
+#~ msgstr "Vainqueur : nombre de parties gagnées"
+
+#~ msgid "Blacks win : Number of games won with blacks"
+#~ msgstr "Victoires noires : nombre de victoires avec les noirs"
+
+#~ msgid "Social : Number of different opponents"
+#~ msgstr "Social : nombre d'adversaires différents"
 
 #~ msgid "Play chess"
 #~ msgstr "Jouer aux échecs"

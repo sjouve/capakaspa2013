@@ -228,6 +228,42 @@ require 'include/page_body_no_menu.php';
 </div>
 </div>
 <div id="rightbarlarge">
+	<div class="blockform" style="height: 130px;">
+		<? 
+		$achievements = getAchievements($player['playerID']);
+		$widthTotal = 150;
+		for ($i=1; $i<7; $i++)
+		{
+			$achievement = $achievements[$i];
+			$value = $achievement["VAL"];
+			$level = $achievement["LVL"];
+			$next = $achievement["NXT"];
+			$picto = $achievement["PCT"];
+			$name = $achievement["NAM"];
+			$desc = $achievement["DSC"];
+			if ($value < $next)
+				$widthValue = intval($widthTotal*$value/$next); 
+			else
+				$widthValue = $widthTotal;
+			$widthNext = $widthTotal - $widthValue;
+			?>
+			<div class="achievement" title="<?echo $name;?> (<?echo _("Level ")." ".$level;?>) : <?echo $desc;?>">
+				<div class="picto" style="position: relative; float: left; background-image: url('images/<?echo($picto);?>'); width: 32px; height: 32px;">
+				<span class="newplayer" style="position: absolute; left: 0px; bottom: 0px;"><? echo($level);?></span>
+				</div>
+				<div class="value" style="width: <? echo($widthValue);?>px;">
+				<div style="position: relative; float: left;"><? echo($value);?></div>
+				</div>
+				<div class="next" style="width: <? echo($widthNext);?>px;">
+				<div style="position: relative; float: right;"><? echo($next);?></div>
+				</div>
+			</div>
+			<?
+		}
+		?>
+		
+	</div>
+
 	<div class="navlinks">
 		<div class="title">
 		<? echo _("Games in progress")?>

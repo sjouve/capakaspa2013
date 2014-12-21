@@ -1218,4 +1218,20 @@ input[type="file"] {
 	background-color: #FFFFFF;
 	margin-bottom: 10px;
 }
-	
+.achievement {
+	float: left;
+	margin: 5px;
+	font-size: 10px;
+}
+.achievement .value {
+	float: left; 
+	height: 32px; 
+	background-color: rgb(242, 165, 33); 
+	text-align: left;
+}	
+.achievement .next {
+	float: left; 
+	height: 32px; 
+	background-color: rgb(155, 106, 21); 
+	text-align: right;
+}

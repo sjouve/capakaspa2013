@@ -609,4 +609,59 @@ function computeRank960()
 	
 	return true;
 }
+
+// Achievements
+function getAchievements($playerID)
+{
+	$achievementsValues = array (1=>0, 2=>0, 3=>0, 4=>0, 5=>0, 6=>0);
+	$achievementsCounts = countForAchievements($playerID);
+	$achievementsValues[1] = $achievementsCounts["PLAYER"]; // 1
+	$achievementsValues[2] = $achievementsCounts["CLASSIC"]; // 2
+	$achievementsValues[3] = $achievementsCounts["OUTSIDE"]; // 3
+	$achievementsValues[4] = $achievementsCounts["WINNER"]; // 4
+	$achievementsValues[5] = $achievementsCounts["BLACKWIN"]; // 5
+	$achievementsValues[6] = $achievementsCounts["SOCIAL"]; // 6
+	
+	// Table des niveaux par objectifs
+	$achievementsLevels = array (1 => array(1=>15, 2=>100, 3=>500, 4=>1000, 5=>3000),
+								2 => array(1=>10, 2=>80, 3=>400, 4=>800, 5=>2000),
+								3 => array(1=>5, 2=>50, 3=>200, 4=>500, 5=>1000),
+								4 => array(1=>10, 2=>50, 3=>150, 4=>300, 5=>500),
+								5 => array(1=>10, 2=>50, 3=>200, 4=>500, 5=>1000),
+								6 => array(1=>10, 2=>30, 3=>60, 4=>120, 5=>240));
+	
+	$levels = array (1=>0, 2=>0, 3=>0, 4=>0, 5=>0, 6=>0);
+	$steps = array (1=>0, 2=>0, 3=>0, 4=>0, 5=>0, 6=>0);
+	
+	for ($i=1; $i<7; $i++)
+	{
+		$achievementLevels = $achievementsLevels[$i];
+		$level = 0;
+		while ((($level < 5) && $achievementsValues[$i] >= $achievementLevels[$level+1])) {
+			$level++;
+		}
+		$levels[$i] = $level;
+		if ($level < 5)
+			$steps[$i] = $achievementLevels[$level+1];
+		else
+			$steps[$i] = $achievementLevels[$level];
+		
+	}
+	
+	
+	// Retourne tableau objectifs : Num objectif, Nombre, Niveau, Palier prochain niveau
+	$playerAchievements = array (1 => array("VAL" => $achievementsValues[1], 
+											"LVL" => $levels[1], 
+											"NXT" => $steps[1], 
+											"PCT" => "ach_player.png",
+											"NAM" => _("Player"),
+											"DSC" => _("Total number of games played")),
+								2 => array("VAL" => $achievementsValues[2], "LVL" => $levels[2], "NXT" => $steps[2], "PCT" => "ach_classic.jpg", "NAM" => _("Classic"), "DSC" => _("Number of classic games played")),
+								3 => array("VAL" => $achievementsValues[3], "LVL" => $levels[3], "NXT" => $steps[3], "PCT" => "ach_outside.jpg", "NAM" => _("Outside the box"), "DSC" => _("Number of other games played")),
+								4 => array("VAL" => $achievementsValues[4], "LVL" => $levels[4], "NXT" => $steps[4], "PCT" => "ach_winner.jpg", "NAM" => _("Winner"), "DSC" => _("Number of games won")),
+								5 => array("VAL" => $achievementsValues[5], "LVL" => $levels[5], "NXT" => $steps[5], "PCT" => "ach_black.jpg", "NAM" => _("Black wins"), "DSC" => _("Number of games won with blacks")),
+								6 => array("VAL" => $achievementsValues[6], "LVL" => $levels[6], "NXT" => $steps[6], "PCT" => "ach_social.gif", "NAM" => _("Social"), "DSC" => _("Number of different opponents")));
+								
+	return $playerAchievements;
+}
 ?>

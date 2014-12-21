@@ -64,14 +64,13 @@ function countLost($playerID, $dateDeb, $dateFin, $type)
 									
 	global $dbh;
 	$tmpGames = mysqli_query($dbh,"SELECT count(G.gameID) nbGames
-	                                FROM games G, players W, players B
+	                                FROM games G
 									WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
 	                                AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
 	                                AND ((G.gameMessage = 'playerResigned' AND G.messageFrom = 'white' AND G.whitePlayer = ".$playerID.")
 	                                    OR (G.gameMessage = 'playerResigned' AND G.messageFrom = 'black' AND G.blackPlayer = ".$playerID.")
 	                                    OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'black' AND G.whitePlayer = ".$playerID.")
 	                                    OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'white' AND G.blackPlayer = ".$playerID.")) 
-									AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
 									AND G.type=".$type." AND G.lastMove >= '".$dateDeb."' AND DATE(G.lastMove) <= '".$dateFin."'");
 	
 	return mysqli_fetch_array($tmpGames, MYSQLI_ASSOC);
@@ -82,11 +81,10 @@ function countDraw($playerID, $dateDeb, $dateFin, $type)
 									
 	global $dbh;
 	$tmpGames = mysqli_query($dbh,"SELECT count(G.gameID) nbGames
-	                            FROM games G, players W, players B
+	                            FROM games G
                                 WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
                                 AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
                                 AND G.gameMessage = 'draw'
-                                AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
 								AND G.type=".$type." AND G.lastMove >= '".$dateDeb."' AND DATE(G.lastMove) <= '".$dateFin."'");
 	
 	return mysqli_fetch_array($tmpGames, MYSQLI_ASSOC);
@@ -97,14 +95,13 @@ function countWin($playerID, $dateDeb, $dateFin, $type)
 									
 	global $dbh;
 	$tmpGames = mysqli_query($dbh,"SELECT count(G.gameID) nbGames
-	                            FROM games G, players W, players B
+	                            FROM games G
                                 WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
                                 AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
                                 AND ((G.gameMessage = 'playerResigned' AND G.messageFrom = 'white' AND G.blackPlayer = ".$playerID.")
                                     OR (G.gameMessage = 'playerResigned' AND G.messageFrom = 'black' AND G.whitePlayer = ".$playerID.")
                                     OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'black' AND G.blackPlayer = ".$playerID.")
                                     OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'white' AND G.whitePlayer = ".$playerID."))
-                                AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
 								AND G.type=".$type." AND G.lastMove >= '".$dateDeb."' AND DATE(G.lastMove) <= '".$dateFin."'");
 	
 	return mysqli_fetch_array($tmpGames, MYSQLI_ASSOC);
@@ -348,4 +345,53 @@ function listEndedGamesForElo($playerID, $type)
 	return $tmpGames;
 }
 
+// Achievements
+function countForAchievements($playerID)
+{
+	global $dbh;
+	$tmpGames = mysqli_query($dbh,"SELECT 
+								(SELECT count(G.gameID) 
+								FROM games G
+								WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
+                                AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
+								) PLAYER,
+								(SELECT count(G.gameID) 
+								FROM games G
+								WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
+                                AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
+                                AND G.type=0
+								) CLASSIC,
+								(SELECT count(G.gameID) 
+								FROM games G
+								WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
+                                AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
+                                AND G.type!=0
+								) OUTSIDE,
+								(SELECT count(G.gameID)
+	                            FROM games G
+                                WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
+                                AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
+                                AND ((G.gameMessage = 'playerResigned' AND G.messageFrom = 'white' AND G.blackPlayer = ".$playerID.")
+                                    OR (G.gameMessage = 'playerResigned' AND G.messageFrom = 'black' AND G.whitePlayer = ".$playerID.")
+                                    OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'black' AND G.blackPlayer = ".$playerID.")
+                                    OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'white' AND G.whitePlayer = ".$playerID."))
+								) WINNER,
+								(SELECT count(G.gameID)
+	                            FROM games G
+                                WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
+                                AND (G.blackPlayer = ".$playerID.")
+                                AND ((G.gameMessage = 'playerResigned' AND G.messageFrom = 'white' AND G.blackPlayer = ".$playerID.")
+                                    OR (G.gameMessage = 'playerResigned' AND G.messageFrom = 'black' AND G.whitePlayer = ".$playerID.")
+                                    OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'black' AND G.blackPlayer = ".$playerID.")
+                                    OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'white' AND G.whitePlayer = ".$playerID."))
+								) BLACKWIN,
+								(SELECT count(distinct(G.whitePlayer * G.blackPlayer))
+	                            FROM games G
+                                WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
+                                AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
+								) SOCIAL"
+								);
+	
+	return mysqli_fetch_array($tmpGames, MYSQLI_ASSOC);
+}
 ?>
