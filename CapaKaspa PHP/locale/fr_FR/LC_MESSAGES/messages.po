@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2014-12-28 22:41+0100\n"
-"PO-Revision-Date: 2014-12-28 22:42+0100\n"
+"POT-Creation-Date: 2014-12-28 23:11+0100\n"
+"PO-Revision-Date: 2014-12-28 23:12+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -820,7 +820,7 @@ msgstr "Partie classique"
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1317
 #: PHP/game_list_ended.php:142
 msgid "Chess960 game"
-msgstr "Parties Chess960"
+msgstr "Partie Chess960"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1322
 msgid ", Bishops"
@@ -1718,7 +1718,7 @@ msgstr "Plus sur CapaKaspa"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/include/page_body.php:108
-msgid "London Chess Classic 2014"
+msgid "Tata Steel Chess 2015"
 msgstr ""
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
