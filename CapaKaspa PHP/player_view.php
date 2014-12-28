@@ -215,17 +215,18 @@ require 'include/page_body_no_menu.php';
 		}
 		?>
 		<br>
-		<div id="stat_won" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="location.href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>#victoires'"><span class="label"><? echo _("Won");?></span><br><span class="number"><? echo($nbVictoires); ?></span></div> 
-		<div id="stat_draw" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="location.href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>#nulles'"><span class="label"><? echo _("Draw");?></span><br><span class="number"><? echo($nbNulles); ?></span></div> 
-		<div id="stat_lost" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="location.href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>#defaites'"><span class="label"><? echo _("Lost");?></span><br><span class="number"><? echo($nbDefaites); ?></span></div>
+		<div id="stat_won" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="location.href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>&critType=0&critResult=W'"><span class="label"><? echo _("Won");?></span><br><span class="number"><? echo($nbVictoires); ?></span></div> 
+		<div id="stat_draw" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="location.href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>&critType=0&critResult=D'"><span class="label"><? echo _("Draw");?></span><br><span class="number"><? echo($nbNulles); ?></span></div> 
+		<div id="stat_lost" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="location.href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>&critType=0&critResult=L'"><span class="label"><? echo _("Lost");?></span><br><span class="number"><? echo($nbDefaites); ?></span></div>
 		<div id="stat_news" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="displayFeed('activity', 0)"><span class="label"><? echo _("News");?></span><br><span class="number"><? echo($nbNews);?></span></div>
 		<div id="stat_wers" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="displayFeed('wers', 0)"><span class="label"><? echo _("Followers");?></span><br><span class="number"><? echo($nbFollowers);?></span></div>
 		<div id="stat_wing" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="displayFeed('wing', 0)"><span class="label"><? echo _("Following");?></span><br><span class="number"><? echo($nbFollowing);?></span></div>
 		
 	</div>
-	<div id="graphelo" style="float: left;display: block;">
-		<img src="graph_elo_progress.php?playerID=<?php echo($playerID);?>&elo=<?php echo($player['elo']);?>" width="650" height="250" />
-</div>
+	<div id="graphelo" style="float: right; display: block;">
+		<? echo _("Elo ranking history");?><br>
+		<img src="graph_elo_progress.php?playerID=<?php echo($playerID);?>&elo=<?php echo($player['elo']);?>" width="600" height="250" />
+	</div>
 </div>
 <div id="rightbarlarge">
 	<div class="blockform" style="height: 130px;">
@@ -277,8 +278,8 @@ require 'include/page_body_no_menu.php';
             <tr>
               <th width="35%"><? echo _("Whites")?></th>
               <th width="35%"><? echo _("Blacks")?></th>
-              <th width="15%"><? echo _("ECO")?></th>
-              <th width="15%"><? echo _("View")?></th>
+              <th width="15%"><? echo _("Type")?></th>
+              <th width="15%">&nbsp;</th>
             </tr>
             <?
 				$tmpGames = mysqli_query($dbh,"SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom, G.type
@@ -310,7 +311,7 @@ require 'include/page_body_no_menu.php';
 						
 						/* Current Turn */
 						echo ("</td><td align=center>");
-						echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'><img src='images/eye.gif' height='11' border=0 alt=\""._("View")."\"/></a></td></tr>");
+						echo("<a title = '"._("Open the game")."' href='javascript:loadGame(".$tmpGame['gameID'].")'><img src='images/eye.gif' height='11' border=0 alt=\""._("View")."\"/></a></td></tr>");
 			
 					}									
 				}
@@ -336,8 +337,8 @@ require 'include/page_body_no_menu.php';
             <tr>
               <th width="35%"><? echo _("Whites")?></th>
               <th width="35%"><? echo _("Blacks")?></th>
+              <th width="15%"><? echo _("Type")?></th>
               <th width="15%"><? echo _("Result")?></th>
-              <th width="15%"><? echo _("ECO")?></th>
             </tr>
             <?
 				$tmpGames = mysqli_query($dbh,"SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom, G.type
@@ -369,15 +370,15 @@ require 'include/page_body_no_menu.php';
 						
 						/* Result */
 						if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "white"))
-							echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a></td></tr>");
+							echo("</td><td align=center><a title = '"._("Open the game")."' href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a></td></tr>");
 						else if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "black"))
-							echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a></td></tr>");
+							echo("</td><td align=center><a title = '"._("Open the game")."' href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a></td></tr>");
 						else if (($tmpGame['gameMessage'] == "checkMate") && ($tmpGame['messageFrom'] == "white"))
-							echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a></td></tr>");
+							echo("</td><td align=center><a title = '"._("Open the game")."' href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a></td></tr>");
 						else if ($tmpGame['gameMessage'] == "checkMate")
-							echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a></td></tr>");
+							echo("</td><td align=center><a title = '"._("Open the game")."' href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a></td></tr>");
 						else
-							echo("</td><td align=center><a href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1/2-1/2</a></td></tr>");
+							echo("</td><td align=center><a title = '"._("Open the game")."' href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1/2-1/2</a></td></tr>");
 					}					
 				}
 			?>

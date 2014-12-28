@@ -45,7 +45,7 @@ else
 $graph = new Graph(600,250);
 $graph->SetScale('textlin');
 //$graph->title->SetFont(FF_ARIAL);
-$graph->title->Set(_("Elo ranking history"));
+//$graph->title->Set(_("Elo ranking history"));
 $graph->SetMarginColor('#FFFFFF');
 $graph->SetFrame(true,'#CCCCCC',0);
  

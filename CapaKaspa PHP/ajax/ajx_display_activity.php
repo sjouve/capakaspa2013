@@ -34,7 +34,10 @@ $numActivities = mysqli_num_rows($tmpActivities);
 
 if ($start == 0 && $numActivities == 0)
 {
-	echo ("<div style='text-align: center; height:400px;'><br>"._("No News to display. Share your activity and follow players !")."</div>");
+	if ($type == 0 || $playerID == $_SESSION['playerID'])
+		echo ("<div style='text-align: center; height:400px;'><br>"._("No News to display. Share your activity and follow players !")."</div>");
+	else
+		echo ("<div style='text-align: center; height:400px;'><br>"._("No News to display. This player has not shared anything !")."</div>");
 }
 else
 	while($tmpActivity = mysqli_fetch_array($tmpActivities, MYSQLI_ASSOC))

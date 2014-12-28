@@ -343,7 +343,7 @@ body {
 	border-color: #e9eaed #dfe0e4 #d0d1d5;
 	width: 100%;
 	float: left;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 #player_header {
 	background-color: #FFFFFF;
@@ -361,7 +361,7 @@ body {
 	text-transform: none;
 	padding-left: 10px;
 	padding-right: 10px;
-	padding-bottom: 10px;
+	padding-bottom: 5px;
 	text-align: left;
 	line-height: 150%;
 	width: 330px;

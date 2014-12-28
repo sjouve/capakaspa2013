@@ -1,5 +1,5 @@
 <?
-/* AccÃ¨s aux donnÃ©es concernant la table Games, History, Pieces, Messages */
+/* Accès aux donnéees concernant la table Games, History, Pieces, Messages */
 
 /*
  * Load a game by ID
@@ -57,7 +57,6 @@ function listEndedGames($playerID, $dateDeb, $dateFin, $type)
 	
 	return $tmpGames;
 }
-
 
 function countLost($playerID, $dateDeb, $dateFin, $type)
 {							
@@ -123,28 +122,92 @@ function calculMoyenneElo($playerID, $dateDeb, $dateFin)
 
 /*
  * Recherche de parties
- * CritÃ¨res :
- * - Etat : En cours, terminÃ©es
+ * Critères :
+ * - Etat : En cours, terminées
  * - Joueurs : Tous, Id joueur
- * - Pas le joueur connectÃ©
- * - Couleur du joueur (si sÃ©lectionnÃ©) : Blancs, Noirs
- * - RÃ©sultat du joueur : Victoire, DÃ©faite, Nulle
+ * - Pas le joueur connecté
+ * - Couleur du joueur (si sélectionné) : Blancs, Noirs
+ * - Résultat du joueur : Victoire, Défaite, Nulle
  * - Type partie : Normal ou avec position
- * - Code ECO
- * - Plage date de fin (sur date du dernier coup)
- * - Plage date de dÃ©but
+ * + Code ECO
+ * + Plage date de fin (sur date du dernier coup)
+ * + Plage date de début
  */
-function searchGames($debut, $limit)
+function searchGames($mode, $debut, $limit, $gameState, $playerID, $playerColor, $gameResult, $gameType, $flagRank)
 {
-	// TODO Recherche de parties à implémenter
-	$requete = "SELECT G.gameID, G.eco eco, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, DATE_FORMAT(G.dateCreated, '%d/%m/%Y %T') dateCreatedF, DATE_FORMAT(G.lastMove, '%d/%m/%Y %T') lastMove
-                FROM games G, players W, players B
-                WHERE W.playerID = G.whitePlayer
-                AND AND B.playerID = G.blackPlayer  
-                AND G.gameMessage = ''
-                AND (G.whitePlayer != ".$_SESSION['playerID']." AND G.blackPlayer != ".$_SESSION['playerID'].")
-                
-                ORDER BY G.dateCreated DESC";
+	global $dbh;
+	
+	if ($mode == "count")
+	{
+		$req = "SELECT count(*) nbGames";
+	}
+	else
+	{
+		$req = "SELECT G.gameID, G.eco eco, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, 
+				G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove, G.type, G.flagBishop, G.flagKnight, G.flagRook, G.flagQueen";
+	}
+	
+	// For classic game
+	if ($gameType == 0)
+		$req .=	", E.name ecoName"; 
+	
+	$req .=	" FROM games G, players W, players B ";
+	
+	// For classic game
+	if ($gameType == 0)
+		$req .= ", eco E ";
+	
+	if ($gameState == "E")
+		$req .= "WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')";
+	else
+		$req .= "WHERE (gameMessage is NULL OR gameMessage = '')";
+	
+	if ($playerColor == "W")
+		$req .= " AND (G.whitePlayer = ".$playerID.")";
+	else if ($playerColor == "B")
+		$req .= " AND (G.blackPlayer = ".$playerID.")";
+	else
+		$req .= " AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")";
+
+	if ($gameResult == "W")
+		$req .= " AND ((G.gameMessage = 'playerResigned' AND G.messageFrom = 'white' AND G.blackPlayer = ".$playerID.")
+			OR (G.gameMessage = 'playerResigned' AND G.messageFrom = 'black' AND G.whitePlayer = ".$playerID.")
+			OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'black' AND G.blackPlayer = ".$playerID.")
+			OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'white' AND G.whitePlayer = ".$playerID."))";
+	if ($gameResult == "L")	
+		$req .= " AND ((G.gameMessage = 'playerResigned' AND G.messageFrom = 'white' AND G.whitePlayer = ".$playerID.")
+			OR (G.gameMessage = 'playerResigned' AND G.messageFrom = 'black' AND G.blackPlayer = ".$playerID.")
+			OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'black' AND G.whitePlayer = ".$playerID.")
+			OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'white' AND G.blackPlayer = ".$playerID."))";
+	if ($gameResult == "D")
+		$req .= " AND G.gameMessage = 'draw'";
+		
+	$req .=	" AND W.playerID = G.whitePlayer 
+			AND B.playerID = G.blackPlayer";
+	
+	$req .= " AND G.type = ".$gameType;
+	
+	if ($flagRank == 1)
+		$req .= " AND G.lastMove >= DATE_FORMAT((SELECT MAX(DISTINCT(eloDate)) from elo_history), '%Y-%m-01') 
+					AND G.type in (0,2) ";
+	
+	// For classic game
+	if ($gameType == 0)		
+		$req .=	" AND G.eco = E.eco
+			AND E.ecoLang = '".getLang()."'";
+			
+	$req .=	" ORDER BY";
+	// For classic game
+	if ($gameType == 0)		
+		$req .= " E.eco ASC,"; 
+	
+	$req .= " G.lastMove DESC";
+	
+	if ($mode != "count")
+		$req .= " limit ".$debut.",".$limit;
+	
+	return mysqli_query($dbh,$req);
+	
 }
 
 function listInProgressGames($playerID)
@@ -273,59 +336,6 @@ function countGamesByEco($playerID)
 							AND E.eco = G.eco AND E.ecoLang = '".getLang()."'
 							GROUP BY G.eco
 							ORDER BY nb desc");
-	
-	return $tmpGames;
-}
-
-function listWonGames($playerID)
-{
-	global $dbh;
-	$tmpGames = mysqli_query($dbh,"SELECT G.gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove
-			FROM games G, players W, players B, eco E WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
-			AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
-			AND ((G.gameMessage = 'playerResigned' AND G.messageFrom = 'white' AND G.blackPlayer = ".$playerID.")
-			OR (G.gameMessage = 'playerResigned' AND G.messageFrom = 'black' AND G.whitePlayer = ".$playerID.")
-			OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'black' AND G.blackPlayer = ".$playerID.")
-			OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'white' AND G.whitePlayer = ".$playerID."))
-			AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
-			AND G.eco = E.eco
-			AND E.ecoLang = '".getLang()."'
-			ORDER BY E.eco ASC, G.lastMove DESC");
-	
-	return $tmpGames;
-}
-
-function listDrawGames($playerID)
-{
-	global $dbh;
-	$tmpGames = mysqli_query($dbh,"SELECT G.gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove
-			FROM games G, players W, players B, eco E
-			WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
-			AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
-			AND G.gameMessage = 'draw'
-			AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
-			AND G.eco = E.eco
-			AND E.ecoLang = '".getLang()."'
-	        ORDER BY E.eco ASC, G.lastMove DESC");
-		
-	return $tmpGames;
-}
-
-function listLostGames($playerID)
-{
-	global $dbh;
-	$tmpGames = mysqli_query($dbh,"SELECT G.gameID gameID, G.eco eco, E.name ecoName, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, G.gameMessage gameMessage, G.messageFrom messageFrom, G.dateCreated, G.lastMove
-			FROM games G, players W, players B, eco E
-			WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
-			AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
-			AND ((G.gameMessage = 'playerResigned' AND G.messageFrom = 'white' AND G.whitePlayer = ".$playerID.")
-			OR (G.gameMessage = 'playerResigned' AND G.messageFrom = 'black' AND G.blackPlayer = ".$playerID.")
-			OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'black' AND G.whitePlayer = ".$playerID.")
-			OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'white' AND G.blackPlayer = ".$playerID."))
-			AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
-			AND G.eco = E.eco
-			AND E.ecoLang = '".getLang()."'
-			ORDER BY G.eco ASC, G.lastMove DESC");
 	
 	return $tmpGames;
 }
