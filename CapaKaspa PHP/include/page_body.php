@@ -106,9 +106,9 @@ if (isset($toPlayerID))
 		<div class="title"><?php echo _("More on CapaKaspa");?></div>
 			<ul>
 		        <li><img src="images/event.png"/> <a href="http://www.capakaspa.info/2014/12/28/tata-steel-chess-tournament-2015/"><? echo _("Tata Steel Chess 2015");?></a></li>
-		        <li><img src="images/capakaspa.png"/> <a href="http://www.capakaspa.info/2014/12/21/jouer-aux-echecs-et-remplir-des-objectifs/"><? echo _("NEW ! Achievements");?></a></li>
 		        <li><img src="images/chessnews.png"/> <a href="http://www.capakaspa.info/category/actualites-des-echecs/"><? echo _("Chess news");?></a></li>
 		        <li><img src="images/learnchess.png"/> <a href="http://www.capakaspa.info/category/apprentissage/"><? echo _("Learning chess");?></a></li>
+		        <li><img src="images/capakaspa.png"/> <a href="http://www.capakaspa.info/2014/12/21/jouer-aux-echecs-et-remplir-des-objectifs/"><? echo _("NEW ! Achievements");?></a></li>
 		        <li><img src="images/capakaspa.png"/> <a href="http://www.capakaspa.info/"><? echo _("And more");?></a></li>
       		</ul>
 	</div>
