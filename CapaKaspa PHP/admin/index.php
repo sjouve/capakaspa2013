@@ -34,14 +34,14 @@ $dateFin = date('Y-m-d', mktime(0,0,0,date('m'),0,date('Y')));
 
 <form name="userdata" action="index.php" method="post">
 <h3>Classique</h3>
-<input id="ToDo" name="ToDo" type="radio" value="save_elo">Historiser Elo
-<input id="ToDo" name="ToDo" type="radio" value="elo">Calculer Elo
-<input id="ToDo" name="ToDo" type="radio" value="rank">Classement
+<input id="ToDo" name="ToDo" type="radio" value="save_elo"> 1) Historiser Elo
+<input id="ToDo" name="ToDo" type="radio" value="elo">3) Calculer Elo
+<input id="ToDo" name="ToDo" type="radio" value="rank">5) Classement
 
 <h3>Chess960</h3>
-<input id="ToDo" name="ToDo" type="radio" value="save_elo960">Historiser Elo
-<input id="ToDo" name="ToDo" type="radio" value="elo960">Calculer Elo
-<input id="ToDo" name="ToDo" type="radio" value="rank960">Classement
+<input id="ToDo" name="ToDo" type="radio" value="save_elo960">2) Historiser Elo
+<input id="ToDo" name="ToDo" type="radio" value="elo960">4) Calculer Elo
+<input id="ToDo" name="ToDo" type="radio" value="rank960">6) Classement
 
 <p><input type="submit"></p>
 </form>
