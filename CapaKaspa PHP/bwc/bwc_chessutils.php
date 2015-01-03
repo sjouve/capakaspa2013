@@ -29,7 +29,6 @@ function getPieceCharForImage($piece)
 
 function getPieceName($piece)
 {
-	// TODO A franciser (voir alt sur case de l'échiquier)
 	// Save
 	switch($piece & COLOR_MASK)
 	{
@@ -368,8 +367,7 @@ function chessNotification($msgType, $receiverColor, $move, $senderName, $gameID
 		
 	// Mail subject and message + Activity
 	switch($msgType)
-	{
-			
+	{	
 		case 'invitation':
 			$mailsubject .= _("You are invited to play a new game");
 			$mailmsg = $strPlayer." ".$senderName._(" invites you to play a new game.");
@@ -422,6 +420,11 @@ function chessNotification($msgType, $receiverColor, $move, $senderName, $gameID
 		case 'checkmate':
 			$mailsubject .= _("Checkmate");
 			$mailmsg = _("Your game against")." ".$senderName._(" ended by a checkmate.");
+			break;
+			
+		case 'time':
+			$mailsubject .= _("Time expiration");
+			$mailmsg = _("Your game against")." ".$senderName._(" ended by time expiration.");
 			break;
 	}
 		

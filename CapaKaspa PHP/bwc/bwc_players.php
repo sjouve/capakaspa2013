@@ -314,7 +314,6 @@ function loginPlayer($nick, $password, $flagAuto)
 	$_SESSION['playerSex'] = $player['playerSex'];
 
 	// Load user preferences
-	// TODO Requête dans DAC à utiliser pour updateProfil
 	$tmpQuery = "SELECT * FROM preferences WHERE playerID = ".$_SESSION['playerID'];
 	$tmpPreferences = mysqli_query($dbh,$tmpQuery);
 
@@ -326,7 +325,6 @@ function loginPlayer($nick, $password, $flagAuto)
 	}
 	
 	// Update last connection date
-	// TODO Requête dans DAC
 	$tmpQuery = "UPDATE players SET lastConnection = now() WHERE playerID = ".$_SESSION['playerID'];
 	$tmpPlayers = mysqli_query($dbh,$tmpQuery);
 	

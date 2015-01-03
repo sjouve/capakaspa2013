@@ -4,7 +4,7 @@ require_once('dac/dac_players.php');
 require 'dac/dac_games.php';
 */
 
-/* AccÃ¨s aux donnÃ©es concernant la table Games, History, Messages */
+/* Accès aux donnéees concernant la table Games, History, Messages */
 
 /* Return le PGN de la partie */
 function getPGN($whiteNick, $blackNick, $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $chess960, $listeCoups, $gameResult)
@@ -293,7 +293,7 @@ function loadGame($gameID, $numMoves)
 	$ecoCode = $tmpGame['eco'];
 	$ecoName = $tmpGame['ecoName'];
 	
-	// Remplir l'Ã©chiquier
+	// Remplir l'échiquier
 	$strPos = 0;
 	for ($i = 0; $i < 8; $i++)
 		for ($j = 0; $j < 8; $j++)
@@ -317,21 +317,44 @@ function loadGame($gameID, $numMoves)
 	else
 		$turnColor = "black";
 		
-	// DÃ©passement dÃ©lai entre 2 coups
+	// Dépassement délai entre 2 coups
 	$dateLastMove = new DateTime($tmpGame['lastMove']);
 	$dateNow = new DateTime("now");
 	$dateLastMove->add(new DateInterval("P".$tmpGame['timeMove']."D"));
 	
 	if ($dateLastMove < $dateNow)
 	{
-		// Terminer la partie si dÃ©passement de temps
-		// Dans cas lastMove est mis Ã  jour pour prise en compte calcul Elo
+		// Terminer la partie si dépassement de temps
+		// Dans cas lastMove est mis à jour pour prise en compte calcul Elo
 		$res = mysqli_query($dbh,"UPDATE games 
 							SET gameMessage = 'playerResigned', 
 								messageFrom = '".$turnColor."',
 								lastMove = NOW()
 							WHERE gameMessage IS NULL 
 							AND gameID = ".$_POST['gameID']);
+		
+		// Notification for time expiration 
+		$whitePrefResult = getPrefValue($tmpGame["whitePlayer"], "shareresult");
+		$blackPrefResult = getPrefValue($tmpGame["blackPlayer"], "shareresult");
+		if ($turnColor == "white")
+		{
+			$whiteResult = "lost";
+			$blackResult = "won";
+		}
+		else
+		{
+			$whiteResult = "won";
+			$blackResult = "lost";	
+		}
+		// Email
+		chessNotification('time', "black", '', $tmpGame['whiteNick'], $tmpGame['gameID']);
+		chessNotification('time', "white", '', $tmpGame['blackNick'], $tmpGame['gameID']);
+		// Activity
+		if ($whitePrefResult == "oui")
+			insertActivity($tmpGame["whitePlayer"], GAME, $tmpGame["gameID"], $whiteResult, "time");
+		if ($blackPrefResult == "oui")
+			insertActivity($tmpGame["blackPlayer"], GAME, $tmpGame["gameID"], $blackResult, "time");
+
 	}
 	
 	return $tmpGame;
@@ -1260,6 +1283,9 @@ function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $f
 	global $board;
 	global $dbh;
 	
+	if ($chess960 == "" && $type == 2)
+		return false;
+		
 	/* prevent multiple pending requests between two players with the same originator */
 	$tmpQuery = "SELECT gameID FROM games WHERE gameMessage = 'playerInvited'";
 	$tmpQuery .= " AND ((messageFrom = 'white' AND whitePlayer = ".$playerID." AND blackPlayer = ".$opponentID.")";

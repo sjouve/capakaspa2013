@@ -131,6 +131,16 @@ else
 				$activityType = _("RESULT");
 				$pictoPath .= "images/picto_cup_20.png";
 				break;
+			
+			case 'time':
+				if ($tmpActivity['message'] == "lost")
+					$message = _("lost")." ";
+				else
+					$message = _("won")." ";
+				$message .= _("by time expiration against");
+				$activityType = _("RESULT");
+				$pictoPath .= "images/picto_cup_20.png";
+				break;
 					
 			case 'draw':
 				$message = _("do a draw game by mutual consent");
