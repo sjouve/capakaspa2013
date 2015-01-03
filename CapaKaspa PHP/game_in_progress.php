@@ -565,16 +565,25 @@ require 'include/page_body.php';
 				?>
 				<div class="blockform">
 				<h3><? echo _("Begin to play")?></h3>
-				<?php 
+				<p><?php 
 				echo _("Submit a new game for all players or a specific player");
 				?>
 				<br>
 				<input type="button" class="link" value="<? echo _("New game")?>" onclick="location.href='game_new.php'">
-				<br><br>
+				</p>
+				<p>
 				<?php 
 				echo _("Find a player with advanced search and invite him to play a new game.");
 				?>
 				<input type="button" class="link" value="<? echo _("Search players")?>" onclick="location.href='player_search.php'">
+				<p>
+				<h3><? echo _("Achievements")?></h3>
+				<p><?php 
+				echo _("When you're playing chess games on CapaKaspa, you can earn achievements that mark your accomplishments : player, classic, outside the box, winner, black wins and social.");
+				?>
+				<br>
+				<input type="button" class="link" value="<? echo _("View profile")?>" onclick="location.href='player_view.php?playerID=<?echo($_SESSION['playerID'])?>'">
+				</p>
 				</div>
 				<?php 
 				

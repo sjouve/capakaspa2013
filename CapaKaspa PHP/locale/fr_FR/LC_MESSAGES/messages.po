@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2015-01-03 16:54+0100\n"
-"PO-Revision-Date: 2015-01-03 16:59+0100\n"
+"POT-Creation-Date: 2015-01-03 22:56+0100\n"
+"PO-Revision-Date: 2015-01-03 22:58+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -1328,17 +1328,35 @@ msgstr "Commencer à jouer"
 msgid "Submit a new game for all players or a specific player"
 msgstr "Proposer une partie à tous les joueurs ou à un joueur en particulier"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:575
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:576
 #: PHP/game_new.php:261 PHP/mobile/game_in_progress.php:416
 msgid "Find a player with advanced search and invite him to play a new game."
 msgstr ""
 "Trouver un joueur avec la recherche avancée et l'inviter à jouer une "
 "nouvelle partie"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:577
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:578
 #: PHP/game_new.php:262 PHP/mobile/game_in_progress.php:418
 msgid "Search players"
 msgstr "Rechercher des joueurs"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:580
+msgid "Achievements"
+msgstr "Objectifs"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:582
+msgid ""
+"When you're playing chess games on CapaKaspa, you can earn achievements that "
+"mark your accomplishments : player, classic, outside the box, winner, black "
+"wins and social."
+msgstr ""
+"Quand vous jouez des parties d'échecs sur CapaKaspa, vous pouvez atteindre "
+"des objectifs qui marquent vos réalisations : joueur, classique, aventurier, "
+"vainqueur, victoires noires et social."
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:585
+msgid "View profile"
+msgstr "Voir profil"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_list_ended.php:52
 #: PHP/player_view.php:165
