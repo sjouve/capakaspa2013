@@ -28,12 +28,16 @@ function sendMail($msgTo, $mailSubject, $mailMsg)
 
 	$headers = "From: CapaKaspa <".$CFG_MAILADDRESS.">\r\n";
 	$headers .= "Reply-To: CapaKaspa <".$CFG_MAILADDRESS.">\r\n";
+	$headers .= "Content-Type: text/html; charset=\"UTF-8\"";
 	
-	$mailMsg .= _("\n\nThis email was sent automatically from site CapaKaspa (http://jouerauxechecs.capakaspa.info).\n\n");
-	$mailMsg .= _("Follow us on Facebook (http://www.facebook.com/capakaspa)\n");
-	$mailMsg .= _("Follow us on Google+ (http://plus.google.com/114694270583726807082)\n");
-	$mailMsg .= _("Follow us on Twitter (http://http://www.twitter.com/CapaKaspa)\n");
-	$mailMsg .= _("Follow us on YouTube (http://http://www.youtube.com/user/CapaKaspaEchecs)\n");
+	$mailMsg = "<html><body><b>".$mailMsg."</b>";
+	$mailMsg .= "<p>"._("This email was sent automatically from site CapaKaspa (http://jouerauxechecs.capakaspa.info)")."<br>";
+	$mailMsg .= _("Follow us on")." <a href=\"https://www.facebook.com/capakaspa\">Facebook</a>, 
+				<a href=\"https://plus.google.com/+CapakaspaInfo\">Google+</a>,
+				<a href=\"https://www.twitter.com/CapaKaspa\">Twitter</a>,
+				<a href=\"https://www.pinterest.com/capakaspa\">Pinterest</a>,
+				<a href=\"https://www.youtube.com/user/CapaKaspaEchecs\">YouTube</a>"."</p>";
+	$mailMsg .= "</body></html>";
 	
 	$res = false;
 	
