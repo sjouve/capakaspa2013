@@ -91,28 +91,25 @@ if (($TestFromRow != "") && ($_POST['fromCol'] != "") && ($_POST['toRow'] != "")
 		@mysqli_query($dbh,"BEGIN");
 		
 		$res = saveHistory($tmpGame['type']);
-		//echo(microtime()." history : ".$res);
+		
 		if (!$res)
 			@mysqli_query($dbh,"ROLLBACK");
 		
 		doMove();
-		//echo(microtime()." move : ");
 		
 		$res = saveGame();
-		//echo(microtime()." game : ".$res);
+		
 		if (!$res)
 		{
 			@mysqli_query($dbh,"ROLLBACK");
-			//echo(microtime()." game : ROLLBACK");
 		}
 			
 		if ($res)
 		{
 			
 			@mysqli_query($dbh,"COMMIT");
-			//echo(microtime()." game : COMMIT");
 			sendEmailNotification($history, $isPromoting, $numMoves, $isInCheck);
-			//echo(microtime()." mail : ".$res);
+			$tmpGame = loadGame($_POST['gameID'], $numMoves);
 		}
 		
 	}
