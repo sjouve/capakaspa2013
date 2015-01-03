@@ -226,7 +226,7 @@ require 'include/page_body_home.php';
 		<div style="width: 300px; height: 190px; float:left; margin-top: 40px; margin-bottom: 15px; margin-left: 35px; border-style: solid; border-width: 1px; border-color: #555555; background-image: url('images/capakaspa_profil_2014_min.jpg');">
 			<div style="height: 75px; padding: 5px; background-color: #000000; opacity: 0.6; position: relative; top: 105px; font-size: 16px; color: #FFFFFF;">
 				<?php echo _("View detailed profile of players.");?><br>
-				<?php echo _("Discuss with them in private and comment their public news.");?>
+				<?php echo _("Monthly Elo rankings, achievements, discuss with them in private...");?>
 			</div>
 		</div>
 		
