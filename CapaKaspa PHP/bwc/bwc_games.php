@@ -322,7 +322,7 @@ function loadGame($gameID, $numMoves)
 	$dateNow = new DateTime("now");
 	$dateLastMove->add(new DateInterval("P".$tmpGame['timeMove']."D"));
 	
-	if ($dateLastMove < $dateNow)
+	if ($dateLastMove < $dateNow && $tmpGame['gameMessage'] == "")
 	{
 		// Terminer la partie si dépassement de temps
 		// Dans cas lastMove est mis à jour pour prise en compte calcul Elo
