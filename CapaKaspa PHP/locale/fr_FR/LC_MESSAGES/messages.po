@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
 "POT-Creation-Date: 2015-01-04 00:00+0100\n"
-"PO-Revision-Date: 2015-01-04 00:01+0100\n"
+"PO-Revision-Date: 2015-01-18 15:05+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -592,7 +592,7 @@ msgstr "Invitation refusée"
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/bwc/bwc_chessutils.php:392
 msgid " refused your invitation."
-msgstr "a refusé son invitation."
+msgstr " a refusé votre invitation."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/bwc/bwc_chessutils.php:400
