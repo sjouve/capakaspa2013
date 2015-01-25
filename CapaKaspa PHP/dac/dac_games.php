@@ -198,8 +198,8 @@ function searchGames($mode, $debut, $limit, $gameState, $playerID, $playerColor,
 			
 	$req .=	" ORDER BY";
 	// For classic game
-	if ($gameType == 0)		
-		$req .= " E.eco ASC,"; 
+	//if ($gameType == 0)		
+		//$req .= " E.eco ASC,"; 
 	
 	$req .= " G.lastMove DESC";
 	

@@ -195,7 +195,7 @@ require 'include/page_body.php';
 		          	</tr>
 		          	<? } ?>
 		          	<tr>
-			            <td colspan="4"><? echo _("Sorted by ECO Code for classic games and last move for others");?></td>
+			            <td colspan="4"><? echo _("Sorted by last move");?></td>
 			            <td align="right">
 			            	<input type="submit" name="Filter" value="<? echo _("Filter");?>" class="button">	
 			            </td>
