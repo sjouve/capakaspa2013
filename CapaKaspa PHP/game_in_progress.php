@@ -94,7 +94,9 @@ switch($ToDo)
 				createNewGame($_POST['gameID']);
 				saveGame();
 				
-				if ($_POST['whitePlayerID'] != $_SESSION['playerID'])
+				if ($_POST['whitePlayerID'] == 0)
+					$oppColor = "black";
+				else if ($_POST['whitePlayerID'] != $_SESSION['playerID'])
 					$oppColor = "white";
 				else 
 				  	$oppColor = "black";
