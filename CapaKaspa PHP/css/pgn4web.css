@@ -99,9 +99,12 @@
   color: gray;
 }
 
-.moveOn,
 .variation {
-  background: #EEEEEE;
+  background: #FFFFFF;
   font-weight: bold;
 }
 
+.moveOn {
+  background: #F2A521;
+  font-weight: bold;
+}
