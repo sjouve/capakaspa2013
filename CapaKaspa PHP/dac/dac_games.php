@@ -13,7 +13,7 @@ function getGame($gameID)
 	G.type type, G.flagBishop flagBishop, G.flagKnight flagKnight, G.flagRook flagRook, G.flagQueen flagQueen, G.chess960,
 	G.eco eco, G.gameMessage, E.name ecoName, L.likeID, 
 	W.nick whiteNick, W.elo whiteElo, W.elo960 whiteElo960, W.socialNetwork whiteSocialNet, W.socialID whiteSocialID, W.firstName whiteFirstName, W.lastName whiteLastName, W.email whiteEmail,
-	B.nick blackNick, B.elo blackElo, W.elo960 blackElo960, B.socialNetwork blackSocialNet, B.socialID blackSocialID, B.firstName blackFirstName, B.lastName blackLastName, B.email blackEmail
+	B.nick blackNick, B.elo blackElo, B.elo960 blackElo960, B.socialNetwork blackSocialNet, B.socialID blackSocialID, B.firstName blackFirstName, B.lastName blackLastName, B.email blackEmail
 	FROM ((games G left join eco E on E.eco = G.eco AND E.ecoLang = '".getLang()."') 
 				left join like_entity L on L.type = '".GAME."' AND L.entityID = G.gameID AND L.playerID = ".$_SESSION['playerID']."), players W, players B
 	WHERE gameID = ".$gameID."
