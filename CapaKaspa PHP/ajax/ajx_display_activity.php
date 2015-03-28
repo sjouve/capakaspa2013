@@ -168,6 +168,7 @@ else
 			case 'move':
 				$message = _("played the move")." <span style=\"font-family: 'pgn4web ChessSansPiratf', 'pgn4web Liberation Sans', sans-serif;\">".$tmpActivity['message']."</span>"._(" in the game against");
 				$activityType = _("MOVE");
+				$pictoPath .= "images/hand.gif";
 				break;
 							
 		}
