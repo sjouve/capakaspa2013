@@ -1168,7 +1168,19 @@ function writeStatusMobile($tmpGame)
 
 	$expirationDate = new DateTime($tmpGame['expirationDate']);
 	$strExpirationDate = $fmt->format($expirationDate);
-
+	
+	// Elo
+	if ($tmpGame['type'] == 2)
+	{
+		$whiteElo = $tmpGame['whiteElo960'];
+		$blackElo = $tmpGame['blackElo960'];
+	}
+	else
+	{
+		$whiteElo = $tmpGame['whiteElo'];
+		$blackElo = $tmpGame['blackElo'];
+	}
+	
 	?>
 	<table border="0" align="center" cellspacing="0" cellpadding="0" width="100%">
 	<tr bgcolor="#EEEEEE" valign="top">
@@ -1176,7 +1188,7 @@ function writeStatusMobile($tmpGame)
 	    <?
           	if ($isPlayersTurn)
           	{
-          		echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteNick']."</a><br>".$tmpGame['whiteElo']);
+          		echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteNick']."</a><br>".$whiteElo);
           		if (getOnlinePlayer($tmpGame['whitePlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
           		if ($tmpGame['whiteNick'] == $_SESSION['nick']) echo (" <img src='images/hand.gif' title='"._("Player turn")."' alt='"._("Player turn")."'>");
           		echo("</div>");
@@ -1185,14 +1197,14 @@ function writeStatusMobile($tmpGame)
           	{
           		if ($tmpGame['whiteNick'] == $_SESSION['nick'] || $tmpGame['blackNick'] == $_SESSION['nick'])
           		{
-          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteNick']."</a><br>".$tmpGame['whiteElo']);
+          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteNick']."</a><br>".$whiteElo);
           			if (getOnlinePlayer($tmpGame['whitePlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
           			if ($tmpGame['whiteNick'] != $_SESSION['nick']) echo (" <img src='images/hand.gif' title='"._("Player turn")."' alt='"._("Player turn")."'>");
           			echo("</div>");
           		}
           		else
           		{
-          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteNick']."</a><br>".$tmpGame['whiteElo']);
+          			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['whitePlayer']."'>".$tmpGame['whiteNick']."</a><br>".$whiteElo);
           			if (getOnlinePlayer($tmpGame['whitePlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
           			echo("</div>");
           		}
@@ -1206,7 +1218,7 @@ function writeStatusMobile($tmpGame)
           		echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackNick']."</a><br>");
           		if ($tmpGame['blackNick'] == $_SESSION['nick']) echo ("<img src='images/hand.gif' title='"._("Player turn")."' alt='"._("Player turn")."'> ");
           		if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
-          		echo($tmpGame['blackElo']."</div>");	
+          		echo($blackElo."</div>");	
           	}
           	else
           	{
@@ -1215,13 +1227,13 @@ function writeStatusMobile($tmpGame)
           			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackNick']."</a><br>");
           			if ($tmpGame['blackNick'] != $_SESSION['nick']) echo ("<img src='images/hand.gif' title='"._("Player turn")."' alt='"._("Player turn")."'> ");
           			if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
-          			echo($tmpGame['blackElo']."</div>");	
+          			echo($blackElo."</div>");	
           		}
           		else
           		{
           			echo("<div class='playername'><a href='player_view.php?playerID=".$tmpGame['blackPlayer']."'>".$tmpGame['blackNick']."</a><br>");
           			if (getOnlinePlayer($tmpGame['blackPlayer'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'>");
-          			echo($tmpGame['blackElo']."</div>");
+          			echo($blackElo."</div>");
           		}
           	}
 			?>
