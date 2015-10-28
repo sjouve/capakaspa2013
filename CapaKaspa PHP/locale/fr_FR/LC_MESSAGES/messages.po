@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2015-05-25 10:50+0100\n"
-"PO-Revision-Date: 2015-05-25 10:50+0100\n"
+"POT-Creation-Date: 2015-09-28 23:35+0100\n"
+"PO-Revision-Date: 2015-09-28 23:48+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -79,14 +79,14 @@ msgstr ""
 "mettre à jour votre adresse email et commencer le processus d'activation"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:64
-#: PHP/bwc/bwc_players.php:355 PHP/include/page_body.php:37 PHP/index.php:261
+#: PHP/bwc/bwc_players.php:355 PHP/include/page_body.php:40 PHP/index.php:261
 #: PHP/index.php:284 PHP/index.php:382 PHP/mobile/index.php:65
 #: PHP/player_update.php:335
 msgid "User name"
 msgstr "Nom d'utilisateur"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:69
-#: PHP/bwc/bwc_players.php:356 PHP/include/page_body.php:38 PHP/index.php:386
+#: PHP/bwc/bwc_players.php:356 PHP/include/page_body.php:41 PHP/index.php:386
 #: PHP/mobile/index.php:66
 msgid "Password"
 msgstr "Mot de passe"
@@ -102,7 +102,7 @@ msgid "Send"
 msgstr "Envoyer"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activity.php:27
-#: PHP/include/page_body.php:76 PHP/mobile/activity.php:27
+#: PHP/include/page_body.php:79 PHP/mobile/activity.php:27
 msgid "News feed"
 msgstr "Fil d'actualités"
 
@@ -372,7 +372,7 @@ msgstr "Nouveau joueur"
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_player.php:58 PHP/ajax/ajx_display_ranking.php:63
 #: PHP/app_jchess.php:57 PHP/game_in_progress.php:574 PHP/game_new.php:25
-#: PHP/include/page_body.php:67 PHP/mobile/ajax/ajx_display_player.php:58
+#: PHP/include/page_body.php:70 PHP/mobile/ajax/ajx_display_player.php:58
 #: PHP/mobile/game_in_progress.php:527 PHP/mobile/game_new.php:25
 #: PHP/mobile/player_view.php:174 PHP/player_view.php:158
 msgid "New game"
@@ -1195,7 +1195,7 @@ msgid "Your pending resquet was accepted !"
 msgstr "Votre demande en attente a été acceptée !"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:157
-#: PHP/game_in_progress.php:484 PHP/include/page_body.php:66
+#: PHP/game_in_progress.php:484 PHP/include/page_body.php:69
 #: PHP/mobile/game_in_progress.php:153 PHP/mobile/game_in_progress.php:460
 msgid "My games in progress"
 msgstr "Mes parties en cours"
@@ -1632,43 +1632,49 @@ msgstr "Suivez-nous sur YouTube"
 msgid "Follow us on Pinterest"
 msgstr "Suivez-nous sur Pinterest"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:40
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:27
+msgid "Play chess online. News and posts to improve your chess."
+msgstr ""
+"Jouer aux échecs en ligne. Actualités et articles pour mieux jouer aux "
+"échecs."
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:43
 #: PHP/index.php:391
 msgid "Invalid user name or password !"
 msgstr "Nom d'utilisateur ou mot de passe invalide !"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:42
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:45
 #: PHP/index.php:393 PHP/mobile/index.php:72
 msgid "Remember me"
 msgstr "Se souvenir de moi"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:43
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:46
 #: PHP/index.php:378 PHP/index.php:394 PHP/mobile/index.php:73
 msgid "Sign in"
 msgstr "Se connecter"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:46
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:49
 #: PHP/index.php:394
 msgid "Forgot password ?"
 msgstr "Mot de passe oublié ?"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:52
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:55
 msgid "Update info"
 msgstr "Actualiser mes infos"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:64
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:67
 msgid "Chess games"
 msgstr "Parties d'échecs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:66
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:69
 msgid "Moves to play"
 msgstr "Coups à jouer"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:68
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:71
 msgid "My games ended"
 msgstr "Mes parties terminées"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:74
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:77
 #: PHP/mobile/activity.php:80 PHP/mobile/game_board.php:229
 #: PHP/mobile/game_in_progress.php:201 PHP/mobile/game_new.php:132
 #: PHP/mobile/index.php:90 PHP/mobile/player_search.php:75
@@ -1676,92 +1682,94 @@ msgstr "Mes parties terminées"
 msgid "Players"
 msgstr "Joueurs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:77
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:80
 msgid "Search"
 msgstr "Rechercher"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:78
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:81
 msgid "Rankings"
 msgstr "Classements"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:79
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:82
 msgid "Messages"
 msgstr "Messages"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:79
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:82
 msgid "New private messages"
 msgstr "Nouveaux messages privés"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:86
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:89
 msgid "Statistics"
 msgstr "Statistiques"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:88
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:91
 #: PHP/player_view.php:270
 msgid "Games in progress"
 msgstr "Parties en cours"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:89
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:92
 msgid "Active players"
 msgstr "Joueurs actifs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:90
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:93
 msgid "Passive players"
 msgstr "Joueurs passifs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:91
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:94
 msgid "Online players"
 msgstr "Joueurs en ligne"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:96
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:99
 msgid "Training"
 msgstr "Entrainement"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:98
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/include/page_body.php:101
 msgid "Puzzle of the day"
 msgstr "Diagramme du jour"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:99
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/include/page_body.php:102
 msgid "Play vs JChess"
 msgstr "Jouer avec JChess"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:100
+#: PHP/include/page_body.php:103
 msgid "Play vs FlashChess"
 msgstr "Jouer avec FlashChess"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:101
+#: PHP/include/page_body.php:104
 msgid "Play vs SparkChess"
 msgstr "Jouer avec SparkChess"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:106
+#: PHP/include/page_body.php:109
 msgid "More on CapaKaspa"
 msgstr "Plus sur CapaKaspa"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:108
+#: PHP/include/page_body.php:111
 msgid "Upcoming events"
 msgstr "Evénements à venir"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:109
+#: PHP/include/page_body.php:112
 msgid "Live !!"
 msgstr "Le Direct !!"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:110
+#: PHP/include/page_body.php:113
 msgid "Chess news"
 msgstr "Actualités des échecs"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:111
+#: PHP/include/page_body.php:114
 msgid "Learning chess"
 msgstr "Apprentissage des échecs"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:112
+#: PHP/include/page_body.php:115
 msgid "And more"
 msgstr "Et plus..."
 
