@@ -129,11 +129,12 @@ function calculMoyenneElo($playerID, $dateDeb, $dateFin)
  * - Couleur du joueur (si sélectionné) : Blancs, Noirs
  * - Résultat du joueur : Victoire, Défaite, Nulle
  * - Type partie : Normal ou avec position
- * + Code ECO
+ * - Type de classement : Classique, Chess960
+ * - Code ECO
  * + Plage date de fin (sur date du dernier coup)
  * + Plage date de début
  */
-function searchGames($mode, $debut, $limit, $gameState, $playerID, $playerColor, $gameResult, $gameType, $flagRank)
+function searchGames($mode, $debut, $limit, $gameState, $playerID, $playerColor, $gameResult, $gameType, $flagRank, $ecoCode)
 {
 	global $dbh;
 	
@@ -192,10 +193,14 @@ function searchGames($mode, $debut, $limit, $gameState, $playerID, $playerColor,
 					AND G.type in (0,2) ";
 	
 	// For classic game
-	if ($gameType == 0)		
+	if ($gameType == 0)	
+	{
 		$req .=	" AND G.eco = E.eco
 			AND E.ecoLang = '".getLang()."'";
-			
+		if ($ecoCode != '')
+			$req .=	" AND G.eco = '".$ecoCode."'";
+	}		
+	
 	$req .=	" ORDER BY";
 	// For classic game
 	//if ($gameType == 0)		

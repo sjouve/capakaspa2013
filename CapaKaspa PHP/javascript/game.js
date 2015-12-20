@@ -1,5 +1,5 @@
 // Manage game
-function displayGames(start, player, critStt, critCol, critRes, critTyp, critRnk)
+function displayGames(start, player, critStt, critCol, critRes, critTyp, critRnk, critElo)
 {
 	if (start == 0)
 		document.getElementById("games"+start).innerHTML="<img src='images/ajaxloader.gif'/>";
@@ -20,6 +20,6 @@ function displayGames(start, player, critStt, critCol, critRes, critTyp, critRnk
 			document.getElementById("games"+start).innerHTML=xmlhttp.responseText;
 		}
 	};
-	xmlhttp.open("GET","ajax/ajx_display_game.php?start="+start+"&player="+player+"&cs="+critStt+"&cc="+critCol+"&cr="+critRes+"&ct="+critTyp+"&ck="+critRnk,true);
+	xmlhttp.open("GET","ajax/ajx_display_game.php?start="+start+"&player="+player+"&cs="+critStt+"&cc="+critCol+"&cr="+critRes+"&ct="+critTyp+"&ck="+critRnk+"&ce="+critElo,true);
 	xmlhttp.send();
 }

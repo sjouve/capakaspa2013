@@ -25,11 +25,12 @@ $critColor = $_GET["cc"];
 $critResult = $_GET["cr"];
 $critType = $_GET["ct"];
 $critRank = $_GET["ck"];
+$critElo = $_GET["ce"];
 $limit = 20;
 
 $fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::SHORT, IntlDateFormatter::SHORT);
 
-$result = searchGames("", $start, $limit, $critState, $playerID, $critColor, $critResult, $critType, $critRank);
+$result = searchGames("", $start, $limit, $critState, $playerID, $critColor, $critResult, $critType, $critRank, $critElo);
 $numGames = mysqli_num_rows($result);
 	
 while($tmpGame = mysqli_fetch_array($result, MYSQLI_ASSOC))

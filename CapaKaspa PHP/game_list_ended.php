@@ -30,6 +30,7 @@ $critColor = isset($_POST['critColor']) ? $_POST['critColor'] : "";
 $critResult = isset($_POST['critResult']) ? $_POST['critResult'] : (isset($_GET['critResult']) ? $_GET['critResult'] : "");
 $critType = isset($_POST['critType']) ? $_POST['critType'] : (isset($_GET['critType']) ? $_GET['critType'] : "0");
 $critRank = isset($_POST['critRank']) ? $_POST['critRank'] : "0";
+$critElo = isset($_POST['critElo']) ? $_POST['critElo'] : "";
 
 $fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::SHORT, IntlDateFormatter::SHORT);
 
@@ -81,7 +82,7 @@ function getheight() {
 		var scrolledtonum = window.pageYOffset + myHeight + 2;
 		var heightofbody = document.body.offsetHeight;
 		if (scrolledtonum >= heightofbody && document.getElementById("gamesStartPage")) {
-			displayGames(document.getElementById("gamesStartPage").value,<? echo($playerID);?>,'<? echo($critState);?>','<? echo($critColor);?>','<? echo($critResult);?>','<? echo($critType);?>','<? echo($critRank);?>');
+			displayGames(document.getElementById("gamesStartPage").value,<? echo($playerID);?>,'<? echo($critState);?>','<? echo($critColor);?>','<? echo($critResult);?>','<? echo($critType);?>','<? echo($critRank);?>','<? echo($critElo);?>');
 	}
 }
 
@@ -89,9 +90,9 @@ window.onscroll = getheight;
 </script>
 <?
 if ($playerID == $_SESSION['playerID'])	
-	$attribut_body = "onload=\"highlightMenu(3);displayGames(0,".$playerID.",'".$critState."','".$critColor."','".$critResult."','".$critType."','".$critRank."')\"";
+	$attribut_body = "onload=\"highlightMenu(3);displayGames(0,".$playerID.",'".$critState."','".$critColor."','".$critResult."','".$critType."','".$critRank."','".$critElo."')\"";
 else
-	$attribut_body = "onload=\"displayGames(0,".$playerID.",'".$critState."','".$critColor."','".$critResult."','".$critType."','".$critRank."')\"";
+	$attribut_body = "onload=\"displayGames(0,".$playerID.",'".$critState."','".$critColor."','".$critResult."','".$critType."','".$critRank."','".$critElo."')\"";
 require 'include/page_body.php';
 ?>
   <div id="contentlarge">
@@ -113,7 +114,7 @@ require 'include/page_body.php';
     <? }?>
 	<?
 		$nb_tot=0;
-		$res_count = searchGames("count", 0, 0, $critState, $playerID, $critColor, $critResult, $critType, $critRank); 
+		$res_count = searchGames("count", 0, 0, $critState, $playerID, $critColor, $critResult, $critType, $critRank, $critElo); 
 		if ($res_count)
 		{
 			$count = mysqli_fetch_array($res_count, MYSQLI_ASSOC);
@@ -194,6 +195,12 @@ require 'include/page_body.php';
 			            </td>
 		          	</tr>
 		          	<? } ?>
+		          	<tr>
+			            <td><? echo _("ECO");?> :</td>
+			            <td colspan="4">
+			              <input name="critElo" type="text" size="3" maxlength="3" value="<? echo($critElo); ?>">
+			            </td>
+		          	</tr>
 		          	<tr>
 			            <td colspan="4"><? echo _("Sorted by last move");?></td>
 			            <td align="right">
