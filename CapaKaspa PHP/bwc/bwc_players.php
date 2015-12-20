@@ -479,18 +479,18 @@ function getPicturePath($socialNetwork, $socialID)
 			$picturePath = "images/uploads/".$socialID;
 			break;
 			
-		case "GP":
+		case "GP": // TODO à modifier car évolution API
 			$picturePath = "https://plus.google.com/s2/photos/profile/".$socialID."?sz=32";
 			/*$profil_googleplus_json = file_get_contents("https://www.googleapis.com/plus/v1/people/".$socialID."?key=AIzaSyDbsmnLMbP6QxydxzhqZlCwxOVG1ewIX0o");
 			$profil_googleplus = json_decode($profil_googleplus_json);
 			$picturePath = $profil_googleplus->image->url;*/
 			break;
 		
-		case "FB":
+		case "FB": // TODO à modifier car évolution API
 			$picturePath = "https://graph.facebook.com/".$socialID."/picture";
 			break;
 			
-		case "TW":
+		case "TW": // TODO à modifier car évolution API
 			$picturePath = "http://api.twitter.com/1/users/profile_image/".$socialID.".xml";
 			break;
 	}

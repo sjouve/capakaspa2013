@@ -444,9 +444,12 @@ require 'include/page_body.php';
             	<img id="pictureProfile" src="<?echo(getPicturePath($_SESSION['socialNetwork'], $_SESSION['socialID']));?>" width="50" height="50" style="float: left;margin-right: 30px;"/>
             	<? echo _("Display picture of your profile on")?> :<br/>
             	<input onclick="setCKPicture();" id="rdoCK" name="rdoSocialNetwork" type="radio" value="CK" <? if ($_SESSION['socialNetwork']=="CK") echo("checked");?>> <? echo _("CapaKaspa")?>
+            	<!-- 
             	<input onclick="initNWPicture();" id="rdoFB" name="rdoSocialNetwork" type="radio" value="FB" <? if ($_SESSION['socialNetwork']=="FB") echo("checked");?>> <? echo _("Facebook")?>
             	<input onclick="initNWPicture();" id="rdoGP" name="rdoSocialNetwork" type="radio" value="GP" <? if ($_SESSION['socialNetwork']=="GP") echo("checked");?>> <? echo _("Google+")?>
             	<input onclick="initNWPicture();" id="rdoTW" name="rdoSocialNetwork" type="radio" value="TW" <? if ($_SESSION['socialNetwork']=="TW") echo("checked");?>> <? echo _("Twitter")?>
+            	 -->
+            	<input type="hidden" id="rdoCK" name="rdoSocialNetwork" value="CK">
             	<input type="hidden" id="currentSocialNW" name="currentSocialNW" value="<? echo($_SESSION['socialNetwork']); ?>">
 		            
             </td>
