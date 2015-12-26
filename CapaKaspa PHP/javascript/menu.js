@@ -9,6 +9,8 @@ function highlightMenu(number)
 	document.getElementById("menu6").style.backgroundColor = "#EEEEEE";
 	document.getElementById("menu7").style.backgroundColor = "#EEEEEE";
 	document.getElementById("menu8").style.backgroundColor = "#EEEEEE";
+	document.getElementById("menu15").style.backgroundColor = "#EEEEEE";
+	document.getElementById("menu16").style.backgroundColor = "#EEEEEE";
 		
 	document.getElementById("menu"+number).style.backgroundColor = "#CCCCCC";
 }

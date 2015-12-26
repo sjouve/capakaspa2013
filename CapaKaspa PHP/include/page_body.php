@@ -27,9 +27,35 @@ if (isset($toPlayerID))
 		<span class="subtitle"><?php echo _("Play chess online. News and posts to improve your chess.");?></span>
 	</div>
 </div>
+<div id="container_no_menu">
+	<div id="advertisement">
+		<div class="leaderboard">
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- CapaKaspa Leaderboard -->
+			<ins class="adsbygoogle"
+			     style="display:inline-block;width:728px;height:90px"
+			     data-ad-client="ca-pub-8069368543432674"
+			     data-ad-slot="6207727366"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+		
+	    <div class="skyscraper">
+		  	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- CapaKaspa Skyscraper -->
+			<ins class="adsbygoogle"
+			     style="display:inline-block;width:160px;height:600px"
+			     data-ad-client="ca-pub-8069368543432674"
+			     data-ad-slot="2254640927"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+	  	</div>
+	</div>
+</div>
 
 <div id="container">
-	
 <div id="leftbar">
     <div class="navlinks">
     	<div id="connexion">
@@ -67,6 +93,7 @@ if (isset($toPlayerID))
       <ul>
         <li id="menu2"><img src="images/hand.gif"/> <a href="game_in_progress.php"><?php echo _("My games in progress");?></a> <? if ($nbTurns > 0) echo("<span class='newplayer' title='"._("Moves to play")."'>".$nbTurns."</span>");?></li>
 		<li id="menu1"><img src="images/newgame.png"/> <a href="game_new.php"><?php echo _("New game");?></a></li>
+		<li id="menu16"><img src="images/newgame.png"/> <a href="tournament_list.php"><?php echo _("Tournaments");?></a></li>
         <li id="menu3"><img src="images/statistics.png"/> <a href="game_list_ended.php"><?php echo _("My games ended");?></a></li>
         <!-- <li><img src="images/puce.gif"/> <a href="game_list_all.php"></a></li> -->
 		<!-- <li><img src="images/icone-mobile.png"/> <a href="http://mobile.capakaspa.info">Version mobile</a></li> -->
@@ -115,31 +142,6 @@ if (isset($toPlayerID))
 		        <!-- <li><img src="images/capakaspa.png"/> <a href="http://www.capakaspa.info/"><? echo _("And more");?></a></li> -->
       		</ul>
 	</div>
-
 </div>
 
-<div id="advertisement">
-	<div class="leaderboard">
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- CapaKaspa Leaderboard -->
-		<ins class="adsbygoogle"
-		     style="display:inline-block;width:728px;height:90px"
-		     data-ad-client="ca-pub-8069368543432674"
-		     data-ad-slot="6207727366"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
-	</div>
-	
-    <div class="skyscraper">
-	  	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- CapaKaspa Skyscraper -->
-		<ins class="adsbygoogle"
-		     style="display:inline-block;width:160px;height:600px"
-		     data-ad-client="ca-pub-8069368543432674"
-		     data-ad-slot="2254640927"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
-  	</div>
-</div>
+

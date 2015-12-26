@@ -1347,6 +1347,41 @@ function createInvitation($playerID, $opponentID, $color, $type, $flagBishop, $f
 	
 }
 
+function createGame($whiteID, $blackID, $type, $flagBishop, $flagKnight, $flagRook, $flagQueen, $timeMove, $chess960)
+{
+	global $board;
+	global $dbh;
+	
+	if ($chess960 == "" && $type == CHESS960)
+		return false;
+		
+	if ( $flagBishop == "1") {$flagBishop = 1;} else {$flagBishop = 0;};
+	if ( $flagKnight == "1") {$flagKnight = 1;} else {$flagKnight = 0;};
+	if ( $flagRook == "1") {$flagRook = 1;} else {$flagRook = 0;};
+	if ( $flagQueen == "1") {$flagQueen = 1;} else {$flagQueen = 0;};
+	
+	$position = "";
+	if ($type == BEGINNER || $type == CHESS960)
+	{
+		initBoard($flagRook, $flagQueen, $flagKnight, $flagBishop, $chess960);
+		$position = getPositionFromBoard($board);
+	}
+	else 
+	{
+		initBoard(1, 1, 1, 1, "");
+		$position = getPositionFromBoard($board);
+	}
+	
+	$tmpQuery = "INSERT INTO games (whitePlayer, blackPlayer, dateCreated, lastMove, type, flagBishop, flagKnight, flagRook, flagQueen, timeMove, position, chess960) VALUES (";
+
+	$tmpQuery .= $whiteID.", ".$blackID.", NOW(), NOW(), ".$type.", ".$flagBishop.", ".$flagKnight.", ".$flagRook.", ".$flagQueen.", ".$timeMove.", '".$position."','".$chess960."')";
+
+	mysqli_query($dbh,$tmpQuery);
+	$newGameID = mysqli_insert_id($dbh);
+	return $newGameID;
+	
+}
+
 function getStrGameType($type, $flagBishop, $flagKnight, $flagRook, $flagQueen)
 {
 	if ($type == 0)

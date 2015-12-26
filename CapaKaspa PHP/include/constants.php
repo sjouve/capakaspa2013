@@ -17,4 +17,14 @@ define ("MESSAGE", "message");
 define ("GAME", "game");
 define ("ACTIVITY", "activity");
 define ("COMMENT", "comment");
+
+// Game type
+define ("CLASSIC", 0);
+define ("BEGINNER", 1);
+define ("CHESS960", 2);
+
+// Tournament status
+define ("WAITING", "WT");
+define ("INPROGRESS", "IP");
+define ("ENDED", "ED");
 ?>
