@@ -93,7 +93,7 @@ if (isset($toPlayerID))
       <ul>
         <li id="menu2"><img src="images/hand.gif"/> <a href="game_in_progress.php"><?php echo _("My games in progress");?></a> <? if ($nbTurns > 0) echo("<span class='newplayer' title='"._("Moves to play")."'>".$nbTurns."</span>");?></li>
 		<li id="menu1"><img src="images/newgame.png"/> <a href="game_new.php"><?php echo _("New game");?></a></li>
-		<li id="menu16"><img src="images/newgame.png"/> <a href="tournament_list.php"><?php echo _("Tournaments");?></a></li>
+		<li id="menu16"><img src="images/tournament.png"/> <a href="tournament_list.php"><?php echo _("Tournaments");?></a></li>
         <li id="menu3"><img src="images/statistics.png"/> <a href="game_list_ended.php"><?php echo _("My games ended");?></a></li>
         <!-- <li><img src="images/puce.gif"/> <a href="game_list_all.php"></a></li> -->
 		<!-- <li><img src="images/icone-mobile.png"/> <a href="http://mobile.capakaspa.info">Version mobile</a></li> -->
@@ -138,8 +138,8 @@ if (isset($toPlayerID))
 		        <li><img src="images/event.png"/> <a href="http://www.capakaspa.info/evenements/"><? echo _("Upcoming events");?></a></li>
 		        <li><img src="images/event.png"/> <a href="http://www.capakaspa.info/les-echecs-en-direct/"><? echo _("Live !!");?></a></li>
 		        <li><img src="images/learnchess.png"/> <a href="http://www.capakaspa.info/category/apprentissage/"><? echo _("Learning chess");?></a></li>
-		        <li><img src="images/megaphone_16.png"/> <a href="http://forum.capakaspa.info/"><b><? echo _("Forums");?></b></a></li>
-		        <!-- <li><img src="images/capakaspa.png"/> <a href="http://www.capakaspa.info/"><? echo _("And more");?></a></li> -->
+		        <!-- <li><img src="images/megaphone_16.png"/> <a href="http://forum.capakaspa.info/"><b><? echo _("Forums");?></b></a></li>
+		        <li><img src="images/capakaspa.png"/> <a href="http://www.capakaspa.info/"><? echo _("And more");?></a></li> -->
       		</ul>
 	</div>
 </div>

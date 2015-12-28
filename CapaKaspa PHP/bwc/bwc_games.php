@@ -75,6 +75,13 @@ function getEco($position)
 	return $fen_eco;
 }
 
+/* Compte le nombre de parties actives pour un tournoi */
+function getNbActiveTournamentGames($tournamentID)
+{
+	$res = countActiveTournamentGames($tournamentID);
+	return $res['nbGames'];
+}
+
 /* Compte le nombre de parties actives pour un joueur */
 function getNbActiveGame($playerID)
 {
@@ -1128,14 +1135,16 @@ function writeStatus($tmpGame)
 		</tr>
 		<tr bgcolor="#FFFFFF">
 			<th colspan="4">
-	          	<div class="econame">
+	          	<div class="econame"><a href="javascript:loadgame(<?echo($_POST['gameID']);?>);"><img src="images/icone_rafraichir.png" border="0" title="<?echo _("Refresh game")?>" alt="<?echo _("Refresh game")?>"/></a>
 	          	<?	echo(getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
-					if ($tmpGame['type'] == 0)
-						echo(" - [".$tmpGame['eco']."] ".$tmpGame['ecoName']);
+	          		if ($tmpGame['tournamentID'] != "")
+						echo(" - <a href='tournament_view.php?ID=".$tmpGame['tournamentID']."'>"._("Tournament")." #".$tmpGame['tournamentID']."</a>");	
 				?>
 	          	</div>
-          		<div class="econame"><a href="javascript:loadgame(<?echo($_POST['gameID']);?>);"><img src="images/icone_rafraichir.png" border="0" title="<?echo _("Refresh game")?>" alt="<?echo _("Refresh game")?>"/></a>
-					<?echo _("Expiration")?> : <? if ($tmpGame['gameMessage'] == '') echo($strExpirationDate); else echo _("Ended game");?></div>
+          		<div class="econame">
+				<?	if ($tmpGame['type'] == 0)
+						echo("[".$tmpGame['eco']."] ".$tmpGame['ecoName']. " - ");
+					echo _("Expiration")?> : <? if ($tmpGame['gameMessage'] == '') echo($strExpirationDate); else echo _("Ended game");?></div>
 			</th>
 		</tr>        		
 		<tr>

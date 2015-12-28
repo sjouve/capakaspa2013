@@ -74,4 +74,14 @@ function registerTournamentPlayer($tournamentID, $playerID, $isLastPlayer)
 	
 	return TRUE;
 }
+
+function checkTournamentEnding($tournamentID)
+{
+	// Y a t-il des parties en cours ?
+	$nbGames = getNbActiveTournamentGames($tournamentID);
+	$tournament = getTournament($tournamentID);
+	// Si non et tournoi en cours alors update tournament à Terminé
+	if ($nbGames < 1 && $tournament['status'] == INPROGRESS)
+		$res = updateTournament($tournamentID, ENDED);
+}
 ?>

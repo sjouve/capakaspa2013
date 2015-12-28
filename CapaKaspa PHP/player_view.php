@@ -268,9 +268,9 @@ require 'include/page_body_no_menu.php';
 	<div class="navlinks">
 		<div class="title">
 		<? echo _("Games in progress")?>
-			</div>
 		</div>
-		
+	</div>
+	<div class="blockform">
 		<form name="existingGames" action="game_board.php" method="post">
 
         <div class="tabliste">
@@ -322,6 +322,7 @@ require 'include/page_body_no_menu.php';
         <input type="hidden" name="sharePC" value="no">
         <input type="hidden" name="from" value="toutes">
       </form>
+      </div>
       <br>
       <? if ($_SESSION['playerID'] != $player['playerID']) {?>
       	

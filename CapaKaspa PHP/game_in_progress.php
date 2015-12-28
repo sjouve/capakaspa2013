@@ -534,8 +534,12 @@ require 'include/page_body.php';
 							<div class='gameboard'>");
 								drawboardGame($tmpGame['gameID'],$tmpGame['whitePlayer'],$tmpGame['blackPlayer'], $tmpGame['position'], $tmpGame['nbMoves']);
 							echo("</div>
-							<div class='gamedetails'><b>".
+							<div class='gamedetails'"); 
+							if ($tmpGame['tournamentID'] != "") echo(" style='background-color: #FFF0C4;'"); 
+							echo("><b>".
 								getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
+								if ($tmpGame['tournamentID'] != "")
+									echo(" - <a href='tournament_view.php?ID=".$tmpGame['tournamentID']."'>"._("Tournament")." #".$tmpGame['tournamentID']."</a>");
 								echo("</b>");
 								if ($tmpGame['type'] == 0)
 									echo("<br>[".$tmpGame['eco']."] ".$tmpGame['ecoName']);

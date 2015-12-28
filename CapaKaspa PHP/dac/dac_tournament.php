@@ -2,6 +2,17 @@
 /* Accès aux données concernant les tables tournois */
 
 // Tournaments
+function getTournament ($tournamentID)
+{
+	global $dbh;
+	$res_tournament = mysqli_query($dbh,"SELECT * 
+								FROM tournament 
+								WHERE tournamentID = ".$tournamentID);
+	
+    $tournament = mysqli_fetch_array($res_tournament, MYSQLI_ASSOC);
+    return $tournament;
+}
+
 function insertTournament($name, $type, $nbPlayers, $timeMove, $eloMin, $eloMax)
 {
 	global $dbh;

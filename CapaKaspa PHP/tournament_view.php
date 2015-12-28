@@ -1,0 +1,238 @@
+<?
+session_start();
+
+/* load settings */
+if (!isset($_CONFIG))
+	require 'include/config.php';
+
+require 'include/constants.php';
+require 'dac/dac_players.php';
+require 'dac/dac_games.php';
+require 'dac/dac_activity.php';
+require 'dac/dac_tournament.php';
+require 'bwc/bwc_common.php';
+require 'bwc/bwc_chessutils.php';
+require 'bwc/bwc_board.php';
+require 'bwc/bwc_players.php';
+require 'bwc/bwc_games.php';
+require 'bwc/bwc_tournament.php';
+
+/* connect to the database */
+require 'include/connectdb.php';
+
+$tournamentID = isset($_GET['ID']) ? $_GET['ID']:Null;
+$tournament = getTournament($tournamentID);
+
+/* check session status */
+require 'include/sessioncheck.php';
+
+require 'include/localization.php';
+$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::SHORT, IntlDateFormatter::SHORT);
+
+$titre_page = _("Tournament view");
+$desc_page = _("View details of a tournament");
+require 'include/page_header.php';
+?>
+<script type="text/javascript">
+function loadGame(gameID)
+{
+	document.games.gameID.value = gameID;
+	document.games.submit();
+}
+</script>
+<?
+require 'include/page_body.php';
+
+?>
+<div id="content">
+	<div class="contentbody">
+		<? 	
+			$tournamentCreation = new DateTime($tournament['creationDate']);
+			$strTournamentCreation = $fmt->format($tournamentCreation);
+			$tournamentDate = new DateTime($tournament['beginDate']);
+			$strTournamentDate = $fmt->format($tournamentDate);
+			$tournamentEnded = new DateTime($tournament['endDate']);
+			$strTournamentEnded = $fmt->format($tournamentEnded);
+			
+			$strStatus = "";
+			if ($tournament['status'] == WAITING)
+				$strStatus = _("Registration");
+			if ($tournament['status'] == INPROGRESS)
+				$strStatus = _("In progress");
+			if ($tournament['status'] == ENDED)
+				$strStatus = _("Completed ");
+				
+			$tmpPlayers = listTournamentPlayers($tournament['tournamentID']);
+			$nbRegisteredPlayers = mysqli_num_rows($tmpPlayers);
+		?>
+  		<div class="blockform">	
+			<b><? echo _("Tournament")." #".$tournament['tournamentID']." - ".$tournament['name']." - ".$strStatus;?></b>
+			<? if ($tournament['status'] == WAITING) { ?>
+			<br><? echo "Created ".$strTournamentCreation;
+			} ?>
+			<? if ($tournament['status'] == INPROGRESS) { ?>
+			<br><? echo _("Started")." ".$strTournamentDate;
+			} ?>
+			<? if ($tournament['status'] == ENDED) { ?>
+			<br><? echo _("Started")." ".$strTournamentDate." - "._("Completed")." ".$strTournamentEnded;
+			} ?>
+			<p><? echo $tournament['nbPlayers']." "._("players")." - ".$tournament['timeMove']." "._("days per move");?></p>
+		</div>
+		<? if ($nbRegisteredPlayers > 0) {
+		?>
+		<div class="blockform">
+			<div class="tabliste">
+				<table border="0" width="100%">
+	            <tr>
+	              <th width="15%">&nbsp</th>
+	              <th width="55%"><? echo _("Player")?></th>
+	              <th width="15%"><? echo _("Elo")?></th>
+	              <th width="15%"><? echo _("Score")?></th>
+	            </tr>
+	            <? 	
+					$ranking = array();
+					$nickPlayer = array();
+					$eloPlayer = array();
+					
+					while($tmpPlayer = mysqli_fetch_array($tmpPlayers, MYSQLI_ASSOC))
+					{
+						$nickPlayer[$tmpPlayer['playerID']] = $tmpPlayer['nick'];
+						$eloPlayer[$tmpPlayer['playerID']] = $tmpPlayer['elo'];
+						$ranking[$tmpPlayer['playerID']] = 0;
+					}
+					
+					$result = listTournamentGames($tournament['tournamentID']);
+					while($tmpGame = mysqli_fetch_array($result, MYSQLI_ASSOC))
+					{
+						if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "white"))
+						{
+							$ranking[$tmpGame['blackPlayerID']] ++;
+						}
+						else if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "black"))
+						{
+							$ranking[$tmpGame['whitePlayerID']] ++;
+						}
+						else if (($tmpGame['gameMessage'] == "checkMate") && ($tmpGame['messageFrom'] == "white"))
+						{
+							$ranking[$tmpGame['whitePlayerID']] ++;
+						}
+						else if ($tmpGame['gameMessage'] == "checkMate")
+						{
+							$ranking[$tmpGame['blackPlayerID']] ++;
+						}
+						else if ($tmpGame['gameMessage'] == "draw")
+						{
+							$ranking[$tmpGame['blackPlayerID']] += 0.5;
+							$ranking[$tmpGame['whitePlayerID']] += 0.5;
+						}
+					}
+					
+					arsort($ranking);
+					$rank = 0;
+					$nbPointPrev = -1;
+					foreach ($ranking as $playerID => $nbPoints)
+					{
+						if ($nbPointPrev != $nbPoints) $rank++;
+						echo "<tr>";
+						echo "<td align='center'>".$rank."</td><td>".$nickPlayer[$playerID]."</td><td align='center'>".$eloPlayer[$playerID]."</td><td align='center'>".$nbPoints."</td>";
+						echo "</tr>";
+						$nbPointPrev = $nbPoints;
+					}
+					
+				?>
+	            </table>
+	        </div>
+        </div>
+        <? }?>
+		<form name="games" action="game_board.php" method="post">
+        	<?
+        	$fmtlist = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::SHORT, IntlDateFormatter::SHORT);
+	
+			$result = listTournamentGames($tournament['tournamentID']);
+			$numGames = mysqli_num_rows($result);
+				
+			while($tmpGame = mysqli_fetch_array($result, MYSQLI_ASSOC))
+			{
+				echo("<div class='activity' id='game".$tmpGame['gameID']."'>
+						<div class='details' style='width:100%;'>
+							<div class='content' style='font-size: 11px; padding-left: 5px;'>");
+						
+						/* White */
+						echo("<div style='float:left; width: 250px; height: 25px;'><img style='vertical-align: middle' src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'><a href='player_view.php?playerID=".$tmpGame['whitePlayerID']."'><b>".$tmpGame['whiteNick']."</b></a></div> ");
+						
+						/* Type */
+						echo("<div style='float:left; width: 250px; height: 25px;'>".getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
+						
+						echo(" (<b>");
+						
+						/* Status */
+						if (is_null($tmpGame['gameMessage']))
+							echo("...");
+						else
+						{
+							if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "white"))
+							{
+								echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'>0-1</a>");
+							}
+							else if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "black"))
+							{
+								echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'>1-0</a>");
+							}
+							else if (($tmpGame['gameMessage'] == "checkMate") && ($tmpGame['messageFrom'] == "white"))
+							{
+								echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'>1-0</a>");
+							}
+							else if ($tmpGame['gameMessage'] == "checkMate")
+							{
+								echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'>0-1</a>");
+							}
+							else if ($tmpGame['gameMessage'] == "draw")
+							{
+								echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'>1/2-1/2</a>");
+							}
+							else
+								echo("...");
+						}
+						
+						echo("</b>)</div>");
+					
+						echo("<div style='float:right; height: 25px;padding-right: 10px;'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></div>");
+						
+						/* Black */
+						echo("<div style='float:left; width: 250px; height: 25px;'><img style='vertical-align: middle' src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'><a href='player_view.php?playerID=".$tmpGame['blackPlayerID']."'><b>".$tmpGame['blackNick']."</b></a></div> ");
+						
+						/* ECO Code */
+						if ($tmpGame['type'] == 0 && $tmpGame['eco']!="")
+							echo ("<div style='float:left; width: 250px; height: 25px;'>[".$tmpGame['eco']."] ".$tmpGame['ecoName']."</div> ");
+						
+						$started = new DateTime($tmpGame['dateCreated']);
+						$strStarted = $fmtlist->format($started);
+						$lastMove = new DateTime($tmpGame['lastMove']);
+						$strLastMove = $fmtlist->format($lastMove);
+						
+						/* Start Date */
+						echo ("</div><div class='footer' style='padding-left: 5px;'>".("<span style='float: left;width: 250px;'>")._("Started")." : "
+							.$strStarted."</span>");
+			
+						/* Last Move */
+						echo ("<span style='float: left;width: 250px;'>")._("Last move")." : ".$strLastMove.("</span>");
+						
+				echo ("</div></div></div>");
+			}
+			?>
+        	<input type="hidden" name="gameID" value="">
+        	<input type="hidden" name="from" value="tournament">
+      	</form>
+		
+	</div>
+</div>
+<div id="rightbar">
+	<div id="suggestions">
+		<? displaySuggestion();?>
+	</div>
+	<?require 'include/page_footer_right.php';?>
+</div>
+<?
+require 'include/page_footer.php';
+mysqli_close($dbh);
+?>

@@ -13,11 +13,13 @@ require 'include/constants.php';
 require 'dac/dac_players.php';
 require 'dac/dac_games.php';
 require 'dac/dac_activity.php';
+require 'dac/dac_tournament.php';
 require 'bwc/bwc_common.php';
 require 'bwc/bwc_chessutils.php';
 require 'bwc/bwc_games.php';
 require 'bwc/bwc_board.php';
 require 'bwc/bwc_players.php';
+require 'bwc/bwc_tournament.php';
 	
 /* connect to database */
 require 'include/connectdb.php';
@@ -41,6 +43,7 @@ $isUndoing = false;
 loadHistory($_POST['gameID']);
 $tmpGame = loadGame($_POST['gameID'], $numMoves);
 $gameResult = processMessages($tmpGame);
+
 $pgnstring ="";
 $TestPromotion = isset($_POST['promotion']) ? $_POST['promotion']:Null;
 $TestFromRow = isset($_POST['fromRow']) ? $_POST['fromRow']:Null;
@@ -115,7 +118,8 @@ if (($TestFromRow != "") && ($_POST['fromCol'] != "") && ($_POST['toRow'] != "")
 	}
 }
 	
-
+if (isset($tmpGame['tournamentID']))
+	checkTournamentEnding($tmpGame['tournamentID']);
 	
 /* find out if it's the current player's turn */
 global $isPlayersTurn;
