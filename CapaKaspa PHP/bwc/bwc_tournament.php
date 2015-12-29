@@ -18,7 +18,33 @@ function createTournamentAuto()
 		if (!$res)
 		{
 		  	return FALSE;
-		}	
+		}
+		
+		$type = CLASSIC;
+		$nbPlayers = 4;
+		$timeMove = 5;
+		$eloMin = 0;
+		$eloMax = 0;
+		$name = "CapaKaspa Masters";
+		
+		$res = insertTournament($name, $type, $nbPlayers, $timeMove, $eloMin, $eloMax);
+		if (!$res)
+		{
+		  	return FALSE;
+		}
+		
+		$type = CLASSIC;
+		$nbPlayers = 4;
+		$timeMove = 7;
+		$eloMin = 0;
+		$eloMax = 0;
+		$name = "CapaKaspa Masters";
+		
+		$res = insertTournament($name, $type, $nbPlayers, $timeMove, $eloMin, $eloMax);
+		if (!$res)
+		{
+		  	return FALSE;
+		}
 	}
 	return TRUE;
 }

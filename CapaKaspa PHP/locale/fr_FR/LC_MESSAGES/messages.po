@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2015-12-29 11:08+0100\n"
-"PO-Revision-Date: 2015-12-29 11:13+0100\n"
+"POT-Creation-Date: 2015-12-29 22:27+0100\n"
+"PO-Revision-Date: 2015-12-29 22:27+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -254,10 +254,11 @@ msgid "MOVE"
 msgstr "COUP"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_activity.php:201 PHP/ajax/ajx_display_game.php:71
+#: PHP/ajax/ajx_display_activity.php:201 PHP/ajax/ajx_display_game.php:76
 #: PHP/game_in_progress.php:553 PHP/mobile/ajax/ajx_display_activity.php:200
 #: PHP/mobile/game_in_progress.php:504 PHP/player_view.php:314
-#: PHP/tournament_list.php:151 PHP/tournament_view.php:199
+#: PHP/tournament_list.php:159 PHP/tournament_list.php:185
+#: PHP/tournament_view.php:203
 msgid "View"
 msgstr "Voir"
 
@@ -331,22 +332,31 @@ msgid "Publish"
 msgstr "Publier"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_game.php:80 PHP/game_board.php:355
+#: PHP/ajax/ajx_display_game.php:72 PHP/bwc/bwc_games.php:1141
+#: PHP/bwc/bwc_games.php:1254 PHP/game_in_progress.php:542
+#: PHP/mobile/game_in_progress.php:506 PHP/tournament_list.php:88
+#: PHP/tournament_list.php:158 PHP/tournament_list.php:184
+#: PHP/tournament_view.php:73
+msgid "Tournament"
+msgstr "Tournoi"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
+#: PHP/ajax/ajx_display_game.php:85 PHP/game_board.php:355
 msgid "Download PGN"
 msgstr "Télécharger PGN"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_game.php:88 PHP/game_board.php:395
-#: PHP/game_in_progress.php:560 PHP/tournament_list.php:149
-#: PHP/tournament_view.php:74 PHP/tournament_view.php:77
-#: PHP/tournament_view.php:214
+#: PHP/ajax/ajx_display_game.php:93 PHP/game_board.php:395
+#: PHP/game_in_progress.php:560 PHP/tournament_list.php:160
+#: PHP/tournament_list.php:186 PHP/tournament_view.php:78
+#: PHP/tournament_view.php:81 PHP/tournament_view.php:218
 msgid "Started"
 msgstr "Commencé le"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/ajax/ajx_display_game.php:92 PHP/game_board.php:395
+#: PHP/ajax/ajx_display_game.php:97 PHP/game_board.php:395
 #: PHP/game_in_progress.php:560 PHP/mobile/game_board.php:394
-#: PHP/mobile/game_in_progress.php:513 PHP/tournament_view.php:218
+#: PHP/mobile/game_in_progress.php:513 PHP/tournament_view.php:222
 msgid "Last move"
 msgstr "Dernier coup"
 
@@ -384,8 +394,8 @@ msgstr "Nouvelle partie"
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
 #: PHP/ajax/ajx_display_player.php:62 PHP/ajax/ajx_display_ranking.php:67
 #: PHP/mobile/ajax/ajx_display_player.php:62 PHP/mobile/player_view.php:184
-#: PHP/player_view.php:176 PHP/tournament_list.php:99
-#: PHP/tournament_view.php:89
+#: PHP/player_view.php:176 PHP/tournament_list.php:105
+#: PHP/tournament_view.php:93
 msgid "Elo"
 msgstr "Elo"
 
@@ -779,13 +789,6 @@ msgstr "A son tour"
 msgid "Refresh game"
 msgstr "Rafraîchir la partie"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1141
-#: PHP/bwc/bwc_games.php:1254 PHP/game_in_progress.php:542
-#: PHP/mobile/game_in_progress.php:506 PHP/tournament_list.php:84
-#: PHP/tournament_list.php:148 PHP/tournament_view.php:69
-msgid "Tournament"
-msgstr "Tournoi"
-
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1147
 #: PHP/bwc/bwc_games.php:1263 PHP/game_in_progress.php:555
 #: PHP/mobile/game_in_progress.php:508
@@ -827,6 +830,8 @@ msgstr "OK"
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_games.php:1400
 #: PHP/game_list_ended.php:139 PHP/game_new.php:185
 #: PHP/mobile/game_new.php:145 PHP/player_ranking.php:92
+#: PHP/tournament_list.php:84 PHP/tournament_list.php:155
+#: PHP/tournament_list.php:181 PHP/tournament_view.php:67
 msgid "Classic game"
 msgstr "Partie classique"
 
@@ -893,8 +898,8 @@ msgid "Data about your account"
 msgstr "Données de votre compte"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/bwc/bwc_players.php:655
-#: PHP/game_list_ended.php:131 PHP/tournament_list.php:98
-#: PHP/tournament_view.php:88
+#: PHP/game_list_ended.php:131 PHP/tournament_list.php:104
+#: PHP/tournament_view.php:92
 msgid "Player"
 msgstr "Joueur"
 
@@ -1335,16 +1340,30 @@ msgstr ""
 "Trouver un joueur avec la recherche avancée et l'inviter à jouer une "
 "nouvelle partie"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:584
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:585
 #: PHP/game_new.php:262 PHP/mobile/game_in_progress.php:536
 msgid "Search players"
 msgstr "Rechercher des joueurs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:586
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:588
+#: PHP/game_new.php:266
+msgid ""
+"Participate in Round-robin tournaments and compete against multiple players "
+"with whites and blacks."
+msgstr ""
+"Participer à des tournois Round-robin et se mesurer à plusieurs joueurs avec "
+"les blancs et les noirs."
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:590
+#: PHP/game_new.php:267
+msgid "Register for a tournament"
+msgstr "S'inscrire à un tournoi"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:592
 msgid "Achievements"
 msgstr "Objectifs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:588
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:594
 msgid ""
 "When you're playing chess games on CapaKaspa, you can earn achievements that "
 "mark your accomplishments : player, classic, outside the box, winner, black "
@@ -1354,7 +1373,7 @@ msgstr ""
 "des objectifs qui marquent vos réalisations : joueur, classique, aventurier, "
 "vainqueur, victoires noires et social."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:591
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_in_progress.php:597
 msgid "View profile"
 msgstr "Voir profil"
 
@@ -1560,18 +1579,6 @@ msgstr "Recherche avancée"
 #: PHP/include/page_body.php:96
 msgid "Tournaments"
 msgstr "Tournois"
-
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:266
-msgid ""
-"Participate in Round-robin tournaments and compete against multiple players "
-"with whites and blacks."
-msgstr ""
-"Participer à des tournois Round-robin et se mesurer à plusieurs joueurs avec "
-"les blancs et les noirs."
-
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:267
-msgid "Register for a tournament"
-msgstr "S'inscrire à un tournoi"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/game_new.php:270
 msgid "Invite friends to join you"
@@ -3308,41 +3315,57 @@ msgstr ""
 "commence quand le dernier joueur s'inscrit. Donc le dernier joueur ne peut "
 "pas se retirer !"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_list.php:84
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_list.php:88
 #: PHP/tournament_view.php:59
 msgid "Registration"
 msgstr "Inscription"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_list.php:85
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_list.php:90
 msgid "Created"
 msgstr "Créé le"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_list.php:86
-#: PHP/tournament_list.php:150 PHP/tournament_view.php:79
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_list.php:91
+#: PHP/tournament_list.php:161 PHP/tournament_list.php:187
+#: PHP/tournament_view.php:83
 msgid "players"
 msgstr "joueurs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_list.php:86
-#: PHP/tournament_list.php:150 PHP/tournament_view.php:79
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_list.php:91
+#: PHP/tournament_list.php:161 PHP/tournament_list.php:187
+#: PHP/tournament_view.php:83
 msgid "days per move"
 msgstr "jours par coup"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_list.php:120
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_list.php:127
 msgid "UnRegister"
 msgstr "Se désinscrire"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_list.php:127
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_list.php:134
 msgid "Register"
 msgstr "S'inscrire"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_list.php:140
-msgid "Tournaments in progress"
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_list.php:147
+msgid "In progress tournaments"
 msgstr "Tournois en cours"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_list.php:148
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_list.php:158
 #: PHP/tournament_view.php:61
 msgid "In progress"
 msgstr "En cours"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_list.php:171
+msgid "Completed tournaments"
+msgstr "Tournois terminés"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_list.php:184
+#: PHP/tournament_view.php:63
+msgid "Completed "
+msgstr "Terminé"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_list.php:186
+#: PHP/tournament_view.php:81
+msgid "Completed"
+msgstr "Terminé le"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_view.php:32
 msgid "Tournament view"
@@ -3352,17 +3375,21 @@ msgstr "Visualisation tournoi"
 msgid "View details of a tournament"
 msgstr "Voir les détails d'un tournoi"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_view.php:63
-msgid "Completed "
-msgstr "Terminé"
-
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_view.php:77
-msgid "Completed"
-msgstr "Terminé le"
-
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_view.php:90
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/tournament_view.php:94
 msgid "Score"
 msgstr ""
+
+#~ msgid "Rapid 4 Masters"
+#~ msgstr "Rapide 4 Maîtres"
+
+#~ msgid "Normal 4 Masters"
+#~ msgstr "Normal 4 Maîtres"
+
+#~ msgid "Slow 4 Masters"
+#~ msgstr "Lent 4 Maîtres"
+
+#~ msgid "Tournaments in progress"
+#~ msgstr "Tournois en cours"
 
 #~ msgid "NEW ! Achievements"
 #~ msgstr "NOUVEAUTE ! Objectifs"

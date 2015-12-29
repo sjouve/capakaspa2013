@@ -84,9 +84,12 @@ $res = createTournamentAuto();
 					$strType = _("Classic game");
 		?>
   		<div class="blockform">
+  			<div id="tourninfos">
 			<b><? echo _("Tournament")." #".$tmpTournament['tournamentID']." - ".$tmpTournament['name']." - "._("Registration");?></b>
+			
 			<br><? echo _("Created")." ".$strTournamentDate;?>
 			<p><? echo $strType." - ".$tmpTournament['nbPlayers']." "._("players")." - ".$tmpTournament['timeMove']." "._("days per move");?></p>
+			</div>
 			<div class="tabliste">
 			<? 	$tmpPlayers = listTournamentPlayers($tmpTournament['tournamentID']);
 				$nbRegisteredPlayers = mysqli_num_rows($tmpPlayers);
@@ -96,7 +99,7 @@ $res = createTournamentAuto();
 				if ($nbRegisteredPlayers > 0)
 				{
 			?>
-					<table border="0" width="50%">
+					<table border="0" width="60%">
 		            <tr>
 		              <th width="80%"><? echo _("Player")?></th>
 		              <th width="20%"><? echo _("Elo")?></th>
@@ -112,25 +115,26 @@ $res = createTournamentAuto();
 					}
 			?>
 					</table>
-			<?
-					
+			<?	
 				}
 			?>
+				
 			</div>
-			<? if ($registered) {?>
-			<form name="unRegisterForm" action="tournament_list.php" method="post">
-				<input type="hidden" name="tournamentID" value="<?echo $tmpTournament['tournamentID'];?>">
-				<input type="button" value="<?echo _("UnRegister")?>" class="button" onclick="javascript:unRegisterForTournament();">
-				<input type="hidden" name="ToDo" value="UnRegister">
-			</form>
-			<? } else {?>
-			<form name="registerForm" action="tournament_list.php" method="post">
-				<input type="hidden" name="tournamentID" value="<?echo $tmpTournament['tournamentID'];?>">
-				<input type="hidden" name="isLastPlayer" value="<?echo $isLastPlayer;?>">
-				<input type="button" value="<?echo _("Register")?>" class="button" onclick="javascript:registerForTournament();">
-				<input type="hidden" name="ToDo" value="Register">
-			</form>
-			<? } ?>
+			
+				<? if ($registered) {?>
+				<form action="tournament_list.php" method="post">
+					<input type="hidden" name="tournamentID" value="<?echo $tmpTournament['tournamentID'];?>">
+					<input type="submit" value="<?echo _("UnRegister");?>" class="button">
+					<input type="hidden" name="ToDo" value="UnRegister">
+				</form>
+				<? } else {?>
+				<form action="tournament_list.php" method="post">
+					<input type="hidden" name="tournamentID" value="<?echo $tmpTournament['tournamentID'];?>">
+					<input type="hidden" name="isLastPlayer" value="<?echo $isLastPlayer;?>">
+					<input type="submit" value="<?echo _("Register");?>" class="button">
+					<input type="hidden" name="ToDo" value="Register">
+				</form>
+				<? } ?>
 			
 		</div>
 		<? }
@@ -140,7 +144,7 @@ $res = createTournamentAuto();
 			if ($nbIPTournaments > 0)
 			{
 		?>
-		<h2><? echo _("Tournaments in progress")?></h2>
+		<h2><? echo _("In progress tournaments")?></h2>
 		
 		<?		while($tmpTournament = mysqli_fetch_array($tmpTournaments, MYSQLI_ASSOC))
 				{
@@ -152,12 +156,40 @@ $res = createTournamentAuto();
 		?>
   		<div class="blockform">
 			<b><? echo _("Tournament")." #".$tmpTournament['tournamentID']." - ".$tmpTournament['name']." - "._("In progress");?></b>
+			<div style='float:right;'><input type="button" class="link" value="<? echo _("View")?>" onclick="location.href='tournament_view.php?ID=<?echo $tmpTournament['tournamentID'];?>'"></div>
 			<br><? echo _("Started")." ".$strTournamentDate;?>
 			<p><? echo $strType." - ".$tmpTournament['nbPlayers']." "._("players")." - ".$tmpTournament['timeMove']." "._("days per move");?></p>
-			<input type="button" class="link" value="<? echo _("View")?>" onclick="location.href='tournament_view.php?ID=<?echo $tmpTournament['tournamentID'];?>'">
+		</div>
+		<? 		} 
+			}
+			
+			$tmpTournaments = listTournaments(0, 10, ENDED);
+			$nbEDTournaments = mysqli_num_rows($tmpTournaments);
+			if ($nbEDTournaments > 0)
+			{
+		?>
+		<h2><? echo _("Completed tournaments")?></h2>
+		
+		<?		while($tmpTournament = mysqli_fetch_array($tmpTournaments, MYSQLI_ASSOC))
+				{
+					$tournamentDate = new DateTime($tmpTournament['beginDate']);
+					$strTournamentDate = $fmt->format($tournamentDate);
+					$tournamentEndDate = new DateTime($tmpTournament['endDate']);
+					$strTournamentEndDate = $fmt->format($tournamentEndDate);
+					$strType = "";
+					if ($tmpTournament['type'] == CLASSIC)
+						$strType = _("Classic game");
+		?>
+  		<div class="blockform">
+			<b><? echo _("Tournament")." #".$tmpTournament['tournamentID']." - ".$tmpTournament['name']." - "._("Completed ");?></b>
+			<div style='float:right;'><input type="button" class="link" value="<? echo _("View")?>" onclick="location.href='tournament_view.php?ID=<?echo $tmpTournament['tournamentID'];?>'"></div>
+			<br><? echo _("Started")." ".$strTournamentDate." - "._("Completed")." ".$strTournamentEndDate;?>
+			<p><? echo $strType." - ".$tmpTournament['nbPlayers']." "._("players")." - ".$tmpTournament['timeMove']." "._("days per move");?></p>
+			
 		</div>
 		<? 		} 
 			}?>
+			
 	</div>
 </div>
 <div id="rightbar">
