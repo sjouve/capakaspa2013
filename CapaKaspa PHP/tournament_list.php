@@ -79,11 +79,14 @@ $res = createTournamentAuto();
 			{
 				$tournamentDate = new DateTime($tmpTournament['creationDate']);
 				$strTournamentDate = $fmt->format($tournamentDate);
+				$strType = "";
+				if ($tmpTournament['type'] == CLASSIC)
+					$strType = _("Classic game");
 		?>
   		<div class="blockform">
 			<b><? echo _("Tournament")." #".$tmpTournament['tournamentID']." - ".$tmpTournament['name']." - "._("Registration");?></b>
 			<br><? echo _("Created")." ".$strTournamentDate;?>
-			<p><? echo $tmpTournament['nbPlayers']." "._("players")." - ".$tmpTournament['timeMove']." "._("days per move");?></p>
+			<p><? echo $strType." - ".$tmpTournament['nbPlayers']." "._("players")." - ".$tmpTournament['timeMove']." "._("days per move");?></p>
 			<div class="tabliste">
 			<? 	$tmpPlayers = listTournamentPlayers($tmpTournament['tournamentID']);
 				$nbRegisteredPlayers = mysqli_num_rows($tmpPlayers);
@@ -143,11 +146,14 @@ $res = createTournamentAuto();
 				{
 					$tournamentDate = new DateTime($tmpTournament['beginDate']);
 					$strTournamentDate = $fmt->format($tournamentDate);
+					$strType = "";
+					if ($tmpTournament['type'] == CLASSIC)
+						$strType = _("Classic game");
 		?>
   		<div class="blockform">
 			<b><? echo _("Tournament")." #".$tmpTournament['tournamentID']." - ".$tmpTournament['name']." - "._("In progress");?></b>
 			<br><? echo _("Started")." ".$strTournamentDate;?>
-			<p><? echo $tmpTournament['nbPlayers']." "._("players")." - ".$tmpTournament['timeMove']." "._("days per move");?></p>
+			<p><? echo $strType." - ".$tmpTournament['nbPlayers']." "._("players")." - ".$tmpTournament['timeMove']." "._("days per move");?></p>
 			<input type="button" class="link" value="<? echo _("View")?>" onclick="location.href='tournament_view.php?ID=<?echo $tmpTournament['tournamentID'];?>'">
 		</div>
 		<? 		} 

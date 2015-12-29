@@ -581,8 +581,14 @@ require 'include/page_body.php';
 				<?php 
 				echo _("Find a player with advanced search and invite him to play a new game.");
 				?>
+				<br>
 				<input type="button" class="link" value="<? echo _("Search players")?>" onclick="location.href='player_search.php'">
+				</p>
 				<p>
+				<? echo _("Participate in Round-robin tournaments and compete against multiple players with whites and blacks.");?>
+				<br>
+				<input type="button" class="link" value="<? echo _("Register for a tournament")?>" onclick="location.href='tournament_list.php'">
+				</p>
 				<h3><? echo _("Achievements")?></h3>
 				<p><?php 
 				echo _("When you're playing chess games on CapaKaspa, you can earn achievements that mark your accomplishments : player, classic, outside the box, winner, black wins and social.");

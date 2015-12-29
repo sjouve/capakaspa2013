@@ -61,7 +61,11 @@ require 'include/page_body.php';
 				$strStatus = _("In progress");
 			if ($tournament['status'] == ENDED)
 				$strStatus = _("Completed ");
-				
+
+			$strType = "";
+				if ($tournament['type'] == CLASSIC)
+					$strType = _("Classic game");
+					
 			$tmpPlayers = listTournamentPlayers($tournament['tournamentID']);
 			$nbRegisteredPlayers = mysqli_num_rows($tmpPlayers);
 		?>
@@ -76,7 +80,7 @@ require 'include/page_body.php';
 			<? if ($tournament['status'] == ENDED) { ?>
 			<br><? echo _("Started")." ".$strTournamentDate." - "._("Completed")." ".$strTournamentEnded;
 			} ?>
-			<p><? echo $tournament['nbPlayers']." "._("players")." - ".$tournament['timeMove']." "._("days per move");?></p>
+			<p><? echo $strType." - ".$tournament['nbPlayers']." "._("players")." - ".$tournament['timeMove']." "._("days per move");?></p>
 		</div>
 		<? if ($nbRegisteredPlayers > 0) {
 		?>
