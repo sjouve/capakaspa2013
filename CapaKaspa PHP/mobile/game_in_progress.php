@@ -492,7 +492,9 @@ require 'include/page_body.php';
 							<div class='gameboard'>");
 								drawboardGame($tmpGame['gameID'],$tmpGame['whitePlayer'],$tmpGame['blackPlayer'], $tmpGame['position'], $tmpGame['nbMoves']);
 							echo("</div>
-							<div class='gamedetails'>
+							<div class='gamedetails'");
+							if ($tmpGame['tournamentID'] != "") echo(" style='background-color: #FFF0C4;'"); 
+							echo(">
 								<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> <b>".$tmpGame['whiteNick']."</b></span>
 								<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> <b>".$tmpGame['blackNick']."</b></span>");
 								
@@ -500,6 +502,8 @@ require 'include/page_body.php';
 									echo ("<br><br><span style='float: right'><input type='button' value='"._("Play")."' class='link_highlight' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></span>");
 								else
 									echo ("<br><br><span style='float: right'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></span>");
+								if ($tmpGame['tournamentID'] != "")
+									echo(_("Tournament")." #".$tmpGame['tournamentID']." - ");
 								echo(_("Time per move").": ".$tmpGame['timeMove']." "._("days"));
 								echo("<br>"._("Expiration")." : <b>".$strExpirationDate."</b>");
 							echo("</div>

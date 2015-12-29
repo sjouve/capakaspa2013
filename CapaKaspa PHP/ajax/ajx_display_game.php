@@ -66,7 +66,12 @@ while($tmpGame = mysqli_fetch_array($result, MYSQLI_ASSOC))
 					echo("&nbsp;");
 			}
 			
-			echo("</b>)</div>");
+			echo("</b>)");
+			
+			if ($tmpGame['tournamentID'] != "")
+									echo(" - <a href='tournament_view.php?ID=".$tmpGame['tournamentID']."'>"._("Tournament")." #".$tmpGame['tournamentID']."</a>");
+								
+			echo ("</div>");
 			
 			echo("<div style='float:right; height: 25px;padding-right: 10px;'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadEndedGame(".$tmpGame['gameID'].")'></div>");
 			

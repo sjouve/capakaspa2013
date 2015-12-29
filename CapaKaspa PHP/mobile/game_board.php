@@ -12,11 +12,13 @@ require '../include/constants.php';
 require '../dac/dac_players.php';
 require '../dac/dac_games.php';
 require '../dac/dac_activity.php';
+require '../dac/dac_tournament.php';
 require '../bwc/bwc_common.php';
 require '../bwc/bwc_chessutils.php';
 require '../bwc/bwc_games.php';
 require '../bwc/bwc_board.php';
 require '../bwc/bwc_players.php';
+require '../bwc/bwc_tournament.php';
 	
 /* connect to database */
 require '../include/connectdb.php';
@@ -117,7 +119,8 @@ if (($TestFromRow != "") && ($_POST['fromCol'] != "") && ($_POST['toRow'] != "")
 	}
 }
 	
-
+if (isset($tmpGame['tournamentID']))
+	checkTournamentEnding($tmpGame['tournamentID']);
 	
 /* find out if it's the current player's turn */
 global $isPlayersTurn;

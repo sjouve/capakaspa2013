@@ -156,7 +156,7 @@ function searchGames($mode, $debut, $limit, $gameState, $playerID, $playerColor,
 	}
 	else
 	{
-		$req = "SELECT G.gameID, G.eco eco, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, 
+		$req = "SELECT G.gameID, T.tournamentID, G.eco eco, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, 
 				G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove, G.type, G.flagBishop, G.flagKnight, G.flagRook, G.flagQueen";
 	}
 	
@@ -164,7 +164,7 @@ function searchGames($mode, $debut, $limit, $gameState, $playerID, $playerColor,
 	if ($gameType == 0)
 		$req .=	", E.name ecoName"; 
 	
-	$req .=	" FROM games G, players W, players B ";
+	$req .=	" FROM games G LEFT JOIN tournament_games T ON T.gameID = G.gameID, players W, players B ";
 	
 	// For classic game
 	if ($gameType == 0)

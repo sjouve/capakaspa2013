@@ -174,96 +174,101 @@ require 'include/page_body.php';
 <div id="contentlarge">
 	<div class="contentbody">
   		<div class="blockform">
-		<h3><? echo _("Start new game")?></h3>
-		<form name="startGameForm" action="game_in_progress.php" method="post">
-			<table width="100%">
-				<tr>
-					<td width="20%">
-						<?echo _("Game type")?> : 
-					</td>
-					<td width="80%">
-						<input type="radio" name="type" value="0" checked> <?echo _("Classic game")?>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						&nbsp;
-					</td>
-					<td>
-						<input type="radio" name="type" value="1"> <?echo _("Beginner game with King, Pawns and")?>
-						<input type="checkbox" name="flagBishop" value="1"> <?echo _("Bishops")?>
-						<input type="checkbox" name="flagKnight" value="1"> <?echo _("Knigths")?>
-						<input type="checkbox" name="flagRook" value="1"> <?echo _("Rooks")?>
-						<input type="checkbox" name="flagQueen" value="1"> <?echo _("Queen")?>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						&nbsp;
-					</td>
-					<td>
-						<input type="radio" name="type" value="2" onclick="javascript:getChess960();"> <?echo _("Fischer Random Chess (Chess960)")?>
-						<input type="hidden" name="chess960" value="">
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<?echo _("Time per move")?> : 
-					</td>
-					<td>
-						<select name="timeMove" id="timeMove">
-		            		<option value="2"><?echo _("2 days");?></option>
-		            		<option value="3"><?echo _("3 days");?></option>
-		            		<option value="4"><?echo _("4 days");?></option>
-		            		<option value="5"><?echo _("5 days");?></option>
-		            		<option value="7" selected><?echo _("7 days");?></option>
-		            		<option value="10"><?echo _("10 days");?></option>
-		            		<option value="14"><?echo _("14 days");?></option>
-		            	</select>
-					</td>
-				</tr>
-				<tr>
-					<td >
-						<?echo _("Play as (color)")?> : 
-					</td>
-					<td>
-						<input type="radio" name="color" value="white" checked> <?echo _("White")?>
-						<input type="radio" name="color" value="black"> <?echo _("Black")?>
-						<input type="radio" name="color" value="random"> <?echo _("Random")?>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<?echo _("Select a player")?> :					
-					</td>
-					<td>
-						<select id="opponent" name="opponent" style="width:380px;">
-							<option value="0" selected><?echo _("Type a part of user name, first name or last name in the box")?></option>
-						</select>
-						<input id="txtHint" name="txtHint" type="text" size="15" maxlength="20" value="<? echo($username);?>" onkeyup="javascript:showHint(this.value, 0);">
-						<div id="ajaxprogressname" style="display: none;"><img src="images/ajaxprogress.gif"></div>
-							
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<?echo _("Don't select a player to invite all players")?>				
-					</td>
-				</tr>
-			</table>
-			
-			<input type="button" value="<?echo _("Start game")?>" class="button" onclick="javascript:startGame();">
-			<input type="hidden" name="ToDo" value="InvitePlayer">
-		</form>
+			<h3><? echo _("Start new game")?></h3>
+			<form name="startGameForm" action="game_in_progress.php" method="post">
+				<table width="100%">
+					<tr>
+						<td width="20%">
+							<?echo _("Game type")?> : 
+						</td>
+						<td width="80%">
+							<input type="radio" name="type" value="0" checked> <?echo _("Classic game")?>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							&nbsp;
+						</td>
+						<td>
+							<input type="radio" name="type" value="1"> <?echo _("Beginner game with King, Pawns and")?>
+							<input type="checkbox" name="flagBishop" value="1"> <?echo _("Bishops")?>
+							<input type="checkbox" name="flagKnight" value="1"> <?echo _("Knigths")?>
+							<input type="checkbox" name="flagRook" value="1"> <?echo _("Rooks")?>
+							<input type="checkbox" name="flagQueen" value="1"> <?echo _("Queen")?>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							&nbsp;
+						</td>
+						<td>
+							<input type="radio" name="type" value="2" onclick="javascript:getChess960();"> <?echo _("Fischer Random Chess (Chess960)")?>
+							<input type="hidden" name="chess960" value="">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<?echo _("Time per move")?> : 
+						</td>
+						<td>
+							<select name="timeMove" id="timeMove">
+			            		<option value="2"><?echo _("2 days");?></option>
+			            		<option value="3"><?echo _("3 days");?></option>
+			            		<option value="4"><?echo _("4 days");?></option>
+			            		<option value="5"><?echo _("5 days");?></option>
+			            		<option value="7" selected><?echo _("7 days");?></option>
+			            		<option value="10"><?echo _("10 days");?></option>
+			            		<option value="14"><?echo _("14 days");?></option>
+			            	</select>
+						</td>
+					</tr>
+					<tr>
+						<td >
+							<?echo _("Play as (color)")?> : 
+						</td>
+						<td>
+							<input type="radio" name="color" value="white" checked> <?echo _("White")?>
+							<input type="radio" name="color" value="black"> <?echo _("Black")?>
+							<input type="radio" name="color" value="random"> <?echo _("Random")?>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<?echo _("Select a player")?> :					
+						</td>
+						<td>
+							<select id="opponent" name="opponent" style="width:380px;">
+								<option value="0" selected><?echo _("Type a part of user name, first name or last name in the box")?></option>
+							</select>
+							<input id="txtHint" name="txtHint" type="text" size="15" maxlength="20" value="<? echo($username);?>" onkeyup="javascript:showHint(this.value, 0);">
+							<div id="ajaxprogressname" style="display: none;"><img src="images/ajaxprogress.gif"></div>
+								
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<?echo _("Don't select a player to invite all players")?>				
+						</td>
+					</tr>
+				</table>
+				
+				<input type="button" value="<?echo _("Start game")?>" class="button" onclick="javascript:startGame();">
+				<input type="hidden" name="ToDo" value="InvitePlayer">
+			</form>
 		</div>
 		<div class="blockform">
-		<h3><? echo _("Advanced search")?></h3>
-		<p><? echo _("Find a player with advanced search and invite him to play a new game.");?></p>
-		<input type="button" class="link" value="<? echo _("Search players")?>" onclick="location.href='player_search.php'">
+			<h3><? echo _("Advanced search")?></h3>
+			<p><? echo _("Find a player with advanced search and invite him to play a new game.");?></p>
+			<input type="button" class="link" value="<? echo _("Search players")?>" onclick="location.href='player_search.php'">
 		</div>
 		<div class="blockform">
-		<h3><? echo _("Invite friends to join you")?></h3>
-		<p><? echo _("Invite by email a friend not on CapaKaspa to join you. If a player exist with the email you will invite to start a new game directly.");?></p>
+			<h3><? echo _("Tournaments")?></h3>
+			<p><? echo _("Participate in Round-robin tournaments and compete against multiple players with whites and blacks.");?></p>
+			<input type="button" class="link" value="<? echo _("Register for a tournament")?>" onclick="location.href='tournament_list.php'">
+		</div>
+		<div class="blockform">
+			<h3><? echo _("Invite friends to join you")?></h3>
+			<p><? echo _("Invite by email a friend not on CapaKaspa to join you. If a player exist with the email you will invite to start a new game directly.");?></p>
 		
 			<table width="100%">
 				<tr>
