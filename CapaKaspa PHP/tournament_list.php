@@ -27,11 +27,11 @@ $ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:(isset($_GET['ToDo']) ? $_GET['To
 switch($ToDo)
 {
 	case 'Register':
-		registerTournamentPlayer($tournamentID, $_SESSION['playerID'], $isLastPlayer);
+		registerTournamentPlayer($tournamentID, $_SESSION['playerID']);
 		break;
 		
 	case 'UnRegister':
-		deleteTournamentPlayer($tournamentID, $_SESSION['playerID']);
+		unregisterTournamentPlayer($tournamentID, $_SESSION['playerID']);
 		break;
 }
 	
@@ -46,18 +46,6 @@ $desc_page = _("Participate to a tournament");
 require 'include/page_header.php';
 ?>
 <script src="javascript/menu.js" type="text/javascript"></script>
-<script type="text/javascript">
-function registerForTournament()
-{
-	document.registerForm.submit();
-
-}
-function unRegisterForTournament()
-{
-	document.unRegisterForm.submit();
-
-}
-</script>
 <?
 $attribut_body = "onload=\"highlightMenu(16);\"";
 require 'include/page_body.php';

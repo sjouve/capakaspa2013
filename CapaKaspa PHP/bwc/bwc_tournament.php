@@ -62,40 +62,66 @@ function createTournament($name, $type, $nbPlayers, $timeMove, $eloMin, $eloMax)
 	return TRUE;
 }
 
-function registerTournamentPlayer($tournamentID, $playerID, $isLastPlayer)
+function unregisterTournamentPlayer($tournamentID, $playerID)
 {
-	$res = insertTournamentPlayer($tournamentID, $playerID);
+	
+	$tournament = getTournament($tournamentID);
+	if ($tournament['status'] != WAITING)
+		return false;
+	
+	$res = deleteTournamentPlayer($tournamentID, $playerID);
 	if (!$res)
 	{
 	  	return FALSE;
 	}
+	return TRUE;
+}	
+
+function registerTournamentPlayer($tournamentID, $playerID)
+{
 	
-	if ($isLastPlayer == 1)
+	$tournament = getTournament($tournamentID);
+	if ($tournament['status'] != WAITING)
+		return FALSE;
+	
+	$tmpPlayers = listTournamentPlayers($tournamentID);
+	$nbRegisteredPlayers = mysqli_num_rows($tmpPlayers);
+	
+	if ($nbRegisteredPlayers < $tournament['nbPlayers'])
 	{
-		// Changer l'état du tournoi
-		$res = updateTournament($tournamentID, INPROGRESS);
-		
-		// Créer les parties et les lier au tournoi
-		$tmpPlayers = listTournamentPlayers($tournamentID);
-		$players = array();
-		$count = 0;
-		while($tmpPlayer = mysqli_fetch_array($tmpPlayers, MYSQLI_ASSOC))
+		$res = insertTournamentPlayer($tournamentID, $playerID);
+		if (!$res)
 		{
-			$count++;
-			$players[$count] = $tmpPlayer['playerID'];
+		  	return FALSE;
 		}
-		
-		for ($i = 1; $i <= $count; $i++) 
+	
+		if ($nbRegisteredPlayers == $tournament['nbPlayers']-1)
 		{
-			for ($j = $i+1; $j <= $count; $j++)
+			// Changer l'état du tournoi
+			$res = updateTournament($tournamentID, INPROGRESS);
+			
+			// Créer les parties et les lier au tournoi
+			$tmpPlayers = listTournamentPlayers($tournamentID);
+			$players = array();
+			$count = 0;
+			while($tmpPlayer = mysqli_fetch_array($tmpPlayers, MYSQLI_ASSOC))
 			{
-				$gameID = createGame($players[$i], $players[$j], CLASSIC, "", "", "", "", 2, "");
-				insertTournamentGame($tournamentID, $gameID);
-				$gameID = createGame($players[$j], $players[$i], CLASSIC, "", "", "", "", 2, "");
-				insertTournamentGame($tournamentID, $gameID);
+				$count++;
+				$players[$count] = $tmpPlayer['playerID'];
 			}
+			
+			for ($i = 1; $i <= $count; $i++) 
+			{
+				for ($j = $i+1; $j <= $count; $j++)
+				{
+					$gameID = createGame($players[$i], $players[$j], CLASSIC, "", "", "", "", 2, "");
+					insertTournamentGame($tournamentID, $gameID);
+					$gameID = createGame($players[$j], $players[$i], CLASSIC, "", "", "", "", 2, "");
+					insertTournamentGame($tournamentID, $gameID);
+				}
+			}
+			
 		}
-		
 	}
 	
 	return TRUE;
