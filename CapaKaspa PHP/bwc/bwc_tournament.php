@@ -108,6 +108,13 @@ function registerTournamentPlayer($tournamentID, $playerID)
 			{
 				$count++;
 				$players[$count] = $tmpPlayer['playerID'];
+				$locale = isset($tmpPlayer['language'])?$tmpPlayer['language']:"en_EN";
+				putenv("LC_ALL=$locale");
+				setlocale(LC_ALL, $locale);
+				bindtextdomain("messages", "./locale");
+				bind_textdomain_codeset("messages", "UTF-8");
+				textdomain("messages");
+				sendMail($tmpPlayer['email'], _("Tournament started"), _("The tournament which you registered just started..."));
 			}
 			
 			for ($i = 1; $i <= $count; $i++) 
@@ -120,6 +127,14 @@ function registerTournamentPlayer($tournamentID, $playerID)
 					insertTournamentGame($tournamentID, $gameID);
 				}
 			}
+			
+			$locale = $_SESSION["pref_language"];
+			// Repositionne la langue de l'utilisateur
+			putenv("LC_ALL=$locale");
+			setlocale(LC_ALL, $locale);
+			bindtextdomain("messages", "./locale");
+			bind_textdomain_codeset("messages", "UTF-8");
+			textdomain("messages");
 			
 		}
 	}

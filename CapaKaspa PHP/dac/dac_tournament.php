@@ -74,8 +74,8 @@ function deleteTournamentPlayer($tournamentID, $playerID)
 function listTournamentPlayers($tournamentID)
 {
 	global $dbh;
-	$tmpQuery = "SELECT P.playerID, P.nick, P.elo 
-				FROM tournament_players T, players P
+	$tmpQuery = "SELECT P.playerID, P.nick, P.elo, P.email, L.value language
+				FROM tournament_players T, players P LEFT JOIN preferences L on L.playerID = P.playerID AND L.preference='language' 
 				WHERE T.tournamentID = ".$tournamentID." 
 				AND T.playerID = P.playerID";
 	
