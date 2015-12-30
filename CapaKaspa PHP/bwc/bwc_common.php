@@ -106,6 +106,17 @@ function displaySuggestion()
 		</div>
 	</div>");
 	
+	echo("		
+			<div class='suggestion'>		
+					<div id='picture' style='float: left; margin-right: 5px;'>
+						<img src='images/picto_cup_20.png' width='32' height='32' border='0'/>
+					</div>
+					<a href='tournament_list.php'><span class='name'>"._("Tournaments")."</span></a>");
+					echo("<br>"._("Register for a tournament"));
+			echo("</div>
+			
+			");
+			
 	$limit = 10;
 	$result = searchPlayers("", 0, $limit, $_SESSION['playerID'], "", "nouveau", "", "", "", "");
 	while($tmpPlayer = mysqli_fetch_array($result, MYSQLI_ASSOC))
@@ -170,5 +181,7 @@ function displaySuggestion()
 			");
 		}
 	}
+	
+	
 }
 ?>
