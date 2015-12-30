@@ -114,7 +114,7 @@ function registerTournamentPlayer($tournamentID, $playerID)
 				bindtextdomain("messages", "./locale");
 				bind_textdomain_codeset("messages", "UTF-8");
 				textdomain("messages");
-				sendMail($tmpPlayer['email'], _("Tournament started"), _("The tournament which you registered just started..."));
+				sendMail($tmpPlayer['email'], "[CapaKaspa] "._("Tournament started"), _("The tournament which you registered just started..."));
 			}
 			
 			for ($i = 1; $i <= $count; $i++) 
