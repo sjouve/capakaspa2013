@@ -80,7 +80,9 @@ require 'include/page_body.php';
 			<? if ($tournament['status'] == ENDED) { ?>
 			<br><? echo _("Started")." ".$strTournamentDate." - "._("Completed")." ".$strTournamentEnded;
 			} ?>
-			<p><? echo $strType." - ".$tournament['nbPlayers']." "._("players")." - ".$tournament['timeMove']." "._("days per move");?></p>
+			<p><? echo $strType." - ".$tournament['nbPlayers']." "._("players")." - ".$tournament['timeMove']." "._("days per move");
+				if ($tournament['eloMin'] > 0) echo " - "."Elo "._("from")." ".$tournament['eloMin']." "._("to")." ".$tournament['eloMax'];
+			?></p>
 		</div>
 		<? if ($nbRegisteredPlayers > 0) {
 		?>

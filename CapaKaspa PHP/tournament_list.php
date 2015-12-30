@@ -76,7 +76,9 @@ $res = createTournamentAuto();
 			<b><? echo _("Tournament")." #".$tmpTournament['tournamentID']." - ".$tmpTournament['name']." - "._("Registration");?></b>
 			
 			<br><? echo _("Created")." ".$strTournamentDate;?>
-			<p><? echo $strType." - ".$tmpTournament['nbPlayers']." "._("players")." - ".$tmpTournament['timeMove']." "._("days per move");?></p>
+			<p><? echo $strType." - ".$tmpTournament['nbPlayers']." "._("players")." - ".$tmpTournament['timeMove']." "._("days per move");
+				if ($tmpTournament['eloMin'] > 0) echo " - "."Elo "._("from")." ".$tmpTournament['eloMin']." "._("to")." ".$tmpTournament['eloMax'];
+			?></p>
 			</div>
 			<div class="tabliste">
 			<? 	$tmpPlayers = listTournamentPlayers($tmpTournament['tournamentID']);
@@ -109,20 +111,24 @@ $res = createTournamentAuto();
 				
 			</div>
 			
-				<? if ($registered) {?>
-				<form action="tournament_list.php" method="post">
-					<input type="hidden" name="tournamentID" value="<?echo $tmpTournament['tournamentID'];?>">
-					<input type="submit" value="<?echo _("UnRegister");?>" class="button">
-					<input type="hidden" name="ToDo" value="UnRegister">
-				</form>
-				<? } else {?>
-				<form action="tournament_list.php" method="post">
-					<input type="hidden" name="tournamentID" value="<?echo $tmpTournament['tournamentID'];?>">
-					<input type="hidden" name="isLastPlayer" value="<?echo $isLastPlayer;?>">
-					<input type="submit" value="<?echo _("Register");?>" class="button">
-					<input type="hidden" name="ToDo" value="Register">
-				</form>
-				<? } ?>
+				<? 
+				if ($tmpTournament['eloMin'] == 0 || ($tmpTournament['eloMin'] > 0 && $_SESSION['elo'] >= $tmpTournament['eloMin'] && $_SESSION['elo'] <= $tmpTournament['eloMax']))
+				{
+					if ($registered) {?>
+					<form action="tournament_list.php" method="post">
+						<input type="hidden" name="tournamentID" value="<?echo $tmpTournament['tournamentID'];?>">
+						<input type="submit" value="<?echo _("UnRegister");?>" class="button">
+						<input type="hidden" name="ToDo" value="UnRegister">
+					</form>
+					<? } else {?>
+					<form action="tournament_list.php" method="post">
+						<input type="hidden" name="tournamentID" value="<?echo $tmpTournament['tournamentID'];?>">
+						<input type="hidden" name="isLastPlayer" value="<?echo $isLastPlayer;?>">
+						<input type="submit" value="<?echo _("Register");?>" class="button">
+						<input type="hidden" name="ToDo" value="Register">
+					</form>
+					<? }
+				} ?>
 			
 		</div>
 		<? }
@@ -146,7 +152,9 @@ $res = createTournamentAuto();
 			<b><? echo _("Tournament")." #".$tmpTournament['tournamentID']." - ".$tmpTournament['name']." - "._("In progress");?></b>
 			<div style='float:right;'><input type="button" class="link" value="<? echo _("View")?>" onclick="location.href='tournament_view.php?ID=<?echo $tmpTournament['tournamentID'];?>'"></div>
 			<br><? echo _("Started")." ".$strTournamentDate;?>
-			<p><? echo $strType." - ".$tmpTournament['nbPlayers']." "._("players")." - ".$tmpTournament['timeMove']." "._("days per move");?></p>
+			<p><? echo $strType." - ".$tmpTournament['nbPlayers']." "._("players")." - ".$tmpTournament['timeMove']." "._("days per move");
+				if ($tmpTournament['eloMin'] > 0) echo " - "."Elo "._("from")." ".$tmpTournament['eloMin']." "._("to")." ".$tmpTournament['eloMax'];
+			?></p>
 		</div>
 		<? 		} 
 			}
@@ -172,7 +180,9 @@ $res = createTournamentAuto();
 			<b><? echo _("Tournament")." #".$tmpTournament['tournamentID']." - ".$tmpTournament['name']." - "._("Completed ");?></b>
 			<div style='float:right;'><input type="button" class="link" value="<? echo _("View")?>" onclick="location.href='tournament_view.php?ID=<?echo $tmpTournament['tournamentID'];?>'"></div>
 			<br><? echo _("Started")." ".$strTournamentDate." - "._("Completed")." ".$strTournamentEndDate;?>
-			<p><? echo $strType." - ".$tmpTournament['nbPlayers']." "._("players")." - ".$tmpTournament['timeMove']." "._("days per move");?></p>
+			<p><? echo $strType." - ".$tmpTournament['nbPlayers']." "._("players")." - ".$tmpTournament['timeMove']." "._("days per move");
+				if ($tmpTournament['eloMin'] > 0) echo " - "."Elo "._("from")." ".$tmpTournament['eloMin']." "._("to")." ".$tmpTournament['eloMax'];
+			?></p>
 			
 		</div>
 		<? 		} 
