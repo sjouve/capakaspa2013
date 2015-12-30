@@ -432,6 +432,14 @@ function chessNotification($msgType, $receiverColor, $move, $senderName, $gameID
 	{
 		sendMail($receiver['email'], $mailsubject, $mailmsg);
 	}
+	
+	$locale = $_SESSION["pref_language"];
+	// Repositionne la langue de l'utilisateur
+	putenv("LC_ALL=$locale");
+	setlocale(LC_ALL, $locale);
+	bindtextdomain("messages", "./locale");
+	bind_textdomain_codeset("messages", "UTF-8");
+	textdomain("messages");
 }
 	
 function getTurnColor($numMoves)
