@@ -121,9 +121,9 @@ function registerTournamentPlayer($tournamentID, $playerID)
 			{
 				for ($j = $i+1; $j <= $count; $j++)
 				{
-					$gameID = createGame($players[$i], $players[$j], CLASSIC, "", "", "", "", 2, "");
+					$gameID = createGame($players[$i], $players[$j], CLASSIC, "", "", "", "", $tournament['timeMove'], "");
 					insertTournamentGame($tournamentID, $gameID);
-					$gameID = createGame($players[$j], $players[$i], CLASSIC, "", "", "", "", 2, "");
+					$gameID = createGame($players[$j], $players[$i], CLASSIC, "", "", "", "", $tournament['timeMove'], "");
 					insertTournamentGame($tournamentID, $gameID);
 				}
 			}
