@@ -145,7 +145,7 @@ body {
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
-	padding-top: 10px;
+	padding-top: 33px;
 	height: 120px;
 	border-bottom: 2px solid #000;
 }
@@ -157,6 +157,7 @@ body {
 	font-weight: bold;
 	font-style: normal;
 	text-align: left;
+	line-height: 120%;
 }
 #topbar .subtitle {
 	font-family: Oswald, Arial, Helvetica, sans-serif;
@@ -167,6 +168,7 @@ body {
 	font-style: normal;
 	text-align: left;
 	width: 100%;
+	line-height: 120%;
 }
 #topbar .social {
 	float: right;
