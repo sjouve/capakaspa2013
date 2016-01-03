@@ -141,7 +141,7 @@ require 'include/page_body_no_menu.php';
 		<div id="player_name" style="float:left; display: block; padding: 5px;">
 			<? 
 			echo("<br><span class='player_name'>".$player['firstName']." ".$player['lastName']." (".$player['nick'].")</span>"); 
-	  		if (getOnlinePlayer($player['playerID'])) echo (" <img src='images/user_online.gif'/>");
+	  		if (getOnlinePlayer($player['playerID'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'/>");
 	  		if (isNewPlayer($player['creationDate'])) echo (" <span class='newplayer'>"._("New player")."</span>");
 	  		?>
 	  	</div>
