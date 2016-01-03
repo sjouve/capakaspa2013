@@ -100,7 +100,7 @@ if (isset($toPlayerID))
       </ul>  
 	</div>
 	<div class="navlinks">
-	<div class="title"><?php echo _("Players");?></div>		
+	<div class="title"><?php echo _("Players");?> <img src="images/user_online.gif" style="vertical-align:bottom;" title="<?php echo _("Player online");?>" alt="<?php echo _("Player online");?>"/><? echo(getNbOnlinePlayers())?></div>		
       <ul>
         <li id="menu4"><img src="images/news.png"/> <a href="activity.php"><?php echo _("News feed");?></a></li>
 		<li id="menu5"><img src="images/search.png"/> <a href="player_search.php"><?php echo _("Search");?></a></li>
