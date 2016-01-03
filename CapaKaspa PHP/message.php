@@ -88,7 +88,7 @@ require 'include/page_body.php';
 							</div>
 							<span class='name'>".$tmpPlayer['firstName']." ".$tmpPlayer['lastName']." (".$tmpPlayer['nick'].")</span>");
 					if ($tmpPlayer['lastActionTime'])
-						echo("<img src='images/user_online.gif' style='vertical-align:bottom;' alt='"._("Player online")."'/>");
+						echo("<img src='images/user_online.gif' style='vertical-align:bottom;' title='"._("Player online")."' alt='"._("Player online")."'/>");
 					if (isNewPlayer($tmpPlayer['creationDate']))
 						echo("<br><span class='newplayer'>"._("New player")."</span>");
 					if ($tmpPlayer['nbUnread'] > 0)

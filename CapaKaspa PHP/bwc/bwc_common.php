@@ -129,7 +129,7 @@ function displaySuggestion()
 				</div>
 				<a href='player_view.php?playerID=".$tmpPlayer['playerID']."'><span class='name'>".$tmpPlayer['firstName']." ".$tmpPlayer['lastName']." (".$tmpPlayer['nick'].")</span></a>");
 		if ($tmpPlayer['lastActionTime'])
-			echo("<img src='images/user_online.gif' style='vertical-align:bottom;' alt='"._("Player online")."'/>");
+			echo("<img src='images/user_online.gif' style='vertical-align:bottom;' title='"._("Player online")."' alt='"._("Player online")."'/>");
 		if (isNewPlayer($tmpPlayer['creationDate']))
 			echo("<br><span class='newplayer'>"._("New player")."</span>");
 		echo("</div>
@@ -149,7 +149,7 @@ function displaySuggestion()
 				</div>
 				<a href='player_view.php?playerID=".$tmpPlayer['playerID']."'><span class='name'>".$tmpPlayer['firstName']." ".$tmpPlayer['lastName']." (".$tmpPlayer['nick'].")</span></a>");
 				if ($tmpPlayer['lastActionTime'])
-					echo(" <img src='images/user_online.gif' style='vertical-align:bottom;' alt='"._("Player online")."'/>");
+					echo(" <img src='images/user_online.gif' style='vertical-align:bottom;' title='"._("Player online")."' alt='"._("Player online")."'/>");
 				if (isNewPlayer($tmpPlayer['creationDate']))
 					echo("<br><span class='newplayer'>"._("New player")."</span>");
 				echo("<br>"._("is the same level that you !"));
@@ -172,7 +172,7 @@ function displaySuggestion()
 					</div>
 					<a href='player_view.php?playerID=".$tmpPlayer['playerID']."'><span class='name'>".$tmpPlayer['firstName']." ".$tmpPlayer['lastName']." (".$tmpPlayer['nick'].")</span></a>");
 					if ($tmpPlayer['lastActionTime'])
-						echo(" <img src='images/user_online.gif' style='vertical-align:bottom;' alt='"._("Player online")."'/>");
+						echo(" <img src='images/user_online.gif' style='vertical-align:bottom;' title='"._("Player online")."' alt='"._("Player online")."'/>");
 					if (isNewPlayer($tmpPlayer['creationDate']))
 						echo("<br><span class='newplayer'>"._("New player")."</span>");
 					echo("<br>"._("is the same level that you !"));
