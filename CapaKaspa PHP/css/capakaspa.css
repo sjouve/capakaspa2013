@@ -1065,7 +1065,7 @@ input[type="file"] {
 	border-right-style: solid;
 	border-bottom-style: solid;
 	border-left-style: none;
-	border-width: 1px;
+	border-width: 0px;
 	border-color: #DDDDDD;
 	margin-bottom: 5px;
 	overflow: hidden;
@@ -1222,6 +1222,7 @@ input[type="file"] {
 	margin-bottom: 10px;
 	border: 1px solid;
 	border-color: #e9eaed #dfe0e4 #d0d1d5;
+	overflow: hidden;
 }
 .adsbottom {
 	float: left;

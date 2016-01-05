@@ -33,6 +33,8 @@ $titre_page = _("Tournament view");
 $desc_page = _("View details of a tournament");
 require 'include/page_header.php';
 ?>
+<script src="javascript/like.js" type="text/javascript"></script>
+<script src="javascript/comment.js" type="text/javascript"></script>
 <script type="text/javascript">
 function loadGame(gameID)
 {
@@ -83,6 +85,20 @@ require 'include/page_body.php';
 			<p><? echo $strType." - ".$tournament['nbPlayers']." "._("players")." - ".$tournament['timeMove']." "._("days per move");
 				if ($tournament['eloMin'] > 0) echo " - "."Elo "._("from")." ".$tournament['eloMin']." "._("to")." ".$tournament['eloMax'];
 			?></p>
+			<div style="font-size: 11px; border-top-style: solid; border-width: 1px; border-color: #CCCCCC;">
+				<?if (isset($tournament['likeID'])){?> 
+				<span id="like<?echo(TOURNAMENT.$tournament['tournamentID']);?>" ><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>, <?echo($tournament['likeID']);?>);"><?echo _("! Unlike");?></a></span>
+				<?} else {?>
+				<span id="like<?echo(TOURNAMENT.$tournament['tournamentID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>);"><?echo _("! Like");?></a></span>
+				<?}?>
+				- <a href="javascript:displayComment('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>);"><?echo _("Comment");?></a>
+				<div class="comment" id="comment<? echo $tournament['tournamentID'];?>">
+					<img src='images/ajaxloader.gif'/>
+				</div>
+			</div>
+		</div>
+		<div class="comment" id="comment<? echo $tournament['tournamentID'];?>">
+			<img src='images/ajaxloader.gif'/>
 		</div>
 		<? if ($nbRegisteredPlayers > 0) {
 		?>

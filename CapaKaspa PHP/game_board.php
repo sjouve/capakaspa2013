@@ -395,7 +395,12 @@ require 'include/page_body.php';
 			echo _("Started")?> : <? echo($strStartDate);?> - <?echo _("Last move")?> : <? echo($strLastMove);?></span>
 			<span style="float: right; padding-right: 5px;"><a href="http://www.capakaspa.info/propos-contact/"><?echo _("Report a problem")?></a></span>
 		</div>
-	 	<div id="comment<?echo($_POST['gameID']);?>" class="comment">
+	 	<div id="comment<?echo($_POST['gameID']);?>" class="comment" style="border-top-style: none;
+																			border-right-style: solid;
+																			border-bottom-style: solid;
+																			border-left-style: none;
+																			border-width: 1px;
+																			border-color: #DDDDDD;">
 			<img src="images/ajaxloader.gif"/>
 		</div>
 		

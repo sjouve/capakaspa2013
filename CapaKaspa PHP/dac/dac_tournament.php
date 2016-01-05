@@ -5,9 +5,9 @@
 function getTournament ($tournamentID)
 {
 	global $dbh;
-	$res_tournament = mysqli_query($dbh,"SELECT * 
-								FROM tournament 
-								WHERE tournamentID = ".$tournamentID);
+	$res_tournament = mysqli_query($dbh,"SELECT T.*, K.likeID
+								FROM tournament T LEFT JOIN like_entity K on K.type = '".TOURNAMENT."' AND K.entityID = T.tournamentID AND K.playerID = ".$_SESSION['playerID']." 
+								WHERE T.tournamentID = ".$tournamentID);
 	
     $tournament = mysqli_fetch_array($res_tournament, MYSQLI_ASSOC);
     return $tournament;

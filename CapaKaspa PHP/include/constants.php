@@ -17,6 +17,7 @@ define ("MESSAGE", "message");
 define ("GAME", "game");
 define ("ACTIVITY", "activity");
 define ("COMMENT", "comment");
+define ("TOURNAMENT", "tournament");
 
 // Game type
 define ("CLASSIC", 0);
