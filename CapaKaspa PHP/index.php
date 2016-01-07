@@ -394,6 +394,7 @@ require 'include/page_body_home.php';
 	        <center><input name="login" value="<? echo _("Sign in");?>" type="submit" class="button" style="font-size: 13px;"> <img src="images/puce.gif"/> <a href="password.php"><? echo _("Forgot password ?");?></a></center>
 	        <input name="ToDo" value="Login" type="hidden">
 	    </form>
+	    <br>
 		</div>
 	    <div class="blockform">
    		<h3><?php echo _("Play chess on CapaKaspa");?></h3>
