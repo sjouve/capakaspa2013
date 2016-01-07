@@ -92,6 +92,15 @@ require 'include/page_body.php';
 				<span id="like<?echo(TOURNAMENT.$tournament['tournamentID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>);"><?echo _("! Like");?></a></span>
 				<?}?>
 				- <a href="javascript:displayComment('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>);"><?echo _("Comment");?></a>
+				<?php if ($tournament['nbLike'] > 0 || $tournament['nbComment'] > 0 )
+							echo(" - <span onmouseover=\"this.style.cursor='pointer';\" onclick=\"javascript:displayComment('".TOURNAMENT."', ".$tournament['tournamentID'].");\">");
+						if ($tournament['nbLike'] > 0) 
+							echo("<img src='images/like.gif'>".$tournament['nbLike'])." ";
+						if ($tournament['nbComment'] > 0)
+							echo("<img src='images/comment.jpg'>".$tournament['nbComment']);
+						if ($tournament['nbLike'] > 0 || $tournament['nbComment'] > 0 )
+							echo("</span>");
+				?>
 				<div class="comment" id="comment<? echo $tournament['tournamentID'];?>">
 					<img src='images/ajaxloader.gif'/>
 				</div>

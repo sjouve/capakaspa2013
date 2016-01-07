@@ -5,7 +5,9 @@
 function getTournament ($tournamentID)
 {
 	global $dbh;
-	$res_tournament = mysqli_query($dbh,"SELECT T.*, K.likeID
+	$res_tournament = mysqli_query($dbh,"SELECT T.*, K.likeID, 
+											(SELECT COUNT(commentID) FROM comment WHERE type='".TOURNAMENT."' and entityID = T.tournamentID) nbComment,
+											(SELECT COUNT(likeID) FROM like_entity WHERE type='".TOURNAMENT."' and entityID = T.tournamentID) nbLike
 								FROM tournament T LEFT JOIN like_entity K on K.type = '".TOURNAMENT."' AND K.entityID = T.tournamentID AND K.playerID = ".$_SESSION['playerID']." 
 								WHERE T.tournamentID = ".$tournamentID);
 	
