@@ -57,6 +57,7 @@ $res = createTournamentAuto();
 	<div class="contentbody">
 		<h2><? echo _("Register for a Round-robin tournament")?></h2>
 		<div class="blockform">
+			<img src="images/picto_cup_20.png" width="40" height="40" border="0" style="float: left; margin-right: 10px; margin-top: 5px;">
 			<?
 			echo _("In the Round-robin tournaments you play classic games against every participant with whites and with blacks. For a tournament with four participants so you'll play 6 games.");
 			echo "<br>"._("As a tournament did not start it is possible to withdraw. A tournament starts when the last player registers. So the last player can't withdraw !");
@@ -100,7 +101,7 @@ $res = createTournamentAuto();
 						
 					while($tmpPlayer = mysqli_fetch_array($tmpPlayers, MYSQLI_ASSOC))
 					{
-						echo "<tr><td>".$tmpPlayer['nick']."</td><td align='center'>".$tmpPlayer['elo']."</td></tr>";
+						echo "<tr><td><a href='player_view.php?playerID=".$tmpPlayer['playerID']."'>".$tmpPlayer['nick']."</a></td><td align='center'>".$tmpPlayer['elo']."</td></tr>";
 						if ($_SESSION['playerID'] == $tmpPlayer['playerID']) $registered = TRUE;
 					}
 			?>

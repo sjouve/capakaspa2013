@@ -165,7 +165,7 @@ require 'include/page_body.php';
 					{
 						if ($nbPointPrev != $nbPoints) $rank++;
 						echo "<tr>";
-						echo "<td align='center'>".$rank."</td><td>".$nickPlayer[$playerID]."</td><td align='center'>".$eloPlayer[$playerID]."</td><td align='center'>".$nbPoints."</td>";
+						echo "<td align='center'>".$rank."</td><td><a href='player_view.php?playerID=".$playerID."'>".$nickPlayer[$playerID]."</a></td><td align='center'>".$eloPlayer[$playerID]."</td><td align='center'>".$nbPoints."</td>";
 						echo "</tr>";
 						$nbPointPrev = $nbPoints;
 					}
