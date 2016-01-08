@@ -181,7 +181,7 @@ require 'include/page_body.php';
 	
 			$result = listTournamentGames($tournament['tournamentID']);
 			$numGames = mysqli_num_rows($result);
-				
+			echo $numGames." "._("game(s) found");	
 			while($tmpGame = mysqli_fetch_array($result, MYSQLI_ASSOC))
 			{
 				echo("<div class='activity' id='game".$tmpGame['gameID']."'>
