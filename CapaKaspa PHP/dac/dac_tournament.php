@@ -48,8 +48,13 @@ function listTournaments($start, $limit, $status)
 	global $dbh;
 	$tmpQuery = "SELECT tournamentID, type, name, status, nbPlayers, timeMove, creationDate, eloMin, eloMax, beginDate, endDate
 				FROM tournament
-				WHERE status = '".$status."' 
-				LIMIT ".$start.", ".$limit;
+				WHERE status = '".$status."'";
+				
+	if ($status == WAITING) $tmpQuery .= "ORDER BY creationDate DESC";
+	if ($status == INPROGRESS) $tmpQuery .= "ORDER BY beginDate DESC";
+	if ($status == ENDED) $tmpQuery .= "ORDER BY endDate DESC";
+	
+				//LIMIT ".$start.", ".$limit;
 	
 	$tmpTournaments = mysqli_query($dbh, $tmpQuery);
 	return $tmpTournaments;
