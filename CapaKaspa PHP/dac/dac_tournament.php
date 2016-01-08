@@ -81,11 +81,17 @@ function deleteTournamentPlayer($tournamentID, $playerID)
 function listTournamentPlayers($tournamentID)
 {
 	global $dbh;
-	$tmpQuery = "SELECT P.playerID, P.nick, P.elo, P.email, L.value language
-				FROM tournament_players T, players P LEFT JOIN preferences L on L.playerID = P.playerID AND L.preference='language' 
+	$tmpQuery = "SELECT P.playerID, P.nick, P.elo, P.email, L.value language, L1.value prefEmail
+				FROM 	tournament_players T,
+						players P 
+							LEFT JOIN preferences L on L.playerID = P.playerID AND L.preference='language'
+							LEFT JOIN preferences L1 on L1.playerID = P.playerID AND L1.preference='emailnotification'
 				WHERE T.tournamentID = ".$tournamentID." 
 				AND T.playerID = P.playerID";
 	
+	//LEFT JOIN preferences L2 on L2.playerID = P.playerID AND L2.preference='shareresult'
+	//LEFT JOIN preferences L3 on L3.playerID = P.playerID AND L2.preference='shareinvitation'
+							
 	$tmpPlayers = mysqli_query($dbh, $tmpQuery);
 	return $tmpPlayers;
 }
