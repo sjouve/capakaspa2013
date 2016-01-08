@@ -151,6 +151,32 @@ function checkTournamentEnding($tournamentID)
 	$tournament = getTournament($tournamentID);
 	// Si non et tournoi en cours alors update tournament à Terminé
 	if ($nbGames < 1 && $tournament['status'] == INPROGRESS)
+	{
 		$res = updateTournament($tournamentID, ENDED);
+		
+		// Notification email fin de tournoi
+		$tmpPlayers = listTournamentPlayers($tournamentID);
+		while($tmpPlayer = mysqli_fetch_array($tmpPlayers, MYSQLI_ASSOC))
+		{
+			$prefEmail = isset($tmpPlayer['prefEmail'])?$tmpPlayer['prefEmail']:"non";
+			$locale = isset($tmpPlayer['language'])?$tmpPlayer['language']:"en_EN";
+			putenv("LC_ALL=$locale");
+			setlocale(LC_ALL, $locale);
+			bindtextdomain("messages", "./locale");
+			bind_textdomain_codeset("messages", "UTF-8");
+			textdomain("messages");
+			if ($prefEmail == "oui")
+				sendMail($tmpPlayer['email'], "[CapaKaspa] "._("Completed tournament")." #".$tournamentID, _("You can check the final ranking for the tournament")." #".$tournamentID);
+		}
+		
+		$locale = $_SESSION["pref_language"];
+		// Repositionne la langue de l'utilisateur
+		putenv("LC_ALL=$locale");
+		setlocale(LC_ALL, $locale);
+		bindtextdomain("messages", "./locale");
+		bind_textdomain_codeset("messages", "UTF-8");
+		textdomain("messages");
+	}	
+	
 }
 ?>
