@@ -269,9 +269,9 @@ th .econame {
 }
 
 .activity {
-	width: 93%;
-	margin-right: 10px;
-	margin-left: 10px;
+	width: 99%;
+	/*margin-right: 10px;
+	margin-left: 10px;*/
 	margin-top: 5px;
 	margin-bottom: 5px;
 	overflow: hidden;
@@ -363,9 +363,9 @@ th .econame {
    	font-size: 12px;
 }
 .player {
-	margin-right: 5px;
-	margin-left: 5px;
-	width: 96%;
+	/*margin-right: 5px;
+	margin-left: 5px;*/
+	width: 99%;
 }
 .player .leftbar {
 	width: 15%;
@@ -379,13 +379,15 @@ th .econame {
 	padding-bottom: 0px;
 	margin-bottom: 5px;
 	width: 100%;
-	height: 240px;
+	height: 180px;
 }
 .block_stat {
-	margin-left: 7px;
-	margin-right: 10px;
+	margin-left: 13px;
+	margin-right: 13px;
+	width: 85px;
 }
 #button_right {
 	float: right;
 }
+
 }

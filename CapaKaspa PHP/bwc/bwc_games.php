@@ -1251,7 +1251,7 @@ function writeStatusMobile($tmpGame)
 		<tr bgcolor="#EEEEEE">
 			<th colspan="2">
 				<?if ($tmpGame['tournamentID'] != "")
-						echo("<div class='econame'>"._("Tournament")." #".$tmpGame['tournamentID']."</div>");
+						echo("<div class='econame'><a href='tournament_view.php?ID=".$tmpGame['tournamentID']."'>"._("Tournament")." #".$tmpGame['tournamentID']."</a></div>");
 	          	?>
 				<div class="econame">
 	          	<?	echo(getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));

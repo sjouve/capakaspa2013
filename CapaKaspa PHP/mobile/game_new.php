@@ -127,13 +127,15 @@ require 'include/page_body.php';
 		<div id="onglet">
 		<table width="100%" cellpadding="0" cellspacing="0">
 		<tr>
-			<td><div class="ongletdisable"><a href="game_in_progress.php"><? echo _("Games")?></a></div></td>
-			<td><div class="ongletdisable"><a href="activity.php"><? echo _("News");?></a></div></td>
-			<td><div class="ongletdisable"><a href="player_search.php"><? echo _("Players");?></a></div></td>
+			<td><div class="ongletdisable" onclick="location.href='game_in_progress.php'"><a href="game_in_progress.php"><? echo _("Games");?></a></div></td>
+			<td><div class="ongletdisable" onclick="location.href='tournament_list.php'"><a href="tournament_list.php"><? echo _("Tournaments");?></a></div></td>
+			<td><div class="ongletdisable" onclick="location.href='activity.php'"><a href="activity.php"><? echo _("News");?></a></div></td>
+			<td><div class="ongletdisable" onclick="location.href='player_search.php'"><a href="player_search.php"><? echo _("Players");?></a></div></td>	
 		</tr>
 		</table>
 		</div>
 		
+		<div class="blockform">
 		<h3><? echo _("Start new game")?></h3>
 		<form name="startGameForm" action="game_in_progress.php" method="post">
 			<table width="100%">
@@ -212,7 +214,7 @@ require 'include/page_body.php';
 			<div id="button_right"><input type="button" value="<?echo _("Start game")?>" class="button" onclick="javascript:startGame();"></div>
 			<input type="hidden" name="ToDo" value="InvitePlayer">
 		</form>
-		<br><br>
+		</div>
 <?
 require 'include/page_footer.php';
 mysqli_close($dbh);

@@ -135,9 +135,10 @@ require 'include/page_body.php';
 <div id="onglet">
 	<table width="100%" cellpadding="0" cellspacing="0">
 		<tr>
-			<td><div class="ongletdisable"><a href="game_in_progress.php"><? echo _("Games")?></a></div></td>
-			<td><div class="ongletdisable"><a href="activity.php"><? echo _("News");?></a></div></td>
-			<td><div class="ongletdisable"><a href="player_search.php"><? echo _("Players");?></a></div></td>
+			<td><div class="ongletdisable" onclick="location.href='game_in_progress.php'"><a href="game_in_progress.php"><? echo _("Games");?></a></div></td>
+			<td><div class="ongletdisable" onclick="location.href='tournament_list.php'"><a href="tournament_list.php"><? echo _("Tournaments");?></a></div></td>
+			<td><div class="ongletdisable" onclick="location.href='activity.php'"><a href="activity.php"><? echo _("News");?></a></div></td>
+			<td><div class="ongletdisable" onclick="location.href='player_search.php'"><a href="player_search.php"><? echo _("Players");?></a></div></td>	
 		</tr>
 	</table>
 </div>
@@ -182,8 +183,8 @@ require 'include/page_body.php';
 	<span style="margin-left: 3px"><? echo _("Was born in ")?> <? echo($player['anneeNaissance']); ?></span><br>
 	<span style="margin-left: 3px"><? echo _("Lives in ")?> <? echo(stripslashes($player['situationGeo'])); ?>, <? echo($player['countryName']); ?></span><br>
 	<span style="margin-left: 3px"><? echo _("Elo")." :"?> <? echo($player['elo']); ?> - <?echo _("Chess960")." :"?> <? echo($player['elo960']); ?></span><br>
-	<span style="margin-left: 3px"><? echo _("About")?></span>
-		<div style="background-color: #EEEEEE;padding: 3px;height: 60px;overflow-y: auto;">
+	<span style="margin-left: 3px"><? echo _("About").":"?></span>
+		<div style="background-color: #EEEEEE;margin-left: 5px; margin-right: 5px;padding: 3px;height: 60px;overflow-y: auto;">
 			<? echo(nl2br(stripslashes($player['profil']))); ?>
 		</div>
 		<? 
@@ -222,10 +223,11 @@ require 'include/page_body.php';
 		$nbFollowing = $count['nbPlayers'];
 	}
 	?>
-	<br>
-	<div id="stat_won" class="block_stat"><span class="label"><? echo _("Won");?></span><br><span class="number"><? echo($nbVictoires); ?></span></div> 
+	
+	<!--  <div id="stat_won" class="block_stat"><span class="label"><? echo _("Won");?></span><br><span class="number"><? echo($nbVictoires); ?></span></div> 
 	<div id="stat_draw" class="block_stat"><span class="label"><? echo _("Draw");?></span><br><span class="number"><? echo($nbNulles); ?></span></div> 
 	<div id="stat_lost" class="block_stat"><span class="label"><? echo _("Lost");?></span><br><span class="number"><? echo($nbDefaites); ?></span></div>
+	-->
 	<div id="stat_news" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="displayFeed('activity', 0)"><span class="label"><? echo _("News");?></span><br><span class="number"><? echo($nbNews);?></span></div>
 	<div id="stat_wers" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="displayFeed('wers', 0)"><span class="label"><? echo _("Followers");?></span><br><span class="number"><? echo($nbFollowers);?></span></div>
 	<div id="stat_wing" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="displayFeed('wing', 0)"><span class="label"><? echo _("Following");?></span><br><span class="number"><? echo($nbFollowing);?></span></div>
