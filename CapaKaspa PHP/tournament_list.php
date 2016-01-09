@@ -55,13 +55,16 @@ $res = createTournamentAuto();
 ?>
 <div id="content">
 	<div class="contentbody">
-		<h2><? echo _("Register for a Round-robin tournament")?></h2>
+		
 		<div class="blockform">
+			<h3><? echo _("Register for a Round-robin tournament")?></h3>
+			<p>
 			<img src="images/picto_cup_20.png" width="40" height="40" border="0" style="float: left; margin-right: 10px; margin-top: 5px;">
 			<?
 			echo _("In the Round-robin tournaments you play classic games against every participant with whites and with blacks. For a tournament with four participants so you'll play 6 games.");
 			echo "<br>"._("As a tournament did not start it is possible to withdraw. A tournament starts when the last player registers. So the last player can't withdraw !");
 			?>
+			</p>
 		</div>
 			<? 	$tmpTournaments = listTournaments(0, 10, WAITING);
 			while($tmpTournament = mysqli_fetch_array($tmpTournaments, MYSQLI_ASSOC))
@@ -139,7 +142,8 @@ $res = createTournamentAuto();
 			if ($nbIPTournaments > 0)
 			{
 		?>
-		<h2><? echo _("In progress tournaments")?></h2>
+		<br>
+		<h3><? echo _("In progress tournaments")?></h3>
 		
 		<?		while($tmpTournament = mysqli_fetch_array($tmpTournaments, MYSQLI_ASSOC))
 				{
@@ -165,7 +169,8 @@ $res = createTournamentAuto();
 			if ($nbEDTournaments > 0)
 			{
 		?>
-		<h2><? echo _("Completed tournaments")?></h2>
+		<br>
+		<h3><? echo _("Completed tournaments")?></h3>
 		
 		<?		while($tmpTournament = mysqli_fetch_array($tmpTournaments, MYSQLI_ASSOC))
 				{

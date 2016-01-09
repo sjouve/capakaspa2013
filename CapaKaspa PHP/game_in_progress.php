@@ -220,7 +220,7 @@ require 'include/page_body.php';
 	if (mysqli_num_rows($tmpGamesFrom) > 0 || mysqli_num_rows($tmpGamesFor) > 0)
 	{
 	?>		
-		<h2><?php echo _("My pending requests");?> <a href="game_in_progress.php"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a></h2>
+		<h3><?php echo _("My pending requests");?> <a href="game_in_progress.php"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a></h3>
 		<form name="withdrawRequestForm" action="game_in_progress.php" method="post">
 		<?
 		if (mysqli_num_rows($tmpGamesFrom) > 0)
@@ -388,7 +388,7 @@ require 'include/page_body.php';
 	{
 	?>
 	
-		<h2><?php echo _("Other pending requests");?> (<a href="#" onclick="javascript:document.getElementById('requests').style.display = 'block';"><?php echo(mysqli_num_rows($tmpGamesFor));?></a>) <a href="game_in_progress.php"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a></h2>
+		<h3><?php echo _("Other pending requests");?> (<a href="#" onclick="javascript:document.getElementById('requests').style.display = 'block';"><?php echo(mysqli_num_rows($tmpGamesFor));?></a>) <a href="game_in_progress.php"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a></h3>
 	<? if (mysqli_num_rows($tmpGames) > 0) {?>
 	<div id="requests" style="display: none;">
 	<?} else {?>
@@ -481,7 +481,7 @@ require 'include/page_body.php';
 	</div>
 	&nbsp;<br>
 	<? } ?>	
-		<h2><?php echo _("My games in progress")?> <a href="game_in_progress.php"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a></h2>
+		<h3><?php echo _("My games in progress")?> <a href="game_in_progress.php"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a></h3>
 		<form name="existingGames" action="game_board.php" method="post">
 		<?
 		

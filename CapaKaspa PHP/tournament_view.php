@@ -72,15 +72,15 @@ require 'include/page_body.php';
 			$nbRegisteredPlayers = mysqli_num_rows($tmpPlayers);
 		?>
   		<div class="blockform">	
-			<b><? echo _("Tournament")." #".$tournament['tournamentID']." - ".$tournament['name']." - ".$strStatus;?></b>
+			<h2><? echo _("Tournament")." #".$tournament['tournamentID']." - ".$tournament['name']." - ".$strStatus;?></h2>
 			<? if ($tournament['status'] == WAITING) { ?>
-			<br><? echo "Created ".$strTournamentCreation;
+			<? echo "Created ".$strTournamentCreation;
 			} ?>
 			<? if ($tournament['status'] == INPROGRESS) { ?>
-			<br><? echo _("Started")." ".$strTournamentDate;
+			<? echo _("Started")." ".$strTournamentDate;
 			} ?>
 			<? if ($tournament['status'] == ENDED) { ?>
-			<br><? echo _("Started")." ".$strTournamentDate." - "._("Completed")." ".$strTournamentEnded;
+			<? echo _("Started")." ".$strTournamentDate." - "._("Completed")." ".$strTournamentEnded;
 			} ?>
 			<p><? echo $strType." - ".$tournament['nbPlayers']." "._("players")." - ".$tournament['timeMove']." "._("days per move");
 				if ($tournament['eloMin'] > 0) echo " - "."Elo "._("from")." ".$tournament['eloMin']." "._("to")." ".$tournament['eloMax'];
