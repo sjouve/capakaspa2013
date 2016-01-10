@@ -8,6 +8,14 @@ define ("MAX_NB_JOUR_ABSENCE", 30);
  * PLAYER READ
  */
 
+/*
+ * SELECT C.countryName Country, count(P.playerID) Players, avg(P.elo) "Avg Rating"
+FROM players P, country C 
+WHERE P.countryCode = C.countryCode
+AND C.countryLang = 'fr'
+group by P.countryCode
+ */
+
 /* Charger un utilisateur par son ID */
 function getPlayer($playerID)
 {
