@@ -1,5 +1,5 @@
 </head>
-<body>
+<body style="background-image: url('images/chess_background.jpg');">
 
 <? 
 if (isset($toPlayerID))
@@ -28,4 +28,4 @@ if (isset($toPlayerID))
 	</div>
 </div>
 
-<div id="container_home">
+<div id="container_home" >
