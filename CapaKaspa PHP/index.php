@@ -235,7 +235,7 @@ require 'include/page_body_home.php';
 
 <div id="content" style="border-left-style: none;">
 	<div class="contentbody">
-		<div class="blockform">
+		<div class="blockform" style="opacity: 0.9;">
 		<h3><?php echo _("New on CapaKaspa ? Sign up");?></h3>
 		<?if ($ToDo == 'activer' && !$err) {?>
 		<div class="success"><? echo _("Your account is actived.")?></div>
@@ -382,7 +382,7 @@ require 'include/page_body_home.php';
 </div>
 <div id="rightbarlarge">
 	<div class="contentbody">
-		<div class="blockform">
+		<div class="blockform" style="opacity: 0.9;">
 			<h3><?php echo _("Sign in");?></h3>
 			<?if (isset($_GET['err']) && $_GET['err'] == "login") {?>
 		        <div class='error'><? echo _("Invalid user name or password !");?></div>
@@ -409,13 +409,13 @@ require 'include/page_body_home.php';
 		        <input name="ToDo" value="Login" type="hidden">
 		    </form>
 		</div>
-	    <div class="blockform">
+	    <div class="blockform" style="opacity: 0.9;">
 	   		<h3><?php echo _("Play chess on CapaKaspa");?></h3>
 	   		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActiveGameForAll()); ?></span> <?php echo _("chess games in progress");?><br>
 	   		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActivePlayers()+getNbPassivePlayers()); ?></span> <?php echo _("players are waiting to play chess games");?>
 	   		<br>
    		</div>
-   		<div class="blockform">
+   		<div class="blockform" style="opacity: 0.9;">
 	   		<h3><?php echo _("Learn, practice and progress");?></h3>
 	   		<div style="float: left; width: 50%">
 		   		<img src="images/chessnews.png"/> <a href="http://www.capakaspa.info/category/actualites-des-echecs/"><? echo _("Chess news");?></a><br>
