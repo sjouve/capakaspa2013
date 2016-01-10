@@ -271,26 +271,32 @@ require 'include/page_body_home.php';
 		
 		<form name="userdata" method="post" action="index.php?ToDo=NewUser">
 		<table>
+			
 			<tr>
-				<td width="180"><?php echo _("I am");?> : </td>
+				<td ><?php echo _("User name");?> :</td>
+				<td width="400"><input name="txtNick" type="text" size="20" maxlength="20" value="<? echo(isset($_POST['txtNick'])?$_POST['txtNick']:""); ?>"></td>
+			</tr>
+			<tr>
+				<td><?php echo _("Choose password");?> :</td>
+				<td><input name="pwdPassword" type="password" size="20" maxlength="16"></td>
+			</tr>
+			<tr>
+				<td><?php echo _("Confirm password");?> :</td>
+				<td><input name="pwdPassword2" type="password" size="20" maxlength="16"></td>
+			</tr>
+			<tr>
+	            <td><?php echo _("Email");?> :</td>
+	            <td><input name="txtEmail" placeholder="<?php echo _("Valid email is required");?>" type="text" size="20" maxlength="50" value="<? echo(isset($_POST['txtEmail'])?$_POST['txtEmail']:""); ?>"></td>
+	        </tr>
+			
+			<tr>
+				<td width="200"><?php echo _("I am");?> : </td>
 	            <td>
 					<select name="txtSex" id="txtSex">
 						<option value="M" selected><?echo _("Male");?></option>
 						<option value="F"><?echo _("Female");?></option>
 					</select>
 				</td>
-			</tr>
-			<tr>
-				<td ><?php echo _("User name");?> :</td>
-				<td width="450"><input name="txtNick" type="text" size="20" maxlength="20" value="<? echo(isset($_POST['txtNick'])?$_POST['txtNick']:""); ?>"></td>
-			</tr>
-			<tr>
-				<td><?php echo _("Choose password");?> :</td>
-				<td><input name="pwdPassword" type="password" size="16" maxlength="16"></td>
-			</tr>
-			<tr>
-				<td><?php echo _("Confirm password");?> :</td>
-				<td><input name="pwdPassword2" type="password" size="16" maxlength="16"></td>
 			</tr>
 			<tr>
 				<td><?php echo _("First name");?> :</td>
@@ -300,13 +306,10 @@ require 'include/page_body_home.php';
 				<td><?php echo _("Last name");?> :</td>
 				<td><input name="txtLastName" type="text" size="20" maxlength="20" value="<? echo(isset($_POST['txtLastName'])?$_POST['txtLastName']:""); ?>"></td>
 			</tr>
-			<tr>
-	            <td><?php echo _("Email");?> :</td>
-	            <td><input name="txtEmail" placeholder="<?php echo _("A valid email is required for confirmation");?>" type="text" size="50" maxlength="50" value="<? echo(isset($_POST['txtEmail'])?$_POST['txtEmail']:""); ?>"></td>
-	        </tr>
+			
 			<tr>
 	            <td><?php echo _("Country");?> :</td>
-	            <td><select name="txtCountryCode" id="txtCountryCode">
+	            <td><select name="txtCountryCode" id="txtCountryCode" style="width: 153px;">
 		            <?
 		            echo "\t",'<option value="">', _("Select your country") ,'</option>',"\n";
 		            $tmpCountries = listAllCountriesByLang(getLang());
@@ -325,7 +328,7 @@ require 'include/page_body_home.php';
 	        </tr>
 	        <tr>
 	            <td><?php echo _("Birth date");?> :</td>
-	            <td><select name="txtAnneeNaissance" id="txtAnneeNaissance">
+	            <td><select name="txtAnneeNaissance" id="txtAnneeNaissance" style="width: 153px;">
 	            	<?php
 	            	echo "\t",'<option value="">', _("Select a year") ,'</option>',"\n";
 	            	// Parcours du tableau
@@ -344,14 +347,19 @@ require 'include/page_body_home.php';
 					?>
 	            </select></td>
 	        </tr>
-	        </table>
-			<table>
+	        
 			<tr>
-				<td >
-					<?php echo _("Type the security code");?>
+				<td>
+					<?php echo _("Type the security code").":";?>
+				</td>
+				<td>
 					<input type="text" name="captcha_code" size="6" maxlength="6" />
 					<a href="#" onclick="document.getElementById('captcha').src = 'securimage/securimage_show.php?' + Math.random(); return false"><img src="images/icone_rafraichir.png" border="0" alt="<?php echo _("Try other security code");?>" title="<?php echo _("Try other security code");?>"/></a> 
-					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					&nbsp;
 				</td>
 				<td valign="middle">
 					<img id="captcha" src="securimage/securimage_show.php" alt="<?php echo _("Captcha Image");?>" title="<?php echo _("Captcha Image");?>"/>
@@ -375,41 +383,53 @@ require 'include/page_body_home.php';
 <div id="rightbarlarge">
 	<div class="contentbody">
 		<div class="blockform">
-		<h3><?php echo _("Sign in");?></h3>
-		<form method="post" action="game_in_progress.php">
-			<table>
-				<tr>
-					<td width="50%"><?php echo _("User name");?> :</td>	        	
-		        	<td width="50%"><input name="txtNick" type="text" size="20" maxlength="20"></td>
-		        </tr>
-		        <tr>
-		        	<td><?php echo _("Password");?> :</td>
-		        	<td><input name="pwdPassword" type="password" size="20" maxlength="16"></td>
-		        </tr>
-	        </table>
-	        <?if (isset($_GET['err']) && $_GET['err'] == "login") {?>
-	        <div class='error'><? echo _("Invalid user name or password !");?></div>
-	        <?}?>
-	        <input name="chkAutoConn" type="checkbox"/> <? echo _("Remember me");?><br><br>
-	        <center><input name="login" value="<? echo _("Sign in");?>" type="submit" class="button" style="font-size: 13px;"> <img src="images/puce.gif"/> <a href="password.php"><? echo _("Forgot password ?");?></a></center>
-	        <input name="ToDo" value="Login" type="hidden">
-	    </form>
-	    <br>
+			<h3><?php echo _("Sign in");?></h3>
+			<?if (isset($_GET['err']) && $_GET['err'] == "login") {?>
+		        <div class='error'><? echo _("Invalid user name or password !");?></div>
+		    <?}?>
+			<form method="post" action="game_in_progress.php">
+				<table>
+					<tr>
+						<td width="50%"><?php echo _("User name");?> :</td>	        	
+			        	<td width="50%"><input name="txtNick" type="text" size="20" maxlength="20"></td>
+			        </tr>
+			        <tr>
+			        	<td><?php echo _("Password");?> :</td>
+			        	<td><input name="pwdPassword" type="password" size="20" maxlength="16"></td>
+			        </tr>
+			        <tr>
+			        	<td><? echo _("Remember me");?></td>
+			        	<td><input name="chkAutoConn" type="checkbox"/></td>
+			        </tr>
+		        </table>
+		        
+		        <center><input name="login" value="<? echo _("Sign in");?>" type="submit" class="button" style="font-size: 13px;"> <br>
+		        		<img src="images/puce.gif"/> <a href="password.php"><? echo _("Forgot password ?");?></a>
+		        </center>
+		        <input name="ToDo" value="Login" type="hidden">
+		    </form>
 		</div>
 	    <div class="blockform">
-   		<h3><?php echo _("Play chess on CapaKaspa");?></h3>
-   		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActiveGameForAll()); ?></span> <?php echo _("chess games in progress");?><br>
-   		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActivePlayers()+getNbPassivePlayers()); ?></span> <?php echo _("players are waiting to play chess games");?>
-   		<br>
+	   		<h3><?php echo _("Play chess on CapaKaspa");?></h3>
+	   		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActiveGameForAll()); ?></span> <?php echo _("chess games in progress");?><br>
+	   		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActivePlayers()+getNbPassivePlayers()); ?></span> <?php echo _("players are waiting to play chess games");?>
+	   		<br>
    		</div>
    		<div class="blockform">
-   		<h3><?php echo _("Start, practice and progress");?></h3>
-   		<img src="images/puce.gif"/> <a href="app_puzzle.php"><? echo _("Chess puzzle of the day");?></a><br>
-   		<img src="images/puce.gif"/> <a href="app_jchess.php"><? echo _("Play chess vs JChess");?></a><br>
-   		
-   		<img src="images/puce.gif"/> <a href="app_flashchess.php"><? echo _("Play chess vs FlashChess");?></a><br>
-   		
-   		<img src="images/puce.gif"/> <a href="app_sparkchess.php"><? echo _("Play chess vs SparkChess");?></a><br>
+	   		<h3><?php echo _("Learn, practice and progress");?></h3>
+	   		<div style="float: left; width: 50%">
+		   		<img src="images/chessnews.png"/> <a href="http://www.capakaspa.info/category/actualites-des-echecs/"><? echo _("Chess news");?></a><br>
+			    <img src="images/event.png"/> <a href="http://www.capakaspa.info/evenements/"><? echo _("Upcoming events");?></a><br>
+			    <img src="images/event.png"/> <a href="http://www.capakaspa.info/les-echecs-en-direct/"><? echo _("Live !!");?></a><br>
+			    <img src="images/learnchess.png"/> <a href="http://www.capakaspa.info/category/apprentissage/"><? echo _("Learning chess");?></a><br>
+   			</div>
+   			<div style="float: left; width: 50%">
+		   		<img src="images/chesspuzzle.png"/> <a href="app_puzzle.php"><?php echo _("Puzzle of the day");?></a><br>
+		   		<img src="images/jchess.png"/> <a href="app_jchess.php"><?php echo _("Play vs JChess");?></a><br>
+		   		<img src="images/flashchess.gif"/> <a href="app_flashchess.php"><?php echo _("Play vs FlashChess");?></a><br>
+		   		<img src="images/sparkchess.png"/> <a href="app_sparkchess.php"><?php echo _("Play vs SparkChess");?></a><br>
+	   		</div>
+			
    		</div>
 	</div>
 </div>
