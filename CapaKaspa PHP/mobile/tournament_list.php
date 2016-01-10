@@ -202,7 +202,20 @@ $res = createTournamentAuto();
 		</div>
 		<? 		} 
 			}
-			
-require 'include/page_footer.php';
+		?>
+		<div id="ads_bottom">
+			<center>
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- CapaKaspa Mobile Bottom -->
+			<ins class="adsbygoogle"
+			     style="display:inline-block;width:320px;height:100px"
+			     data-ad-client="ca-pub-8069368543432674"
+			     data-ad-slot="7983531266"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+			</center>
+		</div>	
+<?require 'include/page_footer.php';
 mysqli_close($dbh);
 ?>

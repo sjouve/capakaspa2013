@@ -93,7 +93,7 @@ require 'include/page_body.php';
 			<p><? echo $strType." - ".$tournament['nbPlayers']." "._("players")." - ".$tournament['timeMove']." "._("days per move");
 				if ($tournament['eloMin'] > 0) echo " - "."Elo "._("from")." ".$tournament['eloMin']." "._("to")." ".$tournament['eloMax'];
 			?></p>
-			<div style="font-size: 11px; border-top-style: solid; border-width: 1px; border-color: #CCCCCC;">
+			<div style="font-size: 12px; font-weight: bold; border-top-style: solid; border-width: 1px; border-color: #CCCCCC;">
 				<?if (isset($tournament['likeID'])){?> 
 				<span id="like<?echo(TOURNAMENT.$tournament['tournamentID']);?>" ><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>, <?echo($tournament['likeID']);?>);"><?echo _("! Unlike");?></a></span>
 				<?} else {?>
@@ -263,7 +263,19 @@ require 'include/page_body.php';
         	<input type="hidden" name="gameID" value="">
         	<input type="hidden" name="from" value="tournament">
       	</form>
-		
+		<div id="ads_bottom">
+			<center>
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- CapaKaspa Mobile Bottom -->
+				<ins class="adsbygoogle"
+				     style="display:inline-block;width:320px;height:100px"
+				     data-ad-client="ca-pub-8069368543432674"
+				     data-ad-slot="7983531266"></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+			</center>
+		</div>
 <?
 require 'include/page_footer.php';
 mysqli_close($dbh);

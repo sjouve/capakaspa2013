@@ -379,11 +379,11 @@ require 'include/page_body.php';
 			</div>
 			</form>
 		</div>
-		<div id="gamefooter">
+		<div id="gamefooter" style="padding-left: 5px; font-size: 12px;">
 			<?if (isset($tmpGame['likeID'])){?>
-				<span id="like<?echo(GAME.$_POST['gameID']);?>"><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>, <?echo($tmpGame['likeID']);?>);"><?echo _("! Unlike");?></a></span>
+				<span style="font-weight: bold;" id="like<?echo(GAME.$_POST['gameID']);?>"><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>, <?echo($tmpGame['likeID']);?>);"><?echo _("! Unlike");?></a></span>
 			<?} else {?>
-				<span id="like<?echo(GAME.$_POST['gameID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>);"><?echo _("! Like");?></a></span>
+				<span style="font-weight: bold;" id="like<?echo(GAME.$_POST['gameID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>);"><?echo _("! Like");?></a></span>
 			<?}?>
 			- <span class="date"><?
 			$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::SHORT, IntlDateFormatter::SHORT);

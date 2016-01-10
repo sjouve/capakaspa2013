@@ -19,14 +19,15 @@
 </div>
 <div id="advertisement">
 	<center>
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<!-- CapaKaspa Mobile Top -->
-	<ins class="adsbygoogle"
-	     style="display:inline-block;width:320px;height:50px"
-	     data-ad-client="ca-pub-8069368543432674"
-	     data-ad-slot="3841873078"></ins>
-	<script>
-	(adsbygoogle = window.adsbygoogle || []).push({});
-	</script>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- CapaKaspa Mobile Adaptable Top -->
+		<ins class="adsbygoogle"
+		     style="display:block"
+		     data-ad-client="ca-pub-8069368543432674"
+		     data-ad-slot="5941854862"
+		     data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
 	</center>
 </div>
