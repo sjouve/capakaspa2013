@@ -111,4 +111,13 @@ function deleteTournamentGame($tournamentID, $gameID)
 	
 	return $res_game;
 }
+
+function countIPTournament()
+{
+	global $dbh;
+	$IPTournaments = mysqli_query($dbh,"SELECT count(tournamentID) nbTournaments 
+										FROM tournament 
+										WHERE status ='".INPROGRESS."'");
+	return mysqli_fetch_array($IPTournaments, MYSQLI_ASSOC);
+}
 ?>

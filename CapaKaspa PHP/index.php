@@ -6,14 +6,17 @@ session_start();
 if (!isset($_CONFIG))
 	require 'include/config.php';
 
+require 'include/constants.php';
 require 'dac/dac_players.php';
 require 'dac/dac_common.php';
 require 'dac/dac_games.php';
+require 'dac/dac_tournament.php';
 
 require 'bwc/bwc_chessutils.php';
 require 'bwc/bwc_common.php';
 require 'bwc/bwc_players.php';
 require 'bwc/bwc_games.php';
+require 'bwc/bwc_tournament.php';
 
 // Captcha
 include_once  'securimage/securimage.php';
@@ -272,9 +275,8 @@ require 'include/page_body_home.php';
 		
 		<form name="userdata" method="post" action="index.php?ToDo=NewUser">
 		<table>
-			
 			<tr>
-				<td ><?php echo _("User name");?> :</td>
+				<td width="200"><?php echo _("User name");?> :</td>
 				<td width="400"><input name="txtNick" type="text" size="20" maxlength="20" value="<? echo(isset($_POST['txtNick'])?$_POST['txtNick']:""); ?>"></td>
 			</tr>
 			<tr>
@@ -289,9 +291,11 @@ require 'include/page_body_home.php';
 	            <td><?php echo _("Email");?> :</td>
 	            <td><input name="txtEmail" placeholder="<?php echo _("Valid email is required");?>" type="text" size="20" maxlength="50" value="<? echo(isset($_POST['txtEmail'])?$_POST['txtEmail']:""); ?>"></td>
 	        </tr>
-			
 			<tr>
-				<td width="200"><?php echo _("I am");?> : </td>
+	            <td colspan="2">&nbsp;</td>
+	        </tr>
+			<tr>
+				<td><?php echo _("I am");?> : </td>
 	            <td>
 					<select name="txtSex" id="txtSex">
 						<option value="M" selected><?echo _("Male");?></option>
@@ -412,8 +416,9 @@ require 'include/page_body_home.php';
 		</div>
 	    <div class="blockform" style="opacity: 0.9;">
 	   		<h3><?php echo _("Play chess on CapaKaspa");?></h3>
+	   		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActivePlayers()+getNbPassivePlayers()); ?></span> <?php echo _("players are waiting to play chess games");?><br>
 	   		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActiveGameForAll()); ?></span> <?php echo _("chess games in progress");?><br>
-	   		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActivePlayers()+getNbPassivePlayers()); ?></span> <?php echo _("players are waiting to play chess games");?>
+	   		<span class="newplayer" style="font-size: 12px;"><? echo(getNbIPTournament()); ?></span> <?php echo _("in progress chess tournaments");?>
 	   		<br>
    		</div>
    		<div class="blockform" style="opacity: 0.9;">

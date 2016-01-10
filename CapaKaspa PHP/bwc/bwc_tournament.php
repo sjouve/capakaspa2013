@@ -179,4 +179,10 @@ function checkTournamentEnding($tournamentID)
 	}	
 	
 }
+
+function getNbIPTournament()
+{
+	$res = countIPTournament();
+	return $res['nbTournaments'];
+}
 ?>

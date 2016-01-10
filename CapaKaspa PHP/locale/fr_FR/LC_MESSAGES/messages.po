@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2016-01-10 17:05+0100\n"
-"PO-Revision-Date: 2016-01-10 17:13+0100\n"
+"POT-Creation-Date: 2016-01-10 19:00+0100\n"
+"PO-Revision-Date: 2016-01-10 19:00+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -79,20 +79,20 @@ msgstr ""
 "mettre à jour votre adresse email et commencer le processus d'activation"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:64
-#: PHP/bwc/bwc_players.php:355 PHP/include/page_body.php:65 PHP/index.php:262
-#: PHP/index.php:277 PHP/index.php:394 PHP/mobile/index.php:65
+#: PHP/bwc/bwc_players.php:355 PHP/include/page_body.php:65 PHP/index.php:265
+#: PHP/index.php:279 PHP/index.php:398 PHP/mobile/index.php:65
 #: PHP/player_update.php:335
 msgid "User name"
 msgstr "Nom d'utilisateur"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:69
-#: PHP/bwc/bwc_players.php:356 PHP/include/page_body.php:66 PHP/index.php:398
+#: PHP/bwc/bwc_players.php:356 PHP/include/page_body.php:66 PHP/index.php:402
 #: PHP/mobile/index.php:66
 msgid "Password"
 msgstr "Mot de passe"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/activation.php:74
-#: PHP/index.php:264 PHP/index.php:289 PHP/player_update.php:379
+#: PHP/index.php:267 PHP/index.php:291 PHP/player_update.php:379
 msgid "Email"
 msgstr "Email"
 
@@ -1736,22 +1736,22 @@ msgstr ""
 "échecs."
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:68
-#: PHP/index.php:389
+#: PHP/index.php:393
 msgid "Invalid user name or password !"
 msgstr "Nom d'utilisateur ou mot de passe invalide !"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:70
-#: PHP/index.php:402 PHP/mobile/index.php:72
+#: PHP/index.php:406 PHP/mobile/index.php:72
 msgid "Remember me"
 msgstr "Se souvenir de moi"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:71
-#: PHP/index.php:387 PHP/index.php:407 PHP/mobile/index.php:73
+#: PHP/index.php:391 PHP/index.php:411 PHP/mobile/index.php:73
 msgid "Sign in"
 msgstr "Se connecter"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/include/page_body.php:74
-#: PHP/index.php:408
+#: PHP/index.php:412
 msgid "Forgot password ?"
 msgstr "Mot de passe oublié ?"
 
@@ -1831,22 +1831,22 @@ msgid "Training"
 msgstr "Entrainement"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:127 PHP/index.php:428
+#: PHP/include/page_body.php:127 PHP/index.php:433
 msgid "Puzzle of the day"
 msgstr "Diagramme du jour"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:128 PHP/index.php:429
+#: PHP/include/page_body.php:128 PHP/index.php:434
 msgid "Play vs JChess"
 msgstr "Jouer avec JChess"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:129 PHP/index.php:430
+#: PHP/include/page_body.php:129 PHP/index.php:435
 msgid "Play vs FlashChess"
 msgstr "Jouer avec FlashChess"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:130 PHP/index.php:431
+#: PHP/include/page_body.php:130 PHP/index.php:436
 msgid "Play vs SparkChess"
 msgstr "Jouer avec SparkChess"
 
@@ -1856,22 +1856,22 @@ msgid "More on CapaKaspa"
 msgstr "Plus sur CapaKaspa"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:137 PHP/index.php:422
+#: PHP/include/page_body.php:137 PHP/index.php:427
 msgid "Chess news"
 msgstr "Actualités des échecs"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:138 PHP/index.php:423
+#: PHP/include/page_body.php:138 PHP/index.php:428
 msgid "Upcoming events"
 msgstr "Evénements à venir"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:139 PHP/index.php:424
+#: PHP/include/page_body.php:139 PHP/index.php:429
 msgid "Live !!"
 msgstr "Le Direct !!"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa
-#: PHP/include/page_body.php:140 PHP/index.php:425
+#: PHP/include/page_body.php:140 PHP/index.php:430
 msgid "Learning chess"
 msgstr "Apprendre les échecs"
 
@@ -1902,217 +1902,221 @@ msgstr "CGU"
 msgid "Help"
 msgstr "Aide"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:114
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:117
 #: PHP/mobile/index.php:51
 msgid "Play chess and share your games"
 msgstr "Jouer aux échecs et partager ses parties"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:115
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:118
 msgid "Sign up for CapaKaspa, play chess and share your games."
 msgstr ""
 "Zone de jeu d'échecs en ligne de CapaKaspa. Jouer aux échecs en différé et "
 "partager vos parties."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:207
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:210
 msgid "Play Chess"
 msgstr "Jouer aux échecs"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:210
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:213
 msgid "and Share your Games !"
 msgstr "et Partager ses parties !"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:216
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:219
 msgid "Choose your cadence and type:"
-msgstr "Choisir votre candence et le type:"
+msgstr "Choisir votre cadence et le type:"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:217
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:220
 msgid "Classic game, Chess960 or Beginner game."
 msgstr "Partie classique, Chess960 ou Partie débutant simplifiée."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:218
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:221
 msgid "Participate in chess tournaments !"
 msgstr "Participer à des tournois d'échecs !"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:223
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:226
 msgid "Share your moves, results and invitations with your followers."
 msgstr "Partager vos coups, résultats et invitations avec vos abonnés."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:224
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:227
 msgid "Follow players, comment news, games and tournaments..."
 msgstr "Suivre les joueurs, commenter les actus, les parties et les tournois."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:229
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:232
 msgid "View detailed profile of players. Discuss with them in private."
 msgstr "Voir le profil détaillé des joueurs. Discuter avec eux en privé."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:230
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:233
 msgid "Monthly Elo rankings, achievements, games archive. "
 msgstr "Classements Elo mensuels, objectifs, archives des parties."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:240
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:243
 msgid "New on CapaKaspa ? Sign up"
 msgstr "Nouveau sur CapaKaspa ? Inscription"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:242
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:245
 msgid "Your account is actived."
 msgstr "Votre compte est activé."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:244
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:247
 msgid "You can now sign in, play chess and share your games."
 msgstr ""
 "Vous pouvez maintenant vous connecter, jouer aux échecs et partager vos "
 "parties."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:247
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:250
 msgid "An error has occured during activation !"
 msgstr "Une erreur s'est produite pendant l'activation !"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:249
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:252
 msgid "A confirmation message has been sent at this email address"
 msgstr "Un message de confirmation a été envoyé à cette adresse email"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:252
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:255
 #: PHP/player_update.php:308
 msgid "All fields are required"
 msgstr "Tous les champs sont obligatoires"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:253
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:256
 msgid "Bad format for user name : at least 2 caracters"
 msgstr "Mauvais format pour le nom d'utilisateur : au moins 2 caractères"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:254
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:257
 #: PHP/player_update.php:310
 msgid "Bad format for password : at least 6 caracters"
 msgstr "Mauvais format pour le mot de passe : au moins 6 caractères"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:255
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:258
 #: PHP/player_update.php:311
 msgid "Bad format for email"
 msgstr "Mauvais format pour l'email"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:256
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:259
 #: PHP/player_update.php:312
 msgid "Bad format for first name"
 msgstr "Mauvais format pour le prénom"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:257
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:260
 #: PHP/player_update.php:313
 msgid "Bad format for last name"
 msgstr "Mauvais format pour le nom"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:258
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:261
 #: PHP/player_update.php:314
 msgid "Password confirmation error"
 msgstr "Erreur de confirmation de mot de passe"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:262
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:265
 msgid "you have choosen already exists. Try another user name."
 msgstr "que vous avez choisi existe déjà. Essayez un autre nom d'utilisateur."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:264
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:267
 msgid "you have choosen aleady exists. Try another email."
 msgstr "que vous avez choisi existe déjà. Essayez un autre email."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:266
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:269
 msgid "Empty user name"
 msgstr "Nom d'utilisateur vide"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:268
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:271
 #: PHP/player_update.php:288
 msgid "A technical error has occured"
 msgstr "Une erreur technique s'est produite"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:270
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:273
 msgid "Security code error. Try again."
 msgstr "Erreur de code de sécurité. Essayez encore."
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:281
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:283
 msgid "Choose password"
 msgstr "Choisir un mot de passe"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:285
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:287
 #: PHP/player_update.php:371
 msgid "Confirm password"
 msgstr "Confirmer mot de passe"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:290
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:292
 msgid "Valid email is required"
 msgstr "Email valide obligatoire"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:294
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:298
 #: PHP/player_update.php:325
 msgid "I am"
 msgstr "Je suis"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:297
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:301
 #: PHP/player_update.php:328
 msgid "Male"
 msgstr "Homme"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:298
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:302
 #: PHP/player_update.php:329
 msgid "Female"
 msgstr "Femme"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:303
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:307
 #: PHP/player_update.php:340
 msgid "First name"
 msgstr "Prénom"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:307
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:311
 #: PHP/player_update.php:346
 msgid "Last name"
 msgstr "Nom"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:312
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:316
 #: PHP/mobile/player_search.php:96 PHP/player_search.php:89
 #: PHP/player_update.php:391
 msgid "Country"
 msgstr "Pays"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:315
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:319
 #: PHP/player_update.php:394
 msgid "Select your country"
 msgstr "Choisir votre pays"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:331
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:335
 msgid "Birth date"
 msgstr "Date naissance"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:334
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:338
 #: PHP/player_update.php:355
 msgid "Select a year"
 msgstr "Choisir une année"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:354
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:358
 msgid "Type the security code"
 msgstr "Entrer le code de sécurité"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:358
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:362
 msgid "Try other security code"
 msgstr "Essayez un autre code de sécurité"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:366
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:370
 msgid "Captcha Image"
 msgstr "Image Captcha"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:371
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:375
 msgid "Sign up for free"
 msgstr "S'inscrire gratuitement"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:414
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:418
 msgid "Play chess on CapaKaspa"
 msgstr "Jouer aux échecs sur CapaKaspa"
 
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:415
-msgid "chess games in progress"
-msgstr "parties d'échecs en cours"
-
-#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:416
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:419
 msgid "players are waiting to play chess games"
 msgstr "joueurs attendent de jouer aux échecs"
 
 #: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:420
+msgid "chess games in progress"
+msgstr "parties d'échecs en cours"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:421
+msgid "in progress chess tournaments"
+msgstr "tournois d'échecs en cours"
+
+#: C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP/index.php:425
 msgid "Learn, practice and progress"
 msgstr "Apprendre, s'exercer et progresser"
 
