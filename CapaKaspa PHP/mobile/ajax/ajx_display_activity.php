@@ -186,6 +186,9 @@ else
 							<div class='gamedetails'>");
 								if ($pictoPath != "") echo("<img src='".$pictoPath."'/> ");
 								echo("<span class='activity_type'>".$activityType."</span>");
+								if ($tmpActivity['gameMessage'] != "playerInvited")
+									echo("<span style='float: right'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGameActivity(".$tmpActivity['gameID'].")'></span>");
+								
 								echo("<br>
 									<span style='float: left'><img src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'> ".$tmpActivity['wNick']."<br>".$wElo."</span>
 									<span style='float: right'><img src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'> ".$tmpActivity['bNick']."<br>".$bElo."</span>");
@@ -196,8 +199,6 @@ else
 								echo("<br><div class='gameboard'>");
 									drawboardGame($tmpActivity['gameID'], $tmpActivity['wPlayerID'], $tmpActivity['bPlayerID'], $tmpActivity['position'], $tmpActivity['nbMoves']);
 								echo("</div>");
-								if ($tmpActivity['gameMessage'] != "playerInvited")
-									echo("<span style='float: right'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGameActivity(".$tmpActivity['gameID'].")'></span>");
 								
 							echo("</div>
 							
