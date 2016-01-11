@@ -224,7 +224,7 @@ require 'include/page_body_no_menu.php';
 		
 	</div>
 	<div id="graphelo" style="float: right; display: block;">
-		<? echo _("Elo ranking history");?><br>
+		<? echo _("Elo ranking history")." ("._("Classic").")";?><br>
 		<img src="graph_elo_progress.php?playerID=<?php echo($playerID);?>&elo=<?php echo($player['elo']);?>" width="600" height="250" />
 	</div>
 </div>
@@ -323,7 +323,6 @@ require 'include/page_body_no_menu.php';
         <input type="hidden" name="from" value="toutes">
       </form>
       </div>
-      <br>
       <? if ($_SESSION['playerID'] != $player['playerID']) {?>
       	
 		<div class="navlinks">
