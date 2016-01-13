@@ -28,7 +28,7 @@ $flagRook = isset($_POST['flagRook'])?$_POST['flagRook']:"";
 $flagQueen = isset($_POST['flagQueen'])?$_POST['flagQueen']:"";
 $type = isset($_POST['type']) ? $_POST['type']:0;
 $ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:(isset($_GET['ToDo']) ? $_GET['ToDo']:Null);
-$hideNotTurn = isset($_GET['turn']) ? $_GET['turn']:0;
+$_SESSION['hideNotTurn'] = isset($_GET['turn']) ? $_GET['turn']:(isset($_SESSION['hideNotTurn']) ? $_SESSION['hideNotTurn']:0);
 	
 switch($ToDo)
 {
@@ -484,12 +484,12 @@ require 'include/page_body.php';
 	<? } ?>	
 		<h3><?php echo _("My games in progress")?> 
 		<? if (mysqli_num_rows($tmpGames) > 0) 
-			if ($hideNotTurn == 1) {?>
+			if ($_SESSION['hideNotTurn'] == 1) {?>
 		<a href="game_in_progress.php?turn=0"><img src="images/picto_plus.png" border="0" title="<?php echo _("Show all your games in progress")?>" alt="<?php echo _("Show all your games in progress")?>" /></a>
 		<? } else {?>		
 		<a href="game_in_progress.php?turn=1"><img src="images/picto_moins.png" border="0" title="<?php echo _("Show only your moves to do")?>" alt="<?php echo _("Show only your moves to do")?>" /></a>
 		<? } ?>
-		<a href="game_in_progress.php?turn=<? echo $hideNotTurn;?>"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a>
+		<a href="game_in_progress.php?turn=<? echo $_SESSION['hideNotTurn'];?>"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a>
 		
 		</h3>
 		<form name="existingGames" action="game_board.php" method="post">
@@ -541,7 +541,7 @@ require 'include/page_body.php';
 				
 				echo("
 				<div id='".$tmpGame['gameID']."' class='activity' "); 
-				if (!$isTurn && $hideNotTurn == 1) echo("style='visibility: hidden; height: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px;'");
+				if (!$isTurn && $_SESSION['hideNotTurn'] == 1) echo("style='visibility: hidden; height: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px;'");
 				echo(">
 					<div class='leftbar'>
 						<img src='".getPicturePath($opponentSocialNW, $opponentSocialID)."' width='40' height='40' border='0'/>
