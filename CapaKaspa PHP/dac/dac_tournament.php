@@ -46,8 +46,10 @@ function updateTournament($tournamentID, $status)
 function listTournaments($start, $limit, $status)
 {
 	global $dbh;
-	$tmpQuery = "SELECT tournamentID, type, name, status, nbPlayers, timeMove, creationDate, eloMin, eloMax, beginDate, endDate
-				FROM tournament
+	$tmpQuery = "SELECT T.tournamentID, type, name, status, nbPlayers, timeMove, creationDate, eloMin, eloMax, beginDate, endDate, TP.playerID
+				FROM tournament T 
+					LEFT JOIN tournament_players TP ON T.tournamentID = TP.tournamentID 
+													AND TP.playerID = ".$_SESSION['playerID']." 
 				WHERE status = '".$status."'";
 				
 	if ($status == WAITING) $tmpQuery .= "ORDER BY creationDate DESC";

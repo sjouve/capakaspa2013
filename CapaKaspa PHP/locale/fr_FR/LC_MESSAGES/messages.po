@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2016-01-11 22:49+0100\n"
-"PO-Revision-Date: 2016-01-11 22:50+0100\n"
+"POT-Creation-Date: 2016-01-13 22:59+0100\n"
+"PO-Revision-Date: 2016-01-13 22:59+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -3130,6 +3130,10 @@ msgstr ""
 "autres points n'en seraient pas affectés. Tout point déclaré caduc sera "
 "remplacé par une disposition se rapprochant le plus possible de la "
 "précédente disposition."
+
+#: tournament_list.php:83 tournament_list.php:160 tournament_list.php:189
+msgid "Your are registered"
+msgstr "Vous êtes inscrit"
 
 #~ msgid "Play chess online, choose your cadence and type."
 #~ msgstr "Jouer aux échecs en ligne, choisir votre cadence et le type."

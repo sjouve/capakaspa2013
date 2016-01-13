@@ -80,7 +80,7 @@ $res = createTournamentAuto();
 			<b><? echo _("Tournament")." #".$tmpTournament['tournamentID']." - ".$tmpTournament['name']." - "._("Registration");?></b>
 			
 			<br><? echo _("Created")." ".$strTournamentDate;?>
-			<p><? echo $strType." - ".$tmpTournament['nbPlayers']." "._("players")." - ".$tmpTournament['timeMove']." "._("days per move");
+			<p><? if ($tmpTournament['playerID'] == $_SESSION['playerID']) echo("<img title='"._("Your are registered")."' src='images/hand.gif'/> ");?><? echo $strType." - ".$tmpTournament['nbPlayers']." "._("players")." - ".$tmpTournament['timeMove']." "._("days per move");
 				if ($tmpTournament['eloMin'] > 0) echo " - "."Elo "._("from")." ".$tmpTournament['eloMin']." "._("to")." ".$tmpTournament['eloMax'];
 			?></p>
 			</div>
@@ -157,7 +157,7 @@ $res = createTournamentAuto();
 			<b><? echo _("Tournament")." #".$tmpTournament['tournamentID']." - ".$tmpTournament['name']." - "._("In progress");?></b>
 			<div style='float:right;'><input type="button" class="link" value="<? echo _("View")?>" onclick="location.href='tournament_view.php?ID=<?echo $tmpTournament['tournamentID'];?>'"></div>
 			<br><? echo _("Started")." ".$strTournamentDate;?>
-			<p><? echo $strType." - ".$tmpTournament['nbPlayers']." "._("players")." - ".$tmpTournament['timeMove']." "._("days per move");
+			<p><? if ($tmpTournament['playerID'] == $_SESSION['playerID']) echo("<img title='"._("Your are registered")."' src='images/hand.gif'/> ");?><? echo $strType." - ".$tmpTournament['nbPlayers']." "._("players")." - ".$tmpTournament['timeMove']." "._("days per move");
 				if ($tmpTournament['eloMin'] > 0) echo " - "."Elo "._("from")." ".$tmpTournament['eloMin']." "._("to")." ".$tmpTournament['eloMax'];
 			?></p>
 		</div>
@@ -186,7 +186,7 @@ $res = createTournamentAuto();
 			<b><? echo _("Tournament")." #".$tmpTournament['tournamentID']." - ".$tmpTournament['name']." - "._("Completed ");?></b>
 			<div style='float:right;'><input type="button" class="link" value="<? echo _("View")?>" onclick="location.href='tournament_view.php?ID=<?echo $tmpTournament['tournamentID'];?>'"></div>
 			<br><? echo _("Started")." ".$strTournamentDate." - "._("Completed")." ".$strTournamentEndDate;?>
-			<p><? echo $strType." - ".$tmpTournament['nbPlayers']." "._("players")." - ".$tmpTournament['timeMove']." "._("days per move");
+			<p><? if ($tmpTournament['playerID'] == $_SESSION['playerID']) echo("<img title='"._("Your are registered")."' src='images/hand.gif'/> ");?><? echo $strType." - ".$tmpTournament['nbPlayers']." "._("players")." - ".$tmpTournament['timeMove']." "._("days per move");
 				if ($tmpTournament['eloMin'] > 0) echo " - "."Elo "._("from")." ".$tmpTournament['eloMin']." "._("to")." ".$tmpTournament['eloMax'];
 			?></p>
 			
