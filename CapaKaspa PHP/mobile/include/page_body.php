@@ -15,7 +15,7 @@
 <body <?echo(isset($attribut_body)?$attribut_body:"")?>>
 
 <div id="top">
-	<a href="index.php"><img src="images/icon_home.gif"> CapaKaspa</a>
+	<a href="player_view.php?playerID=<?php echo $_SESSION['playerID'];?>"><img src="images/icon_home.gif"> CapaKaspa</a>
 </div>
 <div id="advertisement">
 	<center>

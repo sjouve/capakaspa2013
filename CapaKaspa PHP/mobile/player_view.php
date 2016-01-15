@@ -155,7 +155,7 @@ require 'include/page_body.php';
   		?>
   	</div>
   	<div id="player_action" style="float: right;display: block;padding-top: 15px;padding-right: 5px;">
-	  	<? if ($_SESSION['playerID'] === $player['playerID']) {?>
+	  	<? if ($_SESSION['playerID'] == $player['playerID']) {?>
 	  	<form name="logout" action="game_in_progress.php" method="post">
 		  	<div id="logout" style="display: inline;">
 		        <input type="hidden" name="ToDo" value="Logout">
