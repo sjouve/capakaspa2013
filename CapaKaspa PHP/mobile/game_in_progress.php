@@ -28,6 +28,7 @@ $flagRook = isset($_POST['flagRook'])?$_POST['flagRook']:"";
 $flagQueen = isset($_POST['flagQueen'])?$_POST['flagQueen']:"";
 $type = isset($_POST['type']) ? $_POST['type']:0;
 $ToDo = isset($_POST['ToDo']) ? $_POST['ToDo']:(isset($_GET['ToDo']) ? $_GET['ToDo']:Null);
+$_SESSION['hideNotTurn'] = isset($_GET['turn']) ? $_GET['turn']:(isset($_SESSION['hideNotTurn']) ? $_SESSION['hideNotTurn']:0);
 	
 switch($ToDo)
 {
@@ -458,25 +459,39 @@ require 'include/page_body.php';
 	&nbsp;<br>
 	<? } ?>	
 			
-		<h3><?php echo _("My games in progress")?> <a href="game_in_progress.php"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a></h3>
+		<h3><?php echo _("My games in progress")?> 
+		<? if (mysqli_num_rows($tmpGames) > 0) 
+			if ($_SESSION['hideNotTurn'] == 1) {?>
+		<a href="game_in_progress.php?turn=0"><img style="margin-right: 5px; margin-left: 5px;" src="images/picto_plus.png" border="0" title="<?php echo _("Show all your games in progress")?>" alt="<?php echo _("Show all your games in progress")?>" /></a>
+		<? } else {?>		
+		<a href="game_in_progress.php?turn=1"><img style="margin-right: 5px; margin-left: 5px;" src="images/picto_moins.png" border="0" title="<?php echo _("Show only your moves to do")?>" alt="<?php echo _("Show only your moves to do")?>" /></a>
+		<? } ?>
+		<a href="game_in_progress.php?turn=<? echo $_SESSION['hideNotTurn'];?>"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a>
+		</h3>
 		<form name="existingGames" action="game_board.php" method="post">
 		<?
 		
 		if (mysqli_num_rows($tmpGames) > 0)
 			while($tmpGame = mysqli_fetch_array($tmpGames, MYSQLI_ASSOC))
 			{
+				$isTurn = FALSE;
+				$nbMoves = $tmpGame['nbMoves'] - 1;
 				/* Get opponent's nick and ID*/
 				if ($tmpGame['whitePlayer'] == $_SESSION['playerID']) {
 					$opponent = $tmpGame['blackNick'];
 					$opponentID = $tmpGame['blackPlayerID'];
 					$opponentSocialID = $tmpGame['blackSocialID'];
 					$opponentSocialNW = $tmpGame['blackSocialNetwork'];
+					if (($nbMoves == -1) || (($nbMoves % 2) == 1))
+						$isTurn = TRUE;
 				}
 				else {
 					$opponent = $tmpGame['whiteNick'];
 					$opponentID = $tmpGame['whitePlayerID'];
 					$opponentSocialID = $tmpGame['whiteSocialID'];
 					$opponentSocialNW = $tmpGame['whiteSocialNetwork'];
+					if (($nbMoves % 2) == 0)
+						$isTurn = TRUE;
 				}
 				
 				$postDate = new DateTime($tmpGame['lastMove']);
@@ -487,7 +502,9 @@ require 'include/page_body.php';
 				$strExpirationDate = $fmt->format($expirationDate);
 				
 				echo("
-				<div class='activity'>
+				<div id='".$tmpGame['gameID']."' class='activity' "); 
+				if (!$isTurn && $_SESSION['hideNotTurn'] == 1) echo("style='visibility: hidden; height: 0px; margin-bottom: 0px; margin-top: 0px; padding-top: 0px; padding-bottom: 0px;'");
+				echo(">
 					<div class='details'>
 						<div class='content'>
 							<div class='gameboard'>");
