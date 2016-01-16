@@ -381,9 +381,9 @@ require 'include/page_body.php';
 		</div>
 		<div id="gamefooter" style="padding-left: 5px; font-size: 12px;">
 			<?if (isset($tmpGame['likeID'])){?>
-				<span style="font-weight: bold;" id="like<?echo(GAME.$_POST['gameID']);?>"><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>, <?echo($tmpGame['likeID']);?>);"><?echo _("! Unlike");?></a></span>
+				<span style="font-weight: bold;" id="like<?echo(GAME.$_POST['gameID']);?>"><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>, <?echo($tmpGame['likeID']);?>);"><?echo _("Unlike");?></a></span>
 			<?} else {?>
-				<span style="font-weight: bold;" id="like<?echo(GAME.$_POST['gameID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>);"><?echo _("! Like");?></a></span>
+				<span style="font-weight: bold;" id="like<?echo(GAME.$_POST['gameID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>);"><?echo _("Like");?></a></span>
 			<?}?>
 			- <span class="date"><?
 			$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::SHORT, IntlDateFormatter::SHORT);
@@ -396,15 +396,15 @@ require 'include/page_body.php';
 		</div>
 		<div id="ads_bottom">
 			<center>
-			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-			<!-- CapaKaspa Mobile Bottom -->
-			<ins class="adsbygoogle"
-			     style="display:inline-block;width:320px;height:100px"
-			     data-ad-client="ca-pub-8069368543432674"
-			     data-ad-slot="7983531266"></ins>
-			<script>
-			(adsbygoogle = window.adsbygoogle || []).push({});
-			</script>
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- CapaKaspa Mobile Bottom -->
+				<ins class="adsbygoogle"
+				     style="display:inline-block;width:320px;height:100px"
+				     data-ad-client="ca-pub-8069368543432674"
+				     data-ad-slot="7983531266"></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
 			</center>
 		</div>
 	 	<div id="comment<?echo($_POST['gameID']);?>" class="comment">

@@ -379,23 +379,27 @@ require 'include/page_body.php';
 			</div>
 			</form>
 		</div>
-		<div id="gamefooter">
-			<?if (isset($tmpGame['likeID'])){?>
-				<span style="padding-left: 5px;" id="like<?echo(GAME.$_POST['gameID']);?>"><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>, <?echo($tmpGame['likeID']);?>);"><?echo _("! Unlike");?></a></span>
-			<?} else {?>
-				<span style="padding-left: 5px;" id="like<?echo(GAME.$_POST['gameID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>);"><?echo _("! Like");?></a></span>
-			<?}?>
-			- <span class="date"><?
+		<div style="padding: 5px; font-size: 11px; border-top-style: none; border-right-style: solid; border-bottom-style: solid; border-left-style: none; border-width: 1px;
+						border-color: #DDDDDD; background-color: #FFFFFF;">
+			<span class="date"><?
 			$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::SHORT, IntlDateFormatter::SHORT);
 	
 			$startDate = new DateTime($tmpGame['dateCreated']);
 			$lastMove = new DateTime($tmpGame['lastMove']);
 			$strStartDate = $fmt->format($startDate);
 			$strLastMove = $fmt->format($lastMove);
-			echo _("Started")?> : <? echo($strStartDate);?> - <?echo _("Last move")?> : <? echo($strLastMove);?></span>
+			echo _("Started")?> : <? echo($strStartDate);?> &nbsp <?echo _("Last move")?> : <? echo($strLastMove);?></span>
 			<span style="float: right; padding-right: 5px;"><a href="http://www.capakaspa.info/propos-contact/"><?echo _("Report a problem")?></a></span>
 		</div>
-	 	<div id="comment<?echo($_POST['gameID']);?>" class="comment" style="border-top-style: none;
+		<div style="font-size: 12px; font-weight: bold; padding: 5px; border-top-style: none; border-right-style: solid; 
+					border-bottom-style: none; border-left-style: none; border-width: 1px; border-color: #DDDDDD; background-color: #FFFFFF;">
+			<?if (isset($tmpGame['likeID'])){?>
+				<span id="like<?echo(GAME.$tmpGame['gameID']);?>"><a style="color: #888888;" title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>, <?echo($tmpGame['likeID']);?>);"><?echo _("Unlike");?></a></span>
+			<?} else {?>
+				<span id="like<?echo(GAME.$tmpGame['gameID']);?>"><a style="color: #888888;" title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>);"><?echo _("Like");?></a></span>
+			<?}?>
+		</div>
+	 	<div id="comment<?echo($tmpGame['gameID']);?>" class="comment" style="border-top-style: none;
 																			border-right-style: solid;
 																			border-bottom-style: solid;
 																			border-left-style: none;

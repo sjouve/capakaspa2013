@@ -103,7 +103,7 @@ while($tmpGame = mysqli_fetch_array($result, MYSQLI_ASSOC))
 			$strLastMove = $fmt->format($lastMove);
 			
 			/* Start Date */
-			echo ("</div><div class='footer' style='padding-left: 5px;'>".("<span style='float: left;width: 250px;'>")._("Started")." : "
+			echo ("</div><div class='timedata' style='font-size: 11px; padding-left: 5px;'>".("<span style='float: left;width: 250px;'>")._("Started")." : "
 				.$strStarted."</span>");
 
 			/* Last Move */

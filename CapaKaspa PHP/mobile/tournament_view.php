@@ -95,9 +95,9 @@ require 'include/page_body.php';
 			?></p>
 			<div style="font-size: 12px; font-weight: bold; border-top-style: solid; border-width: 1px; border-color: #CCCCCC;">
 				<?if (isset($tournament['likeID'])){?> 
-				<span id="like<?echo(TOURNAMENT.$tournament['tournamentID']);?>" ><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>, <?echo($tournament['likeID']);?>);"><?echo _("! Unlike");?></a></span>
+				<span id="like<?echo(TOURNAMENT.$tournament['tournamentID']);?>" ><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>, <?echo($tournament['likeID']);?>);"><?echo _("Unlike");?></a></span>
 				<?} else {?>
-				<span id="like<?echo(TOURNAMENT.$tournament['tournamentID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>);"><?echo _("! Like");?></a></span>
+				<span id="like<?echo(TOURNAMENT.$tournament['tournamentID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>);"><?echo _("Like");?></a></span>
 				<?}?>
 				- <a href="javascript:displayComment('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>);"><?echo _("Comment");?></a>
 				<?php if ($tournament['nbLike'] > 0 || $tournament['nbComment'] > 0 )

@@ -85,19 +85,19 @@ require 'include/page_body.php';
 			<p><? echo $strType." - ".$tournament['nbPlayers']." "._("players")." - ".$tournament['timeMove']." "._("days per move");
 				if ($tournament['eloMin'] > 0) echo " - "."Elo "._("from")." ".$tournament['eloMin']." "._("to")." ".$tournament['eloMax'];
 			?></p>
-			<div style="font-size: 11px; border-top-style: solid; border-width: 1px; border-color: #CCCCCC;">
+			<div class="footer">
 				<?if (isset($tournament['likeID'])){?> 
-				<span id="like<?echo(TOURNAMENT.$tournament['tournamentID']);?>" ><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>, <?echo($tournament['likeID']);?>);"><?echo _("! Unlike");?></a></span>
+				<span style="margin-right: 15px;" id="like<?echo(TOURNAMENT.$tournament['tournamentID']);?>" ><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>, <?echo($tournament['likeID']);?>);"><?echo _("Unlike");?></a></span>
 				<?} else {?>
-				<span id="like<?echo(TOURNAMENT.$tournament['tournamentID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>);"><?echo _("! Like");?></a></span>
+				<span style="margin-right: 15px;" id="like<?echo(TOURNAMENT.$tournament['tournamentID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>);"><?echo _("Like");?></a></span>
 				<?}?>
-				- <a href="javascript:displayComment('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>);"><?echo _("Comment");?></a>
+				<a style="margin-right: 15px;" title="<? echo _("Comment this tournament")?>" href="javascript:displayComment('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>);"><?echo _("Comment");?></a>
 				<?php if ($tournament['nbLike'] > 0 || $tournament['nbComment'] > 0 )
-							echo(" - <span onmouseover=\"this.style.cursor='pointer';\" onclick=\"javascript:displayComment('".TOURNAMENT."', ".$tournament['tournamentID'].");\">");
+							echo("<span onmouseover=\"this.style.cursor='pointer';\" onclick=\"javascript:displayComment('".TOURNAMENT."', ".$tournament['tournamentID'].");\">");
 						if ($tournament['nbLike'] > 0) 
-							echo("<img src='images/like.gif'>".$tournament['nbLike'])." ";
+							echo("<img src='images/like.gif'><span class='socialcounter'>".$tournament['nbLike'])."</span> ";
 						if ($tournament['nbComment'] > 0)
-							echo("<img src='images/comment.jpg'>".$tournament['nbComment']);
+							echo("<img src='images/comment.jpg'><span class='socialcounter'>".$tournament['nbComment']."</span>");
 						if ($tournament['nbLike'] > 0 || $tournament['nbComment'] > 0 )
 							echo("</span>");
 				?>
@@ -242,7 +242,7 @@ require 'include/page_body.php';
 						$strLastMove = $fmtlist->format($lastMove);
 						
 						/* Start Date */
-						echo ("</div><div class='footer' style='padding-left: 5px;'>".("<span style='float: left;width: 250px;'>")._("Started")." : "
+						echo ("</div><div class='timedata' style='font-size: 11px; padding-left: 5px;'>".("<span style='float: left;width: 250px;'>")._("Started")." : "
 							.$strStarted."</span>");
 			
 						/* Last Move */

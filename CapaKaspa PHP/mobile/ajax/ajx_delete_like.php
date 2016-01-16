@@ -22,7 +22,7 @@ $entityID = $_GET["entityid"];
 $res = deleteLike($likeID);
 if ($res) {
 ?>
-<a href="javascript:insertLike('<?echo($type);?>', <?echo($entityID);?>);"><?echo _("! Like");?></a>
+<a href="javascript:insertLike('<?echo($type);?>', <?echo($entityID);?>);"><?echo _("Like");?></a>
 <?	
 }
 mysqli_close($dbh);

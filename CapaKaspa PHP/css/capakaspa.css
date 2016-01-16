@@ -335,8 +335,8 @@ body {
 	background-color: #FFFFFF;
 }
 #gamefooter {
-	float: left;
-	width: 100%;
+	/*float: left;
+	width: 100%;*/
 	font-size: 11px;
 	border-bottom-style: solid;
 	border-right-style: solid;
@@ -1001,6 +1001,16 @@ input[type="file"] {
 .activity .details .title{
 	float: left;
 	width: 100%;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	overflow: hidden;
+}
+.activity .details .timedata{
+	float: left;
+	width: 100%;
+	font-size: 12px;
 	margin-bottom:5px;
 	border-top-style: none;
 	border-right-style: none;
@@ -1045,12 +1055,16 @@ input[type="file"] {
 .activity .details .footer{
 	float: left;
 	width: 100%;
-	font-size: 11px;
+	font-weight: bold;
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
+	margin-top: 5px;
 	overflow: hidden;
+}
+.activity .details .footer a{
+	color: #888888;
 }
 .activity .details .footer .date{
 	font-weight: normal;
@@ -1060,6 +1074,7 @@ input[type="file"] {
 .comment{
 	float: left;
 	width: 100%;
+	font-weight: normal;
 	background-color: #FFFFFF;
 	border-top-style: none;
 	border-right-style: solid;
@@ -1085,6 +1100,9 @@ input[type="file"] {
 	border-color: #FFFFFF;
 	padding: 4px;
 	overflow: hidden;
+}
+.blockform .comment .item a{
+	color: #3D3866;
 }
 .comment .item TEXTAREA {
 	font-size: 11px;
@@ -1224,6 +1242,17 @@ input[type="file"] {
 	border-color: #e9eaed #dfe0e4 #d0d1d5;
 	overflow: hidden;
 }
+.blockform .footer {
+	font-size: 12px;
+	font-weight: bold;
+	color: #888888;
+	border-top-style: solid;
+	border-width: 1px;
+	border-color: #CCCCCC;
+}
+.blockform .footer a {
+	color: #888888;
+}
 .adsbottom {
 	float: left;
 	overflow: hidden;
@@ -1248,4 +1277,8 @@ input[type="file"] {
 	height: 32px; 
 	background-color: rgb(155, 106, 21); 
 	text-align: right;
+}
+.socialcounter {
+	color: #888888;
+    font-size: 11px;
 }

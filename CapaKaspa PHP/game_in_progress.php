@@ -550,6 +550,9 @@ require 'include/page_body.php';
 						<div class='title'>						
 							<a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponent."</span></a> "._("is your opponent in this game.")."
 						</div>
+						<div class='timedata'>
+							<span style='margin-right: 15px;' class='date'>"._("Started")." : ".$strStartedDate."</span><span class='date'>"._("Last move")." : ".$strPostDate."</span>
+						</div>
 						<div class='content'>
 							<div class='gameboard'>");
 								drawboardGame($tmpGame['gameID'],$tmpGame['whitePlayer'],$tmpGame['blackPlayer'], $tmpGame['position'], $tmpGame['nbMoves']);
@@ -576,9 +579,24 @@ require 'include/page_body.php';
 								echo("<br>"._("Expiration")." : <b>".$strExpirationDate."</b>");
 							echo("</div>
 						</div>
-						<div class='footer'>");?>
-							<a href="javascript:displayComment('<?echo(GAME);?>', <?echo($tmpGame['gameID']);?>);"><?echo _("Comment");?></a> - 
-							<?echo("<span class='date'>"._("Started")." : ".$strStartedDate."</span> - <span class='date'>"._("Last move")." : ".$strPostDate."</span>
+						<div class='footer'>");
+							if (isset($tmpGame['likeID'])){?> 
+							<span style="margin-right: 15px;" id="like<?echo(GAME.$tmpGame['gameID']);?>" ><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(GAME);?>', <?echo($tmpGame['gameID']);?>, <?echo($tmpGame['likeID']);?>);"><?echo _("Unlike");?></a></span>
+							<?} else {?>
+							<span style="margin-right: 15px;" id="like<?echo(GAME.$tmpGame['gameID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(GAME);?>', <?echo($tmpGame['gameID']);?>);"><?echo _("Like");?></a></span>
+							<?}?>
+							<a style="margin-right: 15px;" title="<? echo _("Comment this game")?>" href="javascript:displayComment('<?echo(GAME);?>', <?echo($tmpGame['gameID']);?>);"><?echo _("Comment");?></a>
+							
+							<? 
+							if ($tmpGame['nbLike'] > 0 || $tmpGame['nbComment'] > 0 )
+								echo("<span onmouseover=\"this.style.cursor='pointer';\" onclick=\"javascript:displayComment('".GAME."', ".$tmpGame['gameID'].");\">");
+							if ($tmpGame['nbLike'] > 0) 
+								echo("<img src='images/like.gif'><span class='socialcounter'>".$tmpGame['nbLike'])."</span> ";
+							if ($tmpGame['nbComment'] > 0)
+								echo("<img src='images/comment.jpg'><span class='socialcounter'>".$tmpGame['nbComment']."</span>");
+							if ($tmpGame['nbLike'] > 0 || $tmpGame['nbComment'] > 0 )
+								echo("</span>");
+							echo("
 						</div>
 						<div class='comment' id='comment".$tmpGame['gameID']."'>
 							<img src='images/ajaxloader.gif'/>

@@ -237,9 +237,12 @@ function listInProgressGames($playerID)
 									E.name ecoName, T.tournamentID tournamentID,
 									W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, W.elo960 whiteElo960, W.socialID whiteSocialID, W.socialNetwork whiteSocialNetwork,
 						B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.elo960 blackElo960, B.socialID blackSocialID, B.socialNetwork blackSocialNetwork,
-						(SELECT COUNT(gameID) nbMove FROM history H WHERE H.gameID = G.gameID) nbMoves
+						(SELECT COUNT(commentID) FROM comment WHERE type='".GAME."' and entityID = G.gameID) nbComment,
+						(SELECT COUNT(likeID) FROM like_entity WHERE type='".GAME."' and entityID = G.gameID) nbLike,
+						(SELECT COUNT(gameID) nbMove FROM history H WHERE H.gameID = G.gameID) nbMoves, L.likeID
 						FROM games G LEFT JOIN eco E on E.eco = G.eco AND E.ecoLang = '".getLang()."' 
-									LEFT JOIN tournament_games T ON G.gameID = T.gameID, players W, players B
+									LEFT JOIN tournament_games T ON G.gameID = T.gameID
+									LEFT JOIN like_entity L on L.type = '".GAME."' AND L.entityID = G.gameID AND L.playerID = ".$_SESSION['playerID'].", players W, players B 
 						WHERE (gameMessage is NULL OR gameMessage = '')
 						AND (whitePlayer = ".$playerID." OR blackPlayer = ".$playerID.")
 						AND W.playerID = G.whitePlayer 

@@ -183,6 +183,9 @@ else
 							<a href='player_view.php?playerID=".$playerID."'><span class='name'>".$playerFirstName." ".$playerLastName." (".$playerNick.")</span></a> ".$message." 
 							<a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponentFirstName." ".$opponentLastName." (".$opponentNick.")</span></a>
 						</div>
+						<div class='timedata'>
+							<span class='date'>".$strPostDate."</span>
+						</div>
 						<div class='content'>
 							<div class='gameboard'>");
 								drawboardGame($tmpActivity['gameID'], $tmpActivity['wPlayerID'], $tmpActivity['bPlayerID'], $tmpActivity['position'], $tmpActivity['nbMoves']);
@@ -204,22 +207,22 @@ else
 						</div>
 						<div class='footer'>");?>
 						<?if (isset($tmpActivity['likeID'])){?> 
-						<span id="like<?echo(ACTIVITY.$tmpActivity['activityID']);?>" ><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(ACTIVITY);?>', <?echo($tmpActivity['activityID']);?>, <?echo($tmpActivity['likeID']);?>);"><?echo _("! Unlike");?></a></span>
+						<span style="margin-right: 15px;" id="like<?echo(ACTIVITY.$tmpActivity['activityID']);?>" ><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(ACTIVITY);?>', <?echo($tmpActivity['activityID']);?>, <?echo($tmpActivity['likeID']);?>);"><?echo _("Unlike");?></a></span>
 						<?} else {?>
-						<span id="like<?echo(ACTIVITY.$tmpActivity['activityID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(ACTIVITY);?>', <?echo($tmpActivity['activityID']);?>);"><?echo _("! Like");?></a></span>
+						<span style="margin-right: 15px;" id="like<?echo(ACTIVITY.$tmpActivity['activityID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(ACTIVITY);?>', <?echo($tmpActivity['activityID']);?>);"><?echo _("Like");?></a></span>
 						<?}?>
-						- <a href="javascript:displayComment('<?echo(ACTIVITY);?>', <?echo($tmpActivity['activityID']);?>);"><?echo _("Comment");?></a> 
+						  <a style="margin-right: 15px;" title="<? echo _("Comment this item")?>" href="javascript:displayComment('<?echo(ACTIVITY);?>', <?echo($tmpActivity['activityID']);?>);"><?echo _("Comment");?></a> 
 						<? 
 						if ($tmpActivity['nbLike'] > 0 || $tmpActivity['nbComment'] > 0 )
-							echo(" - <span onmouseover=\"this.style.cursor='pointer';\" onclick=\"javascript:displayComment('".ACTIVITY."', ".$tmpActivity['activityID'].");\">");
+							echo("<span style='margin-right: 15px;' onmouseover=\"this.style.cursor='pointer';\" onclick=\"javascript:displayComment('".ACTIVITY."', ".$tmpActivity['activityID'].");\">");
 						if ($tmpActivity['nbLike'] > 0) 
-							echo("<img src='images/like.gif'>".$tmpActivity['nbLike'])." ";
+							echo("<img src='images/like.gif'><span class='socialcounter'>".$tmpActivity['nbLike'])."</span> ";
 						if ($tmpActivity['nbComment'] > 0)
-							echo("<img src='images/comment.jpg'>".$tmpActivity['nbComment']);
+							echo("<img src='images/comment.jpg'><span class='socialcounter'>".$tmpActivity['nbComment']."</span>");
 						if ($tmpActivity['nbLike'] > 0 || $tmpActivity['nbComment'] > 0 )
 							echo("</span>");
-						echo(" - <span class='date'>".$strPostDate."</span>");
-						if ($playerID == $_SESSION['playerID']) echo(" - <a title=\""._("Delete this news")."\" href=\"javascript:deleteActivity(".$tmpActivity['activityID'].")\">"._("Delete")."</a>");
+						
+						if ($playerID == $_SESSION['playerID']) echo("   <a title=\""._("Delete this news")."\" href=\"javascript:deleteActivity(".$tmpActivity['activityID'].")\">"._("Delete")."</a>");
 						echo("</div>
 						<div class='comment' id='comment".$tmpActivity['activityID']."'>
 							<img src='images/ajaxloader.gif'/>

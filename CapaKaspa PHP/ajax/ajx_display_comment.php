@@ -48,9 +48,9 @@ while($tmpComment = mysqli_fetch_array($tmpComments, MYSQLI_ASSOC))
 		</br>
 		<span class='date'>".$strPostDate."</span> - ");
 		if (isset($tmpComment['likeID'])){?>
-		<span id="like<?echo(COMMENT.$tmpComment['commentID']);?>"><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(COMMENT);?>', <?echo($tmpComment['commentID']);?>, <?echo($tmpComment['likeID']);?>);"><?echo _("! Unlike");?></a></span>
+		<span id="like<?echo(COMMENT.$tmpComment['commentID']);?>"><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(COMMENT);?>', <?echo($tmpComment['commentID']);?>, <?echo($tmpComment['likeID']);?>);"><?echo _("Unlike");?></a></span>
 		<?} else {?>
-		<span id="like<?echo(COMMENT.$tmpComment['commentID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(COMMENT);?>', <?echo($tmpComment['commentID']);?>);"><?echo _("! Like");?></a></span>
+		<span id="like<?echo(COMMENT.$tmpComment['commentID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(COMMENT);?>', <?echo($tmpComment['commentID']);?>);"><?echo _("Like");?></a></span>
 		<?}
 						
 		if ($_SESSION['playerID'] == $tmpComment['playerID']) {?> 
