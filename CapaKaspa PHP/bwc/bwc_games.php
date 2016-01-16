@@ -53,13 +53,13 @@ function getPGN($whiteNick, $blackNick, $type, $flagBishop, $flagKnight, $flagRo
 	}
 	
 	$pattern = "[\n\r]";
-	$pgnstring = "[FEN \"".$startFEN."\"][Site \"CapaKaspa\"][White \"".$whiteNick."\"][Black \"".$blackNick."\"]";
-	if ($type == 2) $pgnstring .= "[Variant \"Chess960\"]";
-	if ($gameResult != "")
-	{
-		$pgnstring .= "[Result \"".$gameResult."\"]";
-	}
-	$pgnstring .= " ";
+	$pgnstring = "";
+	if ($startFEN != "")
+		$pgnstring .= "[FEN \"".$startFEN."\"]\n";
+	$pgnstring .= "[Site \"CapaKaspa\"]\n[White \"".$whiteNick."\"]\n[Black \"".$blackNick."\"]\n";
+	if ($type == 2) $pgnstring .= "[Variant \"Chess960\"]\n";
+	$pgnstring .= "[Result \"".$gameResult."\"]\n";
+	$pgnstring .= "\n";
 	
 	$pgnstring .= mb_eregi_replace($pattern," ",$listeCoups);
 		return $pgnstring;
