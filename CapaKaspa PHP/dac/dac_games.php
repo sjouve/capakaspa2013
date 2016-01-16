@@ -156,7 +156,9 @@ function searchGames($mode, $debut, $limit, $gameState, $playerID, $playerColor,
 	}
 	else
 	{
-		$req = "SELECT G.gameID, T.tournamentID, G.eco eco, W.playerID whitePlayerID, W.nick whiteNick, B.playerID blackPlayerID, B.nick blackNick, 
+		$req = "SELECT G.gameID, T.tournamentID, G.eco eco, 
+				W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, W.elo960 whiteElo960,
+				B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.elo960 blackElo960,
 				G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove, G.type, G.flagBishop, G.flagKnight, G.flagRook, G.flagQueen";
 	}
 	

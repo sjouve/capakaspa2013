@@ -35,12 +35,25 @@ $numGames = mysqli_num_rows($result);
 	
 while($tmpGame = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
+	$whiteElo = "";
+	$blackElo = "";
+	if ($tmpGame['type'] == 0) 
+	{
+		$whiteElo = "(".$tmpGame['whiteElo'].")";
+		$blackElo = "(".$tmpGame['blackElo'].")";
+	}
+	if ($tmpGame['type'] == 2) 
+	{
+		$whiteElo = "(".$tmpGame['whiteElo960'].")";
+		$blackElo = "(".$tmpGame['blackElo960'].")";
+	}
+	
 	echo("<div class='activity' id='game".$tmpGame['gameID']."'>
 			<div class='details' style='width:100%;'>
 				<div class='content' style='font-size: 11px; padding-left: 5px;'>");
 			
 			/* White */
-			echo("<div style='float:left; width: 250px; height: 25px;'><img style='vertical-align: middle' src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'><a href='player_view.php?playerID=".$tmpGame['whitePlayerID']."'><b>".$tmpGame['whiteNick']."</b></a></div> ");
+			echo("<div style='float:left; width: 250px; height: 25px;'><img style='vertical-align: middle' src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'><a href='player_view.php?playerID=".$tmpGame['whitePlayerID']."'><b>".$tmpGame['whiteNick']."</b></a> ".$whiteElo."</div> ");
 			
 			/* Type */
 			echo("<div style='float:left; width: 400px; height: 25px;'>".getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
@@ -76,7 +89,7 @@ while($tmpGame = mysqli_fetch_array($result, MYSQLI_ASSOC))
 			echo("<div style='float:right; height: 25px;padding-right: 10px;'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadEndedGame(".$tmpGame['gameID'].")'></div>");
 			
 			/* Black */
-			echo("<div style='float:left; width: 250px; height: 25px;'><img style='vertical-align: middle' src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'><a href='player_view.php?playerID=".$tmpGame['blackPlayerID']."'><b>".$tmpGame['blackNick']."</b></a></div> ");
+			echo("<div style='float:left; width: 250px; height: 25px;'><img style='vertical-align: middle' src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'><a href='player_view.php?playerID=".$tmpGame['blackPlayerID']."'><b>".$tmpGame['blackNick']."</b></a> ".$blackElo."</div> ");
 			
 			/* ECO Code */
 			if ($tmpGame['type'] == 0)
