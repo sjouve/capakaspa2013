@@ -36,8 +36,8 @@ if ($res) {
 		
 		$msgTo = $toEmail;
 		$mailSubject = "[CapaKaspa] "._("You have a new private message");
-		$mailMsg = $_SESSION['firstName']." ".$_SESSION['lastName']." (".$_SESSION['nick'].") "._("send you a new private message.\n");
-		$mailMsg .= "[".$message."]";
+		$mailMsg = $_SESSION['firstName']." ".$_SESSION['lastName']." (".$_SESSION['nick'].") "._("send you a new private message.");
+		$mailMsg .= "<br>[".$message."]";
 		sendMail($msgTo, $mailSubject, $mailMsg);
 		
 		$locale = $_SESSION['pref_language'];

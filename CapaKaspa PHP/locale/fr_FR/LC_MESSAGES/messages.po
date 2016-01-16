@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2016-01-15 21:55+0100\n"
-"PO-Revision-Date: 2016-01-15 21:55+0100\n"
+"POT-Creation-Date: 2016-01-16 10:34+0100\n"
+"PO-Revision-Date: 2016-01-16 10:34+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -76,13 +76,13 @@ msgstr ""
 "mettre à jour votre adresse email et commencer le processus d'activation"
 
 #: activation.php:64 bwc/bwc_players.php:355 include/page_body.php:65
-#: index.php:265 index.php:279 index.php:398 mobile/index.php:67
+#: index.php:265 index.php:279 index.php:398 mobile/index.php:72
 #: player_update.php:335
 msgid "User name"
 msgstr "Nom d'utilisateur"
 
 #: activation.php:69 bwc/bwc_players.php:356 include/page_body.php:66
-#: index.php:402 mobile/index.php:68
+#: index.php:402 mobile/index.php:73
 msgid "Password"
 msgstr "Mot de passe"
 
@@ -90,7 +90,7 @@ msgstr "Mot de passe"
 msgid "Email"
 msgstr "Email"
 
-#: activation.php:80 bwc/bwc_common.php:70 message.php:65 password.php:59
+#: activation.php:80 bwc/bwc_common.php:89 message.php:65 password.php:59
 msgid "Send"
 msgstr "Envoyer"
 
@@ -208,7 +208,7 @@ msgstr " dans la partie contre"
 msgid "MOVE"
 msgstr "COUP"
 
-#: ajax/ajx_display_activity.php:201 ajax/ajx_display_game.php:76
+#: ajax/ajx_display_activity.php:201 ajax/ajx_display_game.php:89
 #: game_in_progress.php:573 mobile/ajax/ajx_display_activity.php:190
 #: mobile/game_in_progress.php:522 mobile/tournament_list.php:167
 #: mobile/tournament_list.php:196 mobile/tournament_view.php:206
@@ -274,7 +274,7 @@ msgstr "Ecrire un commentaire"
 msgid "Publish"
 msgstr "Publier"
 
-#: ajax/ajx_display_game.php:72 bwc/bwc_games.php:1141 bwc/bwc_games.php:1254
+#: ajax/ajx_display_game.php:85 bwc/bwc_games.php:1141 bwc/bwc_games.php:1254
 #: game_in_progress.php:562 mobile/game_in_progress.php:524
 #: mobile/tournament_list.php:89 mobile/tournament_list.php:166
 #: mobile/tournament_list.php:195 mobile/tournament_view.php:83
@@ -283,11 +283,11 @@ msgstr "Publier"
 msgid "Tournament"
 msgstr "Tournoi"
 
-#: ajax/ajx_display_game.php:85 game_board.php:355
+#: ajax/ajx_display_game.php:98 game_board.php:355
 msgid "Download PGN"
 msgstr "Télécharger PGN"
 
-#: ajax/ajx_display_game.php:93 game_board.php:395 game_in_progress.php:581
+#: ajax/ajx_display_game.php:106 game_board.php:395 game_in_progress.php:581
 #: mobile/tournament_list.php:168 mobile/tournament_list.php:197
 #: mobile/tournament_view.php:88 mobile/tournament_view.php:91
 #: mobile/tournament_view.php:254 tournament_list.php:159
@@ -296,14 +296,14 @@ msgstr "Télécharger PGN"
 msgid "Started"
 msgstr "Commencé le"
 
-#: ajax/ajx_display_game.php:97 game_board.php:395 game_in_progress.php:581
+#: ajax/ajx_display_game.php:110 game_board.php:395 game_in_progress.php:581
 #: mobile/game_board.php:395 mobile/game_in_progress.php:531
 #: mobile/tournament_view.php:258 tournament_view.php:249
 msgid "Last move"
 msgstr "Dernier coup"
 
-#: ajax/ajx_display_player.php:51 bwc/bwc_common.php:132 bwc/bwc_common.php:152
-#: bwc/bwc_common.php:175 bwc/bwc_games.php:1083 bwc/bwc_games.php:1092
+#: ajax/ajx_display_player.php:51 bwc/bwc_common.php:151 bwc/bwc_common.php:171
+#: bwc/bwc_common.php:194 bwc/bwc_games.php:1083 bwc/bwc_games.php:1092
 #: bwc/bwc_games.php:1099 bwc/bwc_games.php:1111 bwc/bwc_games.php:1120
 #: bwc/bwc_games.php:1126 bwc/bwc_games.php:1201 bwc/bwc_games.php:1210
 #: bwc/bwc_games.php:1217 bwc/bwc_games.php:1229 bwc/bwc_games.php:1238
@@ -313,7 +313,7 @@ msgid "Player online"
 msgstr "Joueur en ligne"
 
 #: ajax/ajx_display_player.php:53 ajax/ajx_display_ranking.php:58
-#: bwc/bwc_common.php:134 bwc/bwc_common.php:154 bwc/bwc_common.php:177
+#: bwc/bwc_common.php:153 bwc/bwc_common.php:173 bwc/bwc_common.php:196
 #: message.php:93 mobile/ajax/ajx_display_player.php:53
 #: mobile/player_view.php:154 player_view.php:145
 msgid "New player"
@@ -362,8 +362,8 @@ msgid "You have a new private message"
 msgstr "Vous avez un nouveau message privé"
 
 #: ajax/ajx_insert_pmessage.php:39
-msgid "send you a new private message.\n"
-msgstr "vous a envoyé un nouveau message privé.\n"
+msgid "send you a new private message."
+msgstr "vous a envoyé un nouveau message privé."
 
 #: ajax/ajx_list_player_nick.php:33 mobile/ajax/ajx_list_player_nick.php:33
 msgid "No player found"
@@ -475,7 +475,7 @@ msgstr ""
 "Jouer aux éches avec sparkChess un jeu d'échecs en Flash avec un échiquier "
 "en 3D. 3 niveaux disponibles."
 
-#: batch/bat_game_expiration.php:37 bwc/bwc_common.php:34
+#: batch/bat_game_expiration.php:37 bwc/bwc_common.php:51
 msgid ""
 "This email was sent automatically from site CapaKaspa (http://jouerauxechecs."
 "capakaspa.info)"
@@ -483,7 +483,7 @@ msgstr ""
 "Ce message a été envoyé automatiquement à partir du site CapaKaspa (http://"
 "jouerauxechecs.capakaspa.info)"
 
-#: batch/bat_game_expiration.php:38 bwc/bwc_common.php:35
+#: batch/bat_game_expiration.php:38 bwc/bwc_common.php:52
 msgid "Follow us on"
 msgstr "Suivez nous sur"
 
@@ -531,7 +531,7 @@ msgstr " a accepté votre invitation. Une nouvelle partie a commencé."
 
 #: bwc/bwc_chessutils.php:385 bwc/bwc_chessutils.php:394
 msgid " joined a message :"
-msgstr "a joint un message :"
+msgstr " a joint un message :"
 
 #: bwc/bwc_chessutils.php:391
 msgid "Invitation refused"
@@ -546,8 +546,8 @@ msgid "New move"
 msgstr "Nouveau coup"
 
 #: bwc/bwc_chessutils.php:401
-msgid " play the move :"
-msgstr " a joué le coup :"
+msgid " played a move in your game"
+msgstr " a joué un coup dans votre partie"
 
 #: bwc/bwc_chessutils.php:406
 msgid "Resignation"
@@ -562,12 +562,8 @@ msgid "Draw proposal accepted"
 msgstr "Proposition de nulle acceptée"
 
 #: bwc/bwc_chessutils.php:412
-msgid ""
-" accepted your draw proposal.\n"
-"The game ended."
-msgstr ""
-" a accepté votre proposition de nulle.\n"
-"La partie est terminée."
+msgid " accepted your draw proposal. The game ended."
+msgstr " a accepté votre proposition de nulle. La partie est terminée."
 
 #: bwc/bwc_chessutils.php:416 bwc/bwc_games.php:644
 msgid "Draw game"
@@ -598,38 +594,38 @@ msgstr "Dépassement de temps"
 msgid " ended by time expiration."
 msgstr " s'est terminée par dépassement de temps."
 
-#: bwc/bwc_common.php:66
+#: bwc/bwc_common.php:85
 msgid "New message"
 msgstr "Nouveau message"
 
-#: bwc/bwc_common.php:67
+#: bwc/bwc_common.php:86
 msgid "To"
 msgstr "A"
 
-#: bwc/bwc_common.php:68 game_in_progress.php:363 game_in_progress.php:461
+#: bwc/bwc_common.php:87 game_in_progress.php:363 game_in_progress.php:461
 #: message.php:64 mobile/game_in_progress.php:345
 #: mobile/game_in_progress.php:437
 msgid "Your message..."
 msgstr "Votre message..."
 
-#: bwc/bwc_common.php:71 game_board.php:301 game_in_progress.php:287
+#: bwc/bwc_common.php:90 game_board.php:301 game_in_progress.php:287
 #: mobile/game_board.php:311 mobile/game_in_progress.php:275
 msgid "Cancel"
 msgstr "Annuler"
 
-#: bwc/bwc_common.php:72
+#: bwc/bwc_common.php:91
 msgid "See full conversation"
 msgstr "Voir la conversation complète"
 
-#: bwc/bwc_common.php:79
+#: bwc/bwc_common.php:98
 msgid "Message sent successfully"
 msgstr "Message envoyé avec succès"
 
-#: bwc/bwc_common.php:105
+#: bwc/bwc_common.php:124
 msgid "Suggestion"
 msgstr "Suggestions"
 
-#: bwc/bwc_common.php:114 game_new.php:265 include/page_body.php:96
+#: bwc/bwc_common.php:133 game_new.php:265 include/page_body.php:96
 #: mobile/activity.php:79 mobile/game_board.php:231
 #: mobile/game_in_progress.php:201 mobile/game_new.php:131
 #: mobile/player_search.php:74 mobile/player_view.php:139
@@ -637,11 +633,11 @@ msgstr "Suggestions"
 msgid "Tournaments"
 msgstr "Tournois"
 
-#: bwc/bwc_common.php:115 game_in_progress.php:611 game_new.php:267
+#: bwc/bwc_common.php:134 game_in_progress.php:611 game_new.php:267
 msgid "Register for a tournament"
 msgstr "S'inscrire à un tournoi"
 
-#: bwc/bwc_common.php:155 bwc/bwc_common.php:178
+#: bwc/bwc_common.php:174 bwc/bwc_common.php:197
 msgid "is the same level that you !"
 msgstr "vous avez le même niveau"
 
@@ -1461,7 +1457,7 @@ msgid "CapaKaspa"
 msgstr "CapaKaspa"
 
 #: include/page_body.php:15 include/page_body_home.php:15
-#: include/page_body_no_menu.php:15 mobile/index.php:104
+#: include/page_body_no_menu.php:15 mobile/index.php:114
 #: mobile/player_view.php:162
 msgid "Sign out"
 msgstr "Déconnexion"
@@ -1502,11 +1498,11 @@ msgstr ""
 msgid "Invalid user name or password !"
 msgstr "Nom d'utilisateur ou mot de passe invalide !"
 
-#: include/page_body.php:70 index.php:406 mobile/index.php:74
+#: include/page_body.php:70 index.php:406 mobile/index.php:79
 msgid "Remember me"
 msgstr "Se souvenir de moi"
 
-#: include/page_body.php:71 index.php:391 index.php:411 mobile/index.php:75
+#: include/page_body.php:71 index.php:391 index.php:411 mobile/index.php:80
 msgid "Sign in"
 msgstr "Se connecter"
 
@@ -1531,7 +1527,7 @@ msgid "My games ended"
 msgstr "Mes parties terminées"
 
 #: include/page_body.php:103 mobile/activity.php:81 mobile/game_board.php:233
-#: mobile/game_in_progress.php:203 mobile/game_new.php:133 mobile/index.php:94
+#: mobile/game_in_progress.php:203 mobile/game_new.php:133 mobile/index.php:104
 #: mobile/player_search.php:76 mobile/player_view.php:141
 #: mobile/tournament_list.php:63 mobile/tournament_view.php:55
 msgid "Players"
@@ -1634,7 +1630,7 @@ msgstr "CGU"
 msgid "Help"
 msgstr "Aide"
 
-#: index.php:117 mobile/index.php:51
+#: index.php:117 mobile/index.php:56
 msgid "Play chess and share your games"
 msgstr "Jouer aux échecs et partager ses parties"
 
@@ -1819,15 +1815,15 @@ msgstr "S'inscrire gratuitement"
 msgid "Play chess on CapaKaspa"
 msgstr "Jouer aux échecs sur CapaKaspa"
 
-#: index.php:419
+#: index.php:419 mobile/index.php:89
 msgid "players are waiting to play chess games"
 msgstr "joueurs attendent de jouer aux échecs"
 
-#: index.php:420
+#: index.php:420 mobile/index.php:90
 msgid "chess games in progress"
 msgstr "parties d'échecs en cours"
 
-#: index.php:421
+#: index.php:421 mobile/index.php:91
 msgid "in progress chess tournaments"
 msgstr "tournois d'échecs en cours"
 
@@ -1860,14 +1856,14 @@ msgid "No contact"
 msgstr "Aucun contact"
 
 #: mobile/activity.php:78 mobile/game_board.php:230
-#: mobile/game_in_progress.php:200 mobile/game_new.php:130 mobile/index.php:92
+#: mobile/game_in_progress.php:200 mobile/game_new.php:130 mobile/index.php:102
 #: mobile/player_search.php:73 mobile/player_view.php:138
 #: mobile/tournament_list.php:60 mobile/tournament_view.php:52
 msgid "Games"
 msgstr "Parties"
 
 #: mobile/activity.php:80 mobile/game_board.php:232
-#: mobile/game_in_progress.php:202 mobile/game_new.php:132 mobile/index.php:93
+#: mobile/game_in_progress.php:202 mobile/game_new.php:132 mobile/index.php:103
 #: mobile/player_search.php:75 mobile/player_view.php:140
 #: mobile/player_view.php:231 mobile/tournament_list.php:62
 #: mobile/tournament_view.php:54 player_view.php:221
@@ -1882,19 +1878,19 @@ msgstr "Fischer Chess Random (Chess960)"
 msgid "Access to computer version"
 msgstr "Accéder à la version pour ordinateur"
 
-#: mobile/index.php:50
+#: mobile/index.php:55
 msgid "CapaKaspa mobile"
 msgstr "CapaKaspa mobile"
 
-#: mobile/index.php:61
+#: mobile/index.php:66
 msgid "Play your chess games on your mobile !"
 msgstr "Jouez vos parties d'échecs sur votre mobile !"
 
-#: mobile/index.php:78
+#: mobile/index.php:83
 msgid "Invalid user name or password"
 msgstr "Nom d'utilisateur ou mot de passe invalide"
 
-#: mobile/index.php:85
+#: mobile/index.php:95
 msgid ""
 "To sign-up on CapaKaspa access to the computer version by clicking on the "
 "link below."
@@ -1902,11 +1898,11 @@ msgstr ""
 "Pour vous inscrire sur CapaKaspa, accèdez à la version pour ordinateur en "
 "cliquant sur le lien au bas de l'écran."
 
-#: mobile/index.php:100
+#: mobile/index.php:110
 msgid "Welcome"
 msgstr "Bienvenue"
 
-#: mobile/index.php:101
+#: mobile/index.php:111
 msgid "your are on the optimized version of CapaKaspa for your mobile."
 msgstr ""
 "vous êtes sur le version optimisée pour les smartphone du site CapaKaspa."
@@ -3136,6 +3132,22 @@ msgstr ""
 "autres points n'en seraient pas affectés. Tout point déclaré caduc sera "
 "remplacé par une disposition se rapprochant le plus possible de la "
 "précédente disposition."
+
+#~ msgid "send you a new private message.\n"
+#~ msgstr "vous a envoyé un nouveau message privé.\n"
+
+#~ msgid " play a move in your game"
+#~ msgstr " "
+
+#~ msgid " play the move :"
+#~ msgstr " a joué le coup :"
+
+#~ msgid ""
+#~ " accepted your draw proposal.\n"
+#~ "The game ended."
+#~ msgstr ""
+#~ " a accepté votre proposition de nulle.\n"
+#~ "La partie est terminée."
 
 #~ msgid "Play your chess games on your mobile."
 #~ msgstr "Jouez vos parties d'échecs sur votre mobile."

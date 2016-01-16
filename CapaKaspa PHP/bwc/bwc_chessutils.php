@@ -346,7 +346,7 @@ function moveToPGNString($curColor, $piece, $fromRow, $fromCol, $toRow, $toCol, 
 	return $pgnString;
 }
 
-function chessNotification($msgType, $receiverColor, $move, $senderName, $gameID)
+function chessNotification($msgType, $receiverColor, $more, $senderName, $gameID)
 {
 	/* default message and subject */
 	$mailmsg = "";
@@ -381,25 +381,25 @@ function chessNotification($msgType, $receiverColor, $move, $senderName, $gameID
 		case 'accepted':
 			$mailsubject .= _("Invitation accepted");
 			$mailmsg = $strPlayer." ".$senderName._(" has accepted your invitation. A new game began.");
-			if ($move) {
-				$mailmsg .= "\n\n".$senderName._(" joined a message :");
-				$mailmsg .= "\n".stripslashes(strip_tags($move));
+			if ($more) {
+				$mailmsg .= "<br>".$senderName._(" joined a message :");
+				$mailmsg .= "<br>[".stripslashes(strip_tags($more))."]";
 			}
 			break;
 				
 		case 'declined':
 			$mailsubject .= _("Invitation refused");
 			$mailmsg = $strPlayer." ".$senderName._(" refused your invitation.");
-			if ($move) {
-				$mailmsg .= "\n\n".$senderName._(" joined a message :");
-				$mailmsg .= "\n".stripslashes(strip_tags($move));
+			if ($more) {
+				$mailmsg .= "<br>".$senderName._(" joined a message :");
+				$mailmsg .= "<br>[".stripslashes(strip_tags($more))."]";
 			}
 			break;
 			
 		case 'move':
 			$mailsubject .= _("New move");
-			$mailmsg = $strOpponent." ".$senderName._(" play the move :");
-			$mailmsg .= "\n".$move;
+			$mailmsg = $strOpponent." ".$senderName._(" played a move in your game")." #".$gameID."...";
+			//$mailmsg .= "\n".$more;
 			break;
 			
 		case 'resignation':
@@ -409,7 +409,7 @@ function chessNotification($msgType, $receiverColor, $move, $senderName, $gameID
 			
 		case 'draw':
 			$mailsubject .= _("Draw proposal accepted");
-			$mailmsg = $strPlayer." ".$senderName._(" accepted your draw proposal.\nThe game ended.");
+			$mailmsg = $strPlayer." ".$senderName._(" accepted your draw proposal. The game ended.");
 			break;
 			
 		case 'drawrule':

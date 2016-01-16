@@ -30,15 +30,34 @@ function sendMail($msgTo, $mailSubject, $mailMsg)
 	$headers .= "Reply-To: CapaKaspa <".$CFG_MAILADDRESS.">\r\n";
 	$headers .= "Content-Type: text/html; charset=\"UTF-8\"";
 	
-	$mailMsg = "<html><body><b>".$mailMsg."</b>";
-	$mailMsg .= "<p>"._("This email was sent automatically from site CapaKaspa (http://jouerauxechecs.capakaspa.info)")."<br>";
-	$mailMsg .= _("Follow us on")." <a href=\"https://www.facebook.com/capakaspa\">Facebook</a>, 
-				<a href=\"https://plus.google.com/+CapakaspaInfo\">Google+</a>,
-				<a href=\"https://www.twitter.com/CapaKaspa\">Twitter</a>,
-				<a href=\"https://www.pinterest.com/capakaspa\">Pinterest</a>,
-				<a href=\"https://www.youtube.com/user/CapaKaspaEchecs\">YouTube</a>"."</p>";
-	$mailMsg .= "</body></html>";
-	
+	$mailMsg = "<html xmlns=\"http://www.w3.org/1999/xhtml\">
+					<head>
+						<link rel=\"stylesheet\" href=\"http://jouerauxechecs.capakaspa.info/css/capakaspa.css\" type=\"text/css\">
+						<script type=\"application/ld+json\">
+						{
+						  \"@context\": \"http://schema.org\",
+						  \"@type\": \"EmailMessage\",
+						  \"potentialAction\": {
+						    \"@type\": \"ViewAction\",
+						    \"name\": \"View\",
+						    \"target\": \"http://www.capakaspa.info\"
+						  },
+						  \"description\": \"View on site\"
+						}
+						</script> 
+					</head>
+					<body>
+						<p><b>".$mailMsg."</b></p>".
+						"<p>"._("This email was sent automatically from site CapaKaspa (http://jouerauxechecs.capakaspa.info)")."<br>".
+						_("Follow us on")." <a href=\"https://www.facebook.com/capakaspa\">Facebook</a>, 
+						<a href=\"https://plus.google.com/+CapakaspaInfo\">Google+</a>,
+						<a href=\"https://www.twitter.com/CapaKaspa\">Twitter</a>,
+						<a href=\"https://www.pinterest.com/capakaspa\">Pinterest</a>,
+						<a href=\"https://www.youtube.com/user/CapaKaspaEchecs\">YouTube</a>".
+						"</p>".
+					"</body>
+				</html>";
+			
 	$res = false;
 	
 	if ($CFG_USEEMAILNOTIFICATION)
