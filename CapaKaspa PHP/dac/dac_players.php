@@ -101,13 +101,17 @@ function listPlayersByNickName($str, $type)
 }
 
 /* Historique Elo d'un joueur */
-function listEloProgress($playerID)
+function listEloProgress($playerID, $gameType)
 {
 	global $dbh;
+	$eloTable = "elo_history";
+	if ($gameType == CHESS960)
+		$eloTable = "elo960_history";
+		
 	$tmpQuery = "SELECT elo, DATE_FORMAT(eloDate, '%c') eloDateF
-	FROM elo_history
-	WHERE playerID = ".$playerID."
-	ORDER BY eloDate ASC";
+				FROM ".$eloTable." 
+				WHERE playerID = ".$playerID."
+				ORDER BY eloDate ASC";
 
 	return mysqli_query($dbh,$tmpQuery);
 }

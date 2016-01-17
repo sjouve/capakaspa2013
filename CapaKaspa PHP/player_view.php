@@ -6,6 +6,7 @@ session_start();
 if (!isset($_CONFIG))
 	require 'include/config.php';
 
+require 'include/constants.php';
 require 'dac/dac_players.php';
 require 'dac/dac_games.php';
 require 'dac/dac_activity.php';
@@ -58,6 +59,16 @@ function loadGameActivity(gameID)
 
 	document.activityGames.gameID.value = gameID;
 	document.activityGames.submit();
+}
+function displayElo ()
+{
+	document.getElementById("graphelo").style.display = "block";
+	document.getElementById("graphelo960").style.display = "none";
+}
+function displayElo960 ()
+{
+	document.getElementById("graphelo").style.display = "none";
+	document.getElementById("graphelo960").style.display = "block";
 }
 function displayFeed (type, start)
 {
@@ -190,13 +201,14 @@ require 'include/page_body_no_menu.php';
 		
 		$dateDeb = date("Y-m-d", mktime(0,0,0, 1, 1, 1990));
 		$dateFin = date("Y-m-d", mktime(0,0,0, 12, 31, 2020));
-		$countLost = countLost($player['playerID'], $dateDeb, $dateFin, 0);
+		$countLost = countLost($player['playerID'], $dateDeb, $dateFin, CLASSIC);
 		$nbDefaites = $countLost['nbGames'];
-		$countDraw = countDraw($player['playerID'], $dateDeb, $dateFin, 0);
+		$countDraw = countDraw($player['playerID'], $dateDeb, $dateFin, CLASSIC);
 		$nbNulles = $countDraw['nbGames'];
-		$countWin = countWin($player['playerID'], $dateDeb, $dateFin, 0);
+		$countWin = countWin($player['playerID'], $dateDeb, $dateFin, CLASSIC);
 		$nbVictoires = $countWin['nbGames'];
 		$nbParties = $nbDefaites + $nbNulles + $nbVictoires;
+		
 		$nbNews = 0;
 		$nbFollowers = 0;
 		$nbFollowing = 0;
@@ -224,8 +236,12 @@ require 'include/page_body_no_menu.php';
 		
 	</div>
 	<div id="graphelo" style="float: right; display: block;">
-		<? echo _("Elo ranking history")." ("._("Classic").")";?><br>
-		<img src="graph_elo_progress.php?playerID=<?php echo($playerID);?>&elo=<?php echo($player['elo']);?>" width="600" height="250" />
+		<img title="<?php echo _("Display 960 chess ranking history");?>" src="images/picto_echange_16.png" onmouseover="this.style.cursor='pointer';" onclick="displayElo960();"/> <? echo _("Elo ranking history")." ("._("Classic").")";?><br>
+		<img src="graph_elo_progress.php?playerID=<?php echo($playerID);?>&elo=<?php echo($player['elo']);?>&type=<?php echo(CLASSIC);?>" width="600" height="250" />
+	</div>
+	<div id="graphelo960" style="float: right; display: none;">
+		<img title="<?php echo _("Display classic chess ranking history");?>" src="images/picto_echange_16.png" onmouseover="this.style.cursor='pointer';" onclick="displayElo();"/> <? echo _("Elo ranking history")." ("._("Chess960").")";?><br>
+		<img src="graph_elo_progress.php?playerID=<?php echo($playerID);?>&elo=<?php echo($player['elo960']);?>&type=<?php echo(CHESS960);?>" width="600" height="250" />
 	</div>
 </div>
 <div id="rightbarlarge">

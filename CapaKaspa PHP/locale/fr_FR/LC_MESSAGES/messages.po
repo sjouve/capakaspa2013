@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2016-01-16 23:05+0100\n"
-"PO-Revision-Date: 2016-01-16 23:08+0100\n"
+"POT-Creation-Date: 2016-01-17 14:45+0100\n"
+"PO-Revision-Date: 2016-01-17 14:49+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -103,15 +103,25 @@ msgid "News feed of your following"
 msgstr "Fil d'actualités de vos abonnements"
 
 #: ajax/ajx_delete_follow.php:23 mobile/ajax/ajx_delete_follow.php:23
-#: mobile/player_view.php:168 player_view.php:151
+#: mobile/player_view.php:168 player_view.php:162
 msgid "Follow"
 msgstr "S'abonner"
 
 #: ajax/ajx_delete_like.php:25 ajax/ajx_display_activity.php:212
 #: ajax/ajx_display_comment.php:53 game_board.php:399 game_in_progress.php:586
+#: mobile/ajax/ajx_display_activity.php:210
+#: mobile/ajax/ajx_display_comment.php:53 mobile/game_board.php:410
+#: mobile/game_in_progress.php:533 mobile/tournament_view.php:100
+#: tournament_view.php:92
+msgid "I like this item"
+msgstr "J'aime ça"
+
+#: ajax/ajx_delete_like.php:25 ajax/ajx_display_activity.php:212
+#: ajax/ajx_display_comment.php:53 game_board.php:399 game_in_progress.php:586
 #: mobile/ajax/ajx_delete_like.php:25 mobile/ajax/ajx_display_activity.php:210
-#: mobile/ajax/ajx_display_comment.php:53 mobile/game_board.php:386
-#: mobile/tournament_view.php:100 tournament_view.php:92
+#: mobile/ajax/ajx_display_comment.php:53 mobile/game_board.php:410
+#: mobile/game_in_progress.php:533 mobile/tournament_view.php:100
+#: tournament_view.php:92
 msgid "Like"
 msgstr "J'aime"
 
@@ -212,7 +222,7 @@ msgstr "COUP"
 #: game_in_progress.php:576 mobile/ajax/ajx_display_activity.php:190
 #: mobile/game_in_progress.php:522 mobile/tournament_list.php:167
 #: mobile/tournament_list.php:196 mobile/tournament_view.php:206
-#: player_view.php:314 tournament_list.php:158 tournament_list.php:187
+#: player_view.php:330 tournament_list.php:158 tournament_list.php:187
 #: tournament_view.php:230
 msgid "View"
 msgstr "Voir"
@@ -221,8 +231,8 @@ msgstr "Voir"
 #: ajax/ajx_insert_like.php:25 game_board.php:397 game_in_progress.php:584
 #: mobile/ajax/ajx_display_activity.php:208
 #: mobile/ajax/ajx_display_comment.php:51 mobile/ajax/ajx_insert_like.php:25
-#: mobile/game_board.php:384 mobile/tournament_view.php:98
-#: tournament_view.php:90
+#: mobile/game_board.php:408 mobile/game_in_progress.php:531
+#: mobile/tournament_view.php:98 tournament_view.php:90
 msgid "Stop liking this item"
 msgstr "Je n'aime plus ça"
 
@@ -230,25 +240,17 @@ msgstr "Je n'aime plus ça"
 #: ajax/ajx_insert_like.php:25 game_board.php:397 game_in_progress.php:584
 #: mobile/ajax/ajx_display_activity.php:208
 #: mobile/ajax/ajx_display_comment.php:51 mobile/ajax/ajx_insert_like.php:25
-#: mobile/game_board.php:384 mobile/tournament_view.php:98
-#: tournament_view.php:90
+#: mobile/game_board.php:408 mobile/game_in_progress.php:531
+#: mobile/tournament_view.php:98 tournament_view.php:90
 msgid "Unlike"
 msgstr "Je n'aime plus"
-
-#: ajax/ajx_display_activity.php:212 ajax/ajx_display_comment.php:53
-#: game_board.php:399 game_in_progress.php:586
-#: mobile/ajax/ajx_display_activity.php:210
-#: mobile/ajax/ajx_display_comment.php:53 mobile/game_board.php:386
-#: mobile/tournament_view.php:100 tournament_view.php:92
-msgid "I like this item"
-msgstr "J'aime ça"
 
 #: ajax/ajx_display_activity.php:214
 msgid "Comment this item"
 msgstr "Commenter ça"
 
 #: ajax/ajx_display_activity.php:214 game_in_progress.php:588
-#: mobile/ajax/ajx_display_activity.php:212 mobile/game_in_progress.php:530
+#: mobile/ajax/ajx_display_activity.php:212 mobile/game_in_progress.php:535
 #: mobile/tournament_view.php:102 tournament_view.php:94
 msgid "Comment"
 msgstr "Commenter"
@@ -293,17 +295,17 @@ msgid "Download PGN"
 msgstr "Télécharger PGN"
 
 #: ajax/ajx_display_game.php:106 game_board.php:391 game_in_progress.php:554
-#: mobile/tournament_list.php:168 mobile/tournament_list.php:197
-#: mobile/tournament_view.php:88 mobile/tournament_view.php:91
-#: mobile/tournament_view.php:254 tournament_list.php:159
-#: tournament_list.php:188 tournament_view.php:80 tournament_view.php:83
-#: tournament_view.php:245
+#: mobile/game_board.php:390 mobile/tournament_list.php:168
+#: mobile/tournament_list.php:197 mobile/tournament_view.php:88
+#: mobile/tournament_view.php:91 mobile/tournament_view.php:254
+#: tournament_list.php:159 tournament_list.php:188 tournament_view.php:80
+#: tournament_view.php:83 tournament_view.php:245
 msgid "Started"
 msgstr "Commencé le"
 
 #: ajax/ajx_display_game.php:110 game_board.php:391 game_in_progress.php:554
-#: mobile/game_board.php:395 mobile/game_in_progress.php:531
-#: mobile/tournament_view.php:258 tournament_view.php:249
+#: mobile/game_board.php:390 mobile/tournament_view.php:258
+#: tournament_view.php:249
 msgid "Last move"
 msgstr "Dernier coup"
 
@@ -313,35 +315,35 @@ msgstr "Dernier coup"
 #: bwc/bwc_games.php:1126 bwc/bwc_games.php:1201 bwc/bwc_games.php:1210
 #: bwc/bwc_games.php:1217 bwc/bwc_games.php:1229 bwc/bwc_games.php:1238
 #: bwc/bwc_games.php:1244 include/page_body.php:103 message.php:91
-#: mobile/ajax/ajx_display_player.php:51 player_view.php:144
+#: mobile/ajax/ajx_display_player.php:51 player_view.php:155
 msgid "Player online"
 msgstr "Joueur en ligne"
 
 #: ajax/ajx_display_player.php:53 ajax/ajx_display_ranking.php:58
 #: bwc/bwc_common.php:153 bwc/bwc_common.php:173 bwc/bwc_common.php:196
 #: message.php:93 mobile/ajax/ajx_display_player.php:53
-#: mobile/player_view.php:154 player_view.php:145
+#: mobile/player_view.php:154 player_view.php:156
 msgid "New player"
 msgstr "Nouveau joueur"
 
 #: ajax/ajx_display_player.php:58 ajax/ajx_display_ranking.php:63
 #: app_jchess.php:57 game_in_progress.php:617 game_new.php:25
 #: include/page_body.php:95 mobile/ajax/ajx_display_player.php:58
-#: mobile/game_in_progress.php:549 mobile/game_new.php:25
-#: mobile/player_view.php:175 player_view.php:158
+#: mobile/game_in_progress.php:564 mobile/game_new.php:25
+#: mobile/player_view.php:175 player_view.php:169
 msgid "New game"
 msgstr "Nouvelle partie"
 
 #: ajax/ajx_display_player.php:62 ajax/ajx_display_ranking.php:67
 #: mobile/ajax/ajx_display_player.php:62 mobile/player_view.php:185
 #: mobile/tournament_list.php:108 mobile/tournament_view.php:128
-#: player_view.php:176 tournament_list.php:99 tournament_view.php:120
+#: player_view.php:187 tournament_list.php:99 tournament_view.php:120
 msgid "Elo"
 msgstr "Elo"
 
 #: ajax/ajx_display_player.php:62 mobile/ajax/ajx_display_player.php:62
-#: mobile/player_view.php:185 player_ranking.php:93 player_view.php:176
-#: player_view.php:308 player_view.php:367
+#: mobile/player_view.php:185 player_ranking.php:93 player_view.php:187
+#: player_view.php:243 player_view.php:324 player_view.php:383
 msgid "Chess960"
 msgstr "Chess960"
 
@@ -358,7 +360,7 @@ msgid "follow you on CapaKaspa."
 msgstr "vous suit sur CapaKaspa."
 
 #: ajax/ajx_insert_follow.php:48 mobile/ajax/ajx_insert_follow.php:48
-#: mobile/player_view.php:171 player_view.php:154
+#: mobile/player_view.php:171 player_view.php:165
 msgid "Unfollow"
 msgstr "Se désabonner"
 
@@ -434,7 +436,7 @@ msgid "Play !"
 msgstr "Jouer !"
 
 #: app_jchess.php:58 include/page_footer.php:2 include/page_footer_right.php:2
-#: mobile/player_view.php:186 player_view.php:177 site_about.php:17
+#: mobile/player_view.php:186 player_view.php:188 site_about.php:17
 msgid "About"
 msgstr "A propos"
 
@@ -667,12 +669,12 @@ msgid "Draw proposal pending..."
 msgstr "Proposition de nulle en attente..."
 
 #: bwc/bwc_games.php:651 bwc/bwc_games.php:1153 bwc/bwc_games.php:1269
-#: game_list_ended.php:159 player_view.php:279 player_view.php:338
+#: game_list_ended.php:159 player_view.php:295 player_view.php:354
 msgid "Whites"
 msgstr "Les blancs"
 
 #: bwc/bwc_games.php:654 bwc/bwc_games.php:1155 bwc/bwc_games.php:1271
-#: game_list_ended.php:163 player_view.php:280 player_view.php:339
+#: game_list_ended.php:163 player_view.php:296 player_view.php:355
 msgid "Blacks"
 msgstr "Les noirs"
 
@@ -810,7 +812,7 @@ msgstr "Joueur"
 msgid "Total number of games played"
 msgstr "Nombre total de parties jouées"
 
-#: bwc/bwc_players.php:657 player_view.php:227
+#: bwc/bwc_players.php:657 player_view.php:239
 msgid "Classic"
 msgstr "Classique"
 
@@ -1043,7 +1045,7 @@ msgid "Valid"
 msgstr "Valider"
 
 #: game_board.php:303 game_list_ended.php:182 graph_results_perc.php:19
-#: mobile/game_board.php:313 mobile/player_view.php:228 player_view.php:219
+#: mobile/game_board.php:313 mobile/player_view.php:228 player_view.php:231
 msgid "Draw"
 msgstr "Nulle"
 
@@ -1059,7 +1061,7 @@ msgstr "Visualiseur"
 msgid "Board"
 msgstr "Echiquier"
 
-#: game_board.php:358 player_view.php:161
+#: game_board.php:358 player_view.php:172
 msgid "Private message"
 msgstr "Message privé"
 
@@ -1184,29 +1186,29 @@ msgstr "est votre adversaire dans cette partie."
 msgid "Play"
 msgstr "Jouer"
 
-#: game_in_progress.php:588
+#: game_in_progress.php:588 mobile/game_in_progress.php:535
 msgid "Comment this game"
 msgstr "Commenter cette partie"
 
-#: game_in_progress.php:608 mobile/game_in_progress.php:540
+#: game_in_progress.php:608 mobile/game_in_progress.php:555
 msgid "No games in progress..."
 msgstr "Pas de parties en cours..."
 
-#: game_in_progress.php:612 mobile/game_in_progress.php:544
+#: game_in_progress.php:612 mobile/game_in_progress.php:559
 msgid "Begin to play"
 msgstr "Commencer à jouer"
 
-#: game_in_progress.php:614 mobile/game_in_progress.php:546
+#: game_in_progress.php:614 mobile/game_in_progress.php:561
 msgid "Submit a new game for all players or a specific player"
 msgstr "Proposer une partie à tous les joueurs ou à un joueur en particulier"
 
-#: game_in_progress.php:621 game_new.php:261 mobile/game_in_progress.php:552
+#: game_in_progress.php:621 game_new.php:261 mobile/game_in_progress.php:567
 msgid "Find a player with advanced search and invite him to play a new game."
 msgstr ""
 "Trouver un joueur avec la recherche avancée et l'inviter à jouer une "
 "nouvelle partie"
 
-#: game_in_progress.php:624 game_new.php:262 mobile/game_in_progress.php:554
+#: game_in_progress.php:624 game_new.php:262 mobile/game_in_progress.php:569
 msgid "Search players"
 msgstr "Rechercher des joueurs"
 
@@ -1236,7 +1238,7 @@ msgstr ""
 msgid "View profile"
 msgstr "Voir profil"
 
-#: game_list_ended.php:53 player_view.php:165
+#: game_list_ended.php:53 player_view.php:176
 msgid "Ended games"
 msgstr "Parties terminées"
 
@@ -1252,7 +1254,7 @@ msgstr "Statistiques (parties classiques)"
 msgid "Ended games search"
 msgstr "Recherche des parties terminées"
 
-#: game_list_ended.php:136 player_view.php:281 player_view.php:340
+#: game_list_ended.php:136 player_view.php:297 player_view.php:356
 msgid "Type"
 msgstr "Type"
 
@@ -1269,19 +1271,19 @@ msgstr "Couleur"
 msgid "All"
 msgstr "Tous"
 
-#: game_list_ended.php:167 player_view.php:341
+#: game_list_ended.php:167 player_view.php:357
 msgid "Result"
 msgstr "Résultat"
 
 #: game_list_ended.php:174 graph_results_perc.php:18 mobile/player_view.php:227
-#: player_view.php:218
+#: player_view.php:230
 msgid "Won"
-msgstr "Gagnée"
+msgstr "Victoire"
 
 #: game_list_ended.php:178 graph_results_perc.php:20 mobile/player_view.php:229
-#: player_view.php:220
+#: player_view.php:232
 msgid "Lost"
-msgstr "Perdue"
+msgstr "Défaite"
 
 #: game_list_ended.php:187
 msgid "Ranking"
@@ -1566,7 +1568,7 @@ msgstr "Nouveaux messages privés"
 msgid "Statistics"
 msgstr "Statistiques"
 
-#: include/page_body.php:117 player_view.php:270
+#: include/page_body.php:117 player_view.php:286
 msgid "Games in progress"
 msgstr "Parties en cours"
 
@@ -1875,7 +1877,7 @@ msgstr "Parties"
 #: mobile/game_in_progress.php:202 mobile/game_new.php:132 mobile/index.php:103
 #: mobile/player_search.php:75 mobile/player_view.php:140
 #: mobile/player_view.php:231 mobile/tournament_list.php:62
-#: mobile/tournament_view.php:54 player_view.php:221
+#: mobile/tournament_view.php:54 player_view.php:233
 msgid "News"
 msgstr "Actualités"
 
@@ -1968,28 +1970,28 @@ msgstr "et"
 msgid "player(s) found"
 msgstr "joueur(s) trouvés"
 
-#: mobile/player_view.php:31 mobile/player_view.php:32 player_view.php:32
-#: player_view.php:33
+#: mobile/player_view.php:31 mobile/player_view.php:32 player_view.php:33
+#: player_view.php:34
 msgid "View player profile"
 msgstr "Voir le profil du joueur"
 
-#: mobile/player_view.php:183 player_view.php:174
+#: mobile/player_view.php:183 player_view.php:185
 msgid "Was born in "
 msgstr "Est né en"
 
-#: mobile/player_view.php:184 player_view.php:175
+#: mobile/player_view.php:184 player_view.php:186
 msgid "Lives in "
 msgstr "Vit à"
 
-#: mobile/player_view.php:232 player_view.php:222
+#: mobile/player_view.php:232 player_view.php:234
 msgid "Followers"
 msgstr "Abonnés"
 
-#: mobile/player_view.php:233 player_view.php:223
+#: mobile/player_view.php:233 player_view.php:235
 msgid "Following"
 msgstr "Abonnements"
 
-#: mobile/player_view.php:237 player_view.php:407
+#: mobile/player_view.php:237 player_view.php:423
 msgid "Are you sure you want to delete this news ?"
 msgstr "Etes vous sûr de vouloir supprimer cette actualité ?"
 
@@ -2472,32 +2474,40 @@ msgstr ""
 "partir des parties et des actualités. Vous pourrez l'activer de nouveau si "
 "vous le souhaitez."
 
-#: player_view.php:168
+#: player_view.php:179
 msgid "Update my information"
 msgstr "Actualiser mes infos"
 
-#: player_view.php:227
+#: player_view.php:239
+msgid "Display 960 chess ranking history"
+msgstr "Afficher l'historique du classement Chess960"
+
+#: player_view.php:239 player_view.php:243
 msgid "Elo ranking history"
 msgstr "Historique du classement Elo"
 
-#: player_view.php:251
+#: player_view.php:243
+msgid "Display classic chess ranking history"
+msgstr "Afficher l'historique du classement classique"
+
+#: player_view.php:267
 msgid "Level "
 msgstr "Niveau"
 
-#: player_view.php:293
+#: player_view.php:309
 msgid "No games in progress"
 msgstr "Pas de parties en cours"
 
-#: player_view.php:314 player_view.php:373 player_view.php:375
-#: player_view.php:377 player_view.php:379 player_view.php:381
+#: player_view.php:330 player_view.php:389 player_view.php:391
+#: player_view.php:393 player_view.php:395 player_view.php:397
 msgid "Open the game"
 msgstr "Ouvrir la partie"
 
-#: player_view.php:330
+#: player_view.php:346
 msgid "My games against"
 msgstr "Mes parties contre"
 
-#: player_view.php:352
+#: player_view.php:368
 msgid "You've never played against this player"
 msgstr "Vous n'avez jamais joué contre ce joueur"
 

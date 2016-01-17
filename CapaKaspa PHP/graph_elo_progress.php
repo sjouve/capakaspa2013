@@ -9,12 +9,13 @@ if (!isset($_CONFIG))
 // Connexion BDD
 require 'include/connectdb.php';
 
+require 'include/constants.php';
 require 'dac/dac_players.php';
 
 require 'include/localization.php';
 
 // Data
-$eloProgress = listEloProgress($_GET['playerID']);
+$eloProgress = listEloProgress($_GET['playerID'], $_GET['type']);
 $tableauEloPprogress = array();
 $eloDates = array();
 
