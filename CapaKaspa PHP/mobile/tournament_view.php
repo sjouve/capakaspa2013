@@ -93,15 +93,15 @@ require 'include/page_body.php';
 			<p><? echo $strType." - ".$tournament['nbPlayers']." "._("players")." - ".$tournament['timeMove']." "._("days per move");
 				if ($tournament['eloMin'] > 0) echo " - "."Elo "._("from")." ".$tournament['eloMin']." "._("to")." ".$tournament['eloMax'];
 			?></p>
-			<div style="font-size: 12px; font-weight: bold; border-top-style: solid; border-width: 1px; border-color: #CCCCCC;">
+			<div class="footer">
 				<?if (isset($tournament['likeID'])){?> 
-				<span id="like<?echo(TOURNAMENT.$tournament['tournamentID']);?>" ><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>, <?echo($tournament['likeID']);?>);"><?echo _("Unlike");?></a></span>
+				<span style="margin-right: 10px;" id="like<?echo(TOURNAMENT.$tournament['tournamentID']);?>" ><a title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>, <?echo($tournament['likeID']);?>);"><?echo _("Unlike");?></a></span>
 				<?} else {?>
-				<span id="like<?echo(TOURNAMENT.$tournament['tournamentID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>);"><?echo _("Like");?></a></span>
+				<span style="margin-right: 10px;" id="like<?echo(TOURNAMENT.$tournament['tournamentID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>);"><?echo _("Like");?></a></span>
 				<?}?>
-				- <a href="javascript:displayComment('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>);"><?echo _("Comment");?></a>
+				<a style="margin-right: 10px;" href="javascript:displayComment('<?echo(TOURNAMENT);?>', <?echo($tournament['tournamentID']);?>);"><?echo _("Comment");?></a>
 				<?php if ($tournament['nbLike'] > 0 || $tournament['nbComment'] > 0 )
-							echo(" - <span onmouseover=\"this.style.cursor='pointer';\" onclick=\"javascript:displayComment('".TOURNAMENT."', ".$tournament['tournamentID'].");\">");
+							echo("<span onmouseover=\"this.style.cursor='pointer';\" onclick=\"javascript:displayComment('".TOURNAMENT."', ".$tournament['tournamentID'].");\">");
 						if ($tournament['nbLike'] > 0) 
 							echo("<img src='images/like.gif'>".$tournament['nbLike'])." ";
 						if ($tournament['nbComment'] > 0)
