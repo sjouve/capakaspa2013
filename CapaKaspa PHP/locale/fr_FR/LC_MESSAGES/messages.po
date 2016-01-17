@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2016-01-17 14:45+0100\n"
-"PO-Revision-Date: 2016-01-17 14:49+0100\n"
+"POT-Creation-Date: 2016-01-17 22:25+0100\n"
+"PO-Revision-Date: 2016-01-17 22:26+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -669,12 +669,12 @@ msgid "Draw proposal pending..."
 msgstr "Proposition de nulle en attente..."
 
 #: bwc/bwc_games.php:651 bwc/bwc_games.php:1153 bwc/bwc_games.php:1269
-#: game_list_ended.php:159 player_view.php:295 player_view.php:354
+#: game_list_ended.php:162 player_view.php:295 player_view.php:354
 msgid "Whites"
 msgstr "Les blancs"
 
 #: bwc/bwc_games.php:654 bwc/bwc_games.php:1155 bwc/bwc_games.php:1271
-#: game_list_ended.php:163 player_view.php:296 player_view.php:355
+#: game_list_ended.php:166 player_view.php:296 player_view.php:355
 msgid "Blacks"
 msgstr "Les noirs"
 
@@ -733,7 +733,7 @@ msgstr "Non"
 msgid "OK"
 msgstr "OK"
 
-#: bwc/bwc_games.php:1400 game_list_ended.php:139 game_new.php:185
+#: bwc/bwc_games.php:1400 game_list_ended.php:142 game_new.php:185
 #: mobile/game_new.php:147 mobile/tournament_list.php:85
 #: mobile/tournament_list.php:163 mobile/tournament_list.php:192
 #: mobile/tournament_view.php:77 player_ranking.php:92 tournament_list.php:76
@@ -741,7 +741,7 @@ msgstr "OK"
 msgid "Classic game"
 msgstr "Partie classique"
 
-#: bwc/bwc_games.php:1402 game_list_ended.php:143
+#: bwc/bwc_games.php:1402 game_list_ended.php:146
 msgid "Chess960 game"
 msgstr "Partie Chess960"
 
@@ -802,7 +802,7 @@ msgstr "[CapaKaspa] Votre mot de passe"
 msgid "Data about your account"
 msgstr "Données de votre compte"
 
-#: bwc/bwc_players.php:655 game_list_ended.php:131
+#: bwc/bwc_players.php:655 game_list_ended.php:134
 #: mobile/tournament_list.php:107 mobile/tournament_view.php:127
 #: tournament_list.php:98 tournament_view.php:119
 msgid "Player"
@@ -1044,7 +1044,7 @@ msgstr "Fou"
 msgid "Valid"
 msgstr "Valider"
 
-#: game_board.php:303 game_list_ended.php:182 graph_results_perc.php:19
+#: game_board.php:303 game_list_ended.php:185 graph_results_perc.php:20
 #: mobile/game_board.php:313 mobile/player_view.php:228 player_view.php:231
 msgid "Draw"
 msgstr "Nulle"
@@ -1238,75 +1238,75 @@ msgstr ""
 msgid "View profile"
 msgstr "Voir profil"
 
-#: game_list_ended.php:53 player_view.php:176
+#: game_list_ended.php:54 player_view.php:176
 msgid "Ended games"
 msgstr "Parties terminées"
 
-#: game_list_ended.php:54
+#: game_list_ended.php:55
 msgid "All ended chess games of a player"
 msgstr "Toutes les parties terminées d'un joueur"
 
-#: game_list_ended.php:107
-msgid "Statistics (classic games)"
-msgstr "Statistiques (parties classiques)"
+#: game_list_ended.php:108 include/page_body.php:115
+msgid "Statistics"
+msgstr "Statistiques"
 
-#: game_list_ended.php:125
+#: game_list_ended.php:128
 msgid "Ended games search"
 msgstr "Recherche des parties terminées"
 
-#: game_list_ended.php:136 player_view.php:297 player_view.php:356
+#: game_list_ended.php:139 player_view.php:297 player_view.php:356
 msgid "Type"
 msgstr "Type"
 
-#: game_list_ended.php:147
+#: game_list_ended.php:150
 msgid "Beginner game"
 msgstr "Partie débutant"
 
-#: game_list_ended.php:152
+#: game_list_ended.php:155
 msgid "Color"
 msgstr "Couleur"
 
-#: game_list_ended.php:155 game_list_ended.php:170 game_list_ended.php:190
+#: game_list_ended.php:158 game_list_ended.php:173 game_list_ended.php:193
 #: mobile/player_search.php:123 player_search.php:116
 msgid "All"
 msgstr "Tous"
 
-#: game_list_ended.php:167 player_view.php:357
+#: game_list_ended.php:170 player_view.php:357
 msgid "Result"
 msgstr "Résultat"
 
-#: game_list_ended.php:174 graph_results_perc.php:18 mobile/player_view.php:227
+#: game_list_ended.php:177 graph_results_perc.php:19 mobile/player_view.php:227
 #: player_view.php:230
 msgid "Won"
 msgstr "Victoire"
 
-#: game_list_ended.php:178 graph_results_perc.php:20 mobile/player_view.php:229
+#: game_list_ended.php:181 graph_results_perc.php:21 mobile/player_view.php:229
 #: player_view.php:232
 msgid "Lost"
 msgstr "Défaite"
 
-#: game_list_ended.php:187
+#: game_list_ended.php:190
 msgid "Ranking"
 msgstr "Classement"
 
-#: game_list_ended.php:194
+#: game_list_ended.php:197
 msgid "To take in account for next Elo ranking"
 msgstr "A prendre en compte dans le prochain classement Elo"
 
-#: game_list_ended.php:199
+#: game_list_ended.php:202
 msgid "ECO"
 msgstr "ECO"
 
-#: game_list_ended.php:205
+#: game_list_ended.php:208
 msgid "Sorted by last move"
 msgstr "Triées par date du dernier coup"
 
-#: game_list_ended.php:207 mobile/player_search.php:138 player_ranking.php:126
+#: game_list_ended.php:210 mobile/player_search.php:138 player_ranking.php:126
 #: player_search.php:136
 msgid "Filter"
 msgstr "Filtrer"
 
-#: game_list_ended.php:215 mobile/tournament_view.php:192
+#: game_list_ended.php:218 mobile/tournament_view.php:192
 #: tournament_view.php:184
 msgid "game(s) found"
 msgstr "partie(s) trouvées"
@@ -1442,8 +1442,8 @@ msgid "Send invitation"
 msgstr "Envoyer une invitation"
 
 #: graph_eco_games.php:73
-msgid "Games per ECO Code"
-msgstr "Parties par code ECO"
+msgid "Classic games per ECO Code"
+msgstr "Parties classiques par ECO Code"
 
 #: graph_eco_games.php:77
 msgid "ECO Code"
@@ -1453,9 +1453,13 @@ msgstr "Code ECO"
 msgid "Number of games"
 msgstr "Nombre de parties"
 
-#: graph_results_perc.php:43
-msgid "Games per results"
-msgstr "Parties par résultats"
+#: graph_results_perc.php:45
+msgid "Classic games per results"
+msgstr "Parties classiques par résultats"
+
+#: graph_results_perc.php:47
+msgid "Chess960 games per results"
+msgstr "Parties Chess960 par résultats"
 
 #: include/page_body.php:11 include/page_body_home.php:11
 #: include/page_body_no_menu.php:11
@@ -1563,10 +1567,6 @@ msgstr "Messages"
 #: include/page_body.php:108
 msgid "New private messages"
 msgstr "Nouveaux messages privés"
-
-#: include/page_body.php:115
-msgid "Statistics"
-msgstr "Statistiques"
 
 #: include/page_body.php:117 player_view.php:286
 msgid "Games in progress"
@@ -3155,6 +3155,18 @@ msgstr ""
 #: tournament_view.php:94
 msgid "Comment this tournament"
 msgstr "Commenter ce tournoi"
+
+#~ msgid "Statistics (Classic)"
+#~ msgstr "Statistiques (Classique)"
+
+#~ msgid "Games per ECO Code"
+#~ msgstr "Parties par code ECO"
+
+#~ msgid "Games per results"
+#~ msgstr "Parties par résultats"
+
+#~ msgid "Statistics (classic games)"
+#~ msgstr "Statistiques (parties classiques)"
 
 #~ msgid "! Unlike"
 #~ msgstr "! Je n'aime plus"

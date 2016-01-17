@@ -22,7 +22,7 @@ $tabEco = array();
 if (mysqli_num_rows($gamesPerEco)>0)
 {
 	$i = 0;
-	while(($tmpGamesEco = mysqli_fetch_array($gamesPerEco, MYSQLI_ASSOC)) && ($i < 10))
+	while(($tmpGamesEco = mysqli_fetch_array($gamesPerEco, MYSQLI_ASSOC)) && ($i < 25))
 	{
 
 		$tabNbGames[$i] = $tmpGamesEco['nb'];
@@ -40,7 +40,7 @@ else
 // On spécifie la largeur et la hauteur du graph
 // Construction du conteneur
 // Spécification largeur et hauteur
-$graph = new Graph(380,250);
+$graph = new Graph(775,180);
 
 // Réprésentation linéaire
 $graph->SetScale("textlin");
@@ -70,7 +70,7 @@ $bplot->value->SetFormat("%d");
 $graph->Add($bplot);
 
 // Le titre
-$graph->title->Set(_("Games per ECO Code"));
+$graph->title->Set(_("Classic games per ECO Code"));
 $graph->title->SetFont(FF_FONT1,FS_BOLD);
 
 // Titre pour l'axe horizontal(axe x) et vertical (axe y)

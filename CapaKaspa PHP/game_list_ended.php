@@ -6,6 +6,7 @@ if (!isset($_CONFIG))
 	require 'include/config.php';
 
 /* load external functions for setting up new game */
+require 'include/constants.php';
 require 'dac/dac_players.php';
 require 'dac/dac_activity.php';
 require 'dac/dac_games.php';
@@ -104,11 +105,13 @@ require 'include/page_body.php';
 		if ($nbParties > 0)
 		{
 		?>
-		<h2><?echo _("Statistics (classic games)");?></h2>
+		<h3><?echo _("Statistics");?></h3>
 		<div id="games_statistics">
-			<img style="border: 1px solid; border-color: #e9eaed #dfe0e4 #d0d1d5;" 
-				src="graph_results_perc.php?playerID=<?php echo($playerID);?>">
-			<img style="border: 1px solid; border-color: #e9eaed #dfe0e4 #d0d1d5;float: right;" 
+			<img id="graphcountclassic" style="border: 1px solid; border-color: #e9eaed #dfe0e4 #d0d1d5;"
+				src="graph_results_perc.php?playerID=<?php echo($playerID);?>&type=<?php echo(CLASSIC);?>">
+			<img style="border: 1px solid; border-color: #e9eaed #dfe0e4 #d0d1d5; float: right;" 
+				src="graph_results_perc.php?playerID=<?php echo($playerID);?>&type=<?php echo(CHESS960);?>">
+			<img id="graphecoclassic" style="border: 1px solid; border-color: #e9eaed #dfe0e4 #d0d1d5;" 
 				src="graph_eco_games.php?playerID=<?php echo($playerID);?>">
       	</div>
     <? }?>

@@ -10,6 +10,7 @@ if (!isset($_CONFIG))
 // Connexion BDD
 require 'include/connectdb.php';
 
+require 'include/constants.php';
 require 'dac/dac_games.php';
 
 require 'include/localization.php';
@@ -17,15 +18,15 @@ require 'include/localization.php';
 // Data
 $tabResult[] = utf8_decode(_("Won"));
 $tabResult[] = _("Draw");
-$tabResult[] = _("Lost");
+$tabResult[] = utf8_decode(_("Lost"));
 
 $dateDeb = date("Y-m-d", mktime(0,0,0, 1, 1, 1990));
 $dateFin = date("Y-m-d", mktime(0,0,0, 12, 31, 2020));
-$countLost = countLost($_GET['playerID'], $dateDeb, $dateFin, 0);
+$countLost = countLost($_GET['playerID'], $dateDeb, $dateFin, $_GET['type']);
 $nbDefaites = $countLost['nbGames'];
-$countDraw = countDraw($_GET['playerID'], $dateDeb, $dateFin, 0);
+$countDraw = countDraw($_GET['playerID'], $dateDeb, $dateFin, $_GET['type']);
 $nbNulles = $countDraw['nbGames'];
-$countWin = countWin($_GET['playerID'], $dateDeb, $dateFin, 0);
+$countWin = countWin($_GET['playerID'], $dateDeb, $dateFin, $_GET['type']);
 $nbVictoires = $countWin['nbGames'];
 
 $tabNbGames[] = $nbVictoires;
@@ -34,13 +35,16 @@ $tabNbGames[] = $nbDefaites;
 
 // Create the graph. These two calls are always required
 // On spécifie la largeur et la hauteur du graph
-$graph = new PieGraph(380,250);
+$graph = new PieGraph(380,200);
 
 // Ajouter une ombre au conteneur
 //$graph->SetShadow();
 
 // Donner un titre
-$graph->title->Set(utf8_decode(_("Games per results")));
+if ($_GET['type'] == CLASSIC)
+	$graph->title->Set(utf8_decode(_("Classic games per results")));
+else
+	$graph->title->Set(utf8_decode(_("Chess960 games per results")));
 $graph->title->SetFont(FF_FONT1,FS_BOLD);
 
 // Quelle police et quel style pour le titre
@@ -54,7 +58,7 @@ $graph->title->SetFont(FF_FONT1,FS_BOLD);
 $pie = new PiePlot3D($tabNbGames);
 
 // Quelle partie se détache du reste
-$pie->ExplodeSlice(0);
+//$pie->ExplodeSlice(0);
 
 // Spécifier des couleurs personnalisées... #FF0000 ok
 $pie->SetSliceColors(array('green', 'blue', 'red'));
