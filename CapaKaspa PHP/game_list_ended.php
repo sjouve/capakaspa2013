@@ -43,13 +43,21 @@ if (isset($_GET['playerID']) || isset($_POST['playerID']))
 
 $dateDeb = date("Y-m-d", mktime(0,0,0, 1, 1, 1990));
 $dateFin = date("Y-m-d", mktime(0,0,0, 12, 31, 2020));
-$countLost = countLost($playerID, $dateDeb, $dateFin, 0);
+$countLost = countLost($playerID, $dateDeb, $dateFin, CLASSIC);
 $nbDefaites = $countLost['nbGames'];
-$countDraw = countDraw($playerID, $dateDeb, $dateFin, 0);
+$countDraw = countDraw($playerID, $dateDeb, $dateFin, CLASSIC);
 $nbNulles = $countDraw['nbGames'];
-$countWin = countWin($playerID, $dateDeb, $dateFin, 0);
+$countWin = countWin($playerID, $dateDeb, $dateFin, CLASSIC);
 $nbVictoires = $countWin['nbGames'];
-$nbParties = $nbDefaites + $nbNulles + $nbVictoires;
+$nbPartiesClassic = $nbDefaites + $nbNulles + $nbVictoires;
+
+$countLost = countLost($playerID, $dateDeb, $dateFin, CHESS960);
+$nbDefaites = $countLost['nbGames'];
+$countDraw = countDraw($playerID, $dateDeb, $dateFin, CHESS960);
+$nbNulles = $countDraw['nbGames'];
+$countWin = countWin($playerID, $dateDeb, $dateFin, CHESS960);
+$nbVictoires = $countWin['nbGames'];
+$nbParties960 = $nbDefaites + $nbNulles + $nbVictoires;
 
 $titre_page = _("Ended games");
 $desc_page = _("All ended chess games of a player");
@@ -102,17 +110,23 @@ require 'include/page_body.php';
 		if ($errMsg != "")
 			echo("<div class='error'>".$errMsg."</div>");
 		
-		if ($nbParties > 0)
+		if ($nbPartiesClassic > 0 || $nbParties960 > 0)
 		{
 		?>
 		<h3><?echo _("Statistics");?></h3>
 		<div id="games_statistics">
+			<?php if ($nbPartiesClassic > 0) {?>
 			<img id="graphcountclassic" style="border: 1px solid; border-color: #e9eaed #dfe0e4 #d0d1d5;"
 				src="graph_results_perc.php?playerID=<?php echo($playerID);?>&type=<?php echo(CLASSIC);?>">
+			<? }
+			if ($nbParties960 > 0) {?>
 			<img style="border: 1px solid; border-color: #e9eaed #dfe0e4 #d0d1d5; float: right;" 
 				src="graph_results_perc.php?playerID=<?php echo($playerID);?>&type=<?php echo(CHESS960);?>">
+			<? }
+			if ($nbPartiesClassic > 0) {?>
 			<img id="graphecoclassic" style="border: 1px solid; border-color: #e9eaed #dfe0e4 #d0d1d5;" 
 				src="graph_eco_games.php?playerID=<?php echo($playerID);?>">
+			<? }?>
       	</div>
     <? }?>
 	<?
