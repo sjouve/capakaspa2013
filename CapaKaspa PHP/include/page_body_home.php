@@ -1,5 +1,5 @@
 </head>
-<body style="background-image: url('images/chess_background.jpg');">
+<body style="background-image: url('images/chess_background.jpg'); background-size: 100%;">
 
 <? 
 if (isset($toPlayerID))
