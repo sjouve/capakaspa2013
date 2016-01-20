@@ -368,7 +368,7 @@ body {
 #player_info {
 	background-color: #FFFFFF;
 	color: #404040;
-	font-size: 11px;
+	font-size: 12px;
 	font-weight: normal;
 	font-style: normal;
 	text-transform: none;
@@ -377,7 +377,7 @@ body {
 	padding-bottom: 5px;
 	text-align: left;
 	line-height: 150%;
-	width: 330px;
+	width: 380px;
 	height: 240px;
 	display: block;
 	float: left;
@@ -1124,7 +1124,6 @@ input[type="file"] {
 	font-style: normal;
 	color: #666666;
 }
-
 .player_name {
 
 	color: #000000;
@@ -1133,23 +1132,38 @@ input[type="file"] {
 	font-style: normal;
 	text-transform: none;
 }
+.block_social {
+	background-color: #EEEEEE;
+	width: 100px;
+	height: 35px;
+	float: left;
+	margin-top: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 3px;
+	text-align: center;
+}
+.block_social .label {
+	text-transform : uppercase;
+	color: #666666;
+}
+
+.block_social .number {
+	font-size: 12px;
+	font-weight: bold;
+}
 .block_stat {
 	background-color: #EEEEEE;
-	width: 80px;
+	width: 50px;
 	height: 35px;
 	float: left;
 	margin-top: 5px;
-	margin-left: 10px;
-	margin-right: 10px;
-	padding-top: 3px;
-	padding-right: 3px;
-	padding-left: 3px;
-	padding-bottom: Opx;
+	margin-right: 5px;
+	padding: 3px;
 	text-align: center;
 }
-
 .block_stat .label {
-	text-transform : uppercase;
+	
 	color: #666666;
 }
 
@@ -1157,7 +1171,6 @@ input[type="file"] {
 	font-size: 12px;
 	font-weight: bold;
 }
-
 .activity_type {
 	color: #404040;
 	font-weight: bold;

@@ -184,23 +184,24 @@ require 'include/page_body_no_menu.php';
 	<div id="player_info">
 		<? echo _("Was born in ")?> <? echo($player['anneeNaissance']); ?><br>
 		<? echo _("Lives in ")?> <? echo(stripslashes($player['situationGeo'])); ?>, <? echo($player['countryName']); ?><br>
-		<? echo _("Elo")." :"?> <? echo($player['elo']); ?> - <?echo _("Chess960")." :"?> <? echo($player['elo960']); ?><br>
-		<? echo _("About")?>
-			<div style="background-color: #EEEEEE;padding: 3px;height: 60px;overflow-y: auto;">
-				<? echo(nl2br(stripslashes($player['profil']))); ?>
-			</div>
-			<? 
-				/*echo _("Sign-up")." : ";
-				$creationDate = new DateTime($player['creationDate']);
-				$strCreationDate = $fmt->format($creationDate);
-				echo($strCreationDate);
-				echo _("Last connection")." : ";
-				$lastConnection = new DateTime($player['lastConnection']);
-				$strlastConnection = $fmt->format($lastConnection);
-				echo($strlastConnection);*/
+		<? echo _("About")." :"?>
+		<div style="background-color: #EEEEEE; padding: 3px; height: 60px; overflow-y: auto; margin-bottom: 10px;">
+			<? echo(nl2br(stripslashes($player['profil']))); ?>
+		</div>
+		<span><? echo _("Elo")." "._("Classic")." : ".$player['elo'];?></span><span style="float: right;"><?echo _("Elo Chess960")." : ".$player['elo960'];?></span><br>
+		<? 
+		/*echo _("Sign-up")." : ";
+		$creationDate = new DateTime($player['creationDate']);
+		$strCreationDate = $fmt->format($creationDate);
+		echo($strCreationDate);
+		echo _("Last connection")." : ";
+		$lastConnection = new DateTime($player['lastConnection']);
+		$strlastConnection = $fmt->format($lastConnection);
+		echo($strlastConnection);*/
 		
 		$dateDeb = date("Y-m-d", mktime(0,0,0, 1, 1, 1990));
 		$dateFin = date("Y-m-d", mktime(0,0,0, 12, 31, 2020));
+		// Parties classiques
 		$countLost = countLost($player['playerID'], $dateDeb, $dateFin, CLASSIC);
 		$nbDefaites = $countLost['nbGames'];
 		$countDraw = countDraw($player['playerID'], $dateDeb, $dateFin, CLASSIC);
@@ -208,6 +209,13 @@ require 'include/page_body_no_menu.php';
 		$countWin = countWin($player['playerID'], $dateDeb, $dateFin, CLASSIC);
 		$nbVictoires = $countWin['nbGames'];
 		$nbParties = $nbDefaites + $nbNulles + $nbVictoires;
+		// Parties Chess960
+		$countLost960 = countLost($player['playerID'], $dateDeb, $dateFin, CHESS960);
+		$nbDefaites960 = $countLost960['nbGames'];
+		$countDraw960 = countDraw($player['playerID'], $dateDeb, $dateFin, CHESS960);
+		$nbNulles960 = $countDraw960['nbGames'];
+		$countWin960 = countWin($player['playerID'], $dateDeb, $dateFin, CHESS960);
+		$nbVictoires960 = $countWin960['nbGames'];
 		
 		$nbNews = 0;
 		$nbFollowers = 0;
@@ -226,13 +234,19 @@ require 'include/page_body_no_menu.php';
 			$nbFollowing = $count['nbPlayers'];
 		}
 		?>
-		<br>
-		<div id="stat_won" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="location.href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>&critType=0&critResult=W'"><span class="label"><? echo _("Won");?></span><br><span class="number"><? echo($nbVictoires); ?></span></div> 
-		<div id="stat_draw" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="location.href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>&critType=0&critResult=D'"><span class="label"><? echo _("Draw");?></span><br><span class="number"><? echo($nbNulles); ?></span></div> 
-		<div id="stat_lost" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="location.href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>&critType=0&critResult=L'"><span class="label"><? echo _("Lost");?></span><br><span class="number"><? echo($nbDefaites); ?></span></div>
-		<div id="stat_news" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="displayFeed('activity', 0)"><span class="label"><? echo _("News");?></span><br><span class="number"><? echo($nbNews);?></span></div>
-		<div id="stat_wers" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="displayFeed('wers', 0)"><span class="label"><? echo _("Followers");?></span><br><span class="number"><? echo($nbFollowers);?></span></div>
-		<div id="stat_wing" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="displayFeed('wing', 0)"><span class="label"><? echo _("Following");?></span><br><span class="number"><? echo($nbFollowing);?></span></div>
+		<div style="float: left">
+			<div id="stat_won" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="location.href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>&critType=0&critResult=W&critType=0'"><span class="label"><? echo _("Won");?></span><br><span class="number"> <? echo($nbVictoires); ?></span></div> 
+			<div id="stat_draw" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="location.href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>&critType=0&critResult=D&critType=0'"><span class="label"><? echo _("Draw");?></span><br><span class="number"> <? echo($nbNulles); ?></span></div> 
+			<div id="stat_lost" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="location.href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>&critType=0&critResult=L&critType=0'"><span class="label"><? echo _("Lost");?></span><br><span class="number"> <? echo($nbDefaites); ?></span></div>
+		</div>
+		<div style="float: right">
+			<div id="stat_won" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="location.href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>&critType=0&critResult=W&critType=2'"><span class="label"><? echo _("Won");?></span><br><span class="number"><? echo($nbVictoires960); ?></span></div> 
+			<div id="stat_draw" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="location.href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>&critType=0&critResult=D&critType=2'"><span class="label"><? echo _("Draw");?></span><br><span class="number"><? echo($nbNulles960); ?></span></div> 
+			<div id="stat_lost" style="margin-right: 0px;" class="block_stat" onmouseover="this.style.cursor='pointer';" onclick="location.href='game_list_ended.php?playerID=<?php echo($player['playerID']);?>&critType=0&critResult=L&critType=2'"><span class="label"><? echo _("Lost");?></span><br><span class="number"><? echo($nbDefaites960); ?></span></div>
+		</div>
+		<div id="stat_news" class="block_social" onmouseover="this.style.cursor='pointer';" onclick="displayFeed('activity', 0)"><span class="label"><? echo _("News");?></span><br><span class="number"><? echo($nbNews);?></span></div>
+		<div id="stat_wers" class="block_social" onmouseover="this.style.cursor='pointer';" onclick="displayFeed('wers', 0)"><span class="label"><? echo _("Followers");?></span><br><span class="number"><? echo($nbFollowers);?></span></div>
+		<div id="stat_wing" class="block_social" onmouseover="this.style.cursor='pointer';" onclick="displayFeed('wing', 0)"><span class="label"><? echo _("Following");?></span><br><span class="number"><? echo($nbFollowing);?></span></div>
 		
 	</div>
 	<div id="graphelo" style="float: right; display: block;">
@@ -245,6 +259,11 @@ require 'include/page_body_no_menu.php';
 	</div>
 </div>
 <div id="rightbarlarge">
+	<div class="navlinks">
+		<div class="title">
+		<? echo _("Achievements")?>
+		</div>
+	</div>
 	<div class="blockform" style="height: 130px;">
 		<? 
 		$achievements = getAchievements($player['playerID']);
