@@ -144,7 +144,16 @@ require 'include/page_body.php';
 						<?echo _("Game type")?> : 
 					</td>
 					<td width="60%">
-						<input type="radio" name="type" value="0" checked> <?echo _("Classic game")?>
+						<input type="radio" name="type" value="0" checked> <?echo _("Classic game")?> <img title="<?echo _("Ranked game")?>" src="images/classements.gif"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;
+					</td>
+					<td>
+						<input type="radio" name="type" value="2" onclick="javascript:getChess960();"> <?echo _("Fischer Chess Random (Chess960)")?> <img title="<?echo _("Ranked game")?>" src="images/classements.gif"/>
+						<input type="hidden" name="chess960" value="">
 					</td>
 				</tr>
 				<tr>
@@ -159,15 +168,7 @@ require 'include/page_body.php';
 						<input type="checkbox" name="flagQueen" value="1"> <?echo _("Queen")?>
 					</td>
 				</tr>
-				<tr>
-					<td>
-						&nbsp;
-					</td>
-					<td>
-						<input type="radio" name="type" value="2" onclick="javascript:getChess960();"> <?echo _("Fischer Chess Random (Chess960)")?>
-						<input type="hidden" name="chess960" value="">
-					</td>
-				</tr>
+				
 				<tr>
 					<td>
 						<?echo _("Time per move")?> : 

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2016-01-17 22:25+0100\n"
-"PO-Revision-Date: 2016-01-17 22:26+0100\n"
+"POT-Creation-Date: 2016-01-20 23:38+0100\n"
+"PO-Revision-Date: 2016-01-20 23:38+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -222,7 +222,7 @@ msgstr "COUP"
 #: game_in_progress.php:576 mobile/ajax/ajx_display_activity.php:190
 #: mobile/game_in_progress.php:522 mobile/tournament_list.php:167
 #: mobile/tournament_list.php:196 mobile/tournament_view.php:206
-#: player_view.php:330 tournament_list.php:158 tournament_list.php:187
+#: player_view.php:349 tournament_list.php:158 tournament_list.php:187
 #: tournament_view.php:230
 msgid "View"
 msgstr "Voir"
@@ -337,13 +337,13 @@ msgstr "Nouvelle partie"
 #: ajax/ajx_display_player.php:62 ajax/ajx_display_ranking.php:67
 #: mobile/ajax/ajx_display_player.php:62 mobile/player_view.php:185
 #: mobile/tournament_list.php:108 mobile/tournament_view.php:128
-#: player_view.php:187 tournament_list.php:99 tournament_view.php:120
+#: player_view.php:191 tournament_list.php:99 tournament_view.php:120
 msgid "Elo"
 msgstr "Elo"
 
 #: ajax/ajx_display_player.php:62 mobile/ajax/ajx_display_player.php:62
-#: mobile/player_view.php:185 player_ranking.php:93 player_view.php:187
-#: player_view.php:243 player_view.php:324 player_view.php:383
+#: mobile/player_view.php:185 player_ranking.php:93 player_view.php:257
+#: player_view.php:343 player_view.php:402
 msgid "Chess960"
 msgstr "Chess960"
 
@@ -436,7 +436,7 @@ msgid "Play !"
 msgstr "Jouer !"
 
 #: app_jchess.php:58 include/page_footer.php:2 include/page_footer_right.php:2
-#: mobile/player_view.php:186 player_view.php:188 site_about.php:17
+#: mobile/player_view.php:186 player_view.php:187 site_about.php:17
 msgid "About"
 msgstr "A propos"
 
@@ -632,7 +632,7 @@ msgstr "Message envoyé avec succès"
 msgid "Suggestion"
 msgstr "Suggestions"
 
-#: bwc/bwc_common.php:133 game_new.php:265 include/page_body.php:96
+#: bwc/bwc_common.php:133 game_new.php:266 include/page_body.php:96
 #: mobile/activity.php:79 mobile/game_board.php:231
 #: mobile/game_in_progress.php:201 mobile/game_new.php:131
 #: mobile/player_search.php:74 mobile/player_view.php:139
@@ -640,7 +640,7 @@ msgstr "Suggestions"
 msgid "Tournaments"
 msgstr "Tournois"
 
-#: bwc/bwc_common.php:134 game_in_progress.php:629 game_new.php:267
+#: bwc/bwc_common.php:134 game_in_progress.php:629 game_new.php:268
 msgid "Register for a tournament"
 msgstr "S'inscrire à un tournoi"
 
@@ -669,12 +669,12 @@ msgid "Draw proposal pending..."
 msgstr "Proposition de nulle en attente..."
 
 #: bwc/bwc_games.php:651 bwc/bwc_games.php:1153 bwc/bwc_games.php:1269
-#: game_list_ended.php:162 player_view.php:295 player_view.php:354
+#: game_list_ended.php:176 player_view.php:314 player_view.php:373
 msgid "Whites"
 msgstr "Les blancs"
 
 #: bwc/bwc_games.php:654 bwc/bwc_games.php:1155 bwc/bwc_games.php:1271
-#: game_list_ended.php:166 player_view.php:296 player_view.php:355
+#: game_list_ended.php:180 player_view.php:315 player_view.php:374
 msgid "Blacks"
 msgstr "Les noirs"
 
@@ -733,7 +733,7 @@ msgstr "Non"
 msgid "OK"
 msgstr "OK"
 
-#: bwc/bwc_games.php:1400 game_list_ended.php:142 game_new.php:185
+#: bwc/bwc_games.php:1400 game_list_ended.php:156 game_new.php:185
 #: mobile/game_new.php:147 mobile/tournament_list.php:85
 #: mobile/tournament_list.php:163 mobile/tournament_list.php:192
 #: mobile/tournament_view.php:77 player_ranking.php:92 tournament_list.php:76
@@ -741,7 +741,7 @@ msgstr "OK"
 msgid "Classic game"
 msgstr "Partie classique"
 
-#: bwc/bwc_games.php:1402 game_list_ended.php:146
+#: bwc/bwc_games.php:1402 game_list_ended.php:160
 msgid "Chess960 game"
 msgstr "Partie Chess960"
 
@@ -802,7 +802,7 @@ msgstr "[CapaKaspa] Votre mot de passe"
 msgid "Data about your account"
 msgstr "Données de votre compte"
 
-#: bwc/bwc_players.php:655 game_list_ended.php:134
+#: bwc/bwc_players.php:655 game_list_ended.php:148
 #: mobile/tournament_list.php:107 mobile/tournament_view.php:127
 #: tournament_list.php:98 tournament_view.php:119
 msgid "Player"
@@ -812,7 +812,7 @@ msgstr "Joueur"
 msgid "Total number of games played"
 msgstr "Nombre total de parties jouées"
 
-#: bwc/bwc_players.php:657 player_view.php:239
+#: bwc/bwc_players.php:657 player_view.php:191 player_view.php:253
 msgid "Classic"
 msgstr "Classique"
 
@@ -1023,8 +1023,8 @@ msgstr "Règle des 50 coups - La partie se termine sur une Nulle."
 msgid "Promote the pawn in"
 msgstr "Promouvoir le pion en"
 
-#: game_board.php:277 game_new.php:197 mobile/game_board.php:284
-#: mobile/game_new.php:159
+#: game_board.php:277 game_new.php:206 mobile/game_board.php:284
+#: mobile/game_new.php:168
 msgid "Queen"
 msgstr "Dame"
 
@@ -1044,8 +1044,9 @@ msgstr "Fou"
 msgid "Valid"
 msgstr "Valider"
 
-#: game_board.php:303 game_list_ended.php:185 graph_results_perc.php:20
-#: mobile/game_board.php:313 mobile/player_view.php:228 player_view.php:231
+#: game_board.php:303 game_list_ended.php:199 graph_results_perc.php:20
+#: mobile/game_board.php:313 mobile/player_view.php:228 player_view.php:239
+#: player_view.php:244
 msgid "Draw"
 msgstr "Nulle"
 
@@ -1128,9 +1129,9 @@ msgid "invite a player to play a new game"
 msgstr "invitez un joueur à jouer une nouvelle partie"
 
 #: game_in_progress.php:277 game_in_progress.php:357 game_in_progress.php:455
-#: game_in_progress.php:578 game_new.php:211 mobile/game_in_progress.php:265
+#: game_in_progress.php:578 game_new.php:212 mobile/game_in_progress.php:265
 #: mobile/game_in_progress.php:339 mobile/game_in_progress.php:431
-#: mobile/game_in_progress.php:525 mobile/game_new.php:173
+#: mobile/game_in_progress.php:525 mobile/game_new.php:174
 msgid "Time per move"
 msgstr "Temps par coup"
 
@@ -1202,17 +1203,17 @@ msgstr "Commencer à jouer"
 msgid "Submit a new game for all players or a specific player"
 msgstr "Proposer une partie à tous les joueurs ou à un joueur en particulier"
 
-#: game_in_progress.php:621 game_new.php:261 mobile/game_in_progress.php:567
+#: game_in_progress.php:621 game_new.php:262 mobile/game_in_progress.php:567
 msgid "Find a player with advanced search and invite him to play a new game."
 msgstr ""
 "Trouver un joueur avec la recherche avancée et l'inviter à jouer une "
 "nouvelle partie"
 
-#: game_in_progress.php:624 game_new.php:262 mobile/game_in_progress.php:569
+#: game_in_progress.php:624 game_new.php:263 mobile/game_in_progress.php:569
 msgid "Search players"
 msgstr "Rechercher des joueurs"
 
-#: game_in_progress.php:627 game_new.php:266
+#: game_in_progress.php:627 game_new.php:267
 msgid ""
 "Participate in Round-robin tournaments and compete against multiple players "
 "with whites and blacks."
@@ -1220,7 +1221,7 @@ msgstr ""
 "Participer à des tournois Round-robin et se mesurer à plusieurs joueurs avec "
 "les blancs et les noirs."
 
-#: game_in_progress.php:631
+#: game_in_progress.php:631 player_view.php:264
 msgid "Achievements"
 msgstr "Objectifs"
 
@@ -1238,75 +1239,75 @@ msgstr ""
 msgid "View profile"
 msgstr "Voir profil"
 
-#: game_list_ended.php:54 player_view.php:176
+#: game_list_ended.php:62 player_view.php:176
 msgid "Ended games"
 msgstr "Parties terminées"
 
-#: game_list_ended.php:55
+#: game_list_ended.php:63
 msgid "All ended chess games of a player"
 msgstr "Toutes les parties terminées d'un joueur"
 
-#: game_list_ended.php:108 include/page_body.php:115
+#: game_list_ended.php:116 include/page_body.php:115
 msgid "Statistics"
 msgstr "Statistiques"
 
-#: game_list_ended.php:128
+#: game_list_ended.php:142
 msgid "Ended games search"
 msgstr "Recherche des parties terminées"
 
-#: game_list_ended.php:139 player_view.php:297 player_view.php:356
+#: game_list_ended.php:153 player_view.php:316 player_view.php:375
 msgid "Type"
 msgstr "Type"
 
-#: game_list_ended.php:150
+#: game_list_ended.php:164
 msgid "Beginner game"
 msgstr "Partie débutant"
 
-#: game_list_ended.php:155
+#: game_list_ended.php:169
 msgid "Color"
 msgstr "Couleur"
 
-#: game_list_ended.php:158 game_list_ended.php:173 game_list_ended.php:193
+#: game_list_ended.php:172 game_list_ended.php:187 game_list_ended.php:207
 #: mobile/player_search.php:123 player_search.php:116
 msgid "All"
 msgstr "Tous"
 
-#: game_list_ended.php:170 player_view.php:357
+#: game_list_ended.php:184 player_view.php:376
 msgid "Result"
 msgstr "Résultat"
 
-#: game_list_ended.php:177 graph_results_perc.php:19 mobile/player_view.php:227
-#: player_view.php:230
+#: game_list_ended.php:191 graph_results_perc.php:19 mobile/player_view.php:227
+#: player_view.php:238 player_view.php:243
 msgid "Won"
 msgstr "Victoire"
 
-#: game_list_ended.php:181 graph_results_perc.php:21 mobile/player_view.php:229
-#: player_view.php:232
+#: game_list_ended.php:195 graph_results_perc.php:21 mobile/player_view.php:229
+#: player_view.php:240 player_view.php:245
 msgid "Lost"
 msgstr "Défaite"
 
-#: game_list_ended.php:190
+#: game_list_ended.php:204
 msgid "Ranking"
 msgstr "Classement"
 
-#: game_list_ended.php:197
+#: game_list_ended.php:211
 msgid "To take in account for next Elo ranking"
 msgstr "A prendre en compte dans le prochain classement Elo"
 
-#: game_list_ended.php:202
+#: game_list_ended.php:216
 msgid "ECO"
 msgstr "ECO"
 
-#: game_list_ended.php:208
+#: game_list_ended.php:222
 msgid "Sorted by last move"
 msgstr "Triées par date du dernier coup"
 
-#: game_list_ended.php:210 mobile/player_search.php:138 player_ranking.php:126
+#: game_list_ended.php:224 mobile/player_search.php:138 player_ranking.php:126
 #: player_search.php:136
 msgid "Filter"
 msgstr "Filtrer"
 
-#: game_list_ended.php:218 mobile/tournament_view.php:192
+#: game_list_ended.php:232 mobile/tournament_view.php:192
 #: tournament_view.php:184
 msgid "game(s) found"
 msgstr "partie(s) trouvées"
@@ -1323,96 +1324,101 @@ msgstr "Commencer une nouvelle partie"
 msgid "Game type"
 msgstr "Type de partie"
 
-#: game_new.php:193 mobile/game_new.php:155
-msgid "Beginner game with King, Pawns and"
-msgstr "Partie débutant avec Roi, Pions et"
+#: game_new.php:185 game_new.php:193 mobile/game_new.php:147
+#: mobile/game_new.php:155
+msgid "Ranked game"
+msgstr "Partie classée"
 
-#: game_new.php:194 mobile/game_new.php:156
-msgid "Bishops"
-msgstr "Fous"
-
-#: game_new.php:195 mobile/game_new.php:157
-msgid "Knigths"
-msgstr "Cavaliers"
-
-#: game_new.php:196 mobile/game_new.php:158
-msgid "Rooks"
-msgstr "Tours"
-
-#: game_new.php:205
+#: game_new.php:193
 #, fuzzy
 msgid "Fischer Random Chess (Chess960)"
 msgstr "Fischer Chess Random (Chess960)"
 
-#: game_new.php:215 mobile/game_new.php:177
+#: game_new.php:202 mobile/game_new.php:164
+msgid "Beginner game with King, Pawns and"
+msgstr "Partie débutant avec Roi, Pions et"
+
+#: game_new.php:203 mobile/game_new.php:165
+msgid "Bishops"
+msgstr "Fous"
+
+#: game_new.php:204 mobile/game_new.php:166
+msgid "Knigths"
+msgstr "Cavaliers"
+
+#: game_new.php:205 mobile/game_new.php:167
+msgid "Rooks"
+msgstr "Tours"
+
+#: game_new.php:216 mobile/game_new.php:178
 msgid "2 days"
 msgstr "2 jours"
 
-#: game_new.php:216 mobile/game_new.php:178
+#: game_new.php:217 mobile/game_new.php:179
 msgid "3 days"
 msgstr "3 jours"
 
-#: game_new.php:217 mobile/game_new.php:179
+#: game_new.php:218 mobile/game_new.php:180
 msgid "4 days"
 msgstr "4 jours"
 
-#: game_new.php:218 mobile/game_new.php:180
+#: game_new.php:219 mobile/game_new.php:181
 msgid "5 days"
 msgstr "5 jours"
 
-#: game_new.php:219 mobile/game_new.php:181
+#: game_new.php:220 mobile/game_new.php:182
 msgid "7 days"
 msgstr "7 jours"
 
-#: game_new.php:220 mobile/game_new.php:182
+#: game_new.php:221 mobile/game_new.php:183
 msgid "10 days"
 msgstr "10 jours"
 
-#: game_new.php:221 mobile/game_new.php:183
+#: game_new.php:222 mobile/game_new.php:184
 msgid "14 days"
 msgstr "14 jours"
 
-#: game_new.php:227 mobile/game_new.php:189
+#: game_new.php:228 mobile/game_new.php:190
 msgid "Play as (color)"
 msgstr "Jouer en (couleur)"
 
-#: game_new.php:230 mobile/game_new.php:192
+#: game_new.php:231 mobile/game_new.php:193
 msgid "White"
 msgstr "Blanc"
 
-#: game_new.php:231 mobile/game_new.php:193
+#: game_new.php:232 mobile/game_new.php:194
 msgid "Black"
 msgstr "Noir"
 
-#: game_new.php:232 mobile/game_new.php:194
+#: game_new.php:233 mobile/game_new.php:195
 msgid "Random"
 msgstr "Au hasard"
 
-#: game_new.php:237 mobile/game_new.php:199
+#: game_new.php:238 mobile/game_new.php:200
 msgid "Select a player"
 msgstr "Choisir un joueur"
 
-#: game_new.php:241 mobile/game_new.php:203
+#: game_new.php:242 mobile/game_new.php:204
 msgid "Type a part of user name, first name or last name in the box"
 msgstr "Taper une partie du nom d'utilisateur, prénom ou nom dans le champ"
 
-#: game_new.php:250 mobile/game_new.php:210
+#: game_new.php:251 mobile/game_new.php:211
 msgid "Don't select a player to invite all players"
 msgstr "Ne pas sélectionner de joueur pour proposer une partie à tous"
 
-#: game_new.php:255 mobile/game_new.php:214
+#: game_new.php:256 mobile/game_new.php:215
 msgid "Start game"
 msgstr "Commencer une partie"
 
-#: game_new.php:260
+#: game_new.php:261
 msgid "Advanced search"
 msgstr "Recherche avancée"
 
-#: game_new.php:270
+#: game_new.php:271
 msgid "Invite friends to join you"
 msgstr "Inviter des amis à se joindre à vous"
 
-#: game_new.php:271
+#: game_new.php:272
 msgid ""
 "Invite by email a friend not on CapaKaspa to join you. If a player exist "
 "with the email you will invite to start a new game directly."
@@ -1421,23 +1427,23 @@ msgstr ""
 "un joueur existe avec l'email, vous l'inviterez à jouer une partie "
 "directement."
 
-#: game_new.php:276
+#: game_new.php:277
 msgid "Email address"
 msgstr "Adresse email"
 
-#: game_new.php:281
+#: game_new.php:282
 msgid "It's not a valid email format"
 msgstr "Ce n'est pas un format d'adresse email valide"
 
-#: game_new.php:282
+#: game_new.php:283
 msgid "An account exist with this email. Start a new game."
 msgstr "Un compte existe avec le même email. Commencer une nouvelle partie."
 
-#: game_new.php:283
+#: game_new.php:284
 msgid "Invitation was sent successfully"
 msgstr "L'invitation a été envoyée avec succès"
 
-#: game_new.php:287
+#: game_new.php:288
 msgid "Send invitation"
 msgstr "Envoyer une invitation"
 
@@ -1568,7 +1574,7 @@ msgstr "Messages"
 msgid "New private messages"
 msgstr "Nouveaux messages privés"
 
-#: include/page_body.php:117 player_view.php:286
+#: include/page_body.php:117 player_view.php:305
 msgid "Games in progress"
 msgstr "Parties en cours"
 
@@ -1877,11 +1883,11 @@ msgstr "Parties"
 #: mobile/game_in_progress.php:202 mobile/game_new.php:132 mobile/index.php:103
 #: mobile/player_search.php:75 mobile/player_view.php:140
 #: mobile/player_view.php:231 mobile/tournament_list.php:62
-#: mobile/tournament_view.php:54 player_view.php:233
+#: mobile/tournament_view.php:54 player_view.php:247
 msgid "News"
 msgstr "Actualités"
 
-#: mobile/game_new.php:167
+#: mobile/game_new.php:155
 msgid "Fischer Chess Random (Chess960)"
 msgstr "Fischer Chess Random (Chess960)"
 
@@ -1983,15 +1989,15 @@ msgstr "Est né en"
 msgid "Lives in "
 msgstr "Vit à"
 
-#: mobile/player_view.php:232 player_view.php:234
+#: mobile/player_view.php:232 player_view.php:248
 msgid "Followers"
 msgstr "Abonnés"
 
-#: mobile/player_view.php:233 player_view.php:235
+#: mobile/player_view.php:233 player_view.php:249
 msgid "Following"
 msgstr "Abonnements"
 
-#: mobile/player_view.php:237 player_view.php:423
+#: mobile/player_view.php:237 player_view.php:442
 msgid "Are you sure you want to delete this news ?"
 msgstr "Etes vous sûr de vouloir supprimer cette actualité ?"
 
@@ -2288,7 +2294,7 @@ msgstr ""
 "Le classement Elo est calculé tous les mois et prend en compte les parties "
 "d'échecs classiques terminées pendant le mois passé."
 
-#: player_update.php:428
+#: player_update.php:428 player_view.php:191
 msgid "Elo Chess960"
 msgstr "Elo Chess960"
 
@@ -2478,36 +2484,36 @@ msgstr ""
 msgid "Update my information"
 msgstr "Actualiser mes infos"
 
-#: player_view.php:239
+#: player_view.php:253
 msgid "Display 960 chess ranking history"
 msgstr "Afficher l'historique du classement Chess960"
 
-#: player_view.php:239 player_view.php:243
+#: player_view.php:253 player_view.php:257
 msgid "Elo ranking history"
 msgstr "Historique du classement Elo"
 
-#: player_view.php:243
+#: player_view.php:257
 msgid "Display classic chess ranking history"
 msgstr "Afficher l'historique du classement classique"
 
-#: player_view.php:267
+#: player_view.php:286
 msgid "Level "
 msgstr "Niveau"
 
-#: player_view.php:309
+#: player_view.php:328
 msgid "No games in progress"
 msgstr "Pas de parties en cours"
 
-#: player_view.php:330 player_view.php:389 player_view.php:391
-#: player_view.php:393 player_view.php:395 player_view.php:397
+#: player_view.php:349 player_view.php:408 player_view.php:410
+#: player_view.php:412 player_view.php:414 player_view.php:416
 msgid "Open the game"
 msgstr "Ouvrir la partie"
 
-#: player_view.php:346
+#: player_view.php:365
 msgid "My games against"
 msgstr "Mes parties contre"
 
-#: player_view.php:368
+#: player_view.php:387
 msgid "You've never played against this player"
 msgstr "Vous n'avez jamais joué contre ce joueur"
 
