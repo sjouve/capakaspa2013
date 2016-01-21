@@ -190,24 +190,45 @@ function displaySuggestion()
 	
 	<div id="sugamazon">
 	<?
-	$type = mt_rand(0,2);
-	switch($type)
+	if (getLang() == "fr")
+		$product = mt_rand(0,3);
+	else $product = 4;
+	switch($product)
 	{
 		case 0:
 			?>
+			<div class="suggestion" style="padding-left: 0px;">
 			<a rel="nofollow" href="http://www.amazon.fr/gp/product/2916340416/ref=as_li_tl?ie=UTF8&camp=1642&creative=6746&creativeASIN=2916340416&linkCode=as2&tag=capa-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=2916340416&Format=_SL250_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="http://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=as2&o=8&a=2916340416" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />			
+			</div>
 			<?
 			break;
 			
 		case 1:
 			?>
+			<div class="suggestion" style="padding-left: 0px;">
 			<a rel="nofollow" href="http://www.amazon.fr/gp/product/2916340858/ref=as_li_tl?ie=UTF8&camp=1642&creative=6746&creativeASIN=2916340858&linkCode=as2&tag=capa-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=2916340858&Format=_SL250_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="http://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=as2&o=8&a=2916340858" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+			</div>
 			<?
 			break;
 		
 		case 2:
 			?>
+			<div class="suggestion" style="padding-left: 15px;">
 			<a rel="nofollow" href="http://www.amazon.fr/gp/product/2221110137/ref=as_li_tl?ie=UTF8&camp=1642&creative=6746&creativeASIN=2221110137&linkCode=as2&tag=capa-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=2221110137&Format=_SL250_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="http://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=as2&o=8&a=2221110137" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+			</div>
+			<?
+			break;
+		case 3:
+			?>
+			<div class="suggestion" style="padding-left: 20px;">
+			<a rel="nofollow" href="http://www.amazon.fr/gp/product/B0009WSPRO/ref=as_li_tl?ie=UTF8&camp=1642&creative=6746&creativeASIN=B0009WSPRO&linkCode=as2&tag=capa-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0009WSPRO&Format=_SL160_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="http://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=as2&o=8&a=B0009WSPRO" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+			</div>
+			<?
+			break;
+		case 4:
+			?>
+			<div class="suggestion" style="padding-left: 45px;">
+			<a rel="nofollow" href="http://www.amazon.fr/gp/product/0716022540/ref=as_li_tl?ie=UTF8&camp=1642&creative=6746&creativeASIN=0716022540&linkCode=as2&tag=capa-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0716022540&Format=_SL160_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="http://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=as2&o=8&a=0716022540" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></div>
 			<?
 			break;
 			
