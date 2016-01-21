@@ -103,20 +103,6 @@ function displayPrivateMessage($toPlayerID, $toFirstName, $toLastName, $toNick, 
 function displaySuggestion()
 {
 	
-	/*$type = mt_rand(0,1);
-	switch($type)
-	{
-		case 0:
-			$title = _("New player");
-			$result = searchPlayers("", 0, $limit, $_SESSION['playerID'], "", "nouveau", "", "", "", "");			
-			break;
-			
-		case 1:
-			$title = _("Your level");
-			$result = searchPlayers("", 0, $limit, $_SESSION['playerID'], "", "actif", $_SESSION['elo']-50, $_SESSION['elo']+50, $_SESSION['countryCode'], "");
-			break;
-	}*/
-	
 	$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
 	
 	echo("<div class='navlinks'>
@@ -142,7 +128,7 @@ function displaySuggestion()
 	{
 			
 		echo("
-				<div class='suggestion'>
+			<div class='suggestion'>
 				<div id='picture' style='float: left; margin-right: 3px;'>
 				<img src='".getPicturePath($tmpPlayer['socialNetwork'], $tmpPlayer['socialID'])."' width='32' height='32' border='0'/>
 				</div>
@@ -162,7 +148,7 @@ function displaySuggestion()
 	{
 			
 		echo("		
-		<div class='suggestion'>		
+			<div class='suggestion'>		
 				<div id='picture' style='float: left; margin-right: 5px;'>
 					<img src='".getPicturePath($tmpPlayer['socialNetwork'], $tmpPlayer['socialID'])."' width='32' height='32' border='0'/>
 				</div>
@@ -185,7 +171,7 @@ function displaySuggestion()
 		{
 				
 			echo("		
-			<div class='suggestion'>		
+				<div class='suggestion'>		
 					<div id='picture' style='float: left; margin-right: 5px;'>
 						<img src='".getPicturePath($tmpPlayer['socialNetwork'], $tmpPlayer['socialID'])."' width='32' height='32' border='0'/>
 					</div>
@@ -200,7 +186,34 @@ function displaySuggestion()
 			");
 		}
 	}
+	?>
 	
-	
+	<div id="sugamazon">
+	<?
+	$type = mt_rand(0,2);
+	switch($type)
+	{
+		case 0:
+			?>
+			<a rel="nofollow" href="http://www.amazon.fr/gp/product/2916340416/ref=as_li_tl?ie=UTF8&camp=1642&creative=6746&creativeASIN=2916340416&linkCode=as2&tag=capa-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=2916340416&Format=_SL250_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="http://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=as2&o=8&a=2916340416" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />			
+			<?
+			break;
+			
+		case 1:
+			?>
+			<a rel="nofollow" href="http://www.amazon.fr/gp/product/2916340858/ref=as_li_tl?ie=UTF8&camp=1642&creative=6746&creativeASIN=2916340858&linkCode=as2&tag=capa-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=2916340858&Format=_SL250_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="http://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=as2&o=8&a=2916340858" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+			<?
+			break;
+		
+		case 2:
+			?>
+			<a rel="nofollow" href="http://www.amazon.fr/gp/product/2221110137/ref=as_li_tl?ie=UTF8&camp=1642&creative=6746&creativeASIN=2221110137&linkCode=as2&tag=capa-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=2221110137&Format=_SL250_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="http://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=as2&o=8&a=2221110137" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+			<?
+			break;
+			
+	}
+	?>
+	</div>
+	<?
 }
 ?>
