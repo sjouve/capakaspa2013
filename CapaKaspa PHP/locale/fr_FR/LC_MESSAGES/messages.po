@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2016-01-20 23:38+0100\n"
-"PO-Revision-Date: 2016-01-20 23:38+0100\n"
+"POT-Creation-Date: 2016-01-21 16:12+0100\n"
+"PO-Revision-Date: 2016-01-21 16:12+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -75,13 +75,13 @@ msgstr ""
 "Si vous le souhaitez, vous pouvez utiliser le formulaire ci-dessous pour "
 "mettre à jour votre adresse email et commencer le processus d'activation"
 
-#: activation.php:64 bwc/bwc_players.php:355 include/page_body.php:65
+#: activation.php:64 bwc/bwc_players.php:355 include/page_body.php:66
 #: index.php:265 index.php:279 index.php:398 mobile/index.php:72
 #: player_update.php:335
 msgid "User name"
 msgstr "Nom d'utilisateur"
 
-#: activation.php:69 bwc/bwc_players.php:356 include/page_body.php:66
+#: activation.php:69 bwc/bwc_players.php:356 include/page_body.php:67
 #: index.php:402 mobile/index.php:73
 msgid "Password"
 msgstr "Mot de passe"
@@ -94,7 +94,7 @@ msgstr "Email"
 msgid "Send"
 msgstr "Envoyer"
 
-#: activity.php:27 include/page_body.php:105 mobile/activity.php:27
+#: activity.php:27 include/page_body.php:106 mobile/activity.php:27
 msgid "News feed"
 msgstr "Fil d'actualités"
 
@@ -309,18 +309,18 @@ msgstr "Commencé le"
 msgid "Last move"
 msgstr "Dernier coup"
 
-#: ajax/ajx_display_player.php:51 bwc/bwc_common.php:151 bwc/bwc_common.php:171
-#: bwc/bwc_common.php:194 bwc/bwc_games.php:1083 bwc/bwc_games.php:1092
+#: ajax/ajx_display_player.php:51 bwc/bwc_common.php:137 bwc/bwc_common.php:157
+#: bwc/bwc_common.php:180 bwc/bwc_games.php:1083 bwc/bwc_games.php:1092
 #: bwc/bwc_games.php:1099 bwc/bwc_games.php:1111 bwc/bwc_games.php:1120
 #: bwc/bwc_games.php:1126 bwc/bwc_games.php:1201 bwc/bwc_games.php:1210
 #: bwc/bwc_games.php:1217 bwc/bwc_games.php:1229 bwc/bwc_games.php:1238
-#: bwc/bwc_games.php:1244 include/page_body.php:103 message.php:91
+#: bwc/bwc_games.php:1244 include/page_body.php:104 message.php:91
 #: mobile/ajax/ajx_display_player.php:51 player_view.php:155
 msgid "Player online"
 msgstr "Joueur en ligne"
 
 #: ajax/ajx_display_player.php:53 ajax/ajx_display_ranking.php:58
-#: bwc/bwc_common.php:153 bwc/bwc_common.php:173 bwc/bwc_common.php:196
+#: bwc/bwc_common.php:139 bwc/bwc_common.php:159 bwc/bwc_common.php:182
 #: message.php:93 mobile/ajax/ajx_display_player.php:53
 #: mobile/player_view.php:154 player_view.php:156
 msgid "New player"
@@ -328,7 +328,7 @@ msgstr "Nouveau joueur"
 
 #: ajax/ajx_display_player.php:58 ajax/ajx_display_ranking.php:63
 #: app_jchess.php:57 game_in_progress.php:617 game_new.php:25
-#: include/page_body.php:95 mobile/ajax/ajx_display_player.php:58
+#: include/page_body.php:96 mobile/ajax/ajx_display_player.php:58
 #: mobile/game_in_progress.php:564 mobile/game_new.php:25
 #: mobile/player_view.php:175 player_view.php:169
 msgid "New game"
@@ -628,11 +628,11 @@ msgstr "Voir la conversation complète"
 msgid "Message sent successfully"
 msgstr "Message envoyé avec succès"
 
-#: bwc/bwc_common.php:124
+#: bwc/bwc_common.php:110
 msgid "Suggestion"
 msgstr "Suggestions"
 
-#: bwc/bwc_common.php:133 game_new.php:266 include/page_body.php:96
+#: bwc/bwc_common.php:119 game_new.php:266 include/page_body.php:97
 #: mobile/activity.php:79 mobile/game_board.php:231
 #: mobile/game_in_progress.php:201 mobile/game_new.php:131
 #: mobile/player_search.php:74 mobile/player_view.php:139
@@ -640,13 +640,17 @@ msgstr "Suggestions"
 msgid "Tournaments"
 msgstr "Tournois"
 
-#: bwc/bwc_common.php:134 game_in_progress.php:629 game_new.php:268
+#: bwc/bwc_common.php:120 game_in_progress.php:629 game_new.php:268
 msgid "Register for a tournament"
 msgstr "S'inscrire à un tournoi"
 
-#: bwc/bwc_common.php:174 bwc/bwc_common.php:197
+#: bwc/bwc_common.php:160 bwc/bwc_common.php:183
 msgid "is the same level that you !"
 msgstr "vous avez le même niveau"
+
+#: bwc/bwc_common.php:224
+msgid "Buy a nice chessboard..."
+msgstr "Achetez un bel échiquier..."
 
 #: bwc/bwc_games.php:559
 msgid "Move cancellation accepted"
@@ -1086,7 +1090,7 @@ msgstr "Un joueur a accepté la partie avant vous !"
 msgid "Your pending resquet was accepted !"
 msgstr "Votre demande en attente a été acceptée !"
 
-#: game_in_progress.php:158 game_in_progress.php:485 include/page_body.php:94
+#: game_in_progress.php:158 game_in_progress.php:485 include/page_body.php:95
 #: mobile/game_in_progress.php:154 mobile/game_in_progress.php:462
 msgid "My games in progress"
 msgstr "Mes parties en cours"
@@ -1247,7 +1251,7 @@ msgstr "Parties terminées"
 msgid "All ended chess games of a player"
 msgstr "Toutes les parties terminées d'un joueur"
 
-#: game_list_ended.php:116 include/page_body.php:115
+#: game_list_ended.php:116 include/page_body.php:116
 msgid "Statistics"
 msgstr "Statistiques"
 
@@ -1515,122 +1519,122 @@ msgstr ""
 "Jouer aux échecs en ligne. Actualités et articles pour mieux jouer aux "
 "échecs."
 
-#: include/page_body.php:68 index.php:393
+#: include/page_body.php:69 index.php:393
 msgid "Invalid user name or password !"
 msgstr "Nom d'utilisateur ou mot de passe invalide !"
 
-#: include/page_body.php:70 index.php:406 mobile/index.php:79
+#: include/page_body.php:71 index.php:406 mobile/index.php:79
 msgid "Remember me"
 msgstr "Se souvenir de moi"
 
-#: include/page_body.php:71 index.php:391 index.php:411 mobile/index.php:80
+#: include/page_body.php:72 index.php:391 index.php:411 mobile/index.php:80
 msgid "Sign in"
 msgstr "Se connecter"
 
-#: include/page_body.php:74 index.php:412
+#: include/page_body.php:75 index.php:412
 msgid "Forgot password ?"
 msgstr "Mot de passe oublié ?"
 
-#: include/page_body.php:80
+#: include/page_body.php:81
 msgid "Update info"
 msgstr "Actualiser mes infos"
 
-#: include/page_body.php:92
+#: include/page_body.php:93
 msgid "Chess games"
 msgstr "Parties d'échecs"
 
-#: include/page_body.php:94
+#: include/page_body.php:95
 msgid "Moves to play"
 msgstr "Coups à jouer"
 
-#: include/page_body.php:97
+#: include/page_body.php:98
 msgid "My games ended"
 msgstr "Mes parties terminées"
 
-#: include/page_body.php:103 mobile/activity.php:81 mobile/game_board.php:233
+#: include/page_body.php:104 mobile/activity.php:81 mobile/game_board.php:233
 #: mobile/game_in_progress.php:203 mobile/game_new.php:133 mobile/index.php:104
 #: mobile/player_search.php:76 mobile/player_view.php:141
 #: mobile/tournament_list.php:63 mobile/tournament_view.php:55
 msgid "Players"
 msgstr "Joueurs"
 
-#: include/page_body.php:103 include/page_body.php:120
+#: include/page_body.php:104 include/page_body.php:121
 msgid "Online players"
 msgstr "Joueurs en ligne"
 
-#: include/page_body.php:106
+#: include/page_body.php:107
 msgid "Search"
 msgstr "Rechercher"
 
-#: include/page_body.php:107
+#: include/page_body.php:108
 msgid "Rankings"
 msgstr "Classements"
 
-#: include/page_body.php:108
+#: include/page_body.php:109
 msgid "Messages"
 msgstr "Messages"
 
-#: include/page_body.php:108
+#: include/page_body.php:109
 msgid "New private messages"
 msgstr "Nouveaux messages privés"
 
-#: include/page_body.php:117 player_view.php:305
+#: include/page_body.php:118 player_view.php:305
 msgid "Games in progress"
 msgstr "Parties en cours"
 
-#: include/page_body.php:118
+#: include/page_body.php:119
 msgid "Active players"
 msgstr "Joueurs actifs"
 
-#: include/page_body.php:119
+#: include/page_body.php:120
 msgid "Passive players"
 msgstr "Joueurs passifs"
 
-#: include/page_body.php:125
+#: include/page_body.php:126
 msgid "Training"
 msgstr "Entrainement"
 
-#: include/page_body.php:127 index.php:433
+#: include/page_body.php:128 index.php:433
 msgid "Puzzle of the day"
 msgstr "Diagramme du jour"
 
-#: include/page_body.php:128 index.php:434
+#: include/page_body.php:129 index.php:434
 msgid "Play vs JChess"
 msgstr "Jouer avec JChess"
 
-#: include/page_body.php:129 index.php:435
+#: include/page_body.php:130 index.php:435
 msgid "Play vs FlashChess"
 msgstr "Jouer avec FlashChess"
 
-#: include/page_body.php:130 index.php:436
+#: include/page_body.php:131 index.php:436
 msgid "Play vs SparkChess"
 msgstr "Jouer avec SparkChess"
 
-#: include/page_body.php:135
+#: include/page_body.php:136
 msgid "More on CapaKaspa"
 msgstr "Plus sur CapaKaspa"
 
-#: include/page_body.php:137 index.php:427
+#: include/page_body.php:138 index.php:427
 msgid "Chess news"
 msgstr "Actualités des échecs"
 
-#: include/page_body.php:138 index.php:428
+#: include/page_body.php:139 index.php:428
 msgid "Upcoming events"
 msgstr "Evénements à venir"
 
-#: include/page_body.php:139 index.php:429
+#: include/page_body.php:140 index.php:429
 msgid "Live !!"
 msgstr "Le Direct !!"
 
-#: include/page_body.php:140 index.php:430
+#: include/page_body.php:141 index.php:430
 msgid "Learning chess"
 msgstr "Apprendre les échecs"
 
-#: include/page_body.php:141
+#: include/page_body.php:142
 msgid "Forums"
 msgstr ""
 
-#: include/page_body.php:142
+#: include/page_body.php:143
 msgid "And more"
 msgstr "Et plus..."
 
