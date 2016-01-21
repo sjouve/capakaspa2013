@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="CapaKaspa">
 <meta property="article:publisher" content="http://www.facebook.com/capakaspa">
 <meta property="fb:admins" content="1809916587">
-<meta property="og:image" content="http://www.capakaspa.info/wp-content/uploads/2014/10/859181_10151515818451660_1761521777_o.jpg">
+<meta property="og:image" content="http://jouerauxechecs.capakaspa.info/images/chess_background.jpg">
 <link rel="stylesheet" href="css/capakaspa.css" type="text/css" />
 <link rel="shortcut icon" href="http://jouerauxechecs.capakaspa.info/favicon.ico" />
 <link href="https://plus.google.com/114694270583726807082/" rel="publisher" />
