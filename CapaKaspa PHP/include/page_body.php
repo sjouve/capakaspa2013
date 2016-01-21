@@ -31,14 +31,15 @@ if (isset($toPlayerID))
 	<div id="advertisement">
 		<div class="leaderboard">
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-			<!-- CapaKaspa Leaderboard -->
+			<!-- CapaKaspa Leaderboard Maxi -->
 			<ins class="adsbygoogle"
-			     style="display:inline-block;width:728px;height:90px"
+			     style="display:inline-block;width:970px;height:90px"
 			     data-ad-client="ca-pub-8069368543432674"
-			     data-ad-slot="6207727366"></ins>
+			     data-ad-slot="8539023267"></ins>
 			<script>
 			(adsbygoogle = window.adsbygoogle || []).push({});
 			</script>
+			
 		</div>
 		
 	    <div class="skyscraper">
