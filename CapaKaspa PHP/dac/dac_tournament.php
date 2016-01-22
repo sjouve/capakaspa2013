@@ -122,4 +122,18 @@ function countIPTournament()
 										WHERE status ='".INPROGRESS."'");
 	return mysqli_fetch_array($IPTournaments, MYSQLI_ASSOC);
 }
+
+function updateTounamentPlayer($tournamentID, $playerID, $rank, $points)
+{
+	global $dbh;
+	$res_tournament = mysqli_query($dbh,"UPDATE tournament_players
+								SET rank = ".$rank.", points = ".$points."  
+								WHERE tournamentID = ".$tournamentID."
+								AND playerID = ".$playerID);
+	 
+	if ($res_tournament)
+		return TRUE;
+	else
+		return FALSE;
+}
 ?>

@@ -152,12 +152,24 @@ function checkTournamentEnding($tournamentID)
 	// Si non et tournoi en cours alors update tournament à Terminé
 	if ($nbGames < 1 && $tournament['status'] == INPROGRESS)
 	{
+		// Mise à jour du tournoi
 		$res = updateTournament($tournamentID, ENDED);
+		
+		// Enregistrement du résultat et notification
+		$ranking = array();
+		$nickPlayer = array();
+		$eloPlayer = array();
 		
 		// Notification email fin de tournoi
 		$tmpPlayers = listTournamentPlayers($tournamentID);
 		while($tmpPlayer = mysqli_fetch_array($tmpPlayers, MYSQLI_ASSOC))
 		{
+			// Préparation pour calcul classement
+			$nickPlayer[$tmpPlayer['playerID']] = $tmpPlayer['nick'];
+			$eloPlayer[$tmpPlayer['playerID']] = $tmpPlayer['elo'];
+			$ranking[$tmpPlayer['playerID']] = 0;
+			
+			// Notification
 			$prefEmail = isset($tmpPlayer['prefEmail'])?$tmpPlayer['prefEmail']:"non";
 			$locale = isset($tmpPlayer['language'])?$tmpPlayer['language']:"en_EN";
 			putenv("LC_ALL=$locale");
@@ -167,6 +179,43 @@ function checkTournamentEnding($tournamentID)
 			textdomain("messages");
 			if ($prefEmail == "oui")
 				sendMail($tmpPlayer['email'], "[CapaKaspa] "._("Completed tournament")." #".$tournamentID, _("You can check the final ranking for the tournament")." #".$tournamentID);
+		}
+		
+		// Calcul classement
+		$result = listTournamentGames($tournament['tournamentID']);
+		while($tmpGame = mysqli_fetch_array($result, MYSQLI_ASSOC))
+		{
+			if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "white"))
+			{
+				$ranking[$tmpGame['blackPlayerID']] ++;
+			}
+			else if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "black"))
+			{
+				$ranking[$tmpGame['whitePlayerID']] ++;
+			}
+			else if (($tmpGame['gameMessage'] == "checkMate") && ($tmpGame['messageFrom'] == "white"))
+			{
+				$ranking[$tmpGame['whitePlayerID']] ++;
+			}
+			else if ($tmpGame['gameMessage'] == "checkMate")
+			{
+				$ranking[$tmpGame['blackPlayerID']] ++;
+			}
+			else if ($tmpGame['gameMessage'] == "draw")
+			{
+				$ranking[$tmpGame['blackPlayerID']] += 0.5;
+				$ranking[$tmpGame['whitePlayerID']] += 0.5;
+			}
+		}
+		
+		arsort($ranking);
+		$rank = 0;
+		$nbPointPrev = -1;
+		foreach ($ranking as $playerID => $nbPoints)
+		{
+			if ($nbPointPrev != $nbPoints) $rank++;
+			updateTounamentPlayer($tournamentID, $playerID, $rank, $nbPoints);
+			$nbPointPrev = $nbPoints;
 		}
 		
 		$locale = $_SESSION["pref_language"];
