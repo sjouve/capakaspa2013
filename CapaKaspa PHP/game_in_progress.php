@@ -268,6 +268,9 @@ require 'include/page_body.php';
 							<span class='name'>"._("You")."</span> "._("invite a player to play a new game"));
 							if ($tmpGame['whitePlayerID'] != 0 && $tmpGame['blackPlayerID'] != 0) echo(" <a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponent."</span></a>");
 						echo("</div>
+						<div class='timedata'>
+							<span class='date'>".$strPostDate."</span>
+						</div>
 						<div class='content'>
 							<div class='gameboard'>");
 								drawboardGame($tmpGame['gameID'], $tmpGame['whitePlayerID'], $tmpGame['blackPlayerID'], $tmpGame['position'], $tmpGame['nbMoves']);
@@ -286,9 +289,6 @@ require 'include/page_body.php';
 								echo _("Request declined");
 							echo (" <input type='button' value='"._("Cancel")."' class='button' onclick=\"withdrawRequest(".$tmpGame['gameID'].",".$tmpGame['whitePlayerID'].")\"></span>");
 							echo("</div>
-						</div>
-						<div class='footer'>
-							<span class='date'>".$strPostDate."</span>
 						</div>
 					</div>
 				</div>");
@@ -342,6 +342,9 @@ require 'include/page_body.php';
 						<div class='title'>
 							<a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponent."</span></a> "._("invite you to play a new game")."
 						</div>
+						<div class='timedata'>
+							<span class='date'>".$strPostDate."</span>
+						</div>
 						<div class='content'>
 							<div class='gameboard'>");
 								drawboardGame($tmpGame['gameID'], $tmpGame['whitePlayerID'], $tmpGame['blackPlayerID'], $tmpGame['position'], $tmpGame['nbMoves']);
@@ -366,9 +369,6 @@ require 'include/page_body.php';
 							echo ("<span style='float: right'><input type='button' value='"._("Accept")."' class='button' onclick=\"sendResponse('accepted', '".$tmpFrom."', ".$tmpGame['gameID'].", ".$tmpGame['whitePlayerID'].")\"><br>");
 							echo ("<input type='button' value='"._("Decline")."' class='button' onclick=\"sendResponse('declined', '".$tmpFrom."', ".$tmpGame['gameID'].", ".$tmpGame['whitePlayerID'].")\"></span>");
 							echo("</div>
-						</div>
-						<div class='footer'>
-							<span class='date'>".$strPostDate."</span>
 						</div>
 					</div>
 				</div>");
@@ -440,6 +440,9 @@ require 'include/page_body.php';
 						<div class='title'>
 							<a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponent."</span></a> "._("invite somebody to play a new game")."
 						</div>
+						<div class='timedata'>
+							<span class='date'>".$strPostDate."</span>
+						</div>
 						<div class='content'>
 							<div class='gameboard'>");
 								drawboardGame($tmpGame['gameID'], $tmpGame['whitePlayerID'], $tmpGame['blackPlayerID'], $tmpGame['position'], $tmpGame['nbMoves']);
@@ -464,9 +467,6 @@ require 'include/page_body.php';
 							echo ("<span style='float: right'><input type='button' value='"._("Accept")."' class='button' onclick=\"sendResponseAll('accepted', '".$tmpFrom."', ".$tmpGame['gameID'].", ".$tmpGame['whitePlayerID'].")\"><br>");
 							
 							echo("</div>
-						</div>
-						<div class='footer'>
-							<span class='date'>".$strPostDate."</span>
 						</div>
 					</div>
 				</div>");
