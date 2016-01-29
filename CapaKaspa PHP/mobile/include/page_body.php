@@ -27,7 +27,7 @@ if (isset($_SESSION['playerID']) && $_SESSION['playerID']!=-1)
 	<?
 	if (isset($_SESSION['playerID']) && $_SESSION['playerID']!=-1)
 	{?>
-	<span style="float: right;"><a href="activity_notification.php"><img src="images/notification.png" style="vertical-align: -4px;"/><? if ($nbUnreadNotif > 0) echo("<span class='newplayer' style='font-size: 9px; padding-left: 2px; padding-right: 2px;border-radius: 6px;' title='"._("Unread notifications")."'>".$nbUnreadNotif."</span>");?></a></span>
+	<span style="float: right; margin-right: 20px;"><a href="activity_notification.php"><img height="18px" width="18px" src="images/notification.png" style="vertical-align: -2px;"/><? if ($nbUnreadNotif > 0) echo("<span class='newplayer' style='font-size: 9px; padding-left: 2px; padding-right: 2px;border-radius: 6px;' title='"._("Unread notifications")."'>".$nbUnreadNotif."</span>");?></a></span>
 	<?}?>
 </div>
 <div id="advertisement">
