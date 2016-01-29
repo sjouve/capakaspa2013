@@ -1,5 +1,5 @@
 // Manage activity
-function displayActivity(start, type, playerID)
+function displayActivity(start, type, playerID, activityID)
 {
 	if (start == 0)
 		document.getElementById("activities"+start).innerHTML="<img src='images/ajaxloader.gif'/>";
@@ -20,7 +20,7 @@ function displayActivity(start, type, playerID)
 			document.getElementById("activities"+start).innerHTML=xmlhttp.responseText;
 		}
 	};
-	xmlhttp.open("GET","ajax/ajx_display_activity.php?start="+start+"&type="+type+"&player="+playerID,true);
+	xmlhttp.open("GET","ajax/ajx_display_activity.php?start="+start+"&type="+type+"&player="+playerID+"&actvt="+activityID,true);
 	xmlhttp.send();
 }
 

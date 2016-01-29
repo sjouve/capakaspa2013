@@ -47,23 +47,12 @@ require 'include/page_header.php';
 ?>
 <script src="javascript/menu.js" type="text/javascript"></script>
 <?
-$attribut_body = "onload=\"highlightMenu(16);\"";
+$activeMenu = 20;
 require 'include/page_body.php';
 
 $res = createTournamentAuto();
 
 ?>
-
-	<div id="onglet">
-		<table width="100%" cellpadding="0" cellspacing="0">
-		<tr>
-			<td><div class="ongletdisable" onclick="location.href='game_in_progress.php'"><a href="game_in_progress.php"><? echo _("Games");?></a></div></td>
-			<td><div class="ongletenable"><? echo _("Tournaments");?></div></td>
-			<td><div class="ongletdisable" onclick="location.href='activity.php'"><a href="activity.php"><? echo _("News");?></a></div></td>
-			<td><div class="ongletdisable" onclick="location.href='player_search.php'"><a href="player_search.php"><? echo _("Players");?></a></div></td>	
-		</tr>
-		</table>
-	</div>
 		
 		<div class="blockform">
 			<h3><? echo _("Register for a Round-robin tournament")?></h3>

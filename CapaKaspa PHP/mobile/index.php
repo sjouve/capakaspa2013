@@ -100,6 +100,7 @@ require 'include/page_body.php';
 		<table width="100%" cellpadding="0" cellspacing="0">
 		<tr>
 			<td><div class="ongletdisable"><a href="game_in_progress.php"><? echo _("Games")?></a></div></td>
+			<td><div class="ongletdisable"><a href="tournament_list.php"><? echo _("Tournaments");?></a></div></td>
 			<td><div class="ongletdisable"><a href="activity.php"><? echo _("News");?></a></div></td>
 			<td><div class="ongletdisable"><a href="player_search.php"><? echo _("Players");?></a></div></td>
 		</tr>

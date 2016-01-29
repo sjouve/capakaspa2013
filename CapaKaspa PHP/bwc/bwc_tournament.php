@@ -109,6 +109,7 @@ function registerTournamentPlayer($tournamentID, $playerID)
 				$count++;
 				$players[$count] = $tmpPlayer['playerID'];
 				$prefEmail = isset($tmpPlayer['prefEmail'])?$tmpPlayer['prefEmail']:"non";
+				$prefInvit = isset($tmpPlayer['prefInvit'])?$tmpPlayer['prefInvit']:"non";
 				$locale = isset($tmpPlayer['language'])?$tmpPlayer['language']:"en_EN";
 				putenv("LC_ALL=$locale");
 				setlocale(LC_ALL, $locale);
@@ -117,6 +118,8 @@ function registerTournamentPlayer($tournamentID, $playerID)
 				textdomain("messages");
 				if ($prefEmail == "oui")
 					sendMail($tmpPlayer['email'], "[CapaKaspa] "._("Tournament started"), _("The tournament which you registered just started..."));
+				if ($prefInvit == "oui")
+					insertActivity($tmpPlayer['playerID'], TOURNAMENT, $tournamentID, "", 'start');
 			}
 			
 			for ($i = 1; $i <= $count; $i++) 
@@ -167,6 +170,7 @@ function checkTournamentEnding($tournamentID)
 			// Préparation pour calcul classement
 			$nickPlayer[$tmpPlayer['playerID']] = $tmpPlayer['nick'];
 			$eloPlayer[$tmpPlayer['playerID']] = $tmpPlayer['elo'];
+			$prefPlayer[$tmpPlayer['playerID']] = isset($tmpPlayer['prefInvit'])?$tmpPlayer['prefInvit']:"non";
 			$ranking[$tmpPlayer['playerID']] = 0;
 			
 			// Notification
@@ -179,6 +183,7 @@ function checkTournamentEnding($tournamentID)
 			textdomain("messages");
 			if ($prefEmail == "oui")
 				sendMail($tmpPlayer['email'], "[CapaKaspa] "._("Completed tournament")." #".$tournamentID, _("You can check the final ranking for the tournament")." #".$tournamentID);
+			
 		}
 		
 		// Calcul classement
@@ -216,6 +221,8 @@ function checkTournamentEnding($tournamentID)
 			if ($nbPointPrev != $nbPoints) $rank++;
 			updateTounamentPlayer($tournamentID, $playerID, $rank, $nbPoints);
 			$nbPointPrev = $nbPoints;
+			if ($prefPlayer[$playerID] == "oui" && $rank == 1)
+				insertActivity($playerID, TOURNAMENT, $tournamentID, "", 'won');
 		}
 		
 		$locale = $_SESSION["pref_language"];

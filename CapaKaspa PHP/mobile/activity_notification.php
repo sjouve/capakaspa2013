@@ -18,28 +18,20 @@ require '../bwc/bwc_games.php';
 require '../include/connectdb.php';
 
 $errMsg = "";
-$typeList = 0;
-$activityID = isset($_GET['ID']) ? $_GET['ID'] : "''";
-if ($activityID != "''")
-	$typeList = 2;
 
 /* check session status */
 require '../include/sessioncheck.php';
 	
 require '../include/localization.php';
 	
-$titre_page = _("News feed");
-$desc_page = _("News feed of your following");
+$titre_page = _("Notifications feed");
+$desc_page = _("All your notifications");
 require 'include/page_header.php';
 ?>
-<link href="http://jouerauxechecs.capakaspa.info/pgn4web/fonts/pgn4web-font-ChessSansPiratf.css" type="text/css" rel="stylesheet" />
-<script src="http://jouerauxechecs.capakaspa.info/javascript/activity.js" type="text/javascript"></script>
-<script src="http://jouerauxechecs.capakaspa.info/javascript/comment.js" type="text/javascript"></script>
-<script src="http://jouerauxechecs.capakaspa.info/javascript/like.js" type="text/javascript"></script>
+<script src="http://jouerauxechecs.capakaspa.info/javascript/notification.js" type="text/javascript"></script>
 <script type="text/javascript">
 function loadGameActivity(gameID)
 {
-
 	document.existingGames.gameID.value = gameID;
 	document.existingGames.submit();
 }
@@ -63,7 +55,7 @@ function getheight() {
 		var scrolledtonum = window.pageYOffset + myHeight + 2;
 		var heightofbody = document.body.offsetHeight;
 		if (scrolledtonum >= heightofbody && document.getElementById("startPage")) {
-			displayActivity(document.getElementById("startPage").value, <? echo($typeList);?>, <? echo($_SESSION['playerID']);?>, <?echo($activityID);?>);
+			displayNotification(document.getElementById("startPage").value, <? echo($_SESSION['playerID']);?>);
 	}
 }
 
@@ -71,22 +63,23 @@ window.onscroll = getheight;
 
 </script>
 <?
-$attribut_body = "onload=\"displayActivity(0, ".$typeList.", ".$_SESSION['playerID'].", ".$activityID."); \"";
+$attribut_body = "onload=\"displayNotification(0, ".$_SESSION['playerID']."); \"";
 $activeMenu = 0;
-if ($activityID == "''")
-	$activeMenu = 30;
 require 'include/page_body.php';
+?>
 
+  	<?
 	if ($errMsg != "")
 		echo("<div class='error'>".$errMsg."</div>");
 	?>
+	<h3><?echo(_("Notifications"));?> <a href="activity_notification.php"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a></h3>
 		<form name="existingGames" action="game_board.php" method="post">
-			<div id="activities0" style="display: none;"><img src='images/ajaxloader.gif'/></div>
+			<div id="notifications0" style="display: none;"><img src='images/ajaxloader.gif'/></div>
 			<input type="hidden" name="gameID" value="">
-			<input type="hidden" name="from" value="encours">
+			<input type="hidden" name="from" value="notification">
 		</form>
+	
 <?
-updatePlayerDisplayNews($_SESSION['playerID']);
 require 'include/page_footer.php';
 mysqli_close($dbh);
 ?>

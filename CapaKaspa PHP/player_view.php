@@ -79,7 +79,7 @@ function displayFeed (type, start)
 		document.getElementById("stat_wing").style.backgroundColor = "#EEEEEE";
 		document.getElementById("stat_wers").style.backgroundColor = "#EEEEEE";
 		document.getElementById("feedType").value = 'activity';
-		displayActivity(start, 1, <? echo($playerID);?>);
+		displayActivity(start, 1, <? echo($playerID);?>, "");
 	}
 	if (type == 'wers')
 	{

@@ -497,7 +497,12 @@ require 'include/page_body.php';
       
         <table border="0" width="100%">
           <tr>
-            <td width="180"><?echo _("Email notification");?> :</td>
+          	<td colspan="2">
+          		<h4><?echo _("Notifications for what concern you");?></h4>
+          	</td>
+          </tr>
+          <tr>
+            <td width="180"><?echo _("Email");?> :</td>
             <td><?
 					if ($_SESSION['pref_emailnotification'] == 'oui')
 					{
@@ -505,8 +510,7 @@ require 'include/page_body.php';
               <input name="txtEmailNotification" type="radio" value="oui" checked>
               <?echo _("Yes");?> 
               <input name="txtEmailNotification" type="radio" value="non">
-              <?echo _("No");?> 
-              <?
+              <?echo _("No");
 					}
 					else
 					{
@@ -516,12 +520,26 @@ require 'include/page_body.php';
               <input name="txtEmailNotification" type="radio" value="non" checked>
               <?echo _("No");?> 
               <?	}
-				?>
-				<?echo _("(Invitations, moves, results and private messages)");?>
+				echo " "._("(Games events, tournaments events and private messages)");?>
             </td>
           </tr>
           <tr>
-            <td width="180"><?echo _("Share invitations");?> :</td>
+            <td width="180"><?echo _("On CapaKaspa");?> :</td>
+            <td>
+              <input name="txtSiteNotification" type="radio" value="oui" checked disabled="true">
+              <?echo _("Yes");?> 
+              <input name="txtSiteNotification" type="radio" value="non" disabled="true">
+              <?echo _("No");
+				echo " "._("(Likes and comments on your games, tournaments and news)");?>
+            </td>
+          </tr>
+          <tr>
+          	<td colspan="2">
+          		<h4><?echo _("Share automatically your activity with your subcribers");?></h4>
+          	</td>
+          </tr>
+          <tr>
+            <td width="180"><?echo _("Invitations, registrations");?> :</td>
             <td><?
 					if ($_SESSION['pref_shareinvitation'] == 'oui')
 					{
@@ -540,11 +558,12 @@ require 'include/page_body.php';
               <input name="txtShareInvitation" type="radio" value="non" checked>
               <?echo _("No");?> 
               <?	}
-				?>
+				echo " "._("(Games invitations, tournaments starting)");
+              	?>
             </td>
           </tr>
           <tr>
-            <td width="180"><?echo _("Share results");?> :</td>
+            <td width="180"><?echo _("Results");?> :</td>
             <td><?
 					if ($_SESSION['pref_shareresult'] == 'oui')
 					{
@@ -563,8 +582,14 @@ require 'include/page_body.php';
               <input name="txtShareResult" type="radio" value="non" checked>
               <?echo _("No");?> 
               <?	}
-				?>
+					echo " "._("(Games and tournaments results)");
+              ?>
             </td>
+          </tr>
+          <tr>
+          	<td colspan="2">
+          		<h4><?echo _("Displaying");?></h4>
+          	</td>
           </tr>
           <tr>
             <td><?echo _("Chess set");?> :</td>

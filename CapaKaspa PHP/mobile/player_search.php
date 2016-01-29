@@ -65,18 +65,10 @@ window.onscroll = getheight;
 </script>
 <?
 $attribut_body = "onload=\"displayPlayers(0,".$_SESSION['playerID'].",'".$critFavorite."','".$critStatus."','".$critEloStart."','".$critEloEnd."','".$critCountry."','".$critName."')\"";
+$activeMenu = 40;
 require 'include/page_body.php';
 ?>
-		<div id="onglet">
-		<table width="100%" cellpadding="0" cellspacing="0">
-		<tr>
-			<td><div class="ongletdisable" onclick="location.href='game_in_progress.php'"><a href="game_in_progress.php"><? echo _("Games");?></a></div></td>
-			<td><div class="ongletdisable" onclick="location.href='tournament_list.php'"><a href="tournament_list.php"><? echo _("Tournaments");?></a></div></td>
-			<td><div class="ongletdisable" onclick="location.href='activity.php'"><a href="activity.php"><? echo _("News");?></a></div></td>
-			<td><div class="ongletenable"><? echo _("Players");?></div></td>	
-		</tr>
-		</table>
-		</div>
+
   		<div class="blockform">
 		<?
             $nb_tot=0;

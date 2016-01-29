@@ -546,4 +546,26 @@ function updatePlayerRanks($playerID, $rank, $rank960)
 	
 	
 }
+
+function updatePlayerDisplayNews ($playerID)
+{
+	global $dbh;
+	$res_player = mysqli_query($dbh,"UPDATE players SET lastDisplayNews = NOW() WHERE playerID = ".$playerID);
+	  
+	if ($res_player)	
+		return TRUE;
+	else
+		return FALSE;
+}
+
+function updatePlayerDisplayNotif ($playerID)
+{
+	global $dbh;
+	$res_player = mysqli_query($dbh,"UPDATE players SET lastDisplayNotif = NOW() WHERE playerID = ".$playerID);
+	  
+	if ($res_player)	
+		return TRUE;
+	else
+		return FALSE;
+}
 ?>

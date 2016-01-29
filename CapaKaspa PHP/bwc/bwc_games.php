@@ -281,10 +281,17 @@ function sendEmailNotification($history, $isPromoting, $numMoves, $isInCheck)
 	
 	// Notification
 	chessNotification('move', $oppColor, $strMove, $_SESSION['nick'], $_POST['gameID']);
-	
+	if (($numMoves == -1) || ($numMoves % 2 == 1))
+	{
+		$numMovePGN = $numMoves / 2 + 0.5;
+		$numMovePGN .= "..";
+	}
+	else
+		$numMovePGN = ($numMoves / 2 + 1);
+		
 	// Activity
 	if (isset($_POST['chkShareMove']))
-		insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], $strMove, 'move');
+		insertActivity($_SESSION['playerID'], GAME, $_POST['gameID'], $numMovePGN.".".$strMove, 'move');
 }
 
 /* I: $gameID, $numMoves

@@ -184,9 +184,9 @@ require 'include/page_body.php';
 			echo $numGames." "._("game(s) found");	
 			while($tmpGame = mysqli_fetch_array($result, MYSQLI_ASSOC))
 			{
-				echo("<div class='activity' id='game".$tmpGame['gameID']."'>
-						<div class='details' style='width:100%;'>
-							<div class='content' style='font-size: 11px; padding-left: 5px;'>");
+				echo("<div class='activity' style='padding: 0px;' id='game".$tmpGame['gameID']."'>
+						<div class='details'>
+							<div class='content' style='font-size: 11px;'>");
 						
 						/* White */
 						echo("<div style='float:left; width: 250px; height: 25px;'><img style='vertical-align: middle' src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'><a href='player_view.php?playerID=".$tmpGame['whitePlayerID']."'><b>".$tmpGame['whiteNick']."</b></a></div> ");
@@ -227,7 +227,7 @@ require 'include/page_body.php';
 						
 						echo("</b>)</div>");
 					
-						echo("<div style='float:right; height: 25px;padding-right: 10px;'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></div>");
+						echo("<div style='float:right; height: 25px;'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></div>");
 						
 						/* Black */
 						echo("<div style='float:left; width: 250px; height: 25px;'><img style='vertical-align: middle' src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'><a href='player_view.php?playerID=".$tmpGame['blackPlayerID']."'><b>".$tmpGame['blackNick']."</b></a></div> ");
@@ -242,7 +242,7 @@ require 'include/page_body.php';
 						$strLastMove = $fmtlist->format($lastMove);
 						
 						/* Start Date */
-						echo ("</div><div class='timedata' style='font-size: 11px; padding-left: 5px;'>".("<span style='float: left;width: 250px;'>")._("Started")." : "
+						echo ("</div><div class='timedata' style='font-size: 11px; margin: 0px;'>".("<span style='float: left;width: 250px;'>")._("Started")." : "
 							.$strStarted."</span>");
 			
 						/* Last Move */

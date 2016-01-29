@@ -971,8 +971,7 @@ input[type="file"] {
 .activity {
 	float: left;
 	width: 100%;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	padding-top: 10px;
 	border: 1px solid;
 	border-color: #e9eaed #dfe0e4 #d0d1d5;
 	background-color: #FFFFFF;
@@ -981,7 +980,7 @@ input[type="file"] {
 }
 .activity .leftbar{
 	float: left;
-	padding-left: 5px;
+	padding-left: 10px;
 	padding-right: 10px;
 	border-top-style: none;
 	border-right-style: none;
@@ -991,7 +990,7 @@ input[type="file"] {
 }
 .activity .details{
 	float: left;
-	width: 90%;
+	padding: 10px;
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: none;
@@ -1039,7 +1038,7 @@ input[type="file"] {
 }
 .activity .details .content .gamedetails{
 	float: left;
-	width: 330px;
+	width: 375px;
 	height: 141px;
 	padding: 10px;
 	font-size: 11px;

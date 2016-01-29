@@ -43,41 +43,30 @@ function loadGame(gameID)
 }
 </script>
 <?
+$activeMenu = 0;
 require 'include/page_body.php';
 
-?>
-	<div id="onglet">
-			<table width="100%" cellpadding="0" cellspacing="0">
-			<tr>
-				<td><div class="ongletdisable" onclick="location.href='game_in_progress.php'"><a href="game_in_progress.php"><? echo _("Games");?></a></div></td>
-				<td><div class="ongletdisable" onclick="location.href='tournament_list.php'"><a href="tournament_list.php"><? echo _("Tournaments");?></a></div></td>
-				<td><div class="ongletdisable" onclick="location.href='activity.php'"><a href="activity.php"><? echo _("News");?></a></div></td>
-				<td><div class="ongletdisable" onclick="location.href='player_search.php'"><a href="player_search.php"><? echo _("Players");?></a></div></td>	
-			</tr>
-			</table>
-		</div>
-		<? 	
-			$tournamentCreation = new DateTime($tournament['creationDate']);
-			$strTournamentCreation = $fmt->format($tournamentCreation);
-			$tournamentDate = new DateTime($tournament['beginDate']);
-			$strTournamentDate = $fmt->format($tournamentDate);
-			$tournamentEnded = new DateTime($tournament['endDate']);
-			$strTournamentEnded = $fmt->format($tournamentEnded);
-			
-			$strStatus = "";
-			if ($tournament['status'] == WAITING)
-				$strStatus = _("Registration");
-			if ($tournament['status'] == INPROGRESS)
-				$strStatus = _("In progress");
-			if ($tournament['status'] == ENDED)
-				$strStatus = _("Completed ");
+		$tournamentCreation = new DateTime($tournament['creationDate']);
+		$strTournamentCreation = $fmt->format($tournamentCreation);
+		$tournamentDate = new DateTime($tournament['beginDate']);
+		$strTournamentDate = $fmt->format($tournamentDate);
+		$tournamentEnded = new DateTime($tournament['endDate']);
+		$strTournamentEnded = $fmt->format($tournamentEnded);
+		
+		$strStatus = "";
+		if ($tournament['status'] == WAITING)
+			$strStatus = _("Registration");
+		if ($tournament['status'] == INPROGRESS)
+			$strStatus = _("In progress");
+		if ($tournament['status'] == ENDED)
+			$strStatus = _("Completed ");
 
-			$strType = "";
-				if ($tournament['type'] == CLASSIC)
-					$strType = _("Classic game");
-					
-			$tmpPlayers = listTournamentPlayers($tournament['tournamentID']);
-			$nbRegisteredPlayers = mysqli_num_rows($tmpPlayers);
+		$strType = "";
+			if ($tournament['type'] == CLASSIC)
+				$strType = _("Classic game");
+				
+		$tmpPlayers = listTournamentPlayers($tournament['tournamentID']);
+		$nbRegisteredPlayers = mysqli_num_rows($tmpPlayers);
 		?>
   		<div class="blockform">	
 			<h3><? echo _("Tournament")." #".$tournament['tournamentID']." - ".$tournament['name']." - ".$strStatus;?></h3>

@@ -88,7 +88,14 @@ if (isset($toPlayerID))
 	<? if (isset($_SESSION['playerID']) && $_SESSION['playerID']!=-1) {
 		$nbUnreadMessages = countUnreadPM($_SESSION['playerID']);
 		$nbTurns = getNbGameTurns($_SESSION['playerID']);
+		$nbUnreadNews = countUnreadActivity($_SESSION['playerID']);
+		$nbUnreadNotif = countUnreadNotification($_SESSION['playerID']);
 	?>
+	<div class="navlinks">
+	  <ul>
+    	<li id="menu20"><img src="images/notification.png"/> <a href="activity_notification.php"><?php echo _("Notifications");?></a> <? if ($nbUnreadNotif > 0) echo("<span class='newplayer' title='"._("Unread notifications")."'>".$nbUnreadNotif."</span>");?></li>
+	  </ul>  
+	</div>
 	<div class="navlinks">
 	<div class="title"><?php echo _("Chess games");?></div>		
       <ul>
@@ -103,7 +110,7 @@ if (isset($toPlayerID))
 	<div class="navlinks">
 	<div class="title"><?php echo _("Players");?> <img src="images/user_online.gif" style="vertical-align:bottom;" title="<?php echo _("Player online");?>" alt="<?php echo _("Player online");?>"/><? echo("<span class='newplayer' title='"._("Online players")."'>".getNbOnlinePlayers()."</span>");?></div>		
       <ul>
-        <li id="menu4"><img src="images/news.png"/> <a href="activity.php"><?php echo _("News feed");?></a></li>
+        <li id="menu4"><img src="images/news.png"/> <a href="activity.php"><?php echo _("News feed");?></a> <? if ($nbUnreadNews > 0) echo("<span class='newplayer' title='"._("Unread news")."'>".$nbUnreadNews."</span>");?></li>
 		<li id="menu5"><img src="images/search.png"/> <a href="player_search.php"><?php echo _("Search");?></a></li>
 		<li id="menu15"><img src="images/classements.gif"/> <a href="player_ranking.php"><?php echo _("Rankings");?></a></li>
 		<li id="menu6"><img src="images/messages.png"/> <a href="message.php"><?php echo _("Messages");?></a> <? if ($nbUnreadMessages > 0) echo("<span class='newplayer' title='"._("New private messages")."'>".$nbUnreadMessages."</span>");?></li>      

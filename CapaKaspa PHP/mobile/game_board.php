@@ -206,6 +206,7 @@ require 'include/page_header.php';
 </script>
 <?
 $attribut_body = "onload=\"displayComment('".GAME."',".$_POST['gameID'].")\"";
+$activeMenu = 0;
 if ($_SESSION['playerID'] == $tmpGame['whitePlayer'])
 {
 	$toPlayerID = $tmpGame['blackPlayer'];
@@ -223,20 +224,8 @@ else
 	$toEmail = $tmpGame['whiteEmail'];;
 }
 require 'include/page_body.php';
-?>
-	<div id="onglet">
-		<table width="100%" cellpadding="0" cellspacing="0">
-		<tr>
-			<td><div class="ongletdisable" onclick="location.href='game_in_progress.php'"><a href="game_in_progress.php"><? echo _("Games");?></a></div></td>
-			<td><div class="ongletdisable" onclick="location.href='tournament_list.php'"><a href="tournament_list.php"><? echo _("Tournaments");?></a></div></td>
-			<td><div class="ongletdisable" onclick="location.href='activity.php'"><a href="activity.php"><? echo _("News");?></a></div></td>
-			<td><div class="ongletdisable" onclick="location.href='player_search.php'"><a href="player_search.php"><? echo _("Players");?></a></div></td>	
-		</tr>
-		</table>
-	</div>
-	
-      	<?
-        if (($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['blackPlayer']) 
+
+		if (($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['blackPlayer']) 
         		&& $tmpGame['gameMessage'] == "")
 		{
         	if (mysqli_num_rows($res_adv_vacation) > 0)

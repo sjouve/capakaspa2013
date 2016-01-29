@@ -263,7 +263,7 @@ require 'include/page_body.php';
 					<div class='leftbar'>
 						<img src='".getPicturePath($opponentSocialNW, $opponentSocialID)."' width='40' height='40' border='0'/>
 					</div>
-					<div class='details'>
+					
 						<div class='title'>
 							<span class='name'>"._("You")."</span> "._("invite a player to play a new game"));
 							if ($tmpGame['whitePlayerID'] != 0 && $tmpGame['blackPlayerID'] != 0) echo(" <a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponent."</span></a>");
@@ -271,6 +271,7 @@ require 'include/page_body.php';
 						<div class='timedata'>
 							<span class='date'>".$strPostDate."</span>
 						</div>
+					<div class='details'>
 						<div class='content'>
 							<div class='gameboard'>");
 								drawboardGame($tmpGame['gameID'], $tmpGame['whitePlayerID'], $tmpGame['blackPlayerID'], $tmpGame['position'], $tmpGame['nbMoves']);
@@ -338,13 +339,14 @@ require 'include/page_body.php';
 					<div class='leftbar'>
 						<img src='".getPicturePath($opponentSocialNW, $opponentSocialID)."' width='40' height='40' border='0'/>
 					</div>
-					<div class='details'>
+					
 						<div class='title'>
 							<a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponent."</span></a> "._("invite you to play a new game")."
 						</div>
 						<div class='timedata'>
 							<span class='date'>".$strPostDate."</span>
 						</div>
+					<div class='details'>
 						<div class='content'>
 							<div class='gameboard'>");
 								drawboardGame($tmpGame['gameID'], $tmpGame['whitePlayerID'], $tmpGame['blackPlayerID'], $tmpGame['position'], $tmpGame['nbMoves']);
@@ -436,13 +438,14 @@ require 'include/page_body.php';
 					<div class='leftbar'>
 						<img src='".getPicturePath($opponentSocialNW, $opponentSocialID)."' width='40' height='40' border='0'/>
 					</div>
-					<div class='details'>
+					
 						<div class='title'>
 							<a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponent."</span></a> "._("invite somebody to play a new game")."
 						</div>
 						<div class='timedata'>
 							<span class='date'>".$strPostDate."</span>
 						</div>
+					<div class='details'>
 						<div class='content'>
 							<div class='gameboard'>");
 								drawboardGame($tmpGame['gameID'], $tmpGame['whitePlayerID'], $tmpGame['blackPlayerID'], $tmpGame['position'], $tmpGame['nbMoves']);
@@ -546,13 +549,14 @@ require 'include/page_body.php';
 					<div class='leftbar'>
 						<img src='".getPicturePath($opponentSocialNW, $opponentSocialID)."' width='40' height='40' border='0'/>
 					</div>
-					<div class='details'>
+					
 						<div class='title'>						
 							<a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponent."</span></a> "._("is your opponent in this game.")."
 						</div>
 						<div class='timedata'>
 							<span style='margin-right: 15px;' class='date'>"._("Started")." : ".$strStartedDate."</span><span class='date'>"._("Last move")." : ".$strPostDate."</span>
 						</div>
+					<div class='details'>
 						<div class='content'>
 							<div class='gameboard'>");
 								drawboardGame($tmpGame['gameID'],$tmpGame['whitePlayer'],$tmpGame['blackPlayer'], $tmpGame['position'], $tmpGame['nbMoves']);
