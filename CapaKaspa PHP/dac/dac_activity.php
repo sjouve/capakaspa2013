@@ -13,7 +13,7 @@ function listActivity($start, $limit, $type, $playerID, $activityID)
 	global $dbh;
 	$tmpQuery = "SELECT A.activityID, A.playerID, A.type entityType, A.entityID, A.msgType, A.message, A.postDate, L.likeID,
 					P.firstName, P.lastName, P.nick, P.socialNetwork, P.socialID,
-				G.gameID, G.eco, G.position, G.gameMessage, G.lastMove, G.dateCreated, G.type gameType, G.flagBishop, G.flagKnight, G.flagRook, G.flagQueen, E.name ecoName,
+				G.gameID, G.eco, G.position, G.gameMessage, G.type gameType, G.flagBishop, G.flagKnight, G.flagRook, G.flagQueen,
 				WP.playerID wPlayerID, WP.firstName wFirstName, WP.lastName wLastName, WP.nick wNick, WP.elo wElo, WP.elo960 wElo960, WP.socialNetwork wSocialNetwork, WP.socialID wSocialID,
 				BP.playerID bPlayerID, BP.firstName bFirstName, BP.lastName bLastName, BP.nick bNick, BP.elo bElo, BP.elo960 bElo960, BP.socialNetwork bSocialNetwork, BP.socialID bSocialID,
 				(SELECT COUNT(commentID) FROM comment WHERE type='".ACTIVITY."' and entityID = A.activityID) nbComment,
@@ -22,7 +22,7 @@ function listActivity($start, $limit, $type, $playerID, $activityID)
 			FROM activity A 
 					LEFT JOIN like_entity L on L.type = '".ACTIVITY."' AND L.entityID = A.activityID AND L.playerID = ".$_SESSION['playerID']." 
 					LEFT JOIN games G ON A.entityID = G.gameID AND A.type = '".GAME."' 
-					LEFT JOIN eco E ON E.eco = G.eco AND E.ecoLang = '".getLang()."' 
+					
 					LEFT JOIN players WP ON G.whitePlayer = WP.playerID 
 					LEFT JOIN players BP ON G.blackPlayer = BP.playerID";
 			if ($type == 0) // Following
