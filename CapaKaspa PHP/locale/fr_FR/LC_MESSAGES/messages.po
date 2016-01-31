@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2016-01-31 10:16+0100\n"
-"PO-Revision-Date: 2016-01-31 10:16+0100\n"
+"POT-Creation-Date: 2016-01-31 19:24+0100\n"
+"PO-Revision-Date: 2016-01-31 19:24+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -130,7 +130,7 @@ msgstr "S'abonner"
 
 #: ajax/ajx_delete_like.php:25 ajax/ajx_display_activity.php:248
 #: ajax/ajx_display_activity.php:296 ajax/ajx_display_comment.php:53
-#: game_board.php:399 game_in_progress.php:590
+#: game_board.php:413 game_in_progress.php:590
 #: mobile/ajax/ajx_display_activity.php:245
 #: mobile/ajax/ajx_display_activity.php:290
 #: mobile/ajax/ajx_display_comment.php:53 mobile/game_board.php:399
@@ -141,7 +141,7 @@ msgstr "J'aime ça"
 
 #: ajax/ajx_delete_like.php:25 ajax/ajx_display_activity.php:248
 #: ajax/ajx_display_activity.php:296 ajax/ajx_display_comment.php:53
-#: game_board.php:399 game_in_progress.php:590
+#: game_board.php:413 game_in_progress.php:590
 #: mobile/ajax/ajx_delete_like.php:25 mobile/ajax/ajx_display_activity.php:245
 #: mobile/ajax/ajx_display_activity.php:290
 #: mobile/ajax/ajx_display_comment.php:53 mobile/game_board.php:399
@@ -257,7 +257,7 @@ msgstr "vous informe !"
 
 #: ajax/ajx_display_activity.php:246 ajax/ajx_display_activity.php:294
 #: ajax/ajx_display_comment.php:51 ajax/ajx_insert_like.php:25
-#: game_board.php:397 game_in_progress.php:588
+#: game_board.php:411 game_in_progress.php:588
 #: mobile/ajax/ajx_display_activity.php:243
 #: mobile/ajax/ajx_display_activity.php:288
 #: mobile/ajax/ajx_display_comment.php:51 mobile/ajax/ajx_insert_like.php:25
@@ -268,7 +268,7 @@ msgstr "Je n'aime plus ça"
 
 #: ajax/ajx_display_activity.php:246 ajax/ajx_display_activity.php:294
 #: ajax/ajx_display_comment.php:51 ajax/ajx_insert_like.php:25
-#: game_board.php:397 game_in_progress.php:588
+#: game_board.php:411 game_in_progress.php:588
 #: mobile/ajax/ajx_display_activity.php:243
 #: mobile/ajax/ajx_display_activity.php:288
 #: mobile/ajax/ajx_display_comment.php:51 mobile/ajax/ajx_insert_like.php:25
@@ -418,8 +418,8 @@ msgstr "sur"
 msgid "the post"
 msgstr "la publication"
 
-#: ajax/ajx_display_player.php:51 bwc/bwc_common.php:137 bwc/bwc_common.php:157
-#: bwc/bwc_common.php:180 bwc/bwc_games.php:1090 bwc/bwc_games.php:1099
+#: ajax/ajx_display_player.php:51 bwc/bwc_common.php:219 bwc/bwc_common.php:239
+#: bwc/bwc_common.php:262 bwc/bwc_games.php:1090 bwc/bwc_games.php:1099
 #: bwc/bwc_games.php:1106 bwc/bwc_games.php:1118 bwc/bwc_games.php:1127
 #: bwc/bwc_games.php:1133 bwc/bwc_games.php:1208 bwc/bwc_games.php:1217
 #: bwc/bwc_games.php:1224 bwc/bwc_games.php:1236 bwc/bwc_games.php:1245
@@ -429,7 +429,7 @@ msgid "Player online"
 msgstr "Joueur en ligne"
 
 #: ajax/ajx_display_player.php:53 ajax/ajx_display_ranking.php:58
-#: bwc/bwc_common.php:139 bwc/bwc_common.php:159 bwc/bwc_common.php:182
+#: bwc/bwc_common.php:221 bwc/bwc_common.php:241 bwc/bwc_common.php:264
 #: message.php:93 mobile/ajax/ajx_display_player.php:53
 #: mobile/player_view.php:146 player_view.php:156
 msgid "New player"
@@ -737,27 +737,31 @@ msgstr "Voir la conversation complète"
 msgid "Message sent successfully"
 msgstr "Message envoyé avec succès"
 
-#: bwc/bwc_common.php:110
+#: bwc/bwc_common.php:115 bwc/bwc_common.php:124 bwc/bwc_common.php:133
+msgid "Buy this book >>"
+msgstr "Acheter ce livre >>"
+
+#: bwc/bwc_common.php:141
+msgid "Buy this nice chessboard >>"
+msgstr "Acheter ce bel échiquier >>"
+
+#: bwc/bwc_common.php:192
 msgid "Suggestion"
 msgstr "Suggestions"
 
-#: bwc/bwc_common.php:119 game_new.php:266 include/page_body.php:104
+#: bwc/bwc_common.php:201 game_new.php:266 include/page_body.php:104
 #: mobile/include/page_body.php:66 mobile/include/page_body.php:68
 #: mobile/index.php:103
 msgid "Tournaments"
 msgstr "Tournois"
 
-#: bwc/bwc_common.php:120 game_in_progress.php:633 game_new.php:268
+#: bwc/bwc_common.php:202 game_in_progress.php:633 game_new.php:268
 msgid "Register for a tournament"
 msgstr "S'inscrire à un tournoi"
 
-#: bwc/bwc_common.php:160 bwc/bwc_common.php:183
+#: bwc/bwc_common.php:242 bwc/bwc_common.php:265
 msgid "is the same level that you !"
 msgstr "vous avez le même niveau"
-
-#: bwc/bwc_common.php:224
-msgid "Buy a nice chessboard..."
-msgstr "Achetez un bel échiquier..."
 
 #: bwc/bwc_games.php:566
 msgid "Move cancellation accepted"
@@ -1185,7 +1189,7 @@ msgstr "Abandonner"
 msgid "Report a problem"
 msgstr "Signaler un problème"
 
-#: game_board.php:425
+#: game_board.php:424
 msgid "Here are old existing comments on this game"
 msgstr "Anciens commentaires sur la partie"
 
@@ -3299,6 +3303,9 @@ msgstr ""
 #: tournament_view.php:94
 msgid "Comment this tournament"
 msgstr "Commenter ce tournoi"
+
+#~ msgid "Buy a nice chessboard..."
+#~ msgstr "Achetez un bel échiquier..."
 
 #~ msgid "Email notification"
 #~ msgstr "Notification par email"

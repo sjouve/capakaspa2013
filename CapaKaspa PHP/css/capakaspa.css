@@ -1189,6 +1189,19 @@ input[type="file"] {
 	text-align: left;
 	margin-bottom: 3px;
 }
+.product {
+	float: left;
+	width: 194px;
+	padding: 3px;
+	/*border: 1px solid;
+	border-color: #e9eaed #dfe0e4 #d0d1d5;*/
+	background-color: #FFFFFF;
+	overflow: hidden;
+	line-height: normal;
+	font-size: 10px;
+	text-align: left;
+	margin-bottom: 3px;
+}
 .contact {
 	float: left;
 	width: 100%;
@@ -1270,7 +1283,7 @@ input[type="file"] {
 	overflow: hidden;
 	width: 100%;
 	text-align: center;
-	background-color: #FFFFFF;
+	background-color: #EEEEEE;
 	margin-bottom: 10px;
 }
 .achievement {

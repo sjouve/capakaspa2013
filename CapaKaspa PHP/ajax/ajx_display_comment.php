@@ -52,7 +52,7 @@ while($tmpComment = mysqli_fetch_array($tmpComments, MYSQLI_ASSOC))
 		<?} else {?>
 		<span id="like<?echo(COMMENT.$tmpComment['commentID']);?>"><a title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(COMMENT);?>', <?echo($tmpComment['commentID']);?>);"><?echo _("Like");?></a></span>
 		<?}
-						
+	
 		if ($_SESSION['playerID'] == $tmpComment['playerID']) {?> 
 		- <a title="<? echo _("Delete this comment")?>" href="javascript:deleteComment('<?echo($entityType);?>',<?echo($entityID);?>,<?echo($tmpComment['commentID']);?>)"><?echo _("Delete")?></a>
 		<?}
