@@ -319,7 +319,8 @@ require 'include/page_body.php';
     
 	<form name="userdata" action="player_update.php" method="post" enctype="multipart/form-data">
 	<div class="blockform">	
-	  <h3><?php echo _("Basic info");?></h3>
+	  <h3><?php echo _("Your profile");?></h3>
+	  <h4><?php echo _("Basic info");?></h4>
         <table border="0" width="100%">
           <tr>
             <td width="180"><?php echo _("I am");?> :</td>
@@ -334,7 +335,7 @@ require 'include/page_body.php';
           <tr>
             <td><?php echo _("User name");?> : </td>
             <td><? echo($_SESSION['nick']); ?></td>
-            <td colspan="2"><?echo _("Enter data here to change password");?></td>
+            <td colspan="2"><h4><?echo _("Enter data here to change password");?></h4></td>
           </tr>
 		  <tr>
             <td><?php echo _("First name");?> : </td>
@@ -373,7 +374,7 @@ require 'include/page_body.php';
         </tr>
         </table>
         
-        <h3><?php echo _("Contact info");?></h3>
+        <h4><?php echo _("Contact info");?></h4>
         <table border="0" width="650">
 		  <tr>
             <td width="180"><?php echo _("Email");?> : </td>
@@ -412,7 +413,7 @@ require 'include/page_body.php';
           </tr>
           </table>
 	
-		  <h3><?php echo _("More about you");?></h3>
+		  <h4><?php echo _("More about you");?></h4>
 		  <table border="0" width="100%">
 		   <tr>
             <td width="180"><?php echo _("Elo CapaKaspa");?> : </td>
@@ -592,6 +593,15 @@ require 'include/page_body.php';
           	</td>
           </tr>
           <tr>
+            <td><?echo _("Displaying language")?> :</td>
+            <td>
+            	<select name="txtLanguage" id="txtLanguage">
+            		<option value="en_US" <?if ($_SESSION['pref_language'] == "en_US") echo("selected");?>><?echo _("English");?></option>
+            		<option value="fr_FR" <?if ($_SESSION['pref_language'] == "fr_FR") echo("selected");?>><?echo _("French");?></option>
+            	</select> 
+            </td>
+          </tr>
+          <tr>
             <td><?echo _("Chess set");?> :</td>
             <td>
 					
@@ -619,15 +629,7 @@ require 'include/page_body.php';
               
             </td>
           </tr>
-          <tr>
-            <td><?echo _("Displaying language")?> :</td>
-            <td>
-            	<select name="txtLanguage" id="txtLanguage">
-            		<option value="en_US" <?if ($_SESSION['pref_language'] == "en_US") echo("selected");?>><?echo _("English");?></option>
-            		<option value="fr_FR" <?if ($_SESSION['pref_language'] == "fr_FR") echo("selected");?>><?echo _("French");?></option>
-            	</select> 
-            </td>
-          </tr>
+          
           <tr>
             <td colspan="2" align="center">
             	<input class="button" name="Update" type="button" value="<?echo _("Save");?>" onClick="validatePersonalInfo()"> 
