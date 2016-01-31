@@ -159,18 +159,16 @@ function searchGames($mode, $debut, $limit, $gameState, $playerID, $playerColor,
 		$req = "SELECT G.gameID, T.tournamentID, G.eco eco, 
 				W.playerID whitePlayerID, W.nick whiteNick, W.elo whiteElo, W.elo960 whiteElo960,
 				B.playerID blackPlayerID, B.nick blackNick, B.elo blackElo, B.elo960 blackElo960,
-				G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove, G.type, G.flagBishop, G.flagKnight, G.flagRook, G.flagQueen";
+				G.gameMessage, G.messageFrom, G.dateCreated, G.lastMove, G.type, G.flagBishop, G.flagKnight, G.flagRook, G.flagQueen,
+				E.name ecoName";
 	}
 	
-	// For classic game
-	if ($gameType == 0)
-		$req .=	", E.name ecoName"; 
+		$req .=	""; 
 	
-	$req .=	" FROM games G LEFT JOIN tournament_games T ON T.gameID = G.gameID, players W, players B ";
+	$req .=	" FROM games G LEFT JOIN tournament_games T ON T.gameID = G.gameID
+							LEFT JOIN eco E ON G.eco = E.eco AND E.ecoLang = '".getLang()."', 
+							players W, players B ";
 	
-	// For classic game
-	if ($gameType == 0)
-		$req .= ", eco E ";
 	
 	if ($gameState == "E")
 		$req .= "WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')";
@@ -209,8 +207,6 @@ function searchGames($mode, $debut, $limit, $gameState, $playerID, $playerColor,
 	// For classic game
 	if ($gameType == 0)	
 	{
-		$req .=	" AND G.eco = E.eco
-			AND E.ecoLang = '".getLang()."'";
 		if ($ecoCode != '')
 			$req .=	" AND G.eco = '".$ecoCode."'";
 	}		
@@ -224,7 +220,7 @@ function searchGames($mode, $debut, $limit, $gameState, $playerID, $playerColor,
 	
 	if ($mode != "count")
 		$req .= " limit ".$debut.",".$limit;
-	
+		
 	return mysqli_query($dbh,$req);
 	
 }
