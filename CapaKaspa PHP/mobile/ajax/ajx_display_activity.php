@@ -124,12 +124,17 @@ else
 				// lost by checkmate against
 				case 'resignation':
 					if ($tmpActivity['message'] == "lost")
+					{
 						$message = _("lost")." ";
+						$pictoPath .= "images/activity_result_lost_resignation.jpg";
+					}
 					else
+					{
 						$message = _("won")." ";
+						$pictoPath .= "images/activity_result_win_resignation.jpg";
+					}
 					$message .= _("by resignation against");
 					$activityType = _("RESULT");
-					$pictoPath .= "images/activity_result_lost_resignation.jpg";
 					break;
 				
 				case 'time':
@@ -275,7 +280,7 @@ else
 							<span class='date'>".$strPostDate."</span>
 						</div>
 					
-						<div class='content' style='margin-left: 5px; margin-top: 5px;' ".$link.">
+						<div class='content' ".$link.">
 						".$content."
 						</div>
 						<div class='footer'>");?>

@@ -127,12 +127,17 @@ else
 				// lost by checkmate against
 				case 'resignation':
 					if ($tmpActivity['message'] == "lost")
+					{
 						$message = _("lost")." ";
+						$pictoPath .= "images/activity_result_lost_resignation.jpg";
+					}
 					else
+					{
 						$message = _("won")." ";
+						$pictoPath .= "images/activity_result_win_resignation.jpg";
+					}
 					$message .= _("by resignation against");
 					$activityType = _("RESULT");
-					$pictoPath .= "images/activity_result_lost_resignation.jpg";
 					break;
 				
 				case 'time':
