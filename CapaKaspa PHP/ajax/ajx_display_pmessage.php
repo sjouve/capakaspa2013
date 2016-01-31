@@ -37,7 +37,7 @@ if ($numMessages > 0)
 					<div class='leftbar'>
 						<img src='".getPicturePath($tmpMessage['socialNetwork'], $tmpMessage['socialID'])."' width='40' height='40' border='0'/>
 					</div>
-					<div class='details'>
+					<div class='details' style='width: 85%; padding: 0px;'>
 						<div class='title'>
 							<a href='player_view.php?playerID=".$tmpMessage['playerID']."'><span class='name'>".$tmpMessage['firstName']." ".$tmpMessage['lastName']."</span></a>
 							<span style='float: right;' class='date'>".$strSendDate."</span>
