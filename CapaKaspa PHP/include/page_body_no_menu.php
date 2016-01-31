@@ -30,16 +30,14 @@ if (isset($toPlayerID))
 
 <div id="container_no_menu">
 <div id="contentxlarge">
-	<script type="text/javascript"><!--
-      google_ad_client = "ca-pub-8069368543432674";
-      /* CapaKaspa Leaderboard */
-      google_ad_slot = "6207727366";
-      google_ad_width = 728;
-      google_ad_height = 90;
-      //-->
-	</script>
-	<script type="text/javascript"
-      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- CapaKaspa Leaderboard Maxi -->
+	<ins class="adsbygoogle"
+	     style="display:inline-block;width:970px;height:90px"
+	     data-ad-client="ca-pub-8069368543432674"
+	     data-ad-slot="8539023267"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
 	</script>
 	<br/>
     <div class="skyscraper">
