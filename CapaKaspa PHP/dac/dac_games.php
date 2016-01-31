@@ -163,8 +163,6 @@ function searchGames($mode, $debut, $limit, $gameState, $playerID, $playerColor,
 				E.name ecoName";
 	}
 	
-		$req .=	""; 
-	
 	$req .=	" FROM games G LEFT JOIN tournament_games T ON T.gameID = G.gameID
 							LEFT JOIN eco E ON G.eco = E.eco AND E.ecoLang = '".getLang()."', 
 							players W, players B ";
