@@ -432,7 +432,7 @@ function listTournamentGames($tournamentID)
                         WHERE W.playerID = G.whitePlayer 
 						AND B.playerID = G.blackPlayer
                         AND G.gameID = T.gameID AND T.tournamentID = ".$tournamentID." 
-						ORDER BY gameID desc");
+						ORDER BY whitePlayerID, blackPlayerID");
 
 	return $tmpGames;
 }

@@ -174,83 +174,88 @@ require 'include/page_body.php';
 	            </table>
 	        </div>
         </div>
-        <? }?>
-		<form name="games" action="game_board.php" method="post">
-        	<?
-        	$fmtlist = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::SHORT, IntlDateFormatter::SHORT);
+        <? }
+        
+        $result = listTournamentGames($tournament['tournamentID']);
+        $numGames = mysqli_num_rows($result);
+		?>
+        <form name="games" action="game_board.php" method="post">
+        <?echo $numGames." "._("game(s) found");?>	
+        	<div class="blockform">
+				<div class="tabliste">
+				<table border="0" width="100%">
+				<tr>
+					<th>&nbsp;</th>
+					<?
+					for ($i=1; $i<=$tournament['nbPlayers']; $i++)
+					{
+						echo("<th width='10%'>".$i."</th>");
+					}
 	
-			$result = listTournamentGames($tournament['tournamentID']);
-			$numGames = mysqli_num_rows($result);
-			echo $numGames." "._("game(s) found");	
-			while($tmpGame = mysqli_fetch_array($result, MYSQLI_ASSOC))
-			{
-				echo("<div class='activity' style='padding: 0px;' id='game".$tmpGame['gameID']."'>
-						<div class='details'>
-							<div class='content' style='font-size: 11px;'>");
-						
-						/* White */
-						echo("<div style='float:left; width: 250px; height: 25px;'><img style='vertical-align: middle' src='pgn4web/".$_SESSION['pref_theme']."/20/wp.png'><a href='player_view.php?playerID=".$tmpGame['whitePlayerID']."'><b>".$tmpGame['whiteNick']."</b></a></div> ");
-						
-						/* Type */
-						echo("<div style='float:left; width: 250px; height: 25px;'>".getStrGameType($tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen']));
-						
-						echo(" (<b>");
-						
-						/* Status */
-						if (is_null($tmpGame['gameMessage']))
-							echo("...");
-						else
-						{
-							if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "white"))
-							{
-								echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'>0-1</a>");
-							}
-							else if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "black"))
-							{
-								echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'>1-0</a>");
-							}
-							else if (($tmpGame['gameMessage'] == "checkMate") && ($tmpGame['messageFrom'] == "white"))
-							{
-								echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'>1-0</a>");
-							}
-							else if ($tmpGame['gameMessage'] == "checkMate")
-							{
-								echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'>0-1</a>");
-							}
-							else if ($tmpGame['gameMessage'] == "draw")
-							{
-								echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'>1/2-1/2</a>");
-							}
-							else
-								echo("...");
-						}
-						
-						echo("</b>)</div>");
+				
+				$currentPlayerID = "";
+				$numRow = 0;
+				$numCol = 1;
+				while($tmpGame = mysqli_fetch_array($result, MYSQLI_ASSOC))
+				{
+					if ($currentPlayerID != $tmpGame['whitePlayerID'])
+					{
+						echo("</tr><tr>
+								<td>".($numRow+1)." <a href='player_view.php?playerID=".$tmpGame['whitePlayerID']."'><b>".$tmpGame['whiteNick']."</b></a></td>");
+						$currentPlayerID = $tmpGame['whitePlayerID'];
+						$numRow++;
+					}
 					
-						echo("<div style='float:right; height: 25px;'><input type='button' value='"._("View")."' class='link' onclick='javascript:loadGame(".$tmpGame['gameID'].")'></div>");
-						
-						/* Black */
-						echo("<div style='float:left; width: 250px; height: 25px;'><img style='vertical-align: middle' src='pgn4web/".$_SESSION['pref_theme']."/20/bp.png'><a href='player_view.php?playerID=".$tmpGame['blackPlayerID']."'><b>".$tmpGame['blackNick']."</b></a></div> ");
-						
-						/* ECO Code */
-						if ($tmpGame['type'] == 0 && $tmpGame['eco']!="")
-							echo ("<div style='float:left; width: 250px; height: 25px;'>[".$tmpGame['eco']."] ".$tmpGame['ecoName']."</div> ");
-						
-						$started = new DateTime($tmpGame['dateCreated']);
-						$strStarted = $fmtlist->format($started);
-						$lastMove = new DateTime($tmpGame['lastMove']);
-						$strLastMove = $fmtlist->format($lastMove);
-						
-						/* Start Date */
-						echo ("</div><div class='timedata' style='font-size: 11px; margin: 0px;'>".("<span style='float: left;width: 250px;'>")._("Started")." : "
-							.$strStarted."</span>");
-			
-						/* Last Move */
-						echo ("<span style='float: left;width: 250px;'>")._("Last move")." : ".$strLastMove.("</span>");
-						
-				echo ("</div></div></div>");
-			}
-			?>
+					if ($numRow == $numCol)
+					{
+						echo("<td style='background-color: #F2A521;'>&nbsp;</td>");
+						$numCol++;
+					}
+					
+					echo("<td style='text-align: center;'>");
+					/* Status */
+					if (is_null($tmpGame['gameMessage']))
+						echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'>...</a>");
+					else
+					{
+						if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "white"))
+						{
+							echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'>0-1</a>");
+						}
+						else if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "black"))
+						{
+							echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'>1-0</a>");
+						}
+						else if (($tmpGame['gameMessage'] == "checkMate") && ($tmpGame['messageFrom'] == "white"))
+						{
+							echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'>1-0</a>");
+						}
+						else if ($tmpGame['gameMessage'] == "checkMate")
+						{
+							echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'>0-1</a>");
+						}
+						else if ($tmpGame['gameMessage'] == "draw")
+						{
+							echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'>1/2</a>");
+						}
+						else
+							echo("<a href='javascript:loadGame(".$tmpGame['gameID'].")'>...</a>");
+					}
+					echo("</td>");
+					
+					$numCol++;
+					if ($numCol > $tournament['nbPlayers'])
+						$numCol = 1;
+					
+					$currentPlayerID = $tmpGame['whitePlayerID'];
+					
+				}
+				echo("<td style='background-color: #F2A521;'>&nbsp;</td>");
+				?>
+				</tr>
+				</table>
+				</div>
+			</div>
         	<input type="hidden" name="gameID" value="">
         	<input type="hidden" name="from" value="tournament">
       	</form>
