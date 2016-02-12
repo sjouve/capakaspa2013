@@ -27,7 +27,7 @@ $start = $_GET["start"];
 $type = $_GET["type"];
 $playerID = $_GET["player"];
 $activityID = isset($_GET['actvt']) ? $_GET['actvt'] : "";
-$limit = 5;
+$limit = 4;
 
 $fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT);
 $tmpActivities = listActivity($start, $limit, $type, $playerID, $activityID);
