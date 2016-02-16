@@ -105,8 +105,9 @@ function displaySuggestionAmazon()
 	<div id="sugamazon">
 	<?
 	if (getLang() == "fr")
-		$product = mt_rand(0,3);
-	else $product = 4;
+		$product = mt_rand(0,6);
+	else $product = 7;
+	
 	switch($product)
 	{
 		case 0:
@@ -171,6 +172,34 @@ function displaySuggestionAmazon()
 			break;
 		
 		case 4:
+			?>
+			<div class="product" style="padding-left: 0px;">
+			<?echo(_("Buy this book >>"));?>
+			<a rel="nofollow" href="http://www.amazon.fr/gp/product/2916340165/ref=as_li_tl?ie=UTF8&camp=1642&creative=6746&creativeASIN=2916340165&linkCode=as2&tag=capa-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=2916340165&Format=_SL250_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="http://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=as2&o=8&a=2916340165" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+			</div>
+			<?
+			break;
+
+		case 5:
+			?>
+			<div class="product" style="padding-left: 0px;">
+			<?echo(_("Buy this book >>"));?>
+			<a rel="nofollow" href="http://www.amazon.fr/gp/product/2916340653/ref=as_li_tl?ie=UTF8&camp=1642&creative=6746&creativeASIN=2916340653&linkCode=as2&tag=capa-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=2916340653&Format=_SL250_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="http://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=as2&o=8&a=2916340653" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+			</div>
+			<?
+			break;
+		
+		case 6:
+			?>
+			<div class="product" style="padding-left: 10px;">
+			<?echo(_("Buy this book >>"));?>
+			<a rel="nofollow" href="http://www.amazon.fr/gp/product/2916340211/ref=as_li_tl?ie=UTF8&camp=1642&creative=6746&creativeASIN=2916340211&linkCode=as2&tag=capa-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=2916340211&Format=_SL250_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="http://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=as2&o=8&a=2916340211" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+			</div>
+			<?
+			break;
+			
+			
+		case 7:
 			?>
 			<div class="product" style="padding-left: 15px;">
 			<?echo(_("Buy this book >>"));?>
