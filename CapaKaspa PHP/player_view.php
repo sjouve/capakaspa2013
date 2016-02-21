@@ -427,11 +427,12 @@ require 'include/page_body_no_menu.php';
 		<?}?>
 	<div class="navlinks">
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- CapaKaspa Profil Consultation Carré -->
+		<!-- Capakaspa Profil Gauche Adaptable -->
 		<ins class="adsbygoogle"
-		     style="display:inline-block;width:336px;height:280px"
+		     style="display:block"
 		     data-ad-client="ca-pub-8069368543432674"
-		     data-ad-slot="9559526061"></ins>
+		     data-ad-slot="6307809264"
+		     data-ad-format="auto"></ins>
 		<script>
 		(adsbygoogle = window.adsbygoogle || []).push({});
 		</script>

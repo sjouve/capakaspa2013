@@ -28,32 +28,7 @@ if (isset($toPlayerID))
 	</div>
 </div>
 <div id="container_no_menu">
-	<div id="advertisement">
-		<div class="leaderboard">
-			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-			<!-- CapaKaspa Leaderboard Maxi -->
-			<ins class="adsbygoogle"
-			     style="display:inline-block;width:970px;height:90px"
-			     data-ad-client="ca-pub-8069368543432674"
-			     data-ad-slot="8539023267"></ins>
-			<script>
-			(adsbygoogle = window.adsbygoogle || []).push({});
-			</script>
-			
-		</div>
-		
-	    <div class="skyscraper">
-		  	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-			<!-- CapaKaspa Skyscraper -->
-			<ins class="adsbygoogle"
-			     style="display:inline-block;width:160px;height:600px"
-			     data-ad-client="ca-pub-8069368543432674"
-			     data-ad-slot="2254640927"></ins>
-			<script>
-			(adsbygoogle = window.adsbygoogle || []).push({});
-			</script>
-	  	</div>
-	</div>
+	
 </div>
 
 <div id="container">
@@ -151,5 +126,31 @@ if (isset($toPlayerID))
       		</ul>
 	</div>
 </div>
-
+<div id="advertisement">
+		<div class="leaderboard">
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- CapaKaspa Leaderboard Adaptable -->
+			<ins class="adsbygoogle"
+			     style="display:block"
+			     data-ad-client="ca-pub-8069368543432674"
+			     data-ad-slot="6983963668"
+			     data-ad-format="auto"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+			
+		</div>
+		
+	    <div class="skyscraper">
+		  	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- CapaKaspa Skyscraper -->
+			<ins class="adsbygoogle"
+			     style="display:inline-block;width:160px;height:600px"
+			     data-ad-client="ca-pub-8069368543432674"
+			     data-ad-slot="2254640927"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+	  	</div>
+	</div>
 

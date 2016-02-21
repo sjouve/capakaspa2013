@@ -653,11 +653,12 @@ require 'include/page_body.php';
 		<?php if (mysqli_num_rows($tmpGames) > 0) {?>
 		<div class="adsbottom">
 			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-			<!-- CapaKaspa Tableau bord Bandeau Partie -->
+			<!-- CapaKaspa Site TdB Adaptable -->
 			<ins class="adsbygoogle"
-			     style="display:inline-block;width:468px;height:60px"
+			     style="display:block"
 			     data-ad-client="ca-pub-8069368543432674"
-			     data-ad-slot="3190675956"></ins>
+			     data-ad-slot="2656338868"
+			     data-ad-format="auto"></ins>
 			<script>
 			(adsbygoogle = window.adsbygoogle || []).push({});
 			</script>
