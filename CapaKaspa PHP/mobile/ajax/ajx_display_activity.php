@@ -236,7 +236,7 @@ else
 							<div class='content'"); 
 								if (isset($tmpActivity['gameID']))
 									echo("onmouseover=\"this.style.cursor='pointer';\" onclick=\"javascript:loadGameActivity(".$tmpActivity['entityID'].");\"");
-									echo("><img src='".$pictoPath."' width='100%'/>
+									echo("><img alt='"._("View the game")."' src='".$pictoPath."' width='100%'/>
 							</div>
 							<div class='footer'>");?>
 							<?if (isset($tmpActivity['likeID'])){?> 
