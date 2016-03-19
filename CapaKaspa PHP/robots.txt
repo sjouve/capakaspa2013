@@ -1,5 +1,14 @@
 User-agent: *
 Disallow: /bin
 Disallow: /doc
+Disallow: /pgn4web
+Disallow: /index.php?prevent_redirection=true
+Disallow: /?locale=fr_FR
+Disallow: /index.php?locale=en_US
+Disallow: /index.php?locale=fr_FR
+Disallow: /password.php?locale=en_US
+Disallow: /password.php?locale=fr_FR
+Disallow: /activation.php?locale=en_US
+Disallow: /activation.php?locale=fr_FR
 Allow: /
 
