@@ -10,5 +10,6 @@ Disallow: /password.php?locale=en_US
 Disallow: /password.php?locale=fr_FR
 Disallow: /activation.php?locale=en_US
 Disallow: /activation.php?locale=fr_FR
+Disallow: /mobile
 Allow: /
 

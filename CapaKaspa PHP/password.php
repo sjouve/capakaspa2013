@@ -27,7 +27,7 @@ switch($ToDo)
 		break;
 }	
 
-$titre_page = _("Forgotten password - CapaKaspa");
+$titre_page = _("Forgotten password");
 $desc_page = _("Play chess and share your games. Retrieve your password");
 require 'include/page_header.php';
 require 'include/page_body.php';

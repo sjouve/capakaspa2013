@@ -135,6 +135,7 @@ fb_param.value = '0.00';
 <script type="text/javascript" src="javascript/formValidation.js">
  /* fonctions de validation des champs d'un formulaire */
 </script>
+<script src="javascript/country.js" type="text/javascript"></script>
 <script type="text/javascript">
 function validateForm()
 {
@@ -314,10 +315,10 @@ require 'include/page_body_home.php';
 			
 			<tr>
 	            <td><?php echo _("Country");?> :</td>
-	            <td><select name="txtCountryCode" id="txtCountryCode" style="width: 153px;">
+	            <td><select name="txtCountryCode" id="txtCountryCode" style="width: 153px;" onclick="javascript:displayCountry();">
 		            <?
-		            echo "\t",'<option value="">', _("Select your country") ,'</option>',"\n";
-		            $tmpCountries = listAllCountriesByLang(getLang());
+		            echo "\t",'<option value="0">', _("Select your country") ,'</option>',"\n";
+		            /*$tmpCountries = listAllCountriesByLang(getLang());
 		            while($tmpCountry = mysqli_fetch_array($tmpCountries, MYSQLI_ASSOC))
 		            {
 		            	$selected = "";
@@ -327,7 +328,7 @@ require 'include/page_body_home.php';
 		            		$selected = " selected";
 		            	}
 		            	echo "\t",'<option value="', $tmpCountry['countryCode'] ,'"', $selected ,'>', $tmpCountry['countryName'] ,'</option>',"\n";
-		            }	
+		            }*/	
 		            ?>
 	            </select></td>
 	        </tr>

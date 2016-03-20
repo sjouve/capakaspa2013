@@ -6,6 +6,6 @@
 	<link rel="stylesheet" href="css/mobile.css" type="text/css" />
 	<title>CapaKaspa - <? echo($titre_page)?></title>
 	<meta name="description" content="<? echo($desc_page)?>" />
-	<meta name="robots" content="index, follow" />
+	<meta name="robots" content="noindex, nofollow" />
 	<meta name="generator" content="CapaKaspa - http://jouerauxechecs.capakaspa.info" />
 	<link rel="shortcut icon" href="http://jouerauxechecs.capakaspa.info/favicon.ico">
