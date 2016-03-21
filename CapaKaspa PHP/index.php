@@ -278,7 +278,7 @@ require 'include/page_body_home.php';
 		<table>
 			<tr>
 				<td width="200"><?php echo _("User name");?> :</td>
-				<td width="400"><input name="txtNick" type="text" size="20" maxlength="20" value="<? echo(isset($_POST['txtNick'])?$_POST['txtNick']:""); ?>"></td>
+				<td width="400"><input name="txtNick" type="text" size="20" maxlength="20" value="<? echo(isset($_POST['txtNick'])?$_POST['txtNick']:""); ?>" onfocus="javascript:displayCountry();"></td>
 			</tr>
 			<tr>
 				<td><?php echo _("Choose password");?> :</td>
@@ -315,7 +315,7 @@ require 'include/page_body_home.php';
 			
 			<tr>
 	            <td><?php echo _("Country");?> :</td>
-	            <td><select name="txtCountryCode" id="txtCountryCode" style="width: 153px;" onclick="javascript:displayCountry();">
+	            <td><select name="txtCountryCode" id="txtCountryCode" style="width: 153px;" onfocus="javascript:displayCountry();">
 		            <?
 		            echo "\t",'<option value="0">', _("Select your country") ,'</option>',"\n";
 		            /*$tmpCountries = listAllCountriesByLang(getLang());

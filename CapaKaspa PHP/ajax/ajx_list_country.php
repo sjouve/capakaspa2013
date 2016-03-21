@@ -16,6 +16,7 @@ require '../include/connectdb.php';
 
 require '../include/localization.php';
 
+echo "\t",'<option value="0">', _("Select your country") ,'</option>',"\n";
 $tmpCountries = listAllCountriesByLang(getLang());
 while($tmpCountry = mysqli_fetch_array($tmpCountries, MYSQLI_ASSOC))
 {
