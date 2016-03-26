@@ -141,7 +141,7 @@ $res = createTournamentAuto();
 			{
 		?>
 		<br>
-		<h3><? echo _("In progress tournaments")?></h3>
+		<h3><? echo _("Your in progress tournaments")?></h3>
 		
 		<?		while($tmpTournament = mysqli_fetch_array($tmpTournaments, MYSQLI_ASSOC))
 				{
@@ -168,7 +168,7 @@ $res = createTournamentAuto();
 			{
 		?>
 		<br>
-		<h3><? echo _("Completed tournaments")?></h3>
+		<h3><? echo _("Your completed tournaments")?></h3>
 		
 		<?		while($tmpTournament = mysqli_fetch_array($tmpTournaments, MYSQLI_ASSOC))
 				{

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2016-02-21 16:05+0100\n"
-"PO-Revision-Date: 2016-02-21 16:05+0100\n"
+"POT-Creation-Date: 2016-03-26 19:00+0100\n"
+"PO-Revision-Date: 2016-03-26 19:01+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -40,18 +40,18 @@ msgid "The email address is not valid"
 msgstr "L'adresse email n'est pas valide"
 
 #: activation.php:49
-msgid "An activation message has been sent to the email address."
-msgstr "Un message d'activation a été envoyé à l'adresse email."
-
-#: activation.php:51
 msgid "Your account is not activated."
 msgstr "Votre compte n'est pas activé."
 
-#: activation.php:52
+#: activation.php:51
+msgid "An activation message has been sent to the email address."
+msgstr "Un message d'activation a été envoyé à l'adresse email."
+
+#: activation.php:54
 msgid "You are surely one of the following case"
 msgstr "Vous êtes sûrement dans l'un des cas suivants"
 
-#: activation.php:54
+#: activation.php:56
 msgid ""
 "You received the message containing the link to activate your account but "
 "you have not yet used"
@@ -59,15 +59,15 @@ msgstr ""
 "Vous avez reçu le message contenant le lien d'activation mais vous ne l'avez "
 "pas utilisé"
 
-#: activation.php:55
+#: activation.php:57
 msgid "you do not receive a message containing the activation link"
 msgstr "vous n'avez pas reçu le message contenant le lien d'activation"
 
-#: activation.php:56
+#: activation.php:58
 msgid "you have disabled your account"
 msgstr "vous avez désactivé votre compte"
 
-#: activation.php:59
+#: activation.php:61
 msgid ""
 "If you prefer, you can use the form below to update your email address "
 "associated with your account and start the activation process"
@@ -75,23 +75,23 @@ msgstr ""
 "Si vous le souhaitez, vous pouvez utiliser le formulaire ci-dessous pour "
 "mettre à jour votre adresse email et commencer le processus d'activation"
 
-#: activation.php:64 bwc/bwc_players.php:355 include/page_body.php:41
-#: index.php:265 index.php:279 index.php:398 mobile/index.php:72
+#: activation.php:66 bwc/bwc_players.php:355 include/page_body.php:41
+#: index.php:266 index.php:280 index.php:399 mobile/index.php:72
 #: player_update.php:336
 msgid "User name"
 msgstr "Nom d'utilisateur"
 
-#: activation.php:69 bwc/bwc_players.php:356 include/page_body.php:42
-#: index.php:402 mobile/index.php:73
+#: activation.php:71 bwc/bwc_players.php:356 include/page_body.php:42
+#: index.php:403 mobile/index.php:73
 msgid "Password"
 msgstr "Mot de passe"
 
-#: activation.php:74 index.php:267 index.php:291 player_update.php:380
+#: activation.php:76 index.php:268 index.php:292 player_update.php:380
 #: player_update.php:506
 msgid "Email"
 msgstr "Email"
 
-#: activation.php:80 bwc/bwc_common.php:89 message.php:65 password.php:59
+#: activation.php:82 bwc/bwc_common.php:89 message.php:65 password.php:59
 msgid "Send"
 msgstr "Envoyer"
 
@@ -479,6 +479,10 @@ msgstr "Vous avez un nouveau message privé"
 msgid "send you a new private message."
 msgstr "vous a envoyé un nouveau message privé."
 
+#: ajax/ajx_list_country.php:19 index.php:320 player_update.php:395
+msgid "Select your country"
+msgstr "Choisir votre pays"
+
 #: ajax/ajx_list_player_nick.php:33 mobile/ajax/ajx_list_player_nick.php:33
 msgid "No player found"
 msgstr "Aucun joueur trouvé"
@@ -601,11 +605,15 @@ msgstr ""
 msgid "Follow us on"
 msgstr "Suivez nous sur"
 
-#: batch/bat_game_expiration.php:103
+#: batch/bat_game_expiration.php:68
+msgid "Batch : Game expiration starts !"
+msgstr ""
+
+#: batch/bat_game_expiration.php:104
 msgid "Game expiration alert !"
 msgstr "Alerte expiration partie !"
 
-#: batch/bat_game_expiration.php:103
+#: batch/bat_game_expiration.php:104
 msgid ""
 "You still have less than 24 hours to play your move in your game against"
 msgstr ""
@@ -750,7 +758,7 @@ msgid "Suggestion"
 msgstr "Suggestions"
 
 #: bwc/bwc_common.php:231 game_new.php:266 include/page_body.php:79
-#: mobile/include/page_body.php:66 mobile/include/page_body.php:68
+#: mobile/include/page_body.php:63 mobile/include/page_body.php:65
 #: mobile/index.php:103
 msgid "Tournaments"
 msgstr "Tournois"
@@ -1625,19 +1633,19 @@ msgstr ""
 "Jouer aux échecs en ligne. Actualités et articles pour mieux jouer aux "
 "échecs."
 
-#: include/page_body.php:44 index.php:393
+#: include/page_body.php:44 index.php:394
 msgid "Invalid user name or password !"
 msgstr "Nom d'utilisateur ou mot de passe invalide !"
 
-#: include/page_body.php:46 index.php:406 mobile/index.php:79
+#: include/page_body.php:46 index.php:407 mobile/index.php:79
 msgid "Remember me"
 msgstr "Se souvenir de moi"
 
-#: include/page_body.php:47 index.php:391 index.php:411 mobile/index.php:80
+#: include/page_body.php:47 index.php:392 index.php:412 mobile/index.php:80
 msgid "Sign in"
 msgstr "Se connecter"
 
-#: include/page_body.php:50 index.php:412
+#: include/page_body.php:50 index.php:413
 msgid "Forgot password ?"
 msgstr "Mot de passe oublié ?"
 
@@ -1645,7 +1653,7 @@ msgstr "Mot de passe oublié ?"
 msgid "Update info"
 msgstr "Actualiser mes infos"
 
-#: include/page_body.php:71 mobile/include/page_body.php:35
+#: include/page_body.php:71 mobile/include/page_body.php:32
 msgid "Unread notifications"
 msgstr "Notifications non lues"
 
@@ -1653,8 +1661,8 @@ msgstr "Notifications non lues"
 msgid "Chess games"
 msgstr "Parties d'échecs"
 
-#: include/page_body.php:77 mobile/include/page_body.php:60
-#: mobile/include/page_body.php:62
+#: include/page_body.php:77 mobile/include/page_body.php:57
+#: mobile/include/page_body.php:59
 msgid "Moves to play"
 msgstr "Coups à jouer"
 
@@ -1662,18 +1670,18 @@ msgstr "Coups à jouer"
 msgid "My games ended"
 msgstr "Mes parties terminées"
 
-#: include/page_body.php:86 mobile/include/page_body.php:78
-#: mobile/include/page_body.php:80 mobile/index.php:105
+#: include/page_body.php:86 mobile/include/page_body.php:75
+#: mobile/include/page_body.php:77 mobile/index.php:105
 msgid "Players"
 msgstr "Joueurs"
 
 #: include/page_body.php:86 include/page_body.php:103
-#: mobile/include/page_body.php:78 mobile/include/page_body.php:80
+#: mobile/include/page_body.php:75 mobile/include/page_body.php:77
 msgid "Online players"
 msgstr "Joueurs en ligne"
 
-#: include/page_body.php:88 mobile/include/page_body.php:72
-#: mobile/include/page_body.php:74
+#: include/page_body.php:88 mobile/include/page_body.php:69
+#: mobile/include/page_body.php:71
 msgid "Unread news"
 msgstr "Actualités non lues"
 
@@ -1709,19 +1717,19 @@ msgstr "Joueurs passifs"
 msgid "Training"
 msgstr "Entrainement"
 
-#: include/page_body.php:110 index.php:433
+#: include/page_body.php:110 index.php:434
 msgid "Puzzle of the day"
 msgstr "Diagramme du jour"
 
-#: include/page_body.php:111 index.php:434
+#: include/page_body.php:111 index.php:435
 msgid "Play vs JChess"
 msgstr "Jouer avec JChess"
 
-#: include/page_body.php:112 index.php:435
+#: include/page_body.php:112 index.php:436
 msgid "Play vs FlashChess"
 msgstr "Jouer avec FlashChess"
 
-#: include/page_body.php:113 index.php:436
+#: include/page_body.php:113 index.php:437
 msgid "Play vs SparkChess"
 msgstr "Jouer avec SparkChess"
 
@@ -1729,19 +1737,19 @@ msgstr "Jouer avec SparkChess"
 msgid "More on CapaKaspa"
 msgstr "Plus sur CapaKaspa"
 
-#: include/page_body.php:120 index.php:427
+#: include/page_body.php:120 index.php:428
 msgid "Chess news"
 msgstr "Actualités des échecs"
 
-#: include/page_body.php:121 index.php:428
+#: include/page_body.php:121 index.php:429
 msgid "Upcoming events"
 msgstr "Evénements à venir"
 
-#: include/page_body.php:122 index.php:429
+#: include/page_body.php:122 index.php:430
 msgid "Live !!"
 msgstr "Le Direct !!"
 
-#: include/page_body.php:123 index.php:430
+#: include/page_body.php:123 index.php:431
 msgid "Learning chess"
 msgstr "Apprendre les échecs"
 
@@ -1776,194 +1784,190 @@ msgstr ""
 "Zone de jeu d'échecs en ligne de CapaKaspa. Jouer aux échecs en différé et "
 "partager vos parties."
 
-#: index.php:210
+#: index.php:211
 msgid "Play Chess"
 msgstr "Jouer aux échecs"
 
-#: index.php:213
+#: index.php:214
 msgid "and Share your Games !"
 msgstr "et Partager ses parties !"
 
-#: index.php:219
+#: index.php:220
 msgid "Choose your cadence and type:"
 msgstr "Choisir votre cadence et le type:"
 
-#: index.php:220
+#: index.php:221
 msgid "Classic game, Chess960 or Beginner game."
 msgstr "Partie classique, Chess960 ou Partie débutant simplifiée."
 
-#: index.php:221
+#: index.php:222
 msgid "Participate in chess tournaments !"
 msgstr "Participer à des tournois d'échecs !"
 
-#: index.php:226
+#: index.php:227
 msgid "Share your moves, results and invitations with your followers."
 msgstr "Partager vos coups, résultats et invitations avec vos abonnés."
 
-#: index.php:227
+#: index.php:228
 msgid "Follow players, comment news, games and tournaments..."
 msgstr "Suivre les joueurs, commenter les actus, les parties et les tournois."
 
-#: index.php:232
+#: index.php:233
 msgid "View detailed profile of players. Discuss with them in private."
 msgstr "Voir le profil détaillé des joueurs. Discuter avec eux en privé."
 
-#: index.php:233
+#: index.php:234
 msgid "Monthly Elo rankings, achievements, games archive. "
 msgstr "Classements Elo mensuels, objectifs, archives des parties."
 
-#: index.php:243
+#: index.php:244
 msgid "New on CapaKaspa ? Sign up"
 msgstr "Nouveau sur CapaKaspa ? Inscription"
 
-#: index.php:245
+#: index.php:246
 msgid "Your account is actived."
 msgstr "Votre compte est activé."
 
-#: index.php:247
+#: index.php:248
 msgid "You can now sign in, play chess and share your games."
 msgstr ""
 "Vous pouvez maintenant vous connecter, jouer aux échecs et partager vos "
 "parties."
 
-#: index.php:250
+#: index.php:251
 msgid "An error has occured during activation !"
 msgstr "Une erreur s'est produite pendant l'activation !"
 
-#: index.php:252
+#: index.php:253
 msgid "A confirmation message has been sent at this email address"
 msgstr "Un message de confirmation a été envoyé à cette adresse email"
 
-#: index.php:255 player_update.php:308
+#: index.php:256 player_update.php:308
 msgid "All fields are required"
 msgstr "Tous les champs sont obligatoires"
 
-#: index.php:256
+#: index.php:257
 msgid "Bad format for user name : at least 2 caracters"
 msgstr "Mauvais format pour le nom d'utilisateur : au moins 2 caractères"
 
-#: index.php:257 player_update.php:310
+#: index.php:258 player_update.php:310
 msgid "Bad format for password : at least 6 caracters"
 msgstr "Mauvais format pour le mot de passe : au moins 6 caractères"
 
-#: index.php:258 player_update.php:311
+#: index.php:259 player_update.php:311
 msgid "Bad format for email"
 msgstr "Mauvais format pour l'email"
 
-#: index.php:259 player_update.php:312
+#: index.php:260 player_update.php:312
 msgid "Bad format for first name"
 msgstr "Mauvais format pour le prénom"
 
-#: index.php:260 player_update.php:313
+#: index.php:261 player_update.php:313
 msgid "Bad format for last name"
 msgstr "Mauvais format pour le nom"
 
-#: index.php:261 player_update.php:314
+#: index.php:262 player_update.php:314
 msgid "Password confirmation error"
 msgstr "Erreur de confirmation de mot de passe"
 
-#: index.php:265
+#: index.php:266
 msgid "you have choosen already exists. Try another user name."
 msgstr "que vous avez choisi existe déjà. Essayez un autre nom d'utilisateur."
 
-#: index.php:267
+#: index.php:268
 msgid "you have choosen aleady exists. Try another email."
 msgstr "que vous avez choisi existe déjà. Essayez un autre email."
 
-#: index.php:269
+#: index.php:270
 msgid "Empty user name"
 msgstr "Nom d'utilisateur vide"
 
-#: index.php:271 player_update.php:288
+#: index.php:272 player_update.php:288
 msgid "A technical error has occured"
 msgstr "Une erreur technique s'est produite"
 
-#: index.php:273
+#: index.php:274
 msgid "Security code error. Try again."
 msgstr "Erreur de code de sécurité. Essayez encore."
 
-#: index.php:283
+#: index.php:284
 msgid "Choose password"
 msgstr "Choisir un mot de passe"
 
-#: index.php:287 player_update.php:372
+#: index.php:288 player_update.php:372
 msgid "Confirm password"
 msgstr "Confirmer mot de passe"
 
-#: index.php:292
+#: index.php:293
 msgid "Valid email is required"
 msgstr "Email valide obligatoire"
 
-#: index.php:298 player_update.php:326
+#: index.php:299 player_update.php:326
 msgid "I am"
 msgstr "Je suis"
 
-#: index.php:301 player_update.php:329
+#: index.php:302 player_update.php:329
 msgid "Male"
 msgstr "Homme"
 
-#: index.php:302 player_update.php:330
+#: index.php:303 player_update.php:330
 msgid "Female"
 msgstr "Femme"
 
-#: index.php:307 player_update.php:341
+#: index.php:308 player_update.php:341
 msgid "First name"
 msgstr "Prénom"
 
-#: index.php:311 player_update.php:347
+#: index.php:312 player_update.php:347
 msgid "Last name"
 msgstr "Nom"
 
-#: index.php:316 mobile/player_search.php:88 player_search.php:89
+#: index.php:317 mobile/player_search.php:88 player_search.php:89
 #: player_update.php:392
 msgid "Country"
 msgstr "Pays"
 
-#: index.php:319 player_update.php:395
-msgid "Select your country"
-msgstr "Choisir votre pays"
-
-#: index.php:335
+#: index.php:336
 msgid "Birth date"
 msgstr "Date naissance"
 
-#: index.php:338 player_update.php:356
+#: index.php:339 player_update.php:356
 msgid "Select a year"
 msgstr "Choisir une année"
 
-#: index.php:358
+#: index.php:359
 msgid "Type the security code"
 msgstr "Entrer le code de sécurité"
 
-#: index.php:362
+#: index.php:363
 msgid "Try other security code"
 msgstr "Essayez un autre code de sécurité"
 
-#: index.php:370
+#: index.php:371
 msgid "Captcha Image"
 msgstr "Image Captcha"
 
-#: index.php:375
+#: index.php:376
 msgid "Sign up for free"
 msgstr "S'inscrire gratuitement"
 
-#: index.php:418
+#: index.php:419
 msgid "Play chess on CapaKaspa"
 msgstr "Jouer aux échecs sur CapaKaspa"
 
-#: index.php:419 mobile/index.php:89
+#: index.php:420 mobile/index.php:89
 msgid "players are waiting to play chess games"
 msgstr "joueurs attendent de jouer aux échecs"
 
-#: index.php:420 mobile/index.php:90
+#: index.php:421 mobile/index.php:90
 msgid "chess games in progress"
 msgstr "parties d'échecs en cours"
 
-#: index.php:421 mobile/index.php:91
+#: index.php:422 mobile/index.php:91
 msgid "in progress chess tournaments"
 msgstr "tournois d'échecs en cours"
 
-#: index.php:425
+#: index.php:426
 msgid "Learn, practice and progress"
 msgstr "Apprendre, s'exercer et progresser"
 
@@ -1999,12 +2003,12 @@ msgstr "Voir la partie"
 msgid "Fischer Chess Random (Chess960)"
 msgstr "Fischer Chess Random (Chess960)"
 
-#: mobile/include/page_body.php:60 mobile/include/page_body.php:62
+#: mobile/include/page_body.php:57 mobile/include/page_body.php:59
 #: mobile/index.php:102
 msgid "Games"
 msgstr "Parties"
 
-#: mobile/include/page_body.php:72 mobile/include/page_body.php:74
+#: mobile/include/page_body.php:69 mobile/include/page_body.php:71
 #: mobile/index.php:104 mobile/player_view.php:223 player_view.php:247
 msgid "News"
 msgstr "Actualités"
@@ -2201,7 +2205,7 @@ msgstr "Se désinscrire"
 msgid "Register"
 msgstr "S'inscrire"
 
-#: mobile/tournament_list.php:144 tournament_list.php:146
+#: mobile/tournament_list.php:144
 msgid "In progress tournaments"
 msgstr "Tournois en cours"
 
@@ -2210,7 +2214,7 @@ msgstr "Tournois en cours"
 msgid "In progress"
 msgstr "En cours"
 
-#: mobile/tournament_list.php:171 tournament_list.php:173
+#: mobile/tournament_list.php:171
 msgid "Completed tournaments"
 msgstr "Tournois terminés"
 
@@ -2236,9 +2240,9 @@ msgstr "Voir les détails d'un tournoi"
 msgid "Score"
 msgstr ""
 
-#: password.php:30
-msgid "Forgotten password - CapaKaspa"
-msgstr "Mot de passe oublié - CapaKaspa"
+#: password.php:30 password.php:47
+msgid "Forgotten password"
+msgstr "Mot de passe oublié"
 
 #: password.php:31
 msgid "Play chess and share your games. Retrieve your password"
@@ -2251,10 +2255,6 @@ msgstr "Pas de compte disponible avec cette adresse email"
 #: password.php:44
 msgid "A message has been sent to the specified email address."
 msgstr "Un message a été envoyé à l'adresse email indiquée."
-
-#: password.php:47
-msgid "Forgotten password"
-msgstr "Mot de passe oublié"
 
 #: password.php:48
 msgid ""
@@ -3304,9 +3304,20 @@ msgstr ""
 "remplacé par une disposition se rapprochant le plus possible de la "
 "précédente disposition."
 
+#: tournament_list.php:146
+msgid "Your in progress tournaments"
+msgstr "Vos tournois en cours"
+
+#: tournament_list.php:173
+msgid "Your completed tournaments"
+msgstr "Vos tournois terminés"
+
 #: tournament_view.php:94
 msgid "Comment this tournament"
 msgstr "Commenter ce tournoi"
+
+#~ msgid "Forgotten password - CapaKaspa"
+#~ msgstr "Mot de passe oublié - CapaKaspa"
 
 #~ msgid "Buy a nice chessboard..."
 #~ msgstr "Achetez un bel échiquier..."

@@ -47,14 +47,23 @@ function listTournaments($start, $limit, $status)
 {
 	global $dbh;
 	$tmpQuery = "SELECT T.tournamentID, type, name, status, nbPlayers, timeMove, creationDate, eloMin, eloMax, beginDate, endDate, TP.playerID
-				FROM tournament T 
-					LEFT JOIN tournament_players TP ON T.tournamentID = TP.tournamentID 
-													AND TP.playerID = ".$_SESSION['playerID']." 
-				WHERE status = '".$status."'";
+				FROM tournament T";
+	if ($status == WAITING)				
+		$tmpQuery .= " LEFT JOIN tournament_players TP ON T.tournamentID = TP.tournamentID 
+													AND TP.playerID = ".$_SESSION['playerID'];
 				
-	if ($status == WAITING) $tmpQuery .= "ORDER BY creationDate DESC";
-	if ($status == INPROGRESS) $tmpQuery .= "ORDER BY beginDate DESC";
-	if ($status == ENDED) $tmpQuery .= "ORDER BY endDate DESC";
+	if ($status == INPROGRESS || $status == ENDED)
+		$tmpQuery .= ", tournament_players TP";											
+	
+		$tmpQuery .= " WHERE status = '".$status."'";
+	
+	if ($status == INPROGRESS || $status == ENDED)
+		$tmpQuery .= " AND T.tournamentID = TP.tournamentID 
+						AND TP.playerID = ".$_SESSION['playerID'];
+	
+	if ($status == WAITING) $tmpQuery .= " ORDER BY creationDate DESC";
+	if ($status == INPROGRESS) $tmpQuery .= " ORDER BY playerID DESC, beginDate DESC";
+	if ($status == ENDED) $tmpQuery .= " ORDER BY playerID DESC, endDate DESC";
 	
 				//LIMIT ".$start.", ".$limit;
 	
