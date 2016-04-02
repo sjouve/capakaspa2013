@@ -293,11 +293,11 @@ function calculerElo($type)
 		$eloFinal = $eloInitial;
 		$nbParties = 0;
 		
-		$countLost = countLost($player['playerID'], $dateDeb, $dateFin, $type);
+		$countLost = countLostElo($player['playerID'], $dateDeb, $dateFin, $type);
 		$nbDefaites = $countLost['nbGames'];
-		$countDraw = countDraw($player['playerID'], $dateDeb, $dateFin, $type);
+		$countDraw = countDrawElo($player['playerID'], $dateDeb, $dateFin, $type);
 		$nbNulles = $countDraw['nbGames'];
-		$countWin = countWin($player['playerID'], $dateDeb, $dateFin, $type);
+		$countWin = countWinElo($player['playerID'], $dateDeb, $dateFin, $type);
 		$nbVictoires = $countWin['nbGames'];
 		$nbParties = $nbDefaites + $nbNulles + $nbVictoires;
 		
@@ -310,25 +310,26 @@ function calculerElo($type)
 			$listEndedGames = listEndedGames($player['playerID'], $dateDeb, $dateFin, $type);
 			$sommeElo = 0;
 			$moyenneElo = 0;
-			echo("<table border='1'><tr><th>B</th><th>ELO</th><th>N</th><th>ID</th></tr>");
+			echo("<table border='1'><tr><th>B</th><th>ELO</th><th>N</th><th>ELO</th></tr>");
 			while($game = mysqli_fetch_array($listEndedGames, MYSQLI_ASSOC))
 			{
 				$whiteID = $game['whitePlayer'];
 				$whiteElo = $game['whiteElo'];
 				$blackID = $game['blackPlayer'];
 				$blackElo = $game['blackElo'];
-				
-				if ($whiteID == $player['playerID'])
+				if (abs($whiteElo - $blackElo) <= 350)
 				{
-					$sommeElo = $sommeElo + $blackElo;
+					if ($whiteID == $player['playerID'])
+					{
+						$sommeElo = $sommeElo + $blackElo;
+					}
+					else
+					{
+						$sommeElo = $sommeElo + $whiteElo;
+					}
+					
+					echo("<tr><td>".$whiteID."</td><td>".$whiteElo."</td><td>".$blackID."</td><td>".$blackElo."</td></tr>");
 				}
-				else
-				{
-					$sommeElo = $sommeElo + $whiteElo;
-				}
-				
-				echo("<tr><td>".$whiteID."</td><td>".$whiteElo."</td><td>".$blackID."</td><td>".$blackElo."</td></tr>");
-				
 			}
 			echo("</table><br/>");
 			
@@ -365,17 +366,19 @@ function calculerElo($type)
 				}
 			}
 			
+			
+			
+			// Mise à jour historique
+		}
 			$eloProgress = 0;
 			if ($eloInitial>$eloFinal) $eloProgress = 1;
-			if ($eloInitial<$eloFinal) $eloProgress = -1;
-			
+			if ($eloInitial<$eloFinal) $eloProgress = -1;	
 			// Mise à jour ELO player
 			if ($type==0)
 				$res_player = mysqli_query($dbh,"UPDATE players SET elo=".$eloFinal.", eloProgress =".$eloProgress." WHERE playerID = ".$player['playerID']);
 			else
 				$res_player = mysqli_query($dbh,"UPDATE players SET elo960=".$eloFinal." WHERE playerID = ".$player['playerID']);
-			// Mise à jour historique
-		}
+			
 		echo("=> ELO = ".$eloFinal."<br/><hr/><br/>");
 	}
 	return 1;
