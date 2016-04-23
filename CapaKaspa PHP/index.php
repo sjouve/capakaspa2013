@@ -114,8 +114,8 @@ if (isset($_SESSION['playerID']) && $_SESSION['playerID'] != -1)
 	exit;
 }
 
-$titre_page = _("Play chess and share your games");
-$desc_page = _("Sign up for CapaKaspa, play chess and share your games.");
+$titre_page = _("Play chess online and share your games");
+$desc_page = _("Play chess online on CapaKaspa. Classical and Chess960 chess games. Participate in chess tournaments, improve your ranking and share your games.");
 require 'include/page_header.php';
     
 ?>
@@ -416,7 +416,7 @@ require 'include/page_body_home.php';
 		    </form>
 		</div>
 	    <div class="blockform" style="opacity: 0.9;">
-	   		<h3><?php echo _("Play chess on CapaKaspa");?></h3>
+	   		<h3><?php echo _("Play chess online");?></h3>
 	   		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActivePlayers()+getNbPassivePlayers()); ?></span> <?php echo _("players are waiting to play chess games");?><br>
 	   		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActiveGameForAll()); ?></span> <?php echo _("chess games in progress");?><br>
 	   		<span class="newplayer" style="font-size: 12px;"><? echo(getNbIPTournament()); ?></span> <?php echo _("in progress chess tournaments");?>

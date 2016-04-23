@@ -8,7 +8,7 @@ if (isset($toPlayerID))
 
 <div id="topbar">
 	<div id="container">
-		<span class="title"><a href="index.php" title="<?php echo _("CapaKaspa : Play chess and share your games");?>"><?php echo _("CapaKaspa");?></a></span>
+		<span class="title"><a href="index.php" title="<?php echo _("CapaKaspa : Play chess online and share your games");?>"><?php echo _("CapaKaspa");?></a></span>
 		<span class="social"><? if (isset($_SESSION['playerID'])&&$_SESSION['playerID']!=-1) {?>
 	      <form name="logout" action="game_in_progress.php" method="post">
 		        <input type="hidden" name="ToDo" value="Logout">
@@ -24,7 +24,7 @@ if (isset($toPlayerID))
 		<a href="http://www.pinterest.com/capakaspa" target="_blank"><img src="images/icone_pinterest.png" alt="<?php echo _("Follow us on Pinterest");?>" title="<?php echo _("Follow us on Pinterest");?>" width="32" height="32" style="border: 0;"/></a>
 		</span>
 		<br/>
-		<span class="subtitle"><?php echo _("Play chess online. News and posts to improve your chess.");?></span>
+		<span class="subtitle"><?php echo _("Play chess online and share your games");?></span>
 	</div>
 </div>
 <div id="container_no_menu">

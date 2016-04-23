@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2016-03-26 19:00+0100\n"
-"PO-Revision-Date: 2016-03-26 19:01+0100\n"
+"POT-Creation-Date: 2016-04-23 14:16+0200\n"
+"PO-Revision-Date: 2016-04-23 14:17+0200\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -27,7 +27,7 @@ msgstr "Activer votre compte et jouer aux échecs sur CapaKaspa"
 msgid "This account doesn't exist"
 msgstr "Ce compte existe déjà"
 
-#: activation.php:42 password.php:41
+#: activation.php:42 mobile/password.php:39 password.php:41
 msgid "A technical problem prevented the sending of the message"
 msgstr "Un problème technique a empêché l'envoi du message"
 
@@ -91,7 +91,8 @@ msgstr "Mot de passe"
 msgid "Email"
 msgstr "Email"
 
-#: activation.php:82 bwc/bwc_common.php:89 message.php:65 password.php:59
+#: activation.php:82 bwc/bwc_common.php:89 message.php:65
+#: mobile/password.php:57 password.php:59
 msgid "Send"
 msgstr "Envoyer"
 
@@ -759,7 +760,7 @@ msgstr "Suggestions"
 
 #: bwc/bwc_common.php:231 game_new.php:266 include/page_body.php:79
 #: mobile/include/page_body.php:63 mobile/include/page_body.php:65
-#: mobile/index.php:103
+#: mobile/index.php:105
 msgid "Tournaments"
 msgstr "Tournois"
 
@@ -1587,8 +1588,8 @@ msgstr "Parties Chess960 par résultats"
 
 #: include/page_body.php:11 include/page_body_home.php:11
 #: include/page_body_no_menu.php:11
-msgid "CapaKaspa : Play chess and share your games"
-msgstr "CapaKaspa : Jouer aux échecs et partager vos parties"
+msgid "CapaKaspa : Play chess online and share your games"
+msgstr "CapaKaspa : Jouer aux échecs en ligne et partager ses parties"
 
 #: include/page_body.php:11 include/page_body_home.php:11
 #: include/page_body_no_menu.php:11 player_update.php:447
@@ -1596,7 +1597,7 @@ msgid "CapaKaspa"
 msgstr "CapaKaspa"
 
 #: include/page_body.php:15 include/page_body_home.php:15
-#: include/page_body_no_menu.php:15 mobile/index.php:115
+#: include/page_body_no_menu.php:15 mobile/index.php:117
 #: mobile/player_view.php:154
 msgid "Sign out"
 msgstr "Déconnexion"
@@ -1627,11 +1628,9 @@ msgid "Follow us on Pinterest"
 msgstr "Suivez-nous sur Pinterest"
 
 #: include/page_body.php:27 include/page_body_home.php:27
-#: include/page_body_no_menu.php:27
-msgid "Play chess online. News and posts to improve your chess."
-msgstr ""
-"Jouer aux échecs en ligne. Actualités et articles pour mieux jouer aux "
-"échecs."
+#: include/page_body_no_menu.php:27 index.php:117
+msgid "Play chess online and share your games"
+msgstr "Jouer aux échecs en ligne et partager ses parties"
 
 #: include/page_body.php:44 index.php:394
 msgid "Invalid user name or password !"
@@ -1645,7 +1644,7 @@ msgstr "Se souvenir de moi"
 msgid "Sign in"
 msgstr "Se connecter"
 
-#: include/page_body.php:50 index.php:413
+#: include/page_body.php:50 index.php:413 mobile/index.php:87
 msgid "Forgot password ?"
 msgstr "Mot de passe oublié ?"
 
@@ -1671,7 +1670,7 @@ msgid "My games ended"
 msgstr "Mes parties terminées"
 
 #: include/page_body.php:86 mobile/include/page_body.php:75
-#: mobile/include/page_body.php:77 mobile/index.php:105
+#: mobile/include/page_body.php:77 mobile/index.php:107
 msgid "Players"
 msgstr "Joueurs"
 
@@ -1774,15 +1773,14 @@ msgstr "CGU"
 msgid "Help"
 msgstr "Aide"
 
-#: index.php:117 mobile/index.php:56
-msgid "Play chess and share your games"
-msgstr "Jouer aux échecs et partager ses parties"
-
 #: index.php:118
-msgid "Sign up for CapaKaspa, play chess and share your games."
+msgid ""
+"Play chess online on CapaKaspa. Classical and Chess960 chess games. "
+"Participate in chess tournaments, improve your ranking and share your games."
 msgstr ""
-"Zone de jeu d'échecs en ligne de CapaKaspa. Jouer aux échecs en différé et "
-"partager vos parties."
+"Jouer aux échecs en ligne sur CapaKaspa. Parties d'échecs classiques et "
+"Chess960. Participer à des tournois, améliorer son classement et partager "
+"ses parties."
 
 #: index.php:211
 msgid "Play Chess"
@@ -1952,18 +1950,18 @@ msgid "Sign up for free"
 msgstr "S'inscrire gratuitement"
 
 #: index.php:419
-msgid "Play chess on CapaKaspa"
-msgstr "Jouer aux échecs sur CapaKaspa"
+msgid "Play chess online"
+msgstr "Jouer aux échecs en ligne"
 
-#: index.php:420 mobile/index.php:89
+#: index.php:420 mobile/index.php:91
 msgid "players are waiting to play chess games"
 msgstr "joueurs attendent de jouer aux échecs"
 
-#: index.php:421 mobile/index.php:90
+#: index.php:421 mobile/index.php:92
 msgid "chess games in progress"
 msgstr "parties d'échecs en cours"
 
-#: index.php:422 mobile/index.php:91
+#: index.php:422 mobile/index.php:93
 msgid "in progress chess tournaments"
 msgstr "tournois d'échecs en cours"
 
@@ -2004,12 +2002,12 @@ msgid "Fischer Chess Random (Chess960)"
 msgstr "Fischer Chess Random (Chess960)"
 
 #: mobile/include/page_body.php:57 mobile/include/page_body.php:59
-#: mobile/index.php:102
+#: mobile/index.php:104
 msgid "Games"
 msgstr "Parties"
 
 #: mobile/include/page_body.php:69 mobile/include/page_body.php:71
-#: mobile/index.php:104 mobile/player_view.php:223 player_view.php:247
+#: mobile/index.php:106 mobile/player_view.php:223 player_view.php:247
 msgid "News"
 msgstr "Actualités"
 
@@ -2021,6 +2019,10 @@ msgstr "Accéder à la version pour ordinateur"
 msgid "CapaKaspa mobile"
 msgstr "CapaKaspa mobile"
 
+#: mobile/index.php:56
+msgid "Play chess and share your games"
+msgstr "Jouer aux échecs et partager ses parties"
+
 #: mobile/index.php:66
 msgid "Play your chess games on your mobile !"
 msgstr "Jouez vos parties d'échecs sur votre mobile !"
@@ -2029,7 +2031,7 @@ msgstr "Jouez vos parties d'échecs sur votre mobile !"
 msgid "Invalid user name or password"
 msgstr "Nom d'utilisateur ou mot de passe invalide"
 
-#: mobile/index.php:95
+#: mobile/index.php:97
 msgid ""
 "To sign-up on CapaKaspa access to the computer version by clicking on the "
 "link below."
@@ -2037,14 +2039,47 @@ msgstr ""
 "Pour vous inscrire sur CapaKaspa, accèdez à la version pour ordinateur en "
 "cliquant sur le lien au bas de l'écran."
 
-#: mobile/index.php:111
+#: mobile/index.php:113
 msgid "Welcome"
 msgstr "Bienvenue"
 
-#: mobile/index.php:112
+#: mobile/index.php:114
 msgid "your are on the optimized version of CapaKaspa for your mobile."
 msgstr ""
 "vous êtes sur le version optimisée pour les smartphone du site CapaKaspa."
+
+#: mobile/password.php:30 mobile/password.php:45 password.php:30
+#: password.php:47
+msgid "Forgotten password"
+msgstr "Mot de passe oublié"
+
+#: mobile/password.php:31 password.php:31
+msgid "Play chess and share your games. Retrieve your password"
+msgstr "Jouer aux échecs et partager vos parties. Retrouver votre mot de passe"
+
+#: mobile/password.php:37 password.php:39
+msgid "No account available with this email"
+msgstr "Pas de compte disponible avec cette adresse email"
+
+#: mobile/password.php:42 password.php:44
+msgid "A message has been sent to the specified email address."
+msgstr "Un message a été envoyé à l'adresse email indiquée."
+
+#: mobile/password.php:46 password.php:48
+msgid ""
+"Already have an account to play chess online on CapaKaspa but <b>you forgot "
+"your password</b>."
+msgstr ""
+"Vous avez déjà un compte pour jouer aux échecs en ligne sur CapaKaspa mais "
+"<b>vous avez oublié le mot de passe</b>."
+
+#: mobile/password.php:47 password.php:49
+msgid ""
+"Enter the email address that you assigned to this account. A message will be "
+"sent to this address. It will contain the information for sign in."
+msgstr ""
+"Entrer l'adresse email que vous avez assigné à ce compte. Un message sera "
+"envoyé à cette adresse. Il contiendra les informations pour vous connecter."
 
 #: mobile/player_search.php:33 player_search.php:33
 msgid "Search for players"
@@ -2205,18 +2240,18 @@ msgstr "Se désinscrire"
 msgid "Register"
 msgstr "S'inscrire"
 
-#: mobile/tournament_list.php:144
-msgid "In progress tournaments"
-msgstr "Tournois en cours"
+#: mobile/tournament_list.php:144 tournament_list.php:146
+msgid "Your in progress tournaments"
+msgstr "Vos tournois en cours"
 
 #: mobile/tournament_list.php:155 mobile/tournament_view.php:60
 #: tournament_list.php:157 tournament_view.php:63
 msgid "In progress"
 msgstr "En cours"
 
-#: mobile/tournament_list.php:171
-msgid "Completed tournaments"
-msgstr "Tournois terminés"
+#: mobile/tournament_list.php:171 tournament_list.php:173
+msgid "Your completed tournaments"
+msgstr "Vos tournois terminés"
 
 #: mobile/tournament_list.php:184 mobile/tournament_view.php:62
 #: tournament_list.php:186 tournament_view.php:65
@@ -2239,38 +2274,6 @@ msgstr "Voir les détails d'un tournoi"
 #: mobile/tournament_view.php:118 tournament_view.php:121
 msgid "Score"
 msgstr ""
-
-#: password.php:30 password.php:47
-msgid "Forgotten password"
-msgstr "Mot de passe oublié"
-
-#: password.php:31
-msgid "Play chess and share your games. Retrieve your password"
-msgstr "Jouer aux échecs et partager vos parties. Retrouver votre mot de passe"
-
-#: password.php:39
-msgid "No account available with this email"
-msgstr "Pas de compte disponible avec cette adresse email"
-
-#: password.php:44
-msgid "A message has been sent to the specified email address."
-msgstr "Un message a été envoyé à l'adresse email indiquée."
-
-#: password.php:48
-msgid ""
-"Already have an account to access the play area but <b>you forgot your "
-"password</b>."
-msgstr ""
-"Vous avez déjà un compte pour accèder à la zone de jeu mais <b>vous avez "
-"oublié le mot de passe</b>."
-
-#: password.php:49
-msgid ""
-"Enter the email address that you assigned to this account. A message will be "
-"sent to this address. It will contain the information for sign in."
-msgstr ""
-"Entrer l'adresse email que vous avez assigné à ce compte. Un message sera "
-"envoyé à cette adresse. Il contiendra les informations pour vous connecter."
 
 #: player_ranking.php:36 player_ranking.php:84
 msgid "Players ranking"
@@ -3304,17 +3307,46 @@ msgstr ""
 "remplacé par une disposition se rapprochant le plus possible de la "
 "précédente disposition."
 
-#: tournament_list.php:146
-msgid "Your in progress tournaments"
-msgstr "Vos tournois en cours"
-
-#: tournament_list.php:173
-msgid "Your completed tournaments"
-msgstr "Vos tournois terminés"
-
 #: tournament_view.php:94
 msgid "Comment this tournament"
 msgstr "Commenter ce tournoi"
+
+#~ msgid "Play chess online and share your games."
+#~ msgstr "Jouer aux échecs en ligne et partager ses parties."
+
+#~ msgid "CapaKaspa : Play chess and share your games"
+#~ msgstr "CapaKaspa : Jouer aux échecs et partager vos parties"
+
+#~ msgid "Play chess online. News and posts to improve your chess."
+#~ msgstr ""
+#~ "Jouer aux échecs en ligne. Actualités et articles pour mieux jouer aux "
+#~ "échecs."
+
+#~ msgid "Sign up for CapaKaspa, play chess and share your games."
+#~ msgstr ""
+#~ "Zone de jeu d'échecs en ligne de CapaKaspa. Jouer aux échecs en différé "
+#~ "et partager vos parties."
+
+#~ msgid "Play chess on CapaKaspa"
+#~ msgstr "Jouer aux échecs sur CapaKaspa"
+
+#~ msgid ""
+#~ "Already have an account to access the play chess online on CapaKaspa but "
+#~ "<b>you forgot your password</b>."
+#~ msgstr "Vous avez déjà un compte po"
+
+#~ msgid ""
+#~ "Already have an account to access the play area but <b>you forgot your "
+#~ "password</b>."
+#~ msgstr ""
+#~ "Vous avez déjà un compte pour accèder à la zone de jeu mais <b>vous avez "
+#~ "oublié le mot de passe</b>."
+
+#~ msgid "In progress tournaments"
+#~ msgstr "Tournois en cours"
+
+#~ msgid "Completed tournaments"
+#~ msgstr "Tournois terminés"
 
 #~ msgid "Forgotten password - CapaKaspa"
 #~ msgstr "Mot de passe oublié - CapaKaspa"

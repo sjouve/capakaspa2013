@@ -52,8 +52,8 @@ if (isset($_SESSION['playerID']) && $_SESSION['playerID'] != -1)
 	exit;
 }
 
-$titre_page = _("CapaKaspa mobile");
-$desc_page = _("Play chess and share your games");
+$titre_page = _("Play chess online and share your games");
+$desc_page = _("Play chess online on CapaKaspa. Classical and Chess960 chess games. Participate in chess tournaments, improve your ranking and share your games.");
 require 'include/page_header.php';
     
 require 'include/page_body.php';
@@ -83,6 +83,8 @@ require 'include/page_body.php';
 	        <div class='error'><? echo _("Invalid user name or password")?></div>
 	        <?}?>
 			</form>
+			<br>
+			<a href="password.php"><? echo _("Forgot password ?");?></a>
 			<br>
 		</div>
       	<div class="blockform" style="align: left;">

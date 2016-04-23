@@ -3,18 +3,18 @@ session_start();
 
 /* load settings */
 if (!isset($_CONFIG))
-	require 'include/config.php';
+	require '../include/config.php';
 
-require 'dac/dac_players.php';
-require 'dac/dac_games.php';
-require 'bwc/bwc_common.php';
-require 'bwc/bwc_chessutils.php';
-require 'bwc/bwc_players.php';
-require 'bwc/bwc_games.php';
+require '../dac/dac_players.php';
+require '../dac/dac_games.php';
+require '../bwc/bwc_common.php';
+require '../bwc/bwc_chessutils.php';
+require '../bwc/bwc_players.php';
+require '../bwc/bwc_games.php';
 
-require 'include/connectdb.php';
+require '../include/connectdb.php';
 
-require 'include/localization.php';
+require '../include/localization.php';
 
 /* Traitement des actions */
 $err=1;
@@ -32,8 +32,6 @@ $desc_page = _("Play chess and share your games. Retrieve your password");
 require 'include/page_header.php';
 require 'include/page_body.php';
 ?>
-<div id="contentlarge">
-    <div class="contentbody">
     <?/* Traiter les erreurs */
 		if ($err == 0)
 			echo("<div class='error'>"._("No account available with this email")."</div>");
@@ -51,7 +49,7 @@ require 'include/page_body.php';
 					<table align="center">
 						<tr>
 				            <td> Email : </td>
-				            <td><input name="txtEmail" type="text" size="50" maxlength="50" value="<?echo(isset($_POST['txtEmail'])?$_POST['txtEmail']:"");?>">
+				            <td><input name="txtEmail" type="text" size="30" maxlength="50" value="<?echo(isset($_POST['txtEmail'])?$_POST['txtEmail']:"");?>">
 				            </td>
 				        </tr>
 					</table>
@@ -60,8 +58,6 @@ require 'include/page_body.php';
 				</form>
 		      <?}?>
 		</div>
-    </div>
-</div>
 <?
 require 'include/page_footer.php';
 mysqli_close($dbh);
