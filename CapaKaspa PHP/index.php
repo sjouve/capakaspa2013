@@ -427,14 +427,14 @@ require 'include/page_body_home.php';
 	   		<div style="float: left; width: 50%">
 		   		<img src="images/chessnews.png"/> <a href="http://www.capakaspa.info/category/actualites-des-echecs/"><? echo _("Chess news");?></a><br>
 			    <img src="images/event.png"/> <a href="http://www.capakaspa.info/evenements/"><? echo _("Upcoming events");?></a><br>
-			    <img src="images/event.png"/> <a href="http://www.capakaspa.info/les-echecs-en-direct/"><? echo _("Live !!");?></a><br>
-			    <img src="images/learnchess.png"/> <a href="http://www.capakaspa.info/category/apprentissage/"><? echo _("Learning chess");?></a><br>
+			    <img src="images/event.png"/> <a href="http://www.capakaspa.info/competitions-echecs-en-direct/"><? echo _("Live !!");?></a><br>
+			    <img src="images/learnchess.png"/> <a href="http://www.capakaspa.info/apprendre-a-jouer-aux-echecs/"><? echo _("Learning chess");?></a><br>
    			</div>
    			<div style="float: left; width: 50%">
-		   		<img src="images/chesspuzzle.png"/> <a href="app_puzzle.php"><?php echo _("Puzzle of the day");?></a><br>
-		   		<img src="images/jchess.png"/> <a href="app_jchess.php"><?php echo _("Play vs JChess");?></a><br>
-		   		<img src="images/flashchess.gif"/> <a href="app_flashchess.php"><?php echo _("Play vs FlashChess");?></a><br>
-		   		<img src="images/sparkchess.png"/> <a href="app_sparkchess.php"><?php echo _("Play vs SparkChess");?></a><br>
+		   		<img src="images/chesspuzzle.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/diagramme-echecs-du-jour/"><?php echo _("Puzzle of the day");?></a><br>
+		   		<img src="images/jchess.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-avec-jchess/"><?php echo _("Play vs JChess");?></a><br>
+		   		<img src="images/flashchess.gif"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-avec-flashchess/"><?php echo _("Play vs FlashChess");?></a><br>
+		   		<img src="images/sparkchess.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-avec-sparkchess/"><?php echo _("Play vs SparkChess");?></a><br>
 	   		</div>
 			
    		</div>
