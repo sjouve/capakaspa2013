@@ -258,6 +258,15 @@ require 'include/page_body_no_menu.php';
 		<img src="graph_elo_progress.php?playerID=<?php echo($playerID);?>&elo=<?php echo($player['elo960']);?>&type=<?php echo(CHESS960);?>" width="600" height="250" />
 	</div>
 </div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- CapaKaspa Site Leaderboard Maxi -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:970px;height:90px"
+     data-ad-client="ca-pub-8069368543432674"
+     data-ad-slot="8539023267"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <div id="rightbarlarge">
 	<div class="navlinks">
 		<div class="title">

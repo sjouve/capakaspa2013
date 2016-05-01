@@ -29,31 +29,4 @@ if (isset($toPlayerID))
 </div>
 
 <div id="container_no_menu">
-<div id="contentxlarge">
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<!-- CapaKaspa Leaderboard Maxi -->
-	<ins class="adsbygoogle"
-	     style="display:inline-block;width:970px;height:90px"
-	     data-ad-client="ca-pub-8069368543432674"
-	     data-ad-slot="8539023267"></ins>
-	<script>
-	(adsbygoogle = window.adsbygoogle || []).push({});
-	</script>
-	<br/>
-    <div class="skyscraper">
-	  	<script type="text/javascript"><!--
-	    google_ad_client = "ca-pub-8069368543432674";
-	    /* CapaKaspa Accueil Bandeau Droite */
-	    google_ad_slot = "2254640927";
-	    google_ad_width = 160;
-	    google_ad_height = 600;
-	    //-->
-	    </script>
-	    <script type="text/javascript"
-	    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-	    </script>
-  	</div>
-</div>
-  
-    
 

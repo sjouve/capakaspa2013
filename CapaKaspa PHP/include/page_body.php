@@ -92,7 +92,6 @@ if (isset($toPlayerID))
       </ul>  
 	</div>
 	<? } ?>
-	 
 	<? if (!isset($_SESSION['playerID'])||$_SESSION['playerID']==-1) {?>
 	<div class="navlinks">
 		<div class="title"><?php echo _("Statistics");?></div>
@@ -104,6 +103,18 @@ if (isset($toPlayerID))
 	  		</ul>
 	</div>
 	<? } ?>
+	<div id="googleads-left" style="margin-bottom: 10px; margin-left: 2px; margin-right: 12px;">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- CapaKaspa Site Liens annonces Adaptable -->
+		<ins class="adsbygoogle"
+		     style="display:block"
+		     data-ad-client="ca-pub-8069368543432674"
+		     data-ad-slot="2382203660"
+		     data-ad-format="link"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
 	<div class="navlinks">
 		<div class="title"><?php echo _("Training");?></div>
 			<ul>
@@ -141,16 +152,16 @@ if (isset($toPlayerID))
 			
 		</div>
 		
-	    <div class="skyscraper">
-		  	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	    <!-- <div class="skyscraper">
+		  	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
 			<!-- CapaKaspa Skyscraper -->
-			<ins class="adsbygoogle"
+			<!-- <ins class="adsbygoogle"
 			     style="display:inline-block;width:160px;height:600px"
 			     data-ad-client="ca-pub-8069368543432674"
 			     data-ad-slot="2254640927"></ins>
 			<script>
 			(adsbygoogle = window.adsbygoogle || []).push({});
-			</script>
+			</script> -->
 	  	</div>
 	</div>
 
