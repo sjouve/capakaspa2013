@@ -18,18 +18,20 @@ function clickMenu(id) {
 <?
 if (isset($_SESSION['playerID']) && $_SESSION['playerID']!=-1)
 {
-	//$nbUnreadMessages = countUnreadPM($_SESSION['playerID']);
+	$nbUnreadMessages = countUnreadPM($_SESSION['playerID']);
 	$nbTurns = getNbGameTurns($_SESSION['playerID']);
 	$nbUnreadNews = countUnreadActivity($_SESSION['playerID']);
 	$nbUnreadNotif = countUnreadNotification($_SESSION['playerID']);
 }
 ?>
 <div id="top">
-	<a href="player_view.php?playerID=<?php echo $_SESSION['playerID'];?>"><img src="images/icon_home.gif"> CapaKaspa</a>
+	<a href="game_in_progress.php"><img src="images/icon_home.gif"> CapaKaspa</a>
 	<?
 	if (isset($_SESSION['playerID']) && $_SESSION['playerID']!=-1)
 	{?>
 	<span style="float: right; margin-right: 20px;"><a href="activity_notification.php"><img height="18px" width="18px" src="images/notification.png" style="vertical-align: -2px;"/><? if ($nbUnreadNotif > 0) echo("<span class='newplayer' style='font-size: 9px; padding-left: 2px; padding-right: 2px;border-radius: 6px;' title='"._("Unread notifications")."'>".$nbUnreadNotif."</span>");?></a></span>
+	<span style="float: right; margin-right: 20px;"><a href="message.php"><img height="18px" width="18px" src="images/messages.png" style="vertical-align: -2px;"/><? if ($nbUnreadMessages > 0) echo("<span class='newplayer' style='font-size: 9px; padding-left: 2px; padding-right: 2px;border-radius: 6px;' title='"._("Unread notifications")."'>".$nbUnreadMessages."</span>");?></a></span>
+	<span style="float: right; margin-right: 20px;"><a href="player_view.php?playerID=<?php echo $_SESSION['playerID'];?>"><img height="18px" width="18px" src="images/player_view_icon.png" style="vertical-align: -2px;"/></a></span>
 	<?}?>
 </div>
 <div id="advertisement">

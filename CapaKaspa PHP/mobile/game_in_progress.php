@@ -359,7 +359,7 @@ require 'include/page_body.php';
 	{
 	?>
 	
-		<h3><?php echo _("Other pending requests");?> (<a href="#" onclick="javascript:document.getElementById('requests').style.display = 'block';"><?php echo(mysqli_num_rows($tmpGamesFor));?></a>) <a href="game_in_progress.php"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a></h3>
+		<h3><?php echo _("Other pending requests");?> (<a href="#" onclick="javascript:document.getElementById('requests').style.display = 'block';"><?php echo(_("View"));?></a>) <a href="game_in_progress.php"><img src="images/icone_rafraichir.png" border="0" title="<?php echo _("Refresh list")?>" alt="<?php echo _("Refresh list")?>" /></a></h3>
 	<? if (mysqli_num_rows($tmpGames) > 0) {?>
 	<div id="requests" style="display: none;">
 	<?} else {?>
@@ -555,6 +555,9 @@ require 'include/page_body.php';
 				echo _("Find a player with advanced search and invite him to play a new game.");
 				?>
 				<input type="button" class="link" value="<? echo _("Search players")?>" onclick="location.href='player_search.php'">
+				<br><br>
+				<? echo _("Participate in Round-robin tournaments and compete against multiple players with whites and blacks.");?>
+				<input type="button" class="link" value="<? echo _("Register for a tournament")?>" onclick="location.href='tournament_list.php'">
 				</div>
 				<?php 
 				

@@ -166,7 +166,10 @@ require 'include/page_body.php';
 			<div id="newgame" style="display: inline;">					
 				<input type="submit" class="link" value="<? echo _("New game");?>">
 				<input type="hidden" name="opponent" value="<? echo _($player['nick']);?>">						
-			</div>	
+			</div>
+			<div id="message" style="display: inline;">	
+				<input type="button" class="link" onclick="location.href='message.php?pID=<? echo($toPlayerID)?>&pE=<?echo(base64_encode($toEmail))?>'" value="<? echo _("Private message")?>">
+			</div>
 		<?}?>
 		</form>
 	</div>

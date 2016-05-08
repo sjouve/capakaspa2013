@@ -182,7 +182,7 @@ require 'include/page_body.php';
 			while($tmpGame = mysqli_fetch_array($result, MYSQLI_ASSOC))
 			{
 				echo("<div class='activity' id='game".$tmpGame['gameID']."'>
-						<div class='details' style='width:100%; '>
+						<div class='details' style='width:95%; '>
 							<div class='content' style='font-size: 11px;'>");
 						
 						/* White */
