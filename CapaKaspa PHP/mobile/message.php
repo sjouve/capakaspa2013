@@ -63,7 +63,7 @@ require 'include/page_body.php';
 		</div>
 	
 
-	<div id="contacts" style="display: block;overflow-y: auto;height: 500px;">
+	<div id="contacts" style="display: block;">
 		<h3><? echo _("Contacts")?></h3>
 		<? 
 		$result = listPMContact($_SESSION['playerID']);
