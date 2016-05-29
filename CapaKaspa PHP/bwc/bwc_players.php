@@ -21,13 +21,10 @@ function createPlayer()
 	if ($_POST['pwdPassword']=='') return FALSE;
 	if ($_POST['pwdPassword']!=$_POST['pwdPassword2']) return FALSE;
 	
-	if ($_POST['txtSex'] == "M")
-		$socialID = "avatar_homme.jpg";
-	else
-		$socialID = "avatar_femme.jpg";
+	$socialID = "avatar_homme.jpg";
 	
 	// Crée l'utilisateur
-	$playerID = insertPlayer($_POST['pwdPassword'], $_POST['txtFirstName'], $_POST['txtLastName'], $_POST['txtNick'], $_POST['txtEmail'], $_POST['txtCountryCode'], $_POST['txtAnneeNaissance'], $_POST['txtSex'], $socialID, "CK");	
+	$playerID = insertPlayer($_POST['pwdPassword'], "", "", $_POST['txtNick'], $_POST['txtEmail'], "FR", "", "M", $socialID, "CK");	
 	if (!$playerID)
 	{
 		@mysqli_query($dbh,"ROLLBACK");
@@ -115,6 +112,11 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 		}
 		return 1;
 	}
+	
+	if ($playerSex == "M")
+		$socialID = "avatar_homme.jpg";
+	else
+		$socialID = "avatar_femme.jpg";
 		
 	@mysqli_query($dbh,"BEGIN");
 		
@@ -661,5 +663,10 @@ function getAchievements($playerID)
 								6 => array("VAL" => $achievementsValues[6], "LVL" => $levels[6], "NXT" => $steps[6], "PCT" => "ach_social.gif", "NAM" => _("Social"), "DSC" => _("Number of different opponents")));
 								
 	return $playerAchievements;
+}
+
+function getPlayerName($mode, $nick, $firstName, $lastName)
+{
+	return $nick;
 }
 ?>

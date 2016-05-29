@@ -30,7 +30,7 @@ updateUnreadPrivateMessage($playerID, $withPlayerID);
 
 echo("<h3>
 			<input type=\"button\" class=\"link\" value=\"  <  \" onclick=\"location.href='message.php'\">
-			  <a href='player_view.php?playerID=".$withPlayer['playerID']."'>".$withPlayer['firstName']." ".$withPlayer['lastName']."</a>
+			  <a href='player_view.php?playerID=".$withPlayer['playerID']."'>".getPlayerName(0, $withPlayer['nick'], $withPlayer['firstName'], $withPlayer['lastName'])."</a>
 		</h3>");
 if ($numMessages > 0)
 {

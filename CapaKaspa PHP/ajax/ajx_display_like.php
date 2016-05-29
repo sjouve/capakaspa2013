@@ -22,7 +22,7 @@ $tmpLikes = listLike($entityType, $entityID);
 echo("<div class='likeList'>");
 while($tmpLike = mysqli_fetch_array($tmpLikes, MYSQLI_ASSOC))
 {
-	echo("<div class='likePlayer'>".$tmpLike['firstName']." ".$tmpLike['lastName']." (".$tmpLike['nick'].")</div>");
+	echo("<div class='likePlayer'>".getPlayerName(0, $tmpLike['nick'], $tmpLike['firstName'], $tmpLike['lastName'])."</div>");
 }
 echo("</div>");
 mysqli_close($dbh);

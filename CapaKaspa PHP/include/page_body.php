@@ -52,7 +52,7 @@ if (isset($toPlayerID))
 	      <? } else {?>
 	        <div class="item">
 	        	<a href="player_view.php?playerID=<?echo($_SESSION['playerID'])?>"><img src="<?echo(getPicturePath($_SESSION['socialNetwork'], $_SESSION['socialID']));?>" width="40" height="40" border="0" style="float: left;margin-right: 10px;"/></a> 
-	        	<b><a href="player_view.php?playerID=<?echo($_SESSION['playerID'])?>"><? echo($_SESSION['firstName'])?> <? echo($_SESSION['lastName'])?> (<? echo($_SESSION['nick'])?>)</a></b>
+	        	<b><a href="player_view.php?playerID=<?echo($_SESSION['playerID'])?>"><? echo(getPlayerName(0, $_SESSION['nick'], $_SESSION['firstName'], $_SESSION['lastName']));?></a></b>
 	        	<br><a href="player_update.php"><? echo _("Update info");?></a>
 	        </div>
 	        <div class="item"></div>

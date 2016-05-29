@@ -10,6 +10,7 @@ if (!isset($_CONFIG))
 
 require '../include/constants.php';
 require '../dac/dac_activity.php';
+require '../bwc/bwc_players.php';
 
 // Connect DB
 require '../include/connectdb.php';
@@ -44,7 +45,7 @@ while($tmpComment = mysqli_fetch_array($tmpComments, MYSQLI_ASSOC))
 	$strPostDate = $fmt->format($postDate);
 	echo("
 	<div class='item'>
-		<a href='player_view.php?playerID=".$tmpComment['playerID']."'><span class='name'>".$tmpComment['firstName']." ".$tmpComment['lastName']." (".$tmpComment['nick'].")</span></a> ".nl2br(stripslashes($tmpComment['message']))." 
+		<a href='player_view.php?playerID=".$tmpComment['playerID']."'><span class='name'>".getPlayerName(0, $tmpComment['nick'], $tmpComment['firstName'], $tmpComment['lastName'])."</span></a> ".nl2br(stripslashes($tmpComment['message']))." 
 		</br>
 		<span class='date'>".$strPostDate."</span> - ");
 		if (isset($tmpComment['likeID'])){?>

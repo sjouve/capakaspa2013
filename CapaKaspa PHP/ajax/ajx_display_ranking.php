@@ -53,7 +53,7 @@ while($tmpPlayer = mysqli_fetch_array($result, MYSQLI_ASSOC))
 			</div>
 			<div class='details'>
 				<div class='title'>
-					<a href='player_view.php?playerID=".$tmpPlayer['playerID']."'><span class='name'>[".$rank."] ".$tmpPlayer['firstName']." ".$tmpPlayer['lastName']." (".$tmpPlayer['nick'].")</span></a>");  
+					<a href='player_view.php?playerID=".$tmpPlayer['playerID']."'><span class='name'>[".$rank."] ".getPlayerName(0, $tmpPlayer['nick'], $tmpPlayer['firstName'], $tmpPlayer['lastName'])."</span></a>");  
 					if (isNewPlayer($tmpPlayer['creationDate']))
 						echo(" <span class='newplayer'>"._("New player")."</span>");
 				echo("</div>

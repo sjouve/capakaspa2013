@@ -129,7 +129,6 @@ function validatePersonalInfo()
 	var dayDate = new Date();
 	var annee = dayDate.getFullYear();
 
-	document.getElementById("fields_required_error").style.display = "none";
 	document.getElementById("login_format_error").style.display = "none";
 	document.getElementById("password_format_error").style.display = "none";
 	document.getElementById("email_format_error").style.display = "none";
@@ -137,29 +136,6 @@ function validatePersonalInfo()
 	document.getElementById("lastname_format_error").style.display = "none";
 	document.getElementById("confirm_password_error").style.display = "none";
 	document.getElementById("old_password_error").style.display = "none";
-	
-	if (isEmpty(Trim(document.userdata.txtFirstName.value))
-		|| isEmpty(Trim(document.userdata.txtLastName.value))
-		//|| isEmpty(document.userdata.txtNick.value)
-		|| isEmpty(document.userdata.txtEmail.value)
-		|| isEmpty(document.userdata.txtAnneeNaissance.value)
-		|| isEmpty(document.userdata.txtCountryCode.value))
-	{
-		document.getElementById("fields_required_error").style.display = "block";
-		return;
-	}
-
-	/*if (!isAlphaNumeric(document.userdata.txtFirstName.value))
-	{
-		document.getElementById("firstname_format_error").style.display = "block";
-		return;
-	}
-	
-	if (!isAlphaNumeric(document.userdata.txtLastName.value))
-	{
-		document.getElementById("lastname_format_error").style.display = "block";
-		return;
-	}*/
 	
 	if (!isEmpty(document.userdata.pwdPassword.value) && (!isAlphaNumeric(document.userdata.pwdPassword.value) || document.userdata.pwdPassword.value.length < 6))
 	{
@@ -305,7 +281,6 @@ require 'include/page_body.php';
 			echo("<div class='success'>"._("Profile changes have been saved successfully")."</div>");
 	}
 	?>
-	<div class="error" id="fields_required_error" style="display: none"><?echo _("All fields are required")?></div>
 	<div class="error" id="login_format_error" style="display: none"><?echo _("Bad format for login")?></div>
 	<div class="error" id="password_format_error" style="display: none"><?echo _("Bad format for password : at least 6 caracters")?></div>
 	<div class="error" id="email_format_error" style="display: none"><?echo _("Bad format for email")?></div>
@@ -392,7 +367,6 @@ require 'include/page_body.php';
             <td><?echo _("Country");?> :</td>
             <td><select name="txtCountryCode" id="txtCountryCode">
 	            <?
-	            echo "\t",'<option value="">', _("Select your country") ,'</option>',"\n";
 	            $tmpCountries = listAllCountriesByLang(getLang());
 	            while($tmpCountry = mysqli_fetch_array($tmpCountries, MYSQLI_ASSOC))
 	            {

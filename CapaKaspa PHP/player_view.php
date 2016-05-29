@@ -151,7 +151,7 @@ require 'include/page_body_no_menu.php';
 		</div>
 		<div id="player_name" style="float:left; display: block; padding: 5px;">
 			<? 
-			echo("<br><span class='player_name'>".$player['firstName']." ".$player['lastName']." (".$player['nick'].")</span>"); 
+			echo("<br><span class='player_name'>".getPlayerName(0, $player['nick'], $player['firstName'], $player['lastName'])."</span>"); 
 	  		if (getOnlinePlayer($player['playerID'])) echo (" <img src='images/user_online.gif' title='"._("Player online")."' alt='"._("Player online")."'/>");
 	  		if (isNewPlayer($player['creationDate'])) echo (" <span class='newplayer'>"._("New player")."</span>");
 	  		?>
@@ -183,8 +183,8 @@ require 'include/page_body_no_menu.php';
 		</div>
 	</div>
 	<div id="player_info">
-		<? echo _("Was born in ")?> <? echo($player['anneeNaissance']); ?><br>
-		<? echo _("Lives in ")?> <? echo(stripslashes($player['situationGeo'])); ?>, <? echo($player['countryName']); ?><br>
+		<? echo _("Was born in ")?> <? if (strlen($player['anneeNaissance'])) echo(stripslashes($player['anneeNaissance'])); else echo("..."); ?><br>
+		<? echo _("Lives in ")?> <? if (strlen($player['situationGeo'])) echo(stripslashes($player['situationGeo'])); else echo("..."); ?>, <? echo($player['countryName']); ?><br>
 		<? echo _("About")." :"?>
 		<div style="background-color: #EEEEEE; padding: 3px; height: 60px; overflow-y: auto; margin-bottom: 10px;">
 			<? echo(nl2br(stripslashes($player['profil']))); ?>

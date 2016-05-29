@@ -86,7 +86,7 @@ require 'include/page_body.php';
 							<div id='picture' style='float: left; margin-left: 3px; margin-right: 5px;'>
 							<img src='".getPicturePath($tmpPlayer['socialNetwork'], $tmpPlayer['socialID'])."' width='32' height='32' border='0'/>
 							</div>
-							<span class='name'>".$tmpPlayer['firstName']." ".$tmpPlayer['lastName']." (".$tmpPlayer['nick'].")</span>");
+							<span class='name'>".getPlayerName(0, $tmpPlayer['nick'], $tmpPlayer['firstName'], $tmpPlayer['lastName'])."</span>");
 					if ($tmpPlayer['lastActionTime'])
 						echo("<img src='images/user_online.gif' style='vertical-align:bottom;' title='"._("Player online")."' alt='"._("Player online")."'/>");
 					if (isNewPlayer($tmpPlayer['creationDate']))

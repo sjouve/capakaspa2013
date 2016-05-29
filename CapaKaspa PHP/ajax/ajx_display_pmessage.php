@@ -28,7 +28,7 @@ $numMessages = mysqli_num_rows($tmpMessages);
 updateUnreadPrivateMessage($playerID, $withPlayerID);
 
 echo("<h3>
-			 <a href='player_view.php?playerID=".$withPlayer['playerID']."'>".$withPlayer['firstName']." ".$withPlayer['lastName']."</a>
+			 <a href='player_view.php?playerID=".$withPlayer['playerID']."'>".getPlayerName(0, $withPlayer['nick'], $withPlayer['firstName'], $withPlayer['lastName'])."</a>
 		</h3>");
 if ($numMessages > 0)
 {
@@ -45,7 +45,7 @@ if ($numMessages > 0)
 					</div>
 					<div class='details' style='width: 85%; padding: 0px;'>
 						<div class='title'>
-							<a href='player_view.php?playerID=".$tmpMessage['playerID']."'><span class='name'>".$tmpMessage['firstName']." ".$tmpMessage['lastName']."</span></a>
+							<a href='player_view.php?playerID=".$tmpMessage['playerID']."'><span class='name'>".getPlayerName(0, $tmpMessage['nick'], $tmpMessage['firstName'], $tmpMessage['lastName'])."</span></a>
 							<span style='float: right;' class='date'>".$strSendDate."</span>
 						</div>
 						<div class='content'>

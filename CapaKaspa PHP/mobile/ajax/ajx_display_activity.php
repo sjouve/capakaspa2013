@@ -228,8 +228,8 @@ else
 								
 								<img src='".getPicturePathM($playerSocialNW, $playerSocialID)."' width='40' height='40' border='0' style='float: left;margin-right: 5px;'/>
 								
-								<a href='player_view.php?playerID=".$playerID."'><span class='name'>".$playerFirstName." ".$playerLastName." (".$playerNick.")</span></a> ".$message." 
-								<a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponentFirstName." ".$opponentLastName." (".$opponentNick.")</span></a><br>
+								<a href='player_view.php?playerID=".$playerID."'><span class='name'>".getPlayerName(0, $playerNick, $playerFirstName, $playerLastName)."</span></a> ".$message." 
+								<a href='player_view.php?playerID=".$opponentID."'><span class='name'>".getPlayerName(0, $opponentNick, $opponentFirstName, $opponentLastName)."</span></a><br>
 								<span class='date'>".$strPostDate."</span>
 								
 							</div>
@@ -273,7 +273,7 @@ else
 							<img src='".getPicturePathM($playerSocialNW, $playerSocialID)."' width='40' height='40' border='0' style='float: left;margin-right: 5px;'/>
 							");
 							if ($playerID > 0)
-								echo("<a href='player_view.php?playerID=".$playerID."'><span class='name'>".$playerFirstName." ".$playerLastName." (".$playerNick.")</span></a> ");
+								echo("<a href='player_view.php?playerID=".$playerID."'><span class='name'>".getPlayerName(0, $playerNick, $playerFirstName, $playerLastName)."</span></a> ");
 							else
 								echo("<span class='name'>".$playerLastName." </span> ");
 							echo($message."<br>

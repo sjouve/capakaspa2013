@@ -229,8 +229,8 @@ else
 						<img src='".getPicturePath($playerSocialNW, $playerSocialID)."' width='40' height='40' border='0'/>
 					</div>
 					<div class='title'>
-						<a href='player_view.php?playerID=".$playerID."'><span class='name'>".$playerFirstName." ".$playerLastName." (".$playerNick.")</span></a> ".$message." 
-						<a href='player_view.php?playerID=".$opponentID."'><span class='name'>".$opponentFirstName." ".$opponentLastName." (".$opponentNick.")</span></a>
+						<a href='player_view.php?playerID=".$playerID."'><span class='name'>".getPlayerName(0, $playerNick, $playerFirstName, $playerLastName)."</span></a> ".$message." 
+						<a href='player_view.php?playerID=".$opponentID."'><span class='name'>".getPlayerName(0, $opponentNick, $opponentFirstName, $opponentLastName)."</span></a>
 					</div>
 					<div class='timedata'>
 						<span class='date'>".$strPostDate."</span>
@@ -277,7 +277,7 @@ else
 					
 					<div class='title'>");
 						if ($playerID > 0)
-							echo("<a href='player_view.php?playerID=".$playerID."'><span class='name'>".$playerFirstName." ".$playerLastName." (".$playerNick.")</span></a> ");
+							echo("<a href='player_view.php?playerID=".$playerID."'><span class='name'>".getPlayerName(0, $playerNick, $playerFirstName, $playerLastName)."</span></a> ");
 						else
 							echo("<span class='name'>".$playerLastName." </span> ");
 						echo($message."

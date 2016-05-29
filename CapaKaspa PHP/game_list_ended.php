@@ -146,7 +146,7 @@ require 'include/page_body.php';
 		        	<? if ($playerID != $_SESSION['playerID']) {?>
 		        	<tr>
 			            <td><? echo _("Player");?> :</td>
-			            <td colspan="3"><? echo $player['firstName']." ".$player['lastName']." (".$player['nick'].")";?><input type="hidden" name="playerID" value="<? echo $playerID;?>"></td>
+			            <td colspan="3"><? echo getPlayerName(0, $player['nick'], $player['firstName'], $player['lastName']);?><input type="hidden" name="playerID" value="<? echo $playerID;?>"></td>
 		          	</tr>
 		          	<?}?>
 		          	<tr>

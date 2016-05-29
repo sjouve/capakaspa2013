@@ -25,7 +25,7 @@ if (mysqli_num_rows($tmpPlayers) > 0)
 {
 	while($tmpPlayer = mysqli_fetch_array($tmpPlayers, MYSQLI_ASSOC))
 	{
-		echo("<option value='".$tmpPlayer['playerID']."'>".$tmpPlayer['nick']." (".$tmpPlayer['firstName']." ".$tmpPlayer['lastName'].")</option>");
+		echo("<option value='".$tmpPlayer['playerID']."'>".getPlayerName(0, $tmpPlayer['nick'], $tmpPlayer['firstName'], $tmpPlayer['lastName'])."</option>");
 	}
 }
 else

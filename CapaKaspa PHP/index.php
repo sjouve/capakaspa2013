@@ -135,7 +135,6 @@ fb_param.value = '0.00';
 <script type="text/javascript" src="javascript/formValidation.js">
  /* fonctions de validation des champs d'un formulaire */
 </script>
-<script src="javascript/country.js" type="text/javascript"></script>
 <script type="text/javascript">
 function validateForm()
 {
@@ -146,17 +145,17 @@ function validateForm()
 	document.getElementById("login_format_error").style.display = "none";
 	document.getElementById("password_format_error").style.display = "none";
 	document.getElementById("email_format_error").style.display = "none";
-	document.getElementById("firstname_format_error").style.display = "none";
-	document.getElementById("lastname_format_error").style.display = "none";
+	/*document.getElementById("firstname_format_error").style.display = "none";
+	document.getElementById("lastname_format_error").style.display = "none";*/
 	document.getElementById("confirm_password_error").style.display = "none";
 	
-	if (isEmpty(Trim(document.userdata.txtFirstName.value))
+	if (/*isEmpty(Trim(document.userdata.txtFirstName.value))
 		|| isEmpty(Trim(document.userdata.txtLastName.value))
-		|| isEmpty(document.userdata.txtNick.value)
+		|| */isEmpty(document.userdata.txtNick.value)
 		|| isEmpty(document.userdata.pwdPassword.value)
 		|| isEmpty(document.userdata.txtEmail.value)
-		|| isEmpty(document.userdata.txtAnneeNaissance.value)
-		|| isEmpty(document.userdata.txtCountryCode.value))
+		/*|| isEmpty(document.userdata.txtAnneeNaissance.value)
+		|| isEmpty(document.userdata.txtCountryCode.value)*/)
 	{
 		document.getElementById("fields_required_error").style.display = "block";
 		return;
@@ -250,15 +249,15 @@ require 'include/page_body_home.php';
 		<?} else if ($ToDo == 'activer' && $err == 'db') {?>
 		<div class="error"><? echo _("An error has occured during activation !")?></div>
 		<?} else if (!$err && $ToDo == 'NewUser') {?>
-		<div class="success"><? echo _("A confirmation message has been sent at this email address")?> : <? echo($_POST['txtEmail']); ?> .</div>
+		<div class="success"><? echo _("A confirmation message has been sent at this email address")?> : <? echo($_POST['txtEmail']); ?></div>
 		<?} else  {?>
 		
 		<div class="error" id="fields_required_error" style="display: none"><?echo _("All fields are required")?></div>
 		<div class="error" id="login_format_error" style="display: none"><?echo _("Bad format for user name : at least 2 caracters")?></div>
 		<div class="error" id="password_format_error" style="display: none"><?echo _("Bad format for password : at least 6 caracters")?></div>
 		<div class="error" id="email_format_error" style="display: none"><?echo _("Bad format for email")?></div>
-		<div class="error" id="firstname_format_error" style="display: none"><?echo _("Bad format for first name")?></div>
-		<div class="error" id="lastname_format_error" style="display: none"><?echo _("Bad format for last name")?></div>
+		<!-- <div class="error" id="firstname_format_error" style="display: none"><?echo _("Bad format for first name")?></div>
+		<div class="error" id="lastname_format_error" style="display: none"><?echo _("Bad format for last name")?></div> -->
 		<div class="error" id="confirm_password_error" style="display: none"><?echo _("Password confirmation error")?></div>
 		<?
 			/* Traiter les erreurs */
@@ -278,24 +277,19 @@ require 'include/page_body_home.php';
 		<table>
 			<tr>
 				<td width="200"><?php echo _("User name");?> :</td>
-				<td width="400"><input name="txtNick" type="text" size="20" maxlength="20" value="<? echo(isset($_POST['txtNick'])?$_POST['txtNick']:""); ?>" onfocus="javascript:displayCountry();"></td>
+				<td width="180" span="2"><input name="txtNick" type="text" size="20" maxlength="20" value="<? echo(isset($_POST['txtNick'])?$_POST['txtNick']:""); ?>" ></td>
 			</tr>
 			<tr>
 				<td><?php echo _("Choose password");?> :</td>
 				<td><input name="pwdPassword" type="password" size="20" maxlength="16"></td>
-			</tr>
-			<tr>
-				<td><?php echo _("Confirm password");?> :</td>
-				<td><input name="pwdPassword2" type="password" size="20" maxlength="16"></td>
+				<td width="200"><input name="pwdPassword2" type="password" size="20" maxlength="16" placeholder="<?php echo _("Confirm password");?>"></td>
 			</tr>
 			<tr>
 	            <td><?php echo _("Email");?> :</td>
-	            <td><input name="txtEmail" placeholder="<?php echo _("Valid email is required");?>" type="text" size="20" maxlength="50" value="<? echo(isset($_POST['txtEmail'])?$_POST['txtEmail']:""); ?>"></td>
+	            <td span="2"><input name="txtEmail" placeholder="<?php echo _("Valid email is required");?>" type="text" size="20" maxlength="50" value="<? echo(isset($_POST['txtEmail'])?$_POST['txtEmail']:""); ?>"></td>
 	        </tr>
-			<tr>
-	            <td colspan="2">&nbsp;</td>
-	        </tr>
-			<tr>
+			
+			<!-- <tr>
 				<td><?php echo _("I am");?> : </td>
 	            <td>
 					<select name="txtSex" id="txtSex">
@@ -332,7 +326,7 @@ require 'include/page_body_home.php';
 		            ?>
 	            </select></td>
 	        </tr>
-	        <tr>
+	      	<tr>
 	            <td><?php echo _("Birth date");?> :</td>
 	            <td><select name="txtAnneeNaissance" id="txtAnneeNaissance" style="width: 153px;">
 	            	<?php
@@ -352,7 +346,7 @@ require 'include/page_body_home.php';
 					}
 					?>
 	            </select></td>
-	        </tr>
+	        </tr> -->
 	        
 			<tr>
 				<td>
@@ -360,19 +354,15 @@ require 'include/page_body_home.php';
 				</td>
 				<td>
 					<input type="text" name="captcha_code" size="6" maxlength="6" />
-					<a href="#" onclick="document.getElementById('captcha').src = 'securimage/securimage_show.php?' + Math.random(); return false"><img src="images/icone_rafraichir.png" border="0" alt="<?php echo _("Try other security code");?>" title="<?php echo _("Try other security code");?>"/></a> 
-				</td>
-			</tr>
-			<tr>
-				<td>
-					&nbsp;
+					<a href="#" onclick="document.getElementById('captcha').src = 'securimage/securimage_show.php?' + Math.random(); return false"><img src="images/icone_rafraichir.png" border="0" alt="<?php echo _("Try other security code");?>" title="<?php echo _("Try other security code");?>"/></a>
 				</td>
 				<td valign="middle">
 					<img id="captcha" src="securimage/securimage_show.php" alt="<?php echo _("Captcha Image");?>" title="<?php echo _("Captcha Image");?>"/>
 				</td>
 			</tr>
+			
 			<tr>
-				<td align="center" colspan="2">
+				<td align="center" colspan="3">
 					<input name="btnCreate" type="button" value="<?php echo _("Sign up for free");?>" onClick="validateForm()" class="button" style="font-size: 13px;">
 				</td>
 			</tr>
@@ -383,7 +373,10 @@ require 'include/page_body_home.php';
 		
 		<?}?>
 		</div>
-		
+		<div class="blockform">
+			<h3><?php echo _("Video")." - "._("Play chess online");?></h3>
+			<iframe width="565" height="302" src="https://www.youtube.com/embed/g7nz3zpHIkQ" frameborder="0" allowfullscreen></iframe>
+		</div>
 	</div>
 </div>
 <div id="rightbarlarge">
@@ -425,10 +418,10 @@ require 'include/page_body_home.php';
    		<div class="blockform" style="opacity: 0.9;">
 	   		<h3><?php echo _("Learn, practice and progress");?></h3>
 	   		<div style="float: left; width: 50%">
+		   		<img src="images/learnchess.png"/> <a href="http://www.capakaspa.info/apprendre-a-jouer-aux-echecs/"><? echo _("Learning chess");?></a><br>
 		   		<img src="images/chessnews.png"/> <a href="http://www.capakaspa.info/category/actualites-des-echecs/"><? echo _("Chess news");?></a><br>
 			    <img src="images/event.png"/> <a href="http://www.capakaspa.info/evenements/"><? echo _("Upcoming events");?></a><br>
 			    <img src="images/event.png"/> <a href="http://www.capakaspa.info/competitions-echecs-en-direct/"><? echo _("Live !!");?></a><br>
-			    <img src="images/learnchess.png"/> <a href="http://www.capakaspa.info/apprendre-a-jouer-aux-echecs/"><? echo _("Learning chess");?></a><br>
    			</div>
    			<div style="float: left; width: 50%">
 		   		<img src="images/chesspuzzle.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/diagramme-echecs-du-jour/"><?php echo _("Puzzle of the day");?></a><br>
@@ -436,13 +429,25 @@ require 'include/page_body_home.php';
 		   		<img src="images/flashchess.gif"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-avec-flashchess/"><?php echo _("Play vs FlashChess");?></a><br>
 		   		<img src="images/sparkchess.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-avec-sparkchess/"><?php echo _("Play vs SparkChess");?></a><br>
 	   		</div>
-			
+   		</div>
+   		<div class="blockform" style="opacity: 0.9;">
+	   		<h3><?php echo _("Chess forums");?></h3>
+	   		<div style="float: left; width: 50%">
+		   		<a href="http://www.capakaspa.info/forums-echecs/forum/forum-actualites-echecs/"><? echo _("Chess news");?></a><br>
+			    <a href="http://www.capakaspa.info/forums-echecs/forum/forum-ouvertures/"><? echo _("Chess openings");?></a><br>
+			    <a href="http://www.capakaspa.info/forums-echecs/forum/forum-strategie-tactique/"><? echo _("Strategy and tactics");?></a><br>
+			    <a href="http://www.capakaspa.info/forums-echecs/forum/forum-finales/"><? echo _("Chess endings");?></a><br>
+   			</div>
+   			<div style="float: left; width: 50%">
+		   		<a href="http://www.capakaspa.info/forums-echecs/forum/forum-apprendre-echecs/"><?php echo _("Learning chess");?></a><br>
+		   		<a href="http://www.capakaspa.info/forums-echecs/forum/forum-informatique/"><?php echo _("Software");?></a><br>
+		   		<a href="http://www.capakaspa.info/forums-echecs/forum/forum-problemes-etudes/"><?php echo _("Composition");?></a><br>
+		   		<a href="http://www.capakaspa.info/forums-echecs/forum/forum-clubs-dechecs/"><?php echo _("Chess Clubs");?></a><br>
+	   		</div>
    		</div>
 	</div>
 </div>
-<div id="contentxlarge">
-	<br>
-</div>
+
 <?
 require 'include/page_footer.php';
 mysqli_close($dbh);

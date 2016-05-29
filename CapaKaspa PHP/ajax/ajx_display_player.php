@@ -46,7 +46,7 @@ while($tmpPlayer = mysqli_fetch_array($result, MYSQLI_ASSOC))
 			</div>
 			<div class='details'>
 				<div class='title'>
-					<a href='player_view.php?playerID=".$tmpPlayer['playerID']."'><span class='name'>".$tmpPlayer['firstName']." ".$tmpPlayer['lastName']." (".$tmpPlayer['nick'].")</span></a>");  
+					<a href='player_view.php?playerID=".$tmpPlayer['playerID']."'><span class='name'>".getPlayerName(0, $tmpPlayer['nick'], $tmpPlayer['firstName'], $tmpPlayer['lastName'])."</span></a>");  
 					if ($tmpPlayer['lastActionTime'])
 						echo("<img src='images/user_online.gif' style='vertical-align:bottom;' title='"._("Player online")."' alt='"._("Player online")."'/>");
 					if (isNewPlayer($tmpPlayer['creationDate']))

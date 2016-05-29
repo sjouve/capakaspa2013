@@ -83,7 +83,7 @@ function displayPrivateMessage($toPlayerID, $toFirstName, $toLastName, $toNick, 
 			$toEmail = isset($toEmail)?$toEmail:"";		
 			?>
 			<h3><? echo _("New message")?></h3>
-			<? echo _("To")?> : <? echo($toFirstName." ".$toLastName." (".$toNick.")");?><br>
+			<? echo _("To")?> : <? echo(getPlayerName(0, $toNick, $toFirstName, $toLastName));?><br>
 			<textarea style="width: 370px; height: 100px; font-size: 12px;" id="privateMessage" rows="5" placeholder="<? echo _("Your message...")?>"></textarea><br>
 			<div style="margin-top: 10px;">
 				<input type="button" class="button" value="<? echo _("Send")?>" onclick="insertPrivateMessagePopup(<? echo($_SESSION['playerID'])?>,<? echo($toPlayerID)?>,'<? echo($toEmail)?>')">
@@ -246,7 +246,7 @@ function displaySuggestion()
 				<div id='picture' style='float: left; margin-right: 3px;'>
 				<img src='".getPicturePath($tmpPlayer['socialNetwork'], $tmpPlayer['socialID'])."' width='32' height='32' border='0'/>
 				</div>
-				<a href='player_view.php?playerID=".$tmpPlayer['playerID']."'><span class='name'>".$tmpPlayer['firstName']." ".$tmpPlayer['lastName']." (".$tmpPlayer['nick'].")</span></a>");
+				<a href='player_view.php?playerID=".$tmpPlayer['playerID']."'><span class='name'>".getPlayerName(0, $tmpPlayer['nick'], $tmpPlayer['firstName'], $tmpPlayer['lastName'])."</span></a>");
 		if ($tmpPlayer['lastActionTime'])
 			echo("<img src='images/user_online.gif' style='vertical-align:bottom;' title='"._("Player online")."' alt='"._("Player online")."'/>");
 		if (isNewPlayer($tmpPlayer['creationDate']))
@@ -267,7 +267,7 @@ function displaySuggestion()
 				<div id='picture' style='float: left; margin-right: 5px;'>
 					<img src='".getPicturePath($tmpPlayer['socialNetwork'], $tmpPlayer['socialID'])."' width='32' height='32' border='0'/>
 				</div>
-				<a href='player_view.php?playerID=".$tmpPlayer['playerID']."'><span class='name'>".$tmpPlayer['firstName']." ".$tmpPlayer['lastName']." (".$tmpPlayer['nick'].")</span></a>");
+				<a href='player_view.php?playerID=".$tmpPlayer['playerID']."'><span class='name'>".getPlayerName(0, $tmpPlayer['nick'], $tmpPlayer['firstName'], $tmpPlayer['lastName'])."</span></a>");
 				if ($tmpPlayer['lastActionTime'])
 					echo(" <img src='images/user_online.gif' style='vertical-align:bottom;' title='"._("Player online")."' alt='"._("Player online")."'/>");
 				if (isNewPlayer($tmpPlayer['creationDate']))
@@ -290,7 +290,7 @@ function displaySuggestion()
 					<div id='picture' style='float: left; margin-right: 5px;'>
 						<img src='".getPicturePath($tmpPlayer['socialNetwork'], $tmpPlayer['socialID'])."' width='32' height='32' border='0'/>
 					</div>
-					<a href='player_view.php?playerID=".$tmpPlayer['playerID']."'><span class='name'>".$tmpPlayer['firstName']." ".$tmpPlayer['lastName']." (".$tmpPlayer['nick'].")</span></a>");
+					<a href='player_view.php?playerID=".$tmpPlayer['playerID']."'><span class='name'>".getPlayerName(0, $tmpPlayer['nick'], $tmpPlayer['firstName'], $tmpPlayer['lastName'])."</span></a>");
 					if ($tmpPlayer['lastActionTime'])
 						echo(" <img src='images/user_online.gif' style='vertical-align:bottom;' title='"._("Player online")."' alt='"._("Player online")."'/>");
 					if (isNewPlayer($tmpPlayer['creationDate']))

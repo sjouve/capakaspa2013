@@ -36,7 +36,7 @@ if ($res) {
 		
 		$msgTo = $toEmail;
 		$mailSubject = "[CapaKaspa] "._("You have a new private message");
-		$mailMsg = $_SESSION['firstName']." ".$_SESSION['lastName']." (".$_SESSION['nick'].") "._("send you a new private message.");
+		$mailMsg = getPlayerName(0, $_SESSION['nick'], $_SESSION['firstName'], $_SESSION['lastName'])." "._("send you a new private message.");
 		$mailMsg .= "<br>[".$message."]";
 		sendMail($msgTo, $mailSubject, $mailMsg);
 		

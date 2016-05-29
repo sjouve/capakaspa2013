@@ -141,7 +141,7 @@ require 'include/page_body.php';
 	</div>
 	<div id="player_name" style="float:left; display: block; padding: 5px;">
 		<? 
-		echo("<span class='player_name'>".$player['firstName']." ".$player['lastName']."</span><br><span class='player_name'>(".$player['nick'].")</span>"); 
+		echo("<span class='player_name'>".getPlayerName(0, $player['nick'], $player['firstName'], $player['lastName'])."</span>"); 
   		if (getOnlinePlayer($player['playerID'])) echo (" <img src='images/user_online.gif'/>");
   		if (isNewPlayer($player['creationDate'])) echo (" <span class='newplayer'>"._("New player")."</span>");
   		?>
@@ -175,8 +175,8 @@ require 'include/page_body.php';
 	</div>
 </div>
 <div id="player_info">
-	<span style="margin-left: 3px"><? echo _("Was born in ")?> <? echo($player['anneeNaissance']); ?></span><br>
-	<span style="margin-left: 3px"><? echo _("Lives in ")?> <? echo(stripslashes($player['situationGeo'])); ?>, <? echo($player['countryName']); ?></span><br>
+	<span style="margin-left: 3px"><? echo _("Was born in ")?> <? if (strlen($player['anneeNaissance'])) echo(stripslashes($player['anneeNaissance'])); else echo("..."); ?></span><br>
+	<span style="margin-left: 3px"><? echo _("Lives in ")?> <? if (strlen($player['situationGeo'])) echo(stripslashes($player['situationGeo'])); else echo("..."); ?>, <? echo($player['countryName']); ?></span><br>
 	<span style="margin-left: 3px"><? echo _("Elo")." :"?> <? echo($player['elo']); ?> - <?echo _("Chess960")." :"?> <? echo($player['elo960']); ?></span><br>
 	<span style="margin-left: 3px"><? echo _("About").":"?></span>
 		<div style="background-color: #EEEEEE;margin-left: 5px; margin-right: 5px;padding: 3px;height: 60px;overflow-y: auto;">

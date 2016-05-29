@@ -33,7 +33,7 @@ if ($res) {
 		
 		$msgTo = $playerEmail;
 		$mailSubject = "[CapaKaspa] "._("You have a new follower");
-		$mailMsg = $_SESSION['firstName']." ".$_SESSION['lastName']." (".$_SESSION['nick'].") "._("follow you on CapaKaspa.");
+		$mailMsg = getPlayerName(0, $_SESSION['nick'], $_SESSION['firstName'], $_SESSION['lastName'])." "._("follow you on CapaKaspa.");
 		sendMail($msgTo, $mailSubject, $mailMsg);
 		
 		$locale = $_SESSION['pref_language'];

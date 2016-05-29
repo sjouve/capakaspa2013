@@ -130,7 +130,7 @@ else
 						<img src='".getPicturePathM($tmpNotification['socialNetwork'], $tmpNotification['socialID'])."' width='40' height='40' border='0'/>
 					</div>
 					<div class='title'>
-						<span class='name'>".$tmpNotification['firstName']." ".$tmpNotification['lastName']." (".$tmpNotification['nick'].")</span> ".$message." 
+						<span class='name'>".getPlayerName(0, $tmpNotification['nick'], $tmpNotification['firstName'], $tmpNotification['lastName'])."</span> ".$message." 
 					</div>
 					<div class='timedata'>
 						<img src='".$picto."'/> <span class='date'>".$strPostDate."</span> ".$unread."
