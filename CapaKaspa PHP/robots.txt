@@ -2,6 +2,7 @@ User-agent: *
 Disallow: /bin
 Disallow: /doc
 Disallow: /pgn4web
+Disallow: /garbochess
 Disallow: /index.php?prevent_redirection=true
 Disallow: /index.php
 Disallow: /index.php?locale=en_US
