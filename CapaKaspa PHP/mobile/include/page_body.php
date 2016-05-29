@@ -8,6 +8,13 @@
   ga('send', 'pageview');
 
 </script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-8069368543432674",
+    enable_page_level_ads: true
+  });
+</script>
 <script type="text/javascript">
 function clickMenu(id) {
 	  document.getElementById(id).style.backgroundColor = "#6D6994";

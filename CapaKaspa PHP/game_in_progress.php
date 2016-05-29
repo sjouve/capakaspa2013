@@ -473,6 +473,7 @@ require 'include/page_body.php';
 						</div>
 					</div>
 				</div>");
+				
 			}
 		?>
 
@@ -500,6 +501,8 @@ require 'include/page_body.php';
 		/* if (( (($numMoves == -1) || (($numMoves % 2) == 1)) && ($playersColor == "white")) 
 		|| ((($numMoves % 2) == 0) && ($playersColor == "black")) )
 		*/
+		$numDisplayedGame = 0;
+		
 		if (mysqli_num_rows($tmpGames) > 0)
 			while($tmpGame = mysqli_fetch_array($tmpGames, MYSQLI_ASSOC))
 			{
@@ -541,6 +544,8 @@ require 'include/page_body.php';
 				$strStartedDate = $fmt->format($startedDate);
 				$expirationDate = new DateTime($tmpGame['expirationDate']);
 				$strExpirationDate = $fmt->format($expirationDate);
+				
+				$numDisplayedGame ++;
 				
 				echo("
 				<div id='".$tmpGame['gameID']."' class='activity' "); 
@@ -607,6 +612,23 @@ require 'include/page_body.php';
 						</div>
 					</div>
 				</div>");
+				if ($_SESSION['hideNotTurn'] == 0)
+					if ((mysqli_num_rows($tmpGames) > 5 && $numDisplayedGame == 5) || (mysqli_num_rows($tmpGames) > 0 && mysqli_num_rows($tmpGames) < 5 && $numDisplayedGame == mysqli_num_rows($tmpGames))) {?>
+						<div class="adsbottom">
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+							<!-- CapaKaspa Site TdB Adaptable -->
+							<ins class="adsbygoogle"
+							     style="display:block"
+							     data-ad-client="ca-pub-8069368543432674"
+							     data-ad-slot="2656338868"
+							     data-ad-format="auto"></ins>
+							<script>
+							(adsbygoogle = window.adsbygoogle || []).push({});
+							</script>
+						</div>
+					<?	
+					}
+				
 			}
 			else {
 				echo _("No games in progress...");
@@ -652,16 +674,17 @@ require 'include/page_body.php';
 		</form>
 		<?php if (mysqli_num_rows($tmpGames) > 0) {?>
 		<div class="adsbottom">
-			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
 			<!-- CapaKaspa Site TdB Adaptable -->
-			<ins class="adsbygoogle"
+			<!--  <ins class="adsbygoogle"
 			     style="display:block"
 			     data-ad-client="ca-pub-8069368543432674"
 			     data-ad-slot="2656338868"
 			     data-ad-format="auto"></ins>
 			<script>
 			(adsbygoogle = window.adsbygoogle || []).push({});
-			</script>
+			</script>-->
+			<SCRIPT charset="utf-8" type="text/javascript" src="http://ws-eu.amazon-adsystem.com/widgets/q?rt=tf_cw&ServiceVersion=20070822&MarketPlace=FR&ID=V20070822%2FFR%2Fcapa-21%2F8010%2Fb9cede65-96fb-4ec4-8fb3-cff77fa49490&Operation=GetScriptTemplate"> </SCRIPT> <NOSCRIPT><A rel="nofollow" HREF="http://ws-eu.amazon-adsystem.com/widgets/q?rt=tf_cw&ServiceVersion=20070822&MarketPlace=FR&ID=V20070822%2FFR%2Fcapa-21%2F8010%2Fb9cede65-96fb-4ec4-8fb3-cff77fa49490&Operation=NoScript">Widgets Amazon.fr</A></NOSCRIPT>
 		</div>
 		<br>
 		<?php }?>

@@ -178,6 +178,7 @@ require 'include/page_body_no_menu.php';
 			<? if ($_SESSION['playerID'] == $player['playerID']) {?>
 				<input id="btnUpdate" type="button" class="link" value="<?php echo _("Update my information")?>" onclick="location.href='player_update.php'">
 			<? }?>
+				<input type="button" class="link" value="<? echo _("X"); ?>" onclick="location.href='game_in_progress.php'">
 			</form>
 		</div>
 	</div>
@@ -258,22 +259,14 @@ require 'include/page_body_no_menu.php';
 		<img src="graph_elo_progress.php?playerID=<?php echo($playerID);?>&elo=<?php echo($player['elo960']);?>&type=<?php echo(CHESS960);?>" width="600" height="250" />
 	</div>
 </div>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- CapaKaspa Site Leaderboard Maxi -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:970px;height:90px"
-     data-ad-client="ca-pub-8069368543432674"
-     data-ad-slot="8539023267"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+
 <div id="rightbarlarge">
 	<div class="navlinks">
 		<div class="title">
 		<? echo _("Achievements")?>
 		</div>
 	</div>
-	<div class="blockform" style="height: 130px;">
+	<div class="blockform" style="height: 170px;">
 		<? 
 		$achievements = getAchievements($player['playerID']);
 		$widthTotal = 150;
@@ -292,7 +285,9 @@ require 'include/page_body_no_menu.php';
 				$widthValue = $widthTotal;
 			$widthNext = $widthTotal - $widthValue;
 			?>
+			
 			<div class="achievement" title="<?echo $name;?> (<?echo _("Level ")." ".$level;?>) : <?echo $desc;?>">
+				<span style="width:150px; font-size: 10px;"><?echo $name;?></span><br/>
 				<div class="picto" style="position: relative; float: left; background-image: url('images/<?echo($picto);?>'); width: 32px; height: 32px;">
 				<span class="newplayer" style="position: absolute; left: 0px; bottom: 0px;"><? echo($level);?></span>
 				</div>
@@ -374,78 +369,67 @@ require 'include/page_body_no_menu.php';
 			<? echo _("My games against"); ?> <? echo($player['nick']); ?>
 			</div>
 		</div>
-		<form name="endedGames" action="game_board.php" method="post">
-
-        <div class="tabliste">
-          <table border="0" width="100%">
-            <tr>
-              <th width="35%"><? echo _("Whites")?></th>
-              <th width="35%"><? echo _("Blacks")?></th>
-              <th width="15%"><? echo _("Type")?></th>
-              <th width="15%"><? echo _("Result")?></th>
-            </tr>
-            <?
-				$tmpGames = mysqli_query($dbh,"SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom, G.type
-			                            FROM games G, players W, players B
-			                            WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
-			                            AND ((G.whitePlayer = ".$player['playerID']." AND G.blackPlayer = ".$_SESSION['playerID'].") OR (G.blackPlayer = ".$player['playerID']." AND G.whitePlayer = ".$_SESSION['playerID']."))
-			                            AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
-			                            ORDER BY G.dateCreated");
-				
-				if (mysqli_num_rows($tmpGames) == 0)
-					echo("<tr><td colspan='4'>"._("You've never played against this player")."</td></tr>\n");
-				else
-				{
-					while($tmpGame = mysqli_fetch_array($tmpGames, MYSQLI_ASSOC))
+		<div class="blockform">
+			<form name="endedGames" action="game_board.php" method="post">
+	        <div class="tabliste">
+	          <table border="0" width="100%">
+	            <tr>
+	              <th width="35%"><? echo _("Whites")?></th>
+	              <th width="35%"><? echo _("Blacks")?></th>
+	              <th width="15%"><? echo _("Type")?></th>
+	              <th width="15%"><? echo _("Result")?></th>
+	            </tr>
+	            <?
+					$tmpGames = mysqli_query($dbh,"SELECT G.gameID, G.eco eco, W.nick whiteNick, B.nick blackNick, G.gameMessage, G.messageFrom, G.type
+				                            FROM games G, players W, players B
+				                            WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
+				                            AND ((G.whitePlayer = ".$player['playerID']." AND G.blackPlayer = ".$_SESSION['playerID'].") OR (G.blackPlayer = ".$player['playerID']." AND G.whitePlayer = ".$_SESSION['playerID']."))
+				                            AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
+				                            ORDER BY G.dateCreated");
+					
+					if (mysqli_num_rows($tmpGames) == 0)
+						echo("<tr><td colspan='4'>"._("You've never played against this player")."</td></tr>\n");
+					else
 					{
-						/* White */
-						echo("<tr><td>");
-						echo($tmpGame['whiteNick']);
-						
-						/* Black */
-						echo ("</td><td>");
-						echo($tmpGame['blackNick']);
-						
-						/* ECO Code */
-						if ($tmpGame['type'] == 2)
-							echo ("</td><td align='center'>"._("Chess960"));
-						else
-							echo ("</td><td align='center'>".$tmpGame['eco']);
-						
-						/* Result */
-						if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "white"))
-							echo("</td><td align=center><a title = '"._("Open the game")."' href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a></td></tr>");
-						else if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "black"))
-							echo("</td><td align=center><a title = '"._("Open the game")."' href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a></td></tr>");
-						else if (($tmpGame['gameMessage'] == "checkMate") && ($tmpGame['messageFrom'] == "white"))
-							echo("</td><td align=center><a title = '"._("Open the game")."' href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a></td></tr>");
-						else if ($tmpGame['gameMessage'] == "checkMate")
-							echo("</td><td align=center><a title = '"._("Open the game")."' href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a></td></tr>");
-						else
-							echo("</td><td align=center><a title = '"._("Open the game")."' href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1/2-1/2</a></td></tr>");
-					}					
-				}
-			?>
-          </table>
-        </div>
-        <input type="hidden" name="gameID" value="">
-        <input type="hidden" name="sharePC" value="no">
-        <input type="hidden" name="from" value="toutes">
-      	</form>
-		<br>
+						while($tmpGame = mysqli_fetch_array($tmpGames, MYSQLI_ASSOC))
+						{
+							/* White */
+							echo("<tr><td>");
+							echo($tmpGame['whiteNick']);
+							
+							/* Black */
+							echo ("</td><td>");
+							echo($tmpGame['blackNick']);
+							
+							/* ECO Code */
+							if ($tmpGame['type'] == 2)
+								echo ("</td><td align='center'>"._("Chess960"));
+							else
+								echo ("</td><td align='center'>".$tmpGame['eco']);
+							
+							/* Result */
+							if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "white"))
+								echo("</td><td align=center><a title = '"._("Open the game")."' href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a></td></tr>");
+							else if (($tmpGame['gameMessage'] == "playerResigned") && ($tmpGame['messageFrom'] == "black"))
+								echo("</td><td align=center><a title = '"._("Open the game")."' href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a></td></tr>");
+							else if (($tmpGame['gameMessage'] == "checkMate") && ($tmpGame['messageFrom'] == "white"))
+								echo("</td><td align=center><a title = '"._("Open the game")."' href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1-0</a></td></tr>");
+							else if ($tmpGame['gameMessage'] == "checkMate")
+								echo("</td><td align=center><a title = '"._("Open the game")."' href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>0-1</a></td></tr>");
+							else
+								echo("</td><td align=center><a title = '"._("Open the game")."' href='javascript:loadEndedGame(".$tmpGame['gameID'].")'>1/2-1/2</a></td></tr>");
+						}					
+					}
+				?>
+	          </table>
+	        </div>
+	        <input type="hidden" name="gameID" value="">
+	        <input type="hidden" name="sharePC" value="no">
+	        <input type="hidden" name="from" value="toutes">
+	      	</form>
+	     </div>
+		
 		<?}?>
-	<div class="navlinks">
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- Capakaspa Profil Gauche Adaptable -->
-		<ins class="adsbygoogle"
-		     style="display:block"
-		     data-ad-client="ca-pub-8069368543432674"
-		     data-ad-slot="6307809264"
-		     data-ad-format="auto"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
-	</div>
 </div>
 <div id="content">
 	<div class="contentactivity">

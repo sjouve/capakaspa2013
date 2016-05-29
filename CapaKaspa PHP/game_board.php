@@ -390,21 +390,10 @@ require 'include/page_body.php';
 			$strLastMove = $fmt->format($lastMove);
 			echo _("Started")?> : <? echo($strStartDate);?> &nbsp <?echo _("Last move")?> : <? echo($strLastMove);?></span>
 			<span style="float: right; padding-right: 5px;"><a href="http://www.capakaspa.info/propos-contact/"><?echo _("Report a problem")?></a></span>
+			
 		</div>
-		<div class="adsbottom" style="margin-bottom: 0px;">
-			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-			<!-- CapaKaspa Partie Bandeau Discussion Adaptable -->
-			<ins class="adsbygoogle"
-			     style="display:block"
-			     data-ad-client="ca-pub-8069368543432674"
-			     data-ad-slot="4493802869"
-			     data-ad-format="auto"></ins>
-			<script>
-			(adsbygoogle = window.adsbygoogle || []).push({});
-			</script>
-	    </div>
 		<div id="gamesocial" style="float: right; overflow:  hidden; display: block; background-color: #FFFFFF; border-right-style: solid; border-bottom-style: solid; border-width: 1px; border-color: #DDDDDD;">
-			<div style="float: left; overflow: hidden; width: 555px; font-size: 12px; font-weight: bold; padding: 5px; 
+			<div id="gamesocialaction" style="float: left; overflow: hidden; width: 555px; font-size: 12px; font-weight: bold; padding: 5px; 
 						border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; 
 						border-width: 1px; border-color: #DDDDDD; background-color: #FFFFFF;">
 				<?if (isset($tmpGame['likeID'])){?>
@@ -413,10 +402,25 @@ require 'include/page_body.php';
 					<span id="like<?echo(GAME.$tmpGame['gameID']);?>"><a style="color: #888888;" title="<? echo _("I like this item")?>" href="javascript:insertLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>);"><?echo _("Like");?></a></span>
 				<?}?>
 			</div>
-		 	<div id="comment<?echo($tmpGame['gameID']);?>" class="comment" style="width: 565px;">
+			<div id="adsbottomright" style="float: right; width: 255px; margin-rigth: 5px;">
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- CapaKaspa Site Carré 250 Partie bas -->
+				<ins class="adsbygoogle"
+				     style="display:inline-block;width:250px;height:250px"
+				     data-ad-client="ca-pub-8069368543432674"
+				     data-ad-slot="8744034865"></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+			</div>
+		 	<div id="comment<?echo($tmpGame['gameID']);?>" class="comment" style="width: 500px;">
 				<img src="images/ajaxloader.gif"/>
 			</div>
-			<?displaySuggestionAmazon();?>
+			<!--<?displaySuggestionAmazon();?>-->
+			<div class="adsbottom" style="float: left; margin-bottom: 0px; width: 510px;">
+				<SCRIPT charset="utf-8" type="text/javascript" src="http://ws-eu.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&MarketPlace=FR&ID=V20070822%2FFR%2Fcapa-21%2F8010%2Fb9cede65-96fb-4ec4-8fb3-cff77fa49490&Operation=GetScriptTemplate"> </SCRIPT> <NOSCRIPT><A rel="nofollow" HREF="http://ws-eu.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&MarketPlace=FR&ID=V20070822%2FFR%2Fcapa-21%2F8010%2Fb9cede65-96fb-4ec4-8fb3-cff77fa49490&Operation=NoScript">Widgets Amazon.fr</A></NOSCRIPT>
+	    	</div>
+	    	
 		</div>
 	    <br>
 		<?if (strlen($tmpGame['dialogue']) > 0) {?>
@@ -427,9 +431,6 @@ require 'include/page_body.php';
 		<?}?>
 	
 	</div>
-</div>
-<div id="rightbar">
-	
 </div>
 <?
 require 'include/page_footer.php';

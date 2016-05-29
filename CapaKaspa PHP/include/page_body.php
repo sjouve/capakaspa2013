@@ -103,35 +103,38 @@ if (isset($toPlayerID))
 	  		</ul>
 	</div>
 	<? } ?>
-	<div id="googleads-left" style="margin-bottom: 10px; margin-left: 2px; margin-right: 12px;">
+	<div id="googleads-left">
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- CapaKaspa Site Liens annonces Adaptable -->
+		<!-- CapaKaspa Site Carré 200 -->
 		<ins class="adsbygoogle"
+		     style="display:inline-block;width:200px;height:200px"
+		     data-ad-client="ca-pub-8069368543432674"
+		     data-ad-slot="8117526869"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+		<!-- CapaKaspa Site Liens annonces Adaptable -->
+		<!--<ins class="adsbygoogle"
 		     style="display:block"
 		     data-ad-client="ca-pub-8069368543432674"
 		     data-ad-slot="2382203660"
 		     data-ad-format="link"></ins>
 		<script>
 		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
-	</div>
-	<div class="navlinks">
-		<div class="title"><?php echo _("Training");?></div>
-			<ul>
-		        <li id="menu9"><img src="images/chesspuzzle.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/diagramme-echecs-du-jour/"><?php echo _("Puzzle of the day");?></a></li>
-		        <li id="menu7"><img src="images/jchess.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-avec-jchess/"><?php echo _("Play vs JChess");?></a></li>
-		        <li id="menu8"><img src="images/flashchess.gif"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-avec-flashchess/"><?php echo _("Play vs FlashChess");?></a></li>
-		        <li id="menu10"><img src="images/sparkchess.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-avec-sparkchess/"><?php echo _("Play vs SparkChess");?></a></li>
-		        
-      		</ul>
+		</script>-->
 	</div>
 	<div class="navlinks">
 		<div class="title"><?php echo _("More on CapaKaspa");?></div>
 			<ul>
+		        <li id="menu7"><img src="images/learnchess.png"/> <a href="http://www.capakaspa.info/apprendre-a-jouer-aux-echecs/"><? echo _("Learning chess");?></a></li>
+		        <li id="menu8"><img src="images/chesspuzzle.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/diagramme-echecs-du-jour/"><?php echo _("Puzzle of the day");?></a></li>
+		        <li><img src="images/jchess.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-garbochess/"><?php echo _("Play vs GarboChess");?></a></li>
+		        <li><img src="images/flashchess.gif"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-avec-flashchess/"><?php echo _("Play vs FlashChess");?></a></li>
+		        <li><img src="images/sparkchess.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-avec-sparkchess/"><?php echo _("Play vs SparkChess");?></a></li>
 		        <li><img src="images/chessnews.png"/> <a href="http://www.capakaspa.info/category/actualites-des-echecs/"><? echo _("Chess news");?></a></li>
-		        <li><img src="images/event.png"/> <a href="http://www.capakaspa.info/evenements/"><? echo _("Upcoming events");?></a></li>
+		        <!-- <li><img src="images/event.png"/> <a href="http://www.capakaspa.info/evenements/"><? echo _("Upcoming events");?></a></li> -->
 		        <li><img src="images/event.png"/> <a href="http://www.capakaspa.info/competitions-echecs-en-direct/"><? echo _("Live !!");?></a></li>
-		        <li><img src="images/learnchess.png"/> <a href="http://www.capakaspa.info/apprendre-a-jouer-aux-echecs/"><? echo _("Learning chess");?></a></li>
 		        <!-- <li><img src="images/megaphone_16.png"/> <a href="http://forum.capakaspa.info/"><b><? echo _("Forums");?></b></a></li>
 		        <li><img src="images/capakaspa.png"/> <a href="http://www.capakaspa.info/"><? echo _("And more");?></a></li> -->
       		</ul>
