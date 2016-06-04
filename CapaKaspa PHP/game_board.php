@@ -416,7 +416,7 @@ require 'include/page_body.php';
 		 	<div id="comment<?echo($tmpGame['gameID']);?>" class="comment" style="width: 500px;">
 				<img src="images/ajaxloader.gif"/>
 			</div>
-			<!--<?displaySuggestionAmazon();?>-->
+			<?//displaySuggestionAmazon();?>
 			<div class="adsbottom" style="float: left; margin-bottom: 0px; width: 510px;">
 				<SCRIPT charset="utf-8" type="text/javascript" src="http://ws-eu.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&MarketPlace=FR&ID=V20070822%2FFR%2Fcapa-21%2F8010%2Fb9cede65-96fb-4ec4-8fb3-cff77fa49490&Operation=GetScriptTemplate"> </SCRIPT> <NOSCRIPT><A rel="nofollow" HREF="http://ws-eu.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&MarketPlace=FR&ID=V20070822%2FFR%2Fcapa-21%2F8010%2Fb9cede65-96fb-4ec4-8fb3-cff77fa49490&Operation=NoScript">Widgets Amazon.fr</A></NOSCRIPT>
 	    	</div>

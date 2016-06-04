@@ -103,10 +103,10 @@ function displayPrivateMessage($toPlayerID, $toFirstName, $toLastName, $toNick, 
 function displaySuggestionAmazon()
 {?>
 	<div id="sugamazon">
-	<iframe src="http://rcm-eu.amazon-adsystem.com/e/cm?t=capa-21&o=8&p=286&l=st1&mode=books-fr&search=jouer echecs&fc1=000000&lt1=_blank&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="200" height="200" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
-
+	<!-- <iframe src="http://rcm-eu.amazon-adsystem.com/e/cm?t=capa-21&o=8&p=286&l=st1&mode=books-fr&search=jouer echecs&fc1=000000&lt1=_blank&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="200" height="200" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
+	 -->
 	<?
-	/**if (getLang() == "fr")
+	if (getLang() == "fr")
 		$product = mt_rand(0,6);
 	else $product = 7;
 	
@@ -208,7 +208,7 @@ function displaySuggestionAmazon()
 			<a rel="nofollow" href="http://www.amazon.fr/gp/product/0716022540/ref=as_li_tl?ie=UTF8&camp=1642&creative=6746&creativeASIN=0716022540&linkCode=as2&tag=capa-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0716022540&Format=_SL160_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="http://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=as2&o=8&a=0716022540" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></div>
 			<?
 			break;		
-	}**/
+	}
 	?>
 	</div>
 	<?
@@ -225,7 +225,7 @@ function displaySuggestion()
 		</div>
 	</div>");
 	
-	/**echo("		
+	echo("		
 			<div class='suggestion'>		
 					<div id='picture' style='float: left; margin-right: 5px;'>
 						<img src='images/picto_cup_20.png' width='32' height='32' border='0'/>
@@ -234,7 +234,7 @@ function displaySuggestion()
 					echo("<br>"._("Register for a tournament"));
 			echo("</div>
 			
-			");**/
+			");
 	
 	$limit = 10;
 	$result = searchPlayers("", 0, $limit, $_SESSION['playerID'], "", "nouveau", "", "", "", "");

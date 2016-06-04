@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2016-05-29 19:25+0200\n"
-"PO-Revision-Date: 2016-05-29 19:26+0200\n"
+"POT-Creation-Date: 2016-06-04 22:56+0200\n"
+"PO-Revision-Date: 2016-06-04 22:56+0200\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -76,18 +76,18 @@ msgstr ""
 "mettre à jour votre adresse email et commencer le processus d'activation"
 
 #: activation.php:66 bwc/bwc_players.php:357 include/page_body.php:41
-#: index.php:265 index.php:279 index.php:389 mobile/index.php:72
-#: player_update.php:336
+#: index.php:265 index.php:279 index.php:392 mobile/index.php:72
+#: player_update.php:311
 msgid "User name"
 msgstr "Nom d'utilisateur"
 
 #: activation.php:71 bwc/bwc_players.php:358 include/page_body.php:42
-#: index.php:393 mobile/index.php:73
+#: index.php:396 mobile/index.php:73
 msgid "Password"
 msgstr "Mot de passe"
 
-#: activation.php:76 index.php:267 index.php:288 player_update.php:380
-#: player_update.php:506
+#: activation.php:76 index.php:267 index.php:288 player_update.php:355
+#: player_update.php:480
 msgid "Email"
 msgstr "Email"
 
@@ -117,8 +117,8 @@ msgstr "Toutes vos notifications"
 msgid "Notifications"
 msgstr "Notifications"
 
-#: activity_notification.php:76 game_in_progress.php:224
-#: game_in_progress.php:394 game_in_progress.php:496
+#: activity_notification.php:76 game_in_progress.php:226
+#: game_in_progress.php:396 game_in_progress.php:498
 #: mobile/activity_notification.php:75 mobile/game_in_progress.php:362
 #: mobile/game_in_progress.php:457
 msgid "Refresh list"
@@ -131,10 +131,10 @@ msgstr "S'abonner"
 
 #: ajax/ajx_delete_like.php:25 ajax/ajx_display_activity.php:248
 #: ajax/ajx_display_activity.php:296 ajax/ajx_display_comment.php:54
-#: game_board.php:402 game_in_progress.php:595
+#: game_board.php:402 game_in_progress.php:597
 #: mobile/ajax/ajx_display_activity.php:245
 #: mobile/ajax/ajx_display_activity.php:290
-#: mobile/ajax/ajx_display_comment.php:53 mobile/game_board.php:399
+#: mobile/ajax/ajx_display_comment.php:54 mobile/game_board.php:399
 #: mobile/game_in_progress.php:521 mobile/tournament_view.php:89
 #: tournament_view.php:92
 msgid "I like this item"
@@ -142,10 +142,10 @@ msgstr "J'aime ça"
 
 #: ajax/ajx_delete_like.php:25 ajax/ajx_display_activity.php:248
 #: ajax/ajx_display_activity.php:296 ajax/ajx_display_comment.php:54
-#: game_board.php:402 game_in_progress.php:595
+#: game_board.php:402 game_in_progress.php:597
 #: mobile/ajax/ajx_delete_like.php:25 mobile/ajax/ajx_display_activity.php:245
 #: mobile/ajax/ajx_display_activity.php:290
-#: mobile/ajax/ajx_display_comment.php:53 mobile/game_board.php:399
+#: mobile/ajax/ajx_display_comment.php:54 mobile/game_board.php:399
 #: mobile/game_in_progress.php:521 mobile/tournament_view.php:89
 #: tournament_view.php:92
 msgid "Like"
@@ -258,10 +258,10 @@ msgstr "vous informe !"
 
 #: ajax/ajx_display_activity.php:246 ajax/ajx_display_activity.php:294
 #: ajax/ajx_display_comment.php:52 ajax/ajx_insert_like.php:25
-#: game_board.php:400 game_in_progress.php:593
+#: game_board.php:400 game_in_progress.php:595
 #: mobile/ajax/ajx_display_activity.php:243
 #: mobile/ajax/ajx_display_activity.php:288
-#: mobile/ajax/ajx_display_comment.php:51 mobile/ajax/ajx_insert_like.php:25
+#: mobile/ajax/ajx_display_comment.php:52 mobile/ajax/ajx_insert_like.php:25
 #: mobile/game_board.php:397 mobile/game_in_progress.php:519
 #: mobile/tournament_view.php:87 tournament_view.php:90
 msgid "Stop liking this item"
@@ -269,10 +269,10 @@ msgstr "Je n'aime plus ça"
 
 #: ajax/ajx_display_activity.php:246 ajax/ajx_display_activity.php:294
 #: ajax/ajx_display_comment.php:52 ajax/ajx_insert_like.php:25
-#: game_board.php:400 game_in_progress.php:593
+#: game_board.php:400 game_in_progress.php:595
 #: mobile/ajax/ajx_display_activity.php:243
 #: mobile/ajax/ajx_display_activity.php:288
-#: mobile/ajax/ajx_display_comment.php:51 mobile/ajax/ajx_insert_like.php:25
+#: mobile/ajax/ajx_display_comment.php:52 mobile/ajax/ajx_insert_like.php:25
 #: mobile/game_board.php:397 mobile/game_in_progress.php:519
 #: mobile/tournament_view.php:87 tournament_view.php:90
 msgid "Unlike"
@@ -284,7 +284,7 @@ msgid "Comment this item"
 msgstr "Commenter ça"
 
 #: ajax/ajx_display_activity.php:250 ajax/ajx_display_activity.php:298
-#: game_in_progress.php:597 mobile/ajax/ajx_display_activity.php:247
+#: game_in_progress.php:599 mobile/ajax/ajx_display_activity.php:247
 #: mobile/ajax/ajx_display_activity.php:292 mobile/game_in_progress.php:523
 #: mobile/tournament_view.php:91 tournament_view.php:94
 msgid "Comment"
@@ -299,28 +299,28 @@ msgstr "Supprimer cette actualité"
 #: ajax/ajx_display_activity.php:261 ajax/ajx_display_activity.php:309
 #: ajax/ajx_display_comment.php:58 mobile/ajax/ajx_display_activity.php:257
 #: mobile/ajax/ajx_display_activity.php:303
-#: mobile/ajax/ajx_display_comment.php:57 player_update.php:470
+#: mobile/ajax/ajx_display_comment.php:58 player_update.php:444
 msgid "Delete"
 msgstr "Supprimer"
 
-#: ajax/ajx_display_comment.php:32 mobile/ajax/ajx_display_comment.php:31
+#: ajax/ajx_display_comment.php:32 mobile/ajax/ajx_display_comment.php:32
 msgid "person(s) like this"
 msgstr "personne(s) aiment ça"
 
-#: ajax/ajx_display_comment.php:58 mobile/ajax/ajx_display_comment.php:57
+#: ajax/ajx_display_comment.php:58 mobile/ajax/ajx_display_comment.php:58
 msgid "Delete this comment"
 msgstr "Supprimer ce commentaire"
 
-#: ajax/ajx_display_comment.php:66 mobile/ajax/ajx_display_comment.php:65
+#: ajax/ajx_display_comment.php:66 mobile/ajax/ajx_display_comment.php:66
 msgid "Write a comment..."
 msgstr "Ecrire un commentaire"
 
-#: ajax/ajx_display_comment.php:68 mobile/ajax/ajx_display_comment.php:67
+#: ajax/ajx_display_comment.php:68 mobile/ajax/ajx_display_comment.php:68
 msgid "Publish"
 msgstr "Publier"
 
 #: ajax/ajx_display_game.php:85 bwc/bwc_games.php:1148 bwc/bwc_games.php:1261
-#: game_in_progress.php:574 mobile/game_in_progress.php:512
+#: game_in_progress.php:576 mobile/game_in_progress.php:512
 #: mobile/tournament_list.php:78 mobile/tournament_list.php:155
 #: mobile/tournament_list.php:184 mobile/tournament_view.php:72
 #: tournament_list.php:80 tournament_list.php:157 tournament_list.php:186
@@ -328,8 +328,8 @@ msgstr "Publier"
 msgid "Tournament"
 msgstr "Tournoi"
 
-#: ajax/ajx_display_game.php:89 game_in_progress.php:394
-#: game_in_progress.php:585 mobile/game_in_progress.php:362
+#: ajax/ajx_display_game.php:89 game_in_progress.php:396
+#: game_in_progress.php:587 mobile/game_in_progress.php:362
 #: mobile/game_in_progress.php:510 mobile/tournament_list.php:156
 #: mobile/tournament_list.php:185 mobile/tournament_view.php:195
 #: player_view.php:353 tournament_list.php:158 tournament_list.php:187
@@ -340,7 +340,7 @@ msgstr "Voir"
 msgid "Download PGN"
 msgstr "Télécharger PGN"
 
-#: ajax/ajx_display_game.php:106 game_board.php:391 game_in_progress.php:562
+#: ajax/ajx_display_game.php:106 game_board.php:391 game_in_progress.php:564
 #: mobile/game_board.php:379 mobile/tournament_list.php:157
 #: mobile/tournament_list.php:186 mobile/tournament_view.php:77
 #: mobile/tournament_view.php:80 mobile/tournament_view.php:243
@@ -349,7 +349,7 @@ msgstr "Télécharger PGN"
 msgid "Started"
 msgstr "Commencé le"
 
-#: ajax/ajx_display_game.php:110 game_board.php:391 game_in_progress.php:562
+#: ajax/ajx_display_game.php:110 game_board.php:391 game_in_progress.php:564
 #: mobile/game_board.php:379 mobile/tournament_view.php:247
 msgid "Last move"
 msgstr "Dernier coup"
@@ -437,7 +437,7 @@ msgid "New player"
 msgstr "Nouveau joueur"
 
 #: ajax/ajx_display_player.php:58 ajax/ajx_display_ranking.php:63
-#: app_jchess.php:57 game_in_progress.php:643 game_new.php:25
+#: app_jchess.php:57 game_in_progress.php:645 game_new.php:25
 #: include/page_body.php:78 mobile/ajax/ajx_display_player.php:58
 #: mobile/game_in_progress.php:552 mobile/game_new.php:25
 #: mobile/player_view.php:167 player_view.php:169
@@ -482,11 +482,11 @@ msgstr "Vous avez un nouveau message privé"
 msgid "send you a new private message."
 msgstr "vous a envoyé un nouveau message privé."
 
-#: ajax/ajx_list_country.php:19 index.php:314 player_update.php:395
+#: ajax/ajx_list_country.php:19 index.php:314
 msgid "Select your country"
 msgstr "Choisir votre pays"
 
-#: ajax/ajx_list_player_nick.php:34 mobile/ajax/ajx_list_player_nick.php:33
+#: ajax/ajx_list_player_nick.php:34 mobile/ajax/ajx_list_player_nick.php:34
 msgid "No player found"
 msgstr "Aucun joueur trouvé"
 
@@ -727,13 +727,13 @@ msgstr "Nouveau message"
 msgid "To"
 msgstr "A"
 
-#: bwc/bwc_common.php:87 game_in_progress.php:368 game_in_progress.php:467
+#: bwc/bwc_common.php:87 game_in_progress.php:370 game_in_progress.php:469
 #: message.php:64 mobile/game_in_progress.php:333
 #: mobile/game_in_progress.php:425 mobile/message.php:61
 msgid "Your message..."
 msgstr "Votre message..."
 
-#: bwc/bwc_common.php:90 game_board.php:301 game_in_progress.php:291
+#: bwc/bwc_common.php:90 game_board.php:301 game_in_progress.php:293
 #: mobile/game_board.php:300 mobile/game_in_progress.php:263
 msgid "Cancel"
 msgstr "Annuler"
@@ -746,9 +746,30 @@ msgstr "Voir la conversation complète"
 msgid "Message sent successfully"
 msgstr "Message envoyé avec succès"
 
+#: bwc/bwc_common.php:118 bwc/bwc_common.php:127 bwc/bwc_common.php:136
+#: bwc/bwc_common.php:179 bwc/bwc_common.php:188 bwc/bwc_common.php:197
+#: bwc/bwc_common.php:207
+msgid "Buy this book >>"
+msgstr "Acheter ce livre >>"
+
+#: bwc/bwc_common.php:144
+msgid "Buy this nice chessboard >>"
+msgstr "Acheter ce bel échiquier >>"
+
 #: bwc/bwc_common.php:224
 msgid "Suggestion"
 msgstr "Suggestions"
+
+#: bwc/bwc_common.php:233 game_new.php:266 include/page_body.php:79
+#: mobile/include/page_body.php:72 mobile/include/page_body.php:74
+#: mobile/index.php:105
+msgid "Tournaments"
+msgstr "Tournois"
+
+#: bwc/bwc_common.php:234 game_in_progress.php:657 game_new.php:268
+#: mobile/game_in_progress.php:560
+msgid "Register for a tournament"
+msgstr "S'inscrire à un tournoi"
 
 #: bwc/bwc_common.php:275 bwc/bwc_common.php:298
 msgid "is the same level that you !"
@@ -806,7 +827,7 @@ msgstr "A son tour"
 msgid "Refresh game"
 msgstr "Rafraîchir la partie"
 
-#: bwc/bwc_games.php:1154 bwc/bwc_games.php:1270 game_in_progress.php:588
+#: bwc/bwc_games.php:1154 bwc/bwc_games.php:1270 game_in_progress.php:590
 #: mobile/game_in_progress.php:514
 msgid "Expiration"
 msgstr "Expiration"
@@ -823,15 +844,15 @@ msgstr "sont en échecs"
 msgid "Your opponent do a draw proposal. Are you agree ?"
 msgstr "Votre adversaire vous propose une nulle. Etes vous d'accord ?"
 
-#: bwc/bwc_games.php:1302 player_update.php:512 player_update.php:520
-#: player_update.php:531 player_update.php:549 player_update.php:558
-#: player_update.php:573 player_update.php:582
+#: bwc/bwc_games.php:1302 player_update.php:486 player_update.php:494
+#: player_update.php:505 player_update.php:523 player_update.php:532
+#: player_update.php:547 player_update.php:556
 msgid "Yes"
 msgstr "Oui"
 
-#: bwc/bwc_games.php:1303 player_update.php:514 player_update.php:522
-#: player_update.php:533 player_update.php:551 player_update.php:560
-#: player_update.php:575 player_update.php:584
+#: bwc/bwc_games.php:1303 player_update.php:488 player_update.php:496
+#: player_update.php:507 player_update.php:525 player_update.php:534
+#: player_update.php:549 player_update.php:558
 msgid "No"
 msgstr "Non"
 
@@ -1192,7 +1213,7 @@ msgstr "Un joueur a accepté la partie avant vous !"
 msgid "Your pending resquet was accepted !"
 msgstr "Votre demande en attente a été acceptée !"
 
-#: game_in_progress.php:158 game_in_progress.php:489 include/page_body.php:77
+#: game_in_progress.php:158 game_in_progress.php:491 include/page_body.php:77
 #: mobile/game_in_progress.php:154 mobile/game_in_progress.php:450
 msgid "My games in progress"
 msgstr "Mes parties en cours"
@@ -1213,108 +1234,108 @@ msgstr ""
 msgid "The new Elo ranking was computed !"
 msgstr "Le nouveau classement Elo a été calculé !"
 
-#: game_in_progress.php:215 mobile/game_in_progress.php:202
+#: game_in_progress.php:217 mobile/game_in_progress.php:202
 msgid "You have a current vacation ! Your games are postponed"
 msgstr "Vous avez des vacances en cours ! Vos parties sont suspendues"
 
-#: game_in_progress.php:224 mobile/game_in_progress.php:209
+#: game_in_progress.php:226 mobile/game_in_progress.php:209
 msgid "My pending requests"
 msgstr "Mes demandes en attente"
 
-#: game_in_progress.php:268
+#: game_in_progress.php:270
 msgid "You"
 msgstr "Vous"
 
-#: game_in_progress.php:268
+#: game_in_progress.php:270
 msgid "invite a player to play a new game"
 msgstr "invitez un joueur à jouer une nouvelle partie"
 
-#: game_in_progress.php:281 game_in_progress.php:362 game_in_progress.php:461
-#: game_in_progress.php:587 game_new.php:212 mobile/game_in_progress.php:253
+#: game_in_progress.php:283 game_in_progress.php:364 game_in_progress.php:463
+#: game_in_progress.php:589 game_new.php:212 mobile/game_in_progress.php:253
 #: mobile/game_in_progress.php:327 mobile/game_in_progress.php:419
 #: mobile/game_in_progress.php:513 mobile/game_new.php:164
 msgid "Time per move"
 msgstr "Temps par coup"
 
-#: game_in_progress.php:281 game_in_progress.php:362 game_in_progress.php:461
-#: game_in_progress.php:587 mobile/game_in_progress.php:253
+#: game_in_progress.php:283 game_in_progress.php:364 game_in_progress.php:463
+#: game_in_progress.php:589 mobile/game_in_progress.php:253
 #: mobile/game_in_progress.php:327 mobile/game_in_progress.php:419
 #: mobile/game_in_progress.php:513
 msgid "days"
 msgstr "jours"
 
-#: game_in_progress.php:288 mobile/game_in_progress.php:260
+#: game_in_progress.php:290 mobile/game_in_progress.php:260
 msgid "Response waiting"
 msgstr "Réponse en attente"
 
-#: game_in_progress.php:290 mobile/game_in_progress.php:262
+#: game_in_progress.php:292 mobile/game_in_progress.php:262
 msgid "Request declined"
 msgstr "Demande refusée"
 
-#: game_in_progress.php:344
+#: game_in_progress.php:346
 msgid "invite you to play a new game"
 msgstr "vous invite à jouer une nouvelle partie"
 
-#: game_in_progress.php:371 game_in_progress.php:470
+#: game_in_progress.php:373 game_in_progress.php:472
 #: mobile/game_in_progress.php:336 mobile/game_in_progress.php:428
 msgid "Accept"
 msgstr "Accepter"
 
-#: game_in_progress.php:372 mobile/game_in_progress.php:337
+#: game_in_progress.php:374 mobile/game_in_progress.php:337
 msgid "Decline"
 msgstr "Refuser"
 
-#: game_in_progress.php:394 mobile/game_in_progress.php:362
+#: game_in_progress.php:396 mobile/game_in_progress.php:362
 msgid "Other pending requests"
 msgstr "Autres demandes en attente"
 
-#: game_in_progress.php:443
+#: game_in_progress.php:445
 msgid "invite somebody to play a new game"
 msgstr "invite quelqu'un à jouer une nouvelle partie"
 
-#: game_in_progress.php:492 mobile/game_in_progress.php:453
+#: game_in_progress.php:494 mobile/game_in_progress.php:453
 msgid "Show all your games in progress"
 msgstr "Montrer toutes les parties en cours"
 
-#: game_in_progress.php:494 mobile/game_in_progress.php:455
+#: game_in_progress.php:496 mobile/game_in_progress.php:455
 msgid "Show only your moves to do"
 msgstr "Montrer seulement les coups à jouer"
 
-#: game_in_progress.php:559
+#: game_in_progress.php:561
 msgid "is your opponent in this game."
 msgstr "est votre adversaire dans cette partie."
 
-#: game_in_progress.php:583 mobile/game_in_progress.php:508
+#: game_in_progress.php:585 mobile/game_in_progress.php:508
 msgid "Play"
 msgstr "Jouer"
 
-#: game_in_progress.php:597 mobile/game_in_progress.php:523
+#: game_in_progress.php:599 mobile/game_in_progress.php:523
 msgid "Comment this game"
 msgstr "Commenter cette partie"
 
-#: game_in_progress.php:634 mobile/game_in_progress.php:543
+#: game_in_progress.php:636 mobile/game_in_progress.php:543
 msgid "No games in progress..."
 msgstr "Pas de parties en cours..."
 
-#: game_in_progress.php:638 mobile/game_in_progress.php:547
+#: game_in_progress.php:640 mobile/game_in_progress.php:547
 msgid "Begin to play"
 msgstr "Commencer à jouer"
 
-#: game_in_progress.php:640 mobile/game_in_progress.php:549
+#: game_in_progress.php:642 mobile/game_in_progress.php:549
 msgid "Submit a new game for all players or a specific player"
 msgstr "Proposer une partie à tous les joueurs ou à un joueur en particulier"
 
-#: game_in_progress.php:647 game_new.php:262 mobile/game_in_progress.php:555
+#: game_in_progress.php:649 game_new.php:262 mobile/game_in_progress.php:555
 msgid "Find a player with advanced search and invite him to play a new game."
 msgstr ""
 "Trouver un joueur avec la recherche avancée et l'inviter à jouer une "
 "nouvelle partie"
 
-#: game_in_progress.php:650 game_new.php:263 mobile/game_in_progress.php:557
+#: game_in_progress.php:652 game_new.php:263 mobile/game_in_progress.php:557
 msgid "Search players"
 msgstr "Rechercher des joueurs"
 
-#: game_in_progress.php:653 game_new.php:267 mobile/game_in_progress.php:559
+#: game_in_progress.php:655 game_new.php:267 mobile/game_in_progress.php:559
 msgid ""
 "Participate in Round-robin tournaments and compete against multiple players "
 "with whites and blacks."
@@ -1322,15 +1343,11 @@ msgstr ""
 "Participer à des tournois Round-robin et se mesurer à plusieurs joueurs avec "
 "les blancs et les noirs."
 
-#: game_in_progress.php:655 game_new.php:268 mobile/game_in_progress.php:560
-msgid "Register for a tournament"
-msgstr "S'inscrire à un tournoi"
-
-#: game_in_progress.php:657 player_view.php:266
+#: game_in_progress.php:659 player_view.php:266
 msgid "Achievements"
 msgstr "Objectifs"
 
-#: game_in_progress.php:659
+#: game_in_progress.php:661
 msgid ""
 "When you're playing chess games on CapaKaspa, you can earn achievements that "
 "mark your accomplishments : player, classic, outside the box, winner, black "
@@ -1340,7 +1357,7 @@ msgstr ""
 "des objectifs qui marquent vos réalisations : joueur, classique, aventurier, "
 "vainqueur, victoires noires et social."
 
-#: game_in_progress.php:662
+#: game_in_progress.php:664
 msgid "View profile"
 msgstr "Voir profil"
 
@@ -1519,11 +1536,6 @@ msgstr "Commencer une partie"
 msgid "Advanced search"
 msgstr "Recherche avancée"
 
-#: game_new.php:266 include/page_body.php:79 mobile/include/page_body.php:72
-#: mobile/include/page_body.php:74 mobile/index.php:105
-msgid "Tournaments"
-msgstr "Tournois"
-
 #: game_new.php:271
 msgid "Invite friends to join you"
 msgstr "Inviter des amis à se joindre à vous"
@@ -1583,7 +1595,7 @@ msgid "CapaKaspa : Play chess online and share your games"
 msgstr "CapaKaspa : Jouer aux échecs en ligne et partager ses parties"
 
 #: include/page_body.php:11 include/page_body_home.php:11
-#: include/page_body_no_menu.php:11 player_update.php:447
+#: include/page_body_no_menu.php:11 player_update.php:421
 msgid "CapaKaspa"
 msgstr "CapaKaspa"
 
@@ -1623,19 +1635,19 @@ msgstr "Suivez-nous sur Pinterest"
 msgid "Play chess online and share your games"
 msgstr "Jouer aux échecs en ligne et partager ses parties"
 
-#: include/page_body.php:44 index.php:384
+#: include/page_body.php:44 index.php:387
 msgid "Invalid user name or password !"
 msgstr "Nom d'utilisateur ou mot de passe invalide !"
 
-#: include/page_body.php:46 index.php:397 mobile/index.php:79
+#: include/page_body.php:46 index.php:400 mobile/index.php:79
 msgid "Remember me"
 msgstr "Se souvenir de moi"
 
-#: include/page_body.php:47 index.php:382 index.php:402 mobile/index.php:80
+#: include/page_body.php:47 index.php:385 index.php:405 mobile/index.php:80
 msgid "Sign in"
 msgstr "Se connecter"
 
-#: include/page_body.php:50 index.php:403 mobile/index.php:87
+#: include/page_body.php:50 index.php:406 mobile/index.php:87
 msgid "Forgot password ?"
 msgstr "Mot de passe oublié ?"
 
@@ -1708,45 +1720,57 @@ msgstr "Joueurs passifs"
 msgid "More on CapaKaspa"
 msgstr "Plus sur CapaKaspa"
 
-#: include/page_body.php:130 index.php:421 index.php:439
+#: include/page_body.php:130
+msgid "Forums"
+msgstr ""
+
+#: include/page_body.php:131 index.php:421 index.php:442
 msgid "Learning chess"
 msgstr "Apprendre les échecs"
 
-#: include/page_body.php:131 index.php:424
+#: include/page_body.php:132 index.php:427
 msgid "Puzzle of the day"
 msgstr "Diagramme du jour"
 
-#: include/page_body.php:132 index.php:425
+#: include/page_body.php:133 index.php:428
 msgid "Play vs GarboChess"
 msgstr "Jouer avec GarboChess"
 
-#: include/page_body.php:133 index.php:426
+#: include/page_body.php:134 index.php:429
 msgid "Play vs FlashChess"
 msgstr "Jouer avec FlashChess"
 
-#: include/page_body.php:134 index.php:427
+#: include/page_body.php:135 index.php:430
 msgid "Play vs SparkChess"
 msgstr "Jouer avec SparkChess"
 
-#: include/page_body.php:135 index.php:418 index.php:433
+#: include/page_body.php:136 index.php:422 index.php:436
 msgid "Chess news"
 msgstr "Actualités des échecs"
 
-#: include/page_body.php:136 index.php:419
+#: include/page_body.php:137 index.php:423
 msgid "Upcoming events"
 msgstr "Evénements à venir"
 
-#: include/page_body.php:137 index.php:420
+#: include/page_body.php:138 index.php:424
 msgid "Live !!"
 msgstr "Le Direct !!"
-
-#: include/page_body.php:138
-msgid "Forums"
-msgstr ""
 
 #: include/page_body.php:139
 msgid "And more"
 msgstr "Et plus..."
+
+#: include/page_body.php:143
+msgid "Shop"
+msgstr "Boutique"
+
+#: include/page_body.php:145
+msgid "Chessboards"
+msgstr "Echiquiers"
+
+#: include/page_body.php:146
+msgid "Chess books"
+msgstr "Livres d'échecs"
 
 #: include/page_footer.php:3 include/page_footer_right.php:3 site_privacy.php:4
 #: site_privacy.php:16
@@ -1828,7 +1852,7 @@ msgstr "Une erreur s'est produite pendant l'activation !"
 msgid "A confirmation message has been sent at this email address"
 msgstr "Un message de confirmation a été envoyé à cette adresse email"
 
-#: index.php:255 player_update.php:308
+#: index.php:255
 msgid "All fields are required"
 msgstr "Tous les champs sont obligatoires"
 
@@ -1836,23 +1860,23 @@ msgstr "Tous les champs sont obligatoires"
 msgid "Bad format for user name : at least 2 caracters"
 msgstr "Mauvais format pour le nom d'utilisateur : au moins 2 caractères"
 
-#: index.php:257 player_update.php:310
+#: index.php:257 player_update.php:285
 msgid "Bad format for password : at least 6 caracters"
 msgstr "Mauvais format pour le mot de passe : au moins 6 caractères"
 
-#: index.php:258 player_update.php:311
+#: index.php:258 player_update.php:286
 msgid "Bad format for email"
 msgstr "Mauvais format pour l'email"
 
-#: index.php:259 player_update.php:312
+#: index.php:259 player_update.php:287
 msgid "Bad format for first name"
 msgstr "Mauvais format pour le prénom"
 
-#: index.php:260 player_update.php:313
+#: index.php:260 player_update.php:288
 msgid "Bad format for last name"
 msgstr "Mauvais format pour le nom"
 
-#: index.php:261 player_update.php:314
+#: index.php:261 player_update.php:289
 msgid "Password confirmation error"
 msgstr "Erreur de confirmation de mot de passe"
 
@@ -1868,7 +1892,7 @@ msgstr "que vous avez choisi existe déjà. Essayez un autre email."
 msgid "Empty user name"
 msgstr "Nom d'utilisateur vide"
 
-#: index.php:271 player_update.php:288
+#: index.php:271 player_update.php:264
 msgid "A technical error has occured"
 msgstr "Une erreur technique s'est produite"
 
@@ -1880,7 +1904,7 @@ msgstr "Erreur de code de sécurité. Essayez encore."
 msgid "Choose password"
 msgstr "Choisir un mot de passe"
 
-#: index.php:285 player_update.php:372
+#: index.php:285 player_update.php:347
 msgid "Confirm password"
 msgstr "Confirmer mot de passe"
 
@@ -1888,28 +1912,28 @@ msgstr "Confirmer mot de passe"
 msgid "Valid email is required"
 msgstr "Email valide obligatoire"
 
-#: index.php:293 player_update.php:326
+#: index.php:293 player_update.php:301
 msgid "I am"
 msgstr "Je suis"
 
-#: index.php:296 player_update.php:329
+#: index.php:296 player_update.php:304
 msgid "Male"
 msgstr "Homme"
 
-#: index.php:297 player_update.php:330
+#: index.php:297 player_update.php:305
 msgid "Female"
 msgstr "Femme"
 
-#: index.php:302 player_update.php:341
+#: index.php:302 player_update.php:316
 msgid "First name"
 msgstr "Prénom"
 
-#: index.php:306 player_update.php:347
+#: index.php:306 player_update.php:322
 msgid "Last name"
 msgstr "Nom"
 
 #: index.php:311 mobile/player_search.php:88 player_search.php:89
-#: player_update.php:392
+#: player_update.php:367
 msgid "Country"
 msgstr "Pays"
 
@@ -1917,7 +1941,7 @@ msgstr "Pays"
 msgid "Birth date"
 msgstr "Date naissance"
 
-#: index.php:333 player_update.php:356
+#: index.php:333 player_update.php:331
 msgid "Select a year"
 msgstr "Choisir une année"
 
@@ -1937,51 +1961,55 @@ msgstr "Image Captcha"
 msgid "Sign up for free"
 msgstr "S'inscrire gratuitement"
 
-#: index.php:409
+#: index.php:377
+msgid "Video"
+msgstr ""
+
+#: index.php:377 index.php:412
 msgid "Play chess online"
 msgstr "Jouer aux échecs en ligne"
 
-#: index.php:410 mobile/index.php:91
+#: index.php:413 mobile/index.php:91
 msgid "players are waiting to play chess games"
 msgstr "joueurs attendent de jouer aux échecs"
 
-#: index.php:411 mobile/index.php:92
+#: index.php:414 mobile/index.php:92
 msgid "chess games in progress"
 msgstr "parties d'échecs en cours"
 
-#: index.php:412 mobile/index.php:93
+#: index.php:415 mobile/index.php:93
 msgid "in progress chess tournaments"
 msgstr "tournois d'échecs en cours"
 
-#: index.php:416
+#: index.php:419
 msgid "Learn, practice and progress"
 msgstr "Apprendre, s'exercer et progresser"
 
-#: index.php:431
+#: index.php:434
 msgid "Chess forums"
 msgstr "Forums du jeu d'échecs"
 
-#: index.php:434
+#: index.php:437
 msgid "Chess openings"
 msgstr "Ouvertures d'échecs"
 
-#: index.php:435
+#: index.php:438
 msgid "Strategy and tactics"
 msgstr "Stratégie et tactique"
 
-#: index.php:436
+#: index.php:439
 msgid "Chess endings"
 msgstr "Finales d'échecs"
 
-#: index.php:440
+#: index.php:443
 msgid "Software"
 msgstr "Informatique"
 
-#: index.php:441
+#: index.php:444
 msgid "Composition"
 msgstr "Problèmes et études"
 
-#: index.php:442
+#: index.php:445
 msgid "Chess Clubs"
 msgstr "Clubs d'échecs"
 
@@ -2319,43 +2347,43 @@ msgstr "Votre classement est"
 msgid "Update your profile"
 msgstr "Mettre à jour votre profil"
 
-#: player_update.php:290
+#: player_update.php:266
 msgid "Invalid image file for picture"
 msgstr "Fichier image invalide pour la photo"
 
-#: player_update.php:292
+#: player_update.php:268
 msgid "GIF not allowed. Please use only PNG or JPEG formats"
 msgstr "GIF interdit. Utilisez seulement PNG ou JPEG formats"
 
-#: player_update.php:294
+#: player_update.php:270
 msgid "Maximum width and height exceeded (max 1000x1000 pixels)"
 msgstr "Largeur et hauteur maximum dépassées (max 1000x1000 pixels)"
 
-#: player_update.php:296
+#: player_update.php:272
 msgid "Large file size (max 500kb)"
 msgstr "Taille du fichier trop grande (max 500 Kb)"
 
-#: player_update.php:298
+#: player_update.php:274
 msgid "Error moving the uploaded file"
 msgstr "Erreur du déplacement du fichier"
 
-#: player_update.php:303
+#: player_update.php:279
 msgid "Your old password is wrong"
 msgstr "Votre ancien mote de passe est erroné"
 
-#: player_update.php:305
+#: player_update.php:281
 msgid "Profile changes have been saved successfully"
 msgstr "Les changements ont bien été enregistrés"
 
-#: player_update.php:309
+#: player_update.php:284
 msgid "Bad format for login"
 msgstr "Mauvais format pour le nom d'utilisateur"
 
-#: player_update.php:315
+#: player_update.php:290
 msgid "Old password is required"
 msgstr "L'ancien mot de passe est obligatoire"
 
-#: player_update.php:317
+#: player_update.php:292
 msgid ""
 "This postponement can not be canceled and all your games will be immediately "
 "postponed. Please confirm your absence ?"
@@ -2363,63 +2391,63 @@ msgstr ""
 "Cette suspension ne peut pas être annulée et toutes vos parties seront "
 "immédiatement suspendues. Confirmez-vous votre absence ?"
 
-#: player_update.php:318
+#: player_update.php:293
 msgid "You want to disable your account. Please confirm ?"
 msgstr "Vous voulez désactiver votre compte. Confirmez-vous ?"
 
-#: player_update.php:322
+#: player_update.php:297
 msgid "Your profile"
 msgstr "Votre profil"
 
-#: player_update.php:323
+#: player_update.php:298
 msgid "Basic info"
 msgstr "Informations de base"
 
-#: player_update.php:338
+#: player_update.php:313
 msgid "Enter data here to change password"
 msgstr "Entrer les données ici pour changer de mot de passe"
 
-#: player_update.php:343
+#: player_update.php:318
 msgid "Actual password"
 msgstr "Mot de passe actuel"
 
-#: player_update.php:349
+#: player_update.php:324
 msgid "New password"
 msgstr "Nouveau mot de passe"
 
-#: player_update.php:353
+#: player_update.php:328
 msgid "Birth date (year)"
 msgstr "Date naissance (année)"
 
-#: player_update.php:377
+#: player_update.php:352
 msgid "Contact info"
 msgstr "Informations de contact"
 
-#: player_update.php:385
+#: player_update.php:360
 msgid "You can update your email address."
 msgstr "Vous pouvez mettre à jour votre adresse email."
 
-#: player_update.php:386
+#: player_update.php:361
 msgid "First disable your account (see bottom of this page)."
 msgstr "Commencez par désactiver votre compte (voir au bas de la page)."
 
-#: player_update.php:387
+#: player_update.php:362
 msgid "Sign in and follow the activation process."
 msgstr "Connectez-vous et suivez le processus d'activation."
 
-#: player_update.php:411
+#: player_update.php:385
 msgid "Localization"
 msgstr "Localisation"
 
-#: player_update.php:416
+#: player_update.php:390
 msgid "More about you"
 msgstr "Plus à votre sujet"
 
-#: player_update.php:419
+#: player_update.php:393
 msgid "Elo CapaKaspa"
 msgstr "Elo CapaKaspa"
 
-#: player_update.php:424
+#: player_update.php:398
 msgid ""
 "Elo ranking is calculated monthly and takes into account the classic games "
 "completed during the month past."
@@ -2427,11 +2455,11 @@ msgstr ""
 "Le classement Elo est calculé tous les mois et prend en compte les parties "
 "d'échecs classiques terminées pendant le mois passé."
 
-#: player_update.php:429 player_view.php:192
+#: player_update.php:403 player_view.php:192
 msgid "Elo Chess960"
 msgstr "Elo Chess960"
 
-#: player_update.php:434
+#: player_update.php:408
 msgid ""
 "Elo Chess960 ranking is calculated monthly and takes into account the "
 "Chess960 games completed during the month past."
@@ -2439,194 +2467,194 @@ msgstr ""
 "Le classement Elo Chess960 est calculé tous les mois et prend en compte les "
 "parties d'échecs Chess960 terminées pendant le mois passé."
 
-#: player_update.php:439
+#: player_update.php:413
 msgid "About you"
 msgstr "A propos de vous"
 
-#: player_update.php:443
+#: player_update.php:417
 msgid "Picture"
 msgstr "Photo"
 
-#: player_update.php:446
+#: player_update.php:420
 msgid "Display picture of your profile on"
 msgstr "Afficher votre photo de profil sur"
 
-#: player_update.php:449 player_update.php:475
+#: player_update.php:423 player_update.php:449
 msgid "Facebook"
 msgstr "Facebook"
 
-#: player_update.php:450 player_update.php:482
+#: player_update.php:424 player_update.php:456
 msgid "Google+"
 msgstr "Google+"
 
-#: player_update.php:451 player_update.php:480
+#: player_update.php:425 player_update.php:454
 msgid "Twitter"
 msgstr "Twitter"
 
-#: player_update.php:463
+#: player_update.php:437
 msgid "Social network ID"
 msgstr "Réseau social ID"
 
-#: player_update.php:467
+#: player_update.php:441
 msgid "Choose your picture"
 msgstr "Choisir votre photo"
 
-#: player_update.php:472
+#: player_update.php:446
 msgid "Max 500 Kb, JPEG/PNG only (1000x1000 pixels maximum)"
 msgstr "Max 500 Kb, JPEG/PNG seulement (1000x1000 pixels maximum)"
 
-#: player_update.php:476
+#: player_update.php:450
 msgid "In Facebook, at the bottom of the Infos section of your account:"
 msgstr "Dans Facebook, au bas de la section Infos de votre compte :"
 
-#: player_update.php:477
+#: player_update.php:451
 msgid "Facebook http://www.facebook.com/[ ID ]"
 msgstr "Facebook http://www.facebook.com/[ ID ]"
 
-#: player_update.php:478
+#: player_update.php:452
 msgid "Or"
 msgstr "Ou"
 
-#: player_update.php:479
+#: player_update.php:453
 msgid "Facebook http://www.facebook.com/profile.php?id= [ ID ]"
 msgstr "Facebook http://www.facebook.com/profile.php?id= [ ID ]"
 
-#: player_update.php:481
+#: player_update.php:455
 msgid "It's the name of your account."
 msgstr "C'est le nom de votre compte."
 
-#: player_update.php:483
+#: player_update.php:457
 msgid ""
 "Display your profile page, the URL in the browser is something like that:"
 msgstr ""
 "Afficher votre page profil, l'adresse dans le navigateur est comme ça :"
 
-#: player_update.php:484
+#: player_update.php:458
 msgid "https://plus.google.com/u/0/[ ID ]/posts (it's a long number)."
 msgstr "https://plus.google.com/u/0/[ ID ]/posts (c'est un long nombre)."
 
-#: player_update.php:490 player_update.php:635
+#: player_update.php:464 player_update.php:609
 msgid "Save"
 msgstr "Enregistrer"
 
-#: player_update.php:497
+#: player_update.php:471
 msgid "Preferences"
 msgstr "Préférences"
 
-#: player_update.php:502
+#: player_update.php:476
 msgid "Notifications for what concern you"
 msgstr "Notifications sur ce qui vous concerne"
 
-#: player_update.php:524
+#: player_update.php:498
 msgid "(Games events, tournaments events and private messages)"
 msgstr "(Evènements sur les parties et les tournois, messages privés)"
 
-#: player_update.php:528
+#: player_update.php:502
 msgid "On CapaKaspa"
 msgstr "Sur CapaKaspa"
 
-#: player_update.php:534
+#: player_update.php:508
 msgid "(Likes and comments on your games, tournaments and news)"
 msgstr "(J'aime et commentaires sur vos parties, tournois et actualités)"
 
-#: player_update.php:539
+#: player_update.php:513
 msgid "Share automatically your activity with your subcribers"
 msgstr "Partager automatiquement votre activité avec vos abonnés"
 
-#: player_update.php:543
+#: player_update.php:517
 msgid "Invitations, registrations"
 msgstr "Invitations et inscriptions"
 
-#: player_update.php:562
+#: player_update.php:536
 msgid "(Games invitations, tournaments starting)"
 msgstr "(Invitations pour les parties et démarrage des tournois)"
 
-#: player_update.php:567
+#: player_update.php:541
 msgid "Results"
 msgstr "Résultats"
 
-#: player_update.php:586
+#: player_update.php:560
 msgid "(Games and tournaments results)"
 msgstr "(Résultats des parties et des tournois)"
 
-#: player_update.php:592
+#: player_update.php:566
 msgid "Displaying"
 msgstr "Affichage"
 
-#: player_update.php:596
+#: player_update.php:570
 msgid "Displaying language"
 msgstr "Langue d'affichage"
 
-#: player_update.php:599
+#: player_update.php:573
 msgid "English"
 msgstr "Anglais"
 
-#: player_update.php:600
+#: player_update.php:574
 msgid "French"
 msgstr "Français"
 
-#: player_update.php:605
+#: player_update.php:579
 msgid "Chess set"
 msgstr "Pièces"
 
-#: player_update.php:661
+#: player_update.php:635
 msgid "Game postponement"
 msgstr "Suspension des parties"
 
-#: player_update.php:666
+#: player_update.php:640
 msgid "The number of days of vacation that you requested is not valid"
 msgstr "Le nombre de jours de vacances que vous demandez n'est pas valide"
 
-#: player_update.php:668
+#: player_update.php:642
 msgid "Your request of vacation has been saved successfully"
 msgstr "Votre demande de vacances a bien été enregistrée"
 
-#: player_update.php:671
+#: player_update.php:645
 msgid "Number of days must be between 0 and 30"
 msgstr "Le nombre de jours doit être entre 0 et 30"
 
-#: player_update.php:673
+#: player_update.php:647
 msgid "You have"
 msgstr "Vous avez"
 
-#: player_update.php:673
+#: player_update.php:647
 msgid "available days of vacation for year"
 msgstr "jours de vacances disponibles pour l'année"
 
-#: player_update.php:673
+#: player_update.php:647
 msgid "days of vacation on 2 years are counted in the last year"
 msgstr ""
 "les jours de vacances à cheval sur 2 années sont comptés la dernière année"
 
-#: player_update.php:680
+#: player_update.php:654
 msgid "You don't have vacation in progress."
 msgstr "Vous n'avez pas de vacances en cours"
 
-#: player_update.php:688
+#: player_update.php:662
 msgid "You have vacation from"
 msgstr "Vous avez des vacances du"
 
-#: player_update.php:702
+#: player_update.php:676
 msgid "You want to postpone your games for"
 msgstr "Vous voulez suspendre vos parties pour"
 
-#: player_update.php:703
+#: player_update.php:677
 msgid "day(s) from"
 msgstr "jour(s) à partir du"
 
-#: player_update.php:704
+#: player_update.php:678
 msgid "Postpone my games..."
 msgstr "Suspendre mes parties..."
 
-#: player_update.php:704
+#: player_update.php:678
 msgid "(All your games will be postponed immediatly)"
 msgstr "(Toutes les parties seront suspendues immédiatement)"
 
-#: player_update.php:710 player_update.php:714
+#: player_update.php:684 player_update.php:688
 msgid "Disable my account"
 msgstr "Désactiver mon compte"
 
-#: player_update.php:711
+#: player_update.php:685
 msgid ""
 "You can disable your account on CapaKaspa. Other players will no longer have "
 "interactions with your account. But it will viewable from games or news. You "
@@ -3322,12 +3350,6 @@ msgstr ""
 #: tournament_view.php:94
 msgid "Comment this tournament"
 msgstr "Commenter ce tournoi"
-
-#~ msgid "Buy this book >>"
-#~ msgstr "Acheter ce livre >>"
-
-#~ msgid "Buy this nice chessboard >>"
-#~ msgstr "Acheter ce bel échiquier >>"
 
 #~ msgid "Training"
 #~ msgstr "Entrainement"

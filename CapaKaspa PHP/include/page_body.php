@@ -103,16 +103,16 @@ if (isset($toPlayerID))
 	  		</ul>
 	</div>
 	<? } ?>
-	<div id="googleads-left">
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- <div id="googleads-left">-->
+		<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
 		<!-- CapaKaspa Site Carré 200 -->
-		<ins class="adsbygoogle"
+		<!-- <ins class="adsbygoogle"
 		     style="display:inline-block;width:200px;height:200px"
 		     data-ad-client="ca-pub-8069368543432674"
 		     data-ad-slot="8117526869"></ins>
 		<script>
 		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
+		</script>-->
 		<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
 		<!-- CapaKaspa Site Liens annonces Adaptable -->
 		<!--<ins class="adsbygoogle"
@@ -123,10 +123,11 @@ if (isset($toPlayerID))
 		<script>
 		(adsbygoogle = window.adsbygoogle || []).push({});
 		</script>-->
-	</div>
+	<!-- </div>-->
 	<div class="navlinks">
 		<div class="title"><?php echo _("More on CapaKaspa");?></div>
 			<ul>
+		        <li><img src="images/megaphone_16.png"/> <a href="http://www.capakaspa.info/forums-echecs-sujets/"><b><? echo _("Forums");?></b></a></li>
 		        <li id="menu7"><img src="images/learnchess.png"/> <a href="http://www.capakaspa.info/apprendre-a-jouer-aux-echecs/"><? echo _("Learning chess");?></a></li>
 		        <li id="menu8"><img src="images/chesspuzzle.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/diagramme-echecs-du-jour/"><?php echo _("Puzzle of the day");?></a></li>
 		        <li><img src="images/jchess.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-garbochess/"><?php echo _("Play vs GarboChess");?></a></li>
@@ -135,9 +136,15 @@ if (isset($toPlayerID))
 		        <li><img src="images/chessnews.png"/> <a href="http://www.capakaspa.info/category/actualites-des-echecs/"><? echo _("Chess news");?></a></li>
 		        <!-- <li><img src="images/event.png"/> <a href="http://www.capakaspa.info/evenements/"><? echo _("Upcoming events");?></a></li> -->
 		        <li><img src="images/event.png"/> <a href="http://www.capakaspa.info/competitions-echecs-en-direct/"><? echo _("Live !!");?></a></li>
-		        <!-- <li><img src="images/megaphone_16.png"/> <a href="http://forum.capakaspa.info/"><b><? echo _("Forums");?></b></a></li>
-		        <li><img src="images/capakaspa.png"/> <a href="http://www.capakaspa.info/"><? echo _("And more");?></a></li> -->
+		        <!--<li><img src="images/capakaspa.png"/> <a href="http://www.capakaspa.info/"><? echo _("And more");?></a></li> -->
       		</ul>
+	</div>
+	<div class="navlinks">
+		<div class="title"><?php echo _("Shop");?></div>
+			<ul>
+		        <li><img src="images/chesspuzzle.png"/> <a target="_blank" href="https://www.amazon.fr/gp/search/ref=as_li_ss_tl?ie=UTF8&camp=1642&creative=19458&linkCode=ur2&lo=toys&qid=1465073333&rh=n%3A322086011%2Cn%3A!322088011%2Cn%3A363587031%2Cn%3A363591031&tag=capa-21"><? echo _("Chessboards");?></a><img src="https://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=ur2&o=8" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
+		     	<li><img src="images/livre.gif"/> <a target="_blank" href="https://www.amazon.fr/mn/search/ref=as_li_ss_tl?_encoding=UTF8&camp=1642&creative=19458&linkCode=ur2&lo=stripbooks&qid=1465073635&rh=n%3A301061%2Cn%3A301143%2Cn%3A302054%2Cn%3A407428&tag=capa-21"><? echo _("Chess books");?></a><img src="https://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=ur2&o=8" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
+		    </ul>
 	</div>
 </div>
 <div id="advertisement">
@@ -155,16 +162,16 @@ if (isset($toPlayerID))
 			
 		</div>
 		
-	    <!-- <div class="skyscraper">
-		  	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+	    <div class="skyscraper">
+		  	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 			<!-- CapaKaspa Skyscraper -->
-			<!-- <ins class="adsbygoogle"
+			<ins class="adsbygoogle"
 			     style="display:inline-block;width:160px;height:600px"
 			     data-ad-client="ca-pub-8069368543432674"
 			     data-ad-slot="2254640927"></ins>
 			<script>
 			(adsbygoogle = window.adsbygoogle || []).push({});
-			</script> -->
+			</script>
 	  	</div>
 	</div>
 
