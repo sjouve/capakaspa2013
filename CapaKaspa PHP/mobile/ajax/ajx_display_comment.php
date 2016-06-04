@@ -10,6 +10,7 @@ if (!isset($_CONFIG))
 
 require '../../include/constants.php';
 require '../../dac/dac_activity.php';
+require '../../bwc/bwc_players.php';
 
 // Connect DB
 require '../../include/connectdb.php';
