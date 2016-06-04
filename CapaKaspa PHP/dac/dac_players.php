@@ -67,16 +67,18 @@ function listPlayers()
 }
 
 /* Liste les joueurs pour calcul Elo */
-function listPlayersForElo($dateFin)
+function listPlayersForElo($dateDeb, $dateFin, $type)
 {
 	global $dbh;
-	$tmpQuery = "SELECT P.playerID playerID, E.elo elo, F.elo elo960, P.nick nick 
-				FROM players P, elo_history E, elo960_history F
+	$tmpQuery = "SELECT DISTINCT P.playerID playerID, E.elo elo, F.elo elo960, P.nick nick 
+				FROM players P, games G, elo_history E, elo960_history F
 				WHERE P.playerID = E.playerID 
 				AND P.playerID = F.playerID 
 				AND P.activate=1 
 				AND E.eloDate > '".$dateFin."' 
-				AND F.eloDate > '".$dateFin."' 
+				AND F.eloDate > '".$dateFin."'
+				AND (G.whitePlayer = P.playerID OR G.blackPlayer = P.playerID)
+				AND G.type=".$type." AND G.lastMove >= '".$dateDeb."' AND DATE(G.lastMove) <= '".$dateFin."' 
 				ORDER BY playerID";
 	
 	return mysqli_query($dbh,$tmpQuery);

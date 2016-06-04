@@ -181,7 +181,7 @@ function calculerElo($type)
 	$dateDeb = date('Y-m-d', mktime(0,0,0,date('m')-1,1,date('Y')));
 	$dateFin = date('Y-m-d', mktime(0,0,0,date('m'),0,date('Y')));
 	echo("Période du ".$dateDeb." au ".$dateFin."<br/>");
-	$listPlayers = listPlayersForElo($dateFin);
+	$listPlayers = listPlayersForElo($dateDeb, $dateFin, $type);
 	$bonusMalusTable = array(100	=>	470	,
 			99	=>	470	,
 			98	=>	470	,
@@ -317,19 +317,18 @@ function calculerElo($type)
 				$whiteElo = $game['whiteElo'];
 				$blackID = $game['blackPlayer'];
 				$blackElo = $game['blackElo'];
-				if (abs($whiteElo - $blackElo) <= 350)
+				
+				if ($whiteID == $player['playerID'])
 				{
-					if ($whiteID == $player['playerID'])
-					{
-						$sommeElo = $sommeElo + $blackElo;
-					}
-					else
-					{
-						$sommeElo = $sommeElo + $whiteElo;
-					}
-					
-					echo("<tr><td>".$whiteID."</td><td>".$whiteElo."</td><td>".$blackID."</td><td>".$blackElo."</td></tr>");
+					$sommeElo = $sommeElo + $blackElo;
 				}
+				else
+				{
+					$sommeElo = $sommeElo + $whiteElo;
+				}
+				
+				echo("<tr><td>".$whiteID."</td><td>".$whiteElo."</td><td>".$blackID."</td><td>".$blackElo."</td></tr>");
+				
 			}
 			echo("</table><br/>");
 			

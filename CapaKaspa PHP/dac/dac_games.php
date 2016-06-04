@@ -58,14 +58,46 @@ function countActiveGameForAll()
 function listEndedGames($playerID, $dateDeb, $dateFin, $type)
 {
 	global $dbh;
-	$tmpGames = mysqli_query($dbh,"SELECT G.whitePlayer whitePlayer, EW.elo whiteElo, G.blackPlayer blackPlayer, EB.elo blackElo
+	$tmpGames = mysqli_query($dbh,
+								"SELECT G.gameID, G.whitePlayer whitePlayer, EW.elo whiteElo, G.blackPlayer blackPlayer, EB.elo blackElo
 	                                FROM games G, players W, players B, elo_history EW, elo_history EB 
 									WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
+	                                AND ((G.gameMessage = 'playerResigned' AND G.messageFrom = 'white' AND G.whitePlayer = ".$playerID.")
+	                                    OR (G.gameMessage = 'playerResigned' AND G.messageFrom = 'black' AND G.blackPlayer = ".$playerID.")
+	                                    OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'black' AND G.whitePlayer = ".$playerID.")
+	                                    OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'white' AND G.blackPlayer = ".$playerID.")) 
 									AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
+	                                AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
+									AND W.playerID = EW.playerID AND B.playerID = EB.playerID
+									AND EW.eloDate > '".$dateFin."' AND EB.eloDate > '".$dateFin."'
+									AND ((G.whitePlayer = ".$playerID." AND EB.elo < EW.elo + 350) OR (G.blackPlayer = ".$playerID." AND EW.elo < EB.elo + 350))
+	                                AND G.type=".$type." AND G.lastMove >= '".$dateDeb."' AND DATE(G.lastMove) <= '".$dateFin."'
+	                             UNION
+	                             	SELECT G.gameID, G.whitePlayer whitePlayer, EW.elo whiteElo, G.blackPlayer blackPlayer, EB.elo blackElo
+		                            FROM games G, players W, players B, elo_history EW, elo_history EB 
+	                                WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
+	                                AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
+	                                AND G.gameMessage = 'draw'
 									AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
 									AND W.playerID = EW.playerID AND B.playerID = EB.playerID
 									AND EW.eloDate > '".$dateFin."' AND EB.eloDate > '".$dateFin."'
-									AND G.type=".$type." AND G.lastMove >= '".$dateDeb."' AND DATE(G.lastMove) <= '".$dateFin."'");
+	                                AND G.type=".$type." AND G.lastMove >= '".$dateDeb."' AND DATE(G.lastMove) <= '".$dateFin."'
+	                             UNION
+	                             	SELECT G.gameID, G.whitePlayer whitePlayer, EW.elo whiteElo, G.blackPlayer blackPlayer, EB.elo blackElo
+		                            FROM games G, players W, players B, elo_history EW, elo_history EB 
+	                                WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
+	                                AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
+	                                AND ((G.gameMessage = 'playerResigned' AND G.messageFrom = 'white' AND G.blackPlayer = ".$playerID.")
+	                                    OR (G.gameMessage = 'playerResigned' AND G.messageFrom = 'black' AND G.whitePlayer = ".$playerID.")
+	                                    OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'black' AND G.blackPlayer = ".$playerID.")
+	                                    OR (G.gameMessage = 'checkMate' AND G.messageFrom = 'white' AND G.whitePlayer = ".$playerID."))
+									AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
+									AND W.playerID = EW.playerID AND B.playerID = EB.playerID
+									AND EW.eloDate > '".$dateFin."' AND EB.eloDate > '".$dateFin."'
+									AND ((G.whitePlayer = ".$playerID." AND EB.elo > EW.elo - 350) OR (G.blackPlayer = ".$playerID." AND EW.elo > EB.elo - 350))
+	                                AND G.type=".$type." AND G.lastMove >= '".$dateDeb."' AND DATE(G.lastMove) <= '".$dateFin."'"
+	
+	);
 	
 	return $tmpGames;
 }
@@ -134,7 +166,7 @@ function countLostElo($playerID, $dateDeb, $dateFin, $type)
 	                                AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
 									AND W.playerID = EW.playerID AND B.playerID = EB.playerID
 									AND EW.eloDate > '".$dateFin."' AND EB.eloDate > '".$dateFin."'
-									AND ABS(EW.elo - EB.elo) <= 350
+									AND ((G.whitePlayer = ".$playerID." AND EB.elo < EW.elo + 350) OR (G.blackPlayer = ".$playerID." AND EW.elo < EB.elo + 350))
 	                                AND G.type=".$type." AND G.lastMove >= '".$dateDeb."' AND DATE(G.lastMove) <= '".$dateFin."'");
 	
 	return mysqli_fetch_array($tmpGames, MYSQLI_ASSOC);
@@ -153,7 +185,6 @@ function countDrawElo($playerID, $dateDeb, $dateFin, $type)
 								AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
 								AND W.playerID = EW.playerID AND B.playerID = EB.playerID
 								AND EW.eloDate > '".$dateFin."' AND EB.eloDate > '".$dateFin."'
-								AND ABS(EW.elo - EB.elo) <= 350
                                 AND G.type=".$type." AND G.lastMove >= '".$dateDeb."' AND DATE(G.lastMove) <= '".$dateFin."'");
 	
 	return mysqli_fetch_array($tmpGames, MYSQLI_ASSOC);
@@ -175,7 +206,7 @@ function countWinElo($playerID, $dateDeb, $dateFin, $type)
 								AND W.playerID = G.whitePlayer AND B.playerID = G.blackPlayer
 								AND W.playerID = EW.playerID AND B.playerID = EB.playerID
 								AND EW.eloDate > '".$dateFin."' AND EB.eloDate > '".$dateFin."'
-								AND ABS(EW.elo - EB.elo) <= 350
+								AND ((G.whitePlayer = ".$playerID." AND EB.elo > EW.elo - 350) OR (G.blackPlayer = ".$playerID." AND EW.elo > EB.elo - 350))
                                 AND G.type=".$type." AND G.lastMove >= '".$dateDeb."' AND DATE(G.lastMove) <= '".$dateFin."'");
 	
 	return mysqli_fetch_array($tmpGames, MYSQLI_ASSOC);
