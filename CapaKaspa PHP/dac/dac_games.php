@@ -58,9 +58,14 @@ function countActiveGameForAll()
 function listEndedGames($playerID, $dateDeb, $dateFin, $type)
 {
 	global $dbh;
+	if ($type == 0) 
+		$elo_table = "elo_history";
+	else
+		$elo_table = "elo960_history";
+		
 	$tmpGames = mysqli_query($dbh,
 								"SELECT G.gameID, G.whitePlayer whitePlayer, EW.elo whiteElo, G.blackPlayer blackPlayer, EB.elo blackElo
-	                                FROM games G, players W, players B, elo_history EW, elo_history EB 
+	                                FROM games G, players W, players B, ".$elo_table." EW, ".$elo_table." EB 
 									WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
 	                                AND ((G.gameMessage = 'playerResigned' AND G.messageFrom = 'white' AND G.whitePlayer = ".$playerID.")
 	                                    OR (G.gameMessage = 'playerResigned' AND G.messageFrom = 'black' AND G.blackPlayer = ".$playerID.")
@@ -74,7 +79,7 @@ function listEndedGames($playerID, $dateDeb, $dateFin, $type)
 	                                AND G.type=".$type." AND G.lastMove >= '".$dateDeb."' AND DATE(G.lastMove) <= '".$dateFin."'
 	                             UNION
 	                             	SELECT G.gameID, G.whitePlayer whitePlayer, EW.elo whiteElo, G.blackPlayer blackPlayer, EB.elo blackElo
-		                            FROM games G, players W, players B, elo_history EW, elo_history EB 
+		                            FROM games G, players W, players B, ".$elo_table." EW, ".$elo_table." EB 
 	                                WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
 	                                AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
 	                                AND G.gameMessage = 'draw'
@@ -84,7 +89,7 @@ function listEndedGames($playerID, $dateDeb, $dateFin, $type)
 	                                AND G.type=".$type." AND G.lastMove >= '".$dateDeb."' AND DATE(G.lastMove) <= '".$dateFin."'
 	                             UNION
 	                             	SELECT G.gameID, G.whitePlayer whitePlayer, EW.elo whiteElo, G.blackPlayer blackPlayer, EB.elo blackElo
-		                            FROM games G, players W, players B, elo_history EW, elo_history EB 
+		                            FROM games G, players W, players B, ".$elo_table." EW, ".$elo_table." EB 
 	                                WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
 	                                AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
 	                                AND ((G.gameMessage = 'playerResigned' AND G.messageFrom = 'white' AND G.blackPlayer = ".$playerID.")
@@ -155,8 +160,13 @@ function countLostElo($playerID, $dateDeb, $dateFin, $type)
 {							
 									
 	global $dbh;
+	if ($type == 0) 
+		$elo_table = "elo_history";
+	else
+		$elo_table = "elo960_history";
+		
 	$tmpGames = mysqli_query($dbh,"SELECT count(G.gameID) nbGames
-	                                FROM games G, players W, players B, elo_history EW, elo_history EB 
+	                                FROM games G, players W, players B, ".$elo_table." EW, ".$elo_table." EB 
 									WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
 	                                AND ((G.gameMessage = 'playerResigned' AND G.messageFrom = 'white' AND G.whitePlayer = ".$playerID.")
 	                                    OR (G.gameMessage = 'playerResigned' AND G.messageFrom = 'black' AND G.blackPlayer = ".$playerID.")
@@ -177,8 +187,13 @@ function countDrawElo($playerID, $dateDeb, $dateFin, $type)
 {							
 									
 	global $dbh;
+	if ($type == 0) 
+		$elo_table = "elo_history";
+	else
+		$elo_table = "elo960_history";
+		
 	$tmpGames = mysqli_query($dbh,"SELECT count(G.gameID) nbGames
-	                            FROM games G, players W, players B, elo_history EW, elo_history EB 
+	                            FROM games G, players W, players B, ".$elo_table." EW, ".$elo_table." EB 
                                 WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
                                 AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
                                 AND G.gameMessage = 'draw'
@@ -195,8 +210,13 @@ function countWinElo($playerID, $dateDeb, $dateFin, $type)
 {							
 									
 	global $dbh;
+	if ($type == 0) 
+		$elo_table = "elo_history";
+	else
+		$elo_table = "elo960_history";
+		
 	$tmpGames = mysqli_query($dbh,"SELECT count(G.gameID) nbGames
-	                            FROM games G, players W, players B, elo_history EW, elo_history EB 
+	                            FROM games G, players W, players B, ".$elo_table." EW, ".$elo_table." EB 
                                 WHERE (G.gameMessage <> '' AND G.gameMessage <> 'playerInvited' AND G.gameMessage <> 'inviteDeclined')
                                 AND (G.whitePlayer = ".$playerID." OR G.blackPlayer = ".$playerID.")
                                 AND ((G.gameMessage = 'playerResigned' AND G.messageFrom = 'white' AND G.blackPlayer = ".$playerID.")

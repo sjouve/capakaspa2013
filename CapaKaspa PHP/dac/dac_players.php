@@ -78,7 +78,7 @@ function listPlayersForElo($dateDeb, $dateFin, $type)
 				AND E.eloDate > '".$dateFin."' 
 				AND F.eloDate > '".$dateFin."'
 				AND (G.whitePlayer = P.playerID OR G.blackPlayer = P.playerID)
-				AND G.type=".$type." AND G.lastMove >= '".$dateDeb."' AND DATE(G.lastMove) <= '".$dateFin."' 
+				AND G.type=".$type." AND DATE(G.lastMove) >= '".$dateDeb."' AND DATE(G.lastMove) <= '".$dateFin."' 
 				ORDER BY playerID";
 	
 	return mysqli_query($dbh,$tmpQuery);
