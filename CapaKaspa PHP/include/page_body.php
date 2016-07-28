@@ -125,6 +125,12 @@ if (isset($toPlayerID))
 		</script>-->
 	<!-- </div>-->
 	<div class="navlinks">
+		<div class="title"><?php echo _("Videos");?></div>
+			<ul>
+		        <li><img src="images/picto_youtube.png" height="16" width="16"/> <a href="https://youtu.be/BOceHIK0LFg" target="_blank"><? echo _("Ultimate travel chessboard");?></a></li>
+      		</ul>
+	</div>
+	<div class="navlinks">
 		<div class="title"><?php echo _("More on CapaKaspa");?></div>
 			<ul>
 		        <li><img src="images/megaphone_16.png"/> <a href="http://www.capakaspa.info/forums-echecs-sujets/"><b><? echo _("Forums");?></b></a></li>

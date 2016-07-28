@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2016-06-04 22:56+0200\n"
-"PO-Revision-Date: 2016-06-04 22:56+0200\n"
+"POT-Creation-Date: 2016-07-28 08:49+0200\n"
+"PO-Revision-Date: 2016-07-28 08:50+0200\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -75,13 +75,13 @@ msgstr ""
 "Si vous le souhaitez, vous pouvez utiliser le formulaire ci-dessous pour "
 "mettre à jour votre adresse email et commencer le processus d'activation"
 
-#: activation.php:66 bwc/bwc_players.php:357 include/page_body.php:41
+#: activation.php:66 bwc/bwc_players.php:358 include/page_body.php:41
 #: index.php:265 index.php:279 index.php:392 mobile/index.php:72
 #: player_update.php:311
 msgid "User name"
 msgstr "Nom d'utilisateur"
 
-#: activation.php:71 bwc/bwc_players.php:358 include/page_body.php:42
+#: activation.php:71 bwc/bwc_players.php:359 include/page_body.php:42
 #: index.php:396 mobile/index.php:73
 msgid "Password"
 msgstr "Mot de passe"
@@ -418,8 +418,8 @@ msgstr "sur"
 msgid "the post"
 msgstr "la publication"
 
-#: ajax/ajx_display_player.php:51 bwc/bwc_common.php:251 bwc/bwc_common.php:272
-#: bwc/bwc_common.php:295 bwc/bwc_games.php:1090 bwc/bwc_games.php:1099
+#: ajax/ajx_display_player.php:51 bwc/bwc_common.php:257 bwc/bwc_common.php:278
+#: bwc/bwc_common.php:301 bwc/bwc_games.php:1090 bwc/bwc_games.php:1099
 #: bwc/bwc_games.php:1106 bwc/bwc_games.php:1118 bwc/bwc_games.php:1127
 #: bwc/bwc_games.php:1133 bwc/bwc_games.php:1208 bwc/bwc_games.php:1217
 #: bwc/bwc_games.php:1224 bwc/bwc_games.php:1236 bwc/bwc_games.php:1245
@@ -430,14 +430,14 @@ msgid "Player online"
 msgstr "Joueur en ligne"
 
 #: ajax/ajx_display_player.php:53 ajax/ajx_display_ranking.php:58
-#: bwc/bwc_common.php:253 bwc/bwc_common.php:274 bwc/bwc_common.php:297
+#: bwc/bwc_common.php:259 bwc/bwc_common.php:280 bwc/bwc_common.php:303
 #: message.php:93 mobile/ajax/ajx_display_player.php:53 mobile/message.php:85
 #: mobile/player_view.php:146 player_view.php:156
 msgid "New player"
 msgstr "Nouveau joueur"
 
 #: ajax/ajx_display_player.php:58 ajax/ajx_display_ranking.php:63
-#: app_jchess.php:57 game_in_progress.php:645 game_new.php:25
+#: app_jchess.php:57 game_in_progress.php:643 game_new.php:25
 #: include/page_body.php:78 mobile/ajax/ajx_display_player.php:58
 #: mobile/game_in_progress.php:552 mobile/game_new.php:25
 #: mobile/player_view.php:167 player_view.php:169
@@ -747,8 +747,8 @@ msgid "Message sent successfully"
 msgstr "Message envoyé avec succès"
 
 #: bwc/bwc_common.php:118 bwc/bwc_common.php:127 bwc/bwc_common.php:136
-#: bwc/bwc_common.php:179 bwc/bwc_common.php:188 bwc/bwc_common.php:197
-#: bwc/bwc_common.php:207
+#: bwc/bwc_common.php:185 bwc/bwc_common.php:194 bwc/bwc_common.php:203
+#: bwc/bwc_common.php:213
 msgid "Buy this book >>"
 msgstr "Acheter ce livre >>"
 
@@ -756,22 +756,22 @@ msgstr "Acheter ce livre >>"
 msgid "Buy this nice chessboard >>"
 msgstr "Acheter ce bel échiquier >>"
 
-#: bwc/bwc_common.php:224
+#: bwc/bwc_common.php:230
 msgid "Suggestion"
 msgstr "Suggestions"
 
-#: bwc/bwc_common.php:233 game_new.php:266 include/page_body.php:79
+#: bwc/bwc_common.php:239 game_new.php:266 include/page_body.php:79
 #: mobile/include/page_body.php:72 mobile/include/page_body.php:74
 #: mobile/index.php:105
 msgid "Tournaments"
 msgstr "Tournois"
 
-#: bwc/bwc_common.php:234 game_in_progress.php:657 game_new.php:268
+#: bwc/bwc_common.php:240 game_in_progress.php:655 game_new.php:268
 #: mobile/game_in_progress.php:560
 msgid "Register for a tournament"
 msgstr "S'inscrire à un tournoi"
 
-#: bwc/bwc_common.php:275 bwc/bwc_common.php:298
+#: bwc/bwc_common.php:281 bwc/bwc_common.php:304
 msgid "is the same level that you !"
 msgstr "vous avez le même niveau"
 
@@ -905,11 +905,11 @@ msgstr ""
 "problème copiez le lien directement dans la barre d'adresse de votre "
 "navigateur)"
 
-#: bwc/bwc_players.php:244
+#: bwc/bwc_players.php:245
 msgid "[CapaKaspa] Confirm activation"
 msgstr "[CapaKaspa] Confirmer l'activation"
 
-#: bwc/bwc_players.php:245
+#: bwc/bwc_players.php:246
 msgid ""
 "To activate your account please click the following link (in case of "
 "problems copy the link into the address bar of your browser)"
@@ -917,65 +917,65 @@ msgstr ""
 "Pour activer votre compte cliquez sur le lien suivant (en cas de problème "
 "copiez le lien directement dans la barre d'adresse de votre navigateur)"
 
-#: bwc/bwc_players.php:247
+#: bwc/bwc_players.php:248
 msgid "This message was sent automatically from the site CapaKaspa"
 msgstr "Ce message a été envoyé automatiquement à partir du site CapaKaspa"
 
-#: bwc/bwc_players.php:355
+#: bwc/bwc_players.php:356
 msgid "[CapaKaspa] Your password"
 msgstr "[CapaKaspa] Votre mot de passe"
 
-#: bwc/bwc_players.php:356
+#: bwc/bwc_players.php:357
 msgid "Data about your account"
 msgstr "Données de votre compte"
 
-#: bwc/bwc_players.php:657 game_list_ended.php:148
+#: bwc/bwc_players.php:658 game_list_ended.php:148
 #: mobile/tournament_list.php:96 mobile/tournament_view.php:116
 #: tournament_list.php:98 tournament_view.php:119
 msgid "Player"
 msgstr "Joueur"
 
-#: bwc/bwc_players.php:658
+#: bwc/bwc_players.php:659
 msgid "Total number of games played"
 msgstr "Nombre total de parties jouées"
 
-#: bwc/bwc_players.php:659 player_view.php:192 player_view.php:254
+#: bwc/bwc_players.php:660 player_view.php:192 player_view.php:254
 msgid "Classic"
 msgstr "Classique"
 
-#: bwc/bwc_players.php:659
+#: bwc/bwc_players.php:660
 msgid "Number of classic games played"
 msgstr "Nombre de parties classiques jouées"
 
-#: bwc/bwc_players.php:660
+#: bwc/bwc_players.php:661
 msgid "Outside the box"
 msgstr "Aventurier"
 
-#: bwc/bwc_players.php:660
+#: bwc/bwc_players.php:661
 msgid "Number of other games played"
 msgstr "Nombre d'autres parties jouées (Chess960, Débutant)"
 
-#: bwc/bwc_players.php:661
+#: bwc/bwc_players.php:662
 msgid "Winner"
 msgstr "Vainqueur"
 
-#: bwc/bwc_players.php:661
+#: bwc/bwc_players.php:662
 msgid "Number of games won"
 msgstr "Nombre de parties gagnées"
 
-#: bwc/bwc_players.php:662
+#: bwc/bwc_players.php:663
 msgid "Black wins"
 msgstr "Victoires noires"
 
-#: bwc/bwc_players.php:662
+#: bwc/bwc_players.php:663
 msgid "Number of games won with blacks"
 msgstr "Nombre de parties gagnées avec les noirs"
 
-#: bwc/bwc_players.php:663
+#: bwc/bwc_players.php:664
 msgid "Social"
 msgstr "Social"
 
-#: bwc/bwc_players.php:663
+#: bwc/bwc_players.php:664
 msgid "Number of different opponents"
 msgstr "Nombre d'adversaires différents"
 
@@ -1201,7 +1201,7 @@ msgstr "Abandonner"
 msgid "Report a problem"
 msgstr "Signaler un problème"
 
-#: game_board.php:428
+#: game_board.php:439
 msgid "Here are old existing comments on this game"
 msgstr "Anciens commentaires sur la partie"
 
@@ -1313,29 +1313,29 @@ msgstr "Jouer"
 msgid "Comment this game"
 msgstr "Commenter cette partie"
 
-#: game_in_progress.php:636 mobile/game_in_progress.php:543
+#: game_in_progress.php:634 mobile/game_in_progress.php:543
 msgid "No games in progress..."
 msgstr "Pas de parties en cours..."
 
-#: game_in_progress.php:640 mobile/game_in_progress.php:547
+#: game_in_progress.php:638 mobile/game_in_progress.php:547
 msgid "Begin to play"
 msgstr "Commencer à jouer"
 
-#: game_in_progress.php:642 mobile/game_in_progress.php:549
+#: game_in_progress.php:640 mobile/game_in_progress.php:549
 msgid "Submit a new game for all players or a specific player"
 msgstr "Proposer une partie à tous les joueurs ou à un joueur en particulier"
 
-#: game_in_progress.php:649 game_new.php:262 mobile/game_in_progress.php:555
+#: game_in_progress.php:647 game_new.php:262 mobile/game_in_progress.php:555
 msgid "Find a player with advanced search and invite him to play a new game."
 msgstr ""
 "Trouver un joueur avec la recherche avancée et l'inviter à jouer une "
 "nouvelle partie"
 
-#: game_in_progress.php:652 game_new.php:263 mobile/game_in_progress.php:557
+#: game_in_progress.php:650 game_new.php:263 mobile/game_in_progress.php:557
 msgid "Search players"
 msgstr "Rechercher des joueurs"
 
-#: game_in_progress.php:655 game_new.php:267 mobile/game_in_progress.php:559
+#: game_in_progress.php:653 game_new.php:267 mobile/game_in_progress.php:559
 msgid ""
 "Participate in Round-robin tournaments and compete against multiple players "
 "with whites and blacks."
@@ -1343,11 +1343,11 @@ msgstr ""
 "Participer à des tournois Round-robin et se mesurer à plusieurs joueurs avec "
 "les blancs et les noirs."
 
-#: game_in_progress.php:659 player_view.php:266
+#: game_in_progress.php:657 player_view.php:266
 msgid "Achievements"
 msgstr "Objectifs"
 
-#: game_in_progress.php:661
+#: game_in_progress.php:659
 msgid ""
 "When you're playing chess games on CapaKaspa, you can earn achievements that "
 "mark your accomplishments : player, classic, outside the box, winner, black "
@@ -1357,7 +1357,7 @@ msgstr ""
 "des objectifs qui marquent vos réalisations : joueur, classique, aventurier, "
 "vainqueur, victoires noires et social."
 
-#: game_in_progress.php:664
+#: game_in_progress.php:662
 msgid "View profile"
 msgstr "Voir profil"
 
@@ -1717,58 +1717,66 @@ msgid "Passive players"
 msgstr "Joueurs passifs"
 
 #: include/page_body.php:128
+msgid "Videos"
+msgstr "Vidéos"
+
+#: include/page_body.php:130
+msgid "Ultimate travel chessboard"
+msgstr "Echiquier de voyage ultime"
+
+#: include/page_body.php:134
 msgid "More on CapaKaspa"
 msgstr "Plus sur CapaKaspa"
 
-#: include/page_body.php:130
+#: include/page_body.php:136
 msgid "Forums"
 msgstr ""
 
-#: include/page_body.php:131 index.php:421 index.php:442
+#: include/page_body.php:137 index.php:421 index.php:442
 msgid "Learning chess"
 msgstr "Apprendre les échecs"
 
-#: include/page_body.php:132 index.php:427
+#: include/page_body.php:138 index.php:427
 msgid "Puzzle of the day"
 msgstr "Diagramme du jour"
 
-#: include/page_body.php:133 index.php:428
+#: include/page_body.php:139 index.php:428
 msgid "Play vs GarboChess"
 msgstr "Jouer avec GarboChess"
 
-#: include/page_body.php:134 index.php:429
+#: include/page_body.php:140 index.php:429
 msgid "Play vs FlashChess"
 msgstr "Jouer avec FlashChess"
 
-#: include/page_body.php:135 index.php:430
+#: include/page_body.php:141 index.php:430
 msgid "Play vs SparkChess"
 msgstr "Jouer avec SparkChess"
 
-#: include/page_body.php:136 index.php:422 index.php:436
+#: include/page_body.php:142 index.php:422 index.php:436
 msgid "Chess news"
 msgstr "Actualités des échecs"
 
-#: include/page_body.php:137 index.php:423
+#: include/page_body.php:143 index.php:423
 msgid "Upcoming events"
 msgstr "Evénements à venir"
 
-#: include/page_body.php:138 index.php:424
+#: include/page_body.php:144 index.php:424
 msgid "Live !!"
 msgstr "Le Direct !!"
 
-#: include/page_body.php:139
+#: include/page_body.php:145
 msgid "And more"
 msgstr "Et plus..."
 
-#: include/page_body.php:143
+#: include/page_body.php:149
 msgid "Shop"
 msgstr "Boutique"
 
-#: include/page_body.php:145
+#: include/page_body.php:151
 msgid "Chessboards"
 msgstr "Echiquiers"
 
-#: include/page_body.php:146
+#: include/page_body.php:152
 msgid "Chess books"
 msgstr "Livres d'échecs"
 
