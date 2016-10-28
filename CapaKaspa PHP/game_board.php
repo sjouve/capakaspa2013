@@ -403,22 +403,33 @@ require 'include/page_body.php';
 				<?}?>
 			</div>
 			<div id="adsbottomright" style="float: right; width: 255px; margin-rigth: 5px;">
-				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<?displaySuggestionAmazon();?>
+				<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
 				<!-- CapaKaspa Site Carré 250 Partie bas -->
-				<ins class="adsbygoogle"
+				<!-- <ins class="adsbygoogle"
 				     style="display:inline-block;width:250px;height:250px"
 				     data-ad-client="ca-pub-8069368543432674"
 				     data-ad-slot="8744034865"></ins>
 				<script>
 				(adsbygoogle = window.adsbygoogle || []).push({});
-				</script>
+				</script> -->
 			</div>
 		 	<div id="comment<?echo($tmpGame['gameID']);?>" class="comment" style="width: 500px;">
 				<img src="images/ajaxloader.gif"/>
 			</div>
-			<?//displaySuggestionAmazon();?>
+			
 			<div class="adsbottom" style="float: left; margin-bottom: 0px; width: 510px;">
-				<SCRIPT charset="utf-8" type="text/javascript" src="http://ws-eu.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&MarketPlace=FR&ID=V20070822%2FFR%2Fcapa-21%2F8010%2Fb9cede65-96fb-4ec4-8fb3-cff77fa49490&Operation=GetScriptTemplate"> </SCRIPT> <NOSCRIPT><A rel="nofollow" HREF="http://ws-eu.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&MarketPlace=FR&ID=V20070822%2FFR%2Fcapa-21%2F8010%2Fb9cede65-96fb-4ec4-8fb3-cff77fa49490&Operation=NoScript">Widgets Amazon.fr</A></NOSCRIPT>
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- CapaKaspa Site Partie Rectangle Bas -->
+				<ins class="adsbygoogle"
+				     style="display:inline-block;width:336px;height:280px"
+				     data-ad-client="ca-pub-8069368543432674"
+				     data-ad-slot="2770859668"></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+				<!-- <iframe src="http://rcm-eu.amazon-adsystem.com/e/cm?t=capa-21&o=8&p=16&l=st1&mode=toys-fr&search=échiquiers&fc1=000000&lt1=_blank&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="468" height="336" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
+	    		 -->
 	    	</div>
 	    	
 		</div>
