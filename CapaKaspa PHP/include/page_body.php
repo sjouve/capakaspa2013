@@ -125,11 +125,14 @@ if (isset($toPlayerID))
 		</script>-->
 	<!-- </div>-->
 	<div class="navlinks">
-		<div class="title"><?php echo _("Videos");?></div>
+		<div class="title"><?php echo _("Christmas Shop");?> <img height="16" width="16" src="images/pere-noel.png" style="vertical-align:bottom;"/> </div>
 			<ul>
-		        <li><img src="images/picto_youtube.png" height="16" width="16"/> <a href="https://youtu.be/BOceHIK0LFg" target="_blank"><? echo _("Ultimate travel chessboard");?></a></li>
-      		</ul>
+		        <li><img src="images/chesspuzzle.png"/> <a target="_blank" href="https://www.amazon.fr/gp/search/ref=as_li_ss_tl?ie=UTF8&camp=1642&creative=19458&linkCode=ur2&lo=toys&qid=1465073333&rh=n%3A322086011%2Cn%3A!322088011%2Cn%3A363587031%2Cn%3A363591031&tag=capa-21"><? echo _("Chessboards");?></a><img src="https://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=ur2&o=8" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
+		     	<li><img src="images/livre.gif"/> <a target="_blank" href="https://www.amazon.fr/mn/search/ref=as_li_ss_tl?_encoding=UTF8&camp=1642&creative=19458&linkCode=ur2&lo=stripbooks&qid=1465073635&rh=n%3A301061%2Cn%3A301143%2Cn%3A302054%2Cn%3A407428&tag=capa-21"><? echo _("Chess books");?></a><img src="https://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=ur2&o=8" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
+		    	<li><img src="images/icone-mobile.png"/> <a target="_blank" href="http://amzn.to/2cZeksh"><? echo _("Chess software");?></a><img src="https://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=ur2&o=8" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
+		    </ul>
 	</div>
+	
 	<div class="navlinks">
 		<div class="title"><?php echo _("More on CapaKaspa");?></div>
 			<ul>
@@ -146,11 +149,12 @@ if (isset($toPlayerID))
       		</ul>
 	</div>
 	<div class="navlinks">
-		<div class="title"><?php echo _("Shop");?></div>
+		<div class="title"><?php echo _("Videos");?></div>
 			<ul>
-		        <li><img src="images/chesspuzzle.png"/> <a target="_blank" href="https://www.amazon.fr/gp/search/ref=as_li_ss_tl?ie=UTF8&camp=1642&creative=19458&linkCode=ur2&lo=toys&qid=1465073333&rh=n%3A322086011%2Cn%3A!322088011%2Cn%3A363587031%2Cn%3A363591031&tag=capa-21"><? echo _("Chessboards");?></a><img src="https://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=ur2&o=8" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
-		     	<li><img src="images/livre.gif"/> <a target="_blank" href="https://www.amazon.fr/mn/search/ref=as_li_ss_tl?_encoding=UTF8&camp=1642&creative=19458&linkCode=ur2&lo=stripbooks&qid=1465073635&rh=n%3A301061%2Cn%3A301143%2Cn%3A302054%2Cn%3A407428&tag=capa-21"><? echo _("Chess books");?></a><img src="https://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=ur2&o=8" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
-		    </ul>
+		        <li><img src="images/picto_youtube.png" height="16" width="16"/> <a href="https://www.youtube.com/user/CapaKaspaEchecs" target="_blank"><? echo _("CapaKaspa TV");?></a></li>
+		        <li><img src="images/picto_youtube.png" height="16" width="16"/> <a href="https://www.youtube.com/channel/UC8STiPeEcarI0FZl6XeeYEw" target="_blank"><? echo _("Viva Playgrounds !");?></a></li>
+		        <!-- <li><img src="images/playlist-icon-16.gif" height="16" width="16"/> <a href="https://www.youtube.com/playlist?list=PLuyns0zv3TDNvIT4o2COp_MJjT06QfY8n" target="_blank"><? echo _("Wonderful place to play !");?></a></li> -->
+      		</ul>
 	</div>
 </div>
 <div id="advertisement">
