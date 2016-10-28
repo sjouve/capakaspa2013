@@ -207,6 +207,8 @@ require 'include/page_body.php';
     <?
     if (false)
     	echo("<div class='message'>"._("The new Elo ranking was computed !")."</div>");
+    if (false)
+    	echo("<div class='message'>Gagnez 1 Pass pour le Grand Chess Tour Paris : <a href='http://www.capakaspa.info/forums-echecs/sujet/capakaspa-offre-1-pass-4-jours-pour-le-grand-chess-tour-paris/'>Tentez votre chance !</a></div>");
     if ($errMsg != "")
 		echo("<div class='error'>".$errMsg."</div>");
     
@@ -614,21 +616,19 @@ require 'include/page_body.php';
 				</div>");
 				if ($_SESSION['hideNotTurn'] == 0)
 					if ((mysqli_num_rows($tmpGames) > 5 && $numDisplayedGame == 5) || (mysqli_num_rows($tmpGames) > 0 && mysqli_num_rows($tmpGames) < 5 && $numDisplayedGame == mysqli_num_rows($tmpGames))) {?>
-						<div class="adsbottom">
+						<center>
 							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-							<!-- CapaKaspa Site TdB Adaptable -->
+							<!-- CapaKaspa Site Partie Rectangle Bas -->
 							<ins class="adsbygoogle"
-							     style="display:block"
+							     style="display:inline-block;width:336px;height:280px"
 							     data-ad-client="ca-pub-8069368543432674"
-							     data-ad-slot="2656338868"
-							     data-ad-format="auto"></ins>
+							     data-ad-slot="2770859668"></ins>
 							<script>
 							(adsbygoogle = window.adsbygoogle || []).push({});
 							</script>
-						</div>
+						</center>
 					<?	
 					}
-				
 			}
 			else {
 				echo _("No games in progress...");
@@ -672,22 +672,7 @@ require 'include/page_body.php';
 			<input type="hidden" name="sharePC" value="no">
 			<input type="hidden" name="from" value="encours">
 		</form>
-		<?php if (mysqli_num_rows($tmpGames) > 0) {?>
-		<div class="adsbottom">
-			<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
-			<!-- CapaKaspa Site TdB Adaptable -->
-			<!--  <ins class="adsbygoogle"
-			     style="display:block"
-			     data-ad-client="ca-pub-8069368543432674"
-			     data-ad-slot="2656338868"
-			     data-ad-format="auto"></ins>
-			<script>
-			(adsbygoogle = window.adsbygoogle || []).push({});
-			</script>-->
-			<SCRIPT charset="utf-8" type="text/javascript" src="http://ws-eu.amazon-adsystem.com/widgets/q?rt=tf_cw&ServiceVersion=20070822&MarketPlace=FR&ID=V20070822%2FFR%2Fcapa-21%2F8010%2Fb9cede65-96fb-4ec4-8fb3-cff77fa49490&Operation=GetScriptTemplate"> </SCRIPT> <NOSCRIPT><A rel="nofollow" HREF="http://ws-eu.amazon-adsystem.com/widgets/q?rt=tf_cw&ServiceVersion=20070822&MarketPlace=FR&ID=V20070822%2FFR%2Fcapa-21%2F8010%2Fb9cede65-96fb-4ec4-8fb3-cff77fa49490&Operation=NoScript">Widgets Amazon.fr</A></NOSCRIPT>
-		</div>
-		<br>
-		<?php }?>
+		
 	</div>
 </div>
 <div id="rightbar">
