@@ -113,10 +113,11 @@ function updateProfil($playerID, $pwdPassword, $pwdOldPassword, $firstName, $las
 		return 1;
 	}
 	
-	if ($playerSex == "M")
-		$socialID = "avatar_homme.jpg";
-	else
-		$socialID = "avatar_femme.jpg";
+	if ($socialID == "")
+		if ($playerSex == "M")
+			$socialID = "avatar_homme.jpg";
+		else
+			$socialID = "avatar_femme.jpg";
 		
 	@mysqli_query($dbh,"BEGIN");
 		
