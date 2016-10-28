@@ -445,6 +445,7 @@ require 'include/page_body_home.php';
 		   		<a href="http://www.capakaspa.info/forums-echecs/forum/forum-clubs-dechecs/"><?php echo _("Chess Clubs");?></a><br>
 	   		</div>
    		</div>
+   		<a href='http://www.mesjeuxvirtuels.com'  target='_blank'><img src='http://www.mesjeuxvirtuels.com/images/btn88x31.gif' /></a>
 	</div>
 </div>
 
