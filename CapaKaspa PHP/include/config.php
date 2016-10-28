@@ -6,7 +6,7 @@
 	$CFG_SERVER = "127.0.0.1";
 	$CFG_USER = "root";
 	$CFG_PASSWORD = "";
-	$CFG_DATABASE = "capakaspa";
+	$CFG_DATABASE = "capakaspa_prod";
 
     /* remote server 1and1 */
 	/*$CFG_SERVER = "db317.1and1.fr";
