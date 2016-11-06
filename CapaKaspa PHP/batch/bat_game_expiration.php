@@ -1,6 +1,12 @@
 ﻿<?
-/* php5.4 -f /kunden/homepages/3/d148385019/htdocs/capakaspa/batch/bat_game_expiration.php */
-/* C:\"Program Files (x86)"\EasyPHP-DevServer-14.1VC9\binaries\php\php_runningversion\php.exe "C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP\batch\bat_game_expiration.php"*/
+/* 
+ * php5.4 -f /kunden/homepages/3/d148385019/htdocs/capakaspa/batch/bat_game_expiration.php 
+ *
+ * Commande pour test en local sur le PC 
+ * C:\"Program Files (x86)"\EasyPHP-DevServer-14.1VC9\binaries\php\php_runningversion\php.exe "C:\Users\Sebastien\git\capakaspa2013\CapaKaspa PHP\batch\bat_game_expiration.php"
+ */
+
+// TODO A finaliser qd cron dispo sur hébergement
 
 /* database settings */
 /* local server */
@@ -59,6 +65,7 @@ function sendMail($msgTo, $mailSubject, $mailMsg)
 function batchGameExpiration()
 {
 	global $dbh;
+	sendMail("capakaspa@capakaspa.info", "[CapaKaspa] "._("Batch : Game expiration starts !"), "Le batch démarre.");
 	$tmpGames = mysqli_query($dbh, "SELECT G.gameID gameID, DATE_ADD(G.lastMove, INTERVAL G.timeMove DAY) expirationDate, 
 											W.playerID whitePlayerID, W.nick whiteNick, W.email whiteEmail, PRWL.value whiteLang, PRWE.value whiteNotif,
 											B.playerID blackPlayerID, B.nick blackNick, B.email blackEmail, PRBL.value blackLang, PRBE.value blackNotif,
