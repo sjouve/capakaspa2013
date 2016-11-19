@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2016-10-28 21:03+0200\n"
-"PO-Revision-Date: 2016-10-28 21:04+0200\n"
+"POT-Creation-Date: 2016-11-06 13:19+0100\n"
+"PO-Revision-Date: 2016-11-06 13:21+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 1.8.11\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -1737,8 +1737,8 @@ msgid "More on CapaKaspa"
 msgstr "Plus sur CapaKaspa"
 
 #: include/page_body.php:139
-msgid "Forums"
-msgstr ""
+msgid "World Championship 2016"
+msgstr "Championnat du Monde"
 
 #: include/page_body.php:140 index.php:421 index.php:442
 msgid "Learning chess"
@@ -1768,9 +1768,9 @@ msgstr "Actualités des échecs"
 msgid "Upcoming events"
 msgstr "Evénements à venir"
 
-#: include/page_body.php:147 index.php:424
-msgid "Live !!"
-msgstr "Le Direct !!"
+#: include/page_body.php:147
+msgid "Forums"
+msgstr ""
 
 #: include/page_body.php:148
 msgid "And more"
@@ -2004,6 +2004,10 @@ msgstr "tournois d'échecs en cours"
 #: index.php:419
 msgid "Learn, practice and progress"
 msgstr "Apprendre, s'exercer et progresser"
+
+#: index.php:424
+msgid "Live !!"
+msgstr "Le Direct !!"
 
 #: index.php:434
 msgid "Chess forums"
