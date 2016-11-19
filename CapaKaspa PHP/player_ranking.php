@@ -82,6 +82,7 @@ require 'include/page_body.php';
 	<div class="contentbody">
 		<div class="blockform">
 		<h3><? echo _("Players ranking");?></h3>
+		<p><a href="http://www.capakaspa.info/propos-contact/aide/" target="_blank"><? echo _("How is the ranking of players calculated?");?></a></p>
 		<div id="searchForm">
 			<form name="searchPlayers" action="player_ranking.php" method="post">
 				<table border="0" width="100%">

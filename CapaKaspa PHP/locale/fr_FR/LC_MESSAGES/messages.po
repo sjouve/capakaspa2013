@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2016-11-06 13:19+0100\n"
-"PO-Revision-Date: 2016-11-06 13:21+0100\n"
+"POT-Creation-Date: 2016-11-19 17:37+0100\n"
+"PO-Revision-Date: 2016-11-19 17:38+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -452,7 +452,7 @@ msgid "Elo"
 msgstr "Elo"
 
 #: ajax/ajx_display_player.php:62 mobile/ajax/ajx_display_player.php:62
-#: mobile/player_view.php:180 player_ranking.php:93 player_view.php:258
+#: mobile/player_view.php:180 player_ranking.php:94 player_view.php:258
 #: player_view.php:347 player_view.php:406
 msgid "Chess960"
 msgstr "Chess960"
@@ -863,7 +863,7 @@ msgstr "OK"
 #: bwc/bwc_games.php:1407 game_list_ended.php:156 game_new.php:185
 #: mobile/game_new.php:137 mobile/tournament_list.php:74
 #: mobile/tournament_list.php:152 mobile/tournament_list.php:181
-#: mobile/tournament_view.php:66 player_ranking.php:92 tournament_list.php:76
+#: mobile/tournament_view.php:66 player_ranking.php:93 tournament_list.php:76
 #: tournament_list.php:154 tournament_list.php:183 tournament_view.php:69
 msgid "Classic game"
 msgstr "Partie classique"
@@ -1424,7 +1424,7 @@ msgstr "ECO"
 msgid "Sorted by last move"
 msgstr "Triées par date du dernier coup"
 
-#: game_list_ended.php:224 mobile/player_search.php:130 player_ranking.php:126
+#: game_list_ended.php:224 mobile/player_search.php:130 player_ranking.php:127
 #: player_search.php:136
 msgid "Filter"
 msgstr "Filtrer"
@@ -2153,7 +2153,7 @@ msgstr "Rechercher des joueurs, jouer aux échecs et partager"
 msgid "Players advanced search"
 msgstr "Recherche avancée de joueurs"
 
-#: mobile/player_search.php:91 player_ranking.php:110 player_search.php:92
+#: mobile/player_search.php:91 player_ranking.php:111 player_search.php:92
 msgid "All countries"
 msgstr "Tous les pays"
 
@@ -2189,7 +2189,7 @@ msgstr "Entre"
 msgid "and"
 msgstr "et"
 
-#: mobile/player_search.php:132 player_ranking.php:135 player_search.php:143
+#: mobile/player_search.php:132 player_ranking.php:136 player_search.php:143
 msgid "player(s) found"
 msgstr "joueur(s) trouvés"
 
@@ -2343,27 +2343,31 @@ msgstr "Classement des joueurs"
 msgid "Players ranking by country and game type"
 msgstr "Classement des joueurs par pays et type de partie"
 
-#: player_ranking.php:89
+#: player_ranking.php:85
+msgid "How is the ranking of players calculated?"
+msgstr "Comment est calculé le classement des joueurs ?"
+
+#: player_ranking.php:90
 msgid "Choose ranking"
 msgstr "Choisir le classement"
 
-#: player_ranking.php:98
+#: player_ranking.php:99
 msgid "Order ranking"
 msgstr "Trier le classement"
 
-#: player_ranking.php:101
+#: player_ranking.php:102
 msgid "From first to last"
 msgstr "Du premier au dernier"
 
-#: player_ranking.php:102
+#: player_ranking.php:103
 msgid "From last to first"
 msgstr "Du dernier au premier"
 
-#: player_ranking.php:107
+#: player_ranking.php:108
 msgid "Filter by country"
 msgstr "Filtrer par pays"
 
-#: player_ranking.php:134
+#: player_ranking.php:135
 msgid "Your rank is"
 msgstr "Votre classement est"
 
