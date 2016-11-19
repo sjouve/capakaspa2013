@@ -341,14 +341,14 @@ function GamePiece()
 			*/
 			if (fromCol > toCol)
 			{
-				if (board[fromRow][2] != 0 && (board[fromRow][2] & COLOR_MASK) != KING && (board[fromRow][2] & COLOR_MASK) != ROOK) 
+				if (board[fromRow][2] != 0 && (board[fromRow][2] & COLOR_MASK) != KING && ((board[fromRow][2] & COLOR_MASK) != ROOK || fromCol < 2)) 
 				{
 					//errMsg = "Can only castle if there are no pieces between the rook and the king";
 					errMsg = document.getElementById('#alert_err_castle_pieces_id').innerHTML;
 					
 					return false;
 				}
-				if (board[fromRow][3] != 0 && (board[fromRow][3] & COLOR_MASK) != ROOK && (board[fromRow][3] & COLOR_MASK) != KING) 
+				if (board[fromRow][3] != 0 && ((board[fromRow][3] & COLOR_MASK) != ROOK || fromCol < 3) && (board[fromRow][3] & COLOR_MASK) != KING) 
 				{
 					//errMsg = "Can only castle if there are no pieces between the rook and the king";
 					errMsg = document.getElementById('#alert_err_castle_pieces_id').innerHTML;
@@ -358,14 +358,14 @@ function GamePiece()
 			}
 			else
 			{
-				if (board[fromRow][5] != 0 && (board[fromRow][5] & COLOR_MASK) != ROOK && (board[fromRow][5] & COLOR_MASK) != KING) 
+				if (board[fromRow][5] != 0 && ((board[fromRow][5] & COLOR_MASK) != ROOK || fromCol > 5) && (board[fromRow][5] & COLOR_MASK) != KING) 
 				{
 					//errMsg = "Can only castle if there are no pieces between the rook and the king";
 					errMsg = document.getElementById('#alert_err_castle_pieces_id').innerHTML;
 					
 					return false;
 				}
-				if (board[fromRow][6] != 0 && (board[fromRow][6] & COLOR_MASK) != KING && (board[fromRow][6] & COLOR_MASK) != ROOK) 
+				if (board[fromRow][6] != 0 && (board[fromRow][6] & COLOR_MASK) != KING && ((board[fromRow][6] & COLOR_MASK) != ROOK || fromCol > 6)) 
 				{
 					//errMsg = "Can only castle if there are no pieces between the rook and the king";
 					errMsg = document.getElementById('#alert_err_castle_pieces_id').innerHTML;
@@ -380,8 +380,8 @@ function GamePiece()
 			if (fromCol > toCol) tmpStep = -1;
 			else tmpStep = 1;
 			
-			for (i = fromCol; i != toCol; i += tmpStep)
-				if (board[fromRow][i] != 0 && (board[toRow][toCol] & COLOR_MASK) != ROOK)
+			for (i = fromCol + tmpStep; i != toCol; i += tmpStep)
+				if (board[fromRow][i] != 0 && (board[toRow][i] & COLOR_MASK) != ROOK)
 				{
 					//errMsg = "Can only castle if there are no pieces between the rook and the king";
 					errMsg = document.getElementById('#alert_err_castle_pieces_id').innerHTML;

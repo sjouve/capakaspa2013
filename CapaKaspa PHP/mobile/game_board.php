@@ -195,7 +195,7 @@ require 'include/page_header.php';
 <script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessCommands002.js">
 // these functions interact with the server
 </script>
-<script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessValidation002.js">
+<script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessValidation003.js">
 // these functions are used to test the validity of moves
 </script>
 <script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessIsCheckMate002.js">
