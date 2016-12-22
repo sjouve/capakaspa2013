@@ -136,14 +136,15 @@ if (isset($toPlayerID))
 	<div class="navlinks">
 		<div class="title"><?php echo _("More on CapaKaspa");?></div>
 			<ul>
-		        <li><img src="images/event.png"/> <a href="http://www.capakaspa.info/evenement/championnat-monde-echecs-2016/"><b><? echo _("World Championship 2016");?></a></b></li>
-		        <li id="menu7"><img src="images/learnchess.png"/> <a href="http://www.capakaspa.info/apprendre-a-jouer-aux-echecs/"><? echo _("Learning chess");?></a></li>
+		        <!-- <li><img src="images/event.png"/> <a href="http://www.capakaspa.info/evenement/championnat-monde-echecs-2016/"><b><? echo _("World Championship 2016");?></a></b></li> -->
+		        <li><img src="images/chessnews.png"/> <a href="http://www.capakaspa.info/category/actualites-des-echecs/"><? echo _("Chess news");?></a></li>
 		        <li id="menu8"><img src="images/chesspuzzle.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/diagramme-echecs-du-jour/"><?php echo _("Puzzle of the day");?></a></li>
+		        <li><img src="images/jchess.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-cinnamon/"><b><?php echo _("Play vs Cinnamon");?><b></a></li>
 		        <li><img src="images/jchess.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-garbochess/"><?php echo _("Play vs GarboChess");?></a></li>
 		        <li><img src="images/flashchess.gif"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-avec-flashchess/"><?php echo _("Play vs FlashChess");?></a></li>
 		        <li><img src="images/sparkchess.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-avec-sparkchess/"><?php echo _("Play vs SparkChess");?></a></li>
-		        <li><img src="images/chessnews.png"/> <a href="http://www.capakaspa.info/category/actualites-des-echecs/"><? echo _("Chess news");?></a></li>
 		        <!-- <li><img src="images/event.png"/> <a href="http://www.capakaspa.info/evenements/"><? echo _("Upcoming events");?></a></li> -->
+		        <li id="menu7"><img src="images/learnchess.png"/> <a href="http://www.capakaspa.info/apprendre-a-jouer-aux-echecs/"><? echo _("Learning chess");?></a></li>
 		        <li><img src="images/megaphone_16.png"/> <a href="http://www.capakaspa.info/forums-echecs-sujets/"><? echo _("Forums");?></a></li>
 		        <!--<li><img src="images/capakaspa.png"/> <a href="http://www.capakaspa.info/"><? echo _("And more");?></a></li> -->
       		</ul>
