@@ -9,6 +9,7 @@ if (!isset($_CONFIG))
 
 require '../dac/dac_players.php';
 require '../bwc/bwc_common.php';
+require '../bwc/bwc_players.php';
 
 // Connect DB
 require '../include/connectdb.php';
