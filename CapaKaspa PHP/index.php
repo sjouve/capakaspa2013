@@ -132,7 +132,7 @@ fb_param.value = '0.00';
 })();
 </script>
 <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6006417340813&amp;value=0" /></noscript>
-<script type="text/javascript" src="javascript/formValidation.js">
+<script type="text/javascript" src="javascript/formValidation001.js">
  /* fonctions de validation des champs d'un formulaire */
 </script>
 <script type="text/javascript">
@@ -179,7 +179,7 @@ function validateForm()
 		return;
 	}
 	
-	if (!isAlphaNumeric(document.userdata.pwdPassword.value)||document.userdata.pwdPassword.value.length < 6)
+	if (!isPassword(document.userdata.pwdPassword.value)||document.userdata.pwdPassword.value.length < 6)
 	{
 		document.getElementById("password_format_error").style.display = "block";
 		return;
@@ -421,10 +421,11 @@ require 'include/page_body_home.php';
 		   		<img src="images/learnchess.png"/> <a href="http://www.capakaspa.info/apprendre-a-jouer-aux-echecs/"><? echo _("Learning chess");?></a><br>
 		   		<img src="images/chessnews.png"/> <a href="http://www.capakaspa.info/category/actualites-des-echecs/"><? echo _("Chess news");?></a><br>
 			    <img src="images/event.png"/> <a href="http://www.capakaspa.info/evenements/"><? echo _("Upcoming events");?></a><br>
-			    <img src="images/event.png"/> <a href="http://www.capakaspa.info/competitions-echecs-en-direct/"><? echo _("Live !!");?></a><br>
+			    <img src="images/chesspuzzle.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/diagramme-echecs-du-jour/"><?php echo _("Puzzle of the day");?></a><br>
+		   		<!-- <img src="images/event.png"/> <a href="http://www.capakaspa.info/competitions-echecs-en-direct/"><? echo _("Live !!");?></a><br> -->
    			</div>
    			<div style="float: left; width: 50%">
-		   		<img src="images/chesspuzzle.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/diagramme-echecs-du-jour/"><?php echo _("Puzzle of the day");?></a><br>
+		   		<img src="images/jchess.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-cinnamon/"><?php echo _("Play vs Cinnamon");?></a><br>
 		   		<img src="images/jchess.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-garbochess/"><?php echo _("Play vs GarboChess");?></a><br>
 		   		<img src="images/flashchess.gif"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-avec-flashchess/"><?php echo _("Play vs FlashChess");?></a><br>
 		   		<img src="images/sparkchess.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-avec-sparkchess/"><?php echo _("Play vs SparkChess");?></a><br>
@@ -445,7 +446,7 @@ require 'include/page_body_home.php';
 		   		<a href="http://www.capakaspa.info/forums-echecs/forum/forum-clubs-dechecs/"><?php echo _("Chess Clubs");?></a><br>
 	   		</div>
    		</div>
-   		<a href='http://www.mesjeuxvirtuels.com'  target='_blank'><img src='http://www.mesjeuxvirtuels.com/images/btn88x31.gif' /></a>
+   		<a href='http://www.mesjeuxvirtuels.com'  target='_blank'><img src='http://www.mesjeuxvirtuels.com/images/btn88x31.gif' /></a> <a href="http://jeu.co/jeux-par-navigateur.htm">Jeux par Navigateur sur Jeu.co</a><br> <a href="http://www.jeux-en-ligne-gratuits.net/" title="jeux en ligne gratuits">jeux-en-ligne-gratuits.net</a>
 	</div>
 </div>
 

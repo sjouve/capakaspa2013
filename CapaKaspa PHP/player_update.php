@@ -120,7 +120,7 @@ $titre_page = _("Update your profile");
 $desc_page = _("Update your profile");
 require 'include/page_header.php';
 ?>
-<script type="text/javascript" src="javascript/formValidation.js">
+<script type="text/javascript" src="javascript/formValidation001.js">
  /* fonctions de validation des champs d'un formulaire */
 </script>
 <script type="text/javascript">	
@@ -137,7 +137,7 @@ function validatePersonalInfo()
 	document.getElementById("confirm_password_error").style.display = "none";
 	document.getElementById("old_password_error").style.display = "none";
 	
-	if (!isEmpty(document.userdata.pwdPassword.value) && (!isAlphaNumeric(document.userdata.pwdPassword.value) || document.userdata.pwdPassword.value.length < 6))
+	if (!isEmpty(document.userdata.pwdPassword.value) && (!isPassword(document.userdata.pwdPassword.value) || document.userdata.pwdPassword.value.length < 6))
 	{
 		document.getElementById("password_format_error").style.display = "block";
 		return;
@@ -305,24 +305,18 @@ require 'include/page_body.php';
             		<option value="F" <?if ($_SESSION['playerSex'] == "F") echo("selected");?>><?echo _("Female");?></option>
             	</select>
             </td>
-            <td colspan="2">&nbsp;</td>
           </tr>
           <tr>
             <td><?php echo _("User name");?> : </td>
             <td><? echo($_SESSION['nick']); ?></td>
-            <td colspan="2"><h4><?echo _("Enter data here to change password");?></h4></td>
           </tr>
 		  <tr>
             <td><?php echo _("First name");?> : </td>
             <td><input name="txtFirstName" type="text" size="20" maxlength="20" value="<? echo($_SESSION['firstName']); ?>"></td>
-            <td><?php echo _("Actual password");?> : </td>
-            <td><input name="pwdOldPassword" size="30" type="password" value=""></td>
           </tr>
           <tr>
             <td><?php echo _("Last name");?> : </td>
             <td><input name="txtLastName" type="text" size="20" maxlength="20" value="<? echo($_SESSION['lastName']); ?>"></td>
-            <td><?php echo _("New password");?> : </td>
-            <td><input name="pwdPassword" size="30" type="password" value=""></td>
           </tr>
           <tr>
             <td><?php echo _("Birth date (year)");?> :</td>
@@ -344,11 +338,23 @@ require 'include/page_body.php';
 				}
 				?>
             </select></td>
-            <td><?php echo _("Confirm password");?>: </td>
+        </tr>
+        </table>
+        <h4><?echo _("Enter data here to change password");?></h4>
+        <table>
+		  <tr>
+            <td width="180"><?php echo _("Actual password");?> : </td>
+            <td><input name="pwdOldPassword" size="30" type="password" value=""></td>
+          </tr>
+          <tr>
+            <td><?php echo _("New password");?> : </td>
+            <td><input name="pwdPassword" size="30" type="password" value=""></td>
+          </tr>
+          <tr>
+            <td><?php echo _("Confirm password");?> : </td>
             <td><input name="pwdPassword2" size="30" type="password" value=""></td>
         </tr>
         </table>
-        
         <h4><?php echo _("Contact info");?></h4>
         <table border="0" width="650">
 		  <tr>

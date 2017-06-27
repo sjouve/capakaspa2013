@@ -806,8 +806,8 @@ function drawboardGame($gameID, $whitePlayer, $blackPlayer, $position, $nbMoves)
 	echo ("</table></td></tr></table>\n\n");
 }
 
-/* UtilisÃ© dans l'Ã©cran d'une partie */
-function drawboard($withCoord)
+/* Utilisé dans l'écran d'une partie */
+function drawboard($withCoord, $size)
 {
 	global $board, $playersColor, $numMoves, $nb_game_vacation;
 	
@@ -888,7 +888,7 @@ function drawboard($withCoord)
 		/* NOTE: end condition is ($rightCol + $colStep) since we want to output $rightCol */
 		for ($j = $leftCol; $j != ($rightCol + $colStep); $j += $colStep)
 		{
-			echo ("   <td title='".chr($j + 65).($i+1)."' id='".$i.$j."' bgcolor='");
+			echo ("   <td title='".chr($j + 65).($i+1)."' id='".$i.$j."' style='padding: 0px;' bgcolor='");
 
 			/* if board is disabled, show board in grayscale */
 			if ($isDisabled)
@@ -916,7 +916,7 @@ function drawboard($withCoord)
 					echo ("false)'>");
 			}
 
-			echo ("<img style='vertical-align: middle' name='pos$i-$j' src='pgn4web/".$_SESSION['pref_theme']."/35/");
+			echo ("<img style='vertical-align: middle' name='pos$i-$j' src='pgn4web/".$_SESSION['pref_theme']."/".$size."/");
 
 			/* if position is empty... */
 			if ($board[$i][$j] == 0)
@@ -1077,6 +1077,7 @@ function writeStatus($tmpGame)
 	}
 	
 	?>
+	<div id="gamestatus">
 	<table border="0" align="center" cellspacing="0" cellpadding="0">
 	<tr bgcolor="#FFFFFF" valign="top">
 		<th width="10%" align="left">
@@ -1153,26 +1154,24 @@ function writeStatus($tmpGame)
 						echo("[".$tmpGame['eco']."] ".$tmpGame['ecoName']. " - ");
 					echo _("Expiration")?> : <? if ($tmpGame['gameMessage'] == '') echo($strExpirationDate); else echo _("Ended game");?></div>
 			</th>
-		</tr>        		
-		<tr>
+		</tr>
+		</table>
+		</div>
+		<?if ((!$isCheckMate && ($history[$numMoves]['isInCheck'] == 1)) || isset($statusMessage)) 
+		{?>
+		<div id="statusMessage" style="width:100%; text-align: center; background-color: #F2A521; padding: 5px;">
           		<?
           		if (($numMoves == -1) || ($numMoves % 2 == 1))
           			$curColor = _("Whites");
           		else
           			$curColor = _("Blacks");
           		
-          		if ((!$isCheckMate && ($history[$numMoves]['isInCheck'] == 1)) || isset($statusMessage))
-          			$bgcolor = "F2A521";
-          		else
-          			$bgcolor = "FFFFFF";
-          		
-          		echo("<td align='center' bgcolor='".$bgcolor."' colspan='4'>");
           		if (!$isCheckMate && ($history[$numMoves]['isInCheck'] == 1))
           			echo("<b>".$curColor." "._("are in check")." !</b> ");
-          		echo($statusMessage."&nbsp;</td>");
+          		echo($statusMessage."&nbsp;");
           		?>
-		</tr>
-	</table>
+		</div>
+		<? }?>
 	<?
 }
 
@@ -1295,17 +1294,13 @@ function writeStatusMobile($tmpGame)
 function writeDrawRequest($isMobile)
 {
 ?>	
-	<table <?if (!$isMobile) {?>width="100%"<?};?> border="0" cellspacing="0" cellpadding="0">
-	<tr>
-		<td align="center" bgcolor="#F2A521">
+	<div id="drawRequest" style="width:100%; text-align: center; background-color: #F2A521; padding: 5px;">
 		<?echo _("Your opponent do a draw proposal. Are you agree ?")?>
 		<input type="radio" name="drawResponse" value="yes"> <?echo _("Yes")?>
 		<input type="radio" name="drawResponse" value="no" checked="checked"> <?echo _("No")?>
 		<input type="hidden" name="isDrawResponseDone" value="no">
 		<input type="button" value="<? echo _("OK")?>" class="button" onClick="this.form.isDrawResponseDone.value = 'yes'; this.form.submit()">
-		</td>
-	</tr>
-	</table>	
+	</div>
 <?
 }
 

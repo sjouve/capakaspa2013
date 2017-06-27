@@ -125,11 +125,12 @@ if (isset($toPlayerID))
 		</script>-->
 	<!-- </div>-->
 	<div class="navlinks">
-		<div class="title"><?php echo _("Christmas Shop");?> <img height="16" width="16" src="images/pere-noel.png" style="vertical-align:bottom;"/> </div>
+		<!-- <div class="title"><?php echo _("Christmas Shop");?> <img height="16" width="16" src="images/pere-noel.png" style="vertical-align:bottom;"/> </div> -->
+		<div class="title"><?php echo _("Shop");?></div>
 			<ul>
 		        <li><img src="images/chesspuzzle.png"/> <a target="_blank" href="https://www.amazon.fr/gp/search/ref=as_li_ss_tl?ie=UTF8&camp=1642&creative=19458&linkCode=ur2&lo=toys&qid=1465073333&rh=n%3A322086011%2Cn%3A!322088011%2Cn%3A363587031%2Cn%3A363591031&tag=capa-21"><? echo _("Chessboards");?></a><img src="https://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=ur2&o=8" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
 		     	<li><img src="images/livre.gif"/> <a target="_blank" href="https://www.amazon.fr/mn/search/ref=as_li_ss_tl?_encoding=UTF8&camp=1642&creative=19458&linkCode=ur2&lo=stripbooks&qid=1465073635&rh=n%3A301061%2Cn%3A301143%2Cn%3A302054%2Cn%3A407428&tag=capa-21"><? echo _("Chess books");?></a><img src="https://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=ur2&o=8" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
-		    	<li><img src="images/icone-mobile.png"/> <a target="_blank" href="http://amzn.to/2cZeksh"><? echo _("Chess software");?></a><img src="https://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=ur2&o=8" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
+		    	<li><img src="images/software-icon.png"/> <a target="_blank" href="http://amzn.to/2cZeksh"><? echo _("Chess software");?></a><img src="https://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=ur2&o=8" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></li>
 		    </ul>
 	</div>
 	
@@ -139,22 +140,24 @@ if (isset($toPlayerID))
 		        <!-- <li><img src="images/event.png"/> <a href="http://www.capakaspa.info/evenement/championnat-monde-echecs-2016/"><b><? echo _("World Championship 2016");?></a></b></li> -->
 		        <li><img src="images/chessnews.png"/> <a href="http://www.capakaspa.info/category/actualites-des-echecs/"><? echo _("Chess news");?></a></li>
 		        <li id="menu8"><img src="images/chesspuzzle.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/diagramme-echecs-du-jour/"><?php echo _("Puzzle of the day");?></a></li>
-		        <li><img src="images/jchess.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-cinnamon/"><b><?php echo _("Play vs Cinnamon");?><b></a></li>
+		        <li><img src="images/jchess.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-cinnamon/"><?php echo _("Play vs Cinnamon");?></a></li>
 		        <li><img src="images/jchess.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-garbochess/"><?php echo _("Play vs GarboChess");?></a></li>
-		        <li><img src="images/flashchess.gif"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-avec-flashchess/"><?php echo _("Play vs FlashChess");?></a></li>
-		        <li><img src="images/sparkchess.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-avec-sparkchess/"><?php echo _("Play vs SparkChess");?></a></li>
+		        <!-- <li><img src="images/flashchess.gif"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-avec-flashchess/"><?php echo _("Play vs FlashChess");?></a></li> -->
+		        <!-- <li><img src="images/sparkchess.png"/> <a href="http://www.capakaspa.info/jouer-aux-echecs-capakaspa/jouer-aux-echecs-avec-sparkchess/"><?php echo _("Play vs SparkChess");?></a></li> -->
 		        <!-- <li><img src="images/event.png"/> <a href="http://www.capakaspa.info/evenements/"><? echo _("Upcoming events");?></a></li> -->
 		        <li id="menu7"><img src="images/learnchess.png"/> <a href="http://www.capakaspa.info/apprendre-a-jouer-aux-echecs/"><? echo _("Learning chess");?></a></li>
 		        <li><img src="images/megaphone_16.png"/> <a href="http://www.capakaspa.info/forums-echecs-sujets/"><? echo _("Forums");?></a></li>
+		        <li><img src="images/picto_youtube.png" height="16" width="16"/> <a href="https://www.youtube.com/user/CapaKaspaEchecs" target="_blank"><? echo _("CapaKaspa TV");?></a></li>
 		        <!--<li><img src="images/capakaspa.png"/> <a href="http://www.capakaspa.info/"><? echo _("And more");?></a></li> -->
       		</ul>
 	</div>
 	<div class="navlinks">
-		<div class="title"><?php echo _("Videos");?></div>
+		<div class="title"><?php echo _("Services");?></div>
 			<ul>
-		        <li><img src="images/picto_youtube.png" height="16" width="16"/> <a href="https://www.youtube.com/user/CapaKaspaEchecs" target="_blank"><? echo _("CapaKaspa TV");?></a></li>
-		        <li><img src="images/picto_youtube.png" height="16" width="16"/> <a href="https://www.youtube.com/channel/UC8STiPeEcarI0FZl6XeeYEw" target="_blank"><? echo _("Viva Playgrounds !");?></a></li>
-		        <!-- <li><img src="images/playlist-icon-16.gif" height="16" width="16"/> <a href="https://www.youtube.com/playlist?list=PLuyns0zv3TDNvIT4o2COp_MJjT06QfY8n" target="_blank"><? echo _("Wonderful place to play !");?></a></li> -->
+		        <li><img src="images/jeux-gratuits.png" height="16" width="16"/> <a href="http://www.netassistant.fr/jeux-gratuits-en-ligne/" target="_blank"><? echo _("Free online games");?></a></li>
+		        <li><img src="images/meteo-icon.png" height="16" width="16"/> <a href="http://www.netassistant.fr/meteo-france/" target="_blank"><? echo _("Weather France");?></a></li>
+		        <li><img src="images/tv-icon.png" height="16" width="16"/> <a href="http://www.netassistant.fr/programme-tv/" target="_blank"><? echo _("TV program");?></a></li>
+		        <li><img src="images/telephone-icon.png" height="16" width="16"/> <a href="http://www.netassistant.fr/pages-jaunes/" target="_blank"><? echo _("Phone directory");?></a></li>
       		</ul>
 	</div>
 </div>

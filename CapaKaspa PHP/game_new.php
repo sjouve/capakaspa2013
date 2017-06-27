@@ -31,7 +31,7 @@ $username = isset($_POST['opponent'])? $_POST['opponent'] :"";
 
 ?>
 <script src="javascript/menu.js" type="text/javascript"></script>
-<script src="javascript/formValidation.js" type="text/javascript"></script>
+<script src="javascript/formValidation001.js" type="text/javascript"></script>
 <script type="text/javascript">
 function chess960()
 {

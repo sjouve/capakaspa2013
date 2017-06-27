@@ -284,7 +284,8 @@ body {
 }
 #gamedata {
 	background-color: #FFFFFF;
-	height: 355px;
+	/*height: 355px;*/
+	width: 100%;
 	border-bottom: solid;
 	border-right: solid;
 	border-width: 1px;
@@ -293,30 +294,28 @@ body {
 #gameplayer {
 	display: block;
 	float:left;
-	width:297px;
+	width:60%;
 	background-color: #FFFFFF;
+	padding-left: 5px;
 }
 #gamestatus {
 	display: block;
-	padding-left: 5px;
-	padding-right: 5px;
-	padding-top: 5px;
-	width: 469px;
-	float: right;
+	padding: 5px;
+	width: 100%;
+	float: left;
 	background-color: #FFFFFF;
 }
-#gameaction {
-	width: 469px;
-	float: right;
+#gameboardmoves
+{
+	width: 100%;
+	float: left;
 	background-color: #FFFFFF;
 	padding-left: 5px;
 	padding-right: 5px;
-	text-align: right;
 }
 #gamemoves {
-	width: 458px;
-	height: 175px;
-	margin: 5px;
+	width: 37%;
+	height: 448px;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #CCCCCC;
@@ -324,11 +323,12 @@ body {
 	padding-right: 5px;
 	float: right;
 	background-color: #FFFFFF;
+	overflow-y: auto;
 }
 #gamecaptured {
-	width: 768px;
+	width: 100%;
 	height: 25px;
-	float: right;
+	float: left;
 	padding-top: 3px;
 	padding-left: 5px;
 	padding-right: 5px;
@@ -344,11 +344,65 @@ body {
 	border-color: #DDDDDD;
 	background-color: #FFFFFF;
 }
-.gamemoveaction {
-	height: 25px;
-	padding-left: 3px;
-	padding-top:2x;
+#gameinfos
+{
+	width: 100%;
+	float: left;
+	padding: 5px; 
+	font-size: 11px; 
+	border-top-style: solid; 
+	border-right-style: none; 
+	border-bottom-style: solid; 
+	border-left-style: none; 
+	border-width: 1px;
+	border-color: #DDDDDD; 
+	background-color: #FFFFFF;
 }
+#gamesocial
+{
+	float: left;
+	width: 100%;
+	overflow:  hidden;
+	display: block;
+	background-color: #FFFFFF;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-width: 0px;	
+	padding: 5px; 
+}
+#gamesocialaction
+{
+	float: left;
+	overflow: hidden;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 5px; 
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none; 
+	background-color: #FFFFFF;
+}
+#gameaction {
+	width: 100%;
+	float: left;
+	height: 25px;
+	background-color: #FFFFFF;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	/*text-align: right;*/
+}
+#gamegeneralaction
+{
+	float: right;
+}
+.gamemoveaction {
+	float: left;
+	padding-left: 5px;
+	padding-top:5x;
+}
+
 #player_view_header {
 	background-color: #FFFFFF;
 	display: block;

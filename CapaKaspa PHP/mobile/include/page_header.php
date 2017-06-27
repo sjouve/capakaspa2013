@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" href="http://jouerauxechecs.capakaspa.info/css/capakaspa.css" type="text/css" />
-	<link rel="stylesheet" href="css/mobile.css" type="text/css" />
+	<link rel="stylesheet" href="css/mobile001.css" type="text/css" />
 	<title>CapaKaspa - <? echo($titre_page)?></title>
 	<meta name="description" content="<? echo($desc_page)?>" />
 	<meta name="robots" content="noindex, nofollow" />

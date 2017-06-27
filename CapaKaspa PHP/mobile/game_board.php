@@ -192,7 +192,7 @@ require 'include/page_header.php';
 <script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessUtils002.js">
  /* these are utility functions used by other functions */
 </script>
-<script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessCommands002.js">
+<script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessCommands003.js">
 // these functions interact with the server
 </script>
 <script type="text/javascript" src="http://jouerauxechecs.capakaspa.info/javascript/chessValidation003.js">
@@ -274,7 +274,7 @@ require 'include/page_body.php';
 						<input type="radio" name="promotion" value="<? echo (ROOK); ?>"> <?echo _("Rook")?>
 						<input type="radio" name="promotion" value="<? echo (KNIGHT); ?>"> <?echo _("Knight")?>
 						<input type="radio" name="promotion" value="<? echo (BISHOP); ?>"> <?echo _("Bishop")?>
-						<input type="button" name="btnPromote" value="<? echo _("OK")?>" class="button" onClick="promotepawn()" />
+						<input type="button" name="btnPromote" value="<? echo _("OK")?>" class="button" onClick="promotepawn(37)" />
 					</td></tr>
 					</table>
 				</div>
@@ -295,7 +295,7 @@ require 'include/page_body.php';
 				<? } else {?>
 				<div id="player" style="display:none;">
 				<? } ?>				
-					<? drawboard(false); ?>
+					<? drawboard(false, 37); ?>
 					<div class="gamemoveaction">
 						<input type="button" id="btnUndo" name="btnUndo" class="button" style="visibility: hidden" value="<?php echo _("Cancel")?>" onClick="javascript:undo();">
 						<input type="button" id="btnPlay" name="btnPlay" class="button" style="visibility: hidden" value="<?php echo _("Valid")?>" onClick="javascript:play();">

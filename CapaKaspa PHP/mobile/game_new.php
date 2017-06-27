@@ -30,7 +30,7 @@ require 'include/page_header.php';
 $username = isset($_POST['opponent'])? $_POST['opponent'] :"";
 
 ?>
-<script src="http://jouerauxechecs.capakaspa.info/javascript/formValidation.js" type="text/javascript"></script>
+<script src="http://jouerauxechecs.capakaspa.info/javascript/formValidation001.js" type="text/javascript"></script>
 <script type="text/javascript">
 function chess960()
 {

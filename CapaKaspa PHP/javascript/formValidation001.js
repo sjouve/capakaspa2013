@@ -50,6 +50,19 @@ function isAlphaNumeric(val)
 	}	
 }
 
+//check to see if input is password
+function isPassword(val)
+{
+	if (val.match(/^[a-zA-Z0-9!?:;.-_()]+$/))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}	
+}
+
 // check to see if value is within range
 function isWithinRange(val, min, max)
 {

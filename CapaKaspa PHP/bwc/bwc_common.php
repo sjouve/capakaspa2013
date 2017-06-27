@@ -32,7 +32,7 @@ function sendMail($msgTo, $mailSubject, $mailMsg)
 	
 	$mailMsg = "<html xmlns=\"http://www.w3.org/1999/xhtml\">
 					<head>
-						<link rel=\"stylesheet\" href=\"http://jouerauxechecs.capakaspa.info/css/capakaspa.css\" type=\"text/css\">
+						<link rel=\"stylesheet\" href=\"http://jouerauxechecs.capakaspa.info/css/capakaspa001.css\" type=\"text/css\">
 						<script type=\"application/ld+json\">
 						{
 						  \"@context\": \"http://schema.org\",

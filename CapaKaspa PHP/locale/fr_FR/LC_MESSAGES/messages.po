@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2016-12-22 22:43+0100\n"
-"PO-Revision-Date: 2016-12-22 22:43+0100\n"
+"POT-Creation-Date: 2017-01-21 13:13+0100\n"
+"PO-Revision-Date: 2017-01-21 13:14+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -1720,81 +1720,93 @@ msgstr "Joueurs passifs"
 msgid "Christmas Shop"
 msgstr "Boutique de Noël"
 
-#: include/page_body.php:130
+#: include/page_body.php:129
+msgid "Shop"
+msgstr "Boutique"
+
+#: include/page_body.php:131
 msgid "Chessboards"
 msgstr "Echiquiers"
 
-#: include/page_body.php:131
+#: include/page_body.php:132
 msgid "Chess books"
 msgstr "Livres d'échecs"
 
-#: include/page_body.php:132
+#: include/page_body.php:133
 msgid "Chess software"
 msgstr "Logiciels d'échecs"
 
-#: include/page_body.php:137
+#: include/page_body.php:138
 msgid "More on CapaKaspa"
 msgstr "Plus sur CapaKaspa"
 
-#: include/page_body.php:139
+#: include/page_body.php:140
 msgid "World Championship 2016"
 msgstr "Championnat du Monde"
 
-#: include/page_body.php:140 index.php:422 index.php:436
+#: include/page_body.php:141 index.php:422 index.php:437
 msgid "Chess news"
 msgstr "Actualités des échecs"
 
-#: include/page_body.php:141 index.php:427
+#: include/page_body.php:142 index.php:424
 msgid "Puzzle of the day"
 msgstr "Diagramme du jour"
 
-#: include/page_body.php:142
+#: include/page_body.php:143 index.php:428
 msgid "Play vs Cinnamon"
 msgstr "Jouer avec Cinnamon"
 
-#: include/page_body.php:143 index.php:428
+#: include/page_body.php:144 index.php:429
 msgid "Play vs GarboChess"
 msgstr "Jouer avec GarboChess"
 
-#: include/page_body.php:144 index.php:429
+#: include/page_body.php:145 index.php:430
 msgid "Play vs FlashChess"
 msgstr "Jouer avec FlashChess"
 
-#: include/page_body.php:145 index.php:430
+#: include/page_body.php:146 index.php:431
 msgid "Play vs SparkChess"
 msgstr "Jouer avec SparkChess"
 
-#: include/page_body.php:146 index.php:423
+#: include/page_body.php:147 index.php:423
 msgid "Upcoming events"
 msgstr "Evénements à venir"
 
-#: include/page_body.php:147 index.php:421 index.php:442
+#: include/page_body.php:148 index.php:421 index.php:443
 msgid "Learning chess"
 msgstr "Apprendre les échecs"
 
-#: include/page_body.php:148
+#: include/page_body.php:149
 msgid "Forums"
 msgstr ""
 
-#: include/page_body.php:149
-msgid "And more"
-msgstr "Et plus..."
-
-#: include/page_body.php:153
-msgid "Videos"
-msgstr "Vidéos"
-
-#: include/page_body.php:155
+#: include/page_body.php:150
 msgid "CapaKaspa TV"
 msgstr ""
 
-#: include/page_body.php:156
-msgid "Viva Playgrounds !"
+#: include/page_body.php:151
+msgid "And more"
+msgstr "Et plus..."
+
+#: include/page_body.php:155
+msgid "Services"
 msgstr ""
 
 #: include/page_body.php:157
-msgid "Wonderful place to play !"
-msgstr "Magnifique lieu pour jouer !"
+msgid "Free online games"
+msgstr "Jeux gratuits en ligne"
+
+#: include/page_body.php:158
+msgid "Weather France"
+msgstr "Météo France"
+
+#: include/page_body.php:159
+msgid "TV program"
+msgstr "Programme TV"
+
+#: include/page_body.php:160
+msgid "Phone directory"
+msgstr "Pages Jaunes"
 
 #: include/page_footer.php:3 include/page_footer_right.php:3 site_privacy.php:4
 #: site_privacy.php:16
@@ -2009,35 +2021,35 @@ msgstr "tournois d'échecs en cours"
 msgid "Learn, practice and progress"
 msgstr "Apprendre, s'exercer et progresser"
 
-#: index.php:424
+#: index.php:425
 msgid "Live !!"
 msgstr "Le Direct !!"
 
-#: index.php:434
+#: index.php:435
 msgid "Chess forums"
 msgstr "Forums du jeu d'échecs"
 
-#: index.php:437
+#: index.php:438
 msgid "Chess openings"
 msgstr "Ouvertures d'échecs"
 
-#: index.php:438
+#: index.php:439
 msgid "Strategy and tactics"
 msgstr "Stratégie et tactique"
 
-#: index.php:439
+#: index.php:440
 msgid "Chess endings"
 msgstr "Finales d'échecs"
 
-#: index.php:443
+#: index.php:444
 msgid "Software"
 msgstr "Informatique"
 
-#: index.php:444
+#: index.php:445
 msgid "Composition"
 msgstr "Problèmes et études"
 
-#: index.php:445
+#: index.php:446
 msgid "Chess Clubs"
 msgstr "Clubs d'échecs"
 
@@ -3383,11 +3395,14 @@ msgstr ""
 msgid "Comment this tournament"
 msgstr "Commenter ce tournoi"
 
+#~ msgid "Videos"
+#~ msgstr "Vidéos"
+
+#~ msgid "Wonderful place to play !"
+#~ msgstr "Magnifique lieu pour jouer !"
+
 #~ msgid "Ultimate travel chessboard"
 #~ msgstr "Echiquier de voyage ultime"
-
-#~ msgid "Shop"
-#~ msgstr "Boutique"
 
 #~ msgid "Training"
 #~ msgstr "Entrainement"

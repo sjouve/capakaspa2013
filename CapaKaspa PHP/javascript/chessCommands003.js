@@ -47,7 +47,7 @@ function logout()
 	document.gamedata.submit();
 }
 
-function promotepawn()
+function promotepawn(size)
 {
 	var blackPawnFound = false;
 	var whitePawnFound = false;
@@ -84,13 +84,13 @@ function promotepawn()
 	{
 		ennemyColor = "white";
 		board[0][i] = (BLACK | promotedTo);
-		eval("document.images['pos" + 0 + "-" + i +"'].src = 'pgn4web/" + CURRENTTHEME + "/35/b" + pieceLetter + ".png'");
+		eval("document.images['pos" + 0 + "-" + i +"'].src = 'pgn4web/" + CURRENTTHEME + "/" + size + "/b" + pieceLetter + ".png'");
 
 	}
 	else if (whitePawnFound)
 	{
 		board[7][i] = (WHITE | promotedTo);
-		eval("document.images['pos" + 7 + "-" + i +"'].src = 'pgn4web/" + CURRENTTHEME + "/35/w" + pieceLetter + ".png'");
+		eval("document.images['pos" + 7 + "-" + i +"'].src = 'pgn4web/" + CURRENTTHEME + "/" + size + "/w" + pieceLetter + ".png'");
 
 	}
 	else

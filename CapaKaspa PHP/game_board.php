@@ -150,7 +150,7 @@ require 'include/page_header.php';
 <script src="javascript/pmessage.js" type="text/javascript"></script>
 <script type="text/javascript">
 	// pgn4web parameter
-   	SetImagePath ("pgn4web/<?echo($_SESSION['pref_theme']);?>/37");
+   	SetImagePath ("pgn4web/<?echo($_SESSION['pref_theme']);?>/56");
    	SetImageType("png");
    	SetCommentsOnSeparateLines(true);
   	SetAutoplayDelay(2500); // milliseconds
@@ -170,6 +170,7 @@ require 'include/page_header.php';
 	function afficheplayer(){
       document.getElementById("player").style.display = "block";
       document.getElementById("viewer").style.display = "none";
+      document.getElementById("GameButtons").style.display = "none";
       document.getElementById("hide").style.display = "inline";
       document.getElementById("show").style.display = "none";
 	}
@@ -177,6 +178,7 @@ require 'include/page_header.php';
 	function afficheviewer(){
 		document.getElementById("player").style.display = "none";
 		document.getElementById("viewer").style.display = "block";
+		document.getElementById("GameButtons").style.display = "block";
 		if (document.getElementById("hide"))
 			document.getElementById("hide").style.display = "none";
 		if (document.getElementById("show"))
@@ -192,7 +194,7 @@ require 'include/page_header.php';
 <script type="text/javascript" src="javascript/chessUtils002.js">
  /* these are utility functions used by other functions */
 </script>
-<script type="text/javascript" src="javascript/chessCommands002.js">
+<script type="text/javascript" src="javascript/chessCommands003.js">
 // these functions interact with the server
 </script>
 <script type="text/javascript" src="javascript/chessValidation003.js">
@@ -268,99 +270,105 @@ require 'include/page_body.php';
 	    
 	    
 		<div id="gamedata">
+		<?
+					$listeCoups = writeHistoryPGN($history, $numMoves);
+					$pgnstring = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $tmpGame['chess960'], $listeCoups, $gameResult);
+				?>
+				<form name="gamePgnText" style="display: none;">
+					<textarea style="display: none;" id="pgnText">
+					<? echo($pgnstring); ?>
+					</textarea>
+				</form>
 			<form name="gamedata" method="post" action="game_board.php">
+			
+			<?writeStatus($tmpGame);?>
+			
 			<div id="gamerequest">
-				<div id="promoting" style="display: none;">
-					<table width="100%" border="0" cellspacing="0" cellpadding="0">
-					<tr><td align="center" bgcolor="#F2A521">
+				<div id="promoting" style="display: none; width:100%; text-align: center; background-color: #F2A521; padding: 5px;">
+					
 						<?echo _("Promote the pawn in")?> :				
 						<input type="radio" name="promotion" value="<? echo (QUEEN); ?>" <? echo('checked')?>> <?echo _("Queen")?>
 						<input type="radio" name="promotion" value="<? echo (ROOK); ?>"> <?echo _("Rook")?>
 						<input type="radio" name="promotion" value="<? echo (KNIGHT); ?>"> <?echo _("Knight")?>
 						<input type="radio" name="promotion" value="<? echo (BISHOP); ?>"> <?echo _("Bishop")?>
-						<input type="button" name="btnPromote" value="<? echo _("OK")?>" class="button" onClick="promotepawn()" />
-					</td></tr>
-					</table>
+						<input type="button" name="btnPromote" value="<? echo _("OK")?>" class="button" onClick="promotepawn(56)" />
+					
 				</div>
 				<?
 				if ($isUndoRequested) writeUndoRequest(false);
 				if ($isDrawRequested) writeDrawRequest(false);
 				?>
 			</div>
-			<div id="gameplayer">
-				
-				
-				<? if (!isBoardDisabled()) {
-				?>
-				<div id="player" style="display:block;">
-				<? } else {?>
-				<div id="player" style="display:none;">
-				<? } ?>				
-					<? drawboard(false); ?>
-					<div class="gamemoveaction">
-						<input type="button" id="btnUndo" name="btnUndo" class="button" style="visibility: hidden" value="<?php echo _("Cancel")?>" onClick="javascript:undo();">
-						<input type="button" id="btnPlay" name="btnPlay" class="button" style="visibility: hidden" value="<?php echo _("Valid")?>" onClick="javascript:play();">
-						<div id="requestDraw" style="display: none; font-size: 10px;"><input type="checkbox" name="requestDraw" value="yes"> <?echo _("Draw")?></div>
-						<div id="shareMove" style="display: none; font-size: 10px;"><input type="checkbox" name="chkShareMove" value="share"> <?echo _("Share")?></div>
+			<div id="gameboardmoves">
+				<div id="gameplayer">
+					
+					
+					<? if (!isBoardDisabled()) {
+					?>
+					<div id="player" style="display:block;">
+					<? } else {?>
+					<div id="player" style="display:none;">
+					<? } ?>				
+						<? drawboard(false, 56); ?>
+						<input type="hidden" name="resign" value="no">
+						<input type="hidden" name="fromRow" value="">
+						<input type="hidden" name="fromCol" value="">
+						<input type="hidden" name="toRow" value="">
+						<input type="hidden" name="toCol" value="">
+						<input type="hidden" name="isInCheck" value="false">
+						<input type="hidden" name="isCheckMate" value="false">
+						<input type="hidden" id="drawResult" name="drawResult" value="false">
+						<input type="hidden" id="drawCase" name="drawCase" value="">
+						<input type="hidden" name="gameID" value="<? echo ($_POST['gameID']); ?>">
 					</div>
-					<input type="hidden" name="gameID" value="<? echo ($_POST['gameID']); ?>">
-					<!-- <input type="hidden" name="requestDraw" value="no"> -->
-					<input type="hidden" name="resign" value="no">
-					<input type="hidden" name="fromRow" value="">
-					<input type="hidden" name="fromCol" value="">
-					<input type="hidden" name="toRow" value="">
-					<input type="hidden" name="toCol" value="">
-					<input type="hidden" name="isInCheck" value="false">
-					<input type="hidden" name="isCheckMate" value="false">
-					<input type="hidden" id="drawResult" name="drawResult" value="false">
-					<input type="hidden" id="drawCase" name="drawCase" value="">
+					
+					<? if (!isBoardDisabled()) {
+					?>
+					<div id="viewer" style="display:none;">
+					<? } else { ?>
+					<div id="viewer" style="display:block;">
+					<? }?>				
+						<div id="GameBoard"></div>
+						
+					</div>
 				</div>
 				
-				<? if (!isBoardDisabled()) {
-				?>
-				<div id="viewer" style="display:none;">
-				<? } else { ?>
-				<div id="viewer" style="display:block;">
-				<? }?>				
-					<div id="GameBoard"></div>
-					<div class="gamemoveaction">
-						<div id="GameButtons"></div>
-					</div>
+	          	
+	          	
+				<div id="gamemoves">
+					<div id="GameText"></div>		
 				</div>
 			</div>
-			<div id="gamestatus">
-				<?writeStatus($tmpGame);?>
-          	</div>
-          	
-          	<?
-				$listeCoups = writeHistoryPGN($history, $numMoves);
-				$pgnstring = getPGN($tmpGame['whiteNick'], $tmpGame['blackNick'], $tmpGame['type'], $tmpGame['flagBishop'], $tmpGame['flagKnight'], $tmpGame['flagRook'], $tmpGame['flagQueen'], $tmpGame['chess960'], $listeCoups, $gameResult);
-			?>
-			<form style="display: none;">
-				<textarea style="display: none;" id="pgnText">
-				<? echo($pgnstring); ?>
-				</textarea>
-			</form>
-			<div id="gamemoves" style="overflow-y: auto;">
-		
-				<div id="GameText"></div>		
-			</div>			
-				        
 			<div id="gameaction">
+			<div class="gamemoveaction">
 				<? if (!isBoardDisabled()) {
 				?>
-				<input type="button" name="hide" id="hide" class="link" style="display:inline;" value="<?echo _("Viewer");?>" onclick="javascript:afficheviewer();">
-				<input type="button" name="show" id="show" class="link" style="display:none;" value="<?echo _("Board");?>" onclick="javascript:afficheplayer();">
-				<? } ?>
-				<input type="button" name="pgn" id="pgn" class="link" value="<?echo _("Download PGN");?>" onclick="location.href='game_pgn.php?id=<? echo($_POST['gameID'])?>'">
-				<? if ($gameResult=="" && ($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['blackPlayer'])) {
-				?>
-				<input type="button" name="message" id="message" class="link" value="<?echo _("Private message");?>" onclick="popup('popUpDiv')">			
-				<input type="button" name="btnResign" class="button" value="<?php echo _("Resign")?>"  onClick="resigngame()">
-				<? } ?>
-				<input type="hidden" name="from" value="<? echo($_POST['from']) ?>" />
-				
-			</div>
+					<div id="GameButtons" style="display: none;"></div>
+					<input type="button" id="btnUndo" name="btnUndo" class="button" style="visibility: hidden" value="<?php echo _("Cancel")?>" onClick="javascript:undo();">
+					<input type="button" id="btnPlay" name="btnPlay" class="button" style="visibility: hidden" value="<?php echo _("Valid")?>" onClick="javascript:play();">
+					<div id="requestDraw" style="display: none; font-size: 10px;"><input type="checkbox" name="requestDraw" value="yes"> <?echo _("Draw")?></div>
+					<div id="shareMove" style="display: none; font-size: 10px;"><input type="checkbox" name="chkShareMove" value="share"> <?echo _("Share")?></div>
+					<!-- <input type="hidden" name="requestDraw" value="no"> -->
+					
+				<? } else { ?>
+					<div id="GameButtons" style="display: block;"></div>
+				<? }?>	
+				</div>
+				<div id="gamegeneralaction">
+					<? if (!isBoardDisabled()) {
+					?>
+					<input type="button" name="hide" id="hide" class="link" style="display:inline;" value="<?echo _("Viewer");?>" onclick="javascript:afficheviewer();">
+					<input type="button" name="show" id="show" class="link" style="display:none;" value="<?echo _("Board");?>" onclick="javascript:afficheplayer();">
+					<? } ?>
+					<input type="button" name="pgn" id="pgn" class="link" value="<?echo _("Download PGN");?>" onclick="location.href='game_pgn.php?id=<? echo($_POST['gameID'])?>'">
+					<? if ($gameResult=="" && ($_SESSION['playerID'] == $tmpGame['whitePlayer'] || $_SESSION['playerID'] == $tmpGame['blackPlayer'])) {
+					?>
+					<input type="button" name="message" id="message" class="link" value="<?echo _("Private message");?>" onclick="popup('popUpDiv')">			
+					<input type="button" name="btnResign" class="button" value="<?php echo _("Resign")?>"  onClick="resigngame()">
+					<? } ?>
+					<input type="hidden" name="from" value="<? echo($_POST['from']) ?>" />
+				</div>
+			</div>		        
 			<div id="gamecaptured">
 				<?
 				// List of captured pieces
@@ -378,24 +386,22 @@ require 'include/page_body.php';
 				?>
 			</div>
 			</form>
+			<div id="gameinfos"">
+				<span class="date"><?
+				$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::SHORT, IntlDateFormatter::SHORT);
+		
+				$startDate = new DateTime($tmpGame['dateCreated']);
+				$lastMove = new DateTime($tmpGame['lastMove']);
+				$strStartDate = $fmt->format($startDate);
+				$strLastMove = $fmt->format($lastMove);
+				echo _("Started")?> : <? echo($strStartDate);?> &nbsp <?echo _("Last move")?> : <? echo($strLastMove);?></span>
+				<span style="float: right; padding-right: 5px;"><a href="http://www.capakaspa.info/propos-contact/"><?echo _("Report a problem")?></a></span>
+				
+			</div>
 		</div>
-		<div style="padding: 5px; font-size: 11px; border-top-style: none; border-right-style: solid; border-bottom-style: none; border-left-style: none; border-width: 1px;
-						border-color: #DDDDDD; background-color: #FFFFFF;">
-			<span class="date"><?
-			$fmt = new IntlDateFormatter(getenv("LC_ALL"), IntlDateFormatter::SHORT, IntlDateFormatter::SHORT);
-	
-			$startDate = new DateTime($tmpGame['dateCreated']);
-			$lastMove = new DateTime($tmpGame['lastMove']);
-			$strStartDate = $fmt->format($startDate);
-			$strLastMove = $fmt->format($lastMove);
-			echo _("Started")?> : <? echo($strStartDate);?> &nbsp <?echo _("Last move")?> : <? echo($strLastMove);?></span>
-			<span style="float: right; padding-right: 5px;"><a href="http://www.capakaspa.info/propos-contact/"><?echo _("Report a problem")?></a></span>
-			
-		</div>
-		<div id="gamesocial" style="float: right; overflow:  hidden; display: block; background-color: #FFFFFF; border-right-style: solid; border-bottom-style: solid; border-width: 1px; border-color: #DDDDDD;">
-			<div id="gamesocialaction" style="float: left; overflow: hidden; width: 555px; font-size: 12px; font-weight: bold; padding: 5px; 
-						border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; 
-						border-width: 1px; border-color: #DDDDDD; background-color: #FFFFFF;">
+		
+		<div id="gamesocial">
+			<div id="gamesocialaction">
 				<?if (isset($tmpGame['likeID'])){?>
 					<span id="like<?echo(GAME.$tmpGame['gameID']);?>"><a style="color: #888888;" title="<? echo _("Stop liking this item")?>" href="javascript:deleteLike('<?echo(GAME);?>', <?echo($_POST['gameID']);?>, <?echo($tmpGame['likeID']);?>);"><?echo _("Unlike");?></a></span>
 				<?} else {?>
