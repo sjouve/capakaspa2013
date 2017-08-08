@@ -16,6 +16,7 @@
 <meta property="fb:admins" content="1809916587">
 <meta property="og:image" content="http://jouerauxechecs.capakaspa.info/images/chess_background.jpg">
 <link rel="stylesheet" href="css/capakaspa001.css" type="text/css" />
-<link rel="shortcut icon" href="http://jouerauxechecs.capakaspa.info/favicon.ico" />
+<link rel="icon" href="http://www.capakaspa.info/wp-content/uploads/2017/08/cropped-capakaspa-logo-noir-512-32x32.png" sizes="32x32">
+<link rel="icon" href="http://www.capakaspa.info/wp-content/uploads/2017/08/cropped-capakaspa-logo-noir-512-192x192.png" sizes="192x192">
 <link href="https://plus.google.com/114694270583726807082/" rel="publisher" />
 <link rel="stylesheet" id="happenstance-google-font-default-css" href="//fonts.googleapis.com/css?family=Oswald&amp;subset=latin%2Clatin-ext&amp;ver=4.2.5" type="text/css" media="all">
