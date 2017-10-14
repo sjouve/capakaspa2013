@@ -395,7 +395,7 @@ require 'include/page_body.php';
 				$strStartDate = $fmt->format($startDate);
 				$strLastMove = $fmt->format($lastMove);
 				echo _("Started")?> : <? echo($strStartDate);?> &nbsp <?echo _("Last move")?> : <? echo($strLastMove);?></span>
-				<span style="float: right; padding-right: 5px;"><a href="http://www.capakaspa.info/propos-contact/"><?echo _("Report a problem")?></a></span>
+				<span style="float: right; padding-right: 5px;"><a href="http://www.capakaspa.info/propos-contact/" target="_blank"><?echo _("Report a problem")?></a></span>
 				
 			</div>
 		</div>
