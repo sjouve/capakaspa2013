@@ -73,7 +73,7 @@ function batchGameExpiration()
 									FROM games G, players W LEFT JOIN preferences PRWL on PRWL.playerID = W.playerID AND PRWL.preference='language'
 															LEFT JOIN preferences PRWE on PRWE.playerID = W.playerID AND PRWE.preference='emailnotification'
 												, players B LEFT JOIN preferences PRBL on PRBL.playerID = B.playerID AND PRBL.preference='language'
-															LEFT JOIN preferences PRBE on PRBE.playerID = W.playerID AND PRBE.preference='emailnotification'
+															LEFT JOIN preferences PRBE on PRBE.playerID = B.playerID AND PRBE.preference='emailnotification'
 									WHERE (gameMessage is NULL OR gameMessage = '')
 									AND W.playerID = G.whitePlayer 
 									AND B.playerID = G.blackPlayer
@@ -113,4 +113,74 @@ $err = 0;
 $err = batchGameExpiration();
 
 mysqli_close($dbh);
+
+/* Games expiration Batch in function.php of WordPress Happentance Theme*/
+/*function batchGameExpiration()
+{
+	// Prod
+	$CFG_SERVER = "db455196105.db.1and1.com";
+	$CFG_USER = "dbo455196105";
+	$CFG_PASSWORD = "sj230570";
+	$CFG_DATABASE = "db455196105";
+	
+	// Test
+	$CFG_SERVER = "db466111814.db.1and1.com";
+	$CFG_USER = "dbo466111814";
+	$CFG_PASSWORD = "sj230570";
+	$CFG_DATABASE = "db466111814";
+	
+	// Connect to Database
+	$dbh=mysqli_connect($CFG_SERVER, $CFG_USER, $CFG_PASSWORD, $CFG_DATABASE)
+	or die ('CapaKaspa cannot connect to the database.  Please check the database settings in your config : '.mysqli_connect_error());
+	
+	mysqli_query($dbh, "SET NAMES UTF8");
+	
+	sendMailBatch("capakaspa@capakaspa.info", "[CapaKaspa] ".__("Batch : Game expiration starts !"), "Batch started !");
+	$tmpGames = mysqli_query($dbh, "SELECT G.gameID gameID, DATE_ADD(G.lastMove, INTERVAL G.timeMove DAY) expirationDate,
+											W.playerID whitePlayerID, W.nick whiteNick, W.email whiteEmail, PRWL.value whiteLang, PRWE.value whiteNotif,
+											B.playerID blackPlayerID, B.nick blackNick, B.email blackEmail, PRBL.value blackLang, PRBE.value blackNotif,
+											(SELECT COUNT(gameID) nbMove FROM history H WHERE H.gameID = G.gameID) nbMoves
+									FROM games G, players W LEFT JOIN preferences PRWL on PRWL.playerID = W.playerID AND PRWL.preference='language'
+															LEFT JOIN preferences PRWE on PRWE.playerID = W.playerID AND PRWE.preference='emailnotification'
+												, players B LEFT JOIN preferences PRBL on PRBL.playerID = B.playerID AND PRBL.preference='language'
+															LEFT JOIN preferences PRBE on PRBE.playerID = B.playerID AND PRBE.preference='emailnotification'
+									WHERE (gameMessage is NULL OR gameMessage = '')
+									AND W.playerID = G.whitePlayer
+									AND B.playerID = G.blackPlayer
+									AND DATE_ADD(G.lastMove, INTERVAL G.timeMove DAY) >= now()
+									AND DATE_ADD(G.lastMove, INTERVAL G.timeMove DAY) < DATE_ADD(now(), INTERVAL 1 DAY)");
+	$countEmail = 0;
+	while ($thisGame = mysqli_fetch_array($tmpGames, MYSQLI_ASSOC))
+	{
+		
+		if ($thisGame['nbMoves'] == -1 || ($thisGame['nbMoves'] % 2) == 1) {
+			$email = $thisGame['blackEmail'];
+			$locale_email = isset($thisGame['blackLang'])?$thisGame['blackLang']:"en_EN";
+			$notif = $thisGame['blackNotif'];
+			$opponent = $thisGame['whiteNick'];
+		} else {
+			$email = $thisGame['whiteEmail'];
+			$locale_email = isset($thisGame['whiteLang'])?$thisGame['whiteLang']:"en_EN";
+			$notif = $thisGame['whiteNotif'];
+			$opponent = $thisGame['blackNick'];
+		}
+		
+		if ($notif=="oui")
+		{
+			$locale_switched = switch_to_locale( $locale_email );
+			$countEmail++;
+			sendMailBatch($email, "[CapaKaspa] #".$thisGame['gameID']." ".__('Game expiration alert !', 'happenstance'), __("You still have less than 24 hours to play your move in your game against", "happenstance")." ".$opponent);
+			
+			if ( $locale_switched ) {
+				restore_previous_locale();
+			}
+			
+		}
+		
+	}
+	sendMailBatch("capakaspa@capakaspa.info", "[CapaKaspa] ".__("Batch : Game expiration ended !"), "Batch ended ! ".$countEmail);
+	mysqli_close($dbh);
+	return TRUE;
+}
+add_action( 'ck_bat_game_expiration', 'batchGameExpiration' );*/
 ?>
