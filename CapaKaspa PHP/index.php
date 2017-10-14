@@ -446,7 +446,7 @@ require 'include/page_body_home.php';
 		   		<a href="http://www.capakaspa.info/forums-echecs/forum/forum-clubs-dechecs/"><?php echo _("Chess Clubs");?></a><br>
 	   		</div>
    		</div>
-   		<a href='http://www.mesjeuxvirtuels.com'  target='_blank'><img src='http://www.mesjeuxvirtuels.com/images/btn88x31.gif' /></a> <a href="http://jeu.co/jeux-par-navigateur.htm">Jeux par Navigateur sur Jeu.co</a><br> <a href="http://www.jeux-en-ligne-gratuits.net/" title="jeux en ligne gratuits">jeux-en-ligne-gratuits.net</a>
+   		<a href='http://www.mesjeuxvirtuels.com'  target='_blank'><img src='http://www.mesjeuxvirtuels.com/images/btn88x31.gif' /></a> <!-- <a href="http://jeu.co/jeux-par-navigateur.htm">Jeux par Navigateur sur Jeu.co</a><br> <a href="http://www.jeux-en-ligne-gratuits.net/" title="jeux en ligne gratuits">jeux-en-ligne-gratuits.net</a> -->
 	</div>
 </div>
 
