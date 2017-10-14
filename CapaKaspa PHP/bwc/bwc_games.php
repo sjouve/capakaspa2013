@@ -1078,7 +1078,7 @@ function writeStatus($tmpGame)
 	
 	?>
 	<div id="gamestatus">
-	<table border="0" align="center" cellspacing="0" cellpadding="0">
+	<table border="0" align="center" style="width: 100%;" cellspacing="0" cellpadding="0">
 	<tr bgcolor="#FFFFFF" valign="top">
 		<th width="10%" align="left">
 			<img src="<?echo(getPicturePath($tmpGame['whiteSocialNet'], $tmpGame['whiteSocialID']));?>" width="40" height="40" style="margin:3px;"/>
