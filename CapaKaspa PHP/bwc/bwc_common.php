@@ -260,7 +260,7 @@ function displaySuggestion()
 		echo("</div>
 				");
 	}
-	
+	echo("<a href=\"http://www.capakaspa.info/boutique-produits-personnalises/\" target=\"_blank\"><img src=\"http://www.capakaspa.info/wp-content/uploads/2017/09/CapaKaspa-Produits-personnalis%C3%A9s-bouton.jpg\" width=\"200\" alt=\"CapaKaspa boutique produits personnalisés\" title=\"Personnalisez vos vetements et accessoires avec les design CapaKaspa !\"/></a>");
 	
 	$limit = 5;
 	$result = searchPlayers("", 0, $limit, $_SESSION['playerID'], "", "actif", $_SESSION['elo']-50, $_SESSION['elo']+50, "", "");
