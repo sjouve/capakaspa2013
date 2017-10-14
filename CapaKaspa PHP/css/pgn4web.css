@@ -84,11 +84,11 @@
 	font-family: 'pgn4web ChessSansPiratf', 'pgn4web Liberation Sans', sans-serif;
   }
 .nmove {
-	font-weight: normal;
+	font-weight: bold;
 	text-decoration: none;
   	font-size: 14px;
 	font-family: 'pgn4web ChessSansPiratf', 'pgn4web Liberation Sans', sans-serif;
-	color: #888888;
+	color: #000000;
 }
 .move {
   color: black;
