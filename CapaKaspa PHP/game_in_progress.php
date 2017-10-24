@@ -10,11 +10,13 @@ require 'include/constants.php';
 require 'dac/dac_players.php';
 require 'dac/dac_games.php';
 require 'dac/dac_activity.php';
+require 'dac/dac_tournament.php';
 require 'bwc/bwc_common.php';
 require 'bwc/bwc_chessutils.php';
 require 'bwc/bwc_board.php';
 require 'bwc/bwc_players.php';
 require 'bwc/bwc_games.php';
+require 'bwc/bwc_tournament.php';
 	
 /* connect to database */
 require 'include/connectdb.php';
@@ -636,7 +638,13 @@ require 'include/page_body.php';
 				?>
 				<div class="blockform">
 				<h3><? echo _("Begin to play")?></h3>
-				<p><?php 
+				<p>
+		   		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActivePlayers()+getNbPassivePlayers()); ?></span> <?php echo _("players are waiting to play chess games");?><br>
+		   		<span class="newplayer" style="font-size: 12px;"><? echo(getNbActiveGameForAll()); ?></span> <?php echo _("chess games in progress");?><br>
+		   		<span class="newplayer" style="font-size: 12px;"><? echo(getNbIPTournament()); ?></span> <?php echo _("in progress chess tournaments");?><br>
+		   		</p>
+		   		<p>
+				<?php 
 				echo _("Submit a new game for all players or a specific player");
 				?>
 				<br>
@@ -654,11 +662,48 @@ require 'include/page_body.php';
 				<br>
 				<input type="button" class="link" value="<? echo _("Register for a tournament")?>" onclick="location.href='tournament_list.php'">
 				</p>
+				</div>
+				<div class="blockform">
 				<h3><? echo _("Achievements")?></h3>
 				<p><?php 
 				echo _("When you're playing chess games on CapaKaspa, you can earn achievements that mark your accomplishments : player, classic, outside the box, winner, black wins and social.");
 				?>
 				<br>
+				<? 
+				$achievements = getAchievements($_SESSION["playerID"]);
+				$widthTotal = 235;
+				for ($i=1; $i<7; $i++)
+				{
+					$achievement = $achievements[$i];
+					$value = $achievement["VAL"];
+					$level = $achievement["LVL"];
+					$next = $achievement["NXT"];
+					$picto = $achievement["PCT"];
+					$name = $achievement["NAM"];
+					$desc = $achievement["DSC"];
+					if ($value < $next)
+						$widthValue = intval($widthTotal*$value/$next); 
+					else
+						$widthValue = $widthTotal;
+					$widthNext = $widthTotal - $widthValue;
+					?>
+					
+					<div class="achievement" title="<?echo $name;?> (<?echo _("Level ")." ".$level;?>) : <?echo $desc;?>">
+						<span style="width:235px; font-size: 10px;"><?echo $name;?></span><br/>
+						<div class="picto" style="position: relative; float: left; background-image: url('images/<?echo($picto);?>'); width: 32px; height: 32px;">
+						<span class="newplayer" style="position: absolute; left: 0px; bottom: 0px;"><? echo($level);?></span>
+						</div>
+						<div class="value" style="width: <? echo($widthValue);?>px;">
+						<div style="position: relative; float: left;"><? echo($value);?></div>
+						</div>
+						<div class="next" style="width: <? echo($widthNext);?>px;">
+						<div style="position: relative; float: right;"><? echo($next);?></div>
+						</div>
+					</div>
+					<?
+				}
+				?>
+				
 				<input type="button" class="link" value="<? echo _("View profile")?>" onclick="location.href='player_view.php?playerID=<?echo($_SESSION['playerID'])?>'">
 				</p>
 				</div>
