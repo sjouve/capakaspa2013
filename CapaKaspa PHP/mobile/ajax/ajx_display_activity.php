@@ -191,12 +191,12 @@ else
 				case 'won':
 					$message = _("won the tournament")." #".$tmpActivity['entityID'];
 					$content = "<img src='images/activity_tournament_won.jpg' width='100%'/>";
-					$link = "onmouseover=\"this.style.cursor='pointer';\" onclick=\"location.href='tournament_view.php?ID=".$tmpActivity['entityID'].";\"";
+					$link = "onmouseover=\"this.style.cursor='pointer';\" onclick=\"location.href='tournament_view.php?ID=".$tmpActivity['entityID']."';\"";
 					break;
 				case 'start':
 					$message = _("is registered in the tournament")." #".$tmpActivity['entityID'];
 					$content = "<img src='images/activity_tournament_registered.jpg' width='100%'/>";
-					$link = "onmouseover=\"this.style.cursor='pointer';\" onclick=\"location.href='tournament_view.php?ID=".$tmpActivity['entityID'].";\"";
+					$link = "onmouseover=\"this.style.cursor='pointer';\" onclick=\"location.href='tournament_view.php?ID=".$tmpActivity['entityID']."';\"";
 					break;
 			}
 		}
