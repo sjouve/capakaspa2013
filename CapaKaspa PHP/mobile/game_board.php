@@ -338,7 +338,7 @@ require 'include/page_body.php';
 			</form>
 						
 				        
-			<div id="gameaction">
+			<div id="gameaction" style="padding-top: 5px;">
 				<? if (!isBoardDisabled()) {
 				?>
 				<input type="button" name="hide" id="hide" class="link" style="display:inline;" value="<?echo _("Viewer");?>" onclick="javascript:afficheviewer();">
