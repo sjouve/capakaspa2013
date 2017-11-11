@@ -297,10 +297,10 @@ require 'include/page_body.php';
 				<? } ?>				
 					<? drawboard(false, 37); ?>
 					<div class="gamemoveaction">
-						<input type="button" id="btnUndo" name="btnUndo" class="button" style="visibility: hidden" value="<?php echo _("Cancel")?>" onClick="javascript:undo();">
 						<input type="button" id="btnPlay" name="btnPlay" class="button" style="visibility: hidden" value="<?php echo _("Valid")?>" onClick="javascript:play();">
 						<div id="requestDraw" style="display: none; font-size: 10px;"><input type="checkbox" name="requestDraw" value="yes"> <?echo _("Draw")?></div>
 						<div id="shareMove" style="display: none; font-size: 10px;"><input type="checkbox" name="chkShareMove" value="share"> <?echo _("Share")?></div>
+						<input type="button" id="btnUndo" name="btnUndo" class="button" style="visibility: hidden" value="<?php echo _("Cancel")?>" onClick="javascript:undo();">
 					</div>
 					<input type="hidden" name="gameID" value="<? echo ($_POST['gameID']); ?>">
 					<!-- <input type="hidden" name="requestDraw" value="no"> -->
