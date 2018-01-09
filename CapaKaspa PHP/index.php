@@ -114,8 +114,8 @@ if (isset($_SESSION['playerID']) && $_SESSION['playerID'] != -1)
 	exit;
 }
 
-$titre_page = _("Play chess online and share your games");
-$desc_page = _("Play chess online on CapaKaspa. Classical and Chess960 chess games. Participate in chess tournaments, improve your ranking and share your games.");
+$titre_page = _("Play correspondence chess online and share your games");
+$desc_page = _("Play correspondence chess online on CapaKaspa. Classical and Chess960 chess games. Participate in chess tournaments, improve your ranking and share your games.");
 require 'include/page_header.php';
     
 ?>
