@@ -50,8 +50,6 @@ require 'include/page_header.php';
 $attribut_body = "onload=\"highlightMenu(16);\"";
 require 'include/page_body.php';
 
-$res = createTournamentAuto();
-
 ?>
 <div id="content">
 	<div class="contentbody">

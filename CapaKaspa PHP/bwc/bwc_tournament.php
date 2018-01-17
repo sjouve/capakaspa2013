@@ -86,7 +86,7 @@ function registerTournamentPlayer($tournamentID, $playerID)
 	
 	$tmpPlayers = listTournamentPlayers($tournamentID);
 	$nbRegisteredPlayers = mysqli_num_rows($tmpPlayers);
-	
+
 	if ($nbRegisteredPlayers < $tournament['nbPlayers'])
 	{
 		$res = insertTournamentPlayer($tournamentID, $playerID);
@@ -94,7 +94,7 @@ function registerTournamentPlayer($tournamentID, $playerID)
 		{
 		  	return FALSE;
 		}
-	
+		
 		if ($nbRegisteredPlayers == $tournament['nbPlayers']-1)
 		{
 			// Changer l'état du tournoi
@@ -140,6 +140,19 @@ function registerTournamentPlayer($tournamentID, $playerID)
 			bindtextdomain("messages", "./locale");
 			bind_textdomain_codeset("messages", "UTF-8");
 			textdomain("messages");
+			
+			$type = $tournament['type'];
+			$nbPlayers = $tournament['nbPlayers'];
+			$timeMove = $tournament['timeMove'];
+			$eloMin = 0;
+			$eloMax = 0;
+			$name = $tournament['name'];
+			
+			$resTourn = insertTournament($name, $type, $nbPlayers, $timeMove, $eloMin, $eloMax);
+			if (!$resTourn)
+			{
+				return FALSE;
+			}
 			
 		}
 	}

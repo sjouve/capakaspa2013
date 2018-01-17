@@ -75,8 +75,8 @@ function listTournaments($start, $limit, $status)
 function insertTournamentPlayer($tournamentID, $playerID)
 {
 	global $dbh;
-	$res_player = mysqli_query($dbh, "INSERT INTO tournament_players (tournamentID, playerID)
-			VALUES (".$tournamentID.", ".$playerID.")");
+	$res_player = mysqli_query($dbh, "INSERT INTO tournament_players (tournamentID, playerID, rank, points)
+			VALUES (".$tournamentID.", ".$playerID.", 0, 0)");
 	return $res_player;
 }
 
