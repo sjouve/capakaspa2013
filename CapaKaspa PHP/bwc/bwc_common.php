@@ -107,12 +107,12 @@ function displaySuggestionAmazon()
 	 -->
 	<?
 	if (getLang() == "fr")
-		$product = mt_rand(0,6);
-	else $product = 7;
+		$product = mt_rand(0,7);
+	else $product = 8;
 	
 	switch($product)
 	{
-		case 0:
+		case 0: // Livre : Les échecs, un jeu d'enfants !
 			?>
 			<div class="product" style="padding-left: 0px;">
 			<?echo(_("Buy this book >>"));?>
@@ -121,7 +121,7 @@ function displaySuggestionAmazon()
 			<?
 			break;
 			
-		case 1:
+		case 1: // Livre : 1000 exercices pour bien progresser aux échecs
 			?>
 			<div class="product" style="padding-left: 0px;">
 			<?echo(_("Buy this book >>"));?>
@@ -130,56 +130,56 @@ function displaySuggestionAmazon()
 			<?
 			break;
 		
-		case 2:
+			case 2: // Livre : Les Échecs - Nouvelle édition Pour les nuls
 			?>
-			<div class="product" style="padding-left: 9px;">
+			<div class="product" style="padding-left: 0px;">
 			<?echo(_("Buy this book >>"));?>
-			<a target="_blank" rel="nofollow" href="http://www.amazon.fr/gp/product/2221110137/ref=as_li_tl?ie=UTF8&camp=1642&creative=6746&creativeASIN=2221110137&linkCode=as2&tag=capa-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=2221110137&Format=_SL250_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="http://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=as2&o=8&a=2221110137" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+			<a href="https://www.amazon.fr/%C3%89checs-Nouvelle-%C3%A9dition-Pour-nuls/dp/2754018700/ref=as_li_ss_il?ie=UTF8&linkCode=li3&tag=capa-21&linkId=77633245a51a11af03cbba600d7350b1" target="_blank"><img border="0" src="//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=2754018700&Format=_SL250_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="https://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=li3&o=8&a=2754018700" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 			</div>
 			<?
 			break;
-		case 3:
+		case 3: // Echiquiers
 			?>
 			<div class="product" style="padding-left: 11px;">
 			<?echo(_("Buy this nice chessboard >>"));
 			$chessboard = mt_rand(0,5);
 			switch($chessboard)
 			{
-				case 0:
+				case 0: // Grand jeu d'échecs EL GRANDE 51 x 52.5 cm
 			?>
 				<a target="_blank" rel="nofollow" href="http://www.amazon.fr/gp/product/B0009WSPRO/ref=as_li_tl?ie=UTF8&camp=1642&creative=6746&creativeASIN=B0009WSPRO&linkCode=as2&tag=capa-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0009WSPRO&Format=_SL160_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="http://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=as2&o=8&a=B0009WSPRO" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 				</div>
 			<? 	break;
-				case 1:
+				case 1: // Legler - 2019767 - Jeu D'échec
 			?>
 				<a target="_blank" rel="nofollow" href="http://www.amazon.fr/gp/product/B000EGFM7Q/ref=as_li_tl?ie=UTF8&camp=1642&creative=6746&creativeASIN=B000EGFM7Q&linkCode=as2&tag=capa-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B000EGFM7Q&Format=_SL160_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="http://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=as2&o=8&a=B000EGFM7Q" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 				</div>
 			<? 	break;
-				case 2:
+				case 2: // Chessebook Jeu d'Echecs Magnétique s/w 36 x 36 cm
 			?>
-				<a target="_blank" rel="nofollow" href="http://www.amazon.fr/gp/product/B00BK9U0W8/ref=as_li_tl?ie=UTF8&camp=1642&creative=6746&creativeASIN=B00BK9U0W8&linkCode=as2&tag=capa-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B00BK9U0W8&Format=_SL160_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="http://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=as2&o=8&a=B00BK9U0W8" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+				<a href="https://www.amazon.fr/gp/product/B076VSZRT2/ref=as_li_ss_il?pf_rd_m=A1X6FK5RDHNB96&pf_rd_s=merchandised-search-3&pf_rd_r=1HCXWF71B46XKECM2FKV&pf_rd_t=101&pf_rd_p=1f52c5e6-6f5e-51a1-947a-847466cb171c&pf_rd_i=363591031&linkCode=li2&tag=capa-21&linkId=f9241b7fac9210418c350f1a0c22d3b1" target="_blank"><img border="0" src="//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B076VSZRT2&Format=_SL160_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="https://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=li2&o=8&a=B076VSZRT2" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 				</div>
 			<? 	break;
-				case 3:
+				case 3: // Jeu d'échecs en bois SAN MARCO - 30 x 30 cm
 			?>
 				<a target="_blank" rel="nofollow" href="http://www.amazon.fr/gp/product/B000A7RVAU/ref=as_li_tl?ie=UTF8&camp=1642&creative=6746&creativeASIN=B000A7RVAU&linkCode=as2&tag=capa-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B000A7RVAU&Format=_SL160_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="http://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=as2&o=8&a=B000A7RVAU" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 				</div>
 			<? 	break;
-				case 4:
+				case 4: // The Legend of Zelda Chess Jeu De Société
 			?>
-				<a target="_blank" rel="nofollow" href="http://www.amazon.fr/gp/product/B003R5PKUK/ref=as_li_tl?ie=UTF8&camp=1642&creative=6746&creativeASIN=B003R5PKUK&linkCode=as2&tag=capa-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B003R5PKUK&Format=_SL160_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="http://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=as2&o=8&a=B003R5PKUK" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+				<a href="https://www.amazon.fr/gp/product/B01FO7K4YA/ref=as_li_ss_il?pf_rd_m=A1X6FK5RDHNB96&pf_rd_s=merchandised-search-3&pf_rd_r=1HCXWF71B46XKECM2FKV&pf_rd_t=101&pf_rd_p=1f52c5e6-6f5e-51a1-947a-847466cb171c&pf_rd_i=363591031&linkCode=li2&tag=capa-21&linkId=8169cb9c98f04f3fc369f06f59cc1429" target="_blank"><img border="0" src="//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B01FO7K4YA&Format=_SL160_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="https://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=li2&o=8&a=B01FO7K4YA" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 				</div>
 			<? 	break;
-				case 5:
+				case 5: // BYTAN Jeu d'Échecs Jeu Echec Magnetique échec enfant, 25x25cm Échiquier Pliable comme Coffret avec Pions Aimantés pour Enfant Cadeau
 			?>
-				<a target="_blank" rel="nofollow" href="http://www.amazon.fr/gp/product/B000EGFM7Q/ref=as_li_tl?ie=UTF8&camp=1642&creative=19458&creativeASIN=B000EGFM7Q&linkCode=as2&tag=capa-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B000EGFM7Q&Format=_SL160_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="http://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=as2&o=8&a=B000EGFM7Q" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+				<a href="https://www.amazon.fr/gp/product/B01N6S5ZV3/ref=as_li_ss_il?pf_rd_m=A1X6FK5RDHNB96&pf_rd_s=merchandised-search-3&pf_rd_r=1HCXWF71B46XKECM2FKV&pf_rd_t=101&pf_rd_p=1f52c5e6-6f5e-51a1-947a-847466cb171c&pf_rd_i=363591031&linkCode=li2&tag=capa-21&linkId=eb11f89d9f50294551d66167694ed427" target="_blank"><img border="0" src="//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B01N6S5ZV3&Format=_SL160_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="https://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=li2&o=8&a=B01N6S5ZV3" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 				</div>
 			<? 	break;
 			
 			}
 			break;
 		
-		case 4:
+		case 4: // Livre : Maîtriser les ouvertures - Volume 1: Recommande par la Fédération Française des Echecs
 			?>
 			<div class="product" style="padding-left: 0px;">
 			<?echo(_("Buy this book >>"));?>
@@ -188,7 +188,7 @@ function displaySuggestionAmazon()
 			<?
 			break;
 
-		case 5:
+		case 5: // Livre : Les 100 finales qu'il faut connaître
 			?>
 			<div class="product" style="padding-left: 0px;">
 			<?echo(_("Buy this book >>"));?>
@@ -197,7 +197,7 @@ function displaySuggestionAmazon()
 			<?
 			break;
 		
-		case 6:
+		case 6: // Livre : Vive les échecs !
 			?>
 			<div class="product" style="padding-left: 10px;">
 			<?echo(_("Buy this book >>"));?>
@@ -205,9 +205,17 @@ function displaySuggestionAmazon()
 			</div>
 			<?
 			break;
+		
+		case 7: // Horloge : Horloge d'Échecs LESHP 
+			?>
+			<div class="product" style="padding-left: 15px;">
+			<?echo(_("Buy this clock >>"));?>
+			<a href="https://www.amazon.fr/LESHP-Num%C3%A9rique-Chronom%C3%A8tre-Applicable-Comp%C3%A9titions/dp/B06XVM48DS/ref=as_li_ss_il?ie=UTF8&qid=1517579762&sr=8-1&keywords=horloge+%C3%A9checs&linkCode=li2&tag=capa-21&linkId=015de5349803d787eb24ac00aacec775" target="_blank"><img border="0" src="//ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B06XVM48DS&Format=_SL160_&ID=AsinImage&MarketPlace=FR&ServiceVersion=20070822&WS=1&tag=capa-21" ></a><img src="https://ir-fr.amazon-adsystem.com/e/ir?t=capa-21&l=li2&o=8&a=B06XVM48DS" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+			</div>
+			<?
+			break;	
 			
-			
-		case 7:
+		case 8: // Livre : Chess for Kids: How to Play and Win
 			?>
 			<div class="product" style="padding-left: 15px;">
 			<?echo(_("Buy this book >>"));?>
@@ -260,7 +268,9 @@ function displaySuggestion()
 		echo("</div>
 				");
 	}
-	echo("<a href=\"http://www.capakaspa.info/boutique-produits-personnalises/\" target=\"_blank\"><img src=\"http://www.capakaspa.info/wp-content/uploads/2017/09/CapaKaspa-Produits-personnalis%C3%A9s-bouton.jpg\" width=\"200\" alt=\"CapaKaspa boutique produits personnalisés\" title=\"Personnalisez vos vetements et accessoires avec les design CapaKaspa !\"/></a>");
+	
+	displaySuggestionAmazon();
+	//echo("<a href=\"http://www.capakaspa.info/boutique-produits-personnalises/\" target=\"_blank\"><img src=\"http://www.capakaspa.info/wp-content/uploads/2017/09/CapaKaspa-Produits-personnalis%C3%A9s-bouton.jpg\" width=\"200\" alt=\"CapaKaspa boutique produits personnalisés\" title=\"Personnalisez vos vetements et accessoires avec les design CapaKaspa !\"/></a>");
 	
 	$limit = 5;
 	$result = searchPlayers("", 0, $limit, $_SESSION['playerID'], "", "actif", $_SESSION['elo']-50, $_SESSION['elo']+50, "", "");
@@ -308,6 +318,5 @@ function displaySuggestion()
 		}
 	}
 	
-	displaySuggestionAmazon();
 }
 ?>

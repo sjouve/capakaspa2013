@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2018-01-09 14:50+0100\n"
-"PO-Revision-Date: 2018-01-09 14:51+0100\n"
+"POT-Creation-Date: 2018-02-02 15:06+0100\n"
+"PO-Revision-Date: 2018-02-02 15:07+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -323,7 +323,7 @@ msgstr "Publier"
 #: game_in_progress.php:578 mobile/game_in_progress.php:512
 #: mobile/tournament_list.php:78 mobile/tournament_list.php:155
 #: mobile/tournament_list.php:184 mobile/tournament_view.php:72
-#: tournament_list.php:80 tournament_list.php:157 tournament_list.php:186
+#: tournament_list.php:78 tournament_list.php:155 tournament_list.php:184
 #: tournament_view.php:75
 msgid "Tournament"
 msgstr "Tournoi"
@@ -332,7 +332,7 @@ msgstr "Tournoi"
 #: game_in_progress.php:589 mobile/game_in_progress.php:362
 #: mobile/game_in_progress.php:510 mobile/tournament_list.php:156
 #: mobile/tournament_list.php:185 mobile/tournament_view.php:195
-#: player_view.php:353 tournament_list.php:158 tournament_list.php:187
+#: player_view.php:353 tournament_list.php:156 tournament_list.php:185
 msgid "View"
 msgstr "Voir"
 
@@ -344,7 +344,7 @@ msgstr "Télécharger PGN"
 #: mobile/game_board.php:379 mobile/tournament_list.php:157
 #: mobile/tournament_list.php:186 mobile/tournament_view.php:77
 #: mobile/tournament_view.php:80 mobile/tournament_view.php:243
-#: tournament_list.php:159 tournament_list.php:188 tournament_view.php:80
+#: tournament_list.php:157 tournament_list.php:186 tournament_view.php:80
 #: tournament_view.php:83
 msgid "Started"
 msgstr "Commencé le"
@@ -418,8 +418,8 @@ msgstr "sur"
 msgid "the post"
 msgstr "la publication"
 
-#: ajax/ajx_display_player.php:51 bwc/bwc_common.php:257 bwc/bwc_common.php:278
-#: bwc/bwc_common.php:301 bwc/bwc_games.php:1091 bwc/bwc_games.php:1100
+#: ajax/ajx_display_player.php:51 bwc/bwc_common.php:265 bwc/bwc_common.php:288
+#: bwc/bwc_common.php:311 bwc/bwc_games.php:1091 bwc/bwc_games.php:1100
 #: bwc/bwc_games.php:1107 bwc/bwc_games.php:1119 bwc/bwc_games.php:1128
 #: bwc/bwc_games.php:1134 bwc/bwc_games.php:1207 bwc/bwc_games.php:1216
 #: bwc/bwc_games.php:1223 bwc/bwc_games.php:1235 bwc/bwc_games.php:1244
@@ -430,7 +430,7 @@ msgid "Player online"
 msgstr "Joueur en ligne"
 
 #: ajax/ajx_display_player.php:53 ajax/ajx_display_ranking.php:58
-#: bwc/bwc_common.php:259 bwc/bwc_common.php:280 bwc/bwc_common.php:303
+#: bwc/bwc_common.php:267 bwc/bwc_common.php:290 bwc/bwc_common.php:313
 #: message.php:93 mobile/ajax/ajx_display_player.php:53 mobile/message.php:85
 #: mobile/player_view.php:146 player_view.php:156
 msgid "New player"
@@ -447,7 +447,7 @@ msgstr "Nouvelle partie"
 #: ajax/ajx_display_player.php:62 ajax/ajx_display_ranking.php:67
 #: mobile/ajax/ajx_display_player.php:62 mobile/player_view.php:180
 #: mobile/tournament_list.php:97 mobile/tournament_view.php:117
-#: player_view.php:192 tournament_list.php:99 tournament_view.php:120
+#: player_view.php:192 tournament_list.php:97 tournament_view.php:120
 msgid "Elo"
 msgstr "Elo"
 
@@ -748,7 +748,7 @@ msgstr "Message envoyé avec succès"
 
 #: bwc/bwc_common.php:118 bwc/bwc_common.php:127 bwc/bwc_common.php:136
 #: bwc/bwc_common.php:185 bwc/bwc_common.php:194 bwc/bwc_common.php:203
-#: bwc/bwc_common.php:213
+#: bwc/bwc_common.php:221
 msgid "Buy this book >>"
 msgstr "Acheter ce livre >>"
 
@@ -756,22 +756,26 @@ msgstr "Acheter ce livre >>"
 msgid "Buy this nice chessboard >>"
 msgstr "Acheter ce bel échiquier >>"
 
-#: bwc/bwc_common.php:230
+#: bwc/bwc_common.php:212
+msgid "Buy this clock >>"
+msgstr "Acheter cette horloge >>"
+
+#: bwc/bwc_common.php:238
 msgid "Suggestion"
 msgstr "Suggestions"
 
-#: bwc/bwc_common.php:239 game_new.php:266 include/page_body.php:79
+#: bwc/bwc_common.php:247 game_new.php:266 include/page_body.php:79
 #: mobile/include/page_body.php:72 mobile/include/page_body.php:74
 #: mobile/index.php:105
 msgid "Tournaments"
 msgstr "Tournois"
 
-#: bwc/bwc_common.php:240 game_in_progress.php:663 game_new.php:268
+#: bwc/bwc_common.php:248 game_in_progress.php:663 game_new.php:268
 #: mobile/game_in_progress.php:560
 msgid "Register for a tournament"
 msgstr "S'inscrire à un tournoi"
 
-#: bwc/bwc_common.php:281 bwc/bwc_common.php:304
+#: bwc/bwc_common.php:291 bwc/bwc_common.php:314
 msgid "is the same level that you !"
 msgstr "vous avez le même niveau"
 
@@ -863,8 +867,8 @@ msgstr "OK"
 #: bwc/bwc_games.php:1402 game_list_ended.php:156 game_new.php:185
 #: mobile/game_new.php:137 mobile/tournament_list.php:74
 #: mobile/tournament_list.php:152 mobile/tournament_list.php:181
-#: mobile/tournament_view.php:66 player_ranking.php:93 tournament_list.php:76
-#: tournament_list.php:154 tournament_list.php:183 tournament_view.php:69
+#: mobile/tournament_view.php:66 player_ranking.php:93 tournament_list.php:74
+#: tournament_list.php:152 tournament_list.php:181 tournament_view.php:69
 msgid "Classic game"
 msgstr "Partie classique"
 
@@ -931,7 +935,7 @@ msgstr "Données de votre compte"
 
 #: bwc/bwc_players.php:658 game_list_ended.php:148
 #: mobile/tournament_list.php:96 mobile/tournament_view.php:116
-#: tournament_list.php:98 tournament_view.php:119
+#: tournament_list.php:96 tournament_view.php:119
 msgid "Player"
 msgstr "Joueur"
 
@@ -987,11 +991,11 @@ msgstr "Debut de tournoi"
 msgid "The tournament which you registered just started..."
 msgstr "Le tournoi auquel vous vous êtes inscrit vient de démarrer..."
 
-#: bwc/bwc_tournament.php:185
+#: bwc/bwc_tournament.php:198
 msgid "Completed tournament"
 msgstr "Fin du tournoi"
 
-#: bwc/bwc_tournament.php:185
+#: bwc/bwc_tournament.php:198
 msgid "You can check the final ranking for the tournament"
 msgstr "Vous pouvez vérifier le classement final du tournoi"
 
@@ -2262,11 +2266,11 @@ msgstr "Liste des tournois"
 msgid "Participate to a tournament"
 msgstr "Participer à un tournoi"
 
-#: mobile/tournament_list.php:58 tournament_list.php:60
+#: mobile/tournament_list.php:58 tournament_list.php:58
 msgid "Register for a Round-robin tournament"
 msgstr "S'inscire à un tournoi toutes rondes"
 
-#: mobile/tournament_list.php:62 tournament_list.php:64
+#: mobile/tournament_list.php:62 tournament_list.php:62
 msgid ""
 "In the Round-robin tournaments you play classic games against every "
 "participant with whites and with blacks. For a tournament with four "
@@ -2276,7 +2280,7 @@ msgstr ""
 "chacun des participants avec les blanc et avec les noirs. Pour un tournoi "
 "avec 4 participants vous jouerez donc 6 parties."
 
-#: mobile/tournament_list.php:63 tournament_list.php:65
+#: mobile/tournament_list.php:63 tournament_list.php:63
 msgid ""
 "As a tournament did not start it is possible to withdraw. A tournament "
 "starts when the last player registers. So the last player can't withdraw !"
@@ -2286,76 +2290,76 @@ msgstr ""
 "pas se retirer !"
 
 #: mobile/tournament_list.php:78 mobile/tournament_view.php:58
-#: tournament_list.php:80 tournament_view.php:61
+#: tournament_list.php:78 tournament_view.php:61
 msgid "Registration"
 msgstr "Inscription"
 
-#: mobile/tournament_list.php:80 tournament_list.php:82
+#: mobile/tournament_list.php:80 tournament_list.php:80
 msgid "Created"
 msgstr "Créé le"
 
 #: mobile/tournament_list.php:81 mobile/tournament_list.php:158
-#: mobile/tournament_list.php:187 tournament_list.php:83
-#: tournament_list.php:160 tournament_list.php:189
+#: mobile/tournament_list.php:187 tournament_list.php:81
+#: tournament_list.php:158 tournament_list.php:187
 msgid "Your are registered"
 msgstr "Vous êtes inscrit"
 
 #: mobile/tournament_list.php:81 mobile/tournament_list.php:158
 #: mobile/tournament_list.php:187 mobile/tournament_view.php:82
-#: tournament_list.php:83 tournament_list.php:160 tournament_list.php:189
+#: tournament_list.php:81 tournament_list.php:158 tournament_list.php:187
 #: tournament_view.php:85
 msgid "players"
 msgstr "joueurs"
 
 #: mobile/tournament_list.php:81 mobile/tournament_list.php:158
 #: mobile/tournament_list.php:187 mobile/tournament_view.php:82
-#: tournament_list.php:83 tournament_list.php:160 tournament_list.php:189
+#: tournament_list.php:81 tournament_list.php:158 tournament_list.php:187
 #: tournament_view.php:85
 msgid "days per move"
 msgstr "jours par coup"
 
 #: mobile/tournament_list.php:82 mobile/tournament_list.php:159
 #: mobile/tournament_list.php:188 mobile/tournament_view.php:83
-#: tournament_list.php:84 tournament_list.php:161 tournament_list.php:190
+#: tournament_list.php:82 tournament_list.php:159 tournament_list.php:188
 #: tournament_view.php:86
 msgid "from"
 msgstr "de"
 
 #: mobile/tournament_list.php:82 mobile/tournament_list.php:159
 #: mobile/tournament_list.php:188 mobile/tournament_view.php:83
-#: tournament_list.php:84 tournament_list.php:161 tournament_list.php:190
+#: tournament_list.php:82 tournament_list.php:159 tournament_list.php:188
 #: tournament_view.php:86
 msgid "to"
 msgstr "à"
 
-#: mobile/tournament_list.php:122 tournament_list.php:124
+#: mobile/tournament_list.php:122 tournament_list.php:122
 msgid "UnRegister"
 msgstr "Se désinscrire"
 
-#: mobile/tournament_list.php:129 tournament_list.php:131
+#: mobile/tournament_list.php:129 tournament_list.php:129
 msgid "Register"
 msgstr "S'inscrire"
 
-#: mobile/tournament_list.php:144 tournament_list.php:146
+#: mobile/tournament_list.php:144 tournament_list.php:144
 msgid "Your in progress tournaments"
 msgstr "Vos tournois en cours"
 
 #: mobile/tournament_list.php:155 mobile/tournament_view.php:60
-#: tournament_list.php:157 tournament_view.php:63
+#: tournament_list.php:155 tournament_view.php:63
 msgid "In progress"
 msgstr "En cours"
 
-#: mobile/tournament_list.php:171 tournament_list.php:173
+#: mobile/tournament_list.php:171 tournament_list.php:171
 msgid "Your completed tournaments"
 msgstr "Vos tournois terminés"
 
 #: mobile/tournament_list.php:184 mobile/tournament_view.php:62
-#: tournament_list.php:186 tournament_view.php:65
+#: tournament_list.php:184 tournament_view.php:65
 msgid "Completed "
 msgstr "Terminé"
 
 #: mobile/tournament_list.php:186 mobile/tournament_view.php:80
-#: tournament_list.php:188 tournament_view.php:83
+#: tournament_list.php:186 tournament_view.php:83
 msgid "Completed"
 msgstr "Terminé le"
 
