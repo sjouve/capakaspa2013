@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: capakaspa\n"
-"POT-Creation-Date: 2018-02-02 15:06+0100\n"
-"PO-Revision-Date: 2018-02-02 15:07+0100\n"
+"POT-Creation-Date: 2018-02-03 10:08+0100\n"
+"PO-Revision-Date: 2018-02-03 10:14+0100\n"
 "Last-Translator: Sébastien JOUVE <sjouve@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -1747,8 +1747,8 @@ msgid "Chess books"
 msgstr "Livres d'échecs"
 
 #: include/page_body.php:133
-msgid "Chess software"
-msgstr "Logiciels d'échecs"
+msgid "Chess clocks"
+msgstr "Pendules"
 
 #: include/page_body.php:138
 msgid "More on CapaKaspa"
@@ -3418,6 +3418,9 @@ msgstr ""
 #: tournament_view.php:94
 msgid "Comment this tournament"
 msgstr "Commenter ce tournoi"
+
+#~ msgid "Chess software"
+#~ msgstr "Logiciels d'échecs"
 
 #~ msgid "CapaKaspa : Play correspondence chess online and share your games"
 #~ msgstr ""
